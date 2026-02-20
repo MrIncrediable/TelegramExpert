@@ -1,0 +1,1414 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.errors.rpcbaseerrors>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 9
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'tl'
+        'functions'
+        'InvokeAfterMsgRequest'
+        'InvokeAfterMsgsRequest'
+        'InitConnectionRequest'
+        'InvokeWithLayerRequest'
+        'InvokeWithoutUpdatesRequest'
+        'InvokeWithMessagesRangeRequest'
+        'InvokeWithTakeoutRequest'
+        '_NESTS_QUERY'
+        'Exception'
+        'RPCError'
+        'InvalidDCError'
+        'BadRequestError'
+        'UnauthorizedError'
+        'ForbiddenError'
+        'NotFoundError'
+        'AuthKeyError'
+        'FloodError'
+        'ServerError'
+        'TimedOutError'
+        'BotTimeout'
+        'code'
+        'base_errors'
+    [Locals+Names]
+        'x'
+    [Constants]
+        '__pyarmor_assert_17562__'
+        '__pyarmor_enter_17563__'
+        b'<COAddr>\x07\x00\x00\x1a\xf0\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        2
+        (
+            'functions'
+        )
+        [Code]
+            File Name: <frozen multithon.errors.rpcbaseerrors>
+            Object Name: RPCError
+            Qualified Name: RPCError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'code'
+                'message'
+                '__init__'
+                'staticmethod'
+                '_fmt_request'
+                '__reduce__'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                'RPCError'
+                'Base class for all Remote Procedure Call errors.'
+                '__pyarmor_assert_17565__'
+                '__pyarmor_enter_17566__'
+                b'<COAddr>\x05\x00\x00(F\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                None
+                [Code]
+                    File Name: <frozen multithon.errors.rpcbaseerrors>
+                    Object Name: __init__
+                    Qualified Name: RPCError.__init__
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 9
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'super'
+                        '__init__'
+                        'format'
+                        'code'
+                        '_fmt_request'
+                        'request'
+                        'message'
+                    [Locals+Names]
+                        'self'
+                        'request'
+                        'message'
+                        'code'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17568__'
+                        '__pyarmor_enter_17569__'
+                        b'<COAddr>\x05\x00\x00\x1c\xc6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'RPCError {}: {}{}'   # b'\x81\xd0(0\x16\xe8\xac\xdd\t\xba\x16\xdd6\xac\xe3\x98\x14@'
+                        '__pyarmor_exit_17570__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_17569__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\xc6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     0: super
+                        40      LOAD_DEREF                      5: __class__
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_SUPER_ATTR                 5: __init__
+                        48      PUSH_NULL                       
+                        50      LOAD_CONST                      1: '__pyarmor_assert_17568__'
+                        52      LOAD_CONST                      4: 'RPCError {}: {}{}'   # b'\x81\xd0(0\x16\xe8\xac\xdd\t\xba\x16\xdd6\xac\xe3\x98\x14@'
+                        54      CALL                            1
+                        62      LOAD_ATTR                       5: format
+                        82      LOAD_FAST                       3: code
+                        84      COPY                            1
+                        86      POP_JUMP_IF_TRUE                12 (to 112)
+                        88      POP_TOP                         
+                        90      LOAD_FAST                       0: self
+                        92      LOAD_ATTR                       6: code
+                        112     LOAD_FAST                       2: message
+                        114     LOAD_FAST                       0: self
+                        116     LOAD_ATTR                       9: _fmt_request
+                        136     LOAD_FAST                       1: request
+                        138     CALL                            1
+                        146     CALL                            3
+                        154     CALL                            1
+                        162     POP_TOP                         
+                        164     LOAD_FAST                       1: request
+                        166     LOAD_FAST                       0: self
+                        168     STORE_ATTR                      5: request
+                        178     LOAD_FAST                       3: code
+                        180     LOAD_FAST                       0: self
+                        182     STORE_ATTR                      3: code
+                        192     LOAD_FAST                       2: message
+                        194     LOAD_FAST                       0: self
+                        196     STORE_ATTR                      6: message
+                        206     LOAD_CONST                      0: None
+                        208     NOP                             
+                        210     NOP                             
+                        212     NOP                             
+                        214     JUMP_FORWARD                    19 (to 254)
+                        222     POP_TOP                         
+                        224     RETURN_CONST                    0: None
+                        226     PUSH_EXC_INFO                   
+                        228     PUSH_NULL                       
+                        230     LOAD_CONST                      5: '__pyarmor_exit_17570__'
+                        232     NOP                             
+                        234     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\xc6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        236     CALL                            1
+                        244     POP_TOP                         
+                        246     RERAISE                         0
+                        248     COPY                            3
+                        250     POP_EXCEPT                      
+                        252     RERAISE                         1
+                        254     PUSH_NULL                       
+                        256     LOAD_CONST                      5: '__pyarmor_exit_17570__'
+                        258     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\xc6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        260     BUILD_TUPLE                     1
+                        262     CALL_FUNCTION_EX                0
+                        264     POP_TOP                         
+                        266     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 206 -> 226 [0] 
+                        226 to 248 -> 248 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.errors.rpcbaseerrors>
+                    Object Name: _fmt_request
+                    Qualified Name: RPCError._fmt_request
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'isinstance'
+                        '_NESTS_QUERY'
+                        '__class__'
+                        '__name__'
+                        'query'
+                        'format'
+                    [Locals+Names]
+                        'request'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17571__'
+                        '__pyarmor_enter_17572__'
+                        b'<COAddr>\x07\x00\x00\x1a$\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        0
+                        ''
+                        1
+                        '('
+                        ')'
+                        ' (caused by {})'   # b'\x81\xa2P\x102\xef\xad\xd7\x1f\xba\x0f\xd9,\xf7\xe5\xcc'
+                        '__pyarmor_exit_17573__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17572__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a$\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_CONST                      4: 0
+                        30      STORE_FAST                      2: _var_var_0
+                        32      LOAD_CONST                      5: ''
+                        34      STORE_FAST                      3: _var_var_1
+                        36      LOAD_GLOBAL                     1: NULL + isinstance
+                        46      LOAD_FAST                       0: request
+                        48      LOAD_GLOBAL                     2: _NESTS_QUERY
+                        58      CALL                            2
+                        66      POP_JUMP_IF_FALSE               62 (to 192)
+                        68      LOAD_FAST                       2: _var_var_0
+                        70      LOAD_CONST                      6: 1
+                        72      BINARY_OP                       13 (+=)
+                        76      STORE_FAST                      2: _var_var_0
+                        78      LOAD_FAST                       3: _var_var_1
+                        80      LOAD_FAST                       0: request
+                        82      LOAD_ATTR                       4: __class__
+                        102     LOAD_ATTR                       6: __name__
+                        122     LOAD_CONST                      7: '('
+                        124     BINARY_OP                       0 (+)
+                        128     BINARY_OP                       13 (+=)
+                        132     STORE_FAST                      3: _var_var_1
+                        134     LOAD_FAST                       0: request
+                        136     LOAD_ATTR                       8: query
+                        156     STORE_FAST                      0: request
+                        158     LOAD_GLOBAL                     1: NULL + isinstance
+                        168     LOAD_FAST                       0: request
+                        170     LOAD_GLOBAL                     2: _NESTS_QUERY
+                        180     CALL                            2
+                        188     POP_JUMP_IF_FALSE               1 (to 192)
+                        190     JUMP_BACKWARD                   62 (to 68)
+                        192     LOAD_FAST                       3: _var_var_1
+                        194     LOAD_FAST                       0: request
+                        196     LOAD_ATTR                       4: __class__
+                        216     LOAD_ATTR                       6: __name__
+                        236     LOAD_CONST                      8: ')'
+                        238     LOAD_FAST                       2: _var_var_0
+                        240     BINARY_OP                       5 (*)
+                        244     BINARY_OP                       0 (+)
+                        248     BINARY_OP                       13 (+=)
+                        252     STORE_FAST                      3: _var_var_1
+                        254     PUSH_NULL                       
+                        256     LOAD_CONST                      1: '__pyarmor_assert_17571__'
+                        258     LOAD_CONST                      9: ' (caused by {})'   # b'\x81\xa2P\x102\xef\xad\xd7\x1f\xba\x0f\xd9,\xf7\xe5\xcc'
+                        260     CALL                            1
+                        268     LOAD_ATTR                       11: format
+                        288     LOAD_FAST                       3: _var_var_1
+                        290     CALL                            1
+                        298     NOP                             
+                        300     NOP                             
+                        302     NOP                             
+                        304     JUMP_FORWARD                    20 (to 346)
+                        306     CALL                            1
+                        314     POP_TOP                         
+                        316     RETURN_VALUE                    
+                        318     PUSH_EXC_INFO                   
+                        320     PUSH_NULL                       
+                        322     LOAD_CONST                      10: '__pyarmor_exit_17573__'
+                        324     NOP                             
+                        326     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a$\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        328     CALL                            1
+                        336     POP_TOP                         
+                        338     RERAISE                         0
+                        340     COPY                            3
+                        342     POP_EXCEPT                      
+                        344     RERAISE                         1
+                        346     PUSH_NULL                       
+                        348     LOAD_CONST                      10: '__pyarmor_exit_17573__'
+                        350     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a$\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        352     BUILD_TUPLE                     1
+                        354     CALL_FUNCTION_EX                0
+                        356     POP_TOP                         
+                        358     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 190 -> 318 [0] 
+                        192 to 298 -> 318 [0] 
+                        318 to 340 -> 340 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.errors.rpcbaseerrors>
+                    Object Name: __reduce__
+                    Qualified Name: RPCError.__reduce__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'type'
+                        'request'
+                        'message'
+                        'code'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17574__'
+                        '__pyarmor_enter_17575__'
+                        b'<COAddr>\x05\x00\x00\x1ap\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_17576__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17575__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ap\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + type
+                        38      LOAD_FAST                       0: self
+                        40      CALL                            1
+                        48      LOAD_FAST                       0: self
+                        50      LOAD_ATTR                       2: request
+                        70      LOAD_FAST                       0: self
+                        72      LOAD_ATTR                       4: message
+                        92      LOAD_FAST                       0: self
+                        94      LOAD_ATTR                       6: code
+                        114     BUILD_TUPLE                     3
+                        116     BUILD_TUPLE                     2
+                        118     NOP                             
+                        120     NOP                             
+                        122     NOP                             
+                        124     JUMP_FORWARD                    20 (to 166)
+                        126     CALL                            1
+                        134     POP_TOP                         
+                        136     RETURN_VALUE                    
+                        138     PUSH_EXC_INFO                   
+                        140     PUSH_NULL                       
+                        142     LOAD_CONST                      4: '__pyarmor_exit_17576__'
+                        144     NOP                             
+                        146     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ap\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        148     CALL                            1
+                        156     POP_TOP                         
+                        158     RERAISE                         0
+                        160     COPY                            3
+                        162     POP_EXCEPT                      
+                        164     RERAISE                         1
+                        166     PUSH_NULL                       
+                        168     LOAD_CONST                      4: '__pyarmor_exit_17576__'
+                        170     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ap\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        172     BUILD_TUPLE                     1
+                        174     CALL_FUNCTION_EX                0
+                        176     POP_TOP                         
+                        178     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 118 -> 138 [0] 
+                        138 to 160 -> 160 [1] lasti
+                '__pyarmor_exit_17567__'
+                (
+                    None
+                )
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: 'RPCError'
+                10      STORE_NAME                      2: __qualname__
+                12      LOAD_CONST                      1: 'Base class for all Remote Procedure Call errors.'
+                14      STORE_NAME                      3: __doc__
+                16      NOP                             
+                18      PUSH_NULL                       
+                20      LOAD_CONST                      3: '__pyarmor_enter_17566__'
+                22      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(F\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                24      BUILD_TUPLE                     1
+                26      CALL_FUNCTION_EX                0
+                28      POP_TOP                         
+                30      RESUME                          0
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      LOAD_CONST                      5: None
+                44      STORE_NAME                      5: code
+                46      LOAD_CONST                      5: None
+                48      STORE_NAME                      6: message
+                50      LOAD_CONST                      10: (None,)
+                52      LOAD_CLOSURE                    0: __class__
+                54      BUILD_TUPLE                     1
+                56      LOAD_CONST                      6: <CODE> __init__
+                58      MAKE_FUNCTION                   9
+                60      STORE_NAME                      7: __init__
+                62      LOAD_NAME                       8: staticmethod
+                64      LOAD_CONST                      7: <CODE> _fmt_request
+                66      MAKE_FUNCTION                   0
+                68      CALL                            0
+                76      STORE_NAME                      9: _fmt_request
+                78      LOAD_CONST                      8: <CODE> __reduce__
+                80      MAKE_FUNCTION                   0
+                82      STORE_NAME                      10: __reduce__
+                84      LOAD_CLOSURE                    0: __class__
+                86      COPY                            1
+                88      STORE_NAME                      11: __classcell__
+                90      NOP                             
+                92      NOP                             
+                94      NOP                             
+                96      JUMP_FORWARD                    20 (to 138)
+                100     POP_TOP                         
+                102     LOAD_CLOSURE                    0: __class__
+                104     COPY                            1
+                106     STORE_NAME                      11: __classcell__
+                108     RETURN_VALUE                    
+                110     PUSH_EXC_INFO                   
+                112     PUSH_NULL                       
+                114     LOAD_CONST                      9: '__pyarmor_exit_17567__'
+                116     NOP                             
+                118     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(F\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                120     CALL                            1
+                128     POP_TOP                         
+                130     RERAISE                         0
+                132     COPY                            3
+                134     POP_EXCEPT                      
+                136     RERAISE                         1
+                138     PUSH_NULL                       
+                140     LOAD_CONST                      9: '__pyarmor_exit_17567__'
+                142     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(F\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                144     BUILD_TUPLE                     1
+                146     CALL_FUNCTION_EX                0
+                148     POP_TOP                         
+                150     RETURN_VALUE                    
+            [Exception Table]
+                42 to 84 -> 110 [0] 
+                110 to 132 -> 132 [1] lasti
+        'RPCError'
+        [Code]
+            File Name: <frozen multithon.errors.rpcbaseerrors>
+            Object Name: InvalidDCError
+            Qualified Name: InvalidDCError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'code'
+                'message'
+            [Locals+Names]
+            [Constants]
+                'InvalidDCError'
+                '\n    The request must be repeated, but directed to a different data center.\n    '
+                '__pyarmor_assert_17577__'
+                '__pyarmor_enter_17578__'
+                b'<COAddr>\x07\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                303
+                'ERROR_SEE_OTHER'   # b'\x81\xc7*!\x1c\xc8\x81\xe1>\xdf2\xefX\xc4\xdd\xb7'
+                '__pyarmor_exit_17579__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'InvalidDCError'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    The request must be repeated, but directed to a different data center.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17578__'
+                20      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: 303
+                42      STORE_NAME                      5: code
+                44      PUSH_NULL                       
+                46      LOAD_CONST                      2: '__pyarmor_assert_17577__'
+                48      LOAD_CONST                      6: 'ERROR_SEE_OTHER'   # b'\x81\xc7*!\x1c\xc8\x81\xe1>\xdf2\xefX\xc4\xdd\xb7'
+                50      CALL                            1
+                58      STORE_NAME                      6: message
+                60      LOAD_CONST                      8: None
+                62      NOP                             
+                64      NOP                             
+                66      NOP                             
+                68      JUMP_FORWARD                    19 (to 108)
+                76      POP_TOP                         
+                78      RETURN_CONST                    8: None
+                80      PUSH_EXC_INFO                   
+                82      PUSH_NULL                       
+                84      LOAD_CONST                      7: '__pyarmor_exit_17579__'
+                86      NOP                             
+                88      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                90      CALL                            1
+                98      POP_TOP                         
+                100     RERAISE                         0
+                102     COPY                            3
+                104     POP_EXCEPT                      
+                106     RERAISE                         1
+                108     PUSH_NULL                       
+                110     LOAD_CONST                      7: '__pyarmor_exit_17579__'
+                112     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                114     BUILD_TUPLE                     1
+                116     CALL_FUNCTION_EX                0
+                118     POP_TOP                         
+                120     RETURN_VALUE                    
+            [Exception Table]
+                40 to 60 -> 80 [0] 
+                80 to 102 -> 102 [1] lasti
+        'InvalidDCError'
+        [Code]
+            File Name: <frozen multithon.errors.rpcbaseerrors>
+            Object Name: BadRequestError
+            Qualified Name: BadRequestError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'code'
+                'message'
+            [Locals+Names]
+            [Constants]
+                'BadRequestError'
+                '\n    The query contains errors. In the event that a request was created\n    using a form and contains user generated data, the user should be\n    notified that the data must be corrected before the query is repeated.\n    '
+                '__pyarmor_assert_17580__'
+                '__pyarmor_enter_17581__'
+                b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                400
+                'BAD_REQUEST'   # b'\x81\xc097\x0c\xc8\x9b\xe3.\xdf>\xf4'
+                '__pyarmor_exit_17582__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'BadRequestError'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    The query contains errors. In the event that a request was created\n    using a form and contains user generated data, the user should be\n    notified that the data must be corrected before the query is repeated.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17581__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: 400
+                42      STORE_NAME                      5: code
+                44      PUSH_NULL                       
+                46      LOAD_CONST                      2: '__pyarmor_assert_17580__'
+                48      LOAD_CONST                      6: 'BAD_REQUEST'   # b'\x81\xc097\x0c\xc8\x9b\xe3.\xdf>\xf4'
+                50      CALL                            1
+                58      STORE_NAME                      6: message
+                60      LOAD_CONST                      8: None
+                62      NOP                             
+                64      NOP                             
+                66      NOP                             
+                68      JUMP_FORWARD                    19 (to 108)
+                76      POP_TOP                         
+                78      RETURN_CONST                    8: None
+                80      PUSH_EXC_INFO                   
+                82      PUSH_NULL                       
+                84      LOAD_CONST                      7: '__pyarmor_exit_17582__'
+                86      NOP                             
+                88      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                90      CALL                            1
+                98      POP_TOP                         
+                100     RERAISE                         0
+                102     COPY                            3
+                104     POP_EXCEPT                      
+                106     RERAISE                         1
+                108     PUSH_NULL                       
+                110     LOAD_CONST                      7: '__pyarmor_exit_17582__'
+                112     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                114     BUILD_TUPLE                     1
+                116     CALL_FUNCTION_EX                0
+                118     POP_TOP                         
+                120     RETURN_VALUE                    
+            [Exception Table]
+                40 to 60 -> 80 [0] 
+                80 to 102 -> 102 [1] lasti
+        'BadRequestError'
+        [Code]
+            File Name: <frozen multithon.errors.rpcbaseerrors>
+            Object Name: UnauthorizedError
+            Qualified Name: UnauthorizedError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'code'
+                'message'
+            [Locals+Names]
+            [Constants]
+                'UnauthorizedError'
+                '\n    There was an unauthorized attempt to use functionality available only\n    to authorized users.\n    '
+                '__pyarmor_assert_17583__'
+                '__pyarmor_enter_17584__'
+                b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                401
+                'UNAUTHORIZED'   # b'\x81\xd762\x06\xce\x96\xfd)\xd37\xe5H'
+                '__pyarmor_exit_17585__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'UnauthorizedError'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    There was an unauthorized attempt to use functionality available only\n    to authorized users.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17584__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: 401
+                42      STORE_NAME                      5: code
+                44      PUSH_NULL                       
+                46      LOAD_CONST                      2: '__pyarmor_assert_17583__'
+                48      LOAD_CONST                      6: 'UNAUTHORIZED'   # b'\x81\xd762\x06\xce\x96\xfd)\xd37\xe5H'
+                50      CALL                            1
+                58      STORE_NAME                      6: message
+                60      LOAD_CONST                      8: None
+                62      NOP                             
+                64      NOP                             
+                66      NOP                             
+                68      JUMP_FORWARD                    19 (to 108)
+                76      POP_TOP                         
+                78      RETURN_CONST                    8: None
+                80      PUSH_EXC_INFO                   
+                82      PUSH_NULL                       
+                84      LOAD_CONST                      7: '__pyarmor_exit_17585__'
+                86      NOP                             
+                88      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                90      CALL                            1
+                98      POP_TOP                         
+                100     RERAISE                         0
+                102     COPY                            3
+                104     POP_EXCEPT                      
+                106     RERAISE                         1
+                108     PUSH_NULL                       
+                110     LOAD_CONST                      7: '__pyarmor_exit_17585__'
+                112     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                114     BUILD_TUPLE                     1
+                116     CALL_FUNCTION_EX                0
+                118     POP_TOP                         
+                120     RETURN_VALUE                    
+            [Exception Table]
+                40 to 60 -> 80 [0] 
+                80 to 102 -> 102 [1] lasti
+        'UnauthorizedError'
+        [Code]
+            File Name: <frozen multithon.errors.rpcbaseerrors>
+            Object Name: ForbiddenError
+            Qualified Name: ForbiddenError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'code'
+                'message'
+            [Locals+Names]
+            [Constants]
+                'ForbiddenError'
+                '\n    Privacy violation. For example, an attempt to write a message to\n    someone who has blacklisted the current user.\n    '
+                '__pyarmor_assert_17586__'
+                '__pyarmor_enter_17587__'
+                b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                403
+                'FORBIDDEN'   # b'\x81\xc47!\x11\xd3\x9a\xf6>\xd4'
+                '__pyarmor_exit_17588__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'ForbiddenError'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    Privacy violation. For example, an attempt to write a message to\n    someone who has blacklisted the current user.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17587__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: 403
+                42      STORE_NAME                      5: code
+                44      PUSH_NULL                       
+                46      LOAD_CONST                      2: '__pyarmor_assert_17586__'
+                48      LOAD_CONST                      6: 'FORBIDDEN'   # b'\x81\xc47!\x11\xd3\x9a\xf6>\xd4'
+                50      CALL                            1
+                58      STORE_NAME                      6: message
+                60      LOAD_CONST                      8: None
+                62      NOP                             
+                64      NOP                             
+                66      NOP                             
+                68      JUMP_FORWARD                    19 (to 108)
+                76      POP_TOP                         
+                78      RETURN_CONST                    8: None
+                80      PUSH_EXC_INFO                   
+                82      PUSH_NULL                       
+                84      LOAD_CONST                      7: '__pyarmor_exit_17588__'
+                86      NOP                             
+                88      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                90      CALL                            1
+                98      POP_TOP                         
+                100     RERAISE                         0
+                102     COPY                            3
+                104     POP_EXCEPT                      
+                106     RERAISE                         1
+                108     PUSH_NULL                       
+                110     LOAD_CONST                      7: '__pyarmor_exit_17588__'
+                112     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                114     BUILD_TUPLE                     1
+                116     CALL_FUNCTION_EX                0
+                118     POP_TOP                         
+                120     RETURN_VALUE                    
+            [Exception Table]
+                40 to 60 -> 80 [0] 
+                80 to 102 -> 102 [1] lasti
+        'ForbiddenError'
+        [Code]
+            File Name: <frozen multithon.errors.rpcbaseerrors>
+            Object Name: NotFoundError
+            Qualified Name: NotFoundError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'code'
+                'message'
+            [Locals+Names]
+            [Constants]
+                'NotFoundError'
+                '\n    An attempt to invoke a non-existent object, such as a method.\n    '
+                '__pyarmor_assert_17589__'
+                '__pyarmor_enter_17590__'
+                b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                404
+                'NOT_FOUND'   # b"\x81\xcc7'\x0c\xdc\x91\xe75\xde"
+                '__pyarmor_exit_17591__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'NotFoundError'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    An attempt to invoke a non-existent object, such as a method.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17590__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: 404
+                42      STORE_NAME                      5: code
+                44      PUSH_NULL                       
+                46      LOAD_CONST                      2: '__pyarmor_assert_17589__'
+                48      LOAD_CONST                      6: 'NOT_FOUND'   # b"\x81\xcc7'\x0c\xdc\x91\xe75\xde"
+                50      CALL                            1
+                58      STORE_NAME                      6: message
+                60      LOAD_CONST                      8: None
+                62      NOP                             
+                64      NOP                             
+                66      NOP                             
+                68      JUMP_FORWARD                    19 (to 108)
+                76      POP_TOP                         
+                78      RETURN_CONST                    8: None
+                80      PUSH_EXC_INFO                   
+                82      PUSH_NULL                       
+                84      LOAD_CONST                      7: '__pyarmor_exit_17591__'
+                86      NOP                             
+                88      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                90      CALL                            1
+                98      POP_TOP                         
+                100     RERAISE                         0
+                102     COPY                            3
+                104     POP_EXCEPT                      
+                106     RERAISE                         1
+                108     PUSH_NULL                       
+                110     LOAD_CONST                      7: '__pyarmor_exit_17591__'
+                112     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&*\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                114     BUILD_TUPLE                     1
+                116     CALL_FUNCTION_EX                0
+                118     POP_TOP                         
+                120     RETURN_VALUE                    
+            [Exception Table]
+                40 to 60 -> 80 [0] 
+                80 to 102 -> 102 [1] lasti
+        'NotFoundError'
+        [Code]
+            File Name: <frozen multithon.errors.rpcbaseerrors>
+            Object Name: AuthKeyError
+            Qualified Name: AuthKeyError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'code'
+                'message'
+            [Locals+Names]
+            [Constants]
+                'AuthKeyError'
+                '\n    Errors related to invalid authorization key, like\n    AUTH_KEY_DUPLICATED which can cause the connection to fail.\n    '
+                '__pyarmor_assert_17592__'
+                '__pyarmor_enter_17593__'
+                b'<COAddr>\x05\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                406
+                'AUTH_KEY'
+                '__pyarmor_exit_17594__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'AuthKeyError'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    Errors related to invalid authorization key, like\n    AUTH_KEY_DUPLICATED which can cause the connection to fail.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17593__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: 406
+                42      STORE_NAME                      5: code
+                44      LOAD_CONST                      6: 'AUTH_KEY'
+                46      STORE_NAME                      6: message
+                48      LOAD_CONST                      8: None
+                50      NOP                             
+                52      NOP                             
+                54      NOP                             
+                56      JUMP_FORWARD                    19 (to 96)
+                64      POP_TOP                         
+                66      RETURN_CONST                    8: None
+                68      PUSH_EXC_INFO                   
+                70      PUSH_NULL                       
+                72      LOAD_CONST                      7: '__pyarmor_exit_17594__'
+                74      NOP                             
+                76      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                78      CALL                            1
+                86      POP_TOP                         
+                88      RERAISE                         0
+                90      COPY                            3
+                92      POP_EXCEPT                      
+                94      RERAISE                         1
+                96      PUSH_NULL                       
+                98      LOAD_CONST                      7: '__pyarmor_exit_17594__'
+                100     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                102     BUILD_TUPLE                     1
+                104     CALL_FUNCTION_EX                0
+                106     POP_TOP                         
+                108     RETURN_VALUE                    
+            [Exception Table]
+                40 to 48 -> 68 [0] 
+                68 to 90 -> 90 [1] lasti
+        'AuthKeyError'
+        [Code]
+            File Name: <frozen multithon.errors.rpcbaseerrors>
+            Object Name: FloodError
+            Qualified Name: FloodError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'code'
+                'message'
+            [Locals+Names]
+            [Constants]
+                'FloodError'
+                '\n    The maximum allowed number of attempts to invoke the given method\n    with the given input parameters has been exceeded. For example, in an\n    attempt to request a large number of text messages (SMS) for the same\n    phone number.\n    '
+                '__pyarmor_assert_17595__'
+                '__pyarmor_enter_17596__'
+                b'<COAddr>\x07\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                420
+                'FLOOD'
+                '__pyarmor_exit_17597__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'FloodError'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    The maximum allowed number of attempts to invoke the given method\n    with the given input parameters has been exceeded. For example, in an\n    attempt to request a large number of text messages (SMS) for the same\n    phone number.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17596__'
+                20      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: 420
+                42      STORE_NAME                      5: code
+                44      LOAD_CONST                      6: 'FLOOD'
+                46      STORE_NAME                      6: message
+                48      LOAD_CONST                      8: None
+                50      NOP                             
+                52      NOP                             
+                54      NOP                             
+                56      JUMP_FORWARD                    19 (to 96)
+                64      POP_TOP                         
+                66      RETURN_CONST                    8: None
+                68      PUSH_EXC_INFO                   
+                70      PUSH_NULL                       
+                72      LOAD_CONST                      7: '__pyarmor_exit_17597__'
+                74      NOP                             
+                76      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                78      CALL                            1
+                86      POP_TOP                         
+                88      RERAISE                         0
+                90      COPY                            3
+                92      POP_EXCEPT                      
+                94      RERAISE                         1
+                96      PUSH_NULL                       
+                98      LOAD_CONST                      7: '__pyarmor_exit_17597__'
+                100     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                102     BUILD_TUPLE                     1
+                104     CALL_FUNCTION_EX                0
+                106     POP_TOP                         
+                108     RETURN_VALUE                    
+            [Exception Table]
+                40 to 48 -> 68 [0] 
+                68 to 90 -> 90 [1] lasti
+        'FloodError'
+        [Code]
+            File Name: <frozen multithon.errors.rpcbaseerrors>
+            Object Name: ServerError
+            Qualified Name: ServerError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'code'
+                'message'
+            [Locals+Names]
+            [Constants]
+                'ServerError'
+                '\n    An internal server error occurred while a request was being processed\n    for example, there was a disruption while accessing a database or file\n    storage.\n    '
+                '__pyarmor_assert_17598__'
+                '__pyarmor_enter_17599__'
+                b'<COAddr>\x05\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                500
+                'INTERNAL'
+                '__pyarmor_exit_17600__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'ServerError'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    An internal server error occurred while a request was being processed\n    for example, there was a disruption while accessing a database or file\n    storage.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17599__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: 500
+                42      STORE_NAME                      5: code
+                44      LOAD_CONST                      6: 'INTERNAL'
+                46      STORE_NAME                      6: message
+                48      LOAD_CONST                      8: None
+                50      NOP                             
+                52      NOP                             
+                54      NOP                             
+                56      JUMP_FORWARD                    19 (to 96)
+                64      POP_TOP                         
+                66      RETURN_CONST                    8: None
+                68      PUSH_EXC_INFO                   
+                70      PUSH_NULL                       
+                72      LOAD_CONST                      7: '__pyarmor_exit_17600__'
+                74      NOP                             
+                76      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                78      CALL                            1
+                86      POP_TOP                         
+                88      RERAISE                         0
+                90      COPY                            3
+                92      POP_EXCEPT                      
+                94      RERAISE                         1
+                96      PUSH_NULL                       
+                98      LOAD_CONST                      7: '__pyarmor_exit_17600__'
+                100     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                102     BUILD_TUPLE                     1
+                104     CALL_FUNCTION_EX                0
+                106     POP_TOP                         
+                108     RETURN_VALUE                    
+            [Exception Table]
+                40 to 48 -> 68 [0] 
+                68 to 90 -> 90 [1] lasti
+        'ServerError'
+        [Code]
+            File Name: <frozen multithon.errors.rpcbaseerrors>
+            Object Name: TimedOutError
+            Qualified Name: TimedOutError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'code'
+                'message'
+            [Locals+Names]
+            [Constants]
+                'TimedOutError'
+                '\n    Clicking the inline buttons of bots that never (or take to long to)\n    call ``answerCallbackQuery`` will result in this "special" RPCError.\n    '
+                '__pyarmor_assert_17601__'
+                '__pyarmor_enter_17602__'
+                b'<COAddr>\x05\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                503
+                'Timeout'
+                '__pyarmor_exit_17603__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'TimedOutError'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    Clicking the inline buttons of bots that never (or take to long to)\n    call ``answerCallbackQuery`` will result in this "special" RPCError.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17602__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: 503
+                42      STORE_NAME                      5: code
+                44      LOAD_CONST                      6: 'Timeout'
+                46      STORE_NAME                      6: message
+                48      LOAD_CONST                      8: None
+                50      NOP                             
+                52      NOP                             
+                54      NOP                             
+                56      JUMP_FORWARD                    19 (to 96)
+                64      POP_TOP                         
+                66      RETURN_CONST                    8: None
+                68      PUSH_EXC_INFO                   
+                70      PUSH_NULL                       
+                72      LOAD_CONST                      7: '__pyarmor_exit_17603__'
+                74      NOP                             
+                76      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                78      CALL                            1
+                86      POP_TOP                         
+                88      RERAISE                         0
+                90      COPY                            3
+                92      POP_EXCEPT                      
+                94      RERAISE                         1
+                96      PUSH_NULL                       
+                98      LOAD_CONST                      7: '__pyarmor_exit_17603__'
+                100     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                102     BUILD_TUPLE                     1
+                104     CALL_FUNCTION_EX                0
+                106     POP_TOP                         
+                108     RETURN_VALUE                    
+            [Exception Table]
+                40 to 48 -> 68 [0] 
+                68 to 90 -> 90 [1] lasti
+        'TimedOutError'
+        '__pyarmor_exit_17564__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_17563__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xf0\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 2
+        28      LOAD_CONST                      4: ('functions',)
+        30      IMPORT_NAME                     1: tl
+        32      IMPORT_FROM                     2: functions
+        34      STORE_NAME                      2: functions
+        36      POP_TOP                         
+        38      LOAD_NAME                       2: functions
+        40      LOAD_ATTR                       6: InvokeAfterMsgRequest
+        60      LOAD_NAME                       2: functions
+        62      LOAD_ATTR                       8: InvokeAfterMsgsRequest
+        82      LOAD_NAME                       2: functions
+        84      LOAD_ATTR                       10: InitConnectionRequest
+        104     LOAD_NAME                       2: functions
+        106     LOAD_ATTR                       12: InvokeWithLayerRequest
+        126     LOAD_NAME                       2: functions
+        128     LOAD_ATTR                       14: InvokeWithoutUpdatesRequest
+        148     LOAD_NAME                       2: functions
+        150     LOAD_ATTR                       16: InvokeWithMessagesRangeRequest
+        170     LOAD_NAME                       2: functions
+        172     LOAD_ATTR                       18: InvokeWithTakeoutRequest
+        192     BUILD_TUPLE                     7
+        194     STORE_NAME                      10: _NESTS_QUERY
+        196     PUSH_NULL                       
+        198     LOAD_BUILD_CLASS                
+        200     LOAD_CONST                      5: <CODE> RPCError
+        202     MAKE_FUNCTION                   0
+        204     LOAD_CONST                      6: 'RPCError'
+        206     LOAD_NAME                       11: Exception
+        208     CALL                            3
+        216     STORE_NAME                      12: RPCError
+        218     PUSH_NULL                       
+        220     LOAD_BUILD_CLASS                
+        222     LOAD_CONST                      7: <CODE> InvalidDCError
+        224     MAKE_FUNCTION                   0
+        226     LOAD_CONST                      8: 'InvalidDCError'
+        228     LOAD_NAME                       12: RPCError
+        230     CALL                            3
+        238     STORE_NAME                      13: InvalidDCError
+        240     PUSH_NULL                       
+        242     LOAD_BUILD_CLASS                
+        244     LOAD_CONST                      9: <CODE> BadRequestError
+        246     MAKE_FUNCTION                   0
+        248     LOAD_CONST                      10: 'BadRequestError'
+        250     LOAD_NAME                       12: RPCError
+        252     CALL                            3
+        260     STORE_NAME                      14: BadRequestError
+        262     PUSH_NULL                       
+        264     LOAD_BUILD_CLASS                
+        266     LOAD_CONST                      11: <CODE> UnauthorizedError
+        268     MAKE_FUNCTION                   0
+        270     LOAD_CONST                      12: 'UnauthorizedError'
+        272     LOAD_NAME                       12: RPCError
+        274     CALL                            3
+        282     STORE_NAME                      15: UnauthorizedError
+        284     PUSH_NULL                       
+        286     LOAD_BUILD_CLASS                
+        288     LOAD_CONST                      13: <CODE> ForbiddenError
+        290     MAKE_FUNCTION                   0
+        292     LOAD_CONST                      14: 'ForbiddenError'
+        294     LOAD_NAME                       12: RPCError
+        296     CALL                            3
+        304     STORE_NAME                      16: ForbiddenError
+        306     PUSH_NULL                       
+        308     LOAD_BUILD_CLASS                
+        310     LOAD_CONST                      15: <CODE> NotFoundError
+        312     MAKE_FUNCTION                   0
+        314     LOAD_CONST                      16: 'NotFoundError'
+        316     LOAD_NAME                       12: RPCError
+        318     CALL                            3
+        326     STORE_NAME                      17: NotFoundError
+        328     PUSH_NULL                       
+        330     LOAD_BUILD_CLASS                
+        332     LOAD_CONST                      17: <CODE> AuthKeyError
+        334     MAKE_FUNCTION                   0
+        336     LOAD_CONST                      18: 'AuthKeyError'
+        338     LOAD_NAME                       12: RPCError
+        340     CALL                            3
+        348     STORE_NAME                      18: AuthKeyError
+        350     PUSH_NULL                       
+        352     LOAD_BUILD_CLASS                
+        354     LOAD_CONST                      19: <CODE> FloodError
+        356     MAKE_FUNCTION                   0
+        358     LOAD_CONST                      20: 'FloodError'
+        360     LOAD_NAME                       12: RPCError
+        362     CALL                            3
+        370     STORE_NAME                      19: FloodError
+        372     PUSH_NULL                       
+        374     LOAD_BUILD_CLASS                
+        376     LOAD_CONST                      21: <CODE> ServerError
+        378     MAKE_FUNCTION                   0
+        380     LOAD_CONST                      22: 'ServerError'
+        382     LOAD_NAME                       12: RPCError
+        384     CALL                            3
+        392     STORE_NAME                      20: ServerError
+        394     PUSH_NULL                       
+        396     LOAD_BUILD_CLASS                
+        398     LOAD_CONST                      23: <CODE> TimedOutError
+        400     MAKE_FUNCTION                   0
+        402     LOAD_CONST                      24: 'TimedOutError'
+        404     LOAD_NAME                       12: RPCError
+        406     CALL                            3
+        414     STORE_NAME                      21: TimedOutError
+        416     LOAD_NAME                       21: TimedOutError
+        418     STORE_NAME                      22: BotTimeout
+        420     LOAD_NAME                       13: InvalidDCError
+        422     LOAD_NAME                       14: BadRequestError
+        424     LOAD_NAME                       15: UnauthorizedError
+        426     LOAD_NAME                       16: ForbiddenError
+        428     LOAD_NAME                       17: NotFoundError
+        430     LOAD_NAME                       18: AuthKeyError
+        432     LOAD_NAME                       19: FloodError
+        434     LOAD_NAME                       20: ServerError
+        436     LOAD_NAME                       21: TimedOutError
+        438     BUILD_TUPLE                     9
+        440     GET_ITER                        
+        442     LOAD_FAST_AND_CLEAR             0: x
+        444     SWAP                            2
+        446     BUILD_MAP                       0
+        448     SWAP                            2
+        450     FOR_ITER                        15 (to 482)
+        454     STORE_FAST                      0: x
+        456     LOAD_FAST                       0: x
+        458     LOAD_ATTR                       46: code
+        478     LOAD_FAST                       0: x
+        480     MAP_ADD                         2
+        482     JUMP_BACKWARD                   17 (to 450)
+        484     END_FOR                         
+        486     SWAP                            2
+        488     STORE_FAST                      0: x
+        490     STORE_NAME                      24: base_errors
+        492     LOAD_CONST                      26: None
+        494     NOP                             
+        496     NOP                             
+        498     NOP                             
+        500     JUMP_FORWARD                    24 (to 550)
+        508     POP_TOP                         
+        510     RETURN_CONST                    26: None
+        512     SWAP                            2
+        514     POP_TOP                         
+        516     SWAP                            2
+        518     STORE_FAST                      0: x
+        520     RERAISE                         0
+        522     PUSH_EXC_INFO                   
+        524     PUSH_NULL                       
+        526     LOAD_CONST                      25: '__pyarmor_exit_17564__'
+        528     NOP                             
+        530     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xf0\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        532     CALL                            1
+        540     POP_TOP                         
+        542     RERAISE                         0
+        544     COPY                            3
+        546     POP_EXCEPT                      
+        548     RERAISE                         1
+        550     PUSH_NULL                       
+        552     LOAD_CONST                      25: '__pyarmor_exit_17564__'
+        554     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xf0\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        556     BUILD_TUPLE                     1
+        558     CALL_FUNCTION_EX                0
+        560     POP_TOP                         
+        562     RETURN_VALUE                    
+    [Exception Table]
+        26 to 446 -> 522 [0] 
+        446 to 486 -> 512 [2] 
+        486 to 492 -> 522 [0] 
+        512 to 522 -> 522 [0] 
+        522 to 544 -> 544 [1] lasti

@@ -1,0 +1,2125 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.errors.common>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'struct'
+        'textwrap'
+        'tl'
+        'TLRequest'
+        'Exception'
+        'ReadCancelledError'
+        'TypeNotFoundError'
+        'InvalidChecksumError'
+        'BufferError'
+        'InvalidBufferError'
+        'AuthKeyNotFound'
+        'SecurityError'
+        'CdnFileTamperedError'
+        'AlreadyInConversationError'
+        'BadMessageError'
+        'MultiError'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_17499__'
+        '__pyarmor_enter_17500__'
+        b'<COAddr>\x07\x00\x00\x1a\x1c\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        'Errors not related to the Telegram API itself'   # b'\x81\xc7\n\x01<\xe8\xad\x92\x15\xf5\x19\x80~\xe9\xf4\x84\x1bX\xbf\xe7\xbe\xc4\x0e\xd8\rj\xe3h\x05\xbd\x1b\xe2(S-M\xb9\xfa\x9dn\x11\xfd\xebX\xd1\xde'
+        0
+        None
+        2
+        (
+            'TLRequest'
+        )
+        [Code]
+            File Name: <frozen multithon.errors.common>
+            Object Name: ReadCancelledError
+            Qualified Name: ReadCancelledError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                'ReadCancelledError'
+                'Occurs when a read operation was cancelled.'
+                '__pyarmor_assert_17502__'
+                '__pyarmor_enter_17503__'
+                b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.errors.common>
+                    Object Name: __init__
+                    Qualified Name: ReadCancelledError.__init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'super'
+                        '__init__'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17505__'
+                        '__pyarmor_enter_17506__'
+                        b'<COAddr>\x07\x00\x00\x1c@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'The read operation was cancelled.'   # b'\x81\xd6\x10\x16s\xe8\xbb\xd3\x1f\xba\x02\xd0i\xfe\xf9\x91\x06R\xb5\xe7\xbd\xca]\x8c\x06n\xad_\x05\xbd\x12\xe0>\x1c'
+                        '__pyarmor_exit_17507__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_17506__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     0: super
+                        40      LOAD_DEREF                      2: __class__
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_SUPER_ATTR                 5: __init__
+                        48      PUSH_NULL                       
+                        50      LOAD_CONST                      1: '__pyarmor_assert_17505__'
+                        52      LOAD_CONST                      4: 'The read operation was cancelled.'   # b'\x81\xd6\x10\x16s\xe8\xbb\xd3\x1f\xba\x02\xd0i\xfe\xf9\x91\x06R\xb5\xe7\xbd\xca]\x8c\x06n\xad_\x05\xbd\x12\xe0>\x1c'
+                        54      CALL                            1
+                        62      CALL                            1
+                        70      POP_TOP                         
+                        72      LOAD_CONST                      0: None
+                        74      NOP                             
+                        76      NOP                             
+                        78      NOP                             
+                        80      JUMP_FORWARD                    19 (to 120)
+                        88      POP_TOP                         
+                        90      RETURN_CONST                    0: None
+                        92      PUSH_EXC_INFO                   
+                        94      PUSH_NULL                       
+                        96      LOAD_CONST                      5: '__pyarmor_exit_17507__'
+                        98      NOP                             
+                        100     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        102     CALL                            1
+                        110     POP_TOP                         
+                        112     RERAISE                         0
+                        114     COPY                            3
+                        116     POP_EXCEPT                      
+                        118     RERAISE                         1
+                        120     PUSH_NULL                       
+                        122     LOAD_CONST                      5: '__pyarmor_exit_17507__'
+                        124     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        126     BUILD_TUPLE                     1
+                        128     CALL_FUNCTION_EX                0
+                        130     POP_TOP                         
+                        132     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 72 -> 92 [0] 
+                        92 to 114 -> 114 [1] lasti
+                '__pyarmor_exit_17504__'
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: 'ReadCancelledError'
+                10      STORE_NAME                      2: __qualname__
+                12      LOAD_CONST                      1: 'Occurs when a read operation was cancelled.'
+                14      STORE_NAME                      3: __doc__
+                16      NOP                             
+                18      PUSH_NULL                       
+                20      LOAD_CONST                      3: '__pyarmor_enter_17503__'
+                22      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                24      BUILD_TUPLE                     1
+                26      CALL_FUNCTION_EX                0
+                28      POP_TOP                         
+                30      RESUME                          0
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      LOAD_CLOSURE                    0: __class__
+                44      BUILD_TUPLE                     1
+                46      LOAD_CONST                      5: <CODE> __init__
+                48      MAKE_FUNCTION                   8
+                50      STORE_NAME                      5: __init__
+                52      LOAD_CLOSURE                    0: __class__
+                54      COPY                            1
+                56      STORE_NAME                      6: __classcell__
+                58      NOP                             
+                60      NOP                             
+                62      NOP                             
+                64      JUMP_FORWARD                    20 (to 106)
+                68      POP_TOP                         
+                70      LOAD_CLOSURE                    0: __class__
+                72      COPY                            1
+                74      STORE_NAME                      6: __classcell__
+                76      RETURN_VALUE                    
+                78      PUSH_EXC_INFO                   
+                80      PUSH_NULL                       
+                82      LOAD_CONST                      6: '__pyarmor_exit_17504__'
+                84      NOP                             
+                86      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      CALL                            1
+                96      POP_TOP                         
+                98      RERAISE                         0
+                100     COPY                            3
+                102     POP_EXCEPT                      
+                104     RERAISE                         1
+                106     PUSH_NULL                       
+                108     LOAD_CONST                      6: '__pyarmor_exit_17504__'
+                110     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                112     BUILD_TUPLE                     1
+                114     CALL_FUNCTION_EX                0
+                116     POP_TOP                         
+                118     RETURN_VALUE                    
+            [Exception Table]
+                42 to 52 -> 78 [0] 
+                78 to 100 -> 100 [1] lasti
+        'ReadCancelledError'
+        [Code]
+            File Name: <frozen multithon.errors.common>
+            Object Name: TypeNotFoundError
+            Qualified Name: TypeNotFoundError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                'TypeNotFoundError'
+                '\n    Occurs when a type is not found, for example,\n    when trying to read a TLObject with an invalid constructor code.\n    '
+                '__pyarmor_assert_17508__'
+                '__pyarmor_enter_17509__'
+                b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.errors.common>
+                    Object Name: __init__
+                    Qualified Name: TypeNotFoundError.__init__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'super'
+                        '__init__'
+                        'format'
+                        'invalid_constructor_id'
+                        'remaining'
+                    [Locals+Names]
+                        'self'
+                        'invalid_constructor_id'
+                        'remaining'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17511__'
+                        '__pyarmor_enter_17512__'
+                        b'<COAddr>\x05\x00\x00\x1c|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'Could not find a matching Constructor ID for the TLObject that was supposed to be read with ID {:08x}. See the FAQ for more details. Remaining bytes: {!r}'   # b'\x81\xc1\x17\x06?\xfe\xfe\xdc\x14\xeeM\xc6e\xe2\xfc\xc5\x0e\x1d\xb6\xa6\xbe\xc8F\xc5\x0bh\xe3\x7f\x0f\xbf\r\xf1(G#\x19\x97\xd8\xf4\x07<\xa9\xfeR\xcf\x98\x1bO2\xadb\xd7\xa8r\x0c\xe84\xff\xdb\t\x10J%\x13@I\x16\xc3\xce"\xfc\xaf\x9cq9:\x00\xad\x07\xd1\xa3\x82\xc4\xbb\xba\x0e\x06\x01\xd3\xbe\x99\xe4\xdfX\xfd\xf3\xff\n\xed+#\x15j||\x1a\xbd\xc2Y\xef\xf8{\x94\x1b\x83X~\xfbGK~Cxs\xb9F\xba\xf9\xea\xa6\x1e\xb3I\xf6#\x89<T\x1d\xf7\xb32[\xf8z\xa9\xf2\xd9v\r\x89{\xbc\xe0\xb0'
+                        '__pyarmor_exit_17513__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_17512__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     0: super
+                        40      LOAD_DEREF                      4: __class__
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_SUPER_ATTR                 5: __init__
+                        48      PUSH_NULL                       
+                        50      LOAD_CONST                      1: '__pyarmor_assert_17511__'
+                        52      LOAD_CONST                      4: 'Could not find a matching Constructor ID for the TLObject that was supposed to be read with ID {:08x}. See the FAQ for more details. Remaining bytes: {!r}'   # b'\x81\xc1\x17\x06?\xfe\xfe\xdc\x14\xeeM\xc6e\xe2\xfc\xc5\x0e\x1d\xb6\xa6\xbe\xc8F\xc5\x0bh\xe3\x7f\x0f\xbf\r\xf1(G#\x19\x97\xd8\xf4\x07<\xa9\xfeR\xcf\x98\x1bO2\xadb\xd7\xa8r\x0c\xe84\xff\xdb\t\x10J%\x13@I\x16\xc3\xce"\xfc\xaf\x9cq9:\x00\xad\x07\xd1\xa3\x82\xc4\xbb\xba\x0e\x06\x01\xd3\xbe\x99\xe4\xdfX\xfd\xf3\xff\n\xed+#\x15j||\x1a\xbd\xc2Y\xef\xf8{\x94\x1b\x83X~\xfbGK~Cxs\xb9F\xba\xf9\xea\xa6\x1e\xb3I\xf6#\x89<T\x1d\xf7\xb32[\xf8z\xa9\xf2\xd9v\r\x89{\xbc\xe0\xb0'
+                        54      CALL                            1
+                        62      LOAD_ATTR                       5: format
+                        82      LOAD_FAST                       1: invalid_constructor_id
+                        84      LOAD_FAST                       2: remaining
+                        86      CALL                            2
+                        94      CALL                            1
+                        102     POP_TOP                         
+                        104     LOAD_FAST                       1: invalid_constructor_id
+                        106     LOAD_FAST                       0: self
+                        108     STORE_ATTR                      3: invalid_constructor_id
+                        118     LOAD_FAST                       2: remaining
+                        120     LOAD_FAST                       0: self
+                        122     STORE_ATTR                      4: remaining
+                        132     LOAD_CONST                      0: None
+                        134     NOP                             
+                        136     NOP                             
+                        138     NOP                             
+                        140     JUMP_FORWARD                    19 (to 180)
+                        148     POP_TOP                         
+                        150     RETURN_CONST                    0: None
+                        152     PUSH_EXC_INFO                   
+                        154     PUSH_NULL                       
+                        156     LOAD_CONST                      5: '__pyarmor_exit_17513__'
+                        158     NOP                             
+                        160     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        162     CALL                            1
+                        170     POP_TOP                         
+                        172     RERAISE                         0
+                        174     COPY                            3
+                        176     POP_EXCEPT                      
+                        178     RERAISE                         1
+                        180     PUSH_NULL                       
+                        182     LOAD_CONST                      5: '__pyarmor_exit_17513__'
+                        184     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        186     BUILD_TUPLE                     1
+                        188     CALL_FUNCTION_EX                0
+                        190     POP_TOP                         
+                        192     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 132 -> 152 [0] 
+                        152 to 174 -> 174 [1] lasti
+                '__pyarmor_exit_17510__'
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: 'TypeNotFoundError'
+                10      STORE_NAME                      2: __qualname__
+                12      LOAD_CONST                      1: '\n    Occurs when a type is not found, for example,\n    when trying to read a TLObject with an invalid constructor code.\n    '
+                14      STORE_NAME                      3: __doc__
+                16      NOP                             
+                18      PUSH_NULL                       
+                20      LOAD_CONST                      3: '__pyarmor_enter_17509__'
+                22      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                24      BUILD_TUPLE                     1
+                26      CALL_FUNCTION_EX                0
+                28      POP_TOP                         
+                30      RESUME                          0
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      LOAD_CLOSURE                    0: __class__
+                44      BUILD_TUPLE                     1
+                46      LOAD_CONST                      5: <CODE> __init__
+                48      MAKE_FUNCTION                   8
+                50      STORE_NAME                      5: __init__
+                52      LOAD_CLOSURE                    0: __class__
+                54      COPY                            1
+                56      STORE_NAME                      6: __classcell__
+                58      NOP                             
+                60      NOP                             
+                62      NOP                             
+                64      JUMP_FORWARD                    20 (to 106)
+                68      POP_TOP                         
+                70      LOAD_CLOSURE                    0: __class__
+                72      COPY                            1
+                74      STORE_NAME                      6: __classcell__
+                76      RETURN_VALUE                    
+                78      PUSH_EXC_INFO                   
+                80      PUSH_NULL                       
+                82      LOAD_CONST                      6: '__pyarmor_exit_17510__'
+                84      NOP                             
+                86      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      CALL                            1
+                96      POP_TOP                         
+                98      RERAISE                         0
+                100     COPY                            3
+                102     POP_EXCEPT                      
+                104     RERAISE                         1
+                106     PUSH_NULL                       
+                108     LOAD_CONST                      6: '__pyarmor_exit_17510__'
+                110     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                112     BUILD_TUPLE                     1
+                114     CALL_FUNCTION_EX                0
+                116     POP_TOP                         
+                118     RETURN_VALUE                    
+            [Exception Table]
+                42 to 52 -> 78 [0] 
+                78 to 100 -> 100 [1] lasti
+        'TypeNotFoundError'
+        [Code]
+            File Name: <frozen multithon.errors.common>
+            Object Name: InvalidChecksumError
+            Qualified Name: InvalidChecksumError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                'InvalidChecksumError'
+                "\n    Occurs when using the TCP full mode and the checksum of a received\n    packet doesn't match the expected checksum.\n    "
+                '__pyarmor_assert_17514__'
+                '__pyarmor_enter_17515__'
+                b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.errors.common>
+                    Object Name: __init__
+                    Qualified Name: InvalidChecksumError.__init__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'super'
+                        '__init__'
+                        'format'
+                        'checksum'
+                        'valid_checksum'
+                    [Locals+Names]
+                        'self'
+                        'checksum'
+                        'valid_checksum'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17517__'
+                        '__pyarmor_enter_17518__'
+                        b'<COAddr>\x07\x00\x00\x1c|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'Invalid checksum ({} when {} was expected). This packet should be skipped.'   # b'\x81\xcb\x16\x052\xf6\xb7\xd6[\xf9\x05\xc5o\xe7\xeb\x90\x02\x1d\xf3\xbc\xb7\x8bY\xc4\x00a\xe3G\x1d\xf1\t\xe4)\x12%\x15\x88\xcf\xb7:\x1d\xed\xb1\x13\x9d\xec\x07N$\xadF\xfa\x84{\x03\xf9w\xf8\x93\x12\rG5\x13UME\x90\xd6>\xfc\xaf\x96fr'
+                        '__pyarmor_exit_17519__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_17518__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     0: super
+                        40      LOAD_DEREF                      4: __class__
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_SUPER_ATTR                 5: __init__
+                        48      PUSH_NULL                       
+                        50      LOAD_CONST                      1: '__pyarmor_assert_17517__'
+                        52      LOAD_CONST                      4: 'Invalid checksum ({} when {} was expected). This packet should be skipped.'   # b'\x81\xcb\x16\x052\xf6\xb7\xd6[\xf9\x05\xc5o\xe7\xeb\x90\x02\x1d\xf3\xbc\xb7\x8bY\xc4\x00a\xe3G\x1d\xf1\t\xe4)\x12%\x15\x88\xcf\xb7:\x1d\xed\xb1\x13\x9d\xec\x07N$\xadF\xfa\x84{\x03\xf9w\xf8\x93\x12\rG5\x13UME\x90\xd6>\xfc\xaf\x96fr'
+                        54      CALL                            1
+                        62      LOAD_ATTR                       5: format
+                        82      LOAD_FAST                       1: checksum
+                        84      LOAD_FAST                       2: valid_checksum
+                        86      CALL                            2
+                        94      CALL                            1
+                        102     POP_TOP                         
+                        104     LOAD_FAST                       1: checksum
+                        106     LOAD_FAST                       0: self
+                        108     STORE_ATTR                      3: checksum
+                        118     LOAD_FAST                       2: valid_checksum
+                        120     LOAD_FAST                       0: self
+                        122     STORE_ATTR                      4: valid_checksum
+                        132     LOAD_CONST                      0: None
+                        134     NOP                             
+                        136     NOP                             
+                        138     NOP                             
+                        140     JUMP_FORWARD                    19 (to 180)
+                        148     POP_TOP                         
+                        150     RETURN_CONST                    0: None
+                        152     PUSH_EXC_INFO                   
+                        154     PUSH_NULL                       
+                        156     LOAD_CONST                      5: '__pyarmor_exit_17519__'
+                        158     NOP                             
+                        160     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        162     CALL                            1
+                        170     POP_TOP                         
+                        172     RERAISE                         0
+                        174     COPY                            3
+                        176     POP_EXCEPT                      
+                        178     RERAISE                         1
+                        180     PUSH_NULL                       
+                        182     LOAD_CONST                      5: '__pyarmor_exit_17519__'
+                        184     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        186     BUILD_TUPLE                     1
+                        188     CALL_FUNCTION_EX                0
+                        190     POP_TOP                         
+                        192     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 132 -> 152 [0] 
+                        152 to 174 -> 174 [1] lasti
+                '__pyarmor_exit_17516__'
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: 'InvalidChecksumError'
+                10      STORE_NAME                      2: __qualname__
+                12      LOAD_CONST                      1: "\n    Occurs when using the TCP full mode and the checksum of a received\n    packet doesn't match the expected checksum.\n    "
+                14      STORE_NAME                      3: __doc__
+                16      NOP                             
+                18      PUSH_NULL                       
+                20      LOAD_CONST                      3: '__pyarmor_enter_17515__'
+                22      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                24      BUILD_TUPLE                     1
+                26      CALL_FUNCTION_EX                0
+                28      POP_TOP                         
+                30      RESUME                          0
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      LOAD_CLOSURE                    0: __class__
+                44      BUILD_TUPLE                     1
+                46      LOAD_CONST                      5: <CODE> __init__
+                48      MAKE_FUNCTION                   8
+                50      STORE_NAME                      5: __init__
+                52      LOAD_CLOSURE                    0: __class__
+                54      COPY                            1
+                56      STORE_NAME                      6: __classcell__
+                58      NOP                             
+                60      NOP                             
+                62      NOP                             
+                64      JUMP_FORWARD                    20 (to 106)
+                68      POP_TOP                         
+                70      LOAD_CLOSURE                    0: __class__
+                72      COPY                            1
+                74      STORE_NAME                      6: __classcell__
+                76      RETURN_VALUE                    
+                78      PUSH_EXC_INFO                   
+                80      PUSH_NULL                       
+                82      LOAD_CONST                      6: '__pyarmor_exit_17516__'
+                84      NOP                             
+                86      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      CALL                            1
+                96      POP_TOP                         
+                98      RERAISE                         0
+                100     COPY                            3
+                102     POP_EXCEPT                      
+                104     RERAISE                         1
+                106     PUSH_NULL                       
+                108     LOAD_CONST                      6: '__pyarmor_exit_17516__'
+                110     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                112     BUILD_TUPLE                     1
+                114     CALL_FUNCTION_EX                0
+                116     POP_TOP                         
+                118     RETURN_VALUE                    
+            [Exception Table]
+                42 to 52 -> 78 [0] 
+                78 to 100 -> 100 [1] lasti
+        'InvalidChecksumError'
+        [Code]
+            File Name: <frozen multithon.errors.common>
+            Object Name: InvalidBufferError
+            Qualified Name: InvalidBufferError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                'InvalidBufferError'
+                '\n    Occurs when the buffer is invalid, and may contain an HTTP error code.\n    For instance, 404 means "forgotten/broken authorization key", while\n    '
+                '__pyarmor_assert_17520__'
+                '__pyarmor_enter_17521__'
+                b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.errors.common>
+                    Object Name: __init__
+                    Qualified Name: InvalidBufferError.__init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'payload'
+                        'len'
+                        'struct'
+                        'unpack'
+                        'code'
+                        'super'
+                        '__init__'
+                        'format'
+                    [Locals+Names]
+                        'self'
+                        'payload'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17523__'
+                        '__pyarmor_enter_17524__'
+                        b'<COAddr>\x07\x00\x00\x1cF\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        4
+                        '<i'
+                        0
+                        'Invalid response buffer (HTTP code {})'   # b"\x81\xcb\x16\x052\xf6\xb7\xd6[\xe8\x08\xd3|\xe3\xf6\x96\n\x1d\xb9\xb2\xac\xcdK\xdeE'\x8bh4\x81^\xe65V%M\x83\xd7\xfd"
+                        'Invalid response buffer (too short {})'   # b"\x81\xcb\x16\x052\xf6\xb7\xd6[\xe8\x08\xd3|\xe3\xf6\x96\n\x1d\xb9\xb2\xac\xcdK\xdeE'\xb7S\x0f\xf1\r\xed5@4M\x83\xd7\xfd"
+                        '__pyarmor_exit_17525__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_17524__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1cF\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_FAST                       1: payload
+                        32      LOAD_FAST                       0: self
+                        34      STORE_ATTR                      0: payload
+                        44      LOAD_GLOBAL                     3: NULL + len
+                        54      LOAD_FAST                       1: payload
+                        56      CALL                            1
+                        64      LOAD_CONST                      4: 4
+                        66      COMPARE_OP                      40 (==)
+                        70      POP_JUMP_IF_FALSE               78 (to 228)
+                        72      LOAD_GLOBAL                     5: NULL + struct
+                        82      LOAD_ATTR                       6: unpack
+                        102     LOAD_CONST                      5: '<i'
+                        104     LOAD_FAST                       1: payload
+                        106     CALL                            2
+                        114     LOAD_CONST                      6: 0
+                        116     BINARY_SUBSCR                   
+                        120     UNARY_NEGATIVE                  
+                        122     LOAD_FAST                       0: self
+                        124     STORE_ATTR                      4: code
+                        134     LOAD_GLOBAL                     10: super
+                        144     LOAD_DEREF                      3: __class__
+                        146     LOAD_FAST                       0: self
+                        148     LOAD_SUPER_ATTR                 25: __init__
+                        152     PUSH_NULL                       
+                        154     LOAD_CONST                      1: '__pyarmor_assert_17523__'
+                        156     LOAD_CONST                      7: 'Invalid response buffer (HTTP code {})'   # b"\x81\xcb\x16\x052\xf6\xb7\xd6[\xe8\x08\xd3|\xe3\xf6\x96\n\x1d\xb9\xb2\xac\xcdK\xdeE'\x8bh4\x81^\xe65V%M\x83\xd7\xfd"
+                        158     CALL                            1
+                        166     LOAD_ATTR                       15: format
+                        186     LOAD_FAST                       0: self
+                        188     LOAD_ATTR                       8: code
+                        208     CALL                            1
+                        216     CALL                            1
+                        224     POP_TOP                         
+                        226     JUMP_FORWARD                    53 (to 334)
+                        228     LOAD_CONST                      0: None
+                        230     LOAD_FAST                       0: self
+                        232     STORE_ATTR                      4: code
+                        242     LOAD_GLOBAL                     10: super
+                        252     LOAD_DEREF                      3: __class__
+                        254     LOAD_FAST                       0: self
+                        256     LOAD_SUPER_ATTR                 25: __init__
+                        260     PUSH_NULL                       
+                        262     LOAD_CONST                      1: '__pyarmor_assert_17523__'
+                        264     LOAD_CONST                      8: 'Invalid response buffer (too short {})'   # b"\x81\xcb\x16\x052\xf6\xb7\xd6[\xe8\x08\xd3|\xe3\xf6\x96\n\x1d\xb9\xb2\xac\xcdK\xdeE'\xb7S\x0f\xf1\r\xed5@4M\x83\xd7\xfd"
+                        266     CALL                            1
+                        274     LOAD_ATTR                       15: format
+                        294     LOAD_FAST                       0: self
+                        296     LOAD_ATTR                       0: payload
+                        316     CALL                            1
+                        324     CALL                            1
+                        332     POP_TOP                         
+                        334     LOAD_CONST                      0: None
+                        336     NOP                             
+                        338     NOP                             
+                        340     NOP                             
+                        342     JUMP_FORWARD                    19 (to 382)
+                        350     POP_TOP                         
+                        352     RETURN_CONST                    0: None
+                        354     PUSH_EXC_INFO                   
+                        356     PUSH_NULL                       
+                        358     LOAD_CONST                      9: '__pyarmor_exit_17525__'
+                        360     NOP                             
+                        362     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1cF\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        364     CALL                            1
+                        372     POP_TOP                         
+                        374     RERAISE                         0
+                        376     COPY                            3
+                        378     POP_EXCEPT                      
+                        380     RERAISE                         1
+                        382     PUSH_NULL                       
+                        384     LOAD_CONST                      9: '__pyarmor_exit_17525__'
+                        386     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1cF\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        388     BUILD_TUPLE                     1
+                        390     CALL_FUNCTION_EX                0
+                        392     POP_TOP                         
+                        394     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 334 -> 354 [0] 
+                        354 to 376 -> 376 [1] lasti
+                '__pyarmor_exit_17522__'
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: 'InvalidBufferError'
+                10      STORE_NAME                      2: __qualname__
+                12      LOAD_CONST                      1: '\n    Occurs when the buffer is invalid, and may contain an HTTP error code.\n    For instance, 404 means "forgotten/broken authorization key", while\n    '
+                14      STORE_NAME                      3: __doc__
+                16      NOP                             
+                18      PUSH_NULL                       
+                20      LOAD_CONST                      3: '__pyarmor_enter_17521__'
+                22      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                24      BUILD_TUPLE                     1
+                26      CALL_FUNCTION_EX                0
+                28      POP_TOP                         
+                30      RESUME                          0
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      LOAD_CLOSURE                    0: __class__
+                44      BUILD_TUPLE                     1
+                46      LOAD_CONST                      5: <CODE> __init__
+                48      MAKE_FUNCTION                   8
+                50      STORE_NAME                      5: __init__
+                52      LOAD_CLOSURE                    0: __class__
+                54      COPY                            1
+                56      STORE_NAME                      6: __classcell__
+                58      NOP                             
+                60      NOP                             
+                62      NOP                             
+                64      JUMP_FORWARD                    20 (to 106)
+                68      POP_TOP                         
+                70      LOAD_CLOSURE                    0: __class__
+                72      COPY                            1
+                74      STORE_NAME                      6: __classcell__
+                76      RETURN_VALUE                    
+                78      PUSH_EXC_INFO                   
+                80      PUSH_NULL                       
+                82      LOAD_CONST                      6: '__pyarmor_exit_17522__'
+                84      NOP                             
+                86      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      CALL                            1
+                96      POP_TOP                         
+                98      RERAISE                         0
+                100     COPY                            3
+                102     POP_EXCEPT                      
+                104     RERAISE                         1
+                106     PUSH_NULL                       
+                108     LOAD_CONST                      6: '__pyarmor_exit_17522__'
+                110     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                112     BUILD_TUPLE                     1
+                114     CALL_FUNCTION_EX                0
+                116     POP_TOP                         
+                118     RETURN_VALUE                    
+            [Exception Table]
+                42 to 52 -> 78 [0] 
+                78 to 100 -> 100 [1] lasti
+        'InvalidBufferError'
+        [Code]
+            File Name: <frozen multithon.errors.common>
+            Object Name: AuthKeyNotFound
+            Qualified Name: AuthKeyNotFound
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                'AuthKeyNotFound'
+                "\n    The server claims it doesn't know about the authorization key (session\n    file) currently being used. This might be because it either has never\n    seen this authorization key, or it used to know about the authorization\n    key but has forgotten it, either temporarily or permanently (possibly\n    due to server errors).\n\n    If the issue persists, you may need to recreate the session file and login\n    again. This is not done automatically because it is not possible to know\n    if the issue is temporary or permanent.\n    "
+                '__pyarmor_assert_17526__'
+                '__pyarmor_enter_17527__'
+                b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.errors.common>
+                    Object Name: __init__
+                    Qualified Name: AuthKeyNotFound.__init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'super'
+                        '__init__'
+                        'textwrap'
+                        'dedent'
+                        '__class__'
+                        '__doc__'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17529__'
+                        '__pyarmor_enter_17530__'
+                        b'<COAddr>\x07\x00\x00\x1c\x82\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_17531__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_17530__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\x82\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     0: super
+                        40      LOAD_DEREF                      2: __class__
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_SUPER_ATTR                 5: __init__
+                        48      LOAD_GLOBAL                     5: NULL + textwrap
+                        58      LOAD_ATTR                       6: dedent
+                        78      LOAD_FAST                       0: self
+                        80      LOAD_ATTR                       8: __class__
+                        100     LOAD_ATTR                       10: __doc__
+                        120     CALL                            1
+                        128     CALL                            1
+                        136     POP_TOP                         
+                        138     LOAD_CONST                      0: None
+                        140     NOP                             
+                        142     NOP                             
+                        144     NOP                             
+                        146     JUMP_FORWARD                    19 (to 186)
+                        154     POP_TOP                         
+                        156     RETURN_CONST                    0: None
+                        158     PUSH_EXC_INFO                   
+                        160     PUSH_NULL                       
+                        162     LOAD_CONST                      4: '__pyarmor_exit_17531__'
+                        164     NOP                             
+                        166     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\x82\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        168     CALL                            1
+                        176     POP_TOP                         
+                        178     RERAISE                         0
+                        180     COPY                            3
+                        182     POP_EXCEPT                      
+                        184     RERAISE                         1
+                        186     PUSH_NULL                       
+                        188     LOAD_CONST                      4: '__pyarmor_exit_17531__'
+                        190     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\x82\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        192     BUILD_TUPLE                     1
+                        194     CALL_FUNCTION_EX                0
+                        196     POP_TOP                         
+                        198     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 138 -> 158 [0] 
+                        158 to 180 -> 180 [1] lasti
+                '__pyarmor_exit_17528__'
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: 'AuthKeyNotFound'
+                10      STORE_NAME                      2: __qualname__
+                12      LOAD_CONST                      1: "\n    The server claims it doesn't know about the authorization key (session\n    file) currently being used. This might be because it either has never\n    seen this authorization key, or it used to know about the authorization\n    key but has forgotten it, either temporarily or permanently (possibly\n    due to server errors).\n\n    If the issue persists, you may need to recreate the session file and login\n    again. This is not done automatically because it is not possible to know\n    if the issue is temporary or permanent.\n    "
+                14      STORE_NAME                      3: __doc__
+                16      NOP                             
+                18      PUSH_NULL                       
+                20      LOAD_CONST                      3: '__pyarmor_enter_17527__'
+                22      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                24      BUILD_TUPLE                     1
+                26      CALL_FUNCTION_EX                0
+                28      POP_TOP                         
+                30      RESUME                          0
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      LOAD_CLOSURE                    0: __class__
+                44      BUILD_TUPLE                     1
+                46      LOAD_CONST                      5: <CODE> __init__
+                48      MAKE_FUNCTION                   8
+                50      STORE_NAME                      5: __init__
+                52      LOAD_CLOSURE                    0: __class__
+                54      COPY                            1
+                56      STORE_NAME                      6: __classcell__
+                58      NOP                             
+                60      NOP                             
+                62      NOP                             
+                64      JUMP_FORWARD                    20 (to 106)
+                68      POP_TOP                         
+                70      LOAD_CLOSURE                    0: __class__
+                72      COPY                            1
+                74      STORE_NAME                      6: __classcell__
+                76      RETURN_VALUE                    
+                78      PUSH_EXC_INFO                   
+                80      PUSH_NULL                       
+                82      LOAD_CONST                      6: '__pyarmor_exit_17528__'
+                84      NOP                             
+                86      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      CALL                            1
+                96      POP_TOP                         
+                98      RERAISE                         0
+                100     COPY                            3
+                102     POP_EXCEPT                      
+                104     RERAISE                         1
+                106     PUSH_NULL                       
+                108     LOAD_CONST                      6: '__pyarmor_exit_17528__'
+                110     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                112     BUILD_TUPLE                     1
+                114     CALL_FUNCTION_EX                0
+                116     POP_TOP                         
+                118     RETURN_VALUE                    
+            [Exception Table]
+                42 to 52 -> 78 [0] 
+                78 to 100 -> 100 [1] lasti
+        'AuthKeyNotFound'
+        [Code]
+            File Name: <frozen multithon.errors.common>
+            Object Name: SecurityError
+            Qualified Name: SecurityError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                'SecurityError'
+                '\n    Generic security error, mostly used when generating a new AuthKey.\n    '
+                '__pyarmor_assert_17532__'
+                '__pyarmor_enter_17533__'
+                b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.errors.common>
+                    Object Name: __init__
+                    Qualified Name: SecurityError.__init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000007 (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'super'
+                        '__init__'
+                    [Locals+Names]
+                        'self'
+                        'args'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17535__'
+                        '__pyarmor_enter_17536__'
+                        b'<COAddr>\x05\x00\x00\x1cD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'A security check failed.'   # b'\x81\xc3X\x006\xf9\xab\xc0\x12\xee\x14\x80o\xe4\xfd\x86\x04\x1d\xbd\xa6\xa3\xc7K\xc8K'
+                        '__pyarmor_exit_17537__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_17536__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1cD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_FAST                       1: args
+                        32      POP_JUMP_IF_TRUE                9 (to 52)
+                        34      PUSH_NULL                       
+                        36      LOAD_CONST                      1: '__pyarmor_assert_17535__'
+                        38      LOAD_CONST                      4: 'A security check failed.'   # b'\x81\xc3X\x006\xf9\xab\xc0\x12\xee\x14\x80o\xe4\xfd\x86\x04\x1d\xbd\xa6\xa3\xc7K\xc8K'
+                        40      CALL                            1
+                        48      BUILD_LIST                      1
+                        50      STORE_FAST                      1: args
+                        52      LOAD_GLOBAL                     1: NULL + super
+                        62      LOAD_DEREF                      3: __class__
+                        64      LOAD_FAST                       0: self
+                        66      LOAD_SUPER_ATTR                 4: __init__
+                        70      LOAD_FAST                       1: args
+                        72      CALL_FUNCTION_EX                0
+                        74      POP_TOP                         
+                        76      LOAD_CONST                      0: None
+                        78      NOP                             
+                        80      NOP                             
+                        82      NOP                             
+                        84      JUMP_FORWARD                    19 (to 124)
+                        92      POP_TOP                         
+                        94      RETURN_CONST                    0: None
+                        96      PUSH_EXC_INFO                   
+                        98      PUSH_NULL                       
+                        100     LOAD_CONST                      5: '__pyarmor_exit_17537__'
+                        102     NOP                             
+                        104     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1cD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        106     CALL                            1
+                        114     POP_TOP                         
+                        116     RERAISE                         0
+                        118     COPY                            3
+                        120     POP_EXCEPT                      
+                        122     RERAISE                         1
+                        124     PUSH_NULL                       
+                        126     LOAD_CONST                      5: '__pyarmor_exit_17537__'
+                        128     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1cD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        130     BUILD_TUPLE                     1
+                        132     CALL_FUNCTION_EX                0
+                        134     POP_TOP                         
+                        136     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 76 -> 96 [0] 
+                        96 to 118 -> 118 [1] lasti
+                '__pyarmor_exit_17534__'
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: 'SecurityError'
+                10      STORE_NAME                      2: __qualname__
+                12      LOAD_CONST                      1: '\n    Generic security error, mostly used when generating a new AuthKey.\n    '
+                14      STORE_NAME                      3: __doc__
+                16      NOP                             
+                18      PUSH_NULL                       
+                20      LOAD_CONST                      3: '__pyarmor_enter_17533__'
+                22      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                24      BUILD_TUPLE                     1
+                26      CALL_FUNCTION_EX                0
+                28      POP_TOP                         
+                30      RESUME                          0
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      LOAD_CLOSURE                    0: __class__
+                44      BUILD_TUPLE                     1
+                46      LOAD_CONST                      5: <CODE> __init__
+                48      MAKE_FUNCTION                   8
+                50      STORE_NAME                      5: __init__
+                52      LOAD_CLOSURE                    0: __class__
+                54      COPY                            1
+                56      STORE_NAME                      6: __classcell__
+                58      NOP                             
+                60      NOP                             
+                62      NOP                             
+                64      JUMP_FORWARD                    20 (to 106)
+                68      POP_TOP                         
+                70      LOAD_CLOSURE                    0: __class__
+                72      COPY                            1
+                74      STORE_NAME                      6: __classcell__
+                76      RETURN_VALUE                    
+                78      PUSH_EXC_INFO                   
+                80      PUSH_NULL                       
+                82      LOAD_CONST                      6: '__pyarmor_exit_17534__'
+                84      NOP                             
+                86      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      CALL                            1
+                96      POP_TOP                         
+                98      RERAISE                         0
+                100     COPY                            3
+                102     POP_EXCEPT                      
+                104     RERAISE                         1
+                106     PUSH_NULL                       
+                108     LOAD_CONST                      6: '__pyarmor_exit_17534__'
+                110     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                112     BUILD_TUPLE                     1
+                114     CALL_FUNCTION_EX                0
+                116     POP_TOP                         
+                118     RETURN_VALUE                    
+            [Exception Table]
+                42 to 52 -> 78 [0] 
+                78 to 100 -> 100 [1] lasti
+        'SecurityError'
+        [Code]
+            File Name: <frozen multithon.errors.common>
+            Object Name: CdnFileTamperedError
+            Qualified Name: CdnFileTamperedError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                'CdnFileTamperedError'
+                "\n    Occurs when there's a hash mismatch between the decrypted CDN file\n    and its expected hash.\n    "
+                '__pyarmor_assert_17538__'
+                '__pyarmor_enter_17539__'
+                b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.errors.common>
+                    Object Name: __init__
+                    Qualified Name: CdnFileTamperedError.__init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'super'
+                        '__init__'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17541__'
+                        '__pyarmor_enter_17542__'
+                        b'<COAddr>\x05\x00\x00\x1c@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'The CDN file has been altered and its download cancelled.'   # b'\x81\xd6\x10\x16s\xd9\x9a\xfc[\xfc\x04\xcci\xac\xf0\x84\x1c\x1d\xb9\xa2\xaf\xc5\x0e\xcd\t{\xa6N\x05\xb5^\xe44V`\x04\x8c\xd9\xf4*\x17\xfe\xf6Q\xd2\xd9\x0b\x074\xecX\xf8\x82|\n\xe83\xa5'
+                        '__pyarmor_exit_17543__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_17542__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     0: super
+                        40      LOAD_DEREF                      2: __class__
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_SUPER_ATTR                 5: __init__
+                        48      PUSH_NULL                       
+                        50      LOAD_CONST                      1: '__pyarmor_assert_17541__'
+                        52      LOAD_CONST                      4: 'The CDN file has been altered and its download cancelled.'   # b'\x81\xd6\x10\x16s\xd9\x9a\xfc[\xfc\x04\xcci\xac\xf0\x84\x1c\x1d\xb9\xa2\xaf\xc5\x0e\xcd\t{\xa6N\x05\xb5^\xe44V`\x04\x8c\xd9\xf4*\x17\xfe\xf6Q\xd2\xd9\x0b\x074\xecX\xf8\x82|\n\xe83\xa5'
+                        54      CALL                            1
+                        62      CALL                            1
+                        70      POP_TOP                         
+                        72      LOAD_CONST                      0: None
+                        74      NOP                             
+                        76      NOP                             
+                        78      NOP                             
+                        80      JUMP_FORWARD                    19 (to 120)
+                        88      POP_TOP                         
+                        90      RETURN_CONST                    0: None
+                        92      PUSH_EXC_INFO                   
+                        94      PUSH_NULL                       
+                        96      LOAD_CONST                      5: '__pyarmor_exit_17543__'
+                        98      NOP                             
+                        100     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        102     CALL                            1
+                        110     POP_TOP                         
+                        112     RERAISE                         0
+                        114     COPY                            3
+                        116     POP_EXCEPT                      
+                        118     RERAISE                         1
+                        120     PUSH_NULL                       
+                        122     LOAD_CONST                      5: '__pyarmor_exit_17543__'
+                        124     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        126     BUILD_TUPLE                     1
+                        128     CALL_FUNCTION_EX                0
+                        130     POP_TOP                         
+                        132     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 72 -> 92 [0] 
+                        92 to 114 -> 114 [1] lasti
+                '__pyarmor_exit_17540__'
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: 'CdnFileTamperedError'
+                10      STORE_NAME                      2: __qualname__
+                12      LOAD_CONST                      1: "\n    Occurs when there's a hash mismatch between the decrypted CDN file\n    and its expected hash.\n    "
+                14      STORE_NAME                      3: __doc__
+                16      NOP                             
+                18      PUSH_NULL                       
+                20      LOAD_CONST                      3: '__pyarmor_enter_17539__'
+                22      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                24      BUILD_TUPLE                     1
+                26      CALL_FUNCTION_EX                0
+                28      POP_TOP                         
+                30      RESUME                          0
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      LOAD_CLOSURE                    0: __class__
+                44      BUILD_TUPLE                     1
+                46      LOAD_CONST                      5: <CODE> __init__
+                48      MAKE_FUNCTION                   8
+                50      STORE_NAME                      5: __init__
+                52      LOAD_CLOSURE                    0: __class__
+                54      COPY                            1
+                56      STORE_NAME                      6: __classcell__
+                58      NOP                             
+                60      NOP                             
+                62      NOP                             
+                64      JUMP_FORWARD                    20 (to 106)
+                68      POP_TOP                         
+                70      LOAD_CLOSURE                    0: __class__
+                72      COPY                            1
+                74      STORE_NAME                      6: __classcell__
+                76      RETURN_VALUE                    
+                78      PUSH_EXC_INFO                   
+                80      PUSH_NULL                       
+                82      LOAD_CONST                      6: '__pyarmor_exit_17540__'
+                84      NOP                             
+                86      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      CALL                            1
+                96      POP_TOP                         
+                98      RERAISE                         0
+                100     COPY                            3
+                102     POP_EXCEPT                      
+                104     RERAISE                         1
+                106     PUSH_NULL                       
+                108     LOAD_CONST                      6: '__pyarmor_exit_17540__'
+                110     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                112     BUILD_TUPLE                     1
+                114     CALL_FUNCTION_EX                0
+                116     POP_TOP                         
+                118     RETURN_VALUE                    
+            [Exception Table]
+                42 to 52 -> 78 [0] 
+                78 to 100 -> 100 [1] lasti
+        'CdnFileTamperedError'
+        [Code]
+            File Name: <frozen multithon.errors.common>
+            Object Name: AlreadyInConversationError
+            Qualified Name: AlreadyInConversationError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                'AlreadyInConversationError'
+                '\n    Occurs when another exclusive conversation is opened in the same chat.\n    '
+                '__pyarmor_assert_17544__'
+                '__pyarmor_enter_17545__'
+                b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.errors.common>
+                    Object Name: __init__
+                    Qualified Name: AlreadyInConversationError.__init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'super'
+                        '__init__'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17547__'
+                        '__pyarmor_enter_17548__'
+                        b'<COAddr>\x05\x00\x00\x1c@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'Cannot open exclusive conversation in a chat that already has one open conversation'   # b'\x81\xc1\x19\x1d=\xf5\xaa\x92\x14\xea\x08\xce,\xe9\xe0\x86\x03H\xa8\xae\xbc\xce\x0e\xcf\na\xb5Y\x12\xa2\x1f\xf13].M\x91\xc4\xf4/X\xea\xf0\\\xc9\x98\x1bO6\xf9\x16\xfa\x8bb\x03\xec3\xf2\xdb\x15\x19Xq\\YME\x8c\xcd2\xe2\xff\x90m2(E\xab\x1b\x90\xb5\x8e\x8b\xa7'
+                        '__pyarmor_exit_17549__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_17548__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     0: super
+                        40      LOAD_DEREF                      2: __class__
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_SUPER_ATTR                 5: __init__
+                        48      PUSH_NULL                       
+                        50      LOAD_CONST                      1: '__pyarmor_assert_17547__'
+                        52      LOAD_CONST                      4: 'Cannot open exclusive conversation in a chat that already has one open conversation'   # b'\x81\xc1\x19\x1d=\xf5\xaa\x92\x14\xea\x08\xce,\xe9\xe0\x86\x03H\xa8\xae\xbc\xce\x0e\xcf\na\xb5Y\x12\xa2\x1f\xf13].M\x91\xc4\xf4/X\xea\xf0\\\xc9\x98\x1bO6\xf9\x16\xfa\x8bb\x03\xec3\xf2\xdb\x15\x19Xq\\YME\x8c\xcd2\xe2\xff\x90m2(E\xab\x1b\x90\xb5\x8e\x8b\xa7'
+                        54      CALL                            1
+                        62      CALL                            1
+                        70      POP_TOP                         
+                        72      LOAD_CONST                      0: None
+                        74      NOP                             
+                        76      NOP                             
+                        78      NOP                             
+                        80      JUMP_FORWARD                    19 (to 120)
+                        88      POP_TOP                         
+                        90      RETURN_CONST                    0: None
+                        92      PUSH_EXC_INFO                   
+                        94      PUSH_NULL                       
+                        96      LOAD_CONST                      5: '__pyarmor_exit_17549__'
+                        98      NOP                             
+                        100     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        102     CALL                            1
+                        110     POP_TOP                         
+                        112     RERAISE                         0
+                        114     COPY                            3
+                        116     POP_EXCEPT                      
+                        118     RERAISE                         1
+                        120     PUSH_NULL                       
+                        122     LOAD_CONST                      5: '__pyarmor_exit_17549__'
+                        124     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        126     BUILD_TUPLE                     1
+                        128     CALL_FUNCTION_EX                0
+                        130     POP_TOP                         
+                        132     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 72 -> 92 [0] 
+                        92 to 114 -> 114 [1] lasti
+                '__pyarmor_exit_17546__'
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: 'AlreadyInConversationError'
+                10      STORE_NAME                      2: __qualname__
+                12      LOAD_CONST                      1: '\n    Occurs when another exclusive conversation is opened in the same chat.\n    '
+                14      STORE_NAME                      3: __doc__
+                16      NOP                             
+                18      PUSH_NULL                       
+                20      LOAD_CONST                      3: '__pyarmor_enter_17545__'
+                22      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                24      BUILD_TUPLE                     1
+                26      CALL_FUNCTION_EX                0
+                28      POP_TOP                         
+                30      RESUME                          0
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      LOAD_CLOSURE                    0: __class__
+                44      BUILD_TUPLE                     1
+                46      LOAD_CONST                      5: <CODE> __init__
+                48      MAKE_FUNCTION                   8
+                50      STORE_NAME                      5: __init__
+                52      LOAD_CLOSURE                    0: __class__
+                54      COPY                            1
+                56      STORE_NAME                      6: __classcell__
+                58      NOP                             
+                60      NOP                             
+                62      NOP                             
+                64      JUMP_FORWARD                    20 (to 106)
+                68      POP_TOP                         
+                70      LOAD_CLOSURE                    0: __class__
+                72      COPY                            1
+                74      STORE_NAME                      6: __classcell__
+                76      RETURN_VALUE                    
+                78      PUSH_EXC_INFO                   
+                80      PUSH_NULL                       
+                82      LOAD_CONST                      6: '__pyarmor_exit_17546__'
+                84      NOP                             
+                86      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      CALL                            1
+                96      POP_TOP                         
+                98      RERAISE                         0
+                100     COPY                            3
+                102     POP_EXCEPT                      
+                104     RERAISE                         1
+                106     PUSH_NULL                       
+                108     LOAD_CONST                      6: '__pyarmor_exit_17546__'
+                110     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                112     BUILD_TUPLE                     1
+                114     CALL_FUNCTION_EX                0
+                116     POP_TOP                         
+                118     RETURN_VALUE                    
+            [Exception Table]
+                42 to 52 -> 78 [0] 
+                78 to 100 -> 100 [1] lasti
+        'AlreadyInConversationError'
+        [Code]
+            File Name: <frozen multithon.errors.common>
+            Object Name: BadMessageError
+            Qualified Name: BadMessageError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 13
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'ErrorMessages'
+                '__init__'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                'BadMessageError'
+                'Occurs when handling a bad_message_notification.'
+                '__pyarmor_assert_17550__'
+                '__pyarmor_enter_17551__'
+                b'<COAddr>\x05\x00\x00(\xc6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'msg_id too low (most likely, client time is wrong it would be worthwhile to synchronize it using msg_id notifications and re-send the original message with the "correct" msg_id or wrap it in a container with a new msg_id if the original message had waited too long on the client to be transmitted).'   # b'\x81\xef\x0b\x14\x0c\xf3\xba\x92\x0f\xf5\x02\x80`\xe3\xef\xc5GP\xb4\xb4\xbe\x8bB\xc5\x0ej\xafEL\xf1\x1d\xe93W.\x19\xd8\xde\xbd#\x1d\xa9\xf1N\x9d\xcf\x1dH9\xea\x16\xf2\x930\x11\xe2"\xe7\x9f]\x1aNqDXZ\x11\x8b\xca?\xe5\xb3\x96"(1\x00\xaa\x11\x9f\xa2\x8f\x96\xa6\xb1\x06\x18D\x84\xbe\x99\xac\x8ab\xd0\xbd\xe3\x10\xb0`<7-8\x0f\x11\xb7\x96D\xe1\xf48\xb3.\xbb\x17v\xe7\x15\n}H*d\xfc\x0f\xac\xe8\xe5\xabR\xb4\x0f\xb3Q\x83#\\\x13\xf0\xb4=P\xf8u\xb5\xf5\xcfdP\xcc \xea\xfb\xb9\x03\xa1\xdb\xf4\xd2\xd7\x1d$/\xd0\xbe\xb7\x14\x93\xdc!\x1f\x17-c\xec\x15Z\xb4 b\x89e\xd4\x0b5\x18\x08\x11\x06\xac\x04o\x84\xe8_;n(\xe9k\x07\xa2I\x9e\xba\x901,\xca9\x11~=*\xbe\xce\xec;\x15&\x96\x92\xe4\xa2\x03\x95+Z\x9b\xf8\x0fDA-\xa8\x13\x02.\xd0z\xb5\xfb\x97\x13|\xc3\x15\xd4\xb5\r-\xf8}\xfd\xb1\xed\x02]i\x1e\xd4i\xae%\xbe\x12G|\x96\x1ef\xac\x83\xa7\x82\xe2O]\xbd-!5\xbc\xdfX7\xaa;/\x89\x8f\x04\x1b\x0f\xe4!K\xa6'
+                'msg_id too high (similar to the previous case, the client time has to be synchronized, and the message re-sent with the correct msg_id).'   # b'\x81\xef\x0b\x14\x0c\xf3\xba\x92\x0f\xf5\x02\x80d\xe5\xff\x8dO\x15\xa8\xae\xa7\xc2B\xcd\x17/\xb7S@\xa5\x16\xe0zB2\x08\x8e\xc3\xbb;\x0b\xa9\xfb\\\xce\xddC\x07#\xe5S\xbb\x84|\x0f\xe89\xff\xdb\t\x11F4\x13_I\x16\xc3\xc98\xac\xbd\x96"/\'N\xba\x00\x83\xae\x89\x8d\xb3\xba\x0bN\x01\xc5\xb9\x89\xac\x8by\xdc\xf3\xe9U\xae`:\x0f!|]\x1a\xf5\x91H\xe9\xe9{\xa53\xa6\x108\xe0]\x0e3Oed\xebG\xbc\xf9\xab\xa2\x01\xa78\xbf\x15\xc5\x7f'
+                'Incorrect two lower order msg_id bits (the server expects client message msg_id to be divisible by 4).'   # b'\x81\xcb\x16\x10<\xe8\xac\xd7\x18\xeeM\xd4{\xe3\xb8\x89\x00J\xbe\xb5\xea\xc4\\\xc8\x00}\xe3Q\x13\xb6!\xec>\x12"\x04\x8c\xd9\xf4f\x0c\xe1\xfd\x1d\xce\xdd\x1dQ2\xff\x16\xfe\x9f`\x03\xee#\xf8\xdb\x1e\x14B4]C\x08\x08\x86\xce$\xed\xb8\x96"1-G\x86\x01\x95\xe1\x93\x8b\xe9\xbd\nBE\xcd\xa1\x84\xff\x96s\xd5\xb6\xa4R\xa43oAj'
+                'Container msg_id is the same as msg_id of a previously received message (this must never happen).'   # b"\x81\xc1\x17\x1d'\xfb\xb7\xdc\x1e\xe8M\xcd\x7f\xeb\xc7\x8c\x0b\x1d\xb2\xb4\xea\xdfF\xc9E|\xa2Q\x05\xf1\x1f\xf6z_3\n\xa7\xc3\xb0n\x17\xef\xb8\\\x9d\xc8\x1dB!\xe4Y\xee\x94|\x1f\xad%\xee\x98\x18\x11]4W\x17E\x00\x90\xce6\xeb\xba\xd3*(6I\xaaH\x9c\xb4\x94\x90\xe9\xb1\n\x14D\xd6\xf7\x85\xed\x8fa\xdc\xbd\xad\x1e"
+                'Message too old, and it cannot be verified whether the server has received a message with this msg_id or not.'   # b'\x81\xcf\x1d\x00 \xfb\xb9\xd7[\xee\x02\xcf,\xe3\xf4\x81C\x1d\xba\xa9\xae\x8bG\xd8El\xa2R\x0e\xbe\n\xa58W`\x1b\x9d\xd8\xbd(\x11\xec\xfc\x1d\xca\xd0\nS?\xe8D\xbb\x93x\x03\xad$\xee\x89\x0b\x1dYq[V[E\x91\xd84\xe9\xb6\x85g8~A\xf9\x05\x94\xb2\x94\x85\xae\xbaO\x15H\xd0\xbf\xcd\xf8\x97x\xca\xf3\xe9C\xbaL2\x0cd3]_\xb6\x8dY\xa9'
+                'msg_seqno too low (the server has already received a message with a lower msg_id but with either a higher or an equal and odd seqno).'   # b'\x81\xef\x0b\x14\x0c\xe9\xbb\xc3\x15\xf5M\xd4c\xe3\xb8\x89\x00J\xfb\xef\xbe\xc3K\x8c\x16j\xb1J\x05\xa3^\xed;A`\x0c\x94\xd8\xb1/\x1c\xf0\xb8O\xd8\xdb\nN!\xe8R\xbb\x860\x0b\xe8$\xf8\x9a\x1a\x1d\x0b&ZC@E\x82\x9d;\xe3\xa8\x96p|3S\xbe7\x98\xa5\xc7\x86\xbc\xabO\x15H\xd0\xbf\xcd\xe9\x96e\xd1\xb6\xf6\x10\xbc33\x01#4J\r\xf8\x8d_\xa7\xfc5\xf2?\xa3\ry\xf8\x15\n}H*y\xfdF\xff\xfe\xee\xbe\x1c\xafN\xf8'
+                'msg_seqno too high (similarly, there is a message with a higher msg_id but with either a lower or an equal and odd seqno).'   # b'\x81\xef\x0b\x14\x0c\xe9\xbb\xc3\x15\xf5M\xd4c\xe3\xb8\x8d\x06Z\xb3\xe7\xe2\xd8G\xc1\x0cc\xa2N\x0c\xa8R\xa5.Z%\x1f\x9d\x8a\xbd=X\xe8\xb8P\xd8\xcb\x1cF0\xe8\x16\xec\x8ed\x0e\xad6\xab\x93\x14\x1fC4A\x17E\x16\x84\xe2>\xe8\xff\x91w(~W\xb0\x1c\x99\xe1\x82\x8d\xbd\xb7\n\x10\x01\xc5\xf7\x81\xe3\x88t\xcb\xf3\xebB\xfdr5H!-Z\x1e\xb4\xc2L\xe9\xf9{\xbd>\xb6Xk\xf1D\x05|\x05$'
+                'An even msg_seqno expected (irrelevant message), but odd received.'   # b'\x81\xc3\x16S6\xec\xbb\xdc[\xf7\x1e\xc7S\xff\xfd\x94\x01R\xfb\xa2\xb2\xdbK\xcf\x11j\xa7\x1cH\xb8\x0c\xf7?^%\x1b\x99\xc4\xa0n\x15\xec\xebN\xdc\xdf\n\x0e{\xadT\xee\x930\t\xe93\xab\x89\x18\x1bN8ERLK'
+                'Odd msg_seqno expected (relevant message), but even received.'   # b'\x81\xcd\x1c\x17s\xf7\xad\xd5$\xe9\x08\xd1b\xe3\xb8\x80\x17M\xbe\xa4\xbe\xceJ\x8cM}\xa6P\x05\xa7\x1f\xeb.\x12-\x08\x8b\xd9\xb5)\x1d\xa0\xb4\x1d\xdf\xcd\x1b\x072\xfbS\xf5\xc7b\x03\xee2\xe2\x8d\x18\x1c\x05'
+                'Incorrect server salt (in this case, the bad_server_salt response is received with the correct salt, and the message is to be re-sent with it).'   # b'\x81\xcb\x16\x10<\xe8\xac\xd7\x18\xeeM\xd3i\xfe\xee\x80\x1d\x1d\xa8\xa6\xa6\xdf\x0e\x84\x0ca\xe3H\x08\xb8\r\xa59S3\x08\xd4\x8a\xa0&\x1d\xa9\xfa\\\xd9\xe7\x1cB%\xfbS\xe9\xb8c\x07\xe1#\xab\x89\x18\x0b[>]DME\x8a\xcew\xfe\xba\x90g5(E\xbdH\x86\xa8\x93\x8c\xe9\xab\x07\x07\x01\xc7\xb8\x9f\xfe\x9ar\xcd\xf3\xf7Q\xb1gwH%2K_\xac\x8aH\xa7\xf0>\xa1)\xb3\x1f}\xb4\\\x183Xe6\xfbG\xff\xff\xee\xe2\x01\xa5\t\xa2Q\x9b8A\x1c\xb9\xb3(\x15\xf6'
+                'Invalid container.'   # b'\x81\xcb\x16\x052\xf6\xb7\xd6[\xf9\x02\xcex\xed\xf1\x8b\nO\xf5'
+                (
+                    16
+                    17
+                    18
+                    19
+                    20
+                    32
+                    33
+                    34
+                    35
+                    48
+                    64
+                )
+                [Code]
+                    File Name: <frozen multithon.errors.common>
+                    Object Name: __init__
+                    Qualified Name: BadMessageError.__init__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 9
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'super'
+                        '__init__'
+                        'ErrorMessages'
+                        'get'
+                        'format'
+                        'code'
+                    [Locals+Names]
+                        'self'
+                        'request'
+                        'code'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17553__'
+                        '__pyarmor_enter_17554__'
+                        b'<COAddr>\x05\x00\x00\x1c\xa2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'Unknown error code (this should not happen): {}.'   # b'\x81\xd7\x16\x18=\xf5\xa9\xdc[\xff\x1f\xd2c\xfe\xb8\x86\x00Y\xbe\xe7\xe2\xdfF\xc5\x16/\xb0T\x0f\xa4\x12\xe1z\\/\x19\xd8\xc2\xb5>\x08\xec\xf6\x14\x87\x98\x14Zy'
+                        '__pyarmor_exit_17555__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_17554__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\xa2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     0: super
+                        40      LOAD_DEREF                      4: __class__
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_SUPER_ATTR                 5: __init__
+                        48      LOAD_FAST                       1: request
+                        50      LOAD_FAST                       0: self
+                        52      LOAD_ATTR                       4: ErrorMessages
+                        72      LOAD_ATTR                       7: get
+                        92      LOAD_FAST                       2: code
+                        94      PUSH_NULL                       
+                        96      LOAD_CONST                      1: '__pyarmor_assert_17553__'
+                        98      LOAD_CONST                      4: 'Unknown error code (this should not happen): {}.'   # b'\x81\xd7\x16\x18=\xf5\xa9\xdc[\xff\x1f\xd2c\xfe\xb8\x86\x00Y\xbe\xe7\xe2\xdfF\xc5\x16/\xb0T\x0f\xa4\x12\xe1z\\/\x19\xd8\xc2\xb5>\x08\xec\xf6\x14\x87\x98\x14Zy'
+                        100     CALL                            1
+                        108     LOAD_ATTR                       9: format
+                        128     LOAD_FAST                       2: code
+                        130     CALL                            1
+                        138     CALL                            2
+                        146     CALL                            2
+                        154     POP_TOP                         
+                        156     LOAD_FAST                       2: code
+                        158     LOAD_FAST                       0: self
+                        160     STORE_ATTR                      5: code
+                        170     LOAD_CONST                      0: None
+                        172     NOP                             
+                        174     NOP                             
+                        176     NOP                             
+                        178     JUMP_FORWARD                    19 (to 218)
+                        186     POP_TOP                         
+                        188     RETURN_CONST                    0: None
+                        190     PUSH_EXC_INFO                   
+                        192     PUSH_NULL                       
+                        194     LOAD_CONST                      5: '__pyarmor_exit_17555__'
+                        196     NOP                             
+                        198     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\xa2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        200     CALL                            1
+                        208     POP_TOP                         
+                        210     RERAISE                         0
+                        212     COPY                            3
+                        214     POP_EXCEPT                      
+                        216     RERAISE                         1
+                        218     PUSH_NULL                       
+                        220     LOAD_CONST                      5: '__pyarmor_exit_17555__'
+                        222     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\xa2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        224     BUILD_TUPLE                     1
+                        226     CALL_FUNCTION_EX                0
+                        228     POP_TOP                         
+                        230     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 170 -> 190 [0] 
+                        190 to 212 -> 212 [1] lasti
+                '__pyarmor_exit_17552__'
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: 'BadMessageError'
+                10      STORE_NAME                      2: __qualname__
+                12      LOAD_CONST                      1: 'Occurs when handling a bad_message_notification.'
+                14      STORE_NAME                      3: __doc__
+                16      NOP                             
+                18      PUSH_NULL                       
+                20      LOAD_CONST                      3: '__pyarmor_enter_17551__'
+                22      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(\xc6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                24      BUILD_TUPLE                     1
+                26      CALL_FUNCTION_EX                0
+                28      POP_TOP                         
+                30      RESUME                          0
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      PUSH_NULL                       
+                44      LOAD_CONST                      2: '__pyarmor_assert_17550__'
+                46      LOAD_CONST                      5: 'msg_id too low (most likely, client time is wrong it would be worthwhile to synchronize it using msg_id notifications and re-send the original message with the "correct" msg_id or wrap it in a container with a new msg_id if the original message had waited too long on the client to be transmitted).'   # b'\x81\xef\x0b\x14\x0c\xf3\xba\x92\x0f\xf5\x02\x80`\xe3\xef\xc5GP\xb4\xb4\xbe\x8bB\xc5\x0ej\xafEL\xf1\x1d\xe93W.\x19\xd8\xde\xbd#\x1d\xa9\xf1N\x9d\xcf\x1dH9\xea\x16\xf2\x930\x11\xe2"\xe7\x9f]\x1aNqDXZ\x11\x8b\xca?\xe5\xb3\x96"(1\x00\xaa\x11\x9f\xa2\x8f\x96\xa6\xb1\x06\x18D\x84\xbe\x99\xac\x8ab\xd0\xbd\xe3\x10\xb0`<7-8\x0f\x11\xb7\x96D\xe1\xf48\xb3.\xbb\x17v\xe7\x15\n}H*d\xfc\x0f\xac\xe8\xe5\xabR\xb4\x0f\xb3Q\x83#\\\x13\xf0\xb4=P\xf8u\xb5\xf5\xcfdP\xcc \xea\xfb\xb9\x03\xa1\xdb\xf4\xd2\xd7\x1d$/\xd0\xbe\xb7\x14\x93\xdc!\x1f\x17-c\xec\x15Z\xb4 b\x89e\xd4\x0b5\x18\x08\x11\x06\xac\x04o\x84\xe8_;n(\xe9k\x07\xa2I\x9e\xba\x901,\xca9\x11~=*\xbe\xce\xec;\x15&\x96\x92\xe4\xa2\x03\x95+Z\x9b\xf8\x0fDA-\xa8\x13\x02.\xd0z\xb5\xfb\x97\x13|\xc3\x15\xd4\xb5\r-\xf8}\xfd\xb1\xed\x02]i\x1e\xd4i\xae%\xbe\x12G|\x96\x1ef\xac\x83\xa7\x82\xe2O]\xbd-!5\xbc\xdfX7\xaa;/\x89\x8f\x04\x1b\x0f\xe4!K\xa6'
+                48      CALL                            1
+                56      PUSH_NULL                       
+                58      LOAD_CONST                      2: '__pyarmor_assert_17550__'
+                60      LOAD_CONST                      6: 'msg_id too high (similar to the previous case, the client time has to be synchronized, and the message re-sent with the correct msg_id).'   # b'\x81\xef\x0b\x14\x0c\xf3\xba\x92\x0f\xf5\x02\x80d\xe5\xff\x8dO\x15\xa8\xae\xa7\xc2B\xcd\x17/\xb7S@\xa5\x16\xe0zB2\x08\x8e\xc3\xbb;\x0b\xa9\xfb\\\xce\xddC\x07#\xe5S\xbb\x84|\x0f\xe89\xff\xdb\t\x11F4\x13_I\x16\xc3\xc98\xac\xbd\x96"/\'N\xba\x00\x83\xae\x89\x8d\xb3\xba\x0bN\x01\xc5\xb9\x89\xac\x8by\xdc\xf3\xe9U\xae`:\x0f!|]\x1a\xf5\x91H\xe9\xe9{\xa53\xa6\x108\xe0]\x0e3Oed\xebG\xbc\xf9\xab\xa2\x01\xa78\xbf\x15\xc5\x7f'
+                62      CALL                            1
+                70      PUSH_NULL                       
+                72      LOAD_CONST                      2: '__pyarmor_assert_17550__'
+                74      LOAD_CONST                      7: 'Incorrect two lower order msg_id bits (the server expects client message msg_id to be divisible by 4).'   # b'\x81\xcb\x16\x10<\xe8\xac\xd7\x18\xeeM\xd4{\xe3\xb8\x89\x00J\xbe\xb5\xea\xc4\\\xc8\x00}\xe3Q\x13\xb6!\xec>\x12"\x04\x8c\xd9\xf4f\x0c\xe1\xfd\x1d\xce\xdd\x1dQ2\xff\x16\xfe\x9f`\x03\xee#\xf8\xdb\x1e\x14B4]C\x08\x08\x86\xce$\xed\xb8\x96"1-G\x86\x01\x95\xe1\x93\x8b\xe9\xbd\nBE\xcd\xa1\x84\xff\x96s\xd5\xb6\xa4R\xa43oAj'
+                76      CALL                            1
+                84      PUSH_NULL                       
+                86      LOAD_CONST                      2: '__pyarmor_assert_17550__'
+                88      LOAD_CONST                      8: 'Container msg_id is the same as msg_id of a previously received message (this must never happen).'   # b"\x81\xc1\x17\x1d'\xfb\xb7\xdc\x1e\xe8M\xcd\x7f\xeb\xc7\x8c\x0b\x1d\xb2\xb4\xea\xdfF\xc9E|\xa2Q\x05\xf1\x1f\xf6z_3\n\xa7\xc3\xb0n\x17\xef\xb8\\\x9d\xc8\x1dB!\xe4Y\xee\x94|\x1f\xad%\xee\x98\x18\x11]4W\x17E\x00\x90\xce6\xeb\xba\xd3*(6I\xaaH\x9c\xb4\x94\x90\xe9\xb1\n\x14D\xd6\xf7\x85\xed\x8fa\xdc\xbd\xad\x1e"
+                90      CALL                            1
+                98      PUSH_NULL                       
+                100     LOAD_CONST                      2: '__pyarmor_assert_17550__'
+                102     LOAD_CONST                      9: 'Message too old, and it cannot be verified whether the server has received a message with this msg_id or not.'   # b'\x81\xcf\x1d\x00 \xfb\xb9\xd7[\xee\x02\xcf,\xe3\xf4\x81C\x1d\xba\xa9\xae\x8bG\xd8El\xa2R\x0e\xbe\n\xa58W`\x1b\x9d\xd8\xbd(\x11\xec\xfc\x1d\xca\xd0\nS?\xe8D\xbb\x93x\x03\xad$\xee\x89\x0b\x1dYq[V[E\x91\xd84\xe9\xb6\x85g8~A\xf9\x05\x94\xb2\x94\x85\xae\xbaO\x15H\xd0\xbf\xcd\xf8\x97x\xca\xf3\xe9C\xbaL2\x0cd3]_\xb6\x8dY\xa9'
+                104     CALL                            1
+                112     PUSH_NULL                       
+                114     LOAD_CONST                      2: '__pyarmor_assert_17550__'
+                116     LOAD_CONST                      10: 'msg_seqno too low (the server has already received a message with a lower msg_id but with either a higher or an equal and odd seqno).'   # b'\x81\xef\x0b\x14\x0c\xe9\xbb\xc3\x15\xf5M\xd4c\xe3\xb8\x89\x00J\xfb\xef\xbe\xc3K\x8c\x16j\xb1J\x05\xa3^\xed;A`\x0c\x94\xd8\xb1/\x1c\xf0\xb8O\xd8\xdb\nN!\xe8R\xbb\x860\x0b\xe8$\xf8\x9a\x1a\x1d\x0b&ZC@E\x82\x9d;\xe3\xa8\x96p|3S\xbe7\x98\xa5\xc7\x86\xbc\xabO\x15H\xd0\xbf\xcd\xe9\x96e\xd1\xb6\xf6\x10\xbc33\x01#4J\r\xf8\x8d_\xa7\xfc5\xf2?\xa3\ry\xf8\x15\n}H*y\xfdF\xff\xfe\xee\xbe\x1c\xafN\xf8'
+                118     CALL                            1
+                126     PUSH_NULL                       
+                128     LOAD_CONST                      2: '__pyarmor_assert_17550__'
+                130     LOAD_CONST                      11: 'msg_seqno too high (similarly, there is a message with a higher msg_id but with either a lower or an equal and odd seqno).'   # b'\x81\xef\x0b\x14\x0c\xe9\xbb\xc3\x15\xf5M\xd4c\xe3\xb8\x8d\x06Z\xb3\xe7\xe2\xd8G\xc1\x0cc\xa2N\x0c\xa8R\xa5.Z%\x1f\x9d\x8a\xbd=X\xe8\xb8P\xd8\xcb\x1cF0\xe8\x16\xec\x8ed\x0e\xad6\xab\x93\x14\x1fC4A\x17E\x16\x84\xe2>\xe8\xff\x91w(~W\xb0\x1c\x99\xe1\x82\x8d\xbd\xb7\n\x10\x01\xc5\xf7\x81\xe3\x88t\xcb\xf3\xebB\xfdr5H!-Z\x1e\xb4\xc2L\xe9\xf9{\xbd>\xb6Xk\xf1D\x05|\x05$'
+                132     CALL                            1
+                140     PUSH_NULL                       
+                142     LOAD_CONST                      2: '__pyarmor_assert_17550__'
+                144     LOAD_CONST                      12: 'An even msg_seqno expected (irrelevant message), but odd received.'   # b'\x81\xc3\x16S6\xec\xbb\xdc[\xf7\x1e\xc7S\xff\xfd\x94\x01R\xfb\xa2\xb2\xdbK\xcf\x11j\xa7\x1cH\xb8\x0c\xf7?^%\x1b\x99\xc4\xa0n\x15\xec\xebN\xdc\xdf\n\x0e{\xadT\xee\x930\t\xe93\xab\x89\x18\x1bN8ERLK'
+                146     CALL                            1
+                154     PUSH_NULL                       
+                156     LOAD_CONST                      2: '__pyarmor_assert_17550__'
+                158     LOAD_CONST                      13: 'Odd msg_seqno expected (relevant message), but even received.'   # b'\x81\xcd\x1c\x17s\xf7\xad\xd5$\xe9\x08\xd1b\xe3\xb8\x80\x17M\xbe\xa4\xbe\xceJ\x8cM}\xa6P\x05\xa7\x1f\xeb.\x12-\x08\x8b\xd9\xb5)\x1d\xa0\xb4\x1d\xdf\xcd\x1b\x072\xfbS\xf5\xc7b\x03\xee2\xe2\x8d\x18\x1c\x05'
+                160     CALL                            1
+                168     PUSH_NULL                       
+                170     LOAD_CONST                      2: '__pyarmor_assert_17550__'
+                172     LOAD_CONST                      14: 'Incorrect server salt (in this case, the bad_server_salt response is received with the correct salt, and the message is to be re-sent with it).'   # b'\x81\xcb\x16\x10<\xe8\xac\xd7\x18\xeeM\xd3i\xfe\xee\x80\x1d\x1d\xa8\xa6\xa6\xdf\x0e\x84\x0ca\xe3H\x08\xb8\r\xa59S3\x08\xd4\x8a\xa0&\x1d\xa9\xfa\\\xd9\xe7\x1cB%\xfbS\xe9\xb8c\x07\xe1#\xab\x89\x18\x0b[>]DME\x8a\xcew\xfe\xba\x90g5(E\xbdH\x86\xa8\x93\x8c\xe9\xab\x07\x07\x01\xc7\xb8\x9f\xfe\x9ar\xcd\xf3\xf7Q\xb1gwH%2K_\xac\x8aH\xa7\xf0>\xa1)\xb3\x1f}\xb4\\\x183Xe6\xfbG\xff\xff\xee\xe2\x01\xa5\t\xa2Q\x9b8A\x1c\xb9\xb3(\x15\xf6'
+                174     CALL                            1
+                182     PUSH_NULL                       
+                184     LOAD_CONST                      2: '__pyarmor_assert_17550__'
+                186     LOAD_CONST                      15: 'Invalid container.'   # b'\x81\xcb\x16\x052\xf6\xb7\xd6[\xf9\x02\xcex\xed\xf1\x8b\nO\xf5'
+                188     CALL                            1
+                196     LOAD_CONST                      16: (16, 17, 18, 19, 20, 32, 33, 34, 35, 48, 64)
+                198     BUILD_CONST_KEY_MAP             11
+                200     STORE_NAME                      5: ErrorMessages
+                202     LOAD_CLOSURE                    0: __class__
+                204     BUILD_TUPLE                     1
+                206     LOAD_CONST                      17: <CODE> __init__
+                208     MAKE_FUNCTION                   8
+                210     STORE_NAME                      6: __init__
+                212     LOAD_CLOSURE                    0: __class__
+                214     COPY                            1
+                216     STORE_NAME                      7: __classcell__
+                218     NOP                             
+                220     NOP                             
+                222     NOP                             
+                224     JUMP_FORWARD                    20 (to 266)
+                228     POP_TOP                         
+                230     LOAD_CLOSURE                    0: __class__
+                232     COPY                            1
+                234     STORE_NAME                      7: __classcell__
+                236     RETURN_VALUE                    
+                238     PUSH_EXC_INFO                   
+                240     PUSH_NULL                       
+                242     LOAD_CONST                      18: '__pyarmor_exit_17552__'
+                244     NOP                             
+                246     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(\xc6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                248     CALL                            1
+                256     POP_TOP                         
+                258     RERAISE                         0
+                260     COPY                            3
+                262     POP_EXCEPT                      
+                264     RERAISE                         1
+                266     PUSH_NULL                       
+                268     LOAD_CONST                      18: '__pyarmor_exit_17552__'
+                270     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00(\xc6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                272     BUILD_TUPLE                     1
+                274     CALL_FUNCTION_EX                0
+                276     POP_TOP                         
+                278     RETURN_VALUE                    
+            [Exception Table]
+                42 to 212 -> 238 [0] 
+                238 to 260 -> 260 [1] lasti
+        'BadMessageError'
+        [Code]
+            File Name: <frozen multithon.errors.common>
+            Object Name: MultiError
+            Qualified Name: MultiError
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__new__'
+            [Locals+Names]
+            [Constants]
+                'MultiError'
+                "Exception container for multiple `TLRequest`'s."
+                '__pyarmor_assert_17556__'
+                '__pyarmor_enter_17557__'
+                b'<COAddr>\x05\x00\x00&\x1c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.errors.common>
+                    Object Name: __new__
+                    Qualified Name: MultiError.__new__
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'len'
+                        'ValueError'
+                        'zip'
+                        'isinstance'
+                        'BaseException'
+                        'TypeError'
+                        'TLRequest'
+                        '__new__'
+                        'list'
+                        'exceptions'
+                        'results'
+                        'requests'
+                    [Locals+Names]
+                        'cls'
+                        'exceptions'
+                        'result'
+                        'requests'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                        '_var_var_2'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17559__'
+                        '__pyarmor_enter_17560__'
+                        b'<COAddr>\x07\x00\x00\x1a\n\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'Need result, exception and request for each error'   # b'\x81\xcc\x1d\x167\xba\xac\xd7\x08\xef\x01\xd4 \xac\xfd\x9d\x0cX\xab\xb3\xa3\xc4@\x8c\x04a\xa7\x1c\x12\xb4\x0f\xf0?A4M\x9e\xc5\xa6n\x1d\xe8\xfbU\x9d\xdd\x1dU8\xff'
+                        "Expected an exception object, not '%r'"   # b'\x81\xc7\x00\x036\xf9\xaa\xd7\x1f\xba\x0c\xce,\xe9\xe0\x86\nM\xaf\xae\xa5\xc5\x0e\xc3\x07e\xa6_\x14\xfd^\xeb5F`J\xdd\xd8\xf3'
+                        "Expected TLRequest object, not '%r'"   # b'\x81\xc7\x00\x036\xf9\xaa\xd7\x1f\xba9\xec^\xe9\xe9\x90\nN\xaf\xe7\xa5\xc9D\xc9\x06{\xef\x1c\x0e\xbe\n\xa5}\x172J'
+                        1
+                        0
+                        '__pyarmor_exit_17561__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17560__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\n\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + len
+                        38      LOAD_FAST                       2: result
+                        40      CALL                            1
+                        48      LOAD_GLOBAL                     1: NULL + len
+                        58      LOAD_FAST                       1: exceptions
+                        60      CALL                            1
+                        68      SWAP                            2
+                        70      COPY                            2
+                        72      COMPARE_OP                      55 (!=)
+                        76      POP_JUMP_IF_FALSE               14 (to 106)
+                        78      LOAD_GLOBAL                     1: NULL + len
+                        88      LOAD_FAST                       3: requests
+                        90      CALL                            1
+                        98      COMPARE_OP                      55 (!=)
+                        102     POP_JUMP_IF_FALSE               20 (to 144)
+                        104     JUMP_FORWARD                    2 (to 110)
+                        106     POP_TOP                         
+                        108     JUMP_FORWARD                    17 (to 144)
+                        110     LOAD_GLOBAL                     3: NULL + ValueError
+                        120     PUSH_NULL                       
+                        122     LOAD_CONST                      1: '__pyarmor_assert_17559__'
+                        124     LOAD_CONST                      4: 'Need result, exception and request for each error'   # b'\x81\xcc\x1d\x167\xba\xac\xd7\x08\xef\x01\xd4 \xac\xfd\x9d\x0cX\xab\xb3\xa3\xc4@\x8c\x04a\xa7\x1c\x12\xb4\x0f\xf0?A4M\x9e\xc5\xa6n\x1d\xe8\xfbU\x9d\xdd\x1dU8\xff'
+                        126     CALL                            1
+                        134     CALL                            1
+                        142     RAISE_VARARGS                   1
+                        144     LOAD_GLOBAL                     5: NULL + zip
+                        154     LOAD_FAST                       1: exceptions
+                        156     LOAD_FAST                       3: requests
+                        158     CALL                            2
+                        166     GET_ITER                        
+                        168     FOR_ITER                        79 (to 328)
+                        172     UNPACK_SEQUENCE                 2
+                        176     STORE_FAST                      5: _var_var_0
+                        178     STORE_FAST                      6: _var_var_1
+                        180     LOAD_GLOBAL                     7: NULL + isinstance
+                        190     LOAD_FAST                       5: _var_var_0
+                        192     LOAD_GLOBAL                     8: BaseException
+                        202     CALL                            2
+                        210     POP_JUMP_IF_TRUE                22 (to 256)
+                        212     LOAD_FAST                       5: _var_var_0
+                        214     POP_JUMP_IF_NONE                20 (to 256)
+                        216     LOAD_GLOBAL                     11: NULL + TypeError
+                        226     PUSH_NULL                       
+                        228     LOAD_CONST                      1: '__pyarmor_assert_17559__'
+                        230     LOAD_CONST                      5: "Expected an exception object, not '%r'"   # b'\x81\xc7\x00\x036\xf9\xaa\xd7\x1f\xba\x0c\xce,\xe9\xe0\x86\nM\xaf\xae\xa5\xc5\x0e\xc3\x07e\xa6_\x14\xfd^\xeb5F`J\xdd\xd8\xf3'
+                        232     CALL                            1
+                        240     LOAD_FAST                       5: _var_var_0
+                        242     BINARY_OP                       6 (%)
+                        246     CALL                            1
+                        254     RAISE_VARARGS                   1
+                        256     LOAD_GLOBAL                     7: NULL + isinstance
+                        266     LOAD_FAST                       6: _var_var_1
+                        268     LOAD_GLOBAL                     12: TLRequest
+                        278     CALL                            2
+                        286     POP_JUMP_IF_FALSE               1 (to 290)
+                        288     JUMP_BACKWARD                   61 (to 168)
+                        290     LOAD_GLOBAL                     11: NULL + TypeError
+                        300     PUSH_NULL                       
+                        302     LOAD_CONST                      1: '__pyarmor_assert_17559__'
+                        304     LOAD_CONST                      6: "Expected TLRequest object, not '%r'"   # b'\x81\xc7\x00\x036\xf9\xaa\xd7\x1f\xba9\xec^\xe9\xe9\x90\nN\xaf\xe7\xa5\xc9D\xc9\x06{\xef\x1c\x0e\xbe\n\xa5}\x172J'
+                        306     CALL                            1
+                        314     LOAD_FAST                       6: _var_var_1
+                        316     BINARY_OP                       6 (%)
+                        320     CALL                            1
+                        328     RAISE_VARARGS                   1
+                        330     END_FOR                         
+                        332     LOAD_GLOBAL                     1: NULL + len
+                        342     LOAD_FAST                       1: exceptions
+                        344     CALL                            1
+                        352     LOAD_CONST                      7: 1
+                        354     COMPARE_OP                      40 (==)
+                        358     POP_JUMP_IF_FALSE               14 (to 388)
+                        360     LOAD_FAST                       1: exceptions
+                        362     LOAD_CONST                      8: 0
+                        364     BINARY_SUBSCR                   
+                        368     NOP                             
+                        370     NOP                             
+                        372     NOP                             
+                        374     JUMP_FORWARD                    100 (to 576)
+                        376     CALL                            1
+                        384     POP_TOP                         
+                        386     RETURN_VALUE                    
+                        388     LOAD_GLOBAL                     8: BaseException
+                        398     LOAD_ATTR                       15: __new__
+                        418     LOAD_FAST                       0: cls
+                        420     CALL                            1
+                        428     STORE_FAST                      7: _var_var_2
+                        430     LOAD_GLOBAL                     17: NULL + list
+                        440     LOAD_FAST                       1: exceptions
+                        442     CALL                            1
+                        450     LOAD_FAST                       7: _var_var_2
+                        452     STORE_ATTR                      9: exceptions
+                        462     LOAD_GLOBAL                     17: NULL + list
+                        472     LOAD_FAST                       2: result
+                        474     CALL                            1
+                        482     LOAD_FAST                       7: _var_var_2
+                        484     STORE_ATTR                      10: results
+                        494     LOAD_GLOBAL                     17: NULL + list
+                        504     LOAD_FAST                       3: requests
+                        506     CALL                            1
+                        514     LOAD_FAST                       7: _var_var_2
+                        516     STORE_ATTR                      11: requests
+                        526     LOAD_FAST                       7: _var_var_2
+                        528     NOP                             
+                        530     NOP                             
+                        532     NOP                             
+                        534     JUMP_FORWARD                    20 (to 576)
+                        536     CALL                            1
+                        544     POP_TOP                         
+                        546     RETURN_VALUE                    
+                        548     PUSH_EXC_INFO                   
+                        550     PUSH_NULL                       
+                        552     LOAD_CONST                      9: '__pyarmor_exit_17561__'
+                        554     NOP                             
+                        556     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\n\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        558     CALL                            1
+                        566     POP_TOP                         
+                        568     RERAISE                         0
+                        570     COPY                            3
+                        572     POP_EXCEPT                      
+                        574     RERAISE                         1
+                        576     PUSH_NULL                       
+                        578     LOAD_CONST                      9: '__pyarmor_exit_17561__'
+                        580     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\n\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        582     BUILD_TUPLE                     1
+                        584     CALL_FUNCTION_EX                0
+                        586     POP_TOP                         
+                        588     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 288 -> 548 [0] 
+                        290 to 368 -> 548 [0] 
+                        388 to 528 -> 548 [0] 
+                        548 to 570 -> 570 [1] lasti
+                '__pyarmor_exit_17558__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'MultiError'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: "Exception container for multiple `TLRequest`'s."
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17557__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x1c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: <CODE> __new__
+                42      MAKE_FUNCTION                   0
+                44      STORE_NAME                      5: __new__
+                46      LOAD_CONST                      7: None
+                48      NOP                             
+                50      NOP                             
+                52      NOP                             
+                54      JUMP_FORWARD                    19 (to 94)
+                62      POP_TOP                         
+                64      RETURN_CONST                    7: None
+                66      PUSH_EXC_INFO                   
+                68      PUSH_NULL                       
+                70      LOAD_CONST                      6: '__pyarmor_exit_17558__'
+                72      NOP                             
+                74      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x1c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                76      CALL                            1
+                84      POP_TOP                         
+                86      RERAISE                         0
+                88      COPY                            3
+                90      POP_EXCEPT                      
+                92      RERAISE                         1
+                94      PUSH_NULL                       
+                96      LOAD_CONST                      6: '__pyarmor_exit_17558__'
+                98      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x1c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                100     BUILD_TUPLE                     1
+                102     CALL_FUNCTION_EX                0
+                104     POP_TOP                         
+                106     RETURN_VALUE                    
+            [Exception Table]
+                40 to 46 -> 66 [0] 
+                66 to 88 -> 88 [1] lasti
+        'MultiError'
+        '__pyarmor_exit_17501__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_17500__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\x1c\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      PUSH_NULL                       
+        28      LOAD_CONST                      0: '__pyarmor_assert_17499__'
+        30      LOAD_CONST                      3: 'Errors not related to the Telegram API itself'   # b'\x81\xc7\n\x01<\xe8\xad\x92\x15\xf5\x19\x80~\xe9\xf4\x84\x1bX\xbf\xe7\xbe\xc4\x0e\xd8\rj\xe3h\x05\xbd\x1b\xe2(S-M\xb9\xfa\x9dn\x11\xfd\xebX\xd1\xde'
+        32      CALL                            1
+        40      POP_TOP                         
+        42      LOAD_CONST                      4: 0
+        44      LOAD_CONST                      5: None
+        46      IMPORT_NAME                     1: struct
+        48      STORE_NAME                      1: struct
+        50      LOAD_CONST                      4: 0
+        52      LOAD_CONST                      5: None
+        54      IMPORT_NAME                     2: textwrap
+        56      STORE_NAME                      2: textwrap
+        58      LOAD_CONST                      6: 2
+        60      LOAD_CONST                      7: ('TLRequest',)
+        62      IMPORT_NAME                     3: tl
+        64      IMPORT_FROM                     4: TLRequest
+        66      STORE_NAME                      4: TLRequest
+        68      POP_TOP                         
+        70      PUSH_NULL                       
+        72      LOAD_BUILD_CLASS                
+        74      LOAD_CONST                      8: <CODE> ReadCancelledError
+        76      MAKE_FUNCTION                   0
+        78      LOAD_CONST                      9: 'ReadCancelledError'
+        80      LOAD_NAME                       5: Exception
+        82      CALL                            3
+        90      STORE_NAME                      6: ReadCancelledError
+        92      PUSH_NULL                       
+        94      LOAD_BUILD_CLASS                
+        96      LOAD_CONST                      10: <CODE> TypeNotFoundError
+        98      MAKE_FUNCTION                   0
+        100     LOAD_CONST                      11: 'TypeNotFoundError'
+        102     LOAD_NAME                       5: Exception
+        104     CALL                            3
+        112     STORE_NAME                      7: TypeNotFoundError
+        114     PUSH_NULL                       
+        116     LOAD_BUILD_CLASS                
+        118     LOAD_CONST                      12: <CODE> InvalidChecksumError
+        120     MAKE_FUNCTION                   0
+        122     LOAD_CONST                      13: 'InvalidChecksumError'
+        124     LOAD_NAME                       5: Exception
+        126     CALL                            3
+        134     STORE_NAME                      8: InvalidChecksumError
+        136     PUSH_NULL                       
+        138     LOAD_BUILD_CLASS                
+        140     LOAD_CONST                      14: <CODE> InvalidBufferError
+        142     MAKE_FUNCTION                   0
+        144     LOAD_CONST                      15: 'InvalidBufferError'
+        146     LOAD_NAME                       9: BufferError
+        148     CALL                            3
+        156     STORE_NAME                      10: InvalidBufferError
+        158     PUSH_NULL                       
+        160     LOAD_BUILD_CLASS                
+        162     LOAD_CONST                      16: <CODE> AuthKeyNotFound
+        164     MAKE_FUNCTION                   0
+        166     LOAD_CONST                      17: 'AuthKeyNotFound'
+        168     LOAD_NAME                       5: Exception
+        170     CALL                            3
+        178     STORE_NAME                      11: AuthKeyNotFound
+        180     PUSH_NULL                       
+        182     LOAD_BUILD_CLASS                
+        184     LOAD_CONST                      18: <CODE> SecurityError
+        186     MAKE_FUNCTION                   0
+        188     LOAD_CONST                      19: 'SecurityError'
+        190     LOAD_NAME                       5: Exception
+        192     CALL                            3
+        200     STORE_NAME                      12: SecurityError
+        202     PUSH_NULL                       
+        204     LOAD_BUILD_CLASS                
+        206     LOAD_CONST                      20: <CODE> CdnFileTamperedError
+        208     MAKE_FUNCTION                   0
+        210     LOAD_CONST                      21: 'CdnFileTamperedError'
+        212     LOAD_NAME                       12: SecurityError
+        214     CALL                            3
+        222     STORE_NAME                      13: CdnFileTamperedError
+        224     PUSH_NULL                       
+        226     LOAD_BUILD_CLASS                
+        228     LOAD_CONST                      22: <CODE> AlreadyInConversationError
+        230     MAKE_FUNCTION                   0
+        232     LOAD_CONST                      23: 'AlreadyInConversationError'
+        234     LOAD_NAME                       5: Exception
+        236     CALL                            3
+        244     STORE_NAME                      14: AlreadyInConversationError
+        246     PUSH_NULL                       
+        248     LOAD_BUILD_CLASS                
+        250     LOAD_CONST                      24: <CODE> BadMessageError
+        252     MAKE_FUNCTION                   0
+        254     LOAD_CONST                      25: 'BadMessageError'
+        256     LOAD_NAME                       5: Exception
+        258     CALL                            3
+        266     STORE_NAME                      15: BadMessageError
+        268     PUSH_NULL                       
+        270     LOAD_BUILD_CLASS                
+        272     LOAD_CONST                      26: <CODE> MultiError
+        274     MAKE_FUNCTION                   0
+        276     LOAD_CONST                      27: 'MultiError'
+        278     LOAD_NAME                       5: Exception
+        280     CALL                            3
+        288     STORE_NAME                      16: MultiError
+        290     LOAD_CONST                      5: None
+        292     NOP                             
+        294     NOP                             
+        296     NOP                             
+        298     JUMP_FORWARD                    19 (to 338)
+        306     POP_TOP                         
+        308     RETURN_CONST                    5: None
+        310     PUSH_EXC_INFO                   
+        312     PUSH_NULL                       
+        314     LOAD_CONST                      28: '__pyarmor_exit_17501__'
+        316     NOP                             
+        318     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\x1c\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        320     CALL                            1
+        328     POP_TOP                         
+        330     RERAISE                         0
+        332     COPY                            3
+        334     POP_EXCEPT                      
+        336     RERAISE                         1
+        338     PUSH_NULL                       
+        340     LOAD_CONST                      28: '__pyarmor_exit_17501__'
+        342     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\x1c\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        344     BUILD_TUPLE                     1
+        346     CALL_FUNCTION_EX                0
+        348     POP_TOP                         
+        350     RETURN_VALUE                    
+    [Exception Table]
+        26 to 290 -> 310 [0] 
+        310 to 332 -> 332 [1] lasti

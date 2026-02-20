@@ -1,0 +1,813 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.tl.patched>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 6
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        ''
+        'types'
+        'alltlobjects'
+        'custom.message'
+        'Message'
+        '_Message'
+        'MessageEmpty'
+        'tlobjects'
+        'CONSTRUCTOR_ID'
+        'MessageService'
+        'MessageService_L204'
+        'MessageService_L195'
+        'Message_L204'
+        'Message_L199'
+        'Message_L195'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_37281__'
+        '__pyarmor_enter_37282__'
+        b'<COAddr>\x07\x00\x00\x1a\x90\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        2
+        (
+            'types'
+            'alltlobjects'
+        )
+        (
+            'Message'
+        )
+        [Code]
+            File Name: <frozen multithon.tl.patched>
+            Object Name: MessageEmpty
+            Qualified Name: MessageEmpty
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+            [Locals+Names]
+            [Constants]
+                'MessageEmpty'
+                '__pyarmor_assert_37284__'
+                '__pyarmor_enter_37285__'
+                b'<COAddr>\x05\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_37286__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'MessageEmpty'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_37285__'
+                16      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      LOAD_CONST                      5: None
+                38      NOP                             
+                40      NOP                             
+                42      NOP                             
+                44      JUMP_FORWARD                    19 (to 84)
+                52      POP_TOP                         
+                54      RETURN_CONST                    5: None
+                56      PUSH_EXC_INFO                   
+                58      PUSH_NULL                       
+                60      LOAD_CONST                      4: '__pyarmor_exit_37286__'
+                62      NOP                             
+                64      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                66      CALL                            1
+                74      POP_TOP                         
+                76      RERAISE                         0
+                78      COPY                            3
+                80      POP_EXCEPT                      
+                82      RERAISE                         1
+                84      PUSH_NULL                       
+                86      LOAD_CONST                      4: '__pyarmor_exit_37286__'
+                88      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                90      BUILD_TUPLE                     1
+                92      CALL_FUNCTION_EX                0
+                94      POP_TOP                         
+                96      RETURN_VALUE                    
+            [Exception Table]
+                56 to 78 -> 78 [1] lasti
+        'MessageEmpty'
+        [Code]
+            File Name: <frozen multithon.tl.patched>
+            Object Name: MessageService
+            Qualified Name: MessageService
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+            [Locals+Names]
+            [Constants]
+                'MessageService'
+                '__pyarmor_assert_37287__'
+                '__pyarmor_enter_37288__'
+                b'<COAddr>\x07\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_37289__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'MessageService'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_37288__'
+                16      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      LOAD_CONST                      5: None
+                38      NOP                             
+                40      NOP                             
+                42      NOP                             
+                44      JUMP_FORWARD                    19 (to 84)
+                52      POP_TOP                         
+                54      RETURN_CONST                    5: None
+                56      PUSH_EXC_INFO                   
+                58      PUSH_NULL                       
+                60      LOAD_CONST                      4: '__pyarmor_exit_37289__'
+                62      NOP                             
+                64      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                66      CALL                            1
+                74      POP_TOP                         
+                76      RERAISE                         0
+                78      COPY                            3
+                80      POP_EXCEPT                      
+                82      RERAISE                         1
+                84      PUSH_NULL                       
+                86      LOAD_CONST                      4: '__pyarmor_exit_37289__'
+                88      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                90      BUILD_TUPLE                     1
+                92      CALL_FUNCTION_EX                0
+                94      POP_TOP                         
+                96      RETURN_VALUE                    
+            [Exception Table]
+                56 to 78 -> 78 [1] lasti
+        'MessageService'
+        [Code]
+            File Name: <frozen multithon.tl.patched>
+            Object Name: Message
+            Qualified Name: Message
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+            [Locals+Names]
+            [Constants]
+                'Message'
+                '__pyarmor_assert_37290__'
+                '__pyarmor_enter_37291__'
+                b'<COAddr>\x07\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_37292__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'Message'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_37291__'
+                16      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      LOAD_CONST                      5: None
+                38      NOP                             
+                40      NOP                             
+                42      NOP                             
+                44      JUMP_FORWARD                    19 (to 84)
+                52      POP_TOP                         
+                54      RETURN_CONST                    5: None
+                56      PUSH_EXC_INFO                   
+                58      PUSH_NULL                       
+                60      LOAD_CONST                      4: '__pyarmor_exit_37292__'
+                62      NOP                             
+                64      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                66      CALL                            1
+                74      POP_TOP                         
+                76      RERAISE                         0
+                78      COPY                            3
+                80      POP_EXCEPT                      
+                82      RERAISE                         1
+                84      PUSH_NULL                       
+                86      LOAD_CONST                      4: '__pyarmor_exit_37292__'
+                88      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                90      BUILD_TUPLE                     1
+                92      CALL_FUNCTION_EX                0
+                94      POP_TOP                         
+                96      RETURN_VALUE                    
+            [Exception Table]
+                56 to 78 -> 78 [1] lasti
+        'Message'
+        [Code]
+            File Name: <frozen multithon.tl.patched>
+            Object Name: MessageService_L204
+            Qualified Name: MessageService_L204
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+            [Locals+Names]
+            [Constants]
+                'MessageService_L204'
+                '__pyarmor_assert_37293__'
+                '__pyarmor_enter_37294__'
+                b'<COAddr>\x07\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_37295__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'MessageService_L204'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_37294__'
+                16      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      LOAD_CONST                      5: None
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      JUMP_FORWARD                    19 (to 82)
+                50      POP_TOP                         
+                52      RETURN_CONST                    5: None
+                54      PUSH_EXC_INFO                   
+                56      PUSH_NULL                       
+                58      LOAD_CONST                      4: '__pyarmor_exit_37295__'
+                60      NOP                             
+                62      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                64      CALL                            1
+                72      POP_TOP                         
+                74      RERAISE                         0
+                76      COPY                            3
+                78      POP_EXCEPT                      
+                80      RERAISE                         1
+                82      PUSH_NULL                       
+                84      LOAD_CONST                      4: '__pyarmor_exit_37295__'
+                86      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      BUILD_TUPLE                     1
+                90      CALL_FUNCTION_EX                0
+                92      POP_TOP                         
+                94      RETURN_VALUE                    
+            [Exception Table]
+                54 to 76 -> 76 [1] lasti
+        'MessageService_L204'
+        [Code]
+            File Name: <frozen multithon.tl.patched>
+            Object Name: MessageService_L195
+            Qualified Name: MessageService_L195
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+            [Locals+Names]
+            [Constants]
+                'MessageService_L195'
+                '__pyarmor_assert_37296__'
+                '__pyarmor_enter_37297__'
+                b'<COAddr>\x07\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_37298__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'MessageService_L195'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_37297__'
+                16      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      LOAD_CONST                      5: None
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      JUMP_FORWARD                    19 (to 82)
+                50      POP_TOP                         
+                52      RETURN_CONST                    5: None
+                54      PUSH_EXC_INFO                   
+                56      PUSH_NULL                       
+                58      LOAD_CONST                      4: '__pyarmor_exit_37298__'
+                60      NOP                             
+                62      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                64      CALL                            1
+                72      POP_TOP                         
+                74      RERAISE                         0
+                76      COPY                            3
+                78      POP_EXCEPT                      
+                80      RERAISE                         1
+                82      PUSH_NULL                       
+                84      LOAD_CONST                      4: '__pyarmor_exit_37298__'
+                86      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      BUILD_TUPLE                     1
+                90      CALL_FUNCTION_EX                0
+                92      POP_TOP                         
+                94      RETURN_VALUE                    
+            [Exception Table]
+                54 to 76 -> 76 [1] lasti
+        'MessageService_L195'
+        [Code]
+            File Name: <frozen multithon.tl.patched>
+            Object Name: Message_L204
+            Qualified Name: Message_L204
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+            [Locals+Names]
+            [Constants]
+                'Message_L204'
+                '__pyarmor_assert_37299__'
+                '__pyarmor_enter_37300__'
+                b'<COAddr>\x05\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_37301__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'Message_L204'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_37300__'
+                16      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      LOAD_CONST                      5: None
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      JUMP_FORWARD                    19 (to 82)
+                50      POP_TOP                         
+                52      RETURN_CONST                    5: None
+                54      PUSH_EXC_INFO                   
+                56      PUSH_NULL                       
+                58      LOAD_CONST                      4: '__pyarmor_exit_37301__'
+                60      NOP                             
+                62      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                64      CALL                            1
+                72      POP_TOP                         
+                74      RERAISE                         0
+                76      COPY                            3
+                78      POP_EXCEPT                      
+                80      RERAISE                         1
+                82      PUSH_NULL                       
+                84      LOAD_CONST                      4: '__pyarmor_exit_37301__'
+                86      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      BUILD_TUPLE                     1
+                90      CALL_FUNCTION_EX                0
+                92      POP_TOP                         
+                94      RETURN_VALUE                    
+            [Exception Table]
+                54 to 76 -> 76 [1] lasti
+        'Message_L204'
+        [Code]
+            File Name: <frozen multithon.tl.patched>
+            Object Name: Message_L199
+            Qualified Name: Message_L199
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+            [Locals+Names]
+            [Constants]
+                'Message_L199'
+                '__pyarmor_assert_37302__'
+                '__pyarmor_enter_37303__'
+                b'<COAddr>\x05\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_37304__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'Message_L199'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_37303__'
+                16      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      LOAD_CONST                      5: None
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      JUMP_FORWARD                    19 (to 82)
+                50      POP_TOP                         
+                52      RETURN_CONST                    5: None
+                54      PUSH_EXC_INFO                   
+                56      PUSH_NULL                       
+                58      LOAD_CONST                      4: '__pyarmor_exit_37304__'
+                60      NOP                             
+                62      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                64      CALL                            1
+                72      POP_TOP                         
+                74      RERAISE                         0
+                76      COPY                            3
+                78      POP_EXCEPT                      
+                80      RERAISE                         1
+                82      PUSH_NULL                       
+                84      LOAD_CONST                      4: '__pyarmor_exit_37304__'
+                86      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      BUILD_TUPLE                     1
+                90      CALL_FUNCTION_EX                0
+                92      POP_TOP                         
+                94      RETURN_VALUE                    
+            [Exception Table]
+                54 to 76 -> 76 [1] lasti
+        'Message_L199'
+        [Code]
+            File Name: <frozen multithon.tl.patched>
+            Object Name: Message_L195
+            Qualified Name: Message_L195
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+            [Locals+Names]
+            [Constants]
+                'Message_L195'
+                '__pyarmor_assert_37305__'
+                '__pyarmor_enter_37306__'
+                b'<COAddr>\x07\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_37307__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'Message_L195'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_37306__'
+                16      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      LOAD_CONST                      5: None
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      JUMP_FORWARD                    19 (to 82)
+                50      POP_TOP                         
+                52      RETURN_CONST                    5: None
+                54      PUSH_EXC_INFO                   
+                56      PUSH_NULL                       
+                58      LOAD_CONST                      4: '__pyarmor_exit_37307__'
+                60      NOP                             
+                62      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                64      CALL                            1
+                72      POP_TOP                         
+                74      RERAISE                         0
+                76      COPY                            3
+                78      POP_EXCEPT                      
+                80      RERAISE                         1
+                82      PUSH_NULL                       
+                84      LOAD_CONST                      4: '__pyarmor_exit_37307__'
+                86      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      BUILD_TUPLE                     1
+                90      CALL_FUNCTION_EX                0
+                92      POP_TOP                         
+                94      RETURN_VALUE                    
+            [Exception Table]
+                54 to 76 -> 76 [1] lasti
+        'Message_L195'
+        '__pyarmor_exit_37283__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_37282__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\x90\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 2
+        28      LOAD_CONST                      4: ('types', 'alltlobjects')
+        30      IMPORT_NAME                     1: 
+        32      IMPORT_FROM                     2: types
+        34      STORE_NAME                      2: types
+        36      IMPORT_FROM                     3: alltlobjects
+        38      STORE_NAME                      3: alltlobjects
+        40      POP_TOP                         
+        42      LOAD_CONST                      3: 2
+        44      LOAD_CONST                      5: ('Message',)
+        46      IMPORT_NAME                     4: custom.message
+        48      IMPORT_FROM                     5: Message
+        50      STORE_NAME                      6: _Message
+        52      POP_TOP                         
+        54      PUSH_NULL                       
+        56      LOAD_BUILD_CLASS                
+        58      LOAD_CONST                      6: <CODE> MessageEmpty
+        60      MAKE_FUNCTION                   0
+        62      LOAD_CONST                      7: 'MessageEmpty'
+        64      LOAD_NAME                       6: _Message
+        66      LOAD_NAME                       2: types
+        68      LOAD_ATTR                       14: MessageEmpty
+        88      CALL                            4
+        96      STORE_NAME                      7: MessageEmpty
+        98      LOAD_NAME                       7: MessageEmpty
+        100     LOAD_NAME                       2: types
+        102     STORE_ATTR                      7: MessageEmpty
+        112     LOAD_NAME                       7: MessageEmpty
+        114     LOAD_NAME                       3: alltlobjects
+        116     LOAD_ATTR                       16: tlobjects
+        136     LOAD_NAME                       7: MessageEmpty
+        138     LOAD_ATTR                       18: CONSTRUCTOR_ID
+        158     STORE_SUBSCR                    
+        162     PUSH_NULL                       
+        164     LOAD_BUILD_CLASS                
+        166     LOAD_CONST                      8: <CODE> MessageService
+        168     MAKE_FUNCTION                   0
+        170     LOAD_CONST                      9: 'MessageService'
+        172     LOAD_NAME                       6: _Message
+        174     LOAD_NAME                       2: types
+        176     LOAD_ATTR                       20: MessageService
+        196     CALL                            4
+        204     STORE_NAME                      10: MessageService
+        206     LOAD_NAME                       10: MessageService
+        208     LOAD_NAME                       2: types
+        210     STORE_ATTR                      10: MessageService
+        220     LOAD_NAME                       10: MessageService
+        222     LOAD_NAME                       3: alltlobjects
+        224     LOAD_ATTR                       16: tlobjects
+        244     LOAD_NAME                       10: MessageService
+        246     LOAD_ATTR                       18: CONSTRUCTOR_ID
+        266     STORE_SUBSCR                    
+        270     PUSH_NULL                       
+        272     LOAD_BUILD_CLASS                
+        274     LOAD_CONST                      10: <CODE> Message
+        276     MAKE_FUNCTION                   0
+        278     LOAD_CONST                      11: 'Message'
+        280     LOAD_NAME                       6: _Message
+        282     LOAD_NAME                       2: types
+        284     LOAD_ATTR                       10: Message
+        304     CALL                            4
+        312     STORE_NAME                      5: Message
+        314     LOAD_NAME                       5: Message
+        316     LOAD_NAME                       2: types
+        318     STORE_ATTR                      5: Message
+        328     LOAD_NAME                       5: Message
+        330     LOAD_NAME                       3: alltlobjects
+        332     LOAD_ATTR                       16: tlobjects
+        352     LOAD_NAME                       5: Message
+        354     LOAD_ATTR                       18: CONSTRUCTOR_ID
+        374     STORE_SUBSCR                    
+        378     PUSH_NULL                       
+        380     LOAD_BUILD_CLASS                
+        382     LOAD_CONST                      12: <CODE> MessageService_L204
+        384     MAKE_FUNCTION                   0
+        386     LOAD_CONST                      13: 'MessageService_L204'
+        388     LOAD_NAME                       6: _Message
+        390     LOAD_NAME                       2: types
+        392     LOAD_ATTR                       22: MessageService_L204
+        412     CALL                            4
+        420     STORE_NAME                      11: MessageService_L204
+        422     LOAD_NAME                       11: MessageService_L204
+        424     LOAD_NAME                       2: types
+        426     STORE_ATTR                      11: MessageService_L204
+        436     LOAD_NAME                       11: MessageService_L204
+        438     LOAD_NAME                       3: alltlobjects
+        440     LOAD_ATTR                       16: tlobjects
+        460     LOAD_NAME                       11: MessageService_L204
+        462     LOAD_ATTR                       18: CONSTRUCTOR_ID
+        482     STORE_SUBSCR                    
+        486     PUSH_NULL                       
+        488     LOAD_BUILD_CLASS                
+        490     LOAD_CONST                      14: <CODE> MessageService_L195
+        492     MAKE_FUNCTION                   0
+        494     LOAD_CONST                      15: 'MessageService_L195'
+        496     LOAD_NAME                       6: _Message
+        498     LOAD_NAME                       2: types
+        500     LOAD_ATTR                       24: MessageService_L195
+        520     CALL                            4
+        528     STORE_NAME                      12: MessageService_L195
+        530     LOAD_NAME                       12: MessageService_L195
+        532     LOAD_NAME                       2: types
+        534     STORE_ATTR                      12: MessageService_L195
+        544     LOAD_NAME                       12: MessageService_L195
+        546     LOAD_NAME                       3: alltlobjects
+        548     LOAD_ATTR                       16: tlobjects
+        568     LOAD_NAME                       12: MessageService_L195
+        570     LOAD_ATTR                       18: CONSTRUCTOR_ID
+        590     STORE_SUBSCR                    
+        594     PUSH_NULL                       
+        596     LOAD_BUILD_CLASS                
+        598     LOAD_CONST                      16: <CODE> Message_L204
+        600     MAKE_FUNCTION                   0
+        602     LOAD_CONST                      17: 'Message_L204'
+        604     LOAD_NAME                       6: _Message
+        606     LOAD_NAME                       2: types
+        608     LOAD_ATTR                       26: Message_L204
+        628     CALL                            4
+        636     STORE_NAME                      13: Message_L204
+        638     LOAD_NAME                       13: Message_L204
+        640     LOAD_NAME                       2: types
+        642     STORE_ATTR                      13: Message_L204
+        652     LOAD_NAME                       13: Message_L204
+        654     LOAD_NAME                       3: alltlobjects
+        656     LOAD_ATTR                       16: tlobjects
+        676     LOAD_NAME                       13: Message_L204
+        678     LOAD_ATTR                       18: CONSTRUCTOR_ID
+        698     STORE_SUBSCR                    
+        702     PUSH_NULL                       
+        704     LOAD_BUILD_CLASS                
+        706     LOAD_CONST                      18: <CODE> Message_L199
+        708     MAKE_FUNCTION                   0
+        710     LOAD_CONST                      19: 'Message_L199'
+        712     LOAD_NAME                       6: _Message
+        714     LOAD_NAME                       2: types
+        716     LOAD_ATTR                       28: Message_L199
+        736     CALL                            4
+        744     STORE_NAME                      14: Message_L199
+        746     LOAD_NAME                       14: Message_L199
+        748     LOAD_NAME                       2: types
+        750     STORE_ATTR                      14: Message_L199
+        760     LOAD_NAME                       14: Message_L199
+        762     LOAD_NAME                       3: alltlobjects
+        764     LOAD_ATTR                       16: tlobjects
+        784     LOAD_NAME                       14: Message_L199
+        786     LOAD_ATTR                       18: CONSTRUCTOR_ID
+        806     STORE_SUBSCR                    
+        810     PUSH_NULL                       
+        812     LOAD_BUILD_CLASS                
+        814     LOAD_CONST                      20: <CODE> Message_L195
+        816     MAKE_FUNCTION                   0
+        818     LOAD_CONST                      21: 'Message_L195'
+        820     LOAD_NAME                       6: _Message
+        822     LOAD_NAME                       2: types
+        824     LOAD_ATTR                       30: Message_L195
+        844     CALL                            4
+        852     STORE_NAME                      15: Message_L195
+        854     LOAD_NAME                       15: Message_L195
+        856     LOAD_NAME                       2: types
+        858     STORE_ATTR                      15: Message_L195
+        868     LOAD_NAME                       15: Message_L195
+        870     LOAD_NAME                       3: alltlobjects
+        872     LOAD_ATTR                       16: tlobjects
+        892     LOAD_NAME                       15: Message_L195
+        894     LOAD_ATTR                       18: CONSTRUCTOR_ID
+        914     STORE_SUBSCR                    
+        918     LOAD_CONST                      23: None
+        920     NOP                             
+        922     NOP                             
+        924     NOP                             
+        926     JUMP_FORWARD                    19 (to 966)
+        934     POP_TOP                         
+        936     RETURN_CONST                    23: None
+        938     PUSH_EXC_INFO                   
+        940     PUSH_NULL                       
+        942     LOAD_CONST                      22: '__pyarmor_exit_37283__'
+        944     NOP                             
+        946     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\x90\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        948     CALL                            1
+        956     POP_TOP                         
+        958     RERAISE                         0
+        960     COPY                            3
+        962     POP_EXCEPT                      
+        964     RERAISE                         1
+        966     PUSH_NULL                       
+        968     LOAD_CONST                      22: '__pyarmor_exit_37283__'
+        970     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\x90\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        972     BUILD_TUPLE                     1
+        974     CALL_FUNCTION_EX                0
+        976     POP_TOP                         
+        978     RETURN_VALUE                    
+    [Exception Table]
+        26 to 918 -> 938 [0] 
+        938 to 960 -> 960 [1] lasti

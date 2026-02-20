@@ -1,0 +1,82 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите `"__pyarmor_enter_xxx__"(b"<COAddr>...")` и `"__pyarmor_leave_xxx__"(b"<COAddr>...")` (пролог/эпилог).
+# 3. `"__pyarmor_assert_xxx__"(A)` не является настоящим оператором assert.
+#    - Если `A` — это имя или читаемая строка: замените на `A`.
+#    - Если `A` — это `(X, "Y")`: замените на `X.Y`.
+#    - Если `A` — это `(X, "Y", Z)`: замените на `X.Y = Z`.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. `"__pyarmor_bcc_xxx__"(...)` указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.version>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        '__version__'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_16686__'
+        '__pyarmor_enter_16687__'
+        b'<COAddr>\x07\x00\x00\x1a\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        '1.40.0'
+        '__pyarmor_exit_16688__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_16687__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      NOP                             
+        28      LOAD_CONST                      3: '1.40.0'
+        30      STORE_NAME                      1: __version__
+        32      LOAD_CONST                      5: None
+        34      NOP                             
+        36      NOP                             
+        38      NOP                             
+        40      JUMP_FORWARD                    19 (to 80)
+        48      POP_TOP                         
+        50      RETURN_CONST                    5: None
+        52      PUSH_EXC_INFO                   
+        54      PUSH_NULL                       
+        56      LOAD_CONST                      4: '__pyarmor_exit_16688__'
+        58      NOP                             
+        60      LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        62      CALL                            1
+        70      POP_TOP                         
+        72      RERAISE                         0
+        74      COPY                            3
+        76      POP_EXCEPT                      
+        78      RERAISE                         1
+        80      PUSH_NULL                       
+        82      LOAD_CONST                      4: '__pyarmor_exit_16688__'
+        84      LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        86      BUILD_TUPLE                     1
+        88      CALL_FUNCTION_EX                0
+        90      POP_TOP                         
+        92      RETURN_VALUE                    
+    [Exception Table]
+        28 to 32 -> 52 [0] 
+        52 to 74 -> 74 [1] lasti

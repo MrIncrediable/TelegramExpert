@@ -1,0 +1,465 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.telegram>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 27
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'delays'
+        'DelayOnline'
+        'Restart_wait'
+        'Thread_wait'
+        'entity'
+        'parsing_time'
+        'files'
+        'get_account_json'
+        'get_session'
+        'if_file_exist'
+        'json_file'
+        'rewrite_proxy_and_status'
+        'set_account_json'
+        'txt_file'
+        'func_async'
+        'AsyncTelegramEntity'
+        'AsyncTelegramGroup'
+        'async_account_works'
+        'AsyncDelayOnline'
+        'AsyncDisconnect'
+        'func_static'
+        'Disconnect'
+        'TelegramRequest'
+        'account_works'
+        'tg_entity'
+        'tg_group'
+        'tg_phones'
+        'tg_search_user'
+        'links'
+        'tg_links'
+        'proxy'
+        'get_account_proxy'
+        '__all__'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_16290__'
+        '__pyarmor_enter_16291__'
+        b'<COAddr>\x05\x00\x00\x1a\x8c\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'DelayOnline'
+        )
+        (
+            'Restart_wait'
+        )
+        (
+            'Thread_wait'
+        )
+        (
+            'entity'
+        )
+        (
+            'parsing_time'
+        )
+        (
+            'get_account_json'
+        )
+        (
+            'get_session'
+        )
+        (
+            'if_file_exist'
+        )
+        (
+            'json_file'
+        )
+        (
+            'rewrite_proxy_and_status'
+        )
+        (
+            'set_account_json'
+        )
+        (
+            'txt_file'
+        )
+        (
+            'AsyncTelegramEntity'
+        )
+        (
+            'AsyncTelegramGroup'
+        )
+        (
+            'async_account_works'
+        )
+        (
+            'AsyncDelayOnline'
+        )
+        (
+            'AsyncDisconnect'
+        )
+        (
+            'Disconnect'
+        )
+        (
+            'TelegramRequest'
+        )
+        (
+            'account_works'
+        )
+        (
+            'tg_entity'
+        )
+        (
+            'tg_group'
+        )
+        (
+            'tg_phones'
+        )
+        (
+            'tg_search_user'
+        )
+        (
+            'tg_links'
+        )
+        (
+            'get_account_proxy'
+        )
+        'DelayOnline'   # b'\x81\xc6\x1d\x1f2\xe3\x91\xdc\x17\xf3\x03\xc5'
+        'Disconnect'   # b'\x81\xc6\x11\x000\xf5\xb0\xdc\x1e\xf9\x19'
+        'Restart_wait'   # b"\x81\xd0\x1d\x00'\xfb\xac\xc6$\xed\x0c\xc9x"
+        'TelegramRequest'   # b'\x81\xd6\x1d\x1f6\xfd\xac\xd3\x16\xc8\x08\xd1y\xe9\xeb\x91'
+        'Thread_wait'   # b'\x81\xd6\x10\x016\xfb\xba\xed\x0c\xfb\x04\xd4'
+        'account_works'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6$\xed\x02\xd2g\xff'
+        'entity'
+        'get_account_json'   # b'\x81\xe5\x1d\x07\x0c\xfb\xbd\xd1\x14\xef\x03\xd4S\xe6\xeb\x8a\x01'
+        'get_account_proxy'   # b'\x81\xe5\x1d\x07\x0c\xfb\xbd\xd1\x14\xef\x03\xd4S\xfc\xea\x8a\x17D'
+        'get_session'   # b'\x81\xe5\x1d\x07\x0c\xe9\xbb\xc1\x08\xf3\x02\xce'
+        'if_file_exist'   # b'\x81\xeb\x1e,5\xf3\xb2\xd7$\xff\x15\xc9\x7f\xf8'
+        'json_file'   # b'\x81\xe8\x0b\x1c=\xc5\xb8\xdb\x17\xff'
+        'parsing_time'   # b'\x81\xf2\x19\x01 \xf3\xb0\xd5$\xee\x04\xcdi'
+        'rewrite_proxy_and_status'   # b'\x81\xf0\x1d\x04!\xf3\xaa\xd7$\xea\x1f\xcft\xf5\xc7\x84\x01Y\x84\xb4\xbe\xcaZ\xd9\x16'
+        'set_account_json'   # b'\x81\xf1\x1d\x07\x0c\xfb\xbd\xd1\x14\xef\x03\xd4S\xe6\xeb\x8a\x01'
+        'AsyncTelegramEntity'   # b'\x81\xc3\x0b\n=\xf9\x8a\xd7\x17\xff\n\xd2m\xe1\xdd\x8b\x1bT\xaf\xbe'
+        'AsyncTelegramGroup'   # b'\x81\xc3\x0b\n=\xf9\x8a\xd7\x17\xff\n\xd2m\xe1\xdf\x97\x00H\xab'
+        'AsyncDisconnect'   # b'\x81\xc3\x0b\n=\xf9\x9a\xdb\x08\xf9\x02\xceb\xe9\xfb\x91'
+        'async_account_works'   # b'\x81\xe3\x0b\n=\xf9\x81\xd3\x18\xf9\x02\xd5b\xf8\xc7\x92\x00O\xb0\xb4'
+        'AsyncDelayOnline'   # b'\x81\xc3\x0b\n=\xf9\x9a\xd7\x17\xfb\x14\xefb\xe0\xf1\x8b\n'
+        'tg_entity'   # b'\x81\xf6\x1f,6\xf4\xaa\xdb\x0f\xe3'
+        'tg_group'
+        'tg_links'
+        'tg_phones'   # b'\x81\xf6\x1f,#\xf2\xb1\xdc\x1e\xe9'
+        'tg_search_user'   # b'\x81\xf6\x1f, \xff\xbf\xc0\x18\xf22\xd5\x7f\xe9\xea'
+        'txt_file'
+        '__pyarmor_exit_16292__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_16291__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\x8c\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('DelayOnline',)
+        30      IMPORT_NAME                     1: delays
+        32      IMPORT_FROM                     2: DelayOnline
+        34      STORE_NAME                      2: DelayOnline
+        36      POP_TOP                         
+        38      LOAD_CONST                      3: 1
+        40      LOAD_CONST                      5: ('Restart_wait',)
+        42      IMPORT_NAME                     1: delays
+        44      IMPORT_FROM                     3: Restart_wait
+        46      STORE_NAME                      3: Restart_wait
+        48      POP_TOP                         
+        50      LOAD_CONST                      3: 1
+        52      LOAD_CONST                      6: ('Thread_wait',)
+        54      IMPORT_NAME                     1: delays
+        56      IMPORT_FROM                     4: Thread_wait
+        58      STORE_NAME                      4: Thread_wait
+        60      POP_TOP                         
+        62      LOAD_CONST                      3: 1
+        64      LOAD_CONST                      7: ('entity',)
+        66      IMPORT_NAME                     5: entity
+        68      IMPORT_FROM                     5: entity
+        70      STORE_NAME                      5: entity
+        72      POP_TOP                         
+        74      LOAD_CONST                      3: 1
+        76      LOAD_CONST                      8: ('parsing_time',)
+        78      IMPORT_NAME                     5: entity
+        80      IMPORT_FROM                     6: parsing_time
+        82      STORE_NAME                      6: parsing_time
+        84      POP_TOP                         
+        86      LOAD_CONST                      3: 1
+        88      LOAD_CONST                      9: ('get_account_json',)
+        90      IMPORT_NAME                     7: files
+        92      IMPORT_FROM                     8: get_account_json
+        94      STORE_NAME                      8: get_account_json
+        96      POP_TOP                         
+        98      LOAD_CONST                      3: 1
+        100     LOAD_CONST                      10: ('get_session',)
+        102     IMPORT_NAME                     7: files
+        104     IMPORT_FROM                     9: get_session
+        106     STORE_NAME                      9: get_session
+        108     POP_TOP                         
+        110     LOAD_CONST                      3: 1
+        112     LOAD_CONST                      11: ('if_file_exist',)
+        114     IMPORT_NAME                     7: files
+        116     IMPORT_FROM                     10: if_file_exist
+        118     STORE_NAME                      10: if_file_exist
+        120     POP_TOP                         
+        122     LOAD_CONST                      3: 1
+        124     LOAD_CONST                      12: ('json_file',)
+        126     IMPORT_NAME                     7: files
+        128     IMPORT_FROM                     11: json_file
+        130     STORE_NAME                      11: json_file
+        132     POP_TOP                         
+        134     LOAD_CONST                      3: 1
+        136     LOAD_CONST                      13: ('rewrite_proxy_and_status',)
+        138     IMPORT_NAME                     7: files
+        140     IMPORT_FROM                     12: rewrite_proxy_and_status
+        142     STORE_NAME                      12: rewrite_proxy_and_status
+        144     POP_TOP                         
+        146     LOAD_CONST                      3: 1
+        148     LOAD_CONST                      14: ('set_account_json',)
+        150     IMPORT_NAME                     7: files
+        152     IMPORT_FROM                     13: set_account_json
+        154     STORE_NAME                      13: set_account_json
+        156     POP_TOP                         
+        158     LOAD_CONST                      3: 1
+        160     LOAD_CONST                      15: ('txt_file',)
+        162     IMPORT_NAME                     7: files
+        164     IMPORT_FROM                     14: txt_file
+        166     STORE_NAME                      14: txt_file
+        168     POP_TOP                         
+        170     LOAD_CONST                      3: 1
+        172     LOAD_CONST                      16: ('AsyncTelegramEntity',)
+        174     IMPORT_NAME                     15: func_async
+        176     IMPORT_FROM                     16: AsyncTelegramEntity
+        178     STORE_NAME                      16: AsyncTelegramEntity
+        180     POP_TOP                         
+        182     LOAD_CONST                      3: 1
+        184     LOAD_CONST                      17: ('AsyncTelegramGroup',)
+        186     IMPORT_NAME                     15: func_async
+        188     IMPORT_FROM                     17: AsyncTelegramGroup
+        190     STORE_NAME                      17: AsyncTelegramGroup
+        192     POP_TOP                         
+        194     LOAD_CONST                      3: 1
+        196     LOAD_CONST                      18: ('async_account_works',)
+        198     IMPORT_NAME                     15: func_async
+        200     IMPORT_FROM                     18: async_account_works
+        202     STORE_NAME                      18: async_account_works
+        204     POP_TOP                         
+        206     LOAD_CONST                      3: 1
+        208     LOAD_CONST                      19: ('AsyncDelayOnline',)
+        210     IMPORT_NAME                     15: func_async
+        212     IMPORT_FROM                     19: AsyncDelayOnline
+        214     STORE_NAME                      19: AsyncDelayOnline
+        216     POP_TOP                         
+        218     LOAD_CONST                      3: 1
+        220     LOAD_CONST                      20: ('AsyncDisconnect',)
+        222     IMPORT_NAME                     15: func_async
+        224     IMPORT_FROM                     20: AsyncDisconnect
+        226     STORE_NAME                      20: AsyncDisconnect
+        228     POP_TOP                         
+        230     LOAD_CONST                      3: 1
+        232     LOAD_CONST                      21: ('Disconnect',)
+        234     IMPORT_NAME                     21: func_static
+        236     IMPORT_FROM                     22: Disconnect
+        238     STORE_NAME                      22: Disconnect
+        240     POP_TOP                         
+        242     LOAD_CONST                      3: 1
+        244     LOAD_CONST                      22: ('TelegramRequest',)
+        246     IMPORT_NAME                     21: func_static
+        248     IMPORT_FROM                     23: TelegramRequest
+        250     STORE_NAME                      23: TelegramRequest
+        252     POP_TOP                         
+        254     LOAD_CONST                      3: 1
+        256     LOAD_CONST                      23: ('account_works',)
+        258     IMPORT_NAME                     21: func_static
+        260     IMPORT_FROM                     24: account_works
+        262     STORE_NAME                      24: account_works
+        264     POP_TOP                         
+        266     LOAD_CONST                      3: 1
+        268     LOAD_CONST                      24: ('tg_entity',)
+        270     IMPORT_NAME                     21: func_static
+        272     IMPORT_FROM                     25: tg_entity
+        274     STORE_NAME                      25: tg_entity
+        276     POP_TOP                         
+        278     LOAD_CONST                      3: 1
+        280     LOAD_CONST                      25: ('tg_group',)
+        282     IMPORT_NAME                     21: func_static
+        284     IMPORT_FROM                     26: tg_group
+        286     STORE_NAME                      26: tg_group
+        288     POP_TOP                         
+        290     LOAD_CONST                      3: 1
+        292     LOAD_CONST                      26: ('tg_phones',)
+        294     IMPORT_NAME                     21: func_static
+        296     IMPORT_FROM                     27: tg_phones
+        298     STORE_NAME                      27: tg_phones
+        300     POP_TOP                         
+        302     LOAD_CONST                      3: 1
+        304     LOAD_CONST                      27: ('tg_search_user',)
+        306     IMPORT_NAME                     21: func_static
+        308     IMPORT_FROM                     28: tg_search_user
+        310     STORE_NAME                      28: tg_search_user
+        312     POP_TOP                         
+        314     LOAD_CONST                      3: 1
+        316     LOAD_CONST                      28: ('tg_links',)
+        318     IMPORT_NAME                     29: links
+        320     IMPORT_FROM                     30: tg_links
+        322     STORE_NAME                      30: tg_links
+        324     POP_TOP                         
+        326     LOAD_CONST                      3: 1
+        328     LOAD_CONST                      29: ('get_account_proxy',)
+        330     IMPORT_NAME                     31: proxy
+        332     IMPORT_FROM                     32: get_account_proxy
+        334     STORE_NAME                      32: get_account_proxy
+        336     POP_TOP                         
+        338     PUSH_NULL                       
+        340     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        342     LOAD_CONST                      30: 'DelayOnline'   # b'\x81\xc6\x1d\x1f2\xe3\x91\xdc\x17\xf3\x03\xc5'
+        344     CALL                            1
+        352     PUSH_NULL                       
+        354     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        356     LOAD_CONST                      31: 'Disconnect'   # b'\x81\xc6\x11\x000\xf5\xb0\xdc\x1e\xf9\x19'
+        358     CALL                            1
+        366     PUSH_NULL                       
+        368     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        370     LOAD_CONST                      32: 'Restart_wait'   # b"\x81\xd0\x1d\x00'\xfb\xac\xc6$\xed\x0c\xc9x"
+        372     CALL                            1
+        380     PUSH_NULL                       
+        382     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        384     LOAD_CONST                      33: 'TelegramRequest'   # b'\x81\xd6\x1d\x1f6\xfd\xac\xd3\x16\xc8\x08\xd1y\xe9\xeb\x91'
+        386     CALL                            1
+        394     PUSH_NULL                       
+        396     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        398     LOAD_CONST                      34: 'Thread_wait'   # b'\x81\xd6\x10\x016\xfb\xba\xed\x0c\xfb\x04\xd4'
+        400     CALL                            1
+        408     PUSH_NULL                       
+        410     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        412     LOAD_CONST                      35: 'account_works'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6$\xed\x02\xd2g\xff'
+        414     CALL                            1
+        422     LOAD_CONST                      36: 'entity'
+        424     PUSH_NULL                       
+        426     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        428     LOAD_CONST                      37: 'get_account_json'   # b'\x81\xe5\x1d\x07\x0c\xfb\xbd\xd1\x14\xef\x03\xd4S\xe6\xeb\x8a\x01'
+        430     CALL                            1
+        438     PUSH_NULL                       
+        440     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        442     LOAD_CONST                      38: 'get_account_proxy'   # b'\x81\xe5\x1d\x07\x0c\xfb\xbd\xd1\x14\xef\x03\xd4S\xfc\xea\x8a\x17D'
+        444     CALL                            1
+        452     PUSH_NULL                       
+        454     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        456     LOAD_CONST                      39: 'get_session'   # b'\x81\xe5\x1d\x07\x0c\xe9\xbb\xc1\x08\xf3\x02\xce'
+        458     CALL                            1
+        466     PUSH_NULL                       
+        468     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        470     LOAD_CONST                      40: 'if_file_exist'   # b'\x81\xeb\x1e,5\xf3\xb2\xd7$\xff\x15\xc9\x7f\xf8'
+        472     CALL                            1
+        480     PUSH_NULL                       
+        482     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        484     LOAD_CONST                      41: 'json_file'   # b'\x81\xe8\x0b\x1c=\xc5\xb8\xdb\x17\xff'
+        486     CALL                            1
+        494     PUSH_NULL                       
+        496     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        498     LOAD_CONST                      42: 'parsing_time'   # b'\x81\xf2\x19\x01 \xf3\xb0\xd5$\xee\x04\xcdi'
+        500     CALL                            1
+        508     PUSH_NULL                       
+        510     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        512     LOAD_CONST                      43: 'rewrite_proxy_and_status'   # b'\x81\xf0\x1d\x04!\xf3\xaa\xd7$\xea\x1f\xcft\xf5\xc7\x84\x01Y\x84\xb4\xbe\xcaZ\xd9\x16'
+        514     CALL                            1
+        522     PUSH_NULL                       
+        524     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        526     LOAD_CONST                      44: 'set_account_json'   # b'\x81\xf1\x1d\x07\x0c\xfb\xbd\xd1\x14\xef\x03\xd4S\xe6\xeb\x8a\x01'
+        528     CALL                            1
+        536     PUSH_NULL                       
+        538     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        540     LOAD_CONST                      45: 'AsyncTelegramEntity'   # b'\x81\xc3\x0b\n=\xf9\x8a\xd7\x17\xff\n\xd2m\xe1\xdd\x8b\x1bT\xaf\xbe'
+        542     CALL                            1
+        550     PUSH_NULL                       
+        552     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        554     LOAD_CONST                      46: 'AsyncTelegramGroup'   # b'\x81\xc3\x0b\n=\xf9\x8a\xd7\x17\xff\n\xd2m\xe1\xdf\x97\x00H\xab'
+        556     CALL                            1
+        564     PUSH_NULL                       
+        566     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        568     LOAD_CONST                      47: 'AsyncDisconnect'   # b'\x81\xc3\x0b\n=\xf9\x9a\xdb\x08\xf9\x02\xceb\xe9\xfb\x91'
+        570     CALL                            1
+        578     PUSH_NULL                       
+        580     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        582     LOAD_CONST                      48: 'async_account_works'   # b'\x81\xe3\x0b\n=\xf9\x81\xd3\x18\xf9\x02\xd5b\xf8\xc7\x92\x00O\xb0\xb4'
+        584     CALL                            1
+        592     PUSH_NULL                       
+        594     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        596     LOAD_CONST                      49: 'AsyncDelayOnline'   # b'\x81\xc3\x0b\n=\xf9\x9a\xd7\x17\xfb\x14\xefb\xe0\xf1\x8b\n'
+        598     CALL                            1
+        606     PUSH_NULL                       
+        608     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        610     LOAD_CONST                      50: 'tg_entity'   # b'\x81\xf6\x1f,6\xf4\xaa\xdb\x0f\xe3'
+        612     CALL                            1
+        620     LOAD_CONST                      51: 'tg_group'
+        622     LOAD_CONST                      52: 'tg_links'
+        624     PUSH_NULL                       
+        626     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        628     LOAD_CONST                      53: 'tg_phones'   # b'\x81\xf6\x1f,#\xf2\xb1\xdc\x1e\xe9'
+        630     CALL                            1
+        638     PUSH_NULL                       
+        640     LOAD_CONST                      0: '__pyarmor_assert_16290__'
+        642     LOAD_CONST                      54: 'tg_search_user'   # b'\x81\xf6\x1f, \xff\xbf\xc0\x18\xf22\xd5\x7f\xe9\xea'
+        644     CALL                            1
+        652     LOAD_CONST                      55: 'txt_file'
+        654     BUILD_LIST                      26
+        656     STORE_NAME                      33: __all__
+        658     LOAD_CONST                      57: None
+        660     NOP                             
+        662     NOP                             
+        664     NOP                             
+        666     JUMP_FORWARD                    19 (to 706)
+        674     POP_TOP                         
+        676     RETURN_CONST                    57: None
+        678     PUSH_EXC_INFO                   
+        680     PUSH_NULL                       
+        682     LOAD_CONST                      56: '__pyarmor_exit_16292__'
+        684     NOP                             
+        686     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\x8c\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        688     CALL                            1
+        696     POP_TOP                         
+        698     RERAISE                         0
+        700     COPY                            3
+        702     POP_EXCEPT                      
+        704     RERAISE                         1
+        706     PUSH_NULL                       
+        708     LOAD_CONST                      56: '__pyarmor_exit_16292__'
+        710     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\x8c\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        712     BUILD_TUPLE                     1
+        714     CALL_FUNCTION_EX                0
+        716     POP_TOP                         
+        718     RETURN_VALUE                    
+    [Exception Table]
+        26 to 658 -> 678 [0] 
+        678 to 700 -> 700 [1] lasti

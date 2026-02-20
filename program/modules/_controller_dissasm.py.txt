@@ -1,0 +1,1589 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.modules._controller>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 30
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'account_work'
+        'accounts'
+        'account_booster'
+        'account_reset_restrict'
+        'Parsing'
+        'Parsing_write'
+        'Parsing_account'
+        'Parsing_comment'
+        'Invite_id'
+        'Invite_phone'
+        'Invite_admin'
+        'Invite_username_v1'
+        'Invite_username_v2'
+        'Invite_admin_auto'
+        'Send_id'
+        'Send_username'
+        'Send_groups'
+        'Send_groups_account'
+        'Send_phone'
+        'Send_open_dialogs'
+        'Send_channel'
+        'Check_links'
+        'Check_phones'
+        'Check_numbers'
+        'Create_channels'
+        'AnsweringMachine'
+        'DeleteDialogs'
+        'Unsubscribe'
+        'Subscribe'
+        'Subscribe_bot'
+        'Reactions'
+        'DbClean'
+        'DbUnion'
+        'DbExclude'
+        'DbGender'
+        'Registrator_universal'
+        'Registrator_activate'
+        'Registrator_activate_new'
+        'Registrator_smsbower_new'
+        'Registrator_vaksms'
+        'Registrator_generator'
+        'Registrator_dublicator'
+        'Registrator_converter'
+        'Registrator_add_account'
+        'Registrator_manual'
+        'Registrator_private'
+        'Registrator_tokens'
+        'Stat_generator'
+        'Stat_union'
+        'Stat_calc'
+        'Search_groups'
+        'Interceptor'
+        'Forwarder'
+        'Index'
+        'Roles'
+        'Settings'
+        'Group_add_admin'
+        'Group_del_admin'
+        'Reporter'
+        'Cloner_chats'
+        'Cloner_channel'
+        'Views'
+        'Views_proxy'
+        'Proxy_checker'
+        'Read_dialogs'
+        'accounts_check'
+        'accounts_mass_actions'
+        'accounts_export'
+        'Contacts_add'
+        'Contacts_del'
+        'Contacts_export'
+        'Contacts_send'
+        'Contacts_invite'
+        'Search_global'
+        'Check_links_no_accounts'
+        'Create_bots'
+        'Edit_messages'
+        'Create_postbot'
+        'Stories_public'
+        'Stories_send'
+        'Stories_export'
+        'Stories_del'
+        'Generator_json'
+        'program.static_classes'
+        'Logs'
+        'logging'
+        'datacontext'
+        'controller'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_14868__'
+        '__pyarmor_enter_14869__'
+        b'<COAddr>\x07\x00\x00\x1aF\t\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'accounts'
+        )
+        (
+            'account_booster'
+        )
+        (
+            'account_reset_restrict'
+        )
+        (
+            'Parsing'
+        )
+        (
+            'Parsing_write'
+        )
+        (
+            'Parsing_account'
+        )
+        (
+            'Parsing_comment'
+        )
+        (
+            'Invite_id'
+        )
+        (
+            'Invite_phone'
+        )
+        (
+            'Invite_admin'
+        )
+        (
+            'Invite_username_v1'
+        )
+        (
+            'Invite_username_v2'
+        )
+        (
+            'Invite_admin_auto'
+        )
+        (
+            'Send_id'
+        )
+        (
+            'Send_username'
+        )
+        (
+            'Send_groups'
+        )
+        (
+            'Send_groups_account'
+        )
+        (
+            'Send_phone'
+        )
+        (
+            'Send_open_dialogs'
+        )
+        (
+            'Send_channel'
+        )
+        (
+            'Check_links'
+        )
+        (
+            'Check_phones'
+        )
+        (
+            'Check_numbers'
+        )
+        (
+            'Create_channels'
+        )
+        (
+            'AnsweringMachine'
+        )
+        (
+            'DeleteDialogs'
+        )
+        (
+            'Unsubscribe'
+        )
+        (
+            'Subscribe'
+        )
+        (
+            'Subscribe_bot'
+        )
+        (
+            'Reactions'
+        )
+        (
+            'DbClean'
+        )
+        (
+            'DbUnion'
+        )
+        (
+            'DbExclude'
+        )
+        (
+            'DbGender'
+        )
+        (
+            'Registrator_universal'
+        )
+        (
+            'Registrator_activate'
+        )
+        (
+            'Registrator_activate_new'
+        )
+        (
+            'Registrator_smsbower_new'
+        )
+        (
+            'Registrator_vaksms'
+        )
+        (
+            'Registrator_generator'
+        )
+        (
+            'Registrator_dublicator'
+        )
+        (
+            'Registrator_converter'
+        )
+        (
+            'Registrator_add_account'
+        )
+        (
+            'Registrator_manual'
+        )
+        (
+            'Registrator_private'
+        )
+        (
+            'Registrator_tokens'
+        )
+        (
+            'Stat_generator'
+        )
+        (
+            'Stat_union'
+        )
+        (
+            'Stat_calc'
+        )
+        (
+            'Search_groups'
+        )
+        (
+            'Interceptor'
+        )
+        (
+            'Forwarder'
+        )
+        (
+            'Index'
+        )
+        (
+            'Roles'
+        )
+        (
+            'Settings'
+        )
+        (
+            'Group_add_admin'
+        )
+        (
+            'Group_del_admin'
+        )
+        (
+            'Reporter'
+        )
+        (
+            'Cloner_chats'
+        )
+        (
+            'Cloner_channel'
+        )
+        (
+            'Views'
+        )
+        (
+            'Views_proxy'
+        )
+        (
+            'Proxy_checker'
+        )
+        (
+            'Read_dialogs'
+        )
+        (
+            'accounts_check'
+        )
+        (
+            'accounts_mass_actions'
+        )
+        (
+            'accounts_export'
+        )
+        (
+            'Contacts_add'
+        )
+        (
+            'Contacts_del'
+        )
+        (
+            'Contacts_export'
+        )
+        (
+            'Contacts_send'
+        )
+        (
+            'Contacts_invite'
+        )
+        (
+            'Search_global'
+        )
+        (
+            'Check_links_no_accounts'
+        )
+        (
+            'Create_bots'
+        )
+        (
+            'Edit_messages'
+        )
+        (
+            'Create_postbot'
+        )
+        (
+            'Stories_public'
+        )
+        (
+            'Stories_send'
+        )
+        (
+            'Stories_export'
+        )
+        (
+            'Stories_del'
+        )
+        (
+            'Generator_json'
+        )
+        0
+        (
+            'Logs'
+            'logging'
+        )
+        'accountswork'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6\x08\xed\x02\xd2g'
+        'account_booster'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6$\xf8\x02\xcf\x7f\xf8\xfd\x97'
+        'account_reset_restrict'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6$\xe8\x08\xd3i\xf8\xc7\x97\nN\xaf\xb5\xa3\xc8Z'
+        'Parsing'
+        'Parsing_comment'   # b'\x81\xd2\x19\x01 \xf3\xb0\xd5$\xf9\x02\xcda\xe9\xf6\x91'
+        'Parsing_write'   # b'\x81\xd2\x19\x01 \xf3\xb0\xd5$\xed\x1f\xc9x\xe9'
+        'Parsing_account'   # b'\x81\xd2\x19\x01 \xf3\xb0\xd5$\xfb\x0e\xc3c\xf9\xf6\x91'
+        'Invite_username_v1'   # b'\x81\xcb\x16\x05:\xee\xbb\xed\x0e\xe9\x08\xd2b\xed\xf5\x800K\xea'
+        'Invite_username_v2'   # b'\x81\xcb\x16\x05:\xee\xbb\xed\x0e\xe9\x08\xd2b\xed\xf5\x800K\xe9'
+        'Invite_id'   # b'\x81\xcb\x16\x05:\xee\xbb\xed\x12\xfe'
+        'Invite_phone'   # b'\x81\xcb\x16\x05:\xee\xbb\xed\x0b\xf2\x02\xcei'
+        'Invite_admin'   # b'\x81\xcb\x16\x05:\xee\xbb\xed\x1a\xfe\x00\xc9b'
+        'Invite_admin_auto'   # b'\x81\xcb\x16\x05:\xee\xbb\xed\x1a\xfe\x00\xc9b\xd3\xf9\x90\x1bR'
+        'Send_username'   # b'\x81\xd1\x1d\x1d7\xc5\xab\xc1\x1e\xe8\x03\xc1a\xe9'
+        'Send_id'
+        'Send_groups'   # b'\x81\xd1\x1d\x1d7\xc5\xb9\xc0\x14\xef\x1d\xd3'
+        'Send_groups_account'   # b'\x81\xd1\x1d\x1d7\xc5\xb9\xc0\x14\xef\x1d\xd3S\xed\xfb\x86\x00H\xb5\xb3'
+        'Send_phone'   # b'\x81\xd1\x1d\x1d7\xc5\xae\xda\x14\xf4\x08'
+        'Send_open_dialogs'   # b'\x81\xd1\x1d\x1d7\xc5\xb1\xc2\x1e\xf42\xc4e\xed\xf4\x8a\x08N'
+        'Send_channel'   # b'\x81\xd1\x1d\x1d7\xc5\xbd\xda\x1a\xf4\x03\xc5`'
+        'Check_links'   # b'\x81\xc1\x10\x160\xf1\x81\xde\x12\xf4\x06\xd3'
+        'Check_phones'   # b'\x81\xc1\x10\x160\xf1\x81\xc2\x13\xf5\x03\xc5\x7f'
+        'Check_numbers'   # b'\x81\xc1\x10\x160\xf1\x81\xdc\x0e\xf7\x0f\xc5~\xff'
+        'Create_channels'   # b'\x81\xc1\n\x162\xee\xbb\xed\x18\xf2\x0c\xceb\xe9\xf4\x96'
+        'AnsweringMachine'   # b'\x81\xc3\x16\x00$\xff\xac\xdb\x15\xfd \xc1o\xe4\xf1\x8b\n'
+        'DeleteDialogs'   # b'\x81\xc6\x1d\x1f6\xee\xbb\xf6\x12\xfb\x01\xcfk\xff'
+        'Unsubscribe'   # b'\x81\xd7\x16\x00&\xf8\xad\xd1\t\xf3\x0f\xc5'
+        'Subscribe'   # b'\x81\xd1\r\x11 \xf9\xac\xdb\x19\xff'
+        'Subscribe_bot'   # b'\x81\xd1\r\x11 \xf9\xac\xdb\x19\xff2\xc2c\xf8'
+        'Reactions'   # b'\x81\xd0\x1d\x120\xee\xb7\xdd\x15\xe9'
+        'DbClean'
+        'DbUnion'
+        'DbExclude'   # b'\x81\xc6\x1a6+\xf9\xb2\xc7\x1f\xff'
+        'DbGender'
+        'Registrator_universal'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xf9\xf6\x8c\x19X\xa9\xb4\xab\xc7'
+        'Registrator_activate'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xed\xfb\x91\x06K\xba\xb3\xaf'
+        'Registrator_activate_new'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xed\xfb\x91\x06K\xba\xb3\xaf\xf4@\xc9\x12'
+        'Registrator_smsbower_new'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xff\xf5\x96\rR\xac\xa2\xb8\xf4@\xc9\x12'
+        'Registrator_vaksms'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xfa\xf9\x8e\x1cP\xa8'
+        'Registrator_generator'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xeb\xfd\x8b\nO\xba\xb3\xa5\xd9'
+        'Registrator_dublicator'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xe8\xed\x87\x03T\xb8\xa6\xbe\xc4\\'
+        'Registrator_converter'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xef\xf7\x8b\x19X\xa9\xb3\xaf\xd9'
+        'Registrator_add_account'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xed\xfc\x810\\\xb8\xa4\xa5\xde@\xd8'
+        'Registrator_manual'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xe1\xf9\x8b\x1a\\\xb7'
+        'Registrator_private'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xfc\xea\x8c\x19\\\xaf\xa2'
+        'Registrator_tokens'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xf8\xf7\x8e\nS\xa8'
+        'Stat_generator'   # b"\x81\xd1\x0c\x12'\xc5\xb9\xd7\x15\xff\x1f\xc1x\xe3\xea"
+        'Stat_union'   # b"\x81\xd1\x0c\x12'\xc5\xab\xdc\x12\xf5\x03"
+        'Stat_calc'   # b"\x81\xd1\x0c\x12'\xc5\xbd\xd3\x17\xf9"
+        'Search_groups'   # b'\x81\xd1\x1d\x12!\xf9\xb6\xed\x1c\xe8\x02\xd5|\xff'
+        'Interceptor'   # b'\x81\xcb\x16\x076\xe8\xbd\xd7\x0b\xee\x02\xd2'
+        'Forwarder'   # b'\x81\xc4\x17\x01$\xfb\xac\xd6\x1e\xe8'
+        'index'
+        'roles'
+        'settings'
+        'Group_add_admin'   # b'\x81\xc5\n\x1c&\xea\x81\xd3\x1f\xfe2\xc1h\xe1\xf1\x8b'
+        'Group_del_admin'   # b'\x81\xc5\n\x1c&\xea\x81\xd6\x1e\xf62\xc1h\xe1\xf1\x8b'
+        'Reporter'
+        'Cloner_chats'   # b'\x81\xc1\x14\x1c=\xff\xac\xed\x18\xf2\x0c\xd4\x7f'
+        'Cloner_channel'   # b'\x81\xc1\x14\x1c=\xff\xac\xed\x18\xf2\x0c\xceb\xe9\xf4'
+        'Views'
+        'Views_proxy'   # b'\x81\xd4\x11\x16$\xe9\x81\xc2\t\xf5\x15\xd9'
+        'Proxy_checker'   # b'\x81\xd2\n\x1c+\xe3\x81\xd1\x13\xff\x0e\xcbi\xfe'
+        'Read_dialogs'   # b'\x81\xd0\x1d\x127\xc5\xba\xdb\x1a\xf6\x02\xc7\x7f'
+        'accounts_check'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6\x08\xc5\x0e\xc8i\xef\xf3'
+        'accounts_mass_actions'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6\x08\xc5\x00\xc1\x7f\xff\xc7\x84\x0cI\xb2\xa8\xa4\xd8'
+        'accounts_export'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6\x08\xc5\x08\xd8|\xe3\xea\x91'
+        'Contacts_add'   # b"\x81\xc1\x17\x1d'\xfb\xbd\xc6\x08\xc5\x0c\xc4h"
+        'Contacts_del'   # b"\x81\xc1\x17\x1d'\xfb\xbd\xc6\x08\xc5\t\xc5`"
+        'Contacts_export'   # b"\x81\xc1\x17\x1d'\xfb\xbd\xc6\x08\xc5\x08\xd8|\xe3\xea\x91"
+        'Contacts_send'   # b"\x81\xc1\x17\x1d'\xfb\xbd\xc6\x08\xc5\x1e\xc5b\xe8"
+        'Contacts_invite'   # b"\x81\xc1\x17\x1d'\xfb\xbd\xc6\x08\xc5\x04\xcez\xe5\xec\x80"
+        'Search_global'   # b'\x81\xd1\x1d\x12!\xf9\xb6\xed\x1c\xf6\x02\xc2m\xe0'
+        'Check_links_no_accounts'   # b'\x81\xc1\x10\x160\xf1\x81\xde\x12\xf4\x06\xd3S\xe2\xf7\xba\x0e^\xb8\xa8\xbf\xc5Z\xdf'
+        'Create_bots'   # b'\x81\xc1\n\x162\xee\xbb\xed\x19\xf5\x19\xd3'
+        'Edit_messages'   # b"\x81\xc7\x1c\x1a'\xc5\xb3\xd7\x08\xe9\x0c\xc7i\xff"
+        'Create_postbot'   # b'\x81\xc1\n\x162\xee\xbb\xed\x0b\xf5\x1e\xd4n\xe3\xec'
+        'Stories_public'   # b'\x81\xd1\x0c\x1c!\xf3\xbb\xc1$\xea\x18\xc2`\xe5\xfb'
+        'Stories_send'   # b'\x81\xd1\x0c\x1c!\xf3\xbb\xc1$\xe9\x08\xceh'
+        'Stories_export'   # b'\x81\xd1\x0c\x1c!\xf3\xbb\xc1$\xff\x15\xd0c\xfe\xec'
+        'Stories_del'   # b'\x81\xd1\x0c\x1c!\xf3\xbb\xc1$\xfe\x08\xcc'
+        'Generator_json'   # b'\x81\xc5\x1d\x1d6\xe8\xbf\xc6\x14\xe82\xca\x7f\xe3\xf6'
+        [Code]
+            File Name: <frozen program.modules._controller>
+            Object Name: controller
+            Qualified Name: controller
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'Logs'
+                'LangCheck'
+                'datacontext'
+                'get'
+                'BaseException'
+                'logging'
+            [Locals+Names]
+                'data'
+                '__assert_armored__'
+                '_var_var_0'
+            [Constants]
+                None
+                '__pyarmor_assert_14871__'
+                '__pyarmor_enter_14872__'
+                b'<COAddr>\x07\x00\x00\x1a\n\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'stuff'
+                '__pyarmor_exit_14873__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_14872__'
+                8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\n\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_GLOBAL                     1: NULL + Logs
+                38      LOAD_ATTR                       2: LangCheck
+                58      CALL                            0
+                66      POP_TOP                         
+                68      NOP                             
+                70      LOAD_GLOBAL                     4: datacontext
+                80      LOAD_ATTR                       7: get
+                100     LOAD_FAST                       0: data
+                102     LOAD_CONST                      4: 'stuff'
+                104     BINARY_SUBSCR                   
+                108     CALL                            1
+                116     POP_JUMP_IF_NONE                38 (to 194)
+                118     LOAD_GLOBAL                     5: NULL + datacontext
+                128     LOAD_ATTR                       7: get
+                148     LOAD_FAST                       0: data
+                150     LOAD_CONST                      4: 'stuff'
+                152     BINARY_SUBSCR                   
+                156     CALL                            1
+                164     LOAD_FAST                       0: data
+                166     CALL                            1
+                174     NOP                             
+                176     NOP                             
+                178     NOP                             
+                180     JUMP_FORWARD                    69 (to 320)
+                182     CALL                            1
+                190     POP_TOP                         
+                192     RETURN_VALUE                    
+                194     NOP                             
+                196     LOAD_CONST                      0: None
+                198     NOP                             
+                200     NOP                             
+                202     NOP                             
+                204     JUMP_FORWARD                    57 (to 320)
+                212     POP_TOP                         
+                214     RETURN_CONST                    0: None
+                216     PUSH_EXC_INFO                   
+                218     LOAD_GLOBAL                     8: BaseException
+                228     CHECK_EXC_MATCH                 
+                230     POP_JUMP_IF_FALSE               26 (to 284)
+                232     STORE_FAST                      2: _var_var_0
+                234     PUSH_NULL                       
+                236     LOAD_GLOBAL                     11: NULL + logging
+                246     LOAD_FAST                       2: _var_var_0
+                248     CALL                            1
+                256     CALL                            0
+                264     POP_TOP                         
+                266     POP_EXCEPT                      
+                268     LOAD_CONST                      0: None
+                270     STORE_FAST                      2: _var_var_0
+                272     DELETE_FAST                     2: _var_var_0
+                274     JUMP_BACKWARD                   40 (to 196)
+                276     LOAD_CONST                      0: None
+                278     STORE_FAST                      2: _var_var_0
+                280     DELETE_FAST                     2: _var_var_0
+                282     RERAISE                         1
+                284     RERAISE                         0
+                286     COPY                            3
+                288     POP_EXCEPT                      
+                290     RERAISE                         1
+                292     PUSH_EXC_INFO                   
+                294     PUSH_NULL                       
+                296     LOAD_CONST                      5: '__pyarmor_exit_14873__'
+                298     NOP                             
+                300     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\n\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                302     CALL                            1
+                310     POP_TOP                         
+                312     RERAISE                         0
+                314     COPY                            3
+                316     POP_EXCEPT                      
+                318     RERAISE                         1
+                320     PUSH_NULL                       
+                322     LOAD_CONST                      5: '__pyarmor_exit_14873__'
+                324     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\n\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                326     BUILD_TUPLE                     1
+                328     CALL_FUNCTION_EX                0
+                330     POP_TOP                         
+                332     RETURN_VALUE                    
+            [Exception Table]
+                28 to 68 -> 292 [0] 
+                70 to 174 -> 216 [0] 
+                194 to 196 -> 292 [0] 
+                216 to 234 -> 286 [1] lasti
+                234 to 266 -> 276 [1] lasti
+                266 to 276 -> 292 [0] 
+                276 to 286 -> 286 [1] lasti
+                286 to 292 -> 292 [0] 
+                292 to 314 -> 314 [1] lasti
+        '__pyarmor_exit_14870__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_14869__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aF\t\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('accounts',)
+        30      IMPORT_NAME                     1: account_work
+        32      IMPORT_FROM                     2: accounts
+        34      STORE_NAME                      2: accounts
+        36      POP_TOP                         
+        38      LOAD_CONST                      3: 1
+        40      LOAD_CONST                      5: ('account_booster',)
+        42      IMPORT_NAME                     3: account_booster
+        44      IMPORT_FROM                     3: account_booster
+        46      STORE_NAME                      3: account_booster
+        48      POP_TOP                         
+        50      LOAD_CONST                      3: 1
+        52      LOAD_CONST                      6: ('account_reset_restrict',)
+        54      IMPORT_NAME                     4: account_reset_restrict
+        56      IMPORT_FROM                     4: account_reset_restrict
+        58      STORE_NAME                      4: account_reset_restrict
+        60      POP_TOP                         
+        62      LOAD_CONST                      3: 1
+        64      LOAD_CONST                      7: ('Parsing',)
+        66      IMPORT_NAME                     5: Parsing
+        68      IMPORT_FROM                     5: Parsing
+        70      STORE_NAME                      5: Parsing
+        72      POP_TOP                         
+        74      LOAD_CONST                      3: 1
+        76      LOAD_CONST                      8: ('Parsing_write',)
+        78      IMPORT_NAME                     6: Parsing_write
+        80      IMPORT_FROM                     6: Parsing_write
+        82      STORE_NAME                      6: Parsing_write
+        84      POP_TOP                         
+        86      LOAD_CONST                      3: 1
+        88      LOAD_CONST                      9: ('Parsing_account',)
+        90      IMPORT_NAME                     7: Parsing_account
+        92      IMPORT_FROM                     7: Parsing_account
+        94      STORE_NAME                      7: Parsing_account
+        96      POP_TOP                         
+        98      LOAD_CONST                      3: 1
+        100     LOAD_CONST                      10: ('Parsing_comment',)
+        102     IMPORT_NAME                     8: Parsing_comment
+        104     IMPORT_FROM                     8: Parsing_comment
+        106     STORE_NAME                      8: Parsing_comment
+        108     POP_TOP                         
+        110     LOAD_CONST                      3: 1
+        112     LOAD_CONST                      11: ('Invite_id',)
+        114     IMPORT_NAME                     9: Invite_id
+        116     IMPORT_FROM                     9: Invite_id
+        118     STORE_NAME                      9: Invite_id
+        120     POP_TOP                         
+        122     LOAD_CONST                      3: 1
+        124     LOAD_CONST                      12: ('Invite_phone',)
+        126     IMPORT_NAME                     10: Invite_phone
+        128     IMPORT_FROM                     10: Invite_phone
+        130     STORE_NAME                      10: Invite_phone
+        132     POP_TOP                         
+        134     LOAD_CONST                      3: 1
+        136     LOAD_CONST                      13: ('Invite_admin',)
+        138     IMPORT_NAME                     11: Invite_admin
+        140     IMPORT_FROM                     11: Invite_admin
+        142     STORE_NAME                      11: Invite_admin
+        144     POP_TOP                         
+        146     LOAD_CONST                      3: 1
+        148     LOAD_CONST                      14: ('Invite_username_v1',)
+        150     IMPORT_NAME                     12: Invite_username_v1
+        152     IMPORT_FROM                     12: Invite_username_v1
+        154     STORE_NAME                      12: Invite_username_v1
+        156     POP_TOP                         
+        158     LOAD_CONST                      3: 1
+        160     LOAD_CONST                      15: ('Invite_username_v2',)
+        162     IMPORT_NAME                     13: Invite_username_v2
+        164     IMPORT_FROM                     13: Invite_username_v2
+        166     STORE_NAME                      13: Invite_username_v2
+        168     POP_TOP                         
+        170     LOAD_CONST                      3: 1
+        172     LOAD_CONST                      16: ('Invite_admin_auto',)
+        174     IMPORT_NAME                     14: Invite_admin_auto
+        176     IMPORT_FROM                     14: Invite_admin_auto
+        178     STORE_NAME                      14: Invite_admin_auto
+        180     POP_TOP                         
+        182     LOAD_CONST                      3: 1
+        184     LOAD_CONST                      17: ('Send_id',)
+        186     IMPORT_NAME                     15: Send_id
+        188     IMPORT_FROM                     15: Send_id
+        190     STORE_NAME                      15: Send_id
+        192     POP_TOP                         
+        194     LOAD_CONST                      3: 1
+        196     LOAD_CONST                      18: ('Send_username',)
+        198     IMPORT_NAME                     16: Send_username
+        200     IMPORT_FROM                     16: Send_username
+        202     STORE_NAME                      16: Send_username
+        204     POP_TOP                         
+        206     LOAD_CONST                      3: 1
+        208     LOAD_CONST                      19: ('Send_groups',)
+        210     IMPORT_NAME                     17: Send_groups
+        212     IMPORT_FROM                     17: Send_groups
+        214     STORE_NAME                      17: Send_groups
+        216     POP_TOP                         
+        218     LOAD_CONST                      3: 1
+        220     LOAD_CONST                      20: ('Send_groups_account',)
+        222     IMPORT_NAME                     18: Send_groups_account
+        224     IMPORT_FROM                     18: Send_groups_account
+        226     STORE_NAME                      18: Send_groups_account
+        228     POP_TOP                         
+        230     LOAD_CONST                      3: 1
+        232     LOAD_CONST                      21: ('Send_phone',)
+        234     IMPORT_NAME                     19: Send_phone
+        236     IMPORT_FROM                     19: Send_phone
+        238     STORE_NAME                      19: Send_phone
+        240     POP_TOP                         
+        242     LOAD_CONST                      3: 1
+        244     LOAD_CONST                      22: ('Send_open_dialogs',)
+        246     IMPORT_NAME                     20: Send_open_dialogs
+        248     IMPORT_FROM                     20: Send_open_dialogs
+        250     STORE_NAME                      20: Send_open_dialogs
+        252     POP_TOP                         
+        254     LOAD_CONST                      3: 1
+        256     LOAD_CONST                      23: ('Send_channel',)
+        258     IMPORT_NAME                     21: Send_channel
+        260     IMPORT_FROM                     21: Send_channel
+        262     STORE_NAME                      21: Send_channel
+        264     POP_TOP                         
+        266     LOAD_CONST                      3: 1
+        268     LOAD_CONST                      24: ('Check_links',)
+        270     IMPORT_NAME                     22: Check_links
+        272     IMPORT_FROM                     22: Check_links
+        274     STORE_NAME                      22: Check_links
+        276     POP_TOP                         
+        278     LOAD_CONST                      3: 1
+        280     LOAD_CONST                      25: ('Check_phones',)
+        282     IMPORT_NAME                     23: Check_phones
+        284     IMPORT_FROM                     23: Check_phones
+        286     STORE_NAME                      23: Check_phones
+        288     POP_TOP                         
+        290     LOAD_CONST                      3: 1
+        292     LOAD_CONST                      26: ('Check_numbers',)
+        294     IMPORT_NAME                     24: Check_numbers
+        296     IMPORT_FROM                     24: Check_numbers
+        298     STORE_NAME                      24: Check_numbers
+        300     POP_TOP                         
+        302     LOAD_CONST                      3: 1
+        304     LOAD_CONST                      27: ('Create_channels',)
+        306     IMPORT_NAME                     25: Create_channels
+        308     IMPORT_FROM                     25: Create_channels
+        310     STORE_NAME                      25: Create_channels
+        312     POP_TOP                         
+        314     LOAD_CONST                      3: 1
+        316     LOAD_CONST                      28: ('AnsweringMachine',)
+        318     IMPORT_NAME                     26: AnsweringMachine
+        320     IMPORT_FROM                     26: AnsweringMachine
+        322     STORE_NAME                      26: AnsweringMachine
+        324     POP_TOP                         
+        326     LOAD_CONST                      3: 1
+        328     LOAD_CONST                      29: ('DeleteDialogs',)
+        330     IMPORT_NAME                     27: DeleteDialogs
+        332     IMPORT_FROM                     27: DeleteDialogs
+        334     STORE_NAME                      27: DeleteDialogs
+        336     POP_TOP                         
+        338     LOAD_CONST                      3: 1
+        340     LOAD_CONST                      30: ('Unsubscribe',)
+        342     IMPORT_NAME                     28: Unsubscribe
+        344     IMPORT_FROM                     28: Unsubscribe
+        346     STORE_NAME                      28: Unsubscribe
+        348     POP_TOP                         
+        350     LOAD_CONST                      3: 1
+        352     LOAD_CONST                      31: ('Subscribe',)
+        354     IMPORT_NAME                     29: Subscribe
+        356     IMPORT_FROM                     29: Subscribe
+        358     STORE_NAME                      29: Subscribe
+        360     POP_TOP                         
+        362     LOAD_CONST                      3: 1
+        364     LOAD_CONST                      32: ('Subscribe_bot',)
+        366     IMPORT_NAME                     30: Subscribe_bot
+        368     IMPORT_FROM                     30: Subscribe_bot
+        370     STORE_NAME                      30: Subscribe_bot
+        372     POP_TOP                         
+        374     LOAD_CONST                      3: 1
+        376     LOAD_CONST                      33: ('Reactions',)
+        378     IMPORT_NAME                     31: Reactions
+        380     IMPORT_FROM                     31: Reactions
+        382     STORE_NAME                      31: Reactions
+        384     POP_TOP                         
+        386     LOAD_CONST                      3: 1
+        388     LOAD_CONST                      34: ('DbClean',)
+        390     IMPORT_NAME                     32: DbClean
+        392     IMPORT_FROM                     32: DbClean
+        394     STORE_NAME                      32: DbClean
+        396     POP_TOP                         
+        398     LOAD_CONST                      3: 1
+        400     LOAD_CONST                      35: ('DbUnion',)
+        402     IMPORT_NAME                     33: DbUnion
+        404     IMPORT_FROM                     33: DbUnion
+        406     STORE_NAME                      33: DbUnion
+        408     POP_TOP                         
+        410     LOAD_CONST                      3: 1
+        412     LOAD_CONST                      36: ('DbExclude',)
+        414     IMPORT_NAME                     34: DbExclude
+        416     IMPORT_FROM                     34: DbExclude
+        418     STORE_NAME                      34: DbExclude
+        420     POP_TOP                         
+        422     LOAD_CONST                      3: 1
+        424     LOAD_CONST                      37: ('DbGender',)
+        426     IMPORT_NAME                     35: DbGender
+        428     IMPORT_FROM                     35: DbGender
+        430     STORE_NAME                      35: DbGender
+        432     POP_TOP                         
+        434     LOAD_CONST                      3: 1
+        436     LOAD_CONST                      38: ('Registrator_universal',)
+        438     IMPORT_NAME                     36: Registrator_universal
+        440     IMPORT_FROM                     36: Registrator_universal
+        442     STORE_NAME                      36: Registrator_universal
+        444     POP_TOP                         
+        446     LOAD_CONST                      3: 1
+        448     LOAD_CONST                      39: ('Registrator_activate',)
+        450     IMPORT_NAME                     37: Registrator_activate
+        452     IMPORT_FROM                     37: Registrator_activate
+        454     STORE_NAME                      37: Registrator_activate
+        456     POP_TOP                         
+        458     LOAD_CONST                      3: 1
+        460     LOAD_CONST                      40: ('Registrator_activate_new',)
+        462     IMPORT_NAME                     38: Registrator_activate_new
+        464     IMPORT_FROM                     38: Registrator_activate_new
+        466     STORE_NAME                      38: Registrator_activate_new
+        468     POP_TOP                         
+        470     LOAD_CONST                      3: 1
+        472     LOAD_CONST                      41: ('Registrator_smsbower_new',)
+        474     IMPORT_NAME                     39: Registrator_smsbower_new
+        476     IMPORT_FROM                     39: Registrator_smsbower_new
+        478     STORE_NAME                      39: Registrator_smsbower_new
+        480     POP_TOP                         
+        482     LOAD_CONST                      3: 1
+        484     LOAD_CONST                      42: ('Registrator_vaksms',)
+        486     IMPORT_NAME                     40: Registrator_vaksms
+        488     IMPORT_FROM                     40: Registrator_vaksms
+        490     STORE_NAME                      40: Registrator_vaksms
+        492     POP_TOP                         
+        494     LOAD_CONST                      3: 1
+        496     LOAD_CONST                      43: ('Registrator_generator',)
+        498     IMPORT_NAME                     41: Registrator_generator
+        500     IMPORT_FROM                     41: Registrator_generator
+        502     STORE_NAME                      41: Registrator_generator
+        504     POP_TOP                         
+        506     LOAD_CONST                      3: 1
+        508     LOAD_CONST                      44: ('Registrator_dublicator',)
+        510     IMPORT_NAME                     42: Registrator_dublicator
+        512     IMPORT_FROM                     42: Registrator_dublicator
+        514     STORE_NAME                      42: Registrator_dublicator
+        516     POP_TOP                         
+        518     LOAD_CONST                      3: 1
+        520     LOAD_CONST                      45: ('Registrator_converter',)
+        522     IMPORT_NAME                     43: Registrator_converter
+        524     IMPORT_FROM                     43: Registrator_converter
+        526     STORE_NAME                      43: Registrator_converter
+        528     POP_TOP                         
+        530     LOAD_CONST                      3: 1
+        532     LOAD_CONST                      46: ('Registrator_add_account',)
+        534     IMPORT_NAME                     44: Registrator_add_account
+        536     IMPORT_FROM                     44: Registrator_add_account
+        538     STORE_NAME                      44: Registrator_add_account
+        540     POP_TOP                         
+        542     LOAD_CONST                      3: 1
+        544     LOAD_CONST                      47: ('Registrator_manual',)
+        546     IMPORT_NAME                     45: Registrator_manual
+        548     IMPORT_FROM                     45: Registrator_manual
+        550     STORE_NAME                      45: Registrator_manual
+        552     POP_TOP                         
+        554     LOAD_CONST                      3: 1
+        556     LOAD_CONST                      48: ('Registrator_private',)
+        558     IMPORT_NAME                     46: Registrator_private
+        560     IMPORT_FROM                     46: Registrator_private
+        562     STORE_NAME                      46: Registrator_private
+        564     POP_TOP                         
+        566     LOAD_CONST                      3: 1
+        568     LOAD_CONST                      49: ('Registrator_tokens',)
+        570     IMPORT_NAME                     47: Registrator_tokens
+        572     IMPORT_FROM                     47: Registrator_tokens
+        574     STORE_NAME                      47: Registrator_tokens
+        576     POP_TOP                         
+        578     LOAD_CONST                      3: 1
+        580     LOAD_CONST                      50: ('Stat_generator',)
+        582     IMPORT_NAME                     48: Stat_generator
+        584     IMPORT_FROM                     48: Stat_generator
+        586     STORE_NAME                      48: Stat_generator
+        588     POP_TOP                         
+        590     LOAD_CONST                      3: 1
+        592     LOAD_CONST                      51: ('Stat_union',)
+        594     IMPORT_NAME                     49: Stat_union
+        596     IMPORT_FROM                     49: Stat_union
+        598     STORE_NAME                      49: Stat_union
+        600     POP_TOP                         
+        602     LOAD_CONST                      3: 1
+        604     LOAD_CONST                      52: ('Stat_calc',)
+        606     IMPORT_NAME                     50: Stat_calc
+        608     IMPORT_FROM                     50: Stat_calc
+        610     STORE_NAME                      50: Stat_calc
+        612     POP_TOP                         
+        614     LOAD_CONST                      3: 1
+        616     LOAD_CONST                      53: ('Search_groups',)
+        618     IMPORT_NAME                     51: Search_groups
+        620     IMPORT_FROM                     51: Search_groups
+        622     STORE_NAME                      51: Search_groups
+        624     POP_TOP                         
+        626     LOAD_CONST                      3: 1
+        628     LOAD_CONST                      54: ('Interceptor',)
+        630     IMPORT_NAME                     52: Interceptor
+        632     IMPORT_FROM                     52: Interceptor
+        634     STORE_NAME                      52: Interceptor
+        636     POP_TOP                         
+        638     LOAD_CONST                      3: 1
+        640     LOAD_CONST                      55: ('Forwarder',)
+        642     IMPORT_NAME                     53: Forwarder
+        644     IMPORT_FROM                     53: Forwarder
+        646     STORE_NAME                      53: Forwarder
+        648     POP_TOP                         
+        650     LOAD_CONST                      3: 1
+        652     LOAD_CONST                      56: ('Index',)
+        654     IMPORT_NAME                     54: Index
+        656     IMPORT_FROM                     54: Index
+        658     STORE_NAME                      54: Index
+        660     POP_TOP                         
+        662     LOAD_CONST                      3: 1
+        664     LOAD_CONST                      57: ('Roles',)
+        666     IMPORT_NAME                     55: Roles
+        668     IMPORT_FROM                     55: Roles
+        670     STORE_NAME                      55: Roles
+        672     POP_TOP                         
+        674     LOAD_CONST                      3: 1
+        676     LOAD_CONST                      58: ('Settings',)
+        678     IMPORT_NAME                     56: Settings
+        680     IMPORT_FROM                     56: Settings
+        682     STORE_NAME                      56: Settings
+        684     POP_TOP                         
+        686     LOAD_CONST                      3: 1
+        688     LOAD_CONST                      59: ('Group_add_admin',)
+        690     IMPORT_NAME                     57: Group_add_admin
+        692     IMPORT_FROM                     57: Group_add_admin
+        694     STORE_NAME                      57: Group_add_admin
+        696     POP_TOP                         
+        698     LOAD_CONST                      3: 1
+        700     LOAD_CONST                      60: ('Group_del_admin',)
+        702     IMPORT_NAME                     58: Group_del_admin
+        704     IMPORT_FROM                     58: Group_del_admin
+        706     STORE_NAME                      58: Group_del_admin
+        708     POP_TOP                         
+        710     LOAD_CONST                      3: 1
+        712     LOAD_CONST                      61: ('Reporter',)
+        714     IMPORT_NAME                     59: Reporter
+        716     IMPORT_FROM                     59: Reporter
+        718     STORE_NAME                      59: Reporter
+        720     POP_TOP                         
+        722     LOAD_CONST                      3: 1
+        724     LOAD_CONST                      62: ('Cloner_chats',)
+        726     IMPORT_NAME                     60: Cloner_chats
+        728     IMPORT_FROM                     60: Cloner_chats
+        730     STORE_NAME                      60: Cloner_chats
+        732     POP_TOP                         
+        734     LOAD_CONST                      3: 1
+        736     LOAD_CONST                      63: ('Cloner_channel',)
+        738     IMPORT_NAME                     61: Cloner_channel
+        740     IMPORT_FROM                     61: Cloner_channel
+        742     STORE_NAME                      61: Cloner_channel
+        744     POP_TOP                         
+        746     LOAD_CONST                      3: 1
+        748     LOAD_CONST                      64: ('Views',)
+        750     IMPORT_NAME                     62: Views
+        752     IMPORT_FROM                     62: Views
+        754     STORE_NAME                      62: Views
+        756     POP_TOP                         
+        758     LOAD_CONST                      3: 1
+        760     LOAD_CONST                      65: ('Views_proxy',)
+        762     IMPORT_NAME                     63: Views_proxy
+        764     IMPORT_FROM                     63: Views_proxy
+        766     STORE_NAME                      63: Views_proxy
+        768     POP_TOP                         
+        770     LOAD_CONST                      3: 1
+        772     LOAD_CONST                      66: ('Proxy_checker',)
+        774     IMPORT_NAME                     64: Proxy_checker
+        776     IMPORT_FROM                     64: Proxy_checker
+        778     STORE_NAME                      64: Proxy_checker
+        780     POP_TOP                         
+        782     LOAD_CONST                      3: 1
+        784     LOAD_CONST                      67: ('Read_dialogs',)
+        786     IMPORT_NAME                     65: Read_dialogs
+        788     IMPORT_FROM                     65: Read_dialogs
+        790     STORE_NAME                      65: Read_dialogs
+        792     POP_TOP                         
+        794     LOAD_CONST                      3: 1
+        796     LOAD_CONST                      68: ('accounts_check',)
+        798     IMPORT_NAME                     66: accounts_check
+        800     IMPORT_FROM                     66: accounts_check
+        802     STORE_NAME                      66: accounts_check
+        804     POP_TOP                         
+        806     LOAD_CONST                      3: 1
+        808     LOAD_CONST                      69: ('accounts_mass_actions',)
+        810     IMPORT_NAME                     67: accounts_mass_actions
+        812     IMPORT_FROM                     67: accounts_mass_actions
+        814     STORE_NAME                      67: accounts_mass_actions
+        816     POP_TOP                         
+        818     LOAD_CONST                      3: 1
+        820     LOAD_CONST                      70: ('accounts_export',)
+        822     IMPORT_NAME                     68: accounts_export
+        824     IMPORT_FROM                     68: accounts_export
+        826     STORE_NAME                      68: accounts_export
+        828     POP_TOP                         
+        830     LOAD_CONST                      3: 1
+        832     LOAD_CONST                      71: ('Contacts_add',)
+        834     IMPORT_NAME                     69: Contacts_add
+        836     IMPORT_FROM                     69: Contacts_add
+        838     STORE_NAME                      69: Contacts_add
+        840     POP_TOP                         
+        842     LOAD_CONST                      3: 1
+        844     LOAD_CONST                      72: ('Contacts_del',)
+        846     IMPORT_NAME                     70: Contacts_del
+        848     IMPORT_FROM                     70: Contacts_del
+        850     STORE_NAME                      70: Contacts_del
+        852     POP_TOP                         
+        854     LOAD_CONST                      3: 1
+        856     LOAD_CONST                      73: ('Contacts_export',)
+        858     IMPORT_NAME                     71: Contacts_export
+        860     IMPORT_FROM                     71: Contacts_export
+        862     STORE_NAME                      71: Contacts_export
+        864     POP_TOP                         
+        866     LOAD_CONST                      3: 1
+        868     LOAD_CONST                      74: ('Contacts_send',)
+        870     IMPORT_NAME                     72: Contacts_send
+        872     IMPORT_FROM                     72: Contacts_send
+        874     STORE_NAME                      72: Contacts_send
+        876     POP_TOP                         
+        878     LOAD_CONST                      3: 1
+        880     LOAD_CONST                      75: ('Contacts_invite',)
+        882     IMPORT_NAME                     73: Contacts_invite
+        884     IMPORT_FROM                     73: Contacts_invite
+        886     STORE_NAME                      73: Contacts_invite
+        888     POP_TOP                         
+        890     LOAD_CONST                      3: 1
+        892     LOAD_CONST                      76: ('Search_global',)
+        894     IMPORT_NAME                     74: Search_global
+        896     IMPORT_FROM                     74: Search_global
+        898     STORE_NAME                      74: Search_global
+        900     POP_TOP                         
+        902     LOAD_CONST                      3: 1
+        904     LOAD_CONST                      77: ('Check_links_no_accounts',)
+        906     IMPORT_NAME                     75: Check_links_no_accounts
+        908     IMPORT_FROM                     75: Check_links_no_accounts
+        910     STORE_NAME                      75: Check_links_no_accounts
+        912     POP_TOP                         
+        914     LOAD_CONST                      3: 1
+        916     LOAD_CONST                      78: ('Create_bots',)
+        918     IMPORT_NAME                     76: Create_bots
+        920     IMPORT_FROM                     76: Create_bots
+        922     STORE_NAME                      76: Create_bots
+        924     POP_TOP                         
+        926     LOAD_CONST                      3: 1
+        928     LOAD_CONST                      79: ('Edit_messages',)
+        930     IMPORT_NAME                     77: Edit_messages
+        932     IMPORT_FROM                     77: Edit_messages
+        934     STORE_NAME                      77: Edit_messages
+        936     POP_TOP                         
+        938     LOAD_CONST                      3: 1
+        940     LOAD_CONST                      80: ('Create_postbot',)
+        942     IMPORT_NAME                     78: Create_postbot
+        944     IMPORT_FROM                     78: Create_postbot
+        946     STORE_NAME                      78: Create_postbot
+        948     POP_TOP                         
+        950     LOAD_CONST                      3: 1
+        952     LOAD_CONST                      81: ('Stories_public',)
+        954     IMPORT_NAME                     79: Stories_public
+        956     IMPORT_FROM                     79: Stories_public
+        958     STORE_NAME                      79: Stories_public
+        960     POP_TOP                         
+        962     LOAD_CONST                      3: 1
+        964     LOAD_CONST                      82: ('Stories_send',)
+        966     IMPORT_NAME                     80: Stories_send
+        968     IMPORT_FROM                     80: Stories_send
+        970     STORE_NAME                      80: Stories_send
+        972     POP_TOP                         
+        974     LOAD_CONST                      3: 1
+        976     LOAD_CONST                      83: ('Stories_export',)
+        978     IMPORT_NAME                     81: Stories_export
+        980     IMPORT_FROM                     81: Stories_export
+        982     STORE_NAME                      81: Stories_export
+        984     POP_TOP                         
+        986     LOAD_CONST                      3: 1
+        988     LOAD_CONST                      84: ('Stories_del',)
+        990     IMPORT_NAME                     82: Stories_del
+        992     IMPORT_FROM                     82: Stories_del
+        994     STORE_NAME                      82: Stories_del
+        996     POP_TOP                         
+        998     LOAD_CONST                      3: 1
+        1000    LOAD_CONST                      85: ('Generator_json',)
+        1002    IMPORT_NAME                     83: Generator_json
+        1004    IMPORT_FROM                     83: Generator_json
+        1006    STORE_NAME                      83: Generator_json
+        1008    POP_TOP                         
+        1010    LOAD_CONST                      86: 0
+        1012    LOAD_CONST                      87: ('Logs', 'logging')
+        1014    IMPORT_NAME                     84: program.static_classes
+        1016    IMPORT_FROM                     85: Logs
+        1018    STORE_NAME                      85: Logs
+        1020    IMPORT_FROM                     86: logging
+        1022    STORE_NAME                      86: logging
+        1024    POP_TOP                         
+        1026    BUILD_MAP                       0
+        1028    PUSH_NULL                       
+        1030    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1032    LOAD_CONST                      88: 'accountswork'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6\x08\xed\x02\xd2g'
+        1034    CALL                            1
+        1042    LOAD_NAME                       2: accounts
+        1044    MAP_ADD                         1
+        1046    PUSH_NULL                       
+        1048    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1050    LOAD_CONST                      89: 'account_booster'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6$\xf8\x02\xcf\x7f\xf8\xfd\x97'
+        1052    CALL                            1
+        1060    LOAD_NAME                       3: account_booster
+        1062    MAP_ADD                         1
+        1064    PUSH_NULL                       
+        1066    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1068    LOAD_CONST                      90: 'account_reset_restrict'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6$\xe8\x08\xd3i\xf8\xc7\x97\nN\xaf\xb5\xa3\xc8Z'
+        1070    CALL                            1
+        1078    LOAD_NAME                       4: account_reset_restrict
+        1080    MAP_ADD                         1
+        1082    LOAD_CONST                      91: 'Parsing'
+        1084    LOAD_NAME                       5: Parsing
+        1086    MAP_ADD                         1
+        1088    PUSH_NULL                       
+        1090    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1092    LOAD_CONST                      92: 'Parsing_comment'   # b'\x81\xd2\x19\x01 \xf3\xb0\xd5$\xf9\x02\xcda\xe9\xf6\x91'
+        1094    CALL                            1
+        1102    LOAD_NAME                       8: Parsing_comment
+        1104    MAP_ADD                         1
+        1106    PUSH_NULL                       
+        1108    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1110    LOAD_CONST                      93: 'Parsing_write'   # b'\x81\xd2\x19\x01 \xf3\xb0\xd5$\xed\x1f\xc9x\xe9'
+        1112    CALL                            1
+        1120    LOAD_NAME                       6: Parsing_write
+        1122    MAP_ADD                         1
+        1124    PUSH_NULL                       
+        1126    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1128    LOAD_CONST                      94: 'Parsing_account'   # b'\x81\xd2\x19\x01 \xf3\xb0\xd5$\xfb\x0e\xc3c\xf9\xf6\x91'
+        1130    CALL                            1
+        1138    LOAD_NAME                       7: Parsing_account
+        1140    MAP_ADD                         1
+        1142    PUSH_NULL                       
+        1144    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1146    LOAD_CONST                      95: 'Invite_username_v1'   # b'\x81\xcb\x16\x05:\xee\xbb\xed\x0e\xe9\x08\xd2b\xed\xf5\x800K\xea'
+        1148    CALL                            1
+        1156    LOAD_NAME                       12: Invite_username_v1
+        1158    MAP_ADD                         1
+        1160    PUSH_NULL                       
+        1162    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1164    LOAD_CONST                      96: 'Invite_username_v2'   # b'\x81\xcb\x16\x05:\xee\xbb\xed\x0e\xe9\x08\xd2b\xed\xf5\x800K\xe9'
+        1166    CALL                            1
+        1174    LOAD_NAME                       13: Invite_username_v2
+        1176    MAP_ADD                         1
+        1178    PUSH_NULL                       
+        1180    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1182    LOAD_CONST                      97: 'Invite_id'   # b'\x81\xcb\x16\x05:\xee\xbb\xed\x12\xfe'
+        1184    CALL                            1
+        1192    LOAD_NAME                       9: Invite_id
+        1194    MAP_ADD                         1
+        1196    PUSH_NULL                       
+        1198    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1200    LOAD_CONST                      98: 'Invite_phone'   # b'\x81\xcb\x16\x05:\xee\xbb\xed\x0b\xf2\x02\xcei'
+        1202    CALL                            1
+        1210    LOAD_NAME                       10: Invite_phone
+        1212    MAP_ADD                         1
+        1214    PUSH_NULL                       
+        1216    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1218    LOAD_CONST                      99: 'Invite_admin'   # b'\x81\xcb\x16\x05:\xee\xbb\xed\x1a\xfe\x00\xc9b'
+        1220    CALL                            1
+        1228    LOAD_NAME                       11: Invite_admin
+        1230    MAP_ADD                         1
+        1232    PUSH_NULL                       
+        1234    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1236    LOAD_CONST                      100: 'Invite_admin_auto'   # b'\x81\xcb\x16\x05:\xee\xbb\xed\x1a\xfe\x00\xc9b\xd3\xf9\x90\x1bR'
+        1238    CALL                            1
+        1246    LOAD_NAME                       14: Invite_admin_auto
+        1248    MAP_ADD                         1
+        1250    PUSH_NULL                       
+        1252    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1254    LOAD_CONST                      101: 'Send_username'   # b'\x81\xd1\x1d\x1d7\xc5\xab\xc1\x1e\xe8\x03\xc1a\xe9'
+        1256    CALL                            1
+        1264    LOAD_NAME                       16: Send_username
+        1266    MAP_ADD                         1
+        1268    LOAD_CONST                      102: 'Send_id'
+        1270    LOAD_NAME                       15: Send_id
+        1272    MAP_ADD                         1
+        1274    PUSH_NULL                       
+        1276    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1278    LOAD_CONST                      103: 'Send_groups'   # b'\x81\xd1\x1d\x1d7\xc5\xb9\xc0\x14\xef\x1d\xd3'
+        1280    CALL                            1
+        1288    LOAD_NAME                       17: Send_groups
+        1290    MAP_ADD                         1
+        1292    PUSH_NULL                       
+        1294    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1296    LOAD_CONST                      104: 'Send_groups_account'   # b'\x81\xd1\x1d\x1d7\xc5\xb9\xc0\x14\xef\x1d\xd3S\xed\xfb\x86\x00H\xb5\xb3'
+        1298    CALL                            1
+        1306    LOAD_NAME                       18: Send_groups_account
+        1308    MAP_ADD                         1
+        1310    BUILD_MAP                       0
+        1312    PUSH_NULL                       
+        1314    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1316    LOAD_CONST                      105: 'Send_phone'   # b'\x81\xd1\x1d\x1d7\xc5\xae\xda\x14\xf4\x08'
+        1318    CALL                            1
+        1326    LOAD_NAME                       19: Send_phone
+        1328    MAP_ADD                         1
+        1330    PUSH_NULL                       
+        1332    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1334    LOAD_CONST                      106: 'Send_open_dialogs'   # b'\x81\xd1\x1d\x1d7\xc5\xb1\xc2\x1e\xf42\xc4e\xed\xf4\x8a\x08N'
+        1336    CALL                            1
+        1344    LOAD_NAME                       20: Send_open_dialogs
+        1346    MAP_ADD                         1
+        1348    PUSH_NULL                       
+        1350    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1352    LOAD_CONST                      107: 'Send_channel'   # b'\x81\xd1\x1d\x1d7\xc5\xbd\xda\x1a\xf4\x03\xc5`'
+        1354    CALL                            1
+        1362    LOAD_NAME                       21: Send_channel
+        1364    MAP_ADD                         1
+        1366    PUSH_NULL                       
+        1368    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1370    LOAD_CONST                      108: 'Check_links'   # b'\x81\xc1\x10\x160\xf1\x81\xde\x12\xf4\x06\xd3'
+        1372    CALL                            1
+        1380    LOAD_NAME                       22: Check_links
+        1382    MAP_ADD                         1
+        1384    PUSH_NULL                       
+        1386    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1388    LOAD_CONST                      109: 'Check_phones'   # b'\x81\xc1\x10\x160\xf1\x81\xc2\x13\xf5\x03\xc5\x7f'
+        1390    CALL                            1
+        1398    LOAD_NAME                       23: Check_phones
+        1400    MAP_ADD                         1
+        1402    PUSH_NULL                       
+        1404    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1406    LOAD_CONST                      110: 'Check_numbers'   # b'\x81\xc1\x10\x160\xf1\x81\xdc\x0e\xf7\x0f\xc5~\xff'
+        1408    CALL                            1
+        1416    LOAD_NAME                       24: Check_numbers
+        1418    MAP_ADD                         1
+        1420    PUSH_NULL                       
+        1422    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1424    LOAD_CONST                      111: 'Create_channels'   # b'\x81\xc1\n\x162\xee\xbb\xed\x18\xf2\x0c\xceb\xe9\xf4\x96'
+        1426    CALL                            1
+        1434    LOAD_NAME                       25: Create_channels
+        1436    MAP_ADD                         1
+        1438    PUSH_NULL                       
+        1440    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1442    LOAD_CONST                      112: 'AnsweringMachine'   # b'\x81\xc3\x16\x00$\xff\xac\xdb\x15\xfd \xc1o\xe4\xf1\x8b\n'
+        1444    CALL                            1
+        1452    LOAD_NAME                       26: AnsweringMachine
+        1454    MAP_ADD                         1
+        1456    PUSH_NULL                       
+        1458    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1460    LOAD_CONST                      113: 'DeleteDialogs'   # b'\x81\xc6\x1d\x1f6\xee\xbb\xf6\x12\xfb\x01\xcfk\xff'
+        1462    CALL                            1
+        1470    LOAD_NAME                       27: DeleteDialogs
+        1472    MAP_ADD                         1
+        1474    PUSH_NULL                       
+        1476    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1478    LOAD_CONST                      114: 'Unsubscribe'   # b'\x81\xd7\x16\x00&\xf8\xad\xd1\t\xf3\x0f\xc5'
+        1480    CALL                            1
+        1488    LOAD_NAME                       28: Unsubscribe
+        1490    MAP_ADD                         1
+        1492    PUSH_NULL                       
+        1494    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1496    LOAD_CONST                      115: 'Subscribe'   # b'\x81\xd1\r\x11 \xf9\xac\xdb\x19\xff'
+        1498    CALL                            1
+        1506    LOAD_NAME                       29: Subscribe
+        1508    MAP_ADD                         1
+        1510    PUSH_NULL                       
+        1512    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1514    LOAD_CONST                      116: 'Subscribe_bot'   # b'\x81\xd1\r\x11 \xf9\xac\xdb\x19\xff2\xc2c\xf8'
+        1516    CALL                            1
+        1524    LOAD_NAME                       30: Subscribe_bot
+        1526    MAP_ADD                         1
+        1528    PUSH_NULL                       
+        1530    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1532    LOAD_CONST                      117: 'Reactions'   # b'\x81\xd0\x1d\x120\xee\xb7\xdd\x15\xe9'
+        1534    CALL                            1
+        1542    LOAD_NAME                       31: Reactions
+        1544    MAP_ADD                         1
+        1546    LOAD_CONST                      118: 'DbClean'
+        1548    LOAD_NAME                       32: DbClean
+        1550    MAP_ADD                         1
+        1552    LOAD_CONST                      119: 'DbUnion'
+        1554    LOAD_NAME                       33: DbUnion
+        1556    MAP_ADD                         1
+        1558    PUSH_NULL                       
+        1560    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1562    LOAD_CONST                      120: 'DbExclude'   # b'\x81\xc6\x1a6+\xf9\xb2\xc7\x1f\xff'
+        1564    CALL                            1
+        1572    LOAD_NAME                       34: DbExclude
+        1574    MAP_ADD                         1
+        1576    LOAD_CONST                      121: 'DbGender'
+        1578    LOAD_NAME                       35: DbGender
+        1580    MAP_ADD                         1
+        1582    DICT_UPDATE                     1
+        1584    BUILD_MAP                       0
+        1586    PUSH_NULL                       
+        1588    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1590    LOAD_CONST                      122: 'Registrator_universal'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xf9\xf6\x8c\x19X\xa9\xb4\xab\xc7'
+        1592    CALL                            1
+        1600    LOAD_NAME                       36: Registrator_universal
+        1602    MAP_ADD                         1
+        1604    PUSH_NULL                       
+        1606    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1608    LOAD_CONST                      123: 'Registrator_activate'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xed\xfb\x91\x06K\xba\xb3\xaf'
+        1610    CALL                            1
+        1618    LOAD_NAME                       37: Registrator_activate
+        1620    MAP_ADD                         1
+        1622    PUSH_NULL                       
+        1624    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1626    LOAD_CONST                      124: 'Registrator_activate_new'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xed\xfb\x91\x06K\xba\xb3\xaf\xf4@\xc9\x12'
+        1628    CALL                            1
+        1636    LOAD_NAME                       38: Registrator_activate_new
+        1638    MAP_ADD                         1
+        1640    PUSH_NULL                       
+        1642    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1644    LOAD_CONST                      125: 'Registrator_smsbower_new'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xff\xf5\x96\rR\xac\xa2\xb8\xf4@\xc9\x12'
+        1646    CALL                            1
+        1654    LOAD_NAME                       39: Registrator_smsbower_new
+        1656    MAP_ADD                         1
+        1658    PUSH_NULL                       
+        1660    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1662    LOAD_CONST                      126: 'Registrator_vaksms'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xfa\xf9\x8e\x1cP\xa8'
+        1664    CALL                            1
+        1672    LOAD_NAME                       40: Registrator_vaksms
+        1674    MAP_ADD                         1
+        1676    PUSH_NULL                       
+        1678    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1680    LOAD_CONST                      127: 'Registrator_generator'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xeb\xfd\x8b\nO\xba\xb3\xa5\xd9'
+        1682    CALL                            1
+        1690    LOAD_NAME                       41: Registrator_generator
+        1692    MAP_ADD                         1
+        1694    PUSH_NULL                       
+        1696    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1698    LOAD_CONST                      128: 'Registrator_dublicator'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xe8\xed\x87\x03T\xb8\xa6\xbe\xc4\\'
+        1700    CALL                            1
+        1708    LOAD_NAME                       42: Registrator_dublicator
+        1710    MAP_ADD                         1
+        1712    PUSH_NULL                       
+        1714    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1716    LOAD_CONST                      129: 'Registrator_converter'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xef\xf7\x8b\x19X\xa9\xb3\xaf\xd9'
+        1718    CALL                            1
+        1726    LOAD_NAME                       43: Registrator_converter
+        1728    MAP_ADD                         1
+        1730    PUSH_NULL                       
+        1732    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1734    LOAD_CONST                      130: 'Registrator_add_account'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xed\xfc\x810\\\xb8\xa4\xa5\xde@\xd8'
+        1736    CALL                            1
+        1744    LOAD_NAME                       44: Registrator_add_account
+        1746    MAP_ADD                         1
+        1748    PUSH_NULL                       
+        1750    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1752    LOAD_CONST                      131: 'Registrator_manual'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xe1\xf9\x8b\x1a\\\xb7'
+        1754    CALL                            1
+        1762    LOAD_NAME                       45: Registrator_manual
+        1764    MAP_ADD                         1
+        1766    PUSH_NULL                       
+        1768    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1770    LOAD_CONST                      132: 'Registrator_private'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xfc\xea\x8c\x19\\\xaf\xa2'
+        1772    CALL                            1
+        1780    LOAD_NAME                       46: Registrator_private
+        1782    MAP_ADD                         1
+        1784    PUSH_NULL                       
+        1786    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1788    LOAD_CONST                      133: 'Registrator_tokens'   # b'\x81\xd0\x1d\x14:\xe9\xaa\xc0\x1a\xee\x02\xd2S\xf8\xf7\x8e\nS\xa8'
+        1790    CALL                            1
+        1798    LOAD_NAME                       47: Registrator_tokens
+        1800    MAP_ADD                         1
+        1802    PUSH_NULL                       
+        1804    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1806    LOAD_CONST                      134: 'Stat_generator'   # b"\x81\xd1\x0c\x12'\xc5\xb9\xd7\x15\xff\x1f\xc1x\xe3\xea"
+        1808    CALL                            1
+        1816    LOAD_NAME                       48: Stat_generator
+        1818    MAP_ADD                         1
+        1820    PUSH_NULL                       
+        1822    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1824    LOAD_CONST                      135: 'Stat_union'   # b"\x81\xd1\x0c\x12'\xc5\xab\xdc\x12\xf5\x03"
+        1826    CALL                            1
+        1834    LOAD_NAME                       49: Stat_union
+        1836    MAP_ADD                         1
+        1838    PUSH_NULL                       
+        1840    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1842    LOAD_CONST                      136: 'Stat_calc'   # b"\x81\xd1\x0c\x12'\xc5\xbd\xd3\x17\xf9"
+        1844    CALL                            1
+        1852    LOAD_NAME                       50: Stat_calc
+        1854    MAP_ADD                         1
+        1856    PUSH_NULL                       
+        1858    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1860    LOAD_CONST                      137: 'Search_groups'   # b'\x81\xd1\x1d\x12!\xf9\xb6\xed\x1c\xe8\x02\xd5|\xff'
+        1862    CALL                            1
+        1870    LOAD_NAME                       51: Search_groups
+        1872    MAP_ADD                         1
+        1874    PUSH_NULL                       
+        1876    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1878    LOAD_CONST                      138: 'Interceptor'   # b'\x81\xcb\x16\x076\xe8\xbd\xd7\x0b\xee\x02\xd2'
+        1880    CALL                            1
+        1888    LOAD_NAME                       52: Interceptor
+        1890    MAP_ADD                         1
+        1892    DICT_UPDATE                     1
+        1894    BUILD_MAP                       0
+        1896    PUSH_NULL                       
+        1898    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1900    LOAD_CONST                      139: 'Forwarder'   # b'\x81\xc4\x17\x01$\xfb\xac\xd6\x1e\xe8'
+        1902    CALL                            1
+        1910    LOAD_NAME                       53: Forwarder
+        1912    MAP_ADD                         1
+        1914    LOAD_CONST                      140: 'index'
+        1916    LOAD_NAME                       54: Index
+        1918    MAP_ADD                         1
+        1920    LOAD_CONST                      141: 'roles'
+        1922    LOAD_NAME                       55: Roles
+        1924    MAP_ADD                         1
+        1926    LOAD_CONST                      142: 'settings'
+        1928    LOAD_NAME                       56: Settings
+        1930    MAP_ADD                         1
+        1932    PUSH_NULL                       
+        1934    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1936    LOAD_CONST                      143: 'Group_add_admin'   # b'\x81\xc5\n\x1c&\xea\x81\xd3\x1f\xfe2\xc1h\xe1\xf1\x8b'
+        1938    CALL                            1
+        1946    LOAD_NAME                       57: Group_add_admin
+        1948    MAP_ADD                         1
+        1950    PUSH_NULL                       
+        1952    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1954    LOAD_CONST                      144: 'Group_del_admin'   # b'\x81\xc5\n\x1c&\xea\x81\xd6\x1e\xf62\xc1h\xe1\xf1\x8b'
+        1956    CALL                            1
+        1964    LOAD_NAME                       58: Group_del_admin
+        1966    MAP_ADD                         1
+        1968    LOAD_CONST                      145: 'Reporter'
+        1970    LOAD_NAME                       59: Reporter
+        1972    MAP_ADD                         1
+        1974    PUSH_NULL                       
+        1976    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1978    LOAD_CONST                      146: 'Cloner_chats'   # b'\x81\xc1\x14\x1c=\xff\xac\xed\x18\xf2\x0c\xd4\x7f'
+        1980    CALL                            1
+        1988    LOAD_NAME                       60: Cloner_chats
+        1990    MAP_ADD                         1
+        1992    PUSH_NULL                       
+        1994    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        1996    LOAD_CONST                      147: 'Cloner_channel'   # b'\x81\xc1\x14\x1c=\xff\xac\xed\x18\xf2\x0c\xceb\xe9\xf4'
+        1998    CALL                            1
+        2006    LOAD_NAME                       61: Cloner_channel
+        2008    MAP_ADD                         1
+        2010    LOAD_CONST                      148: 'Views'
+        2012    LOAD_NAME                       62: Views
+        2014    MAP_ADD                         1
+        2016    PUSH_NULL                       
+        2018    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2020    LOAD_CONST                      149: 'Views_proxy'   # b'\x81\xd4\x11\x16$\xe9\x81\xc2\t\xf5\x15\xd9'
+        2022    CALL                            1
+        2030    LOAD_NAME                       63: Views_proxy
+        2032    MAP_ADD                         1
+        2034    PUSH_NULL                       
+        2036    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2038    LOAD_CONST                      150: 'Proxy_checker'   # b'\x81\xd2\n\x1c+\xe3\x81\xd1\x13\xff\x0e\xcbi\xfe'
+        2040    CALL                            1
+        2048    LOAD_NAME                       64: Proxy_checker
+        2050    MAP_ADD                         1
+        2052    PUSH_NULL                       
+        2054    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2056    LOAD_CONST                      151: 'Read_dialogs'   # b'\x81\xd0\x1d\x127\xc5\xba\xdb\x1a\xf6\x02\xc7\x7f'
+        2058    CALL                            1
+        2066    LOAD_NAME                       65: Read_dialogs
+        2068    MAP_ADD                         1
+        2070    PUSH_NULL                       
+        2072    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2074    LOAD_CONST                      152: 'accounts_check'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6\x08\xc5\x0e\xc8i\xef\xf3'
+        2076    CALL                            1
+        2084    LOAD_NAME                       66: accounts_check
+        2086    MAP_ADD                         1
+        2088    PUSH_NULL                       
+        2090    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2092    LOAD_CONST                      153: 'accounts_mass_actions'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6\x08\xc5\x00\xc1\x7f\xff\xc7\x84\x0cI\xb2\xa8\xa4\xd8'
+        2094    CALL                            1
+        2102    LOAD_NAME                       67: accounts_mass_actions
+        2104    MAP_ADD                         1
+        2106    PUSH_NULL                       
+        2108    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2110    LOAD_CONST                      154: 'accounts_export'   # b'\x81\xe3\x1b\x10<\xef\xb0\xc6\x08\xc5\x08\xd8|\xe3\xea\x91'
+        2112    CALL                            1
+        2120    LOAD_NAME                       68: accounts_export
+        2122    MAP_ADD                         1
+        2124    PUSH_NULL                       
+        2126    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2128    LOAD_CONST                      155: 'Contacts_add'   # b"\x81\xc1\x17\x1d'\xfb\xbd\xc6\x08\xc5\x0c\xc4h"
+        2130    CALL                            1
+        2138    LOAD_NAME                       69: Contacts_add
+        2140    MAP_ADD                         1
+        2142    DICT_UPDATE                     1
+        2144    PUSH_NULL                       
+        2146    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2148    LOAD_CONST                      156: 'Contacts_del'   # b"\x81\xc1\x17\x1d'\xfb\xbd\xc6\x08\xc5\t\xc5`"
+        2150    CALL                            1
+        2158    LOAD_NAME                       70: Contacts_del
+        2160    PUSH_NULL                       
+        2162    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2164    LOAD_CONST                      157: 'Contacts_export'   # b"\x81\xc1\x17\x1d'\xfb\xbd\xc6\x08\xc5\x08\xd8|\xe3\xea\x91"
+        2166    CALL                            1
+        2174    LOAD_NAME                       71: Contacts_export
+        2176    PUSH_NULL                       
+        2178    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2180    LOAD_CONST                      158: 'Contacts_send'   # b"\x81\xc1\x17\x1d'\xfb\xbd\xc6\x08\xc5\x1e\xc5b\xe8"
+        2182    CALL                            1
+        2190    LOAD_NAME                       72: Contacts_send
+        2192    PUSH_NULL                       
+        2194    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2196    LOAD_CONST                      159: 'Contacts_invite'   # b"\x81\xc1\x17\x1d'\xfb\xbd\xc6\x08\xc5\x04\xcez\xe5\xec\x80"
+        2198    CALL                            1
+        2206    LOAD_NAME                       73: Contacts_invite
+        2208    PUSH_NULL                       
+        2210    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2212    LOAD_CONST                      160: 'Search_global'   # b'\x81\xd1\x1d\x12!\xf9\xb6\xed\x1c\xf6\x02\xc2m\xe0'
+        2214    CALL                            1
+        2222    LOAD_NAME                       74: Search_global
+        2224    PUSH_NULL                       
+        2226    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2228    LOAD_CONST                      161: 'Check_links_no_accounts'   # b'\x81\xc1\x10\x160\xf1\x81\xde\x12\xf4\x06\xd3S\xe2\xf7\xba\x0e^\xb8\xa8\xbf\xc5Z\xdf'
+        2230    CALL                            1
+        2238    LOAD_NAME                       75: Check_links_no_accounts
+        2240    PUSH_NULL                       
+        2242    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2244    LOAD_CONST                      162: 'Create_bots'   # b'\x81\xc1\n\x162\xee\xbb\xed\x19\xf5\x19\xd3'
+        2246    CALL                            1
+        2254    LOAD_NAME                       76: Create_bots
+        2256    PUSH_NULL                       
+        2258    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2260    LOAD_CONST                      163: 'Edit_messages'   # b"\x81\xc7\x1c\x1a'\xc5\xb3\xd7\x08\xe9\x0c\xc7i\xff"
+        2262    CALL                            1
+        2270    LOAD_NAME                       77: Edit_messages
+        2272    PUSH_NULL                       
+        2274    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2276    LOAD_CONST                      164: 'Create_postbot'   # b'\x81\xc1\n\x162\xee\xbb\xed\x0b\xf5\x1e\xd4n\xe3\xec'
+        2278    CALL                            1
+        2286    LOAD_NAME                       78: Create_postbot
+        2288    PUSH_NULL                       
+        2290    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2292    LOAD_CONST                      165: 'Stories_public'   # b'\x81\xd1\x0c\x1c!\xf3\xbb\xc1$\xea\x18\xc2`\xe5\xfb'
+        2294    CALL                            1
+        2302    LOAD_NAME                       79: Stories_public
+        2304    PUSH_NULL                       
+        2306    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2308    LOAD_CONST                      166: 'Stories_send'   # b'\x81\xd1\x0c\x1c!\xf3\xbb\xc1$\xe9\x08\xceh'
+        2310    CALL                            1
+        2318    LOAD_NAME                       80: Stories_send
+        2320    PUSH_NULL                       
+        2322    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2324    LOAD_CONST                      167: 'Stories_export'   # b'\x81\xd1\x0c\x1c!\xf3\xbb\xc1$\xff\x15\xd0c\xfe\xec'
+        2326    CALL                            1
+        2334    LOAD_NAME                       81: Stories_export
+        2336    PUSH_NULL                       
+        2338    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2340    LOAD_CONST                      168: 'Stories_del'   # b'\x81\xd1\x0c\x1c!\xf3\xbb\xc1$\xfe\x08\xcc'
+        2342    CALL                            1
+        2350    LOAD_NAME                       82: Stories_del
+        2352    PUSH_NULL                       
+        2354    LOAD_CONST                      0: '__pyarmor_assert_14868__'
+        2356    LOAD_CONST                      169: 'Generator_json'   # b'\x81\xc5\x1d\x1d6\xe8\xbf\xc6\x14\xe82\xca\x7f\xe3\xf6'
+        2358    CALL                            1
+        2366    LOAD_NAME                       83: Generator_json
+        2368    BUILD_MAP                       14
+        2370    DICT_UPDATE                     1
+        2372    STORE_NAME                      87: datacontext
+        2374    LOAD_CONST                      170: <CODE> controller
+        2376    MAKE_FUNCTION                   0
+        2378    STORE_NAME                      88: controller
+        2380    LOAD_CONST                      172: None
+        2382    NOP                             
+        2384    NOP                             
+        2386    NOP                             
+        2388    JUMP_FORWARD                    19 (to 2428)
+        2396    POP_TOP                         
+        2398    RETURN_CONST                    172: None
+        2400    PUSH_EXC_INFO                   
+        2402    PUSH_NULL                       
+        2404    LOAD_CONST                      171: '__pyarmor_exit_14870__'
+        2406    NOP                             
+        2408    LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aF\t\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        2410    CALL                            1
+        2418    POP_TOP                         
+        2420    RERAISE                         0
+        2422    COPY                            3
+        2424    POP_EXCEPT                      
+        2426    RERAISE                         1
+        2428    PUSH_NULL                       
+        2430    LOAD_CONST                      171: '__pyarmor_exit_14870__'
+        2432    LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aF\t\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        2434    BUILD_TUPLE                     1
+        2436    CALL_FUNCTION_EX                0
+        2438    POP_TOP                         
+        2440    RETURN_VALUE                    
+    [Exception Table]
+        26 to 2380 -> 2400 [0] 
+        2400 to 2422 -> 2422 [1] lasti

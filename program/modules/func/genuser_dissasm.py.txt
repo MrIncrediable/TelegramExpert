@@ -1,0 +1,727 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.modules.func.genuser>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'os'
+        'random'
+        'mimesis.enums'
+        'Gender'
+        'mimesis'
+        'Person'
+        'general.mfunc'
+        'requests_reconnect'
+        'get_server_file_url'
+        'UserDataGenerator'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_15057__'
+        '__pyarmor_enter_15058__'
+        b'<COAddr>\x07\x00\x00\x1ah\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        (
+            'Gender'
+        )
+        (
+            'Person'
+        )
+        3
+        (
+            'requests_reconnect'
+        )
+        (
+            'get_server_file_url'
+        )
+        [Code]
+            File Name: <frozen program.modules.func.genuser>
+            Object Name: UserDataGenerator
+            Qualified Name: UserDataGenerator
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+                'staticmethod'
+                'rand_user'
+                'user_names_sex'
+                'photo'
+            [Locals+Names]
+            [Constants]
+                'UserDataGenerator'
+                '__pyarmor_assert_15060__'
+                '__pyarmor_enter_15061__'
+                b'<COAddr>\x05\x00\x00"L\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen program.modules.func.genuser>
+                    Object Name: rand_user
+                    Qualified Name: UserDataGenerator.rand_user
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'Person'
+                        'os'
+                        'getcwd'
+                        'random'
+                        'choice'
+                        'Gender'
+                        'FEMALE'
+                        'MALE'
+                        'name'
+                        'last_name'
+                    [Locals+Names]
+                        'country'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                        '_var_var_2'
+                        '_var_var_3'
+                        '_var_var_4'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15063__'
+                        '__pyarmor_enter_15064__'
+                        b'<COAddr>\x05\x00\x00\x1aN\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '\\additives\\data\\identity'   # b'\x81\xde\x19\x177\xf3\xaa\xdb\r\xff\x1e\xfch\xed\xec\x843T\xbf\xa2\xa4\xdfG\xd8\x1c'
+                        (
+                            'Newdatafolder'
+                        )
+                        0
+                        1
+                        (
+                            'gender'
+                        )
+                        '__pyarmor_exit_15065__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_15064__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aN\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + Person
+                        38      LOAD_FAST                       0: country
+                        40      LOAD_GLOBAL                     3: NULL + os
+                        50      LOAD_ATTR                       4: getcwd
+                        70      CALL                            0
+                        78      PUSH_NULL                       
+                        80      LOAD_CONST                      1: '__pyarmor_assert_15063__'
+                        82      LOAD_CONST                      4: '\\additives\\data\\identity'   # b'\x81\xde\x19\x177\xf3\xaa\xdb\r\xff\x1e\xfch\xed\xec\x843T\xbf\xa2\xa4\xdfG\xd8\x1c'
+                        84      CALL                            1
+                        92      BINARY_OP                       0 (+)
+                        96      KW_NAMES                        5: ('Newdatafolder',)
+                        98      CALL                            2
+                        106     STORE_FAST                      2: _var_var_0
+                        108     LOAD_GLOBAL                     7: NULL + random
+                        118     LOAD_ATTR                       8: choice
+                        138     LOAD_GLOBAL                     10: Gender
+                        148     LOAD_ATTR                       12: FEMALE
+                        168     LOAD_GLOBAL                     10: Gender
+                        178     LOAD_ATTR                       14: MALE
+                        198     BUILD_LIST                      2
+                        200     CALL                            1
+                        208     STORE_FAST                      3: _var_var_1
+                        210     LOAD_FAST                       3: _var_var_1
+                        212     LOAD_GLOBAL                     10: Gender
+                        222     LOAD_ATTR                       14: MALE
+                        242     COMPARE_OP                      40 (==)
+                        246     POP_JUMP_IF_FALSE               3 (to 254)
+                        248     LOAD_CONST                      6: 0
+                        250     STORE_FAST                      4: _var_var_2
+                        252     JUMP_FORWARD                    2 (to 258)
+                        254     LOAD_CONST                      7: 1
+                        256     STORE_FAST                      4: _var_var_2
+                        258     LOAD_FAST                       2: _var_var_0
+                        260     LOAD_ATTR                       17: name
+                        280     LOAD_FAST                       3: _var_var_1
+                        282     KW_NAMES                        8: ('gender',)
+                        284     CALL                            1
+                        292     STORE_FAST                      5: _var_var_3
+                        294     LOAD_FAST                       2: _var_var_0
+                        296     LOAD_ATTR                       19: last_name
+                        316     LOAD_FAST                       3: _var_var_1
+                        318     KW_NAMES                        8: ('gender',)
+                        320     CALL                            1
+                        328     STORE_FAST                      6: _var_var_4
+                        330     DELETE_FAST                     2: _var_var_0
+                        332     LOAD_FAST                       5: _var_var_3
+                        334     LOAD_FAST                       6: _var_var_4
+                        336     LOAD_FAST                       4: _var_var_2
+                        338     BUILD_TUPLE                     3
+                        340     NOP                             
+                        342     NOP                             
+                        344     NOP                             
+                        346     JUMP_FORWARD                    20 (to 388)
+                        348     CALL                            1
+                        356     POP_TOP                         
+                        358     RETURN_VALUE                    
+                        360     PUSH_EXC_INFO                   
+                        362     PUSH_NULL                       
+                        364     LOAD_CONST                      9: '__pyarmor_exit_15065__'
+                        366     NOP                             
+                        368     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aN\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        370     CALL                            1
+                        378     POP_TOP                         
+                        380     RERAISE                         0
+                        382     COPY                            3
+                        384     POP_EXCEPT                      
+                        386     RERAISE                         1
+                        388     PUSH_NULL                       
+                        390     LOAD_CONST                      9: '__pyarmor_exit_15065__'
+                        392     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aN\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        394     BUILD_TUPLE                     1
+                        396     CALL_FUNCTION_EX                0
+                        398     POP_TOP                         
+                        400     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 340 -> 360 [0] 
+                        360 to 382 -> 382 [1] lasti
+                [Code]
+                    File Name: <frozen program.modules.func.genuser>
+                    Object Name: user_names_sex
+                    Qualified Name: UserDataGenerator.user_names_sex
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'Person'
+                        'os'
+                        'getcwd'
+                        'any'
+                        'Gender'
+                        'MALE'
+                        'FEMALE'
+                        'name'
+                        'last_name'
+                    [Locals+Names]
+                        'country'
+                        'sex'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_5'
+                        '_var_var_3'
+                        '_var_var_4'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15066__'
+                        '__pyarmor_enter_15067__'
+                        b'<COAddr>\x07\x00\x00\x1c*\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '\\additives\\data\\identity'   # b'\x81\xde\x19\x177\xf3\xaa\xdb\r\xff\x1e\xfch\xed\xec\x843T\xbf\xa2\xa4\xdfG\xd8\x1c'
+                        (
+                            'Newdatafolder'
+                        )
+                        [Code]
+                            File Name: <frozen program.modules.func.genuser>
+                            Object Name: <genexpr>
+                            Qualified Name: UserDataGenerator.user_names_sex.<locals>.<genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Stack Size: 3
+                            Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                            [Names]
+                            [Locals+Names]
+                                '.0'
+                                '_var_var_6'
+                                'sex'
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       COPY_FREE_VARS                  1
+                                2       RETURN_GENERATOR                
+                                4       POP_TOP                         
+                                6       RESUME                          0
+                                8       LOAD_FAST                       0: .0
+                                10      FOR_ITER                        9 (to 30)
+                                14      STORE_FAST                      1: _var_var_6
+                                16      LOAD_DEREF                      2: sex
+                                18      LOAD_FAST                       1: _var_var_6
+                                20      COMPARE_OP                      40 (==)
+                                24      YIELD_VALUE                     1
+                                26      RESUME                          1
+                                28      POP_TOP                         
+                                30      JUMP_BACKWARD                   11 (to 10)
+                                32      END_FOR                         
+                                34      RETURN_CONST                    0: None
+                                36      CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                                38      RERAISE                         1
+                            [Exception Table]
+                                6 to 36 -> 36 [0] lasti
+                        (
+                            'male'
+                            'm'
+                            '1'
+                            1
+                        )
+                        1
+                        2
+                        (
+                            'gender'
+                        )
+                        '__pyarmor_exit_15068__'
+                    [Disassembly]
+                        0       MAKE_CELL                       1: sex
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_15067__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c*\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     1: NULL + Person
+                        40      LOAD_FAST                       0: country
+                        42      LOAD_GLOBAL                     3: NULL + os
+                        52      LOAD_ATTR                       4: getcwd
+                        72      CALL                            0
+                        80      PUSH_NULL                       
+                        82      LOAD_CONST                      1: '__pyarmor_assert_15066__'
+                        84      LOAD_CONST                      4: '\\additives\\data\\identity'   # b'\x81\xde\x19\x177\xf3\xaa\xdb\r\xff\x1e\xfch\xed\xec\x843T\xbf\xa2\xa4\xdfG\xd8\x1c'
+                        86      CALL                            1
+                        94      BINARY_OP                       0 (+)
+                        98      KW_NAMES                        5: ('Newdatafolder',)
+                        100     CALL                            2
+                        108     STORE_FAST                      3: _var_var_0
+                        110     LOAD_GLOBAL                     7: NULL + any
+                        120     LOAD_CLOSURE                    1: sex
+                        122     BUILD_TUPLE                     1
+                        124     LOAD_CONST                      6: <CODE> <genexpr>
+                        126     MAKE_FUNCTION                   8
+                        128     LOAD_CONST                      7: ('male', 'm', '1', 1)
+                        130     GET_ITER                        
+                        132     CALL                            0
+                        140     CALL                            1
+                        148     POP_JUMP_IF_FALSE               19 (to 188)
+                        150     LOAD_CONST                      8: 1
+                        152     STORE_DEREF                     1: sex
+                        154     LOAD_GLOBAL                     8: Gender
+                        164     LOAD_ATTR                       10: MALE
+                        184     STORE_FAST                      4: _var_var_5
+                        186     JUMP_FORWARD                    18 (to 224)
+                        188     LOAD_CONST                      9: 2
+                        190     STORE_DEREF                     1: sex
+                        192     LOAD_GLOBAL                     8: Gender
+                        202     LOAD_ATTR                       12: FEMALE
+                        222     STORE_FAST                      4: _var_var_5
+                        224     LOAD_FAST                       3: _var_var_0
+                        226     LOAD_ATTR                       15: name
+                        246     LOAD_FAST                       4: _var_var_5
+                        248     KW_NAMES                        10: ('gender',)
+                        250     CALL                            1
+                        258     STORE_FAST                      5: _var_var_3
+                        260     LOAD_FAST                       3: _var_var_0
+                        262     LOAD_ATTR                       17: last_name
+                        282     LOAD_FAST                       4: _var_var_5
+                        284     KW_NAMES                        10: ('gender',)
+                        286     CALL                            1
+                        294     STORE_FAST                      6: _var_var_4
+                        296     DELETE_FAST                     3: _var_var_0
+                        298     LOAD_FAST                       5: _var_var_3
+                        300     LOAD_FAST                       6: _var_var_4
+                        302     LOAD_DEREF                      1: sex
+                        304     BUILD_TUPLE                     3
+                        306     NOP                             
+                        308     NOP                             
+                        310     NOP                             
+                        312     JUMP_FORWARD                    20 (to 354)
+                        314     CALL                            1
+                        322     POP_TOP                         
+                        324     RETURN_VALUE                    
+                        326     PUSH_EXC_INFO                   
+                        328     PUSH_NULL                       
+                        330     LOAD_CONST                      11: '__pyarmor_exit_15068__'
+                        332     NOP                             
+                        334     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c*\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        336     CALL                            1
+                        344     POP_TOP                         
+                        346     RERAISE                         0
+                        348     COPY                            3
+                        350     POP_EXCEPT                      
+                        352     RERAISE                         1
+                        354     PUSH_NULL                       
+                        356     LOAD_CONST                      11: '__pyarmor_exit_15068__'
+                        358     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c*\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        360     BUILD_TUPLE                     1
+                        362     CALL_FUNCTION_EX                0
+                        364     POP_TOP                         
+                        366     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 306 -> 326 [0] 
+                        326 to 348 -> 348 [1] lasti
+                [Code]
+                    File Name: <frozen program.modules.func.genuser>
+                    Object Name: photo
+                    Qualified Name: UserDataGenerator.photo
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'any'
+                        'requests_reconnect'
+                        'get_server_file_url'
+                        'ConnectionError'
+                        'str'
+                        'content'
+                        'replace'
+                    [Locals+Names]
+                        'sex'
+                        '__assert_armored__'
+                        '_var_var_7'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15069__'
+                        '__pyarmor_enter_15070__'
+                        b'<COAddr>\x05\x00\x00\x1c\x0c\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        [Code]
+                            File Name: <frozen program.modules.func.genuser>
+                            Object Name: <genexpr>
+                            Qualified Name: UserDataGenerator.photo.<locals>.<genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Stack Size: 3
+                            Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                            [Names]
+                            [Locals+Names]
+                                '.0'
+                                '_var_var_6'
+                                'sex'
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       COPY_FREE_VARS                  1
+                                2       RETURN_GENERATOR                
+                                4       POP_TOP                         
+                                6       RESUME                          0
+                                8       LOAD_FAST                       0: .0
+                                10      FOR_ITER                        9 (to 30)
+                                14      STORE_FAST                      1: _var_var_6
+                                16      LOAD_DEREF                      2: sex
+                                18      LOAD_FAST                       1: _var_var_6
+                                20      COMPARE_OP                      40 (==)
+                                24      YIELD_VALUE                     1
+                                26      RESUME                          1
+                                28      POP_TOP                         
+                                30      JUMP_BACKWARD                   11 (to 10)
+                                32      END_FOR                         
+                                34      RETURN_CONST                    0: None
+                                36      CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                                38      RERAISE                         1
+                            [Exception Table]
+                                6 to 36 -> 36 [0] lasti
+                        (
+                            'male'
+                            'm'
+                            '1'
+                            1
+                        )
+                        1
+                        2
+                        'update.php?&sex='   # b'\x81\xf7\x08\x172\xee\xbb\x9c\x0b\xf2\x1d\x9f*\xff\xfd\x9dR'
+                        404
+                        '404'
+                        'b'
+                        ''
+                        "'"
+                        '__pyarmor_exit_15071__'
+                    [Disassembly]
+                        0       MAKE_CELL                       0: sex
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_15070__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\x0c\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     1: NULL + any
+                        40      LOAD_CLOSURE                    0: sex
+                        42      BUILD_TUPLE                     1
+                        44      LOAD_CONST                      4: <CODE> <genexpr>
+                        46      MAKE_FUNCTION                   8
+                        48      LOAD_CONST                      5: ('male', 'm', '1', 1)
+                        50      GET_ITER                        
+                        52      CALL                            0
+                        60      CALL                            1
+                        68      POP_JUMP_IF_FALSE               3 (to 76)
+                        70      LOAD_CONST                      6: 1
+                        72      STORE_DEREF                     0: sex
+                        74      JUMP_FORWARD                    2 (to 80)
+                        76      LOAD_CONST                      7: 2
+                        78      STORE_DEREF                     0: sex
+                        80      LOAD_GLOBAL                     3: NULL + requests_reconnect
+                        90      LOAD_GLOBAL                     5: NULL + get_server_file_url
+                        100     CALL                            0
+                        108     FORMAT_VALUE                    0 (FVC_NONE)
+                        110     PUSH_NULL                       
+                        112     LOAD_CONST                      1: '__pyarmor_assert_15069__'
+                        114     LOAD_CONST                      8: 'update.php?&sex='   # b'\x81\xf7\x08\x172\xee\xbb\x9c\x0b\xf2\x1d\x9f*\xff\xfd\x9dR'
+                        116     CALL                            1
+                        124     LOAD_DEREF                      0: sex
+                        126     FORMAT_VALUE                    0 (FVC_NONE)
+                        128     BUILD_STRING                    3
+                        130     CALL                            1
+                        138     STORE_FAST                      2: _var_var_7
+                        140     LOAD_FAST                       2: _var_var_7
+                        142     LOAD_CONST                      9: 404
+                        144     COMPARE_OP                      40 (==)
+                        148     POP_JUMP_IF_FALSE               11 (to 172)
+                        150     LOAD_GLOBAL                     7: NULL + ConnectionError
+                        160     LOAD_CONST                      10: '404'
+                        162     CALL                            1
+                        170     RAISE_VARARGS                   1
+                        172     LOAD_GLOBAL                     9: NULL + str
+                        182     LOAD_FAST                       2: _var_var_7
+                        184     LOAD_ATTR                       10: content
+                        204     CALL                            1
+                        212     LOAD_ATTR                       13: replace
+                        232     LOAD_CONST                      11: 'b'
+                        234     LOAD_CONST                      12: ''
+                        236     CALL                            2
+                        244     LOAD_ATTR                       13: replace
+                        264     LOAD_CONST                      13: "'"
+                        266     LOAD_CONST                      12: ''
+                        268     CALL                            2
+                        276     NOP                             
+                        278     NOP                             
+                        280     NOP                             
+                        282     JUMP_FORWARD                    20 (to 324)
+                        284     CALL                            1
+                        292     POP_TOP                         
+                        294     RETURN_VALUE                    
+                        296     PUSH_EXC_INFO                   
+                        298     PUSH_NULL                       
+                        300     LOAD_CONST                      14: '__pyarmor_exit_15071__'
+                        302     NOP                             
+                        304     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\x0c\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        306     CALL                            1
+                        314     POP_TOP                         
+                        316     RERAISE                         0
+                        318     COPY                            3
+                        320     POP_EXCEPT                      
+                        322     RERAISE                         1
+                        324     PUSH_NULL                       
+                        326     LOAD_CONST                      14: '__pyarmor_exit_15071__'
+                        328     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\x0c\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        330     BUILD_TUPLE                     1
+                        332     CALL_FUNCTION_EX                0
+                        334     POP_TOP                         
+                        336     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 276 -> 296 [0] 
+                        296 to 318 -> 318 [1] lasti
+                '__pyarmor_exit_15062__'
+                None
+                (
+                    'ru'
+                )
+                (
+                    'ru'
+                    2
+                )
+                (
+                    1
+                )
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'UserDataGenerator'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_15061__'
+                16      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"L\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      LOAD_NAME                       4: staticmethod
+                38      LOAD_CONST                      9: ('ru',)
+                40      LOAD_CONST                      4: <CODE> rand_user
+                42      MAKE_FUNCTION                   1
+                44      CALL                            0
+                52      STORE_NAME                      5: rand_user
+                54      LOAD_NAME                       4: staticmethod
+                56      LOAD_CONST                      10: ('ru', 2)
+                58      LOAD_CONST                      5: <CODE> user_names_sex
+                60      MAKE_FUNCTION                   1
+                62      CALL                            0
+                70      STORE_NAME                      6: user_names_sex
+                72      LOAD_NAME                       4: staticmethod
+                74      LOAD_CONST                      11: (1,)
+                76      LOAD_CONST                      6: <CODE> photo
+                78      MAKE_FUNCTION                   1
+                80      CALL                            0
+                88      STORE_NAME                      7: photo
+                90      LOAD_CONST                      8: None
+                92      NOP                             
+                94      NOP                             
+                96      NOP                             
+                98      JUMP_FORWARD                    19 (to 138)
+                106     POP_TOP                         
+                108     RETURN_CONST                    8: None
+                110     PUSH_EXC_INFO                   
+                112     PUSH_NULL                       
+                114     LOAD_CONST                      7: '__pyarmor_exit_15062__'
+                116     NOP                             
+                118     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"L\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                120     CALL                            1
+                128     POP_TOP                         
+                130     RERAISE                         0
+                132     COPY                            3
+                134     POP_EXCEPT                      
+                136     RERAISE                         1
+                138     PUSH_NULL                       
+                140     LOAD_CONST                      7: '__pyarmor_exit_15062__'
+                142     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"L\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                144     BUILD_TUPLE                     1
+                146     CALL_FUNCTION_EX                0
+                148     POP_TOP                         
+                150     RETURN_VALUE                    
+            [Exception Table]
+                36 to 90 -> 110 [0] 
+                110 to 132 -> 132 [1] lasti
+        'UserDataGenerator'
+        '__pyarmor_exit_15059__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_15058__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1ah\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: os
+        32      STORE_NAME                      1: os
+        34      LOAD_CONST                      3: 0
+        36      LOAD_CONST                      4: None
+        38      IMPORT_NAME                     2: random
+        40      STORE_NAME                      2: random
+        42      LOAD_CONST                      3: 0
+        44      LOAD_CONST                      5: ('Gender',)
+        46      IMPORT_NAME                     3: mimesis.enums
+        48      IMPORT_FROM                     4: Gender
+        50      STORE_NAME                      4: Gender
+        52      POP_TOP                         
+        54      LOAD_CONST                      3: 0
+        56      LOAD_CONST                      6: ('Person',)
+        58      IMPORT_NAME                     5: mimesis
+        60      IMPORT_FROM                     6: Person
+        62      STORE_NAME                      6: Person
+        64      POP_TOP                         
+        66      LOAD_CONST                      7: 3
+        68      LOAD_CONST                      8: ('requests_reconnect',)
+        70      IMPORT_NAME                     7: general.mfunc
+        72      IMPORT_FROM                     8: requests_reconnect
+        74      STORE_NAME                      8: requests_reconnect
+        76      POP_TOP                         
+        78      LOAD_CONST                      7: 3
+        80      LOAD_CONST                      9: ('get_server_file_url',)
+        82      IMPORT_NAME                     7: general.mfunc
+        84      IMPORT_FROM                     9: get_server_file_url
+        86      STORE_NAME                      9: get_server_file_url
+        88      POP_TOP                         
+        90      PUSH_NULL                       
+        92      LOAD_BUILD_CLASS                
+        94      LOAD_CONST                      10: <CODE> UserDataGenerator
+        96      MAKE_FUNCTION                   0
+        98      LOAD_CONST                      11: 'UserDataGenerator'
+        100     CALL                            2
+        108     STORE_NAME                      10: UserDataGenerator
+        110     LOAD_CONST                      4: None
+        112     NOP                             
+        114     NOP                             
+        116     NOP                             
+        118     JUMP_FORWARD                    19 (to 158)
+        126     POP_TOP                         
+        128     RETURN_CONST                    4: None
+        130     PUSH_EXC_INFO                   
+        132     PUSH_NULL                       
+        134     LOAD_CONST                      12: '__pyarmor_exit_15059__'
+        136     NOP                             
+        138     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1ah\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        140     CALL                            1
+        148     POP_TOP                         
+        150     RERAISE                         0
+        152     COPY                            3
+        154     POP_EXCEPT                      
+        156     RERAISE                         1
+        158     PUSH_NULL                       
+        160     LOAD_CONST                      12: '__pyarmor_exit_15059__'
+        162     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1ah\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        164     BUILD_TUPLE                     1
+        166     CALL_FUNCTION_EX                0
+        168     POP_TOP                         
+        170     RETURN_VALUE                    
+    [Exception Table]
+        26 to 110 -> 130 [0] 
+        130 to 152 -> 152 [1] lasti

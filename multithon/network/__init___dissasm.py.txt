@@ -1,0 +1,164 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.network>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'mtprotoplainsender'
+        'MTProtoPlainSender'
+        'authenticator'
+        'do_authentication'
+        'mtprotosender'
+        'MTProtoSender'
+        'connection'
+        'Connection'
+        'ConnectionTcpFull'
+        'ConnectionTcpIntermediate'
+        'ConnectionTcpAbridged'
+        'ConnectionTcpObfuscated'
+        'ConnectionTcpMTProxyAbridged'
+        'ConnectionTcpMTProxyIntermediate'
+        'ConnectionTcpMTProxyRandomizedIntermediate'
+        'ConnectionHttp'
+        'TcpMTProxy'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_23232__'
+        '__pyarmor_enter_23233__'
+        b'<COAddr>\x05\x00\x00\x1ax\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        "\nThis module contains several classes regarding network, low level connection\nwith Telegram's servers and the protocol used (TCP full, abridged, etc.).\n"   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xfb\x8a\x01I\xba\xae\xa4\xd8\x0e\xdf\x00y\xa6N\x01\xbd^\xe66S3\x1e\x9d\xd9\xf4<\x1d\xee\xf9O\xd9\xd1\x01@w\xe3S\xef\x90\x7f\x14\xe6{\xab\x97\x12\x0f\x0b=VAM\t\xc3\xde8\xe2\xb1\x96a(7O\xb7b\x86\xa8\x93\x8c\xe9\x8b\n\x0eD\xc3\xa5\x8c\xe1\xd8b\x99\xa0\xe1B\xabv)\x1bd=A\x1b\xf8\x96E\xe2\xbd+\xa05\xa6\x17{\xfbYKf_or\xb9\n\x8b\xce\xdb\xef\x14\xb5\x0b\xba]\xcc0W\x06\xf0\xbe;Y\xbc4\xf0\xe3\xc8f\x19\x80.\x97'
+        1
+        (
+            'MTProtoPlainSender'
+        )
+        (
+            'do_authentication'
+        )
+        (
+            'MTProtoSender'
+        )
+        (
+            'Connection'
+            'ConnectionTcpFull'
+            'ConnectionTcpIntermediate'
+            'ConnectionTcpAbridged'
+            'ConnectionTcpObfuscated'
+            'ConnectionTcpMTProxyAbridged'
+            'ConnectionTcpMTProxyIntermediate'
+            'ConnectionTcpMTProxyRandomizedIntermediate'
+            'ConnectionHttp'
+            'TcpMTProxy'
+        )
+        '__pyarmor_exit_23234__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_23233__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1ax\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      PUSH_NULL                       
+        28      LOAD_CONST                      0: '__pyarmor_assert_23232__'
+        30      LOAD_CONST                      3: "\nThis module contains several classes regarding network, low level connection\nwith Telegram's servers and the protocol used (TCP full, abridged, etc.).\n"   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xfb\x8a\x01I\xba\xae\xa4\xd8\x0e\xdf\x00y\xa6N\x01\xbd^\xe66S3\x1e\x9d\xd9\xf4<\x1d\xee\xf9O\xd9\xd1\x01@w\xe3S\xef\x90\x7f\x14\xe6{\xab\x97\x12\x0f\x0b=VAM\t\xc3\xde8\xe2\xb1\x96a(7O\xb7b\x86\xa8\x93\x8c\xe9\x8b\n\x0eD\xc3\xa5\x8c\xe1\xd8b\x99\xa0\xe1B\xabv)\x1bd=A\x1b\xf8\x96E\xe2\xbd+\xa05\xa6\x17{\xfbYKf_or\xb9\n\x8b\xce\xdb\xef\x14\xb5\x0b\xba]\xcc0W\x06\xf0\xbe;Y\xbc4\xf0\xe3\xc8f\x19\x80.\x97'
+        32      CALL                            1
+        40      POP_TOP                         
+        42      LOAD_CONST                      4: 1
+        44      LOAD_CONST                      5: ('MTProtoPlainSender',)
+        46      IMPORT_NAME                     1: mtprotoplainsender
+        48      IMPORT_FROM                     2: MTProtoPlainSender
+        50      STORE_NAME                      2: MTProtoPlainSender
+        52      POP_TOP                         
+        54      LOAD_CONST                      4: 1
+        56      LOAD_CONST                      6: ('do_authentication',)
+        58      IMPORT_NAME                     3: authenticator
+        60      IMPORT_FROM                     4: do_authentication
+        62      STORE_NAME                      4: do_authentication
+        64      POP_TOP                         
+        66      LOAD_CONST                      4: 1
+        68      LOAD_CONST                      7: ('MTProtoSender',)
+        70      IMPORT_NAME                     5: mtprotosender
+        72      IMPORT_FROM                     6: MTProtoSender
+        74      STORE_NAME                      6: MTProtoSender
+        76      POP_TOP                         
+        78      LOAD_CONST                      4: 1
+        80      LOAD_CONST                      8: ('Connection', 'ConnectionTcpFull', 'ConnectionTcpIntermediate', 'ConnectionTcpAbridged', 'ConnectionTcpObfuscated', 'ConnectionTcpMTProxyAbridged', 'ConnectionTcpMTProxyIntermediate', 'ConnectionTcpMTProxyRandomizedIntermediate', 'ConnectionHttp', 'TcpMTProxy')
+        82      IMPORT_NAME                     7: connection
+        84      IMPORT_FROM                     8: Connection
+        86      STORE_NAME                      8: Connection
+        88      IMPORT_FROM                     9: ConnectionTcpFull
+        90      STORE_NAME                      9: ConnectionTcpFull
+        92      IMPORT_FROM                     10: ConnectionTcpIntermediate
+        94      STORE_NAME                      10: ConnectionTcpIntermediate
+        96      IMPORT_FROM                     11: ConnectionTcpAbridged
+        98      STORE_NAME                      11: ConnectionTcpAbridged
+        100     IMPORT_FROM                     12: ConnectionTcpObfuscated
+        102     STORE_NAME                      12: ConnectionTcpObfuscated
+        104     IMPORT_FROM                     13: ConnectionTcpMTProxyAbridged
+        106     STORE_NAME                      13: ConnectionTcpMTProxyAbridged
+        108     IMPORT_FROM                     14: ConnectionTcpMTProxyIntermediate
+        110     STORE_NAME                      14: ConnectionTcpMTProxyIntermediate
+        112     IMPORT_FROM                     15: ConnectionTcpMTProxyRandomizedIntermediate
+        114     STORE_NAME                      15: ConnectionTcpMTProxyRandomizedIntermediate
+        116     IMPORT_FROM                     16: ConnectionHttp
+        118     STORE_NAME                      16: ConnectionHttp
+        120     IMPORT_FROM                     17: TcpMTProxy
+        122     STORE_NAME                      17: TcpMTProxy
+        124     POP_TOP                         
+        126     LOAD_CONST                      10: None
+        128     NOP                             
+        130     NOP                             
+        132     NOP                             
+        134     JUMP_FORWARD                    19 (to 174)
+        142     POP_TOP                         
+        144     RETURN_CONST                    10: None
+        146     PUSH_EXC_INFO                   
+        148     PUSH_NULL                       
+        150     LOAD_CONST                      9: '__pyarmor_exit_23234__'
+        152     NOP                             
+        154     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1ax\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        156     CALL                            1
+        164     POP_TOP                         
+        166     RERAISE                         0
+        168     COPY                            3
+        170     POP_EXCEPT                      
+        172     RERAISE                         1
+        174     PUSH_NULL                       
+        176     LOAD_CONST                      9: '__pyarmor_exit_23234__'
+        178     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1ax\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        180     BUILD_TUPLE                     1
+        182     CALL_FUNCTION_EX                0
+        184     POP_TOP                         
+        186     RETURN_VALUE                    
+    [Exception Table]
+        26 to 126 -> 146 [0] 
+        146 to 168 -> 168 [1] lasti

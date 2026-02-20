@@ -1,0 +1,93 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.tl>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'tlobject'
+        'TLObject'
+        'TLRequest'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_23769__'
+        '__pyarmor_enter_23770__'
+        b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'TLObject'
+            'TLRequest'
+        )
+        '__pyarmor_exit_23771__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_23770__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('TLObject', 'TLRequest')
+        30      IMPORT_NAME                     1: tlobject
+        32      IMPORT_FROM                     2: TLObject
+        34      STORE_NAME                      2: TLObject
+        36      IMPORT_FROM                     3: TLRequest
+        38      STORE_NAME                      3: TLRequest
+        40      POP_TOP                         
+        42      LOAD_CONST                      6: None
+        44      NOP                             
+        46      NOP                             
+        48      NOP                             
+        50      JUMP_FORWARD                    19 (to 90)
+        58      POP_TOP                         
+        60      RETURN_CONST                    6: None
+        62      PUSH_EXC_INFO                   
+        64      PUSH_NULL                       
+        66      LOAD_CONST                      5: '__pyarmor_exit_23771__'
+        68      NOP                             
+        70      LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        72      CALL                            1
+        80      POP_TOP                         
+        82      RERAISE                         0
+        84      COPY                            3
+        86      POP_EXCEPT                      
+        88      RERAISE                         1
+        90      PUSH_NULL                       
+        92      LOAD_CONST                      5: '__pyarmor_exit_23771__'
+        94      LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        96      BUILD_TUPLE                     1
+        98      CALL_FUNCTION_EX                0
+        100     POP_TOP                         
+        102     RETURN_VALUE                    
+    [Exception Table]
+        26 to 42 -> 62 [0] 
+        62 to 84 -> 84 [1] lasti

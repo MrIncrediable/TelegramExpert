@@ -1,0 +1,801 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.crypto.authkey>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'struct'
+        'hashlib'
+        'sha1'
+        'extensions'
+        'BinaryReader'
+        'AuthKey'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_17412__'
+        '__pyarmor_enter_17413__'
+        b'<COAddr>\x07\x00\x00\x1aX\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        '\nThis module holds the AuthKey class.\n'   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xf0\x8a\x03Y\xa8\xe7\xbe\xc3K\x8c$z\xb7T+\xb4\x07\xa59^!\x1e\x8b\x84\xde'
+        0
+        None
+        (
+            'sha1'
+        )
+        2
+        (
+            'BinaryReader'
+        )
+        [Code]
+            File Name: <frozen multithon.crypto.authkey>
+            Object Name: AuthKey
+            Qualified Name: AuthKey
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                'property'
+                'key'
+                'setter'
+                'calc_new_nonce_hash'
+                '__bool__'
+                '__eq__'
+            [Locals+Names]
+            [Constants]
+                'AuthKey'
+                "\n    Represents an authorization key, used to encrypt and decrypt\n    messages sent to Telegram's data centers.\n    "
+                '__pyarmor_assert_17415__'
+                '__pyarmor_enter_17416__'
+                b'<COAddr>\x05\x00\x00&b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.crypto.authkey>
+                    Object Name: __init__
+                    Qualified Name: AuthKey.__init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'key'
+                    [Locals+Names]
+                        'self'
+                        'data'
+                        '__assert_armored__'
+                    [Constants]
+                        '\n        Initializes a new authorization key.\n\n        :param data: the data in bytes that represent this auth key.\n        '
+                        '__pyarmor_assert_17418__'
+                        '__pyarmor_enter_17419__'
+                        b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_17420__'
+                        None
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17419__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: data
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: key
+                        42      LOAD_CONST                      5: None
+                        44      NOP                             
+                        46      NOP                             
+                        48      NOP                             
+                        50      JUMP_FORWARD                    19 (to 90)
+                        58      POP_TOP                         
+                        60      RETURN_CONST                    5: None
+                        62      PUSH_EXC_INFO                   
+                        64      PUSH_NULL                       
+                        66      LOAD_CONST                      4: '__pyarmor_exit_17420__'
+                        68      NOP                             
+                        70      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        72      CALL                            1
+                        80      POP_TOP                         
+                        82      RERAISE                         0
+                        84      COPY                            3
+                        86      POP_EXCEPT                      
+                        88      RERAISE                         1
+                        90      PUSH_NULL                       
+                        92      LOAD_CONST                      4: '__pyarmor_exit_17420__'
+                        94      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        96      BUILD_TUPLE                     1
+                        98      CALL_FUNCTION_EX                0
+                        100     POP_TOP                         
+                        102     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 42 -> 62 [0] 
+                        62 to 84 -> 84 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.crypto.authkey>
+                    Object Name: key
+                    Qualified Name: AuthKey.key
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_key'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17421__'
+                        '__pyarmor_enter_17422__'
+                        b'<COAddr>\x05\x00\x00\x1a,\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_17423__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17422__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a,\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _key
+                        50      NOP                             
+                        52      NOP                             
+                        54      NOP                             
+                        56      JUMP_FORWARD                    20 (to 98)
+                        58      CALL                            1
+                        66      POP_TOP                         
+                        68      RETURN_VALUE                    
+                        70      PUSH_EXC_INFO                   
+                        72      PUSH_NULL                       
+                        74      LOAD_CONST                      4: '__pyarmor_exit_17423__'
+                        76      NOP                             
+                        78      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a,\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        80      CALL                            1
+                        88      POP_TOP                         
+                        90      RERAISE                         0
+                        92      COPY                            3
+                        94      POP_EXCEPT                      
+                        96      RERAISE                         1
+                        98      PUSH_NULL                       
+                        100     LOAD_CONST                      4: '__pyarmor_exit_17423__'
+                        102     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a,\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        104     BUILD_TUPLE                     1
+                        106     CALL_FUNCTION_EX                0
+                        108     POP_TOP                         
+                        110     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 50 -> 70 [0] 
+                        70 to 92 -> 92 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.crypto.authkey>
+                    Object Name: key
+                    Qualified Name: AuthKey.key
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_key'
+                        'aux_hash'
+                        'key_id'
+                        'isinstance'
+                        'type'
+                        'BinaryReader'
+                        'sha1'
+                        'digest'
+                        'read_long'
+                        'read'
+                    [Locals+Names]
+                        'self'
+                        'value'
+                        '__assert_armored__'
+                        '_var_var_0'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17424__'
+                        '__pyarmor_enter_17425__'
+                        b'<COAddr>\x07\x00\x00\x1a\x10\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_17426__'
+                        False
+                        (
+                            'signed'
+                        )
+                        4
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17425__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x10\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: value
+                        30      POP_JUMP_IF_TRUE                32 (to 96)
+                        32      LOAD_CONST                      0: None
+                        34      COPY                            1
+                        36      LOAD_FAST                       0: self
+                        38      STORE_ATTR                      0: _key
+                        48      COPY                            1
+                        50      LOAD_FAST                       0: self
+                        52      STORE_ATTR                      1: aux_hash
+                        62      LOAD_FAST                       0: self
+                        64      STORE_ATTR                      2: key_id
+                        74      NOP                             
+                        76      LOAD_CONST                      0: None
+                        78      NOP                             
+                        80      NOP                             
+                        82      NOP                             
+                        84      JUMP_FORWARD                    248 (to 582)
+                        92      POP_TOP                         
+                        94      RETURN_CONST                    0: None
+                        96      LOAD_GLOBAL                     7: NULL + isinstance
+                        106     LOAD_FAST                       1: value
+                        108     LOAD_GLOBAL                     9: NULL + type
+                        118     LOAD_FAST                       0: self
+                        120     CALL                            1
+                        128     CALL                            2
+                        136     POP_JUMP_IF_FALSE               63 (to 264)
+                        138     LOAD_FAST                       1: value
+                        140     LOAD_ATTR                       0: _key
+                        160     LOAD_FAST                       1: value
+                        162     LOAD_ATTR                       2: aux_hash
+                        182     LOAD_FAST                       1: value
+                        184     LOAD_ATTR                       4: key_id
+                        204     SWAP                            3
+                        206     LOAD_FAST                       0: self
+                        208     STORE_ATTR                      0: _key
+                        218     LOAD_FAST                       0: self
+                        220     STORE_ATTR                      1: aux_hash
+                        230     LOAD_FAST                       0: self
+                        232     STORE_ATTR                      2: key_id
+                        242     NOP                             
+                        244     LOAD_CONST                      0: None
+                        246     NOP                             
+                        248     NOP                             
+                        250     NOP                             
+                        252     JUMP_FORWARD                    164 (to 582)
+                        260     POP_TOP                         
+                        262     RETURN_CONST                    0: None
+                        264     LOAD_FAST                       1: value
+                        266     LOAD_FAST                       0: self
+                        268     STORE_ATTR                      0: _key
+                        278     LOAD_GLOBAL                     11: NULL + BinaryReader
+                        288     LOAD_GLOBAL                     13: NULL + sha1
+                        298     LOAD_FAST                       0: self
+                        300     LOAD_ATTR                       0: _key
+                        320     CALL                            1
+                        328     LOAD_ATTR                       15: digest
+                        348     CALL                            0
+                        356     CALL                            1
+                        364     BEFORE_WITH                     
+                        366     STORE_FAST                      3: _var_var_0
+                        368     LOAD_FAST                       3: _var_var_0
+                        370     LOAD_ATTR                       17: read_long
+                        390     LOAD_CONST                      5: False
+                        392     KW_NAMES                        6: ('signed',)
+                        394     CALL                            1
+                        402     LOAD_FAST                       0: self
+                        404     STORE_ATTR                      1: aux_hash
+                        414     LOAD_FAST                       3: _var_var_0
+                        416     LOAD_ATTR                       19: read
+                        436     LOAD_CONST                      7: 4
+                        438     CALL                            1
+                        446     POP_TOP                         
+                        448     LOAD_FAST                       3: _var_var_0
+                        450     LOAD_ATTR                       17: read_long
+                        470     LOAD_CONST                      5: False
+                        472     KW_NAMES                        6: ('signed',)
+                        474     CALL                            1
+                        482     LOAD_FAST                       0: self
+                        484     STORE_ATTR                      2: key_id
+                        494     LOAD_CONST                      0: None
+                        496     LOAD_CONST                      0: None
+                        498     LOAD_CONST                      0: None
+                        500     CALL                            2
+                        508     POP_TOP                         
+                        510     LOAD_CONST                      0: None
+                        512     NOP                             
+                        514     NOP                             
+                        516     NOP                             
+                        518     JUMP_FORWARD                    31 (to 582)
+                        526     POP_TOP                         
+                        528     RETURN_CONST                    0: None
+                        530     PUSH_EXC_INFO                   
+                        532     WITH_EXCEPT_START               
+                        534     POP_JUMP_IF_TRUE                1 (to 538)
+                        536     RERAISE                         2
+                        538     POP_TOP                         
+                        540     POP_EXCEPT                      
+                        542     POP_TOP                         
+                        544     POP_TOP                         
+                        546     JUMP_BACKWARD                   19 (to 510)
+                        548     COPY                            3
+                        550     POP_EXCEPT                      
+                        552     RERAISE                         1
+                        554     PUSH_EXC_INFO                   
+                        556     PUSH_NULL                       
+                        558     LOAD_CONST                      4: '__pyarmor_exit_17426__'
+                        560     NOP                             
+                        562     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x10\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        564     CALL                            1
+                        572     POP_TOP                         
+                        574     RERAISE                         0
+                        576     COPY                            3
+                        578     POP_EXCEPT                      
+                        580     RERAISE                         1
+                        582     PUSH_NULL                       
+                        584     LOAD_CONST                      4: '__pyarmor_exit_17426__'
+                        586     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x10\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        588     BUILD_TUPLE                     1
+                        590     CALL_FUNCTION_EX                0
+                        592     POP_TOP                         
+                        594     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 74 -> 554 [0] 
+                        96 to 242 -> 554 [0] 
+                        264 to 366 -> 554 [0] 
+                        366 to 494 -> 530 [1] lasti
+                        494 to 510 -> 554 [0] 
+                        530 to 540 -> 548 [3] lasti
+                        540 to 554 -> 554 [0] 
+                        554 to 576 -> 576 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.crypto.authkey>
+                    Object Name: calc_new_nonce_hash
+                    Qualified Name: AuthKey.calc_new_nonce_hash
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'to_bytes'
+                        'struct'
+                        'pack'
+                        'aux_hash'
+                        'int'
+                        'from_bytes'
+                        'sha1'
+                        'digest'
+                    [Locals+Names]
+                        'self'
+                        'new_nonce'
+                        'number'
+                        '__assert_armored__'
+                        '_var_var_1'
+                    [Constants]
+                        '\n        Calculates the new nonce hash based on the current attributes.\n\n        :param new_nonce: the new nonce to be hashed.\n        :param number: number to prepend before the hash.\n        :return: the hash for the given new nonce.\n        '
+                        '__pyarmor_assert_17427__'
+                        '__pyarmor_enter_17428__'
+                        b'<COAddr>\x07\x00\x00\x1a\xe8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        32
+                        'little'
+                        True
+                        (
+                            'signed'
+                        )
+                        '<BQ'
+                        4
+                        20
+                        '__pyarmor_exit_17429__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17428__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xe8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: new_nonce
+                        30      LOAD_ATTR                       1: to_bytes
+                        50      LOAD_CONST                      4: 32
+                        52      LOAD_CONST                      5: 'little'
+                        54      LOAD_CONST                      6: True
+                        56      KW_NAMES                        7: ('signed',)
+                        58      CALL                            3
+                        66      STORE_FAST                      1: new_nonce
+                        68      LOAD_FAST                       1: new_nonce
+                        70      LOAD_GLOBAL                     3: NULL + struct
+                        80      LOAD_ATTR                       4: pack
+                        100     LOAD_CONST                      8: '<BQ'
+                        102     LOAD_FAST                       2: number
+                        104     LOAD_FAST                       0: self
+                        106     LOAD_ATTR                       6: aux_hash
+                        126     CALL                            3
+                        134     BINARY_OP                       0 (+)
+                        138     STORE_FAST                      4: _var_var_1
+                        140     LOAD_GLOBAL                     8: int
+                        150     LOAD_ATTR                       11: from_bytes
+                        170     LOAD_GLOBAL                     13: NULL + sha1
+                        180     LOAD_FAST                       4: _var_var_1
+                        182     CALL                            1
+                        190     LOAD_ATTR                       15: digest
+                        210     CALL                            0
+                        218     LOAD_CONST                      9: 4
+                        220     LOAD_CONST                      10: 20
+                        222     BINARY_SLICE                    
+                        224     LOAD_CONST                      5: 'little'
+                        226     LOAD_CONST                      6: True
+                        228     KW_NAMES                        7: ('signed',)
+                        230     CALL                            3
+                        238     NOP                             
+                        240     NOP                             
+                        242     NOP                             
+                        244     JUMP_FORWARD                    20 (to 286)
+                        246     CALL                            1
+                        254     POP_TOP                         
+                        256     RETURN_VALUE                    
+                        258     PUSH_EXC_INFO                   
+                        260     PUSH_NULL                       
+                        262     LOAD_CONST                      11: '__pyarmor_exit_17429__'
+                        264     NOP                             
+                        266     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xe8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        268     CALL                            1
+                        276     POP_TOP                         
+                        278     RERAISE                         0
+                        280     COPY                            3
+                        282     POP_EXCEPT                      
+                        284     RERAISE                         1
+                        286     PUSH_NULL                       
+                        288     LOAD_CONST                      11: '__pyarmor_exit_17429__'
+                        290     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xe8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        292     BUILD_TUPLE                     1
+                        294     CALL_FUNCTION_EX                0
+                        296     POP_TOP                         
+                        298     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 238 -> 258 [0] 
+                        258 to 280 -> 280 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.crypto.authkey>
+                    Object Name: __bool__
+                    Qualified Name: AuthKey.__bool__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'bool'
+                        '_key'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17430__'
+                        '__pyarmor_enter_17431__'
+                        b'<COAddr>\x05\x00\x00\x1a>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_17432__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17431__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + bool
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_ATTR                       2: _key
+                        60      CALL                            1
+                        68      NOP                             
+                        70      NOP                             
+                        72      NOP                             
+                        74      JUMP_FORWARD                    20 (to 116)
+                        76      CALL                            1
+                        84      POP_TOP                         
+                        86      RETURN_VALUE                    
+                        88      PUSH_EXC_INFO                   
+                        90      PUSH_NULL                       
+                        92      LOAD_CONST                      4: '__pyarmor_exit_17432__'
+                        94      NOP                             
+                        96      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        98      CALL                            1
+                        106     POP_TOP                         
+                        108     RERAISE                         0
+                        110     COPY                            3
+                        112     POP_EXCEPT                      
+                        114     RERAISE                         1
+                        116     PUSH_NULL                       
+                        118     LOAD_CONST                      4: '__pyarmor_exit_17432__'
+                        120     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        122     BUILD_TUPLE                     1
+                        124     CALL_FUNCTION_EX                0
+                        126     POP_TOP                         
+                        128     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 68 -> 88 [0] 
+                        88 to 110 -> 110 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.crypto.authkey>
+                    Object Name: __eq__
+                    Qualified Name: AuthKey.__eq__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'isinstance'
+                        'type'
+                        'key'
+                        '_key'
+                    [Locals+Names]
+                        'self'
+                        'other'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_17433__'
+                        '__pyarmor_enter_17434__'
+                        b'<COAddr>\x07\x00\x00\x1at\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_17435__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17434__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1at\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + isinstance
+                        38      LOAD_FAST                       1: other
+                        40      LOAD_GLOBAL                     3: NULL + type
+                        50      LOAD_FAST                       0: self
+                        52      CALL                            1
+                        60      CALL                            2
+                        68      COPY                            1
+                        70      POP_JUMP_IF_FALSE               25 (to 122)
+                        72      POP_TOP                         
+                        74      LOAD_FAST                       1: other
+                        76      LOAD_ATTR                       4: key
+                        96      LOAD_FAST                       0: self
+                        98      LOAD_ATTR                       6: _key
+                        118     COMPARE_OP                      40 (==)
+                        122     NOP                             
+                        124     NOP                             
+                        126     NOP                             
+                        128     JUMP_FORWARD                    20 (to 170)
+                        130     CALL                            1
+                        138     POP_TOP                         
+                        140     RETURN_VALUE                    
+                        142     PUSH_EXC_INFO                   
+                        144     PUSH_NULL                       
+                        146     LOAD_CONST                      4: '__pyarmor_exit_17435__'
+                        148     NOP                             
+                        150     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1at\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        152     CALL                            1
+                        160     POP_TOP                         
+                        162     RERAISE                         0
+                        164     COPY                            3
+                        166     POP_EXCEPT                      
+                        168     RERAISE                         1
+                        170     PUSH_NULL                       
+                        172     LOAD_CONST                      4: '__pyarmor_exit_17435__'
+                        174     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1at\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        176     BUILD_TUPLE                     1
+                        178     CALL_FUNCTION_EX                0
+                        180     POP_TOP                         
+                        182     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 122 -> 142 [0] 
+                        142 to 164 -> 164 [1] lasti
+                '__pyarmor_exit_17417__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'AuthKey'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: "\n    Represents an authorization key, used to encrypt and decrypt\n    messages sent to Telegram's data centers.\n    "
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17416__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: <CODE> __init__
+                42      MAKE_FUNCTION                   0
+                44      STORE_NAME                      5: __init__
+                46      LOAD_NAME                       6: property
+                48      LOAD_CONST                      6: <CODE> key
+                50      MAKE_FUNCTION                   0
+                52      CALL                            0
+                60      STORE_NAME                      7: key
+                62      LOAD_NAME                       7: key
+                64      LOAD_ATTR                       16: setter
+                84      LOAD_CONST                      7: <CODE> key
+                86      MAKE_FUNCTION                   0
+                88      CALL                            0
+                96      STORE_NAME                      7: key
+                98      LOAD_CONST                      8: <CODE> calc_new_nonce_hash
+                100     MAKE_FUNCTION                   0
+                102     STORE_NAME                      9: calc_new_nonce_hash
+                104     LOAD_CONST                      9: <CODE> __bool__
+                106     MAKE_FUNCTION                   0
+                108     STORE_NAME                      10: __bool__
+                110     LOAD_CONST                      10: <CODE> __eq__
+                112     MAKE_FUNCTION                   0
+                114     STORE_NAME                      11: __eq__
+                116     LOAD_CONST                      12: None
+                118     NOP                             
+                120     NOP                             
+                122     NOP                             
+                124     JUMP_FORWARD                    19 (to 164)
+                132     POP_TOP                         
+                134     RETURN_CONST                    12: None
+                136     PUSH_EXC_INFO                   
+                138     PUSH_NULL                       
+                140     LOAD_CONST                      11: '__pyarmor_exit_17417__'
+                142     NOP                             
+                144     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                146     CALL                            1
+                154     POP_TOP                         
+                156     RERAISE                         0
+                158     COPY                            3
+                160     POP_EXCEPT                      
+                162     RERAISE                         1
+                164     PUSH_NULL                       
+                166     LOAD_CONST                      11: '__pyarmor_exit_17417__'
+                168     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                170     BUILD_TUPLE                     1
+                172     CALL_FUNCTION_EX                0
+                174     POP_TOP                         
+                176     RETURN_VALUE                    
+            [Exception Table]
+                40 to 116 -> 136 [0] 
+                136 to 158 -> 158 [1] lasti
+        'AuthKey'
+        '__pyarmor_exit_17414__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_17413__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aX\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      PUSH_NULL                       
+        28      LOAD_CONST                      0: '__pyarmor_assert_17412__'
+        30      LOAD_CONST                      3: '\nThis module holds the AuthKey class.\n'   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xf0\x8a\x03Y\xa8\xe7\xbe\xc3K\x8c$z\xb7T+\xb4\x07\xa59^!\x1e\x8b\x84\xde'
+        32      CALL                            1
+        40      POP_TOP                         
+        42      LOAD_CONST                      4: 0
+        44      LOAD_CONST                      5: None
+        46      IMPORT_NAME                     1: struct
+        48      STORE_NAME                      1: struct
+        50      LOAD_CONST                      4: 0
+        52      LOAD_CONST                      6: ('sha1',)
+        54      IMPORT_NAME                     2: hashlib
+        56      IMPORT_FROM                     3: sha1
+        58      STORE_NAME                      3: sha1
+        60      POP_TOP                         
+        62      LOAD_CONST                      7: 2
+        64      LOAD_CONST                      8: ('BinaryReader',)
+        66      IMPORT_NAME                     4: extensions
+        68      IMPORT_FROM                     5: BinaryReader
+        70      STORE_NAME                      5: BinaryReader
+        72      POP_TOP                         
+        74      PUSH_NULL                       
+        76      LOAD_BUILD_CLASS                
+        78      LOAD_CONST                      9: <CODE> AuthKey
+        80      MAKE_FUNCTION                   0
+        82      LOAD_CONST                      10: 'AuthKey'
+        84      CALL                            2
+        92      STORE_NAME                      6: AuthKey
+        94      LOAD_CONST                      5: None
+        96      NOP                             
+        98      NOP                             
+        100     NOP                             
+        102     JUMP_FORWARD                    19 (to 142)
+        110     POP_TOP                         
+        112     RETURN_CONST                    5: None
+        114     PUSH_EXC_INFO                   
+        116     PUSH_NULL                       
+        118     LOAD_CONST                      11: '__pyarmor_exit_17414__'
+        120     NOP                             
+        122     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aX\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        124     CALL                            1
+        132     POP_TOP                         
+        134     RERAISE                         0
+        136     COPY                            3
+        138     POP_EXCEPT                      
+        140     RERAISE                         1
+        142     PUSH_NULL                       
+        144     LOAD_CONST                      11: '__pyarmor_exit_17414__'
+        146     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aX\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        148     BUILD_TUPLE                     1
+        150     CALL_FUNCTION_EX                0
+        152     POP_TOP                         
+        154     RETURN_VALUE                    
+    [Exception Table]
+        26 to 94 -> 114 [0] 
+        114 to 136 -> 136 [1] lasti

@@ -1,0 +1,230 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.modules.func.api>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 12
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'activate_new'
+        'SMSActivate'
+        'SMSActivateMail'
+        'activate'
+        'SMSActivateOld'
+        'antisafety'
+        'AntiSafety'
+        'AntiSafetyMail'
+        'AntiSafetyError'
+        'bower'
+        'SMSBower'
+        'expert'
+        'ExpertStat'
+        'ExpertRemoteLog'
+        'ExpertRemoteLink'
+        'firefox'
+        'FireFox'
+        'vaksms'
+        'VakSMS'
+        '__all__'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_15627__'
+        '__pyarmor_enter_15628__'
+        b'<COAddr>\x05\x00\x00\x1a\x06\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'SMSActivate'
+            'SMSActivateMail'
+        )
+        (
+            'SMSActivateOld'
+        )
+        (
+            'AntiSafety'
+            'AntiSafetyMail'
+            'AntiSafetyError'
+        )
+        (
+            'SMSBower'
+        )
+        (
+            'ExpertStat'
+            'ExpertRemoteLog'
+            'ExpertRemoteLink'
+        )
+        (
+            'FireFox'
+        )
+        (
+            'VakSMS'
+        )
+        'SMSActivate'   # b'\x81\xd15 \x12\xf9\xaa\xdb\r\xfb\x19\xc5'
+        'SMSActivateMail'   # b'\x81\xd15 \x12\xf9\xaa\xdb\r\xfb\x19\xc5A\xed\xf1\x89'
+        'SMSActivateOld'   # b'\x81\xd15 \x12\xf9\xaa\xdb\r\xfb\x19\xc5C\xe0\xfc'
+        'AntiSafety'   # b'\x81\xc3\x16\x07:\xc9\xbf\xd4\x1e\xee\x14'
+        'AntiSafetyMail'   # b'\x81\xc3\x16\x07:\xc9\xbf\xd4\x1e\xee\x14\xedm\xe5\xf4'
+        'AntiSafetyError'   # b'\x81\xc3\x16\x07:\xc9\xbf\xd4\x1e\xee\x14\xe5~\xfe\xf7\x97'
+        'SMSBower'
+        'ExpertStat'   # b'\x81\xc7\x00\x036\xe8\xaa\xe1\x0f\xfb\x19'
+        'ExpertRemoteLog'   # b'\x81\xc7\x00\x036\xe8\xaa\xe0\x1e\xf7\x02\xd4i\xc0\xf7\x82'
+        'ExpertRemoteLink'   # b'\x81\xc7\x00\x036\xe8\xaa\xe0\x1e\xf7\x02\xd4i\xc0\xf1\x8b\x04'
+        'FireFox'
+        'VakSMS'
+        '__pyarmor_exit_15629__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_15628__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\x06\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      NOP                             
+        28      LOAD_CONST                      3: 1
+        30      LOAD_CONST                      4: ('SMSActivate', 'SMSActivateMail')
+        32      IMPORT_NAME                     1: activate_new
+        34      IMPORT_FROM                     2: SMSActivate
+        36      STORE_NAME                      2: SMSActivate
+        38      IMPORT_FROM                     3: SMSActivateMail
+        40      STORE_NAME                      3: SMSActivateMail
+        42      POP_TOP                         
+        44      LOAD_CONST                      3: 1
+        46      LOAD_CONST                      5: ('SMSActivateOld',)
+        48      IMPORT_NAME                     4: activate
+        50      IMPORT_FROM                     5: SMSActivateOld
+        52      STORE_NAME                      5: SMSActivateOld
+        54      POP_TOP                         
+        56      LOAD_CONST                      3: 1
+        58      LOAD_CONST                      6: ('AntiSafety', 'AntiSafetyMail', 'AntiSafetyError')
+        60      IMPORT_NAME                     6: antisafety
+        62      IMPORT_FROM                     7: AntiSafety
+        64      STORE_NAME                      7: AntiSafety
+        66      IMPORT_FROM                     8: AntiSafetyMail
+        68      STORE_NAME                      8: AntiSafetyMail
+        70      IMPORT_FROM                     9: AntiSafetyError
+        72      STORE_NAME                      9: AntiSafetyError
+        74      POP_TOP                         
+        76      LOAD_CONST                      3: 1
+        78      LOAD_CONST                      7: ('SMSBower',)
+        80      IMPORT_NAME                     10: bower
+        82      IMPORT_FROM                     11: SMSBower
+        84      STORE_NAME                      11: SMSBower
+        86      POP_TOP                         
+        88      LOAD_CONST                      3: 1
+        90      LOAD_CONST                      8: ('ExpertStat', 'ExpertRemoteLog', 'ExpertRemoteLink')
+        92      IMPORT_NAME                     12: expert
+        94      IMPORT_FROM                     13: ExpertStat
+        96      STORE_NAME                      13: ExpertStat
+        98      IMPORT_FROM                     14: ExpertRemoteLog
+        100     STORE_NAME                      14: ExpertRemoteLog
+        102     IMPORT_FROM                     15: ExpertRemoteLink
+        104     STORE_NAME                      15: ExpertRemoteLink
+        106     POP_TOP                         
+        108     LOAD_CONST                      3: 1
+        110     LOAD_CONST                      9: ('FireFox',)
+        112     IMPORT_NAME                     16: firefox
+        114     IMPORT_FROM                     17: FireFox
+        116     STORE_NAME                      17: FireFox
+        118     POP_TOP                         
+        120     LOAD_CONST                      3: 1
+        122     LOAD_CONST                      10: ('VakSMS',)
+        124     IMPORT_NAME                     18: vaksms
+        126     IMPORT_FROM                     19: VakSMS
+        128     STORE_NAME                      19: VakSMS
+        130     POP_TOP                         
+        132     PUSH_NULL                       
+        134     LOAD_CONST                      0: '__pyarmor_assert_15627__'
+        136     LOAD_CONST                      11: 'SMSActivate'   # b'\x81\xd15 \x12\xf9\xaa\xdb\r\xfb\x19\xc5'
+        138     CALL                            1
+        146     PUSH_NULL                       
+        148     LOAD_CONST                      0: '__pyarmor_assert_15627__'
+        150     LOAD_CONST                      12: 'SMSActivateMail'   # b'\x81\xd15 \x12\xf9\xaa\xdb\r\xfb\x19\xc5A\xed\xf1\x89'
+        152     CALL                            1
+        160     PUSH_NULL                       
+        162     LOAD_CONST                      0: '__pyarmor_assert_15627__'
+        164     LOAD_CONST                      13: 'SMSActivateOld'   # b'\x81\xd15 \x12\xf9\xaa\xdb\r\xfb\x19\xc5C\xe0\xfc'
+        166     CALL                            1
+        174     PUSH_NULL                       
+        176     LOAD_CONST                      0: '__pyarmor_assert_15627__'
+        178     LOAD_CONST                      14: 'AntiSafety'   # b'\x81\xc3\x16\x07:\xc9\xbf\xd4\x1e\xee\x14'
+        180     CALL                            1
+        188     PUSH_NULL                       
+        190     LOAD_CONST                      0: '__pyarmor_assert_15627__'
+        192     LOAD_CONST                      15: 'AntiSafetyMail'   # b'\x81\xc3\x16\x07:\xc9\xbf\xd4\x1e\xee\x14\xedm\xe5\xf4'
+        194     CALL                            1
+        202     PUSH_NULL                       
+        204     LOAD_CONST                      0: '__pyarmor_assert_15627__'
+        206     LOAD_CONST                      16: 'AntiSafetyError'   # b'\x81\xc3\x16\x07:\xc9\xbf\xd4\x1e\xee\x14\xe5~\xfe\xf7\x97'
+        208     CALL                            1
+        216     LOAD_CONST                      17: 'SMSBower'
+        218     PUSH_NULL                       
+        220     LOAD_CONST                      0: '__pyarmor_assert_15627__'
+        222     LOAD_CONST                      18: 'ExpertStat'   # b'\x81\xc7\x00\x036\xe8\xaa\xe1\x0f\xfb\x19'
+        224     CALL                            1
+        232     PUSH_NULL                       
+        234     LOAD_CONST                      0: '__pyarmor_assert_15627__'
+        236     LOAD_CONST                      19: 'ExpertRemoteLog'   # b'\x81\xc7\x00\x036\xe8\xaa\xe0\x1e\xf7\x02\xd4i\xc0\xf7\x82'
+        238     CALL                            1
+        246     PUSH_NULL                       
+        248     LOAD_CONST                      0: '__pyarmor_assert_15627__'
+        250     LOAD_CONST                      20: 'ExpertRemoteLink'   # b'\x81\xc7\x00\x036\xe8\xaa\xe0\x1e\xf7\x02\xd4i\xc0\xf1\x8b\x04'
+        252     CALL                            1
+        260     LOAD_CONST                      21: 'FireFox'
+        262     LOAD_CONST                      22: 'VakSMS'
+        264     BUILD_LIST                      12
+        266     STORE_NAME                      20: __all__
+        268     LOAD_CONST                      24: None
+        270     NOP                             
+        272     NOP                             
+        274     NOP                             
+        276     JUMP_FORWARD                    19 (to 316)
+        284     POP_TOP                         
+        286     RETURN_CONST                    24: None
+        288     PUSH_EXC_INFO                   
+        290     PUSH_NULL                       
+        292     LOAD_CONST                      23: '__pyarmor_exit_15629__'
+        294     NOP                             
+        296     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\x06\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        298     CALL                            1
+        306     POP_TOP                         
+        308     RERAISE                         0
+        310     COPY                            3
+        312     POP_EXCEPT                      
+        314     RERAISE                         1
+        316     PUSH_NULL                       
+        318     LOAD_CONST                      23: '__pyarmor_exit_15629__'
+        320     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\x06\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        322     BUILD_TUPLE                     1
+        324     CALL_FUNCTION_EX                0
+        326     POP_TOP                         
+        328     RETURN_VALUE                    
+    [Exception Table]
+        28 to 268 -> 288 [0] 
+        288 to 310 -> 310 [1] lasti

@@ -1,0 +1,646 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.static_classes>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'fingerprint'
+        'get_fingerprint'
+        'get_lic_key'
+        'set_lic_key'
+        'gender'
+        'GetGender'
+        'generator_name'
+        'GeneratorName'
+        'lang'
+        'GetLang'
+        'logs'
+        'Logs'
+        'SensitiveData'
+        'add_to_errors'
+        'add_to_log'
+        'get_logger'
+        'logging'
+        'proxy_hide'
+        'memory'
+        'FileProtector'
+        'check_module'
+        'memory_check_pid'
+        'memory_check_switcher'
+        'memory_get_lang'
+        'memory_get_ssl'
+        'memory_remove_pid'
+        'memory_set_lang'
+        'memory_set_module'
+        'memory_set_pid'
+        'memory_set_ssl'
+        'memory_set_switcher'
+        'roles'
+        'AccountsRoles'
+        'AccsRole'
+        'Header'
+        'sslpinning'
+        'SSLPinning'
+        'stop'
+        'AutoStop'
+        'AutoStopCheck'
+        'BanAccount'
+        'MaxFlood'
+        'PeerFlood'
+        'StopAccount'
+        'version_control'
+        'VersionControl'
+        '__all__'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_16041__'
+        '__pyarmor_enter_16042__'
+        b'<COAddr>\x07\x00\x00\x1a\xb4\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'get_fingerprint'
+        )
+        (
+            'get_lic_key'
+        )
+        (
+            'set_lic_key'
+        )
+        (
+            'GetGender'
+        )
+        (
+            'GeneratorName'
+        )
+        (
+            'GetLang'
+        )
+        (
+            'Logs'
+        )
+        (
+            'SensitiveData'
+        )
+        (
+            'add_to_errors'
+        )
+        (
+            'add_to_log'
+        )
+        (
+            'get_logger'
+        )
+        (
+            'logging'
+        )
+        (
+            'proxy_hide'
+        )
+        (
+            'FileProtector'
+        )
+        (
+            'check_module'
+        )
+        (
+            'memory_check_pid'
+        )
+        (
+            'memory_check_switcher'
+        )
+        (
+            'memory_get_lang'
+        )
+        (
+            'memory_get_ssl'
+        )
+        (
+            'memory_remove_pid'
+        )
+        (
+            'memory_set_lang'
+        )
+        (
+            'memory_set_module'
+        )
+        (
+            'memory_set_pid'
+        )
+        (
+            'memory_set_ssl'
+        )
+        (
+            'memory_set_switcher'
+        )
+        (
+            'AccountsRoles'
+        )
+        (
+            'AccsRole'
+        )
+        (
+            'Header'
+        )
+        (
+            'SSLPinning'
+        )
+        (
+            'AutoStop'
+        )
+        (
+            'AutoStopCheck'
+        )
+        (
+            'BanAccount'
+        )
+        (
+            'MaxFlood'
+        )
+        (
+            'PeerFlood'
+        )
+        (
+            'StopAccount'
+        )
+        (
+            'VersionControl'
+        )
+        'get_fingerprint'   # b'\x81\xe5\x1d\x07\x0c\xfc\xb7\xdc\x1c\xff\x1f\xd0~\xe5\xf6\x91'
+        'get_lic_key'   # b'\x81\xe5\x1d\x07\x0c\xf6\xb7\xd1$\xf1\x08\xd9'
+        'set_lic_key'   # b'\x81\xf1\x1d\x07\x0c\xf6\xb7\xd1$\xf1\x08\xd9'
+        'GetGender'   # b'\x81\xc5\x1d\x07\x14\xff\xb0\xd6\x1e\xe8'
+        'GeneratorName'   # b'\x81\xc5\x1d\x1d6\xe8\xbf\xc6\x14\xe8#\xc1a\xe9'
+        'GetLang'
+        'Logs'
+        'SensitiveData'   # b'\x81\xd1\x1d\x1d \xf3\xaa\xdb\r\xff)\xc1x\xed'
+        'add_to_errors'   # b'\x81\xe3\x1c\x17\x0c\xee\xb1\xed\x1e\xe8\x1f\xcf~\xff'
+        'add_to_log'   # b'\x81\xe3\x1c\x17\x0c\xee\xb1\xed\x17\xf5\n'
+        'get_logger'   # b'\x81\xe5\x1d\x07\x0c\xf6\xb1\xd5\x1c\xff\x1f'
+        'logging'
+        'proxy_hide'   # b'\x81\xf2\n\x1c+\xe3\x81\xda\x12\xfe\x08'
+        'FileProtector'   # b'\x81\xc4\x11\x1f6\xca\xac\xdd\x0f\xff\x0e\xd4c\xfe'
+        'check_module'   # b'\x81\xe1\x10\x160\xf1\x81\xdf\x14\xfe\x18\xcci'
+        'memory_check_pid'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x18\xf2\x08\xc3g\xd3\xe8\x8c\x0b'
+        'memory_check_switcher'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x18\xf2\x08\xc3g\xd3\xeb\x92\x06I\xb8\xaf\xaf\xd9'
+        'memory_get_lang'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x1c\xff\x19\xff`\xed\xf6\x82'
+        'memory_get_ssl'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x1c\xff\x19\xff\x7f\xff\xf4'
+        'memory_remove_pid'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\t\xff\x00\xcfz\xe9\xc7\x95\x06Y'
+        'memory_set_lang'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x08\xff\x19\xff`\xed\xf6\x82'
+        'memory_set_module'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x08\xff\x19\xffa\xe3\xfc\x90\x03X'
+        'memory_set_pid'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x08\xff\x19\xff|\xe5\xfc'
+        'memory_set_ssl'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x08\xff\x19\xff\x7f\xff\xf4'
+        'memory_set_switcher'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x08\xff\x19\xff\x7f\xfb\xf1\x91\x0cU\xbe\xb5'
+        'AccountsRoles'   # b'\x81\xc3\x1b\x10<\xef\xb0\xc6\x08\xc8\x02\xcci\xff'
+        'AccsRole'
+        'Header'
+        'SSLPinning'   # b'\x81\xd1+?\x03\xf3\xb0\xdc\x12\xf4\n'
+        'AutoStop'
+        'AutoStopCheck'   # b'\x81\xc3\r\x07<\xc9\xaa\xdd\x0b\xd9\x05\xc5o\xe7'
+        'BanAccount'   # b'\x81\xc0\x19\x1d\x12\xf9\xbd\xdd\x0e\xf4\x19'
+        'MaxFlood'
+        'PeerFlood'   # b'\x81\xd2\x1d\x16!\xdc\xb2\xdd\x14\xfe'
+        'StopAccount'   # b'\x81\xd1\x0c\x1c#\xdb\xbd\xd1\x14\xef\x03\xd4'
+        'VersionControl'   # b'\x81\xd4\x1d\x01 \xf3\xb1\xdc8\xf5\x03\xd4~\xe3\xf4'
+        '__pyarmor_exit_16043__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_16042__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xb4\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('get_fingerprint',)
+        30      IMPORT_NAME                     1: fingerprint
+        32      IMPORT_FROM                     2: get_fingerprint
+        34      STORE_NAME                      2: get_fingerprint
+        36      POP_TOP                         
+        38      LOAD_CONST                      3: 1
+        40      LOAD_CONST                      5: ('get_lic_key',)
+        42      IMPORT_NAME                     1: fingerprint
+        44      IMPORT_FROM                     3: get_lic_key
+        46      STORE_NAME                      3: get_lic_key
+        48      POP_TOP                         
+        50      LOAD_CONST                      3: 1
+        52      LOAD_CONST                      6: ('set_lic_key',)
+        54      IMPORT_NAME                     1: fingerprint
+        56      IMPORT_FROM                     4: set_lic_key
+        58      STORE_NAME                      4: set_lic_key
+        60      POP_TOP                         
+        62      LOAD_CONST                      3: 1
+        64      LOAD_CONST                      7: ('GetGender',)
+        66      IMPORT_NAME                     5: gender
+        68      IMPORT_FROM                     6: GetGender
+        70      STORE_NAME                      6: GetGender
+        72      POP_TOP                         
+        74      LOAD_CONST                      3: 1
+        76      LOAD_CONST                      8: ('GeneratorName',)
+        78      IMPORT_NAME                     7: generator_name
+        80      IMPORT_FROM                     8: GeneratorName
+        82      STORE_NAME                      8: GeneratorName
+        84      POP_TOP                         
+        86      LOAD_CONST                      3: 1
+        88      LOAD_CONST                      9: ('GetLang',)
+        90      IMPORT_NAME                     9: lang
+        92      IMPORT_FROM                     10: GetLang
+        94      STORE_NAME                      10: GetLang
+        96      POP_TOP                         
+        98      LOAD_CONST                      3: 1
+        100     LOAD_CONST                      10: ('Logs',)
+        102     IMPORT_NAME                     11: logs
+        104     IMPORT_FROM                     12: Logs
+        106     STORE_NAME                      12: Logs
+        108     POP_TOP                         
+        110     LOAD_CONST                      3: 1
+        112     LOAD_CONST                      11: ('SensitiveData',)
+        114     IMPORT_NAME                     11: logs
+        116     IMPORT_FROM                     13: SensitiveData
+        118     STORE_NAME                      13: SensitiveData
+        120     POP_TOP                         
+        122     LOAD_CONST                      3: 1
+        124     LOAD_CONST                      12: ('add_to_errors',)
+        126     IMPORT_NAME                     11: logs
+        128     IMPORT_FROM                     14: add_to_errors
+        130     STORE_NAME                      14: add_to_errors
+        132     POP_TOP                         
+        134     LOAD_CONST                      3: 1
+        136     LOAD_CONST                      13: ('add_to_log',)
+        138     IMPORT_NAME                     11: logs
+        140     IMPORT_FROM                     15: add_to_log
+        142     STORE_NAME                      15: add_to_log
+        144     POP_TOP                         
+        146     LOAD_CONST                      3: 1
+        148     LOAD_CONST                      14: ('get_logger',)
+        150     IMPORT_NAME                     11: logs
+        152     IMPORT_FROM                     16: get_logger
+        154     STORE_NAME                      16: get_logger
+        156     POP_TOP                         
+        158     LOAD_CONST                      3: 1
+        160     LOAD_CONST                      15: ('logging',)
+        162     IMPORT_NAME                     11: logs
+        164     IMPORT_FROM                     17: logging
+        166     STORE_NAME                      17: logging
+        168     POP_TOP                         
+        170     LOAD_CONST                      3: 1
+        172     LOAD_CONST                      16: ('proxy_hide',)
+        174     IMPORT_NAME                     11: logs
+        176     IMPORT_FROM                     18: proxy_hide
+        178     STORE_NAME                      18: proxy_hide
+        180     POP_TOP                         
+        182     LOAD_CONST                      3: 1
+        184     LOAD_CONST                      17: ('FileProtector',)
+        186     IMPORT_NAME                     19: memory
+        188     IMPORT_FROM                     20: FileProtector
+        190     STORE_NAME                      20: FileProtector
+        192     POP_TOP                         
+        194     LOAD_CONST                      3: 1
+        196     LOAD_CONST                      18: ('check_module',)
+        198     IMPORT_NAME                     19: memory
+        200     IMPORT_FROM                     21: check_module
+        202     STORE_NAME                      21: check_module
+        204     POP_TOP                         
+        206     LOAD_CONST                      3: 1
+        208     LOAD_CONST                      19: ('memory_check_pid',)
+        210     IMPORT_NAME                     19: memory
+        212     IMPORT_FROM                     22: memory_check_pid
+        214     STORE_NAME                      22: memory_check_pid
+        216     POP_TOP                         
+        218     LOAD_CONST                      3: 1
+        220     LOAD_CONST                      20: ('memory_check_switcher',)
+        222     IMPORT_NAME                     19: memory
+        224     IMPORT_FROM                     23: memory_check_switcher
+        226     STORE_NAME                      23: memory_check_switcher
+        228     POP_TOP                         
+        230     LOAD_CONST                      3: 1
+        232     LOAD_CONST                      21: ('memory_get_lang',)
+        234     IMPORT_NAME                     19: memory
+        236     IMPORT_FROM                     24: memory_get_lang
+        238     STORE_NAME                      24: memory_get_lang
+        240     POP_TOP                         
+        242     LOAD_CONST                      3: 1
+        244     LOAD_CONST                      22: ('memory_get_ssl',)
+        246     IMPORT_NAME                     19: memory
+        248     IMPORT_FROM                     25: memory_get_ssl
+        250     STORE_NAME                      25: memory_get_ssl
+        252     POP_TOP                         
+        254     LOAD_CONST                      3: 1
+        256     LOAD_CONST                      23: ('memory_remove_pid',)
+        258     IMPORT_NAME                     19: memory
+        260     IMPORT_FROM                     26: memory_remove_pid
+        262     STORE_NAME                      26: memory_remove_pid
+        264     POP_TOP                         
+        266     LOAD_CONST                      3: 1
+        268     LOAD_CONST                      24: ('memory_set_lang',)
+        270     IMPORT_NAME                     19: memory
+        272     IMPORT_FROM                     27: memory_set_lang
+        274     STORE_NAME                      27: memory_set_lang
+        276     POP_TOP                         
+        278     LOAD_CONST                      3: 1
+        280     LOAD_CONST                      25: ('memory_set_module',)
+        282     IMPORT_NAME                     19: memory
+        284     IMPORT_FROM                     28: memory_set_module
+        286     STORE_NAME                      28: memory_set_module
+        288     POP_TOP                         
+        290     LOAD_CONST                      3: 1
+        292     LOAD_CONST                      26: ('memory_set_pid',)
+        294     IMPORT_NAME                     19: memory
+        296     IMPORT_FROM                     29: memory_set_pid
+        298     STORE_NAME                      29: memory_set_pid
+        300     POP_TOP                         
+        302     LOAD_CONST                      3: 1
+        304     LOAD_CONST                      27: ('memory_set_ssl',)
+        306     IMPORT_NAME                     19: memory
+        308     IMPORT_FROM                     30: memory_set_ssl
+        310     STORE_NAME                      30: memory_set_ssl
+        312     POP_TOP                         
+        314     LOAD_CONST                      3: 1
+        316     LOAD_CONST                      28: ('memory_set_switcher',)
+        318     IMPORT_NAME                     19: memory
+        320     IMPORT_FROM                     31: memory_set_switcher
+        322     STORE_NAME                      31: memory_set_switcher
+        324     POP_TOP                         
+        326     LOAD_CONST                      3: 1
+        328     LOAD_CONST                      29: ('AccountsRoles',)
+        330     IMPORT_NAME                     32: roles
+        332     IMPORT_FROM                     33: AccountsRoles
+        334     STORE_NAME                      33: AccountsRoles
+        336     POP_TOP                         
+        338     LOAD_CONST                      3: 1
+        340     LOAD_CONST                      30: ('AccsRole',)
+        342     IMPORT_NAME                     32: roles
+        344     IMPORT_FROM                     34: AccsRole
+        346     STORE_NAME                      34: AccsRole
+        348     POP_TOP                         
+        350     LOAD_CONST                      3: 1
+        352     LOAD_CONST                      31: ('Header',)
+        354     IMPORT_NAME                     32: roles
+        356     IMPORT_FROM                     35: Header
+        358     STORE_NAME                      35: Header
+        360     POP_TOP                         
+        362     LOAD_CONST                      3: 1
+        364     LOAD_CONST                      32: ('SSLPinning',)
+        366     IMPORT_NAME                     36: sslpinning
+        368     IMPORT_FROM                     37: SSLPinning
+        370     STORE_NAME                      37: SSLPinning
+        372     POP_TOP                         
+        374     LOAD_CONST                      3: 1
+        376     LOAD_CONST                      33: ('AutoStop',)
+        378     IMPORT_NAME                     38: stop
+        380     IMPORT_FROM                     39: AutoStop
+        382     STORE_NAME                      39: AutoStop
+        384     POP_TOP                         
+        386     LOAD_CONST                      3: 1
+        388     LOAD_CONST                      34: ('AutoStopCheck',)
+        390     IMPORT_NAME                     38: stop
+        392     IMPORT_FROM                     40: AutoStopCheck
+        394     STORE_NAME                      40: AutoStopCheck
+        396     POP_TOP                         
+        398     LOAD_CONST                      3: 1
+        400     LOAD_CONST                      35: ('BanAccount',)
+        402     IMPORT_NAME                     38: stop
+        404     IMPORT_FROM                     41: BanAccount
+        406     STORE_NAME                      41: BanAccount
+        408     POP_TOP                         
+        410     LOAD_CONST                      3: 1
+        412     LOAD_CONST                      36: ('MaxFlood',)
+        414     IMPORT_NAME                     38: stop
+        416     IMPORT_FROM                     42: MaxFlood
+        418     STORE_NAME                      42: MaxFlood
+        420     POP_TOP                         
+        422     LOAD_CONST                      3: 1
+        424     LOAD_CONST                      37: ('PeerFlood',)
+        426     IMPORT_NAME                     38: stop
+        428     IMPORT_FROM                     43: PeerFlood
+        430     STORE_NAME                      43: PeerFlood
+        432     POP_TOP                         
+        434     LOAD_CONST                      3: 1
+        436     LOAD_CONST                      38: ('StopAccount',)
+        438     IMPORT_NAME                     38: stop
+        440     IMPORT_FROM                     44: StopAccount
+        442     STORE_NAME                      44: StopAccount
+        444     POP_TOP                         
+        446     LOAD_CONST                      3: 1
+        448     LOAD_CONST                      39: ('VersionControl',)
+        450     IMPORT_NAME                     45: version_control
+        452     IMPORT_FROM                     46: VersionControl
+        454     STORE_NAME                      46: VersionControl
+        456     POP_TOP                         
+        458     BUILD_LIST                      0
+        460     PUSH_NULL                       
+        462     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        464     LOAD_CONST                      40: 'get_fingerprint'   # b'\x81\xe5\x1d\x07\x0c\xfc\xb7\xdc\x1c\xff\x1f\xd0~\xe5\xf6\x91'
+        466     CALL                            1
+        474     LIST_APPEND                     1
+        476     PUSH_NULL                       
+        478     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        480     LOAD_CONST                      41: 'get_lic_key'   # b'\x81\xe5\x1d\x07\x0c\xf6\xb7\xd1$\xf1\x08\xd9'
+        482     CALL                            1
+        490     LIST_APPEND                     1
+        492     PUSH_NULL                       
+        494     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        496     LOAD_CONST                      42: 'set_lic_key'   # b'\x81\xf1\x1d\x07\x0c\xf6\xb7\xd1$\xf1\x08\xd9'
+        498     CALL                            1
+        506     LIST_APPEND                     1
+        508     PUSH_NULL                       
+        510     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        512     LOAD_CONST                      43: 'GetGender'   # b'\x81\xc5\x1d\x07\x14\xff\xb0\xd6\x1e\xe8'
+        514     CALL                            1
+        522     LIST_APPEND                     1
+        524     PUSH_NULL                       
+        526     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        528     LOAD_CONST                      44: 'GeneratorName'   # b'\x81\xc5\x1d\x1d6\xe8\xbf\xc6\x14\xe8#\xc1a\xe9'
+        530     CALL                            1
+        538     LIST_APPEND                     1
+        540     LOAD_CONST                      45: 'GetLang'
+        542     LIST_APPEND                     1
+        544     LOAD_CONST                      46: 'Logs'
+        546     LIST_APPEND                     1
+        548     PUSH_NULL                       
+        550     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        552     LOAD_CONST                      47: 'SensitiveData'   # b'\x81\xd1\x1d\x1d \xf3\xaa\xdb\r\xff)\xc1x\xed'
+        554     CALL                            1
+        562     LIST_APPEND                     1
+        564     PUSH_NULL                       
+        566     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        568     LOAD_CONST                      48: 'add_to_errors'   # b'\x81\xe3\x1c\x17\x0c\xee\xb1\xed\x1e\xe8\x1f\xcf~\xff'
+        570     CALL                            1
+        578     LIST_APPEND                     1
+        580     PUSH_NULL                       
+        582     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        584     LOAD_CONST                      49: 'add_to_log'   # b'\x81\xe3\x1c\x17\x0c\xee\xb1\xed\x17\xf5\n'
+        586     CALL                            1
+        594     LIST_APPEND                     1
+        596     PUSH_NULL                       
+        598     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        600     LOAD_CONST                      50: 'get_logger'   # b'\x81\xe5\x1d\x07\x0c\xf6\xb1\xd5\x1c\xff\x1f'
+        602     CALL                            1
+        610     LIST_APPEND                     1
+        612     LOAD_CONST                      51: 'logging'
+        614     LIST_APPEND                     1
+        616     PUSH_NULL                       
+        618     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        620     LOAD_CONST                      52: 'proxy_hide'   # b'\x81\xf2\n\x1c+\xe3\x81\xda\x12\xfe\x08'
+        622     CALL                            1
+        630     LIST_APPEND                     1
+        632     PUSH_NULL                       
+        634     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        636     LOAD_CONST                      53: 'FileProtector'   # b'\x81\xc4\x11\x1f6\xca\xac\xdd\x0f\xff\x0e\xd4c\xfe'
+        638     CALL                            1
+        646     LIST_APPEND                     1
+        648     PUSH_NULL                       
+        650     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        652     LOAD_CONST                      54: 'check_module'   # b'\x81\xe1\x10\x160\xf1\x81\xdf\x14\xfe\x18\xcci'
+        654     CALL                            1
+        662     LIST_APPEND                     1
+        664     PUSH_NULL                       
+        666     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        668     LOAD_CONST                      55: 'memory_check_pid'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x18\xf2\x08\xc3g\xd3\xe8\x8c\x0b'
+        670     CALL                            1
+        678     LIST_APPEND                     1
+        680     PUSH_NULL                       
+        682     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        684     LOAD_CONST                      56: 'memory_check_switcher'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x18\xf2\x08\xc3g\xd3\xeb\x92\x06I\xb8\xaf\xaf\xd9'
+        686     CALL                            1
+        694     LIST_APPEND                     1
+        696     PUSH_NULL                       
+        698     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        700     LOAD_CONST                      57: 'memory_get_lang'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x1c\xff\x19\xff`\xed\xf6\x82'
+        702     CALL                            1
+        710     LIST_APPEND                     1
+        712     PUSH_NULL                       
+        714     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        716     LOAD_CONST                      58: 'memory_get_ssl'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x1c\xff\x19\xff\x7f\xff\xf4'
+        718     CALL                            1
+        726     LIST_APPEND                     1
+        728     PUSH_NULL                       
+        730     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        732     LOAD_CONST                      59: 'memory_remove_pid'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\t\xff\x00\xcfz\xe9\xc7\x95\x06Y'
+        734     CALL                            1
+        742     LIST_APPEND                     1
+        744     PUSH_NULL                       
+        746     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        748     LOAD_CONST                      60: 'memory_set_lang'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x08\xff\x19\xff`\xed\xf6\x82'
+        750     CALL                            1
+        758     LIST_APPEND                     1
+        760     PUSH_NULL                       
+        762     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        764     LOAD_CONST                      61: 'memory_set_module'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x08\xff\x19\xffa\xe3\xfc\x90\x03X'
+        766     CALL                            1
+        774     LIST_APPEND                     1
+        776     PUSH_NULL                       
+        778     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        780     LOAD_CONST                      62: 'memory_set_pid'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x08\xff\x19\xff|\xe5\xfc'
+        782     CALL                            1
+        790     LIST_APPEND                     1
+        792     PUSH_NULL                       
+        794     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        796     LOAD_CONST                      63: 'memory_set_ssl'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x08\xff\x19\xff\x7f\xff\xf4'
+        798     CALL                            1
+        806     LIST_APPEND                     1
+        808     PUSH_NULL                       
+        810     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        812     LOAD_CONST                      64: 'memory_set_switcher'   # b'\x81\xef\x1d\x1e<\xe8\xa7\xed\x08\xff\x19\xff\x7f\xfb\xf1\x91\x0cU\xbe\xb5'
+        814     CALL                            1
+        822     LIST_APPEND                     1
+        824     PUSH_NULL                       
+        826     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        828     LOAD_CONST                      65: 'AccountsRoles'   # b'\x81\xc3\x1b\x10<\xef\xb0\xc6\x08\xc8\x02\xcci\xff'
+        830     CALL                            1
+        838     LIST_APPEND                     1
+        840     LOAD_CONST                      66: 'AccsRole'
+        842     LIST_APPEND                     1
+        844     LOAD_CONST                      67: 'Header'
+        846     LIST_APPEND                     1
+        848     PUSH_NULL                       
+        850     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        852     LOAD_CONST                      68: 'SSLPinning'   # b'\x81\xd1+?\x03\xf3\xb0\xdc\x12\xf4\n'
+        854     CALL                            1
+        862     LIST_APPEND                     1
+        864     LOAD_CONST                      69: 'AutoStop'
+        866     LIST_APPEND                     1
+        868     PUSH_NULL                       
+        870     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        872     LOAD_CONST                      70: 'AutoStopCheck'   # b'\x81\xc3\r\x07<\xc9\xaa\xdd\x0b\xd9\x05\xc5o\xe7'
+        874     CALL                            1
+        882     LIST_APPEND                     1
+        884     PUSH_NULL                       
+        886     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        888     LOAD_CONST                      71: 'BanAccount'   # b'\x81\xc0\x19\x1d\x12\xf9\xbd\xdd\x0e\xf4\x19'
+        890     CALL                            1
+        898     LIST_APPEND                     1
+        900     LOAD_CONST                      72: 'MaxFlood'
+        902     LIST_APPEND                     1
+        904     PUSH_NULL                       
+        906     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        908     LOAD_CONST                      73: 'PeerFlood'   # b'\x81\xd2\x1d\x16!\xdc\xb2\xdd\x14\xfe'
+        910     CALL                            1
+        918     LIST_APPEND                     1
+        920     PUSH_NULL                       
+        922     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        924     LOAD_CONST                      74: 'StopAccount'   # b'\x81\xd1\x0c\x1c#\xdb\xbd\xd1\x14\xef\x03\xd4'
+        926     CALL                            1
+        934     LIST_APPEND                     1
+        936     PUSH_NULL                       
+        938     LOAD_CONST                      0: '__pyarmor_assert_16041__'
+        940     LOAD_CONST                      75: 'VersionControl'   # b'\x81\xd4\x1d\x01 \xf3\xb1\xdc8\xf5\x03\xd4~\xe3\xf4'
+        942     CALL                            1
+        950     LIST_APPEND                     1
+        952     STORE_NAME                      47: __all__
+        954     LOAD_CONST                      77: None
+        956     NOP                             
+        958     NOP                             
+        960     NOP                             
+        962     JUMP_FORWARD                    19 (to 1002)
+        970     POP_TOP                         
+        972     RETURN_CONST                    77: None
+        974     PUSH_EXC_INFO                   
+        976     PUSH_NULL                       
+        978     LOAD_CONST                      76: '__pyarmor_exit_16043__'
+        980     NOP                             
+        982     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xb4\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        984     CALL                            1
+        992     POP_TOP                         
+        994     RERAISE                         0
+        996     COPY                            3
+        998     POP_EXCEPT                      
+        1000    RERAISE                         1
+        1002    PUSH_NULL                       
+        1004    LOAD_CONST                      76: '__pyarmor_exit_16043__'
+        1006    LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xb4\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1008    BUILD_TUPLE                     1
+        1010    CALL_FUNCTION_EX                0
+        1012    POP_TOP                         
+        1014    RETURN_VALUE                    
+    [Exception Table]
+        26 to 954 -> 974 [0] 
+        974 to 996 -> 996 [1] lasti

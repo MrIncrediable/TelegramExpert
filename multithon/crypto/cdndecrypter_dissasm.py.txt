@@ -1,0 +1,758 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.crypto.cdndecrypter>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'hashlib'
+        'sha256'
+        'tl.functions.upload'
+        'GetCdnFileRequest'
+        'ReuploadCdnFileRequest'
+        'tl.types.upload'
+        'CdnFileReuploadNeeded'
+        'CdnFile'
+        'crypto'
+        'AESModeCTR'
+        'errors'
+        'CdnFileTamperedError'
+        'CdnDecrypter'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_17436__'
+        '__pyarmor_enter_17437__'
+        b'<COAddr>\x05\x00\x00\x1a|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        '\nThis module holds the CdnDecrypter utility class.\n'   # b"\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xf0\x8a\x03Y\xa8\xe7\xbe\xc3K\x8c&k\xadx\x05\xb2\x0c\xfc*F%\x1f\xd8\xdf\xa0'\x14\xe0\xecD\x9d\xdb\x03F$\xfe\x18\x91"
+        0
+        (
+            'sha256'
+        )
+        2
+        (
+            'GetCdnFileRequest'
+            'ReuploadCdnFileRequest'
+        )
+        (
+            'CdnFileReuploadNeeded'
+            'CdnFile'
+        )
+        (
+            'AESModeCTR'
+        )
+        (
+            'CdnFileTamperedError'
+        )
+        [Code]
+            File Name: <frozen multithon.crypto.cdndecrypter>
+            Object Name: CdnDecrypter
+            Qualified Name: CdnDecrypter
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                'staticmethod'
+                'prepare_decrypter'
+                'get_file'
+                'check'
+            [Locals+Names]
+            [Constants]
+                'CdnDecrypter'
+                "\n    Used when downloading a file results in a 'FileCdnRedirect' to\n    both prepare the redirect, decrypt the file as it downloads, and\n    ensure the file hasn't been tampered. https://core.telegram.org/cdn\n    "
+                '__pyarmor_assert_17439__'
+                '__pyarmor_enter_17440__'
+                b'<COAddr>\x07\x00\x00&B\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.crypto.cdndecrypter>
+                    Object Name: __init__
+                    Qualified Name: CdnDecrypter.__init__
+                    Arg Count: 5
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'client'
+                        'file_token'
+                        'cdn_aes'
+                        'cdn_file_hashes'
+                    [Locals+Names]
+                        'self'
+                        'cdn_client'
+                        'file_token'
+                        'cdn_aes'
+                        'cdn_file_hashes'
+                        '__assert_armored__'
+                    [Constants]
+                        '\n        Initializes the CDN decrypter.\n\n        :param cdn_client: a client connected to a CDN.\n        :param file_token: the token of the file to be used.\n        :param cdn_aes: the AES CTR used to decrypt the file.\n        :param cdn_file_hashes: the hashes the decrypted file must match.\n        '
+                        '__pyarmor_assert_17442__'
+                        '__pyarmor_enter_17443__'
+                        b'<COAddr>\x07\x00\x00\x1aN\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_17444__'
+                        None
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17443__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aN\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: cdn_client
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: client
+                        42      LOAD_FAST                       2: file_token
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      1: file_token
+                        56      LOAD_FAST                       3: cdn_aes
+                        58      LOAD_FAST                       0: self
+                        60      STORE_ATTR                      2: cdn_aes
+                        70      LOAD_FAST                       4: cdn_file_hashes
+                        72      LOAD_FAST                       0: self
+                        74      STORE_ATTR                      3: cdn_file_hashes
+                        84      LOAD_CONST                      5: None
+                        86      NOP                             
+                        88      NOP                             
+                        90      NOP                             
+                        92      JUMP_FORWARD                    19 (to 132)
+                        100     POP_TOP                         
+                        102     RETURN_CONST                    5: None
+                        104     PUSH_EXC_INFO                   
+                        106     PUSH_NULL                       
+                        108     LOAD_CONST                      4: '__pyarmor_exit_17444__'
+                        110     NOP                             
+                        112     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aN\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        114     CALL                            1
+                        122     POP_TOP                         
+                        124     RERAISE                         0
+                        126     COPY                            3
+                        128     POP_EXCEPT                      
+                        130     RERAISE                         1
+                        132     PUSH_NULL                       
+                        134     LOAD_CONST                      4: '__pyarmor_exit_17444__'
+                        136     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aN\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        138     BUILD_TUPLE                     1
+                        140     CALL_FUNCTION_EX                0
+                        142     POP_TOP                         
+                        144     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 84 -> 104 [0] 
+                        104 to 126 -> 126 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.crypto.cdndecrypter>
+                    Object Name: prepare_decrypter
+                    Qualified Name: CdnDecrypter.prepare_decrypter
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 8
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'AESModeCTR'
+                        'encryption_key'
+                        'encryption_iv'
+                        'bytes'
+                        'CdnDecrypter'
+                        'file_token'
+                        'cdn_file_hashes'
+                        'GetCdnFileRequest'
+                        'offset'
+                        'limit'
+                        'isinstance'
+                        'CdnFileReuploadNeeded'
+                        'ReuploadCdnFileRequest'
+                        'request_token'
+                        'get_file'
+                        'cdn_aes'
+                        'encrypt'
+                        'pop'
+                        'check'
+                    [Locals+Names]
+                        'client'
+                        'cdn_client'
+                        'cdn_redirect'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                        '_var_var_2'
+                        '_var_var_3'
+                    [Constants]
+                        '\n        Prepares a new CDN decrypter.\n\n        :param client: a TelegramClient connected to the main servers.\n        :param cdn_client: a new client connected to the CDN.\n        :param cdn_redirect: the redirect file object that caused this call.\n        :return: (CdnDecrypter, first chunk file data)\n        '
+                        '__pyarmor_assert_17445__'
+                        '__pyarmor_enter_17446__'
+                        b'<COAddr>\x07\x00\x00\x1e\xd2\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        None
+                        12
+                        4
+                        (
+                            'key'
+                            'iv'
+                        )
+                        0
+                        (
+                            'file_token'
+                            'offset'
+                            'limit'
+                        )
+                        (
+                            'file_token'
+                            'request_token'
+                        )
+                        '__pyarmor_exit_17447__'
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_17446__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e\xd2\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      LOAD_GLOBAL                     1: NULL + AESModeCTR
+                        42      LOAD_FAST                       2: cdn_redirect
+                        44      LOAD_ATTR                       2: encryption_key
+                        64      LOAD_FAST                       2: cdn_redirect
+                        66      LOAD_ATTR                       4: encryption_iv
+                        86      LOAD_CONST                      4: None
+                        88      LOAD_CONST                      5: 12
+                        90      BINARY_SLICE                    
+                        92      LOAD_GLOBAL                     7: NULL + bytes
+                        102     LOAD_CONST                      6: 4
+                        104     CALL                            1
+                        112     BINARY_OP                       0 (+)
+                        116     KW_NAMES                        7: ('key', 'iv')
+                        118     CALL                            2
+                        126     STORE_FAST                      4: _var_var_0
+                        128     LOAD_GLOBAL                     9: NULL + CdnDecrypter
+                        138     LOAD_FAST                       1: cdn_client
+                        140     LOAD_FAST                       2: cdn_redirect
+                        142     LOAD_ATTR                       10: file_token
+                        162     LOAD_FAST                       4: _var_var_0
+                        164     LOAD_FAST                       2: cdn_redirect
+                        166     LOAD_ATTR                       12: cdn_file_hashes
+                        186     CALL                            4
+                        194     STORE_FAST                      5: _var_var_1
+                        196     PUSH_NULL                       
+                        198     LOAD_FAST                       1: cdn_client
+                        200     LOAD_GLOBAL                     15: NULL + GetCdnFileRequest
+                        210     LOAD_FAST                       2: cdn_redirect
+                        212     LOAD_ATTR                       10: file_token
+                        232     LOAD_FAST                       2: cdn_redirect
+                        234     LOAD_ATTR                       12: cdn_file_hashes
+                        254     LOAD_CONST                      8: 0
+                        256     BINARY_SUBSCR                   
+                        260     LOAD_ATTR                       16: offset
+                        280     LOAD_FAST                       2: cdn_redirect
+                        282     LOAD_ATTR                       12: cdn_file_hashes
+                        302     LOAD_CONST                      8: 0
+                        304     BINARY_SUBSCR                   
+                        308     LOAD_ATTR                       18: limit
+                        328     KW_NAMES                        9: ('file_token', 'offset', 'limit')
+                        330     CALL                            3
+                        338     CALL                            1
+                        346     GET_AWAITABLE                   0
+                        348     LOAD_CONST                      4: None
+                        350     SEND                            3 (to 358)
+                        354     YIELD_VALUE                     3
+                        356     RESUME                          3
+                        358     JUMP_BACKWARD_NO_INTERRUPT      5 (to 350)
+                        360     END_SEND                        
+                        362     STORE_FAST                      6: _var_var_2
+                        364     LOAD_GLOBAL                     21: NULL + isinstance
+                        374     LOAD_FAST                       6: _var_var_2
+                        376     LOAD_GLOBAL                     22: CdnFileReuploadNeeded
+                        386     CALL                            2
+                        394     POP_JUMP_IF_FALSE               64 (to 524)
+                        396     PUSH_NULL                       
+                        398     LOAD_FAST                       0: client
+                        400     LOAD_GLOBAL                     25: NULL + ReuploadCdnFileRequest
+                        410     LOAD_FAST                       2: cdn_redirect
+                        412     LOAD_ATTR                       10: file_token
+                        432     LOAD_FAST                       6: _var_var_2
+                        434     LOAD_ATTR                       26: request_token
+                        454     KW_NAMES                        10: ('file_token', 'request_token')
+                        456     CALL                            2
+                        464     CALL                            1
+                        472     GET_AWAITABLE                   0
+                        474     LOAD_CONST                      4: None
+                        476     SEND                            3 (to 484)
+                        480     YIELD_VALUE                     3
+                        482     RESUME                          3
+                        484     JUMP_BACKWARD_NO_INTERRUPT      5 (to 476)
+                        486     END_SEND                        
+                        488     POP_TOP                         
+                        490     LOAD_FAST                       5: _var_var_1
+                        492     LOAD_ATTR                       29: get_file
+                        512     CALL                            0
+                        520     STORE_FAST                      6: _var_var_2
+                        522     JUMP_FORWARD                    97 (to 718)
+                        524     LOAD_FAST                       5: _var_var_1
+                        526     LOAD_ATTR                       30: cdn_aes
+                        546     LOAD_ATTR                       33: encrypt
+                        566     LOAD_FAST                       6: _var_var_2
+                        568     LOAD_ATTR                       6: bytes
+                        588     CALL                            1
+                        596     LOAD_FAST                       6: _var_var_2
+                        598     STORE_ATTR                      3: bytes
+                        608     LOAD_FAST                       5: _var_var_1
+                        610     LOAD_ATTR                       12: cdn_file_hashes
+                        630     LOAD_ATTR                       35: pop
+                        650     LOAD_CONST                      8: 0
+                        652     CALL                            1
+                        660     STORE_FAST                      7: _var_var_3
+                        662     LOAD_FAST                       5: _var_var_1
+                        664     LOAD_ATTR                       37: check
+                        684     LOAD_FAST                       6: _var_var_2
+                        686     LOAD_ATTR                       6: bytes
+                        706     LOAD_FAST                       7: _var_var_3
+                        708     CALL                            2
+                        716     POP_TOP                         
+                        718     LOAD_FAST                       5: _var_var_1
+                        720     LOAD_FAST                       6: _var_var_2
+                        722     BUILD_TUPLE                     2
+                        724     NOP                             
+                        726     NOP                             
+                        728     NOP                             
+                        730     JUMP_FORWARD                    26 (to 784)
+                        732     CALL                            1
+                        740     POP_TOP                         
+                        742     RETURN_VALUE                    
+                        744     CLEANUP_THROW                   
+                        746     JUMP_BACKWARD                   194 (to 360)
+                        748     CLEANUP_THROW                   
+                        750     JUMP_BACKWARD                   133 (to 486)
+                        752     PUSH_EXC_INFO                   
+                        754     PUSH_NULL                       
+                        756     LOAD_CONST                      11: '__pyarmor_exit_17447__'
+                        758     NOP                             
+                        760     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e\xd2\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        762     CALL                            1
+                        770     POP_TOP                         
+                        772     RERAISE                         0
+                        774     COPY                            3
+                        776     POP_EXCEPT                      
+                        778     RERAISE                         1
+                        780     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        782     RERAISE                         1
+                        784     PUSH_NULL                       
+                        786     LOAD_CONST                      11: '__pyarmor_exit_17447__'
+                        788     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e\xd2\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        790     BUILD_TUPLE                     1
+                        792     CALL_FUNCTION_EX                0
+                        794     POP_TOP                         
+                        796     RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 780 [0] lasti
+                        32 to 354 -> 752 [0] 
+                        354 to 356 -> 744 [2] 
+                        356 to 480 -> 752 [0] 
+                        480 to 482 -> 748 [2] 
+                        482 to 724 -> 752 [0] 
+                        724 to 744 -> 780 [0] lasti
+                        744 to 746 -> 752 [0] 
+                        748 to 750 -> 752 [0] 
+                        752 to 774 -> 774 [1] lasti
+                        774 to 780 -> 780 [0] lasti
+                [Code]
+                    File Name: <frozen multithon.crypto.cdndecrypter>
+                    Object Name: get_file
+                    Qualified Name: CdnDecrypter.get_file
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'cdn_file_hashes'
+                        'pop'
+                        'client'
+                        'GetCdnFileRequest'
+                        'file_token'
+                        'offset'
+                        'limit'
+                        'cdn_aes'
+                        'encrypt'
+                        'bytes'
+                        'check'
+                        'CdnFile'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                        '_var_var_3'
+                        '_var_var_2'
+                    [Constants]
+                        "\n        Calls GetCdnFileRequest and decrypts its bytes.\n        Also ensures that the file hasn't been tampered.\n\n        :return: the CdnFile result.\n        "
+                        '__pyarmor_assert_17448__'
+                        '__pyarmor_enter_17449__'
+                        b'<COAddr>\x05\x00\x00\x1a\x90\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        0
+                        '__pyarmor_exit_17450__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17449__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x90\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: cdn_file_hashes
+                        50      POP_JUMP_IF_FALSE               156 (to 364)
+                        52      LOAD_FAST                       0: self
+                        54      LOAD_ATTR                       0: cdn_file_hashes
+                        74      LOAD_ATTR                       3: pop
+                        94      LOAD_CONST                      4: 0
+                        96      CALL                            1
+                        104     STORE_FAST                      2: _var_var_3
+                        106     LOAD_FAST                       0: self
+                        108     LOAD_ATTR                       5: client
+                        128     LOAD_GLOBAL                     7: NULL + GetCdnFileRequest
+                        138     LOAD_FAST                       0: self
+                        140     LOAD_ATTR                       8: file_token
+                        160     LOAD_FAST                       2: _var_var_3
+                        162     LOAD_ATTR                       10: offset
+                        182     LOAD_FAST                       2: _var_var_3
+                        184     LOAD_ATTR                       12: limit
+                        204     CALL                            3
+                        212     CALL                            1
+                        220     STORE_FAST                      3: _var_var_2
+                        222     LOAD_FAST                       0: self
+                        224     LOAD_ATTR                       14: cdn_aes
+                        244     LOAD_ATTR                       17: encrypt
+                        264     LOAD_FAST                       3: _var_var_2
+                        266     LOAD_ATTR                       18: bytes
+                        286     CALL                            1
+                        294     LOAD_FAST                       3: _var_var_2
+                        296     STORE_ATTR                      9: bytes
+                        306     LOAD_FAST                       0: self
+                        308     LOAD_ATTR                       21: check
+                        328     LOAD_FAST                       3: _var_var_2
+                        330     LOAD_ATTR                       18: bytes
+                        350     LOAD_FAST                       2: _var_var_3
+                        352     CALL                            2
+                        360     POP_TOP                         
+                        362     JUMP_FORWARD                    20 (to 404)
+                        364     LOAD_GLOBAL                     23: NULL + CdnFile
+                        374     LOAD_GLOBAL                     19: NULL + bytes
+                        384     LOAD_CONST                      4: 0
+                        386     CALL                            1
+                        394     CALL                            1
+                        402     STORE_FAST                      3: _var_var_2
+                        404     LOAD_FAST                       3: _var_var_2
+                        406     NOP                             
+                        408     NOP                             
+                        410     NOP                             
+                        412     JUMP_FORWARD                    20 (to 454)
+                        414     CALL                            1
+                        422     POP_TOP                         
+                        424     RETURN_VALUE                    
+                        426     PUSH_EXC_INFO                   
+                        428     PUSH_NULL                       
+                        430     LOAD_CONST                      5: '__pyarmor_exit_17450__'
+                        432     NOP                             
+                        434     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x90\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        436     CALL                            1
+                        444     POP_TOP                         
+                        446     RERAISE                         0
+                        448     COPY                            3
+                        450     POP_EXCEPT                      
+                        452     RERAISE                         1
+                        454     PUSH_NULL                       
+                        456     LOAD_CONST                      5: '__pyarmor_exit_17450__'
+                        458     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x90\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        460     BUILD_TUPLE                     1
+                        462     CALL_FUNCTION_EX                0
+                        464     POP_TOP                         
+                        466     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 406 -> 426 [0] 
+                        426 to 448 -> 448 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.crypto.cdndecrypter>
+                    Object Name: check
+                    Qualified Name: CdnDecrypter.check
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'sha256'
+                        'digest'
+                        'hash'
+                        'CdnFileTamperedError'
+                    [Locals+Names]
+                        'data'
+                        'cdn_hash'
+                        '__assert_armored__'
+                    [Constants]
+                        '\n        Checks the integrity of the given data.\n        Raises CdnFileTamperedError if the integrity check fails.\n\n        :param data: the data to be hashed.\n        :param cdn_hash: the expected hash.\n        '
+                        '__pyarmor_assert_17451__'
+                        '__pyarmor_enter_17452__'
+                        b'<COAddr>\x05\x00\x00\x1av\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_17453__'
+                        None
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17452__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1av\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + sha256
+                        38      LOAD_FAST                       0: data
+                        40      CALL                            1
+                        48      LOAD_ATTR                       3: digest
+                        68      CALL                            0
+                        76      LOAD_FAST                       1: cdn_hash
+                        78      LOAD_ATTR                       4: hash
+                        98      COMPARE_OP                      55 (!=)
+                        102     POP_JUMP_IF_FALSE               10 (to 124)
+                        104     LOAD_GLOBAL                     7: NULL + CdnFileTamperedError
+                        114     CALL                            0
+                        122     RAISE_VARARGS                   1
+                        124     LOAD_CONST                      5: None
+                        126     NOP                             
+                        128     NOP                             
+                        130     NOP                             
+                        132     JUMP_FORWARD                    19 (to 172)
+                        140     POP_TOP                         
+                        142     RETURN_CONST                    5: None
+                        144     PUSH_EXC_INFO                   
+                        146     PUSH_NULL                       
+                        148     LOAD_CONST                      4: '__pyarmor_exit_17453__'
+                        150     NOP                             
+                        152     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1av\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        154     CALL                            1
+                        162     POP_TOP                         
+                        164     RERAISE                         0
+                        166     COPY                            3
+                        168     POP_EXCEPT                      
+                        170     RERAISE                         1
+                        172     PUSH_NULL                       
+                        174     LOAD_CONST                      4: '__pyarmor_exit_17453__'
+                        176     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1av\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        178     BUILD_TUPLE                     1
+                        180     CALL_FUNCTION_EX                0
+                        182     POP_TOP                         
+                        184     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 124 -> 144 [0] 
+                        144 to 166 -> 166 [1] lasti
+                '__pyarmor_exit_17441__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'CdnDecrypter'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: "\n    Used when downloading a file results in a 'FileCdnRedirect' to\n    both prepare the redirect, decrypt the file as it downloads, and\n    ensure the file hasn't been tampered. https://core.telegram.org/cdn\n    "
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17440__'
+                20      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&B\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: <CODE> __init__
+                42      MAKE_FUNCTION                   0
+                44      STORE_NAME                      5: __init__
+                46      LOAD_NAME                       6: staticmethod
+                48      LOAD_CONST                      6: <CODE> prepare_decrypter
+                50      MAKE_FUNCTION                   0
+                52      CALL                            0
+                60      STORE_NAME                      7: prepare_decrypter
+                62      LOAD_CONST                      7: <CODE> get_file
+                64      MAKE_FUNCTION                   0
+                66      STORE_NAME                      8: get_file
+                68      LOAD_NAME                       6: staticmethod
+                70      LOAD_CONST                      8: <CODE> check
+                72      MAKE_FUNCTION                   0
+                74      CALL                            0
+                82      STORE_NAME                      9: check
+                84      LOAD_CONST                      10: None
+                86      NOP                             
+                88      NOP                             
+                90      NOP                             
+                92      JUMP_FORWARD                    19 (to 132)
+                100     POP_TOP                         
+                102     RETURN_CONST                    10: None
+                104     PUSH_EXC_INFO                   
+                106     PUSH_NULL                       
+                108     LOAD_CONST                      9: '__pyarmor_exit_17441__'
+                110     NOP                             
+                112     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&B\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                114     CALL                            1
+                122     POP_TOP                         
+                124     RERAISE                         0
+                126     COPY                            3
+                128     POP_EXCEPT                      
+                130     RERAISE                         1
+                132     PUSH_NULL                       
+                134     LOAD_CONST                      9: '__pyarmor_exit_17441__'
+                136     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&B\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                138     BUILD_TUPLE                     1
+                140     CALL_FUNCTION_EX                0
+                142     POP_TOP                         
+                144     RETURN_VALUE                    
+            [Exception Table]
+                40 to 84 -> 104 [0] 
+                104 to 126 -> 126 [1] lasti
+        'CdnDecrypter'
+        '__pyarmor_exit_17438__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_17437__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      PUSH_NULL                       
+        28      LOAD_CONST                      0: '__pyarmor_assert_17436__'
+        30      LOAD_CONST                      3: '\nThis module holds the CdnDecrypter utility class.\n'   # b"\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xf0\x8a\x03Y\xa8\xe7\xbe\xc3K\x8c&k\xadx\x05\xb2\x0c\xfc*F%\x1f\xd8\xdf\xa0'\x14\xe0\xecD\x9d\xdb\x03F$\xfe\x18\x91"
+        32      CALL                            1
+        40      POP_TOP                         
+        42      LOAD_CONST                      4: 0
+        44      LOAD_CONST                      5: ('sha256',)
+        46      IMPORT_NAME                     1: hashlib
+        48      IMPORT_FROM                     2: sha256
+        50      STORE_NAME                      2: sha256
+        52      POP_TOP                         
+        54      LOAD_CONST                      6: 2
+        56      LOAD_CONST                      7: ('GetCdnFileRequest', 'ReuploadCdnFileRequest')
+        58      IMPORT_NAME                     3: tl.functions.upload
+        60      IMPORT_FROM                     4: GetCdnFileRequest
+        62      STORE_NAME                      4: GetCdnFileRequest
+        64      IMPORT_FROM                     5: ReuploadCdnFileRequest
+        66      STORE_NAME                      5: ReuploadCdnFileRequest
+        68      POP_TOP                         
+        70      LOAD_CONST                      6: 2
+        72      LOAD_CONST                      8: ('CdnFileReuploadNeeded', 'CdnFile')
+        74      IMPORT_NAME                     6: tl.types.upload
+        76      IMPORT_FROM                     7: CdnFileReuploadNeeded
+        78      STORE_NAME                      7: CdnFileReuploadNeeded
+        80      IMPORT_FROM                     8: CdnFile
+        82      STORE_NAME                      8: CdnFile
+        84      POP_TOP                         
+        86      LOAD_CONST                      6: 2
+        88      LOAD_CONST                      9: ('AESModeCTR',)
+        90      IMPORT_NAME                     9: crypto
+        92      IMPORT_FROM                     10: AESModeCTR
+        94      STORE_NAME                      10: AESModeCTR
+        96      POP_TOP                         
+        98      LOAD_CONST                      6: 2
+        100     LOAD_CONST                      10: ('CdnFileTamperedError',)
+        102     IMPORT_NAME                     11: errors
+        104     IMPORT_FROM                     12: CdnFileTamperedError
+        106     STORE_NAME                      12: CdnFileTamperedError
+        108     POP_TOP                         
+        110     PUSH_NULL                       
+        112     LOAD_BUILD_CLASS                
+        114     LOAD_CONST                      11: <CODE> CdnDecrypter
+        116     MAKE_FUNCTION                   0
+        118     LOAD_CONST                      12: 'CdnDecrypter'
+        120     CALL                            2
+        128     STORE_NAME                      13: CdnDecrypter
+        130     LOAD_CONST                      14: None
+        132     NOP                             
+        134     NOP                             
+        136     NOP                             
+        138     JUMP_FORWARD                    19 (to 178)
+        146     POP_TOP                         
+        148     RETURN_CONST                    14: None
+        150     PUSH_EXC_INFO                   
+        152     PUSH_NULL                       
+        154     LOAD_CONST                      13: '__pyarmor_exit_17438__'
+        156     NOP                             
+        158     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        160     CALL                            1
+        168     POP_TOP                         
+        170     RERAISE                         0
+        172     COPY                            3
+        174     POP_EXCEPT                      
+        176     RERAISE                         1
+        178     PUSH_NULL                       
+        180     LOAD_CONST                      13: '__pyarmor_exit_17438__'
+        182     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        184     BUILD_TUPLE                     1
+        186     CALL_FUNCTION_EX                0
+        188     POP_TOP                         
+        190     RETURN_VALUE                    
+    [Exception Table]
+        26 to 130 -> 150 [0] 
+        150 to 172 -> 172 [1] lasti

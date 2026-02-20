@@ -1,0 +1,520 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.tl.core.rpcresult>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'gzippacked'
+        'GzipPacked'
+        ''
+        'TLObject'
+        'types'
+        'RpcError'
+        'RpcResult'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_23811__'
+        '__pyarmor_enter_23812__'
+        b'<COAddr>\x07\x00\x00\x1aN\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'GzipPacked'
+        )
+        2
+        (
+            'TLObject'
+        )
+        (
+            'RpcError'
+        )
+        [Code]
+            File Name: <frozen multithon.tl.core.rpcresult>
+            Object Name: RpcResult
+            Qualified Name: RpcResult
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+                'CONSTRUCTOR_ID'
+                '__init__'
+                'classmethod'
+                'from_reader'
+                'to_dict'
+            [Locals+Names]
+            [Constants]
+                'RpcResult'
+                '__pyarmor_assert_23814__'
+                '__pyarmor_enter_23815__'
+                b'<COAddr>\x07\x00\x00"6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                0xF35C6D01
+                [Code]
+                    File Name: <frozen multithon.tl.core.rpcresult>
+                    Object Name: __init__
+                    Qualified Name: RpcResult.__init__
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'req_msg_id'
+                        'body'
+                        'error'
+                    [Locals+Names]
+                        'self'
+                        'req_msg_id'
+                        'body'
+                        'error'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23817__'
+                        '__pyarmor_enter_23818__'
+                        b'<COAddr>\x07\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_23819__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23818__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: req_msg_id
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: req_msg_id
+                        42      LOAD_FAST                       2: body
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      1: body
+                        56      LOAD_FAST                       3: error
+                        58      LOAD_FAST                       0: self
+                        60      STORE_ATTR                      2: error
+                        70      LOAD_CONST                      0: None
+                        72      NOP                             
+                        74      NOP                             
+                        76      NOP                             
+                        78      JUMP_FORWARD                    19 (to 118)
+                        86      POP_TOP                         
+                        88      RETURN_CONST                    0: None
+                        90      PUSH_EXC_INFO                   
+                        92      PUSH_NULL                       
+                        94      LOAD_CONST                      4: '__pyarmor_exit_23819__'
+                        96      NOP                             
+                        98      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        100     CALL                            1
+                        108     POP_TOP                         
+                        110     RERAISE                         0
+                        112     COPY                            3
+                        114     POP_EXCEPT                      
+                        116     RERAISE                         1
+                        118     PUSH_NULL                       
+                        120     LOAD_CONST                      4: '__pyarmor_exit_23819__'
+                        122     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        124     BUILD_TUPLE                     1
+                        126     CALL_FUNCTION_EX                0
+                        128     POP_TOP                         
+                        130     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 70 -> 90 [0] 
+                        90 to 112 -> 112 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.core.rpcresult>
+                    Object Name: from_reader
+                    Qualified Name: RpcResult.from_reader
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'read_long'
+                        'read_int'
+                        'RpcError'
+                        'CONSTRUCTOR_ID'
+                        'RpcResult'
+                        'from_reader'
+                        'GzipPacked'
+                        'data'
+                        'seek'
+                        'read'
+                    [Locals+Names]
+                        'cls'
+                        'reader'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23820__'
+                        '__pyarmor_enter_23821__'
+                        b'<COAddr>\x05\x00\x00\x1a\xb4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        False
+                        (
+                            'signed'
+                        )
+                        '__pyarmor_exit_23822__'
+                        -4
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23821__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xb4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: reader
+                        30      LOAD_ATTR                       1: read_long
+                        50      CALL                            0
+                        58      STORE_FAST                      3: _var_var_0
+                        60      LOAD_FAST                       1: reader
+                        62      LOAD_ATTR                       3: read_int
+                        82      LOAD_CONST                      4: False
+                        84      KW_NAMES                        5: ('signed',)
+                        86      CALL                            1
+                        94      STORE_FAST                      4: _var_var_1
+                        96      LOAD_FAST                       4: _var_var_1
+                        98      LOAD_GLOBAL                     4: RpcError
+                        108     LOAD_ATTR                       6: CONSTRUCTOR_ID
+                        128     COMPARE_OP                      40 (==)
+                        132     POP_JUMP_IF_FALSE               41 (to 216)
+                        134     LOAD_GLOBAL                     9: NULL + RpcResult
+                        144     LOAD_FAST                       3: _var_var_0
+                        146     LOAD_CONST                      0: None
+                        148     LOAD_GLOBAL                     5: NULL + RpcError
+                        158     LOAD_ATTR                       10: from_reader
+                        178     LOAD_FAST                       1: reader
+                        180     CALL                            1
+                        188     CALL                            3
+                        196     NOP                             
+                        198     NOP                             
+                        200     NOP                             
+                        202     JUMP_FORWARD                    143 (to 490)
+                        204     CALL                            1
+                        212     POP_TOP                         
+                        214     RETURN_VALUE                    
+                        216     LOAD_FAST                       4: _var_var_1
+                        218     LOAD_GLOBAL                     12: GzipPacked
+                        228     LOAD_ATTR                       6: CONSTRUCTOR_ID
+                        248     COMPARE_OP                      40 (==)
+                        252     POP_JUMP_IF_FALSE               51 (to 356)
+                        254     LOAD_GLOBAL                     9: NULL + RpcResult
+                        264     LOAD_FAST                       3: _var_var_0
+                        266     LOAD_GLOBAL                     13: NULL + GzipPacked
+                        276     LOAD_ATTR                       10: from_reader
+                        296     LOAD_FAST                       1: reader
+                        298     CALL                            1
+                        306     LOAD_ATTR                       14: data
+                        326     LOAD_CONST                      0: None
+                        328     CALL                            3
+                        336     NOP                             
+                        338     NOP                             
+                        340     NOP                             
+                        342     JUMP_FORWARD                    73 (to 490)
+                        344     CALL                            1
+                        352     POP_TOP                         
+                        354     RETURN_VALUE                    
+                        356     LOAD_FAST                       1: reader
+                        358     LOAD_ATTR                       17: seek
+                        378     LOAD_CONST                      7: -4
+                        380     CALL                            1
+                        388     POP_TOP                         
+                        390     LOAD_GLOBAL                     9: NULL + RpcResult
+                        400     LOAD_FAST                       3: _var_var_0
+                        402     LOAD_FAST                       1: reader
+                        404     LOAD_ATTR                       19: read
+                        424     CALL                            0
+                        432     LOAD_CONST                      0: None
+                        434     CALL                            3
+                        442     NOP                             
+                        444     NOP                             
+                        446     NOP                             
+                        448     JUMP_FORWARD                    20 (to 490)
+                        450     CALL                            1
+                        458     POP_TOP                         
+                        460     RETURN_VALUE                    
+                        462     PUSH_EXC_INFO                   
+                        464     PUSH_NULL                       
+                        466     LOAD_CONST                      6: '__pyarmor_exit_23822__'
+                        468     NOP                             
+                        470     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xb4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        472     CALL                            1
+                        480     POP_TOP                         
+                        482     RERAISE                         0
+                        484     COPY                            3
+                        486     POP_EXCEPT                      
+                        488     RERAISE                         1
+                        490     PUSH_NULL                       
+                        492     LOAD_CONST                      6: '__pyarmor_exit_23822__'
+                        494     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xb4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        496     BUILD_TUPLE                     1
+                        498     CALL_FUNCTION_EX                0
+                        500     POP_TOP                         
+                        502     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 196 -> 462 [0] 
+                        216 to 336 -> 462 [0] 
+                        356 to 442 -> 462 [0] 
+                        462 to 484 -> 484 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.core.rpcresult>
+                    Object Name: to_dict
+                    Qualified Name: RpcResult.to_dict
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 8
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'req_msg_id'
+                        'body'
+                        'error'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23823__'
+                        '__pyarmor_enter_23824__'
+                        b'<COAddr>\x07\x00\x00\x1a|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '_'
+                        'RpcResult'   # b'\x81\xd0\x08\x10\x01\xff\xad\xc7\x17\xee'
+                        'req_msg_id'   # b'\x81\xf0\x1d\x02\x0c\xf7\xad\xd5$\xf3\t'
+                        'body'
+                        'error'
+                        '__pyarmor_exit_23825__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23824__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_CONST                      4: '_'
+                        30      PUSH_NULL                       
+                        32      LOAD_CONST                      1: '__pyarmor_assert_23823__'
+                        34      LOAD_CONST                      5: 'RpcResult'   # b'\x81\xd0\x08\x10\x01\xff\xad\xc7\x17\xee'
+                        36      CALL                            1
+                        44      PUSH_NULL                       
+                        46      LOAD_CONST                      1: '__pyarmor_assert_23823__'
+                        48      LOAD_CONST                      6: 'req_msg_id'   # b'\x81\xf0\x1d\x02\x0c\xf7\xad\xd5$\xf3\t'
+                        50      CALL                            1
+                        58      LOAD_FAST                       0: self
+                        60      LOAD_ATTR                       0: req_msg_id
+                        80      LOAD_CONST                      7: 'body'
+                        82      LOAD_FAST                       0: self
+                        84      LOAD_ATTR                       2: body
+                        104     LOAD_CONST                      8: 'error'
+                        106     LOAD_FAST                       0: self
+                        108     LOAD_ATTR                       4: error
+                        128     BUILD_MAP                       4
+                        130     NOP                             
+                        132     NOP                             
+                        134     NOP                             
+                        136     JUMP_FORWARD                    20 (to 178)
+                        138     CALL                            1
+                        146     POP_TOP                         
+                        148     RETURN_VALUE                    
+                        150     PUSH_EXC_INFO                   
+                        152     PUSH_NULL                       
+                        154     LOAD_CONST                      9: '__pyarmor_exit_23825__'
+                        156     NOP                             
+                        158     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        160     CALL                            1
+                        168     POP_TOP                         
+                        170     RERAISE                         0
+                        172     COPY                            3
+                        174     POP_EXCEPT                      
+                        176     RERAISE                         1
+                        178     PUSH_NULL                       
+                        180     LOAD_CONST                      9: '__pyarmor_exit_23825__'
+                        182     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a|\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        184     BUILD_TUPLE                     1
+                        186     CALL_FUNCTION_EX                0
+                        188     POP_TOP                         
+                        190     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 130 -> 150 [0] 
+                        150 to 172 -> 172 [1] lasti
+                '__pyarmor_exit_23816__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'RpcResult'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_23815__'
+                16      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      LOAD_CONST                      4: 0xF35C6D01
+                38      STORE_NAME                      4: CONSTRUCTOR_ID
+                40      LOAD_CONST                      5: <CODE> __init__
+                42      MAKE_FUNCTION                   0
+                44      STORE_NAME                      5: __init__
+                46      LOAD_NAME                       6: classmethod
+                48      LOAD_CONST                      6: <CODE> from_reader
+                50      MAKE_FUNCTION                   0
+                52      CALL                            0
+                60      STORE_NAME                      7: from_reader
+                62      LOAD_CONST                      7: <CODE> to_dict
+                64      MAKE_FUNCTION                   0
+                66      STORE_NAME                      8: to_dict
+                68      LOAD_CONST                      9: None
+                70      NOP                             
+                72      NOP                             
+                74      NOP                             
+                76      JUMP_FORWARD                    19 (to 116)
+                84      POP_TOP                         
+                86      RETURN_CONST                    9: None
+                88      PUSH_EXC_INFO                   
+                90      PUSH_NULL                       
+                92      LOAD_CONST                      8: '__pyarmor_exit_23816__'
+                94      NOP                             
+                96      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                98      CALL                            1
+                106     POP_TOP                         
+                108     RERAISE                         0
+                110     COPY                            3
+                112     POP_EXCEPT                      
+                114     RERAISE                         1
+                116     PUSH_NULL                       
+                118     LOAD_CONST                      8: '__pyarmor_exit_23816__'
+                120     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                122     BUILD_TUPLE                     1
+                124     CALL_FUNCTION_EX                0
+                126     POP_TOP                         
+                128     RETURN_VALUE                    
+            [Exception Table]
+                36 to 68 -> 88 [0] 
+                88 to 110 -> 110 [1] lasti
+        'RpcResult'
+        '__pyarmor_exit_23813__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_23812__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aN\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('GzipPacked',)
+        30      IMPORT_NAME                     1: gzippacked
+        32      IMPORT_FROM                     2: GzipPacked
+        34      STORE_NAME                      2: GzipPacked
+        36      POP_TOP                         
+        38      LOAD_CONST                      5: 2
+        40      LOAD_CONST                      6: ('TLObject',)
+        42      IMPORT_NAME                     3: 
+        44      IMPORT_FROM                     4: TLObject
+        46      STORE_NAME                      4: TLObject
+        48      POP_TOP                         
+        50      LOAD_CONST                      5: 2
+        52      LOAD_CONST                      7: ('RpcError',)
+        54      IMPORT_NAME                     5: types
+        56      IMPORT_FROM                     6: RpcError
+        58      STORE_NAME                      6: RpcError
+        60      POP_TOP                         
+        62      PUSH_NULL                       
+        64      LOAD_BUILD_CLASS                
+        66      LOAD_CONST                      8: <CODE> RpcResult
+        68      MAKE_FUNCTION                   0
+        70      LOAD_CONST                      9: 'RpcResult'
+        72      LOAD_NAME                       4: TLObject
+        74      CALL                            3
+        82      STORE_NAME                      7: RpcResult
+        84      LOAD_CONST                      11: None
+        86      NOP                             
+        88      NOP                             
+        90      NOP                             
+        92      JUMP_FORWARD                    19 (to 132)
+        100     POP_TOP                         
+        102     RETURN_CONST                    11: None
+        104     PUSH_EXC_INFO                   
+        106     PUSH_NULL                       
+        108     LOAD_CONST                      10: '__pyarmor_exit_23813__'
+        110     NOP                             
+        112     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aN\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        114     CALL                            1
+        122     POP_TOP                         
+        124     RERAISE                         0
+        126     COPY                            3
+        128     POP_EXCEPT                      
+        130     RERAISE                         1
+        132     PUSH_NULL                       
+        134     LOAD_CONST                      10: '__pyarmor_exit_23813__'
+        136     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aN\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        138     BUILD_TUPLE                     1
+        140     CALL_FUNCTION_EX                0
+        142     POP_TOP                         
+        144     RETURN_VALUE                    
+    [Exception Table]
+        26 to 84 -> 104 [0] 
+        104 to 126 -> 126 [1] lasti

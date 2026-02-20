@@ -1,0 +1,1041 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.tl.custom.qrlogin>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'asyncio'
+        'base64'
+        'datetime'
+        ''
+        'types'
+        'functions'
+        'events'
+        'QRLogin'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_24573__'
+        '__pyarmor_enter_24574__'
+        b'<COAddr>\x07\x00\x00\x1a\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        2
+        (
+            'types'
+            'functions'
+        )
+        3
+        (
+            'events'
+        )
+        [Code]
+            File Name: <frozen multithon.tl.custom.qrlogin>
+            Object Name: QRLogin
+            Qualified Name: QRLogin
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                'recreate'
+                'property'
+                'bytes'
+                'token'
+                'str'
+                'url'
+                'datetime'
+                'expires'
+                'float'
+                'wait'
+            [Locals+Names]
+            [Constants]
+                'QRLogin'
+                "\n    QR login information.\n\n    Most of the time, you will present the `url` as a QR code to the user,\n    and while it's being shown, call `wait`.\n    "
+                '__pyarmor_assert_24576__'
+                '__pyarmor_enter_24577__'
+                b'<COAddr>\x07\x00\x00&\x86\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.tl.custom.qrlogin>
+                    Object Name: __init__
+                    Qualified Name: QRLogin.__init__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_client'
+                        'functions'
+                        'auth'
+                        'ExportLoginTokenRequest'
+                        'api_id'
+                        'api_hash'
+                        '_request'
+                        '_resp'
+                    [Locals+Names]
+                        'self'
+                        'client'
+                        'ignored_ids'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_24579__'
+                        '__pyarmor_enter_24580__'
+                        b'<COAddr>\x07\x00\x00\x1a\xce\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_24581__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_24580__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xce\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: client
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: _client
+                        42      LOAD_GLOBAL                     2: functions
+                        52      LOAD_ATTR                       4: auth
+                        72      LOAD_ATTR                       7: ExportLoginTokenRequest
+                        92      LOAD_FAST                       0: self
+                        94      LOAD_ATTR                       0: _client
+                        114     LOAD_ATTR                       8: api_id
+                        134     LOAD_FAST                       0: self
+                        136     LOAD_ATTR                       0: _client
+                        156     LOAD_ATTR                       10: api_hash
+                        176     LOAD_FAST                       2: ignored_ids
+                        178     CALL                            3
+                        186     LOAD_FAST                       0: self
+                        188     STORE_ATTR                      6: _request
+                        198     LOAD_CONST                      0: None
+                        200     LOAD_FAST                       0: self
+                        202     STORE_ATTR                      7: _resp
+                        212     LOAD_CONST                      0: None
+                        214     NOP                             
+                        216     NOP                             
+                        218     NOP                             
+                        220     JUMP_FORWARD                    19 (to 260)
+                        228     POP_TOP                         
+                        230     RETURN_CONST                    0: None
+                        232     PUSH_EXC_INFO                   
+                        234     PUSH_NULL                       
+                        236     LOAD_CONST                      4: '__pyarmor_exit_24581__'
+                        238     NOP                             
+                        240     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xce\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        242     CALL                            1
+                        250     POP_TOP                         
+                        252     RERAISE                         0
+                        254     COPY                            3
+                        256     POP_EXCEPT                      
+                        258     RERAISE                         1
+                        260     PUSH_NULL                       
+                        262     LOAD_CONST                      4: '__pyarmor_exit_24581__'
+                        264     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xce\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        266     BUILD_TUPLE                     1
+                        268     CALL_FUNCTION_EX                0
+                        270     POP_TOP                         
+                        272     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 212 -> 232 [0] 
+                        232 to 254 -> 254 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.custom.qrlogin>
+                    Object Name: recreate
+                    Qualified Name: QRLogin.recreate
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_client'
+                        '_request'
+                        '_resp'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        '\n        Generates a new token and URL for a new QR code, useful if the code\n        has expired before it was imported.\n        '
+                        '__pyarmor_assert_24582__'
+                        '__pyarmor_enter_24583__'
+                        b'<COAddr>\x05\x00\x00\x1ej\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        None
+                        '__pyarmor_exit_24584__'
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_24583__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ej\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       1: _client
+                        54      LOAD_FAST                       0: self
+                        56      LOAD_ATTR                       2: _request
+                        76      CALL                            1
+                        84      GET_AWAITABLE                   0
+                        86      LOAD_CONST                      4: None
+                        88      SEND                            3 (to 96)
+                        92      YIELD_VALUE                     3
+                        94      RESUME                          3
+                        96      JUMP_BACKWARD_NO_INTERRUPT      5 (to 88)
+                        98      END_SEND                        
+                        100     LOAD_FAST                       0: self
+                        102     STORE_ATTR                      2: _resp
+                        112     LOAD_CONST                      4: None
+                        114     NOP                             
+                        116     NOP                             
+                        118     NOP                             
+                        120     JUMP_FORWARD                    23 (to 168)
+                        128     POP_TOP                         
+                        130     RETURN_CONST                    4: None
+                        132     CLEANUP_THROW                   
+                        134     JUMP_BACKWARD                   19 (to 98)
+                        136     PUSH_EXC_INFO                   
+                        138     PUSH_NULL                       
+                        140     LOAD_CONST                      5: '__pyarmor_exit_24584__'
+                        142     NOP                             
+                        144     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ej\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        146     CALL                            1
+                        154     POP_TOP                         
+                        156     RERAISE                         0
+                        158     COPY                            3
+                        160     POP_EXCEPT                      
+                        162     RERAISE                         1
+                        164     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        166     RERAISE                         1
+                        168     PUSH_NULL                       
+                        170     LOAD_CONST                      5: '__pyarmor_exit_24584__'
+                        172     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ej\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        174     BUILD_TUPLE                     1
+                        176     CALL_FUNCTION_EX                0
+                        178     POP_TOP                         
+                        180     RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 164 [0] lasti
+                        32 to 92 -> 136 [0] 
+                        92 to 94 -> 132 [2] 
+                        94 to 112 -> 136 [0] 
+                        112 to 132 -> 164 [0] lasti
+                        132 to 134 -> 136 [0] 
+                        136 to 158 -> 158 [1] lasti
+                        158 to 164 -> 164 [0] lasti
+                'return'
+                [Code]
+                    File Name: <frozen multithon.tl.custom.qrlogin>
+                    Object Name: token
+                    Qualified Name: QRLogin.token
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_resp'
+                        'token'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        '\n        The binary data representing the token.\n\n        It can be used by a previously-authorized client in a call to\n        :tl:`auth.importLoginToken` to log the client that originally\n        requested the QR login.\n        '
+                        '__pyarmor_assert_24585__'
+                        '__pyarmor_enter_24586__'
+                        b'<COAddr>\x07\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_24587__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_24586__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _resp
+                        50      LOAD_ATTR                       2: token
+                        70      NOP                             
+                        72      NOP                             
+                        74      NOP                             
+                        76      JUMP_FORWARD                    20 (to 118)
+                        78      CALL                            1
+                        86      POP_TOP                         
+                        88      RETURN_VALUE                    
+                        90      PUSH_EXC_INFO                   
+                        92      PUSH_NULL                       
+                        94      LOAD_CONST                      4: '__pyarmor_exit_24587__'
+                        96      NOP                             
+                        98      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        100     CALL                            1
+                        108     POP_TOP                         
+                        110     RERAISE                         0
+                        112     COPY                            3
+                        114     POP_EXCEPT                      
+                        116     RERAISE                         1
+                        118     PUSH_NULL                       
+                        120     LOAD_CONST                      4: '__pyarmor_exit_24587__'
+                        122     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        124     BUILD_TUPLE                     1
+                        126     CALL_FUNCTION_EX                0
+                        128     POP_TOP                         
+                        130     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 70 -> 90 [0] 
+                        90 to 112 -> 112 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.custom.qrlogin>
+                    Object Name: url
+                    Qualified Name: QRLogin.url
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'format'
+                        'base64'
+                        'urlsafe_b64encode'
+                        '_resp'
+                        'token'
+                        'decode'
+                        'rstrip'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        "\n        The ``tg://login`` URI with the token. When opened by a Telegram\n        application where the user is logged in, it will import the login\n        token.\n\n        If you want to display a QR code to the user, this is the URL that\n        should be launched when the QR code is scanned (the URL that should\n        be contained in the QR code image you generate).\n\n        Whether you generate the QR code image or not is up to you, and the\n        library can't do this for you due to the vast ways of generating and\n        displaying the QR code that exist.\n\n        The URL simply consists of `token` base64-encoded.\n        "
+                        '__pyarmor_assert_24588__'
+                        '__pyarmor_enter_24589__'
+                        b'<COAddr>\x07\x00\x00\x1a\xcc\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'tg://login?token={}'   # b'\x81\xf6\x1fI|\xb5\xb2\xdd\x1c\xf3\x03\x9fx\xe3\xf3\x80\x01\x00\xa0\xba'
+                        'utf-8'
+                        '='
+                        '__pyarmor_exit_24590__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_24589__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xcc\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      PUSH_NULL                       
+                        30      LOAD_CONST                      1: '__pyarmor_assert_24588__'
+                        32      LOAD_CONST                      4: 'tg://login?token={}'   # b'\x81\xf6\x1fI|\xb5\xb2\xdd\x1c\xf3\x03\x9fx\xe3\xf3\x80\x01\x00\xa0\xba'
+                        34      CALL                            1
+                        42      LOAD_ATTR                       1: format
+                        62      LOAD_GLOBAL                     3: NULL + base64
+                        72      LOAD_ATTR                       4: urlsafe_b64encode
+                        92      LOAD_FAST                       0: self
+                        94      LOAD_ATTR                       6: _resp
+                        114     LOAD_ATTR                       8: token
+                        134     CALL                            1
+                        142     LOAD_ATTR                       11: decode
+                        162     LOAD_CONST                      5: 'utf-8'
+                        164     CALL                            1
+                        172     LOAD_ATTR                       13: rstrip
+                        192     LOAD_CONST                      6: '='
+                        194     CALL                            1
+                        202     CALL                            1
+                        210     NOP                             
+                        212     NOP                             
+                        214     NOP                             
+                        216     JUMP_FORWARD                    20 (to 258)
+                        218     CALL                            1
+                        226     POP_TOP                         
+                        228     RETURN_VALUE                    
+                        230     PUSH_EXC_INFO                   
+                        232     PUSH_NULL                       
+                        234     LOAD_CONST                      7: '__pyarmor_exit_24590__'
+                        236     NOP                             
+                        238     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xcc\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        240     CALL                            1
+                        248     POP_TOP                         
+                        250     RERAISE                         0
+                        252     COPY                            3
+                        254     POP_EXCEPT                      
+                        256     RERAISE                         1
+                        258     PUSH_NULL                       
+                        260     LOAD_CONST                      7: '__pyarmor_exit_24590__'
+                        262     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xcc\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        264     BUILD_TUPLE                     1
+                        266     CALL_FUNCTION_EX                0
+                        268     POP_TOP                         
+                        270     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 210 -> 230 [0] 
+                        230 to 252 -> 252 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.custom.qrlogin>
+                    Object Name: expires
+                    Qualified Name: QRLogin.expires
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_resp'
+                        'expires'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        '\n        The `datetime` at which the QR code will expire.\n\n        If you want to try again, you will need to call `recreate`.\n        '
+                        '__pyarmor_assert_24591__'
+                        '__pyarmor_enter_24592__'
+                        b'<COAddr>\x05\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_24593__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_24592__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _resp
+                        50      LOAD_ATTR                       2: expires
+                        70      NOP                             
+                        72      NOP                             
+                        74      NOP                             
+                        76      JUMP_FORWARD                    20 (to 118)
+                        78      CALL                            1
+                        86      POP_TOP                         
+                        88      RETURN_VALUE                    
+                        90      PUSH_EXC_INFO                   
+                        92      PUSH_NULL                       
+                        94      LOAD_CONST                      4: '__pyarmor_exit_24593__'
+                        96      NOP                             
+                        98      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        100     CALL                            1
+                        108     POP_TOP                         
+                        110     RERAISE                         0
+                        112     COPY                            3
+                        114     POP_EXCEPT                      
+                        116     RERAISE                         1
+                        118     PUSH_NULL                       
+                        120     LOAD_CONST                      4: '__pyarmor_exit_24593__'
+                        122     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        124     BUILD_TUPLE                     1
+                        126     CALL_FUNCTION_EX                0
+                        128     POP_TOP                         
+                        130     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 70 -> 90 [0] 
+                        90 to 112 -> 112 [1] lasti
+                None
+                'timeout'
+                [Code]
+                    File Name: <frozen multithon.tl.custom.qrlogin>
+                    Object Name: wait
+                    Qualified Name: QRLogin.wait
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_resp'
+                        'expires'
+                        'datetime'
+                        'now'
+                        'timezone'
+                        'utc'
+                        'total_seconds'
+                        'asyncio'
+                        'Event'
+                        '_client'
+                        'add_event_handler'
+                        'events'
+                        'Raw'
+                        'types'
+                        'UpdateLoginToken'
+                        'wait_for'
+                        'wait'
+                        'remove_event_handler'
+                        '_request'
+                        'isinstance'
+                        'auth'
+                        'LoginTokenMigrateTo'
+                        '_switch_dc'
+                        'dc_id'
+                        'functions'
+                        'ImportLoginTokenRequest'
+                        'token'
+                        'LoginTokenSuccess'
+                        'authorization'
+                        'user'
+                        '_on_login'
+                        'TypeError'
+                        'format'
+                    [Locals+Names]
+                        'self'
+                        'timeout'
+                        '__assert_armored__'
+                        '_var_var_1'
+                        '_var_var_2'
+                        '_var_var_3'
+                        '_var_var_0'
+                    [Constants]
+                        "\n        Waits for the token to be imported by a previously-authorized client,\n        either by scanning the QR, launching the URL directly, or calling the\n        import method.\n\n        This method **must** be called before the QR code is scanned, and\n        must be executing while the QR code is being scanned. Otherwise, the\n        login will not complete.\n\n        Will raise `asyncio.TimeoutError` if the login doesn't complete on\n        time.\n\n        Arguments\n            timeout (float):\n                The timeout, in seconds, to wait before giving up. By default\n                the library will wait until the token expires, which is often\n                what you want.\n\n        Returns\n            On success, an instance of :tl:`User`. On failure it will raise.\n        "
+                        '__pyarmor_assert_24594__'
+                        '__pyarmor_enter_24595__'
+                        b'<COAddr>\x07\x00\x00 \xce\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        None
+                        (
+                            'tz'
+                        )
+                        [Code]
+                            File Name: <frozen multithon.tl.custom.qrlogin>
+                            Object Name: handler
+                            Qualified Name: QRLogin.wait.<locals>.handler
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Stack Size: 5
+                            Flags: 0x20000093 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                            [Names]
+                                'set'
+                            [Locals+Names]
+                                '_update'
+                                '__assert_armored__'
+                                '_var_var_0'
+                            [Constants]
+                                None
+                                '__pyarmor_assert_24597__'
+                                '__pyarmor_enter_24598__'
+                                b'<COAddr>\x05\x00\x00 6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                                '__pyarmor_exit_24599__'
+                            [Disassembly]
+                                0       COPY_FREE_VARS                  1
+                                2       RETURN_GENERATOR                
+                                4       POP_TOP                         
+                                6       NOP                             
+                                8       NOP                             
+                                10      PUSH_NULL                       
+                                12      LOAD_CONST                      2: '__pyarmor_enter_24598__'
+                                14      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00 6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                                16      BUILD_TUPLE                     1
+                                18      CALL_FUNCTION_EX                0
+                                20      POP_TOP                         
+                                22      RESUME                          0
+                                24      NOP                             
+                                26      NOP                             
+                                28      NOP                             
+                                30      NOP                             
+                                32      NOP                             
+                                34      LOAD_DEREF                      2: _var_var_0
+                                36      LOAD_ATTR                       1: set
+                                56      CALL                            0
+                                64      POP_TOP                         
+                                66      LOAD_CONST                      0: None
+                                68      NOP                             
+                                70      NOP                             
+                                72      NOP                             
+                                74      JUMP_FORWARD                    21 (to 118)
+                                82      POP_TOP                         
+                                84      RETURN_CONST                    0: None
+                                86      PUSH_EXC_INFO                   
+                                88      PUSH_NULL                       
+                                90      LOAD_CONST                      4: '__pyarmor_exit_24599__'
+                                92      NOP                             
+                                94      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00 6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                                96      CALL                            1
+                                104     POP_TOP                         
+                                106     RERAISE                         0
+                                108     COPY                            3
+                                110     POP_EXCEPT                      
+                                112     RERAISE                         1
+                                114     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                                116     RERAISE                         1
+                                118     PUSH_NULL                       
+                                120     LOAD_CONST                      4: '__pyarmor_exit_24599__'
+                                122     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00 6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                                124     BUILD_TUPLE                     1
+                                126     CALL_FUNCTION_EX                0
+                                128     POP_TOP                         
+                                130     RETURN_VALUE                    
+                            [Exception Table]
+                                6 to 32 -> 114 [0] lasti
+                                34 to 66 -> 86 [0] 
+                                66 to 86 -> 114 [0] lasti
+                                86 to 108 -> 108 [1] lasti
+                                108 to 114 -> 114 [0] lasti
+                        (
+                            'timeout'
+                        )
+                        '__pyarmor_exit_24596__'
+                        'Login token response was unexpected: {}'   # b'\x81\xce\x17\x14:\xf4\xfe\xc6\x14\xf1\x08\xce,\xfe\xfd\x96\x1fR\xb5\xb4\xaf\x8bY\xcd\x16/\xb6R\x05\xa9\x0e\xe09F%\t\xc2\x8a\xaf3'
+                    [Disassembly]
+                        0       MAKE_CELL                       6: _var_var_0
+                        2       RETURN_GENERATOR                
+                        4       POP_TOP                         
+                        6       NOP                             
+                        8       NOP                             
+                        10      PUSH_NULL                       
+                        12      LOAD_CONST                      2: '__pyarmor_enter_24595__'
+                        14      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00 \xce\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        16      BUILD_TUPLE                     1
+                        18      CALL_FUNCTION_EX                0
+                        20      POP_TOP                         
+                        22      RESUME                          0
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      NOP                             
+                        34      LOAD_FAST                       1: timeout
+                        36      POP_JUMP_IF_NOT_NONE            93 (to 224)
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_ATTR                       0: _resp
+                        60      LOAD_ATTR                       2: expires
+                        80      LOAD_GLOBAL                     4: datetime
+                        90      LOAD_ATTR                       4: datetime
+                        110     LOAD_ATTR                       7: now
+                        130     LOAD_GLOBAL                     4: datetime
+                        140     LOAD_ATTR                       8: timezone
+                        160     LOAD_ATTR                       10: utc
+                        180     KW_NAMES                        5: ('tz',)
+                        182     CALL                            1
+                        190     BINARY_OP                       10 (-)
+                        194     LOAD_ATTR                       13: total_seconds
+                        214     CALL                            0
+                        222     STORE_FAST                      1: timeout
+                        224     LOAD_GLOBAL                     15: NULL + asyncio
+                        234     LOAD_ATTR                       16: Event
+                        254     CALL                            0
+                        262     STORE_DEREF                     6: _var_var_0
+                        264     LOAD_CLOSURE                    6: _var_var_0
+                        266     BUILD_TUPLE                     1
+                        268     LOAD_CONST                      6: <CODE> handler
+                        270     MAKE_FUNCTION                   8
+                        272     STORE_FAST                      3: _var_var_1
+                        274     LOAD_FAST                       0: self
+                        276     LOAD_ATTR                       18: _client
+                        296     LOAD_ATTR                       21: add_event_handler
+                        316     LOAD_FAST                       3: _var_var_1
+                        318     LOAD_GLOBAL                     23: NULL + events
+                        328     LOAD_ATTR                       24: Raw
+                        348     LOAD_GLOBAL                     26: types
+                        358     LOAD_ATTR                       28: UpdateLoginToken
+                        378     CALL                            1
+                        386     CALL                            2
+                        394     POP_TOP                         
+                        396     NOP                             
+                        398     LOAD_GLOBAL                     15: NULL + asyncio
+                        408     LOAD_ATTR                       30: wait_for
+                        428     LOAD_DEREF                      6: _var_var_0
+                        430     LOAD_ATTR                       33: wait
+                        450     CALL                            0
+                        458     LOAD_FAST                       1: timeout
+                        460     KW_NAMES                        7: ('timeout',)
+                        462     CALL                            2
+                        470     GET_AWAITABLE                   0
+                        472     LOAD_CONST                      4: None
+                        474     SEND                            3 (to 482)
+                        478     YIELD_VALUE                     4
+                        480     RESUME                          3
+                        482     JUMP_BACKWARD_NO_INTERRUPT      5 (to 474)
+                        484     END_SEND                        
+                        486     POP_TOP                         
+                        488     LOAD_FAST                       0: self
+                        490     LOAD_ATTR                       18: _client
+                        510     LOAD_ATTR                       35: remove_event_handler
+                        530     LOAD_FAST                       3: _var_var_1
+                        532     CALL                            1
+                        540     POP_TOP                         
+                        542     LOAD_FAST                       0: self
+                        544     LOAD_ATTR                       19: _client
+                        564     LOAD_FAST                       0: self
+                        566     LOAD_ATTR                       36: _request
+                        586     CALL                            1
+                        594     GET_AWAITABLE                   0
+                        596     LOAD_CONST                      4: None
+                        598     SEND                            3 (to 606)
+                        602     YIELD_VALUE                     3
+                        604     RESUME                          3
+                        606     JUMP_BACKWARD_NO_INTERRUPT      5 (to 598)
+                        608     END_SEND                        
+                        610     STORE_FAST                      4: _var_var_2
+                        612     LOAD_GLOBAL                     39: NULL + isinstance
+                        622     LOAD_FAST                       4: _var_var_2
+                        624     LOAD_GLOBAL                     26: types
+                        634     LOAD_ATTR                       40: auth
+                        654     LOAD_ATTR                       42: LoginTokenMigrateTo
+                        674     CALL                            2
+                        682     POP_JUMP_IF_FALSE               109 (to 902)
+                        684     LOAD_FAST                       0: self
+                        686     LOAD_ATTR                       18: _client
+                        706     LOAD_ATTR                       45: _switch_dc
+                        726     LOAD_FAST                       4: _var_var_2
+                        728     LOAD_ATTR                       46: dc_id
+                        748     CALL                            1
+                        756     GET_AWAITABLE                   0
+                        758     LOAD_CONST                      4: None
+                        760     SEND                            3 (to 768)
+                        764     YIELD_VALUE                     3
+                        766     RESUME                          3
+                        768     JUMP_BACKWARD_NO_INTERRUPT      5 (to 760)
+                        770     END_SEND                        
+                        772     POP_TOP                         
+                        774     LOAD_FAST                       0: self
+                        776     LOAD_ATTR                       19: _client
+                        796     LOAD_GLOBAL                     48: functions
+                        806     LOAD_ATTR                       40: auth
+                        826     LOAD_ATTR                       51: ImportLoginTokenRequest
+                        846     LOAD_FAST                       4: _var_var_2
+                        848     LOAD_ATTR                       52: token
+                        868     CALL                            1
+                        876     CALL                            1
+                        884     GET_AWAITABLE                   0
+                        886     LOAD_CONST                      4: None
+                        888     SEND                            3 (to 896)
+                        892     YIELD_VALUE                     3
+                        894     RESUME                          3
+                        896     JUMP_BACKWARD_NO_INTERRUPT      5 (to 888)
+                        898     END_SEND                        
+                        900     STORE_FAST                      4: _var_var_2
+                        902     LOAD_GLOBAL                     39: NULL + isinstance
+                        912     LOAD_FAST                       4: _var_var_2
+                        914     LOAD_GLOBAL                     26: types
+                        924     LOAD_ATTR                       40: auth
+                        944     LOAD_ATTR                       54: LoginTokenSuccess
+                        964     CALL                            2
+                        972     POP_JUMP_IF_FALSE               68 (to 1110)
+                        974     LOAD_FAST                       4: _var_var_2
+                        976     LOAD_ATTR                       56: authorization
+                        996     LOAD_ATTR                       58: user
+                        1016    STORE_FAST                      5: _var_var_3
+                        1018    LOAD_FAST                       0: self
+                        1020    LOAD_ATTR                       18: _client
+                        1040    LOAD_ATTR                       61: _on_login
+                        1060    LOAD_FAST                       5: _var_var_3
+                        1062    CALL                            1
+                        1070    GET_AWAITABLE                   0
+                        1072    LOAD_CONST                      4: None
+                        1074    SEND                            3 (to 1082)
+                        1078    YIELD_VALUE                     3
+                        1080    RESUME                          3
+                        1082    JUMP_BACKWARD_NO_INTERRUPT      5 (to 1074)
+                        1084    END_SEND                        
+                        1086    POP_TOP                         
+                        1088    LOAD_FAST                       5: _var_var_3
+                        1090    NOP                             
+                        1092    NOP                             
+                        1094    NOP                             
+                        1096    JUMP_FORWARD                    98 (to 1294)
+                        1098    CALL                            1
+                        1106    POP_TOP                         
+                        1108    RETURN_VALUE                    
+                        1110    LOAD_GLOBAL                     63: NULL + TypeError
+                        1120    PUSH_NULL                       
+                        1122    LOAD_CONST                      1: '__pyarmor_assert_24594__'
+                        1124    LOAD_CONST                      9: 'Login token response was unexpected: {}'   # b'\x81\xce\x17\x14:\xf4\xfe\xc6\x14\xf1\x08\xce,\xfe\xfd\x96\x1fR\xb5\xb4\xaf\x8bY\xcd\x16/\xb6R\x05\xa9\x0e\xe09F%\t\xc2\x8a\xaf3'
+                        1126    CALL                            1
+                        1134    LOAD_ATTR                       65: format
+                        1154    LOAD_FAST                       4: _var_var_2
+                        1156    CALL                            1
+                        1164    CALL                            1
+                        1172    RAISE_VARARGS                   1
+                        1174    CLEANUP_THROW                   
+                        1176    JUMP_BACKWARD                   348 (to 484)
+                        1180    PUSH_EXC_INFO                   
+                        1182    LOAD_FAST                       0: self
+                        1184    LOAD_ATTR                       18: _client
+                        1204    LOAD_ATTR                       35: remove_event_handler
+                        1224    LOAD_FAST                       3: _var_var_1
+                        1226    CALL                            1
+                        1234    POP_TOP                         
+                        1236    RERAISE                         0
+                        1238    COPY                            3
+                        1240    POP_EXCEPT                      
+                        1242    RERAISE                         1
+                        1244    CLEANUP_THROW                   
+                        1246    JUMP_BACKWARD                   321 (to 608)
+                        1250    CLEANUP_THROW                   
+                        1252    JUMP_BACKWARD                   242 (to 770)
+                        1254    CLEANUP_THROW                   
+                        1256    JUMP_BACKWARD                   180 (to 898)
+                        1258    CLEANUP_THROW                   
+                        1260    JUMP_BACKWARD                   89 (to 1084)
+                        1262    PUSH_EXC_INFO                   
+                        1264    PUSH_NULL                       
+                        1266    LOAD_CONST                      8: '__pyarmor_exit_24596__'
+                        1268    NOP                             
+                        1270    LOAD_CONST                      3: b'<COAddr>\x07\x00\x00 \xce\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        1272    CALL                            1
+                        1280    POP_TOP                         
+                        1282    RERAISE                         0
+                        1284    COPY                            3
+                        1286    POP_EXCEPT                      
+                        1288    RERAISE                         1
+                        1290    CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        1292    RERAISE                         1
+                        1294    PUSH_NULL                       
+                        1296    LOAD_CONST                      8: '__pyarmor_exit_24596__'
+                        1298    LOAD_CONST                      3: b'<COAddr>\x07\x00\x00 \xce\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        1300    BUILD_TUPLE                     1
+                        1302    CALL_FUNCTION_EX                0
+                        1304    POP_TOP                         
+                        1306    RETURN_VALUE                    
+                    [Exception Table]
+                        6 to 32 -> 1290 [0] lasti
+                        34 to 396 -> 1262 [0] 
+                        398 to 478 -> 1180 [0] 
+                        478 to 480 -> 1174 [2] 
+                        480 to 488 -> 1180 [0] 
+                        488 to 602 -> 1262 [0] 
+                        602 to 604 -> 1244 [2] 
+                        604 to 764 -> 1262 [0] 
+                        764 to 766 -> 1250 [2] 
+                        766 to 892 -> 1262 [0] 
+                        892 to 894 -> 1254 [2] 
+                        894 to 1078 -> 1262 [0] 
+                        1078 to 1080 -> 1258 [2] 
+                        1080 to 1090 -> 1262 [0] 
+                        1090 to 1110 -> 1290 [0] lasti
+                        1110 to 1174 -> 1262 [0] 
+                        1174 to 1176 -> 1180 [0] 
+                        1180 to 1238 -> 1238 [1] lasti
+                        1238 to 1246 -> 1262 [0] 
+                        1250 to 1252 -> 1262 [0] 
+                        1254 to 1256 -> 1262 [0] 
+                        1258 to 1260 -> 1262 [0] 
+                        1262 to 1284 -> 1284 [1] lasti
+                        1284 to 1290 -> 1290 [0] lasti
+                '__pyarmor_exit_24578__'
+                (
+                    None
+                )
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'QRLogin'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: "\n    QR login information.\n\n    Most of the time, you will present the `url` as a QR code to the user,\n    and while it's being shown, call `wait`.\n    "
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_24577__'
+                20      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x86\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: <CODE> __init__
+                42      MAKE_FUNCTION                   0
+                44      STORE_NAME                      5: __init__
+                46      LOAD_CONST                      6: <CODE> recreate
+                48      MAKE_FUNCTION                   0
+                50      STORE_NAME                      6: recreate
+                52      LOAD_NAME                       7: property
+                54      LOAD_CONST                      7: 'return'
+                56      LOAD_NAME                       8: bytes
+                58      BUILD_TUPLE                     2
+                60      LOAD_CONST                      8: <CODE> token
+                62      MAKE_FUNCTION                   4
+                64      CALL                            0
+                72      STORE_NAME                      9: token
+                74      LOAD_NAME                       7: property
+                76      LOAD_CONST                      7: 'return'
+                78      LOAD_NAME                       10: str
+                80      BUILD_TUPLE                     2
+                82      LOAD_CONST                      9: <CODE> url
+                84      MAKE_FUNCTION                   4
+                86      CALL                            0
+                94      STORE_NAME                      11: url
+                96      LOAD_NAME                       7: property
+                98      LOAD_CONST                      7: 'return'
+                100     LOAD_NAME                       12: datetime
+                102     LOAD_ATTR                       24: datetime
+                122     BUILD_TUPLE                     2
+                124     LOAD_CONST                      10: <CODE> expires
+                126     MAKE_FUNCTION                   4
+                128     CALL                            0
+                136     STORE_NAME                      13: expires
+                138     LOAD_CONST                      15: (None,)
+                140     LOAD_CONST                      12: 'timeout'
+                142     LOAD_NAME                       14: float
+                144     BUILD_TUPLE                     2
+                146     LOAD_CONST                      13: <CODE> wait
+                148     MAKE_FUNCTION                   5
+                150     STORE_NAME                      15: wait
+                152     LOAD_CONST                      11: None
+                154     NOP                             
+                156     NOP                             
+                158     NOP                             
+                160     JUMP_FORWARD                    19 (to 200)
+                168     POP_TOP                         
+                170     RETURN_CONST                    11: None
+                172     PUSH_EXC_INFO                   
+                174     PUSH_NULL                       
+                176     LOAD_CONST                      14: '__pyarmor_exit_24578__'
+                178     NOP                             
+                180     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x86\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                182     CALL                            1
+                190     POP_TOP                         
+                192     RERAISE                         0
+                194     COPY                            3
+                196     POP_EXCEPT                      
+                198     RERAISE                         1
+                200     PUSH_NULL                       
+                202     LOAD_CONST                      14: '__pyarmor_exit_24578__'
+                204     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x86\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                206     BUILD_TUPLE                     1
+                208     CALL_FUNCTION_EX                0
+                210     POP_TOP                         
+                212     RETURN_VALUE                    
+            [Exception Table]
+                40 to 152 -> 172 [0] 
+                172 to 194 -> 194 [1] lasti
+        'QRLogin'
+        '__pyarmor_exit_24575__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_24574__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: asyncio
+        32      STORE_NAME                      1: asyncio
+        34      LOAD_CONST                      3: 0
+        36      LOAD_CONST                      4: None
+        38      IMPORT_NAME                     2: base64
+        40      STORE_NAME                      2: base64
+        42      LOAD_CONST                      3: 0
+        44      LOAD_CONST                      4: None
+        46      IMPORT_NAME                     3: datetime
+        48      STORE_NAME                      3: datetime
+        50      LOAD_CONST                      5: 2
+        52      LOAD_CONST                      6: ('types', 'functions')
+        54      IMPORT_NAME                     4: 
+        56      IMPORT_FROM                     5: types
+        58      STORE_NAME                      5: types
+        60      IMPORT_FROM                     6: functions
+        62      STORE_NAME                      6: functions
+        64      POP_TOP                         
+        66      LOAD_CONST                      7: 3
+        68      LOAD_CONST                      8: ('events',)
+        70      IMPORT_NAME                     4: 
+        72      IMPORT_FROM                     7: events
+        74      STORE_NAME                      7: events
+        76      POP_TOP                         
+        78      PUSH_NULL                       
+        80      LOAD_BUILD_CLASS                
+        82      LOAD_CONST                      9: <CODE> QRLogin
+        84      MAKE_FUNCTION                   0
+        86      LOAD_CONST                      10: 'QRLogin'
+        88      CALL                            2
+        96      STORE_NAME                      8: QRLogin
+        98      LOAD_CONST                      4: None
+        100     NOP                             
+        102     NOP                             
+        104     NOP                             
+        106     JUMP_FORWARD                    19 (to 146)
+        114     POP_TOP                         
+        116     RETURN_CONST                    4: None
+        118     PUSH_EXC_INFO                   
+        120     PUSH_NULL                       
+        122     LOAD_CONST                      11: '__pyarmor_exit_24575__'
+        124     NOP                             
+        126     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        128     CALL                            1
+        136     POP_TOP                         
+        138     RERAISE                         0
+        140     COPY                            3
+        142     POP_EXCEPT                      
+        144     RERAISE                         1
+        146     PUSH_NULL                       
+        148     LOAD_CONST                      11: '__pyarmor_exit_24575__'
+        150     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        152     BUILD_TUPLE                     1
+        154     CALL_FUNCTION_EX                0
+        156     POP_TOP                         
+        158     RETURN_VALUE                    
+    [Exception Table]
+        26 to 98 -> 118 [0] 
+        118 to 140 -> 140 [1] lasti

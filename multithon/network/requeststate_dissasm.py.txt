@@ -1,0 +1,286 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.network.requeststate>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'asyncio'
+        'RequestState'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_23223__'
+        '__pyarmor_enter_23224__'
+        b'<COAddr>\x07\x00\x00\x1a0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        [Code]
+            File Name: <frozen multithon.network.requeststate>
+            Object Name: RequestState
+            Qualified Name: RequestState
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__slots__'
+                '__init__'
+            [Locals+Names]
+            [Constants]
+                'RequestState'
+                '\n    This request state holds several information relevant to sent messages,\n    in particular the message ID assigned to the request, the container ID\n    it belongs to, the request itself, the request as bytes, and the future\n    result that will eventually be resolved.\n    '
+                '__pyarmor_assert_23226__'
+                '__pyarmor_enter_23227__'
+                b'<COAddr>\x05\x00\x00&:\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'container_id'   # b"\x81\xe1\x17\x1d'\xfb\xb7\xdc\x1e\xe82\xc9h"
+                'msg_id'
+                'request'
+                'data'
+                'future'
+                'after'
+                None
+                [Code]
+                    File Name: <frozen multithon.network.requeststate>
+                    Object Name: __init__
+                    Qualified Name: RequestState.__init__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'container_id'
+                        'msg_id'
+                        'request'
+                        'bytes'
+                        'data'
+                        'asyncio'
+                        'Future'
+                        'future'
+                        'after'
+                    [Locals+Names]
+                        'self'
+                        'request'
+                        'after'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23229__'
+                        '__pyarmor_enter_23230__'
+                        b'<COAddr>\x07\x00\x00\x1a\xa0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_23231__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23230__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xa0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_CONST                      0: None
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: container_id
+                        42      LOAD_CONST                      0: None
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      1: msg_id
+                        56      LOAD_FAST                       1: request
+                        58      LOAD_FAST                       0: self
+                        60      STORE_ATTR                      2: request
+                        70      LOAD_GLOBAL                     7: NULL + bytes
+                        80      LOAD_FAST                       1: request
+                        82      CALL                            1
+                        90      LOAD_FAST                       0: self
+                        92      STORE_ATTR                      4: data
+                        102     LOAD_GLOBAL                     11: NULL + asyncio
+                        112     LOAD_ATTR                       12: Future
+                        132     CALL                            0
+                        140     LOAD_FAST                       0: self
+                        142     STORE_ATTR                      7: future
+                        152     LOAD_FAST                       2: after
+                        154     LOAD_FAST                       0: self
+                        156     STORE_ATTR                      8: after
+                        166     LOAD_CONST                      0: None
+                        168     NOP                             
+                        170     NOP                             
+                        172     NOP                             
+                        174     JUMP_FORWARD                    19 (to 214)
+                        182     POP_TOP                         
+                        184     RETURN_CONST                    0: None
+                        186     PUSH_EXC_INFO                   
+                        188     PUSH_NULL                       
+                        190     LOAD_CONST                      4: '__pyarmor_exit_23231__'
+                        192     NOP                             
+                        194     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xa0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        196     CALL                            1
+                        204     POP_TOP                         
+                        206     RERAISE                         0
+                        208     COPY                            3
+                        210     POP_EXCEPT                      
+                        212     RERAISE                         1
+                        214     PUSH_NULL                       
+                        216     LOAD_CONST                      4: '__pyarmor_exit_23231__'
+                        218     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xa0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        220     BUILD_TUPLE                     1
+                        222     CALL_FUNCTION_EX                0
+                        224     POP_TOP                         
+                        226     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 166 -> 186 [0] 
+                        186 to 208 -> 208 [1] lasti
+                '__pyarmor_exit_23228__'
+                (
+                    None
+                )
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'RequestState'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    This request state holds several information relevant to sent messages,\n    in particular the message ID assigned to the request, the container ID\n    it belongs to, the request itself, the request as bytes, and the future\n    result that will eventually be resolved.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_23227__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&:\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      PUSH_NULL                       
+                42      LOAD_CONST                      2: '__pyarmor_assert_23226__'
+                44      LOAD_CONST                      5: 'container_id'   # b"\x81\xe1\x17\x1d'\xfb\xb7\xdc\x1e\xe82\xc9h"
+                46      CALL                            1
+                54      LOAD_CONST                      6: 'msg_id'
+                56      LOAD_CONST                      7: 'request'
+                58      LOAD_CONST                      8: 'data'
+                60      LOAD_CONST                      9: 'future'
+                62      LOAD_CONST                      10: 'after'
+                64      BUILD_TUPLE                     6
+                66      STORE_NAME                      5: __slots__
+                68      LOAD_CONST                      14: (None,)
+                70      LOAD_CONST                      12: <CODE> __init__
+                72      MAKE_FUNCTION                   1
+                74      STORE_NAME                      6: __init__
+                76      LOAD_CONST                      11: None
+                78      NOP                             
+                80      NOP                             
+                82      NOP                             
+                84      JUMP_FORWARD                    19 (to 124)
+                92      POP_TOP                         
+                94      RETURN_CONST                    11: None
+                96      PUSH_EXC_INFO                   
+                98      PUSH_NULL                       
+                100     LOAD_CONST                      13: '__pyarmor_exit_23228__'
+                102     NOP                             
+                104     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&:\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                106     CALL                            1
+                114     POP_TOP                         
+                116     RERAISE                         0
+                118     COPY                            3
+                120     POP_EXCEPT                      
+                122     RERAISE                         1
+                124     PUSH_NULL                       
+                126     LOAD_CONST                      13: '__pyarmor_exit_23228__'
+                128     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&:\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                130     BUILD_TUPLE                     1
+                132     CALL_FUNCTION_EX                0
+                134     POP_TOP                         
+                136     RETURN_VALUE                    
+            [Exception Table]
+                40 to 76 -> 96 [0] 
+                96 to 118 -> 118 [1] lasti
+        'RequestState'
+        '__pyarmor_exit_23225__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_23224__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: asyncio
+        32      STORE_NAME                      1: asyncio
+        34      PUSH_NULL                       
+        36      LOAD_BUILD_CLASS                
+        38      LOAD_CONST                      5: <CODE> RequestState
+        40      MAKE_FUNCTION                   0
+        42      LOAD_CONST                      6: 'RequestState'
+        44      CALL                            2
+        52      STORE_NAME                      2: RequestState
+        54      LOAD_CONST                      4: None
+        56      NOP                             
+        58      NOP                             
+        60      NOP                             
+        62      JUMP_FORWARD                    19 (to 102)
+        70      POP_TOP                         
+        72      RETURN_CONST                    4: None
+        74      PUSH_EXC_INFO                   
+        76      PUSH_NULL                       
+        78      LOAD_CONST                      7: '__pyarmor_exit_23225__'
+        80      NOP                             
+        82      LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        84      CALL                            1
+        92      POP_TOP                         
+        94      RERAISE                         0
+        96      COPY                            3
+        98      POP_EXCEPT                      
+        100     RERAISE                         1
+        102     PUSH_NULL                       
+        104     LOAD_CONST                      7: '__pyarmor_exit_23225__'
+        106     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        108     BUILD_TUPLE                     1
+        110     CALL_FUNCTION_EX                0
+        112     POP_TOP                         
+        114     RETURN_VALUE                    
+    [Exception Table]
+        26 to 54 -> 74 [0] 
+        74 to 96 -> 96 [1] lasti

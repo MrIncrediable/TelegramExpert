@@ -1,0 +1,1098 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.static_classes.sslpinning>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'ssl'
+        'time'
+        'socket'
+        'hashlib'
+        'base64'
+        'urllib.parse'
+        'urlparse'
+        'cryptography'
+        'x509'
+        'cryptography.hazmat.backends'
+        'default_backend'
+        'cryptography.hazmat.primitives'
+        'serialization'
+        'SSLPinning'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_15963__'
+        '__pyarmor_enter_15964__'
+        b'<COAddr>\x05\x00\x00\x1a\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        (
+            'urlparse'
+        )
+        (
+            'x509'
+        )
+        (
+            'default_backend'
+        )
+        (
+            'serialization'
+        )
+        [Code]
+            File Name: <frozen program.static_classes.sslpinning>
+            Object Name: SSLPinning
+            Qualified Name: SSLPinning
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+                '__init__'
+                '_server_pin'
+                'bool'
+                'check'
+            [Locals+Names]
+            [Constants]
+                'SSLPinning'
+                '__pyarmor_assert_15966__'
+                '__pyarmor_enter_15967__'
+                b'<COAddr>\x07\x00\x00"0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                None
+                [Code]
+                    File Name: <frozen program.static_classes.sslpinning>
+                    Object Name: __init__
+                    Qualified Name: SSLPinning.__init__
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'config'
+                        'url'
+                        'proxy'
+                        'get'
+                        'allow'
+                    [Locals+Names]
+                        'self'
+                        'config'
+                        'url'
+                        'proxy'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15969__'
+                        '__pyarmor_enter_15970__'
+                        b'<COAddr>\x05\x00\x00\x1al\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'ssl'
+                        '__pyarmor_exit_15971__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_15970__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1al\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: config
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: config
+                        42      LOAD_FAST                       2: url
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      1: url
+                        56      LOAD_FAST                       3: proxy
+                        58      LOAD_FAST                       0: self
+                        60      STORE_ATTR                      2: proxy
+                        70      LOAD_FAST                       1: config
+                        72      LOAD_ATTR                       7: get
+                        92      LOAD_CONST                      4: 'ssl'
+                        94      CALL                            1
+                        102     LOAD_FAST                       0: self
+                        104     STORE_ATTR                      4: allow
+                        114     LOAD_CONST                      0: None
+                        116     NOP                             
+                        118     NOP                             
+                        120     NOP                             
+                        122     JUMP_FORWARD                    19 (to 162)
+                        130     POP_TOP                         
+                        132     RETURN_CONST                    0: None
+                        134     PUSH_EXC_INFO                   
+                        136     PUSH_NULL                       
+                        138     LOAD_CONST                      5: '__pyarmor_exit_15971__'
+                        140     NOP                             
+                        142     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1al\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        144     CALL                            1
+                        152     POP_TOP                         
+                        154     RERAISE                         0
+                        156     COPY                            3
+                        158     POP_EXCEPT                      
+                        160     RERAISE                         1
+                        162     PUSH_NULL                       
+                        164     LOAD_CONST                      5: '__pyarmor_exit_15971__'
+                        166     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1al\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        168     BUILD_TUPLE                     1
+                        170     CALL_FUNCTION_EX                0
+                        172     POP_TOP                         
+                        174     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 114 -> 134 [0] 
+                        134 to 156 -> 156 [1] lasti
+                [Code]
+                    File Name: <frozen program.static_classes.sslpinning>
+                    Object Name: _server_pin
+                    Qualified Name: SSLPinning._server_pin
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 8
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'range'
+                        'split'
+                        'proxy'
+                        'ssl'
+                        'create_default_context'
+                        'socket'
+                        'create_connection'
+                        'wrap_socket'
+                        'getpeercert'
+                        'urlparse'
+                        'hostname'
+                        'port'
+                        'username'
+                        'password'
+                        'base64'
+                        'b64encode'
+                        'encode'
+                        'decode'
+                        'sendall'
+                        'recv'
+                        'ConnectionError'
+                        'int'
+                        'close'
+                        'ValueError'
+                        'x509'
+                        'load_der_x509_certificate'
+                        'default_backend'
+                        'public_key'
+                        'public_bytes'
+                        'serialization'
+                        'Encoding'
+                        'DER'
+                        'PublicFormat'
+                        'SubjectPublicKeyInfo'
+                        'hashlib'
+                        'sha256'
+                        'digest'
+                        'time'
+                        'sleep'
+                    [Locals+Names]
+                        'self'
+                        'url'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                        '_var_var_2'
+                        '_var_var_3'
+                        '_var_var_4'
+                        '_var_var_5'
+                        '_var_var_6'
+                        '_var_var_7'
+                        '_var_var_8'
+                        '_var_var_9'
+                        '_var_var_10'
+                        '_var_var_11'
+                        '_var_var_12'
+                        '_var_var_13'
+                        '_var_var_14'
+                        '_var_var_15'
+                        '_var_var_16'
+                        '_var_var_17'
+                        '_var_var_18'
+                        '_var_var_19'
+                        '_var_var_20'
+                        '_var_var_21'
+                        '_var_var_22'
+                        '_var_var_23'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15972__'
+                        '__pyarmor_enter_15973__'
+                        b'<COAddr>\x07\x00\x00\x1a\xb8\x08\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10
+                        '//'
+                        -1
+                        '/'
+                        0
+                        443
+                        'https'
+                        (
+                            'server_hostname'
+                        )
+                        True
+                        (
+                            'binary_form'
+                        )
+                        8080
+                        'CONNECT '
+                        ':'
+                        ' HTTP/1.1\r\n'   # b"\x81\xa20'\x07\xca\xf1\x83U\xab`\xaa"
+                        'Host: '
+                        '\r\n'
+                        'Proxy-Authorization: Basic '   # b'\x81\xd2\n\x1c+\xe3\xf3\xf3\x0e\xee\x05\xcf~\xe5\xe2\x84\x1bT\xb4\xa9\xf0\x8bl\xcd\x16f\xa0\x1c'
+                        b''
+                        b'\r\n\r\n'
+                        4096
+                        ''
+                        b'\r\n'
+                        1
+                        'ignore'
+                        (
+                            'errors'
+                        )
+                        200
+                        'Empty certificate'   # b"\x81\xc7\x15\x03'\xe3\xfe\xd1\x1e\xe8\x19\xc9j\xe5\xfb\x84\x1bX"
+                        (
+                            'encoding'
+                            'format'
+                        )
+                        '__pyarmor_exit_15974__'
+                        2
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_15973__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xb8\x08\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + range
+                        38      LOAD_CONST                      4: 10
+                        40      CALL                            1
+                        48      GET_ITER                        
+                        50      FOR_ITER                        892 (to 1838)
+                        56      STORE_FAST                      3: _var_var_0
+                        58      NOP                             
+                        60      LOAD_FAST                       1: url
+                        62      LOAD_ATTR                       3: split
+                        82      LOAD_CONST                      5: '//'
+                        84      CALL                            1
+                        92      LOAD_CONST                      6: -1
+                        94      BINARY_SUBSCR                   
+                        98      LOAD_ATTR                       3: split
+                        118     LOAD_CONST                      7: '/'
+                        120     CALL                            1
+                        128     LOAD_CONST                      8: 0
+                        130     BINARY_SUBSCR                   
+                        134     STORE_FAST                      4: _var_var_1
+                        136     LOAD_CONST                      9: 443
+                        138     STORE_FAST                      5: _var_var_2
+                        140     LOAD_CONST                      0: None
+                        142     STORE_FAST                      6: _var_var_3
+                        144     LOAD_CONST                      0: None
+                        146     STORE_FAST                      7: _var_var_4
+                        148     LOAD_CONST                      0: None
+                        150     STORE_FAST                      8: _var_var_5
+                        152     LOAD_FAST                       0: self
+                        154     LOAD_ATTR                       4: proxy
+                        174     POP_JUMP_IF_FALSE               14 (to 204)
+                        176     LOAD_CONST                      10: 'https'
+                        178     LOAD_FAST                       0: self
+                        180     LOAD_ATTR                       4: proxy
+                        200     CONTAINS_OP                     1 (not in)
+                        202     POP_JUMP_IF_FALSE               100 (to 404)
+                        204     LOAD_GLOBAL                     7: NULL + ssl
+                        214     LOAD_ATTR                       8: create_default_context
+                        234     CALL                            0
+                        242     STORE_FAST                      9: _var_var_6
+                        244     LOAD_GLOBAL                     11: NULL + socket
+                        254     LOAD_ATTR                       12: create_connection
+                        274     LOAD_FAST                       4: _var_var_1
+                        276     LOAD_FAST                       5: _var_var_2
+                        278     BUILD_TUPLE                     2
+                        280     CALL                            1
+                        288     BEFORE_WITH                     
+                        290     STORE_FAST                      6: _var_var_3
+                        292     LOAD_FAST                       9: _var_var_6
+                        294     LOAD_ATTR                       15: wrap_socket
+                        314     LOAD_FAST                       6: _var_var_3
+                        316     LOAD_FAST                       4: _var_var_1
+                        318     KW_NAMES                        11: ('server_hostname',)
+                        320     CALL                            2
+                        328     BEFORE_WITH                     
+                        330     STORE_FAST                      7: _var_var_4
+                        332     LOAD_FAST                       7: _var_var_4
+                        334     LOAD_ATTR                       17: getpeercert
+                        354     LOAD_CONST                      12: True
+                        356     KW_NAMES                        13: ('binary_form',)
+                        358     CALL                            1
+                        366     STORE_FAST                      8: _var_var_5
+                        368     LOAD_CONST                      0: None
+                        370     LOAD_CONST                      0: None
+                        372     LOAD_CONST                      0: None
+                        374     CALL                            2
+                        382     POP_TOP                         
+                        384     LOAD_CONST                      0: None
+                        386     LOAD_CONST                      0: None
+                        388     LOAD_CONST                      0: None
+                        390     CALL                            2
+                        398     POP_TOP                         
+                        400     JUMP_FORWARD                    467 (to 1338)
+                        404     LOAD_GLOBAL                     19: NULL + urlparse
+                        414     LOAD_FAST                       0: self
+                        416     LOAD_ATTR                       4: proxy
+                        436     LOAD_CONST                      10: 'https'
+                        438     BINARY_SUBSCR                   
+                        442     CALL                            1
+                        450     STORE_FAST                      10: _var_var_7
+                        452     LOAD_FAST                       10: _var_var_7
+                        454     LOAD_ATTR                       20: hostname
+                        474     STORE_FAST                      11: _var_var_8
+                        476     LOAD_FAST                       10: _var_var_7
+                        478     LOAD_ATTR                       22: port
+                        498     COPY                            1
+                        500     POP_JUMP_IF_TRUE                2 (to 506)
+                        502     POP_TOP                         
+                        504     LOAD_CONST                      14: 8080
+                        506     STORE_FAST                      12: _var_var_9
+                        508     LOAD_FAST                       10: _var_var_7
+                        510     LOAD_ATTR                       24: username
+                        530     STORE_FAST                      13: _var_var_10
+                        532     LOAD_FAST                       10: _var_var_7
+                        534     LOAD_ATTR                       26: password
+                        554     STORE_FAST                      14: _var_var_11
+                        556     LOAD_GLOBAL                     11: NULL + socket
+                        566     LOAD_ATTR                       12: create_connection
+                        586     LOAD_FAST                       11: _var_var_8
+                        588     LOAD_FAST                       12: _var_var_9
+                        590     BUILD_TUPLE                     2
+                        592     CALL                            1
+                        600     STORE_FAST                      6: _var_var_3
+                        602     LOAD_CONST                      15: 'CONNECT '
+                        604     LOAD_FAST                       4: _var_var_1
+                        606     FORMAT_VALUE                    0 (FVC_NONE)
+                        608     LOAD_CONST                      16: ':'
+                        610     LOAD_FAST                       5: _var_var_2
+                        612     FORMAT_VALUE                    0 (FVC_NONE)
+                        614     PUSH_NULL                       
+                        616     LOAD_CONST                      1: '__pyarmor_assert_15972__'
+                        618     LOAD_CONST                      17: ' HTTP/1.1\r\n'   # b"\x81\xa20'\x07\xca\xf1\x83U\xab`\xaa"
+                        620     CALL                            1
+                        628     BUILD_STRING                    5
+                        630     STORE_FAST                      15: _var_var_12
+                        632     LOAD_FAST                       15: _var_var_12
+                        634     LOAD_CONST                      18: 'Host: '
+                        636     LOAD_FAST                       4: _var_var_1
+                        638     FORMAT_VALUE                    0 (FVC_NONE)
+                        640     LOAD_CONST                      16: ':'
+                        642     LOAD_FAST                       5: _var_var_2
+                        644     FORMAT_VALUE                    0 (FVC_NONE)
+                        646     LOAD_CONST                      19: '\r\n'
+                        648     BUILD_STRING                    5
+                        650     BINARY_OP                       13 (+=)
+                        654     STORE_FAST                      15: _var_var_12
+                        656     LOAD_FAST                       13: _var_var_10
+                        658     POP_JUMP_IF_FALSE               73 (to 806)
+                        660     LOAD_FAST                       14: _var_var_11
+                        662     POP_JUMP_IF_FALSE               71 (to 806)
+                        664     LOAD_FAST                       13: _var_var_10
+                        666     FORMAT_VALUE                    0 (FVC_NONE)
+                        668     LOAD_CONST                      16: ':'
+                        670     LOAD_FAST                       14: _var_var_11
+                        672     FORMAT_VALUE                    0 (FVC_NONE)
+                        674     BUILD_STRING                    3
+                        676     STORE_FAST                      16: _var_var_13
+                        678     LOAD_GLOBAL                     29: NULL + base64
+                        688     LOAD_ATTR                       30: b64encode
+                        708     LOAD_FAST                       16: _var_var_13
+                        710     LOAD_ATTR                       33: encode
+                        730     CALL                            0
+                        738     CALL                            1
+                        746     LOAD_ATTR                       35: decode
+                        766     CALL                            0
+                        774     STORE_FAST                      17: _var_var_14
+                        776     LOAD_FAST                       15: _var_var_12
+                        778     PUSH_NULL                       
+                        780     LOAD_CONST                      1: '__pyarmor_assert_15972__'
+                        782     LOAD_CONST                      20: 'Proxy-Authorization: Basic '   # b'\x81\xd2\n\x1c+\xe3\xf3\xf3\x0e\xee\x05\xcf~\xe5\xe2\x84\x1bT\xb4\xa9\xf0\x8bl\xcd\x16f\xa0\x1c'
+                        784     CALL                            1
+                        792     LOAD_FAST                       17: _var_var_14
+                        794     FORMAT_VALUE                    0 (FVC_NONE)
+                        796     LOAD_CONST                      19: '\r\n'
+                        798     BUILD_STRING                    3
+                        800     BINARY_OP                       13 (+=)
+                        804     STORE_FAST                      15: _var_var_12
+                        806     LOAD_FAST                       15: _var_var_12
+                        808     LOAD_CONST                      19: '\r\n'
+                        810     BINARY_OP                       13 (+=)
+                        814     STORE_FAST                      15: _var_var_12
+                        816     LOAD_FAST                       6: _var_var_3
+                        818     LOAD_ATTR                       37: sendall
+                        838     LOAD_FAST                       15: _var_var_12
+                        840     LOAD_ATTR                       33: encode
+                        860     CALL                            0
+                        868     CALL                            1
+                        876     POP_TOP                         
+                        878     LOAD_CONST                      21: b''
+                        880     STORE_FAST                      18: _var_var_15
+                        882     LOAD_CONST                      22: b'\r\n\r\n'
+                        884     LOAD_FAST                       18: _var_var_15
+                        886     CONTAINS_OP                     1 (not in)
+                        888     POP_JUMP_IF_FALSE               40 (to 970)
+                        890     LOAD_FAST                       6: _var_var_3
+                        892     LOAD_ATTR                       39: recv
+                        912     LOAD_CONST                      23: 4096
+                        914     CALL                            1
+                        922     STORE_FAST                      19: _var_var_16
+                        924     LOAD_FAST                       19: _var_var_16
+                        926     POP_JUMP_IF_TRUE                11 (to 950)
+                        928     LOAD_GLOBAL                     41: NULL + ConnectionError
+                        938     LOAD_CONST                      24: ''
+                        940     CALL                            1
+                        948     RAISE_VARARGS                   1
+                        950     LOAD_FAST                       18: _var_var_15
+                        952     LOAD_FAST                       19: _var_var_16
+                        954     BINARY_OP                       13 (+=)
+                        958     STORE_FAST                      18: _var_var_15
+                        960     LOAD_CONST                      22: b'\r\n\r\n'
+                        962     LOAD_FAST                       18: _var_var_15
+                        964     CONTAINS_OP                     1 (not in)
+                        966     POP_JUMP_IF_FALSE               1 (to 970)
+                        968     JUMP_BACKWARD                   40 (to 890)
+                        970     LOAD_FAST                       18: _var_var_15
+                        972     LOAD_ATTR                       3: split
+                        992     LOAD_CONST                      25: b'\r\n'
+                        994     LOAD_CONST                      26: 1
+                        996     CALL                            2
+                        1004    LOAD_CONST                      8: 0
+                        1006    BINARY_SUBSCR                   
+                        1010    LOAD_ATTR                       35: decode
+                        1030    LOAD_CONST                      27: 'ignore'
+                        1032    KW_NAMES                        28: ('errors',)
+                        1034    CALL                            1
+                        1042    STORE_FAST                      20: _var_var_17
+                        1044    LOAD_GLOBAL                     43: NULL + int
+                        1054    LOAD_FAST                       20: _var_var_17
+                        1056    LOAD_ATTR                       3: split
+                        1076    CALL                            0
+                        1084    LOAD_CONST                      26: 1
+                        1086    BINARY_SUBSCR                   
+                        1090    CALL                            1
+                        1098    STORE_FAST                      21: _var_var_18
+                        1100    LOAD_FAST                       21: _var_var_18
+                        1102    LOAD_CONST                      29: 200
+                        1104    COMPARE_OP                      55 (!=)
+                        1108    POP_JUMP_IF_FALSE               41 (to 1192)
+                        1110    NOP                             
+                        1112    LOAD_FAST                       7: _var_var_4
+                        1114    POP_JUMP_IF_FALSE               16 (to 1148)
+                        1116    LOAD_FAST                       7: _var_var_4
+                        1118    LOAD_ATTR                       45: close
+                        1138    CALL                            0
+                        1146    POP_TOP                         
+                        1148    LOAD_FAST                       6: _var_var_3
+                        1150    POP_JUMP_IF_TRUE                2 (to 1156)
+                        1152    JUMP_BACKWARD                   553 (to 50)
+                        1156    LOAD_FAST                       6: _var_var_3
+                        1158    LOAD_ATTR                       45: close
+                        1178    CALL                            0
+                        1186    POP_TOP                         
+                        1188    JUMP_BACKWARD                   571 (to 50)
+                        1192    LOAD_GLOBAL                     7: NULL + ssl
+                        1202    LOAD_ATTR                       8: create_default_context
+                        1222    CALL                            0
+                        1230    STORE_FAST                      9: _var_var_6
+                        1232    LOAD_FAST                       9: _var_var_6
+                        1234    LOAD_ATTR                       15: wrap_socket
+                        1254    LOAD_FAST                       6: _var_var_3
+                        1256    LOAD_FAST                       4: _var_var_1
+                        1258    KW_NAMES                        11: ('server_hostname',)
+                        1260    CALL                            2
+                        1268    STORE_FAST                      7: _var_var_4
+                        1270    LOAD_FAST                       7: _var_var_4
+                        1272    LOAD_ATTR                       17: getpeercert
+                        1292    LOAD_CONST                      12: True
+                        1294    KW_NAMES                        13: ('binary_form',)
+                        1296    CALL                            1
+                        1304    STORE_FAST                      8: _var_var_5
+                        1306    LOAD_FAST                       7: _var_var_4
+                        1308    LOAD_ATTR                       45: close
+                        1328    CALL                            0
+                        1336    POP_TOP                         
+                        1338    LOAD_FAST                       8: _var_var_5
+                        1340    POP_JUMP_IF_TRUE                17 (to 1376)
+                        1342    LOAD_GLOBAL                     47: NULL + ValueError
+                        1352    PUSH_NULL                       
+                        1354    LOAD_CONST                      1: '__pyarmor_assert_15972__'
+                        1356    LOAD_CONST                      30: 'Empty certificate'   # b"\x81\xc7\x15\x03'\xe3\xfe\xd1\x1e\xe8\x19\xc9j\xe5\xfb\x84\x1bX"
+                        1358    CALL                            1
+                        1366    CALL                            1
+                        1374    RAISE_VARARGS                   1
+                        1376    LOAD_GLOBAL                     49: NULL + x509
+                        1386    LOAD_ATTR                       50: load_der_x509_certificate
+                        1406    LOAD_FAST                       8: _var_var_5
+                        1408    LOAD_GLOBAL                     53: NULL + default_backend
+                        1418    CALL                            0
+                        1426    CALL                            2
+                        1434    STORE_FAST                      22: _var_var_19
+                        1436    LOAD_FAST                       22: _var_var_19
+                        1438    LOAD_ATTR                       55: public_key
+                        1458    CALL                            0
+                        1466    STORE_FAST                      23: _var_var_20
+                        1468    LOAD_FAST                       23: _var_var_20
+                        1470    LOAD_ATTR                       57: public_bytes
+                        1490    LOAD_GLOBAL                     58: serialization
+                        1500    LOAD_ATTR                       60: Encoding
+                        1520    LOAD_ATTR                       62: DER
+                        1540    LOAD_GLOBAL                     58: serialization
+                        1550    LOAD_ATTR                       64: PublicFormat
+                        1570    LOAD_ATTR                       66: SubjectPublicKeyInfo
+                        1590    KW_NAMES                        31: ('encoding', 'format')
+                        1592    CALL                            2
+                        1600    STORE_FAST                      24: _var_var_21
+                        1602    LOAD_GLOBAL                     69: NULL + hashlib
+                        1612    LOAD_ATTR                       70: sha256
+                        1632    LOAD_FAST                       24: _var_var_21
+                        1634    CALL                            1
+                        1642    LOAD_ATTR                       73: digest
+                        1662    CALL                            0
+                        1670    STORE_FAST                      25: _var_var_22
+                        1672    LOAD_GLOBAL                     29: NULL + base64
+                        1682    LOAD_ATTR                       30: b64encode
+                        1702    LOAD_FAST                       25: _var_var_22
+                        1704    CALL                            1
+                        1712    LOAD_ATTR                       35: decode
+                        1732    CALL                            0
+                        1740    STORE_FAST                      26: _var_var_23
+                        1742    LOAD_FAST                       26: _var_var_23
+                        1744    LOAD_FAST                       7: _var_var_4
+                        1746    POP_JUMP_IF_FALSE               16 (to 1780)
+                        1748    LOAD_FAST                       7: _var_var_4
+                        1750    LOAD_ATTR                       45: close
+                        1770    CALL                            0
+                        1778    POP_TOP                         
+                        1780    LOAD_FAST                       6: _var_var_3
+                        1782    POP_JUMP_IF_FALSE               16 (to 1816)
+                        1784    LOAD_FAST                       6: _var_var_3
+                        1786    LOAD_ATTR                       45: close
+                        1806    CALL                            0
+                        1814    POP_TOP                         
+                        1816    SWAP                            2
+                        1818    POP_TOP                         
+                        1820    NOP                             
+                        1822    NOP                             
+                        1824    NOP                             
+                        1826    JUMP_FORWARD                    229 (to 2286)
+                        1828    CALL                            1
+                        1836    POP_TOP                         
+                        1838    RETURN_VALUE                    
+                        1840    END_FOR                         
+                        1842    LOAD_CONST                      0: None
+                        1844    NOP                             
+                        1846    NOP                             
+                        1848    NOP                             
+                        1850    JUMP_FORWARD                    217 (to 2286)
+                        1858    POP_TOP                         
+                        1860    RETURN_CONST                    0: None
+                        1862    PUSH_EXC_INFO                   
+                        1864    WITH_EXCEPT_START               
+                        1866    POP_JUMP_IF_TRUE                1 (to 1870)
+                        1868    RERAISE                         2
+                        1870    POP_TOP                         
+                        1872    POP_EXCEPT                      
+                        1874    POP_TOP                         
+                        1876    POP_TOP                         
+                        1878    JUMP_BACKWARD                   749 (to 384)
+                        1882    COPY                            3
+                        1884    POP_EXCEPT                      
+                        1886    RERAISE                         1
+                        1888    PUSH_EXC_INFO                   
+                        1890    WITH_EXCEPT_START               
+                        1892    POP_JUMP_IF_TRUE                1 (to 1896)
+                        1894    RERAISE                         2
+                        1896    POP_TOP                         
+                        1898    POP_EXCEPT                      
+                        1900    POP_TOP                         
+                        1902    POP_TOP                         
+                        1904    JUMP_BACKWARD                   285 (to 1338)
+                        1908    COPY                            3
+                        1910    POP_EXCEPT                      
+                        1912    RERAISE                         1
+                        1914    PUSH_EXC_INFO                   
+                        1916    POP_TOP                         
+                        1918    POP_EXCEPT                      
+                        1920    JUMP_BACKWARD                   388 (to 1148)
+                        1924    COPY                            3
+                        1926    POP_EXCEPT                      
+                        1928    RERAISE                         1
+                        1930    PUSH_EXC_INFO                   
+                        1932    POP_TOP                         
+                        1934    POP_EXCEPT                      
+                        1936    JUMP_BACKWARD                   945 (to 50)
+                        1940    COPY                            3
+                        1942    POP_EXCEPT                      
+                        1944    RERAISE                         1
+                        1946    PUSH_EXC_INFO                   
+                        1948    POP_TOP                         
+                        1950    POP_EXCEPT                      
+                        1952    JUMP_BACKWARD                   87 (to 1780)
+                        1954    COPY                            3
+                        1956    POP_EXCEPT                      
+                        1958    RERAISE                         1
+                        1960    PUSH_EXC_INFO                   
+                        1962    POP_TOP                         
+                        1964    POP_EXCEPT                      
+                        1966    JUMP_BACKWARD                   76 (to 1816)
+                        1968    COPY                            3
+                        1970    POP_EXCEPT                      
+                        1972    RERAISE                         1
+                        1974    PUSH_EXC_INFO                   
+                        1976    POP_TOP                         
+                        1978    LOAD_GLOBAL                     75: NULL + time
+                        1988    LOAD_ATTR                       76: sleep
+                        2008    LOAD_CONST                      33: 2
+                        2010    CALL                            1
+                        2018    POP_TOP                         
+                        2020    POP_EXCEPT                      
+                        2022    JUMP_FORWARD                    3 (to 2030)
+                        2024    COPY                            3
+                        2026    POP_EXCEPT                      
+                        2028    RERAISE                         1
+                        2030    NOP                             
+                        2032    LOAD_FAST_CHECK                 7: _var_var_4
+                        2034    POP_JUMP_IF_FALSE               24 (to 2084)
+                        2036    LOAD_FAST                       7: _var_var_4
+                        2038    LOAD_ATTR                       45: close
+                        2058    CALL                            0
+                        2066    POP_TOP                         
+                        2068    JUMP_FORWARD                    7 (to 2084)
+                        2070    PUSH_EXC_INFO                   
+                        2072    POP_TOP                         
+                        2074    POP_EXCEPT                      
+                        2076    JUMP_FORWARD                    3 (to 2084)
+                        2078    COPY                            3
+                        2080    POP_EXCEPT                      
+                        2082    RERAISE                         1
+                        2084    LOAD_FAST_CHECK                 6: _var_var_3
+                        2086    POP_JUMP_IF_TRUE                2 (to 2092)
+                        2088    JUMP_BACKWARD                   1021 (to 50)
+                        2092    LOAD_FAST                       6: _var_var_3
+                        2094    LOAD_ATTR                       45: close
+                        2114    CALL                            0
+                        2122    POP_TOP                         
+                        2124    JUMP_BACKWARD                   1039 (to 50)
+                        2128    PUSH_EXC_INFO                   
+                        2130    POP_TOP                         
+                        2132    POP_EXCEPT                      
+                        2134    JUMP_BACKWARD                   1044 (to 50)
+                        2138    COPY                            3
+                        2140    POP_EXCEPT                      
+                        2142    RERAISE                         1
+                        2144    PUSH_EXC_INFO                   
+                        2146    LOAD_FAST_CHECK                 7: _var_var_4
+                        2148    POP_JUMP_IF_FALSE               24 (to 2198)
+                        2150    LOAD_FAST                       7: _var_var_4
+                        2152    LOAD_ATTR                       45: close
+                        2172    CALL                            0
+                        2180    POP_TOP                         
+                        2182    JUMP_FORWARD                    7 (to 2198)
+                        2184    PUSH_EXC_INFO                   
+                        2186    POP_TOP                         
+                        2188    POP_EXCEPT                      
+                        2190    JUMP_FORWARD                    3 (to 2198)
+                        2192    COPY                            3
+                        2194    POP_EXCEPT                      
+                        2196    RERAISE                         1
+                        2198    LOAD_FAST_CHECK                 6: _var_var_3
+                        2200    POP_JUMP_IF_FALSE               24 (to 2250)
+                        2202    LOAD_FAST                       6: _var_var_3
+                        2204    LOAD_ATTR                       45: close
+                        2224    CALL                            0
+                        2232    POP_TOP                         
+                        2234    RERAISE                         0
+                        2236    PUSH_EXC_INFO                   
+                        2238    POP_TOP                         
+                        2240    POP_EXCEPT                      
+                        2242    RERAISE                         0
+                        2244    COPY                            3
+                        2246    POP_EXCEPT                      
+                        2248    RERAISE                         1
+                        2250    RERAISE                         0
+                        2252    COPY                            3
+                        2254    POP_EXCEPT                      
+                        2256    RERAISE                         1
+                        2258    PUSH_EXC_INFO                   
+                        2260    PUSH_NULL                       
+                        2262    LOAD_CONST                      32: '__pyarmor_exit_15974__'
+                        2264    NOP                             
+                        2266    LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xb8\x08\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        2268    CALL                            1
+                        2276    POP_TOP                         
+                        2278    RERAISE                         0
+                        2280    COPY                            3
+                        2282    POP_EXCEPT                      
+                        2284    RERAISE                         1
+                        2286    PUSH_NULL                       
+                        2288    LOAD_CONST                      32: '__pyarmor_exit_15974__'
+                        2290    LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xb8\x08\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        2292    BUILD_TUPLE                     1
+                        2294    CALL_FUNCTION_EX                0
+                        2296    POP_TOP                         
+                        2298    RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 58 -> 2258 [0] 
+                        60 to 290 -> 1974 [1] 
+                        290 to 330 -> 1888 [2] lasti
+                        330 to 368 -> 1862 [3] lasti
+                        368 to 384 -> 1888 [2] lasti
+                        384 to 968 -> 1974 [1] 
+                        970 to 1110 -> 1974 [1] 
+                        1112 to 1116 -> 2258 [0] 
+                        1116 to 1148 -> 1914 [1] 
+                        1148 to 1152 -> 2258 [0] 
+                        1156 to 1188 -> 1930 [1] 
+                        1188 to 1192 -> 2258 [0] 
+                        1192 to 1744 -> 1974 [1] 
+                        1744 to 1748 -> 2258 [0] 
+                        1748 to 1780 -> 1946 [2] 
+                        1780 to 1784 -> 2258 [0] 
+                        1784 to 1816 -> 1960 [2] 
+                        1816 to 1820 -> 2258 [0] 
+                        1840 to 1842 -> 2258 [0] 
+                        1862 to 1872 -> 1882 [5] lasti
+                        1872 to 1888 -> 1888 [2] lasti
+                        1888 to 1898 -> 1908 [4] lasti
+                        1898 to 1914 -> 1974 [1] 
+                        1914 to 1918 -> 1924 [2] lasti
+                        1918 to 1930 -> 2258 [0] 
+                        1930 to 1934 -> 1940 [2] lasti
+                        1934 to 1946 -> 2258 [0] 
+                        1946 to 1950 -> 1954 [3] lasti
+                        1950 to 1960 -> 2258 [0] 
+                        1960 to 1964 -> 1968 [3] lasti
+                        1964 to 1974 -> 2258 [0] 
+                        1974 to 2020 -> 2024 [2] lasti
+                        2020 to 2030 -> 2144 [1] 
+                        2032 to 2036 -> 2258 [0] 
+                        2036 to 2068 -> 2070 [1] 
+                        2068 to 2070 -> 2258 [0] 
+                        2070 to 2074 -> 2078 [2] lasti
+                        2074 to 2088 -> 2258 [0] 
+                        2092 to 2124 -> 2128 [1] 
+                        2124 to 2128 -> 2258 [0] 
+                        2128 to 2132 -> 2138 [2] lasti
+                        2132 to 2144 -> 2258 [0] 
+                        2144 to 2150 -> 2252 [2] lasti
+                        2150 to 2182 -> 2184 [3] 
+                        2182 to 2184 -> 2252 [2] lasti
+                        2184 to 2188 -> 2192 [4] lasti
+                        2188 to 2202 -> 2252 [2] lasti
+                        2202 to 2234 -> 2236 [3] 
+                        2234 to 2236 -> 2252 [2] lasti
+                        2236 to 2240 -> 2244 [4] lasti
+                        2240 to 2252 -> 2252 [2] lasti
+                        2252 to 2258 -> 2258 [0] 
+                        2258 to 2280 -> 2280 [1] lasti
+                'return'
+                [Code]
+                    File Name: <frozen program.static_classes.sslpinning>
+                    Object Name: check
+                    Qualified Name: SSLPinning.check
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'allow'
+                        '_server_pin'
+                        'url'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                        '_var_var_23'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15975__'
+                        '__pyarmor_enter_15976__'
+                        b'<COAddr>\x07\x00\x00\x1a\xb0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_15977__'
+                        False
+                        True
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_15976__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xb0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: allow
+                        50      POP_JUMP_IF_TRUE                11 (to 74)
+                        52      NOP                             
+                        54      LOAD_CONST                      5: False
+                        56      NOP                             
+                        58      NOP                             
+                        60      NOP                             
+                        62      JUMP_FORWARD                    83 (to 230)
+                        70      POP_TOP                         
+                        72      RETURN_CONST                    5: False
+                        74      LOAD_FAST                       0: self
+                        76      LOAD_ATTR                       3: _server_pin
+                        96      LOAD_FAST                       0: self
+                        98      LOAD_ATTR                       4: url
+                        118     CALL                            1
+                        126     STORE_FAST                      2: _var_var_23
+                        128     LOAD_FAST                       2: _var_var_23
+                        130     POP_JUMP_IF_FALSE               25 (to 182)
+                        132     LOAD_FAST                       2: _var_var_23
+                        134     LOAD_FAST                       0: self
+                        136     LOAD_ATTR                       0: allow
+                        156     CONTAINS_OP                     0 (in)
+                        158     POP_JUMP_IF_FALSE               11 (to 182)
+                        160     NOP                             
+                        162     LOAD_CONST                      6: True
+                        164     NOP                             
+                        166     NOP                             
+                        168     NOP                             
+                        170     JUMP_FORWARD                    29 (to 230)
+                        178     POP_TOP                         
+                        180     RETURN_CONST                    6: True
+                        182     LOAD_CONST                      5: False
+                        184     NOP                             
+                        186     NOP                             
+                        188     NOP                             
+                        190     JUMP_FORWARD                    19 (to 230)
+                        198     POP_TOP                         
+                        200     RETURN_CONST                    5: False
+                        202     PUSH_EXC_INFO                   
+                        204     PUSH_NULL                       
+                        206     LOAD_CONST                      4: '__pyarmor_exit_15977__'
+                        208     NOP                             
+                        210     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xb0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        212     CALL                            1
+                        220     POP_TOP                         
+                        222     RERAISE                         0
+                        224     COPY                            3
+                        226     POP_EXCEPT                      
+                        228     RERAISE                         1
+                        230     PUSH_NULL                       
+                        232     LOAD_CONST                      4: '__pyarmor_exit_15977__'
+                        234     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xb0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        236     BUILD_TUPLE                     1
+                        238     CALL_FUNCTION_EX                0
+                        240     POP_TOP                         
+                        242     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 52 -> 202 [0] 
+                        74 to 160 -> 202 [0] 
+                        202 to 224 -> 224 [1] lasti
+                '__pyarmor_exit_15968__'
+                (
+                    None
+                    None
+                    None
+                )
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'SSLPinning'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_15967__'
+                16      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      LOAD_CONST                      10: (None, None, None)
+                38      LOAD_CONST                      5: <CODE> __init__
+                40      MAKE_FUNCTION                   1
+                42      STORE_NAME                      4: __init__
+                44      LOAD_CONST                      6: <CODE> _server_pin
+                46      MAKE_FUNCTION                   0
+                48      STORE_NAME                      5: _server_pin
+                50      LOAD_CONST                      7: 'return'
+                52      LOAD_NAME                       6: bool
+                54      BUILD_TUPLE                     2
+                56      LOAD_CONST                      8: <CODE> check
+                58      MAKE_FUNCTION                   4
+                60      STORE_NAME                      7: check
+                62      LOAD_CONST                      4: None
+                64      NOP                             
+                66      NOP                             
+                68      NOP                             
+                70      JUMP_FORWARD                    19 (to 110)
+                78      POP_TOP                         
+                80      RETURN_CONST                    4: None
+                82      PUSH_EXC_INFO                   
+                84      PUSH_NULL                       
+                86      LOAD_CONST                      9: '__pyarmor_exit_15968__'
+                88      NOP                             
+                90      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                92      CALL                            1
+                100     POP_TOP                         
+                102     RERAISE                         0
+                104     COPY                            3
+                106     POP_EXCEPT                      
+                108     RERAISE                         1
+                110     PUSH_NULL                       
+                112     LOAD_CONST                      9: '__pyarmor_exit_15968__'
+                114     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                116     BUILD_TUPLE                     1
+                118     CALL_FUNCTION_EX                0
+                120     POP_TOP                         
+                122     RETURN_VALUE                    
+            [Exception Table]
+                36 to 62 -> 82 [0] 
+                82 to 104 -> 104 [1] lasti
+        'SSLPinning'
+        '__pyarmor_exit_15965__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_15964__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: ssl
+        32      STORE_NAME                      1: ssl
+        34      LOAD_CONST                      3: 0
+        36      LOAD_CONST                      4: None
+        38      IMPORT_NAME                     2: time
+        40      STORE_NAME                      2: time
+        42      LOAD_CONST                      3: 0
+        44      LOAD_CONST                      4: None
+        46      IMPORT_NAME                     3: socket
+        48      STORE_NAME                      3: socket
+        50      LOAD_CONST                      3: 0
+        52      LOAD_CONST                      4: None
+        54      IMPORT_NAME                     4: hashlib
+        56      STORE_NAME                      4: hashlib
+        58      LOAD_CONST                      3: 0
+        60      LOAD_CONST                      4: None
+        62      IMPORT_NAME                     5: base64
+        64      STORE_NAME                      5: base64
+        66      LOAD_CONST                      3: 0
+        68      LOAD_CONST                      5: ('urlparse',)
+        70      IMPORT_NAME                     6: urllib.parse
+        72      IMPORT_FROM                     7: urlparse
+        74      STORE_NAME                      7: urlparse
+        76      POP_TOP                         
+        78      LOAD_CONST                      3: 0
+        80      LOAD_CONST                      6: ('x509',)
+        82      IMPORT_NAME                     8: cryptography
+        84      IMPORT_FROM                     9: x509
+        86      STORE_NAME                      9: x509
+        88      POP_TOP                         
+        90      LOAD_CONST                      3: 0
+        92      LOAD_CONST                      7: ('default_backend',)
+        94      IMPORT_NAME                     10: cryptography.hazmat.backends
+        96      IMPORT_FROM                     11: default_backend
+        98      STORE_NAME                      11: default_backend
+        100     POP_TOP                         
+        102     LOAD_CONST                      3: 0
+        104     LOAD_CONST                      8: ('serialization',)
+        106     IMPORT_NAME                     12: cryptography.hazmat.primitives
+        108     IMPORT_FROM                     13: serialization
+        110     STORE_NAME                      13: serialization
+        112     POP_TOP                         
+        114     PUSH_NULL                       
+        116     LOAD_BUILD_CLASS                
+        118     LOAD_CONST                      9: <CODE> SSLPinning
+        120     MAKE_FUNCTION                   0
+        122     LOAD_CONST                      10: 'SSLPinning'
+        124     CALL                            2
+        132     STORE_NAME                      14: SSLPinning
+        134     LOAD_CONST                      4: None
+        136     NOP                             
+        138     NOP                             
+        140     NOP                             
+        142     JUMP_FORWARD                    19 (to 182)
+        150     POP_TOP                         
+        152     RETURN_CONST                    4: None
+        154     PUSH_EXC_INFO                   
+        156     PUSH_NULL                       
+        158     LOAD_CONST                      11: '__pyarmor_exit_15965__'
+        160     NOP                             
+        162     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        164     CALL                            1
+        172     POP_TOP                         
+        174     RERAISE                         0
+        176     COPY                            3
+        178     POP_EXCEPT                      
+        180     RERAISE                         1
+        182     PUSH_NULL                       
+        184     LOAD_CONST                      11: '__pyarmor_exit_15965__'
+        186     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        188     BUILD_TUPLE                     1
+        190     CALL_FUNCTION_EX                0
+        192     POP_TOP                         
+        194     RETURN_VALUE                    
+    [Exception Table]
+        26 to 134 -> 154 [0] 
+        154 to 176 -> 176 [1] lasti

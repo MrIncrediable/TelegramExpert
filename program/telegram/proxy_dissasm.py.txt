@@ -1,0 +1,838 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.telegram.proxy>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'eel'
+        'sqlite3'
+        'threading'
+        'Lock'
+        'program.static_classes'
+        'Logs'
+        'logging'
+        'multithon.errors'
+        'StopProgram'
+        'get_account_proxy'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_16275__'
+        '__pyarmor_enter_16276__'
+        b'<COAddr>\x07\x00\x00\x1aT\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        (
+            'Lock'
+        )
+        (
+            'Logs'
+            'logging'
+        )
+        (
+            'StopProgram'
+        )
+        [Code]
+            File Name: <frozen program.telegram.proxy>
+            Object Name: get_account_proxy
+            Qualified Name: get_account_proxy
+            Arg Count: 4
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'tuple'
+            [Locals+Names]
+                'config'
+                'proxy_generator'
+                'account_proxy'
+                'account_ipv6'
+                '__assert_armored__'
+                '_var_var_0'
+                '_var_var_1'
+                '_var_var_2'
+                '_var_var_3'
+            [Constants]
+                None
+                '__pyarmor_assert_16278__'
+                '__pyarmor_enter_16279__'
+                b'<COAddr>\x07\x00\x00\x1c4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen program.telegram.proxy>
+                    Object Name: proxy_format
+                    Qualified Name: get_account_proxy.<locals>.proxy_format
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'lower'
+                        'int'
+                        'BaseException'
+                        'logging'
+                    [Locals+Names]
+                        'proxy'
+                        '__assert_armored__'
+                        '_var_var_4'
+                        '_var_var_5'
+                        '_var_var_6'
+                        '_var_var_7'
+                        '_var_var_8'
+                        '_var_var_9'
+                        '_var_var_10'
+                        '_var_var_0'
+                        '_var_var_11'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_16281__'
+                        '__pyarmor_enter_16282__'
+                        b'<COAddr>\x07\x00\x00\x1a\x80\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        False
+                        '__pyarmor_exit_16283__'
+                        1
+                        2
+                        3
+                        4
+                        5
+                        6
+                        'ipv4'
+                        True
+                        'socks4'
+                        'socks5'
+                        'http'
+                        ''
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_16282__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x80\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_FAST                       0: proxy
+                        32      LOAD_CONST                      4: False
+                        34      COMPARE_OP                      40 (==)
+                        38      POP_JUMP_IF_TRUE                5 (to 50)
+                        40      LOAD_FAST                       0: proxy
+                        42      LOAD_CONST                      0: None
+                        44      COMPARE_OP                      40 (==)
+                        48      POP_JUMP_IF_FALSE               11 (to 72)
+                        50      NOP                             
+                        52      LOAD_CONST                      4: False
+                        54      NOP                             
+                        56      NOP                             
+                        58      NOP                             
+                        60      JUMP_FORWARD                    188 (to 438)
+                        68      POP_TOP                         
+                        70      RETURN_CONST                    4: False
+                        72      LOAD_FAST                       0: proxy
+                        74      LOAD_CONST                      6: 1
+                        76      BINARY_SUBSCR                   
+                        80      STORE_FAST                      2: _var_var_4
+                        82      LOAD_FAST                       0: proxy
+                        84      LOAD_CONST                      7: 2
+                        86      BINARY_SUBSCR                   
+                        90      STORE_FAST                      3: _var_var_5
+                        92      LOAD_FAST                       0: proxy
+                        94      LOAD_CONST                      8: 3
+                        96      BINARY_SUBSCR                   
+                        100     STORE_FAST                      4: _var_var_6
+                        102     LOAD_FAST                       0: proxy
+                        104     LOAD_CONST                      9: 4
+                        106     BINARY_SUBSCR                   
+                        110     STORE_FAST                      5: _var_var_7
+                        112     LOAD_FAST                       0: proxy
+                        114     LOAD_CONST                      10: 5
+                        116     BINARY_SUBSCR                   
+                        120     STORE_FAST                      6: _var_var_8
+                        122     LOAD_FAST                       0: proxy
+                        124     LOAD_CONST                      11: 6
+                        126     BINARY_SUBSCR                   
+                        130     STORE_FAST                      7: _var_var_9
+                        132     LOAD_FAST                       6: _var_var_8
+                        134     LOAD_ATTR                       1: lower
+                        154     CALL                            0
+                        162     STORE_FAST                      6: _var_var_8
+                        164     LOAD_FAST                       7: _var_var_9
+                        166     LOAD_CONST                      12: 'ipv4'
+                        168     COMPARE_OP                      40 (==)
+                        172     POP_JUMP_IF_FALSE               3 (to 180)
+                        174     LOAD_CONST                      4: False
+                        176     STORE_FAST                      8: _var_var_10
+                        178     JUMP_FORWARD                    2 (to 184)
+                        180     LOAD_CONST                      13: True
+                        182     STORE_FAST                      8: _var_var_10
+                        184     LOAD_FAST                       6: _var_var_8
+                        186     LOAD_CONST                      14: 'socks4'
+                        188     COMPARE_OP                      40 (==)
+                        192     POP_JUMP_IF_FALSE               2 (to 198)
+                        194     LOAD_CONST                      6: 1
+                        196     STORE_FAST                      6: _var_var_8
+                        198     LOAD_FAST                       6: _var_var_8
+                        200     LOAD_CONST                      15: 'socks5'
+                        202     COMPARE_OP                      40 (==)
+                        206     POP_JUMP_IF_FALSE               2 (to 212)
+                        208     LOAD_CONST                      7: 2
+                        210     STORE_FAST                      6: _var_var_8
+                        212     LOAD_FAST                       6: _var_var_8
+                        214     LOAD_CONST                      16: 'http'
+                        216     COMPARE_OP                      40 (==)
+                        220     POP_JUMP_IF_FALSE               2 (to 226)
+                        222     LOAD_CONST                      8: 3
+                        224     STORE_FAST                      6: _var_var_8
+                        226     LOAD_FAST                       4: _var_var_6
+                        228     LOAD_CONST                      17: ''
+                        230     COMPARE_OP                      40 (==)
+                        234     POP_JUMP_IF_FALSE               2 (to 240)
+                        236     LOAD_CONST                      0: None
+                        238     STORE_FAST                      4: _var_var_6
+                        240     LOAD_FAST                       5: _var_var_7
+                        242     LOAD_CONST                      17: ''
+                        244     COMPARE_OP                      40 (==)
+                        248     POP_JUMP_IF_FALSE               2 (to 254)
+                        250     LOAD_CONST                      0: None
+                        252     STORE_FAST                      5: _var_var_7
+                        254     LOAD_FAST                       6: _var_var_8
+                        256     LOAD_FAST                       2: _var_var_4
+                        258     LOAD_GLOBAL                     3: NULL + int
+                        268     LOAD_FAST                       3: _var_var_5
+                        270     CALL                            1
+                        278     LOAD_CONST                      13: True
+                        280     LOAD_FAST                       4: _var_var_6
+                        282     LOAD_FAST                       5: _var_var_7
+                        284     BUILD_TUPLE                     6
+                        286     STORE_FAST                      9: _var_var_0
+                        288     LOAD_FAST                       9: _var_var_0
+                        290     LOAD_FAST                       8: _var_var_10
+                        292     BUILD_LIST                      2
+                        294     NOP                             
+                        296     NOP                             
+                        298     NOP                             
+                        300     JUMP_FORWARD                    68 (to 438)
+                        302     CALL                            1
+                        310     POP_TOP                         
+                        312     RETURN_VALUE                    
+                        314     PUSH_EXC_INFO                   
+                        316     LOAD_GLOBAL                     4: BaseException
+                        326     CHECK_EXC_MATCH                 
+                        328     POP_JUMP_IF_FALSE               26 (to 382)
+                        330     STORE_FAST                      10: _var_var_11
+                        332     PUSH_NULL                       
+                        334     LOAD_GLOBAL                     7: NULL + logging
+                        344     LOAD_FAST                       10: _var_var_11
+                        346     CALL                            1
+                        354     CALL                            0
+                        362     POP_TOP                         
+                        364     POP_EXCEPT                      
+                        366     LOAD_CONST                      0: None
+                        368     STORE_FAST                      10: _var_var_11
+                        370     DELETE_FAST                     10: _var_var_11
+                        372     JUMP_FORWARD                    8 (to 390)
+                        374     LOAD_CONST                      0: None
+                        376     STORE_FAST                      10: _var_var_11
+                        378     DELETE_FAST                     10: _var_var_11
+                        380     RERAISE                         1
+                        382     RERAISE                         0
+                        384     COPY                            3
+                        386     POP_EXCEPT                      
+                        388     RERAISE                         1
+                        390     LOAD_CONST                      4: False
+                        392     NOP                             
+                        394     NOP                             
+                        396     NOP                             
+                        398     JUMP_FORWARD                    19 (to 438)
+                        406     POP_TOP                         
+                        408     RETURN_CONST                    4: False
+                        410     PUSH_EXC_INFO                   
+                        412     PUSH_NULL                       
+                        414     LOAD_CONST                      5: '__pyarmor_exit_16283__'
+                        416     NOP                             
+                        418     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x80\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        420     CALL                            1
+                        428     POP_TOP                         
+                        430     RERAISE                         0
+                        432     COPY                            3
+                        434     POP_EXCEPT                      
+                        436     RERAISE                         1
+                        438     PUSH_NULL                       
+                        440     LOAD_CONST                      5: '__pyarmor_exit_16283__'
+                        442     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x80\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        444     BUILD_TUPLE                     1
+                        446     CALL_FUNCTION_EX                0
+                        448     POP_TOP                         
+                        450     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 50 -> 314 [0] 
+                        72 to 294 -> 314 [0] 
+                        314 to 332 -> 384 [1] lasti
+                        332 to 364 -> 374 [1] lasti
+                        364 to 374 -> 410 [0] 
+                        374 to 384 -> 384 [1] lasti
+                        384 to 390 -> 410 [0] 
+                        410 to 432 -> 432 [1] lasti
+                [Code]
+                    File Name: <frozen program.telegram.proxy>
+                    Object Name: proxy_stop
+                    Qualified Name: get_account_proxy.<locals>.proxy_stop
+                    Arg Count: 0
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'eel'
+                        'sendErrorBox'
+                        'Logs'
+                        'PrintLog'
+                        'StopProgram'
+                    [Locals+Names]
+                        '__assert_armored__'
+                        'config'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_16284__'
+                        '__pyarmor_enter_16285__'
+                        b'<COAddr>\x07\x00\x00\x1c\x86\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '!!! CHECK PROXY SETTINGS !!!'   # b'\x81\xa3YRs\xd9\x96\xf78\xd1M\xf0^\xc3\xc0\xbcOn\x9e\x93\x9e\xe2`\xeb6/\xe2\x1dA'
+                        'CHECK PROXY SETTINGS !!!'   # b'\x81\xc106\x10\xd1\xfe\xe2)\xd55\xf9,\xdf\xdd\xb1;t\x95\x80\x99\x8b\x0f\x8dD'
+                        (
+                            'config'
+                            'message'
+                        )
+                        '__pyarmor_exit_16286__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_16285__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\x86\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     1: NULL + eel
+                        40      LOAD_ATTR                       2: sendErrorBox
+                        60      PUSH_NULL                       
+                        62      LOAD_CONST                      1: '__pyarmor_assert_16284__'
+                        64      LOAD_CONST                      4: '!!! CHECK PROXY SETTINGS !!!'   # b'\x81\xa3YRs\xd9\x96\xf78\xd1M\xf0^\xc3\xc0\xbcOn\x9e\x93\x9e\xe2`\xeb6/\xe2\x1dA'
+                        66      CALL                            1
+                        74      CALL                            1
+                        82      POP_TOP                         
+                        84      LOAD_GLOBAL                     5: NULL + Logs
+                        94      LOAD_ATTR                       6: PrintLog
+                        114     LOAD_DEREF                      1: config
+                        116     PUSH_NULL                       
+                        118     LOAD_CONST                      1: '__pyarmor_assert_16284__'
+                        120     LOAD_CONST                      5: 'CHECK PROXY SETTINGS !!!'   # b'\x81\xc106\x10\xd1\xfe\xe2)\xd55\xf9,\xdf\xdd\xb1;t\x95\x80\x99\x8b\x0f\x8dD'
+                        122     CALL                            1
+                        130     KW_NAMES                        6: ('config', 'message')
+                        132     CALL                            2
+                        140     POP_TOP                         
+                        142     LOAD_GLOBAL                     9: NULL + StopProgram
+                        152     CALL                            0
+                        160     RAISE_VARARGS                   1
+                        162     PUSH_EXC_INFO                   
+                        164     PUSH_NULL                       
+                        166     LOAD_CONST                      7: '__pyarmor_exit_16286__'
+                        168     NOP                             
+                        170     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\x86\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        172     CALL                            1
+                        180     POP_TOP                         
+                        182     RERAISE                         0
+                        184     COPY                            3
+                        186     POP_EXCEPT                      
+                        188     RERAISE                         1
+                        190     PUSH_NULL                       
+                        192     LOAD_CONST                      7: '__pyarmor_exit_16286__'
+                        194     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\x86\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        196     BUILD_TUPLE                     1
+                        198     CALL_FUNCTION_EX                0
+                        200     POP_TOP                         
+                        202     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 162 -> 162 [0] 
+                        162 to 184 -> 184 [1] lasti
+                [Code]
+                    File Name: <frozen program.telegram.proxy>
+                    Object Name: proxy_base
+                    Qualified Name: get_account_proxy.<locals>.proxy_base
+                    Arg Count: 0
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'Lock'
+                        'sqlite3'
+                        'connect'
+                        'PARSE_DECLTYPES'
+                        'cursor'
+                        'execute'
+                        'fetchone'
+                        'BaseException'
+                        'logging'
+                    [Locals+Names]
+                        '__assert_armored__'
+                        '_var_var_12'
+                        '_var_var_13'
+                        '_var_var_3'
+                        '_var_var_11'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_16287__'
+                        '__pyarmor_enter_16288__'
+                        b'<COAddr>\x07\x00\x00\x1a\xc4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'settings/proxy.db'   # b"\x81\xf1\x1d\x07'\xf3\xb0\xd5\x08\xb5\x1d\xd2c\xf4\xe1\xcb\x0b_"
+                        5
+                        False
+                        (
+                            'detect_types'
+                            'timeout'
+                            'check_same_thread'
+                        )
+                        'SELECT * FROM PROXY ORDER BY RANDOM() LIMIT 1'   # b'\x81\xd1=?\x16\xd9\x8a\x92Q\xba+\xf2C\xc1\xb8\xb5=r\x83\x9e\xea\xe4|\xe8 ]\xe3~9\xf1,\xc4\x14v\x0f \xd0\x83\xf4\x021\xc4\xd1i\x9d\x89'
+                        '__pyarmor_exit_16289__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_16288__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xc4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     1: NULL + Lock
+                        40      CALL                            0
+                        48      BEFORE_WITH                     
+                        50      POP_TOP                         
+                        52      LOAD_GLOBAL                     3: NULL + sqlite3
+                        62      LOAD_ATTR                       4: connect
+                        82      PUSH_NULL                       
+                        84      LOAD_CONST                      1: '__pyarmor_assert_16287__'
+                        86      LOAD_CONST                      4: 'settings/proxy.db'   # b"\x81\xf1\x1d\x07'\xf3\xb0\xd5\x08\xb5\x1d\xd2c\xf4\xe1\xcb\x0b_"
+                        88      CALL                            1
+                        96      LOAD_GLOBAL                     2: sqlite3
+                        106     LOAD_ATTR                       6: PARSE_DECLTYPES
+                        126     LOAD_CONST                      5: 5
+                        128     LOAD_CONST                      6: False
+                        130     KW_NAMES                        7: ('detect_types', 'timeout', 'check_same_thread')
+                        132     CALL                            4
+                        140     BEFORE_WITH                     
+                        142     STORE_FAST                      1: _var_var_12
+                        144     LOAD_FAST                       1: _var_var_12
+                        146     LOAD_ATTR                       9: cursor
+                        166     CALL                            0
+                        174     STORE_FAST                      2: _var_var_13
+                        176     LOAD_FAST                       2: _var_var_13
+                        178     LOAD_ATTR                       11: execute
+                        198     PUSH_NULL                       
+                        200     LOAD_CONST                      1: '__pyarmor_assert_16287__'
+                        202     LOAD_CONST                      8: 'SELECT * FROM PROXY ORDER BY RANDOM() LIMIT 1'   # b'\x81\xd1=?\x16\xd9\x8a\x92Q\xba+\xf2C\xc1\xb8\xb5=r\x83\x9e\xea\xe4|\xe8 ]\xe3~9\xf1,\xc4\x14v\x0f \xd0\x83\xf4\x021\xc4\xd1i\x9d\x89'
+                        204     CALL                            1
+                        212     CALL                            1
+                        220     POP_TOP                         
+                        222     LOAD_FAST                       2: _var_var_13
+                        224     LOAD_ATTR                       13: fetchone
+                        244     CALL                            0
+                        252     STORE_FAST                      3: _var_var_3
+                        254     LOAD_FAST                       3: _var_var_3
+                        256     SWAP                            2
+                        258     LOAD_CONST                      0: None
+                        260     LOAD_CONST                      0: None
+                        262     LOAD_CONST                      0: None
+                        264     CALL                            2
+                        272     POP_TOP                         
+                        274     SWAP                            2
+                        276     LOAD_CONST                      0: None
+                        278     LOAD_CONST                      0: None
+                        280     LOAD_CONST                      0: None
+                        282     CALL                            2
+                        290     POP_TOP                         
+                        292     NOP                             
+                        294     NOP                             
+                        296     NOP                             
+                        298     JUMP_FORWARD                    103 (to 506)
+                        300     CALL                            1
+                        308     POP_TOP                         
+                        310     RETURN_VALUE                    
+                        312     PUSH_EXC_INFO                   
+                        314     WITH_EXCEPT_START               
+                        316     POP_JUMP_IF_TRUE                1 (to 320)
+                        318     RERAISE                         2
+                        320     POP_TOP                         
+                        322     POP_EXCEPT                      
+                        324     POP_TOP                         
+                        326     POP_TOP                         
+                        328     JUMP_FORWARD                    3 (to 336)
+                        330     COPY                            3
+                        332     POP_EXCEPT                      
+                        334     RERAISE                         1
+                        336     NOP                             
+                        338     LOAD_CONST                      0: None
+                        340     LOAD_CONST                      0: None
+                        342     LOAD_CONST                      0: None
+                        344     CALL                            2
+                        352     POP_TOP                         
+                        354     JUMP_FORWARD                    12 (to 380)
+                        356     PUSH_EXC_INFO                   
+                        358     WITH_EXCEPT_START               
+                        360     POP_JUMP_IF_TRUE                1 (to 364)
+                        362     RERAISE                         2
+                        364     POP_TOP                         
+                        366     POP_EXCEPT                      
+                        368     POP_TOP                         
+                        370     POP_TOP                         
+                        372     JUMP_FORWARD                    3 (to 380)
+                        374     COPY                            3
+                        376     POP_EXCEPT                      
+                        378     RERAISE                         1
+                        380     JUMP_FORWARD                    38 (to 458)
+                        382     PUSH_EXC_INFO                   
+                        384     LOAD_GLOBAL                     14: BaseException
+                        394     CHECK_EXC_MATCH                 
+                        396     POP_JUMP_IF_FALSE               26 (to 450)
+                        398     STORE_FAST                      4: _var_var_11
+                        400     PUSH_NULL                       
+                        402     LOAD_GLOBAL                     17: NULL + logging
+                        412     LOAD_FAST                       4: _var_var_11
+                        414     CALL                            1
+                        422     CALL                            0
+                        430     POP_TOP                         
+                        432     POP_EXCEPT                      
+                        434     LOAD_CONST                      0: None
+                        436     STORE_FAST                      4: _var_var_11
+                        438     DELETE_FAST                     4: _var_var_11
+                        440     JUMP_FORWARD                    8 (to 458)
+                        442     LOAD_CONST                      0: None
+                        444     STORE_FAST                      4: _var_var_11
+                        446     DELETE_FAST                     4: _var_var_11
+                        448     RERAISE                         1
+                        450     RERAISE                         0
+                        452     COPY                            3
+                        454     POP_EXCEPT                      
+                        456     RERAISE                         1
+                        458     LOAD_CONST                      6: False
+                        460     NOP                             
+                        462     NOP                             
+                        464     NOP                             
+                        466     JUMP_FORWARD                    19 (to 506)
+                        474     POP_TOP                         
+                        476     RETURN_CONST                    6: False
+                        478     PUSH_EXC_INFO                   
+                        480     PUSH_NULL                       
+                        482     LOAD_CONST                      9: '__pyarmor_exit_16289__'
+                        484     NOP                             
+                        486     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xc4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        488     CALL                            1
+                        496     POP_TOP                         
+                        498     RERAISE                         0
+                        500     COPY                            3
+                        502     POP_EXCEPT                      
+                        504     RERAISE                         1
+                        506     PUSH_NULL                       
+                        508     LOAD_CONST                      9: '__pyarmor_exit_16289__'
+                        510     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xc4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        512     BUILD_TUPLE                     1
+                        514     CALL_FUNCTION_EX                0
+                        516     POP_TOP                         
+                        518     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 50 -> 382 [0] 
+                        50 to 142 -> 356 [1] lasti
+                        142 to 256 -> 312 [2] lasti
+                        256 to 274 -> 356 [1] lasti
+                        274 to 292 -> 382 [0] 
+                        312 to 322 -> 330 [4] lasti
+                        322 to 336 -> 356 [1] lasti
+                        338 to 356 -> 382 [0] 
+                        356 to 366 -> 374 [3] lasti
+                        366 to 380 -> 382 [0] 
+                        380 to 382 -> 478 [0] 
+                        382 to 400 -> 452 [1] lasti
+                        400 to 432 -> 442 [1] lasti
+                        432 to 442 -> 478 [0] 
+                        442 to 452 -> 452 [1] lasti
+                        452 to 458 -> 478 [0] 
+                        478 to 500 -> 500 [1] lasti
+                'proxy'
+                'account'
+                ''
+                False
+                'settings'
+                '__pyarmor_exit_16280__'
+                0
+                1
+                'off'
+            [Disassembly]
+                0       MAKE_CELL                       0: config
+                2       NOP                             
+                4       NOP                             
+                6       PUSH_NULL                       
+                8       LOAD_CONST                      2: '__pyarmor_enter_16279__'
+                10      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                12      BUILD_TUPLE                     1
+                14      CALL_FUNCTION_EX                0
+                16      POP_TOP                         
+                18      RESUME                          0
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      LOAD_CONST                      4: <CODE> proxy_format
+                32      MAKE_FUNCTION                   0
+                34      STORE_FAST                      5: _var_var_0
+                36      LOAD_CLOSURE                    0: config
+                38      BUILD_TUPLE                     1
+                40      LOAD_CONST                      5: <CODE> proxy_stop
+                42      MAKE_FUNCTION                   8
+                44      STORE_FAST                      6: _var_var_1
+                46      LOAD_CONST                      6: <CODE> proxy_base
+                48      MAKE_FUNCTION                   0
+                50      STORE_FAST                      7: _var_var_2
+                52      LOAD_DEREF                      0: config
+                54      LOAD_CONST                      7: 'proxy'
+                56      BINARY_SUBSCR                   
+                60      LOAD_CONST                      8: 'account'
+                62      COMPARE_OP                      40 (==)
+                66      POP_JUMP_IF_FALSE               43 (to 154)
+                68      LOAD_FAST                       2: account_proxy
+                70      LOAD_CONST                      0: None
+                72      COMPARE_OP                      40 (==)
+                76      POP_JUMP_IF_TRUE                10 (to 98)
+                78      LOAD_FAST                       2: account_proxy
+                80      LOAD_CONST                      9: ''
+                82      COMPARE_OP                      40 (==)
+                86      POP_JUMP_IF_TRUE                5 (to 98)
+                88      LOAD_FAST                       2: account_proxy
+                90      LOAD_CONST                      10: False
+                92      COMPARE_OP                      40 (==)
+                96      POP_JUMP_IF_FALSE               6 (to 110)
+                98      LOAD_CONST                      11: 'settings'
+                100     LOAD_DEREF                      0: config
+                102     LOAD_CONST                      7: 'proxy'
+                104     STORE_SUBSCR                    
+                108     JUMP_FORWARD                    22 (to 154)
+                110     LOAD_GLOBAL                     1: NULL + tuple
+                120     LOAD_FAST                       2: account_proxy
+                122     CALL                            1
+                130     LOAD_FAST                       3: account_ipv6
+                132     BUILD_LIST                      2
+                134     NOP                             
+                136     NOP                             
+                138     NOP                             
+                140     JUMP_FORWARD                    111 (to 364)
+                142     CALL                            1
+                150     POP_TOP                         
+                152     RETURN_VALUE                    
+                154     LOAD_DEREF                      0: config
+                156     LOAD_CONST                      7: 'proxy'
+                158     BINARY_SUBSCR                   
+                162     LOAD_CONST                      11: 'settings'
+                164     COMPARE_OP                      40 (==)
+                168     POP_JUMP_IF_FALSE               45 (to 260)
+                170     PUSH_NULL                       
+                172     LOAD_FAST                       5: _var_var_0
+                174     PUSH_NULL                       
+                176     LOAD_FAST                       7: _var_var_2
+                178     CALL                            0
+                186     CALL                            1
+                194     STORE_FAST                      8: _var_var_3
+                196     LOAD_FAST                       8: _var_var_3
+                198     LOAD_CONST                      10: False
+                200     COMPARE_OP                      40 (==)
+                204     POP_JUMP_IF_FALSE               8 (to 222)
+                206     PUSH_NULL                       
+                208     LOAD_FAST                       6: _var_var_1
+                210     CALL                            0
+                218     POP_TOP                         
+                220     JUMP_FORWARD                    19 (to 260)
+                222     LOAD_FAST                       8: _var_var_3
+                224     LOAD_CONST                      13: 0
+                226     BINARY_SUBSCR                   
+                230     LOAD_FAST                       8: _var_var_3
+                232     LOAD_CONST                      14: 1
+                234     BINARY_SUBSCR                   
+                238     BUILD_LIST                      2
+                240     NOP                             
+                242     NOP                             
+                244     NOP                             
+                246     JUMP_FORWARD                    58 (to 364)
+                248     CALL                            1
+                256     POP_TOP                         
+                258     RETURN_VALUE                    
+                260     LOAD_DEREF                      0: config
+                262     LOAD_CONST                      7: 'proxy'
+                264     BINARY_SUBSCR                   
+                268     LOAD_CONST                      15: 'off'
+                270     COMPARE_OP                      40 (==)
+                274     POP_JUMP_IF_FALSE               13 (to 302)
+                276     LOAD_CONST                      0: None
+                278     LOAD_CONST                      10: False
+                280     BUILD_LIST                      2
+                282     NOP                             
+                284     NOP                             
+                286     NOP                             
+                288     JUMP_FORWARD                    37 (to 364)
+                290     CALL                            1
+                298     POP_TOP                         
+                300     RETURN_VALUE                    
+                302     PUSH_NULL                       
+                304     LOAD_FAST                       6: _var_var_1
+                306     CALL                            0
+                314     POP_TOP                         
+                316     LOAD_CONST                      0: None
+                318     NOP                             
+                320     NOP                             
+                322     NOP                             
+                324     JUMP_FORWARD                    19 (to 364)
+                332     POP_TOP                         
+                334     RETURN_CONST                    0: None
+                336     PUSH_EXC_INFO                   
+                338     PUSH_NULL                       
+                340     LOAD_CONST                      12: '__pyarmor_exit_16280__'
+                342     NOP                             
+                344     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                346     CALL                            1
+                354     POP_TOP                         
+                356     RERAISE                         0
+                358     COPY                            3
+                360     POP_EXCEPT                      
+                362     RERAISE                         1
+                364     PUSH_NULL                       
+                366     LOAD_CONST                      12: '__pyarmor_exit_16280__'
+                368     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                370     BUILD_TUPLE                     1
+                372     CALL_FUNCTION_EX                0
+                374     POP_TOP                         
+                376     RETURN_VALUE                    
+            [Exception Table]
+                30 to 134 -> 336 [0] 
+                154 to 240 -> 336 [0] 
+                260 to 282 -> 336 [0] 
+                302 to 316 -> 336 [0] 
+                336 to 358 -> 358 [1] lasti
+        '__pyarmor_exit_16277__'
+        (
+            None
+            None
+            False
+        )
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_16276__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aT\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: eel
+        32      STORE_NAME                      1: eel
+        34      LOAD_CONST                      3: 0
+        36      LOAD_CONST                      4: None
+        38      IMPORT_NAME                     2: sqlite3
+        40      STORE_NAME                      2: sqlite3
+        42      LOAD_CONST                      3: 0
+        44      LOAD_CONST                      5: ('Lock',)
+        46      IMPORT_NAME                     3: threading
+        48      IMPORT_FROM                     4: Lock
+        50      STORE_NAME                      4: Lock
+        52      POP_TOP                         
+        54      LOAD_CONST                      3: 0
+        56      LOAD_CONST                      6: ('Logs', 'logging')
+        58      IMPORT_NAME                     5: program.static_classes
+        60      IMPORT_FROM                     6: Logs
+        62      STORE_NAME                      6: Logs
+        64      IMPORT_FROM                     7: logging
+        66      STORE_NAME                      7: logging
+        68      POP_TOP                         
+        70      LOAD_CONST                      3: 0
+        72      LOAD_CONST                      7: ('StopProgram',)
+        74      IMPORT_NAME                     8: multithon.errors
+        76      IMPORT_FROM                     9: StopProgram
+        78      STORE_NAME                      9: StopProgram
+        80      POP_TOP                         
+        82      LOAD_CONST                      10: (None, None, False)
+        84      LOAD_CONST                      8: <CODE> get_account_proxy
+        86      MAKE_FUNCTION                   1
+        88      STORE_NAME                      10: get_account_proxy
+        90      LOAD_CONST                      4: None
+        92      NOP                             
+        94      NOP                             
+        96      NOP                             
+        98      JUMP_FORWARD                    19 (to 138)
+        106     POP_TOP                         
+        108     RETURN_CONST                    4: None
+        110     PUSH_EXC_INFO                   
+        112     PUSH_NULL                       
+        114     LOAD_CONST                      9: '__pyarmor_exit_16277__'
+        116     NOP                             
+        118     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aT\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        120     CALL                            1
+        128     POP_TOP                         
+        130     RERAISE                         0
+        132     COPY                            3
+        134     POP_EXCEPT                      
+        136     RERAISE                         1
+        138     PUSH_NULL                       
+        140     LOAD_CONST                      9: '__pyarmor_exit_16277__'
+        142     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aT\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        144     BUILD_TUPLE                     1
+        146     CALL_FUNCTION_EX                0
+        148     POP_TOP                         
+        150     RETURN_VALUE                    
+    [Exception Table]
+        26 to 90 -> 110 [0] 
+        110 to 132 -> 132 [1] lasti

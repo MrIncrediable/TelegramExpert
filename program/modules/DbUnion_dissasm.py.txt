@@ -1,0 +1,2330 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.modules.DbUnion>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'eel'
+        'sqlite3'
+        'datetime'
+        'threading'
+        'Thread'
+        'Event'
+        'multithon.errors'
+        'StopProgram'
+        'program.static_classes'
+        'GetLang'
+        'Logs'
+        'logging'
+        'memory_set_pid'
+        'program.general'
+        'GetConfig'
+        'StopDetect'
+        'getFile'
+        'DbUnion'
+        'START'
+        'DB_CREATE_RESULT'
+        'DB_GET_COUNT'
+        'DB_CREATE_TXT'
+        'DB_GET_PARSE_DATA'
+        'DB_UNION_BASE'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_13566__'
+        '__pyarmor_enter_13567__'
+        b'<COAddr>\x07\x00\x00\x1a\xc6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        (
+            'Thread'
+            'Event'
+        )
+        (
+            'StopProgram'
+        )
+        (
+            'GetLang'
+        )
+        (
+            'Logs'
+        )
+        (
+            'logging'
+        )
+        (
+            'memory_set_pid'
+        )
+        (
+            'GetConfig'
+        )
+        (
+            'StopDetect'
+        )
+        (
+            'getFile'
+        )
+        [Code]
+            File Name: <frozen program.modules.DbUnion>
+            Object Name: DbUnion
+            Qualified Name: DbUnion
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'get'
+                'getFile'
+                'GetConfig'
+                'config'
+                'GetLang'
+                'Lang'
+                'eel'
+                'sendSuccessBox'
+                'Event'
+                'memory_set_pid'
+                'Thread'
+                'START'
+                'start'
+                'Logs'
+                'WaitStopAnsfer'
+                'UpdateLogInWindow'
+                'BaseException'
+                'logging'
+            [Locals+Names]
+                'data'
+                '__assert_armored__'
+                '_var_var_0'
+                '_var_var_1'
+                '_var_var_2'
+            [Constants]
+                None
+                '__pyarmor_assert_13569__'
+                '__pyarmor_enter_13570__'
+                b'<COAddr>\x05\x00\x00\x1al\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'action'
+                'getFile'
+                '__pyarmor_exit_13571__'
+                'program_running'   # b'\x81\xf2\n\x1c4\xe8\xbf\xdf$\xe8\x18\xceb\xe5\xf6\x82'
+                (
+                    'target'
+                    'args'
+                )
+                True
+                (
+                    'target'
+                    'args'
+                    'daemon'
+                )
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_13570__'
+                8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1al\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      LOAD_FAST                       0: data
+                32      LOAD_ATTR                       1: get
+                52      LOAD_CONST                      4: 'action'
+                54      CALL                            1
+                62      POP_JUMP_IF_NONE                28 (to 120)
+                64      LOAD_FAST                       0: data
+                66      LOAD_CONST                      4: 'action'
+                68      BINARY_SUBSCR                   
+                72      LOAD_CONST                      5: 'getFile'
+                74      COMPARE_OP                      40 (==)
+                78      POP_JUMP_IF_FALSE               20 (to 120)
+                80      LOAD_GLOBAL                     3: NULL + getFile
+                90      LOAD_FAST                       0: data
+                92      CALL                            1
+                100     NOP                             
+                102     NOP                             
+                104     JUMP_FORWARD                    283 (to 674)
+                108     CALL                            1
+                116     POP_TOP                         
+                118     RETURN_VALUE                    
+                120     LOAD_GLOBAL                     5: NULL + GetConfig
+                130     CALL                            0
+                138     STORE_GLOBAL                    3: config
+                140     LOAD_GLOBAL                     9: NULL + GetLang
+                150     LOAD_GLOBAL                     6: config
+                160     CALL                            1
+                168     STORE_GLOBAL                    5: Lang
+                170     LOAD_GLOBAL                     13: NULL + eel
+                180     LOAD_ATTR                       14: sendSuccessBox
+                200     LOAD_GLOBAL                     10: Lang
+                210     PUSH_NULL                       
+                212     LOAD_CONST                      1: '__pyarmor_assert_13569__'
+                214     LOAD_CONST                      7: 'program_running'   # b'\x81\xf2\n\x1c4\xe8\xbf\xdf$\xe8\x18\xceb\xe5\xf6\x82'
+                216     CALL                            1
+                224     BINARY_SUBSCR                   
+                228     CALL                            1
+                236     POP_TOP                         
+                238     LOAD_GLOBAL                     17: NULL + Event
+                248     CALL                            0
+                256     STORE_FAST                      2: _var_var_0
+                258     LOAD_GLOBAL                     19: NULL + memory_set_pid
+                268     CALL                            0
+                276     STORE_FAST                      3: _var_var_1
+                278     LOAD_GLOBAL                     21: NULL + Thread
+                288     LOAD_GLOBAL                     22: START
+                298     LOAD_FAST                       0: data
+                300     LOAD_GLOBAL                     6: config
+                310     LOAD_FAST                       2: _var_var_0
+                312     BUILD_TUPLE                     3
+                314     KW_NAMES                        8: ('target', 'args')
+                316     CALL                            2
+                324     LOAD_ATTR                       25: start
+                344     CALL                            0
+                352     POP_TOP                         
+                354     LOAD_GLOBAL                     21: NULL + Thread
+                364     LOAD_GLOBAL                     26: Logs
+                374     LOAD_ATTR                       28: WaitStopAnsfer
+                394     LOAD_GLOBAL                     6: config
+                404     LOAD_FAST                       3: _var_var_1
+                406     LOAD_FAST                       2: _var_var_0
+                408     BUILD_TUPLE                     3
+                410     LOAD_CONST                      9: True
+                412     KW_NAMES                        10: ('target', 'args', 'daemon')
+                414     CALL                            3
+                422     LOAD_ATTR                       25: start
+                442     CALL                            0
+                450     POP_TOP                         
+                452     LOAD_GLOBAL                     21: NULL + Thread
+                462     LOAD_GLOBAL                     26: Logs
+                472     LOAD_ATTR                       30: UpdateLogInWindow
+                492     LOAD_GLOBAL                     6: config
+                502     LOAD_FAST                       3: _var_var_1
+                504     LOAD_FAST                       2: _var_var_0
+                506     BUILD_TUPLE                     3
+                508     LOAD_CONST                      9: True
+                510     KW_NAMES                        10: ('target', 'args', 'daemon')
+                512     CALL                            3
+                520     LOAD_ATTR                       25: start
+                540     CALL                            0
+                548     POP_TOP                         
+                550     LOAD_CONST                      0: None
+                552     NOP                             
+                554     NOP                             
+                556     NOP                             
+                558     JUMP_FORWARD                    57 (to 674)
+                566     POP_TOP                         
+                568     RETURN_CONST                    0: None
+                570     PUSH_EXC_INFO                   
+                572     LOAD_GLOBAL                     32: BaseException
+                582     CHECK_EXC_MATCH                 
+                584     POP_JUMP_IF_FALSE               26 (to 638)
+                586     STORE_FAST                      4: _var_var_2
+                588     PUSH_NULL                       
+                590     LOAD_GLOBAL                     35: NULL + logging
+                600     LOAD_FAST                       4: _var_var_2
+                602     CALL                            1
+                610     CALL                            0
+                618     POP_TOP                         
+                620     POP_EXCEPT                      
+                622     LOAD_CONST                      0: None
+                624     STORE_FAST                      4: _var_var_2
+                626     DELETE_FAST                     4: _var_var_2
+                628     JUMP_BACKWARD                   40 (to 550)
+                630     LOAD_CONST                      0: None
+                632     STORE_FAST                      4: _var_var_2
+                634     DELETE_FAST                     4: _var_var_2
+                636     RERAISE                         1
+                638     RERAISE                         0
+                640     COPY                            3
+                642     POP_EXCEPT                      
+                644     RERAISE                         1
+                646     PUSH_EXC_INFO                   
+                648     PUSH_NULL                       
+                650     LOAD_CONST                      6: '__pyarmor_exit_13571__'
+                652     NOP                             
+                654     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1al\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                656     CALL                            1
+                664     POP_TOP                         
+                666     RERAISE                         0
+                668     COPY                            3
+                670     POP_EXCEPT                      
+                672     RERAISE                         1
+                674     PUSH_NULL                       
+                676     LOAD_CONST                      6: '__pyarmor_exit_13571__'
+                678     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1al\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                680     BUILD_TUPLE                     1
+                682     CALL_FUNCTION_EX                0
+                684     POP_TOP                         
+                686     RETURN_VALUE                    
+            [Exception Table]
+                30 to 100 -> 570 [0] 
+                120 to 550 -> 570 [0] 
+                570 to 588 -> 640 [1] lasti
+                588 to 620 -> 630 [1] lasti
+                620 to 630 -> 646 [0] 
+                630 to 640 -> 640 [1] lasti
+                640 to 646 -> 646 [0] 
+                646 to 668 -> 668 [1] lasti
+        [Code]
+            File Name: <frozen program.modules.DbUnion>
+            Object Name: START
+            Qualified Name: START
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 8
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'is_set'
+                'StopProgram'
+                'get'
+                'Logs'
+                'PrintLog'
+                'Lang'
+                'datetime'
+                'now'
+                'strftime'
+                'DB_CREATE_RESULT'
+                'eel'
+                'sendErrorBox'
+                'WriteResult'
+                'DB_GET_PARSE_DATA'
+                'DB_UNION_BASE'
+                'DB_CREATE_TXT'
+                'DB_GET_COUNT'
+                'StopDetect'
+                'Exception'
+                'print'
+                'str'
+            [Locals+Names]
+                'data'
+                'config'
+                'stop_thread'
+                '__assert_armored__'
+                '_var_var_3'
+                '_var_var_4'
+                '_var_var_5'
+                '_var_var_6'
+                '_var_var_7'
+                '_var_var_8'
+                '_var_var_9'
+                '_var_var_10'
+                '_var_var_11'
+                '_var_var_12'
+                '_var_var_13'
+                '_var_var_14'
+                '_var_var_15'
+                '_var_var_16'
+                '_var_var_17'
+            [Constants]
+                None
+                '__pyarmor_assert_13572__'
+                '__pyarmor_enter_13573__'
+                b'<COAddr>\x05\x00\x00\x1a\x96\x0e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'Settings'
+                'file_db_1'   # b'\x81\xe4\x11\x1f6\xc5\xba\xd0$\xab'
+                'file_db_2'   # b'\x81\xe4\x11\x1f6\xc5\xba\xd0$\xa8'
+                'file_db_3'   # b'\x81\xe4\x11\x1f6\xc5\xba\xd0$\xa9'
+                'file_db_4'   # b'\x81\xe4\x11\x1f6\xc5\xba\xd0$\xae'
+                'file_db_5'   # b'\x81\xe4\x11\x1f6\xc5\xba\xd0$\xaf'
+                'create_txt'   # b'\x81\xe1\n\x162\xee\xbb\xed\x0f\xe2\x19'
+                'program_running'   # b'\x81\xf2\n\x1c4\xe8\xbf\xdf$\xe8\x18\xceb\xe5\xf6\x82'
+                (
+                    'message'
+                )
+                '%Y-%m-%d_%H-%M-%S'   # b'\x81\xa7!^v\xf7\xf3\x97\x1f\xc5H\xe8!\xa9\xd5\xc8Jn'
+                'db_union'
+                '_Result'
+                False
+                "I can't create a database of results"   # b'\x81\xcbX\x102\xf4\xf9\xc6[\xf9\x1f\xc5m\xf8\xfd\xc5\x0e\x1d\xbf\xa6\xbe\xcaL\xcd\x16j\xe3S\x06\xf1\x0c\xe0)G,\x19\x8b'
+                'Result'
+                '_Result.db'   # b'\x81\xdd*\x16 \xef\xb2\xc6U\xfe\x0f'
+                'created_database_import'   # b'\x81\xe1\n\x162\xee\xbb\xd6$\xfe\x0c\xd4m\xee\xf9\x96\nb\xb2\xaa\xba\xc4\\\xd8'
+                0
+                ''
+                'getting_datfrom_database_1'   # b"\x81\xe5\x1d\x07'\xf3\xb0\xd5$\xfe\x0c\xd4j\xfe\xf7\x880Y\xba\xb3\xab\xc9O\xdf\x00P\xf2"
+                'pupsik_get_error'   # b'\x81\xf2\r\x03 \xf3\xb5\xed\x1c\xff\x19\xffi\xfe\xea\x8a\x1d'
+                'pupsik_not_parsing_format'   # b'\x81\xf2\r\x03 \xf3\xb5\xed\x15\xf5\x19\xff|\xed\xea\x96\x06S\xbc\x98\xac\xc4\\\xc1\x04{'
+                'datdatabase_received_1'   # b'\x81\xe6\x19\x077\xfb\xaa\xd3\x19\xfb\x1e\xc5S\xfe\xfd\x86\nT\xad\xa2\xae\xf4\x1f'
+                'process_merging_base_1_completed'   # b'\x81\xf2\n\x1c0\xff\xad\xc1$\xf7\x08\xd2k\xe5\xf6\x820_\xba\xb4\xaf\xf4\x1f\xf3\x06`\xaeL\x0c\xb4\n\xe0>'
+                'getting_datfrom_database_2'   # b"\x81\xe5\x1d\x07'\xf3\xb0\xd5$\xfe\x0c\xd4j\xfe\xf7\x880Y\xba\xb3\xab\xc9O\xdf\x00P\xf1"
+                'datdatabase_received_2'   # b'\x81\xe6\x19\x077\xfb\xaa\xd3\x19\xfb\x1e\xc5S\xfe\xfd\x86\nT\xad\xa2\xae\xf4\x1c'
+                'process_merging_base_2_completed'   # b'\x81\xf2\n\x1c0\xff\xad\xc1$\xf7\x08\xd2k\xe5\xf6\x820_\xba\xb4\xaf\xf4\x1c\xf3\x06`\xaeL\x0c\xb4\n\xe0>'
+                'getting_datfrom_database_3'   # b"\x81\xe5\x1d\x07'\xf3\xb0\xd5$\xfe\x0c\xd4j\xfe\xf7\x880Y\xba\xb3\xab\xc9O\xdf\x00P\xf0"
+                'datdatabase_received_3'   # b'\x81\xe6\x19\x077\xfb\xaa\xd3\x19\xfb\x1e\xc5S\xfe\xfd\x86\nT\xad\xa2\xae\xf4\x1d'
+                'process_merging_base_3_completed'   # b'\x81\xf2\n\x1c0\xff\xad\xc1$\xf7\x08\xd2k\xe5\xf6\x820_\xba\xb4\xaf\xf4\x1d\xf3\x06`\xaeL\x0c\xb4\n\xe0>'
+                'getting_datfrom_database_4'   # b"\x81\xe5\x1d\x07'\xf3\xb0\xd5$\xfe\x0c\xd4j\xfe\xf7\x880Y\xba\xb3\xab\xc9O\xdf\x00P\xf7"
+                'datdatabase_received_4'   # b'\x81\xe6\x19\x077\xfb\xaa\xd3\x19\xfb\x1e\xc5S\xfe\xfd\x86\nT\xad\xa2\xae\xf4\x1a'
+                'process_merging_base_4_completed'   # b'\x81\xf2\n\x1c0\xff\xad\xc1$\xf7\x08\xd2k\xe5\xf6\x820_\xba\xb4\xaf\xf4\x1a\xf3\x06`\xaeL\x0c\xb4\n\xe0>'
+                'datdatabase_received_5'   # b'\x81\xe6\x19\x077\xfb\xaa\xd3\x19\xfb\x1e\xc5S\xfe\xfd\x86\nT\xad\xa2\xae\xf4\x1b'
+                'process_merging_base_5_completed'   # b'\x81\xf2\n\x1c0\xff\xad\xc1$\xf7\x08\xd2k\xe5\xf6\x820_\xba\xb4\xaf\xf4\x1b\xf3\x06`\xaeL\x0c\xb4\n\xe0>'
+                True
+                'Функция создания текстовых файлов активирована'   # b'\x81R\xdc\xa2\xd0Jcb\xc1K\xebp\xb4]\x17\xc5\xbe\xbc\x0by\x1a\x1c\xfe\x18\xb5\xbf\x13\x81\xb0i\xaf\nz\xe3\xc2\xbdMzn\x9f\xf9X\x1a\xed\x03h\xdd\xf6\xdc\\\xb3\xbb6\x94\xb6=\x872+\xc6\xa8\x95\x81\x81\x17\xf8\xd53\x07\x86\x0e\x0fK\xd2\xee\x8e\x98\x08\xe8!\x7f7V\x19o\xbf\xdf\xf1\x14'
+                'additives/db_union/'   # b'\x81\xe3\x1c\x17:\xee\xb7\xc4\x1e\xe9B\xc4n\xd3\xed\x8b\x06R\xb5\xe8'
+                '_Result.txt'   # b'\x81\xdd*\x16 \xef\xb2\xc6U\xee\x15\xd4'
+                'Добавлено в текстовый файл:'   # b'\x81R\xec\xa3\xedJob\xcbJ\xdfp\xb7\\-5\xd2\xede\xe7\x1a\x19\x0e}\xe7\xdfv\xec\xda\x00\xffT\xd8\xe2\xfe\xbdJ{_\x9e\xc1\xa9I\xb9m\x08\xbf\x9e\x876\x0c'
+                'пользователей'   # b'\x81R\xc7\xa3\xedJec\xf7J\xdap\xb2\\*5\xdf\xecY\x17\x7f{\x95|\xd0\xdfz'
+                (
+                    'message'
+                    'param'
+                    'end'
+                )
+                'Добавлено в базу данных:'   # b'\x81R\xec\xa3\xedJob\xcbJ\xdfp\xb7\\-5\xd2\xede\xe7\x1a\x19\x0e|\xd4\xdfs\xec\xd7\x00\xfd\xa5\x8a\x86\x90\xdd(\x17\x04\xf3\xa9\x02I\xb8\x87'
+                '__pyarmor_exit_13574__'
+                'DONE'
+                'STOP'
+                'START:'
+                'EXCEPTION'   # b'\x81\xc7 0\x16\xca\x8a\xfb4\xd4'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_13573__'
+                8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x96\x0e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      LOAD_FAST                       2: stop_thread
+                32      LOAD_ATTR                       1: is_set
+                52      CALL                            0
+                60      POP_JUMP_IF_FALSE               10 (to 82)
+                62      LOAD_GLOBAL                     3: NULL + StopProgram
+                72      CALL                            0
+                80      RAISE_VARARGS                   1
+                82      LOAD_FAST                       0: data
+                84      LOAD_CONST                      4: 'Settings'
+                86      BINARY_SUBSCR                   
+                90      LOAD_ATTR                       5: get
+                110     PUSH_NULL                       
+                112     LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                114     LOAD_CONST                      5: 'file_db_1'   # b'\x81\xe4\x11\x1f6\xc5\xba\xd0$\xab'
+                116     CALL                            1
+                124     CALL                            1
+                132     STORE_FAST                      4: _var_var_3
+                134     LOAD_FAST                       0: data
+                136     LOAD_CONST                      4: 'Settings'
+                138     BINARY_SUBSCR                   
+                142     LOAD_ATTR                       5: get
+                162     PUSH_NULL                       
+                164     LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                166     LOAD_CONST                      6: 'file_db_2'   # b'\x81\xe4\x11\x1f6\xc5\xba\xd0$\xa8'
+                168     CALL                            1
+                176     CALL                            1
+                184     STORE_FAST                      5: _var_var_4
+                186     LOAD_FAST                       0: data
+                188     LOAD_CONST                      4: 'Settings'
+                190     BINARY_SUBSCR                   
+                194     LOAD_ATTR                       5: get
+                214     PUSH_NULL                       
+                216     LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                218     LOAD_CONST                      7: 'file_db_3'   # b'\x81\xe4\x11\x1f6\xc5\xba\xd0$\xa9'
+                220     CALL                            1
+                228     CALL                            1
+                236     STORE_FAST                      6: _var_var_5
+                238     LOAD_FAST                       0: data
+                240     LOAD_CONST                      4: 'Settings'
+                242     BINARY_SUBSCR                   
+                246     LOAD_ATTR                       5: get
+                266     PUSH_NULL                       
+                268     LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                270     LOAD_CONST                      8: 'file_db_4'   # b'\x81\xe4\x11\x1f6\xc5\xba\xd0$\xae'
+                272     CALL                            1
+                280     CALL                            1
+                288     STORE_FAST                      7: _var_var_6
+                290     LOAD_FAST                       0: data
+                292     LOAD_CONST                      4: 'Settings'
+                294     BINARY_SUBSCR                   
+                298     LOAD_ATTR                       5: get
+                318     PUSH_NULL                       
+                320     LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                322     LOAD_CONST                      9: 'file_db_5'   # b'\x81\xe4\x11\x1f6\xc5\xba\xd0$\xaf'
+                324     CALL                            1
+                332     CALL                            1
+                340     STORE_FAST                      8: _var_var_7
+                342     LOAD_FAST                       0: data
+                344     LOAD_CONST                      4: 'Settings'
+                346     BINARY_SUBSCR                   
+                350     LOAD_ATTR                       5: get
+                370     PUSH_NULL                       
+                372     LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                374     LOAD_CONST                      10: 'create_txt'   # b'\x81\xe1\n\x162\xee\xbb\xed\x0f\xe2\x19'
+                376     CALL                            1
+                384     CALL                            1
+                392     STORE_FAST                      9: _var_var_8
+                394     LOAD_GLOBAL                     7: NULL + Logs
+                404     LOAD_ATTR                       8: PrintLog
+                424     LOAD_GLOBAL                     10: Lang
+                434     PUSH_NULL                       
+                436     LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                438     LOAD_CONST                      11: 'program_running'   # b'\x81\xf2\n\x1c4\xe8\xbf\xdf$\xe8\x18\xceb\xe5\xf6\x82'
+                440     CALL                            1
+                448     BINARY_SUBSCR                   
+                452     KW_NAMES                        12: ('message',)
+                454     CALL                            1
+                462     POP_TOP                         
+                464     LOAD_GLOBAL                     12: datetime
+                474     LOAD_ATTR                       12: datetime
+                494     LOAD_ATTR                       15: now
+                514     CALL                            0
+                522     LOAD_ATTR                       17: strftime
+                542     PUSH_NULL                       
+                544     LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                546     LOAD_CONST                      13: '%Y-%m-%d_%H-%M-%S'   # b'\x81\xa7!^v\xf7\xf3\x97\x1f\xc5H\xe8!\xa9\xd5\xc8Jn'
+                548     CALL                            1
+                556     CALL                            1
+                564     STORE_FAST                      10: _var_var_9
+                566     LOAD_GLOBAL                     19: NULL + DB_CREATE_RESULT
+                576     LOAD_FAST                       10: _var_var_9
+                578     LOAD_CONST                      14: 'db_union'
+                580     LOAD_CONST                      15: '_Result'
+                582     CALL                            3
+                590     STORE_FAST                      11: _var_var_10
+                592     LOAD_FAST                       11: _var_var_10
+                594     LOAD_CONST                      16: False
+                596     COMPARE_OP                      40 (==)
+                600     POP_JUMP_IF_FALSE               37 (to 676)
+                602     LOAD_GLOBAL                     21: NULL + eel
+                612     LOAD_ATTR                       22: sendErrorBox
+                632     PUSH_NULL                       
+                634     LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                636     LOAD_CONST                      17: "I can't create a database of results"   # b'\x81\xcbX\x102\xf4\xf9\xc6[\xf9\x1f\xc5m\xf8\xfd\xc5\x0e\x1d\xbf\xa6\xbe\xcaL\xcd\x16j\xe3S\x06\xf1\x0c\xe0)G,\x19\x8b'
+                638     CALL                            1
+                646     CALL                            1
+                654     POP_TOP                         
+                656     LOAD_GLOBAL                     3: NULL + StopProgram
+                666     CALL                            0
+                674     RAISE_VARARGS                   1
+                676     LOAD_GLOBAL                     21: NULL + eel
+                686     LOAD_ATTR                       24: WriteResult
+                706     LOAD_CONST                      18: 'Result'
+                708     LOAD_CONST                      14: 'db_union'
+                710     LOAD_FAST                       10: _var_var_9
+                712     PUSH_NULL                       
+                714     LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                716     LOAD_CONST                      19: '_Result.db'   # b'\x81\xdd*\x16 \xef\xb2\xc6U\xfe\x0f'
+                718     CALL                            1
+                726     BINARY_OP                       0 (+)
+                730     CALL                            3
+                738     POP_TOP                         
+                740     LOAD_GLOBAL                     7: NULL + Logs
+                750     LOAD_ATTR                       8: PrintLog
+                770     LOAD_GLOBAL                     10: Lang
+                780     PUSH_NULL                       
+                782     LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                784     LOAD_CONST                      20: 'created_database_import'   # b'\x81\xe1\n\x162\xee\xbb\xd6$\xfe\x0c\xd4m\xee\xf9\x96\nb\xb2\xaa\xba\xc4\\\xd8'
+                786     CALL                            1
+                794     BINARY_SUBSCR                   
+                798     KW_NAMES                        12: ('message',)
+                800     CALL                            1
+                808     POP_TOP                         
+                810     LOAD_CONST                      21: 0
+                812     STORE_FAST                      12: _var_var_11
+                814     LOAD_CONST                      21: 0
+                816     STORE_FAST                      13: _var_var_12
+                818     LOAD_CONST                      21: 0
+                820     STORE_FAST                      14: _var_var_13
+                822     LOAD_FAST                       4: _var_var_3
+                824     LOAD_CONST                      22: ''
+                826     COMPARE_OP                      55 (!=)
+                830     POP_JUMP_IF_FALSE               230 (to 1292)
+                832     LOAD_FAST                       2: stop_thread
+                834     LOAD_ATTR                       1: is_set
+                854     CALL                            0
+                862     POP_JUMP_IF_FALSE               10 (to 884)
+                864     LOAD_GLOBAL                     3: NULL + StopProgram
+                874     CALL                            0
+                882     RAISE_VARARGS                   1
+                884     LOAD_GLOBAL                     7: NULL + Logs
+                894     LOAD_ATTR                       8: PrintLog
+                914     LOAD_GLOBAL                     10: Lang
+                924     PUSH_NULL                       
+                926     LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                928     LOAD_CONST                      23: 'getting_datfrom_database_1'   # b"\x81\xe5\x1d\x07'\xf3\xb0\xd5$\xfe\x0c\xd4j\xfe\xf7\x880Y\xba\xb3\xab\xc9O\xdf\x00P\xf2"
+                930     CALL                            1
+                938     BINARY_SUBSCR                   
+                942     KW_NAMES                        12: ('message',)
+                944     CALL                            1
+                952     POP_TOP                         
+                954     LOAD_GLOBAL                     27: NULL + DB_GET_PARSE_DATA
+                964     LOAD_FAST                       4: _var_var_3
+                966     CALL                            1
+                974     STORE_FAST                      15: _var_var_14
+                976     LOAD_FAST                       15: _var_var_14
+                978     LOAD_CONST                      16: False
+                980     COMPARE_OP                      40 (==)
+                984     POP_JUMP_IF_FALSE               71 (to 1128)
+                986     LOAD_GLOBAL                     7: NULL + Logs
+                996     LOAD_ATTR                       8: PrintLog
+                1016    LOAD_GLOBAL                     10: Lang
+                1026    PUSH_NULL                       
+                1028    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                1030    LOAD_CONST                      24: 'pupsik_get_error'   # b'\x81\xf2\r\x03 \xf3\xb5\xed\x1c\xff\x19\xffi\xfe\xea\x8a\x1d'
+                1032    CALL                            1
+                1040    BINARY_SUBSCR                   
+                1044    KW_NAMES                        12: ('message',)
+                1046    CALL                            1
+                1054    POP_TOP                         
+                1056    LOAD_GLOBAL                     7: NULL + Logs
+                1066    LOAD_ATTR                       8: PrintLog
+                1086    LOAD_GLOBAL                     10: Lang
+                1096    PUSH_NULL                       
+                1098    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                1100    LOAD_CONST                      25: 'pupsik_not_parsing_format'   # b'\x81\xf2\r\x03 \xf3\xb5\xed\x15\xf5\x19\xff|\xed\xea\x96\x06S\xbc\x98\xac\xc4\\\xc1\x04{'
+                1102    CALL                            1
+                1110    BINARY_SUBSCR                   
+                1114    KW_NAMES                        12: ('message',)
+                1116    CALL                            1
+                1124    POP_TOP                         
+                1126    JUMP_FORWARD                    82 (to 1292)
+                1128    LOAD_GLOBAL                     7: NULL + Logs
+                1138    LOAD_ATTR                       8: PrintLog
+                1158    LOAD_GLOBAL                     10: Lang
+                1168    PUSH_NULL                       
+                1170    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                1172    LOAD_CONST                      26: 'datdatabase_received_1'   # b'\x81\xe6\x19\x077\xfb\xaa\xd3\x19\xfb\x1e\xc5S\xfe\xfd\x86\nT\xad\xa2\xae\xf4\x1f'
+                1174    CALL                            1
+                1182    BINARY_SUBSCR                   
+                1186    KW_NAMES                        12: ('message',)
+                1188    CALL                            1
+                1196    POP_TOP                         
+                1198    LOAD_GLOBAL                     29: NULL + DB_UNION_BASE
+                1208    LOAD_FAST                       11: _var_var_10
+                1210    LOAD_FAST                       15: _var_var_14
+                1212    CALL                            2
+                1220    POP_TOP                         
+                1222    LOAD_GLOBAL                     7: NULL + Logs
+                1232    LOAD_ATTR                       8: PrintLog
+                1252    LOAD_GLOBAL                     10: Lang
+                1262    PUSH_NULL                       
+                1264    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                1266    LOAD_CONST                      27: 'process_merging_base_1_completed'   # b'\x81\xf2\n\x1c0\xff\xad\xc1$\xf7\x08\xd2k\xe5\xf6\x820_\xba\xb4\xaf\xf4\x1f\xf3\x06`\xaeL\x0c\xb4\n\xe0>'
+                1268    CALL                            1
+                1276    BINARY_SUBSCR                   
+                1280    KW_NAMES                        12: ('message',)
+                1282    CALL                            1
+                1290    POP_TOP                         
+                1292    LOAD_FAST                       5: _var_var_4
+                1294    LOAD_CONST                      22: ''
+                1296    COMPARE_OP                      55 (!=)
+                1300    POP_JUMP_IF_FALSE               230 (to 1762)
+                1302    LOAD_FAST                       2: stop_thread
+                1304    LOAD_ATTR                       1: is_set
+                1324    CALL                            0
+                1332    POP_JUMP_IF_FALSE               10 (to 1354)
+                1334    LOAD_GLOBAL                     3: NULL + StopProgram
+                1344    CALL                            0
+                1352    RAISE_VARARGS                   1
+                1354    LOAD_GLOBAL                     7: NULL + Logs
+                1364    LOAD_ATTR                       8: PrintLog
+                1384    LOAD_GLOBAL                     10: Lang
+                1394    PUSH_NULL                       
+                1396    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                1398    LOAD_CONST                      28: 'getting_datfrom_database_2'   # b"\x81\xe5\x1d\x07'\xf3\xb0\xd5$\xfe\x0c\xd4j\xfe\xf7\x880Y\xba\xb3\xab\xc9O\xdf\x00P\xf1"
+                1400    CALL                            1
+                1408    BINARY_SUBSCR                   
+                1412    KW_NAMES                        12: ('message',)
+                1414    CALL                            1
+                1422    POP_TOP                         
+                1424    LOAD_GLOBAL                     27: NULL + DB_GET_PARSE_DATA
+                1434    LOAD_FAST                       5: _var_var_4
+                1436    CALL                            1
+                1444    STORE_FAST                      15: _var_var_14
+                1446    LOAD_FAST                       15: _var_var_14
+                1448    LOAD_CONST                      16: False
+                1450    COMPARE_OP                      40 (==)
+                1454    POP_JUMP_IF_FALSE               71 (to 1598)
+                1456    LOAD_GLOBAL                     7: NULL + Logs
+                1466    LOAD_ATTR                       8: PrintLog
+                1486    LOAD_GLOBAL                     10: Lang
+                1496    PUSH_NULL                       
+                1498    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                1500    LOAD_CONST                      24: 'pupsik_get_error'   # b'\x81\xf2\r\x03 \xf3\xb5\xed\x1c\xff\x19\xffi\xfe\xea\x8a\x1d'
+                1502    CALL                            1
+                1510    BINARY_SUBSCR                   
+                1514    KW_NAMES                        12: ('message',)
+                1516    CALL                            1
+                1524    POP_TOP                         
+                1526    LOAD_GLOBAL                     7: NULL + Logs
+                1536    LOAD_ATTR                       8: PrintLog
+                1556    LOAD_GLOBAL                     10: Lang
+                1566    PUSH_NULL                       
+                1568    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                1570    LOAD_CONST                      25: 'pupsik_not_parsing_format'   # b'\x81\xf2\r\x03 \xf3\xb5\xed\x15\xf5\x19\xff|\xed\xea\x96\x06S\xbc\x98\xac\xc4\\\xc1\x04{'
+                1572    CALL                            1
+                1580    BINARY_SUBSCR                   
+                1584    KW_NAMES                        12: ('message',)
+                1586    CALL                            1
+                1594    POP_TOP                         
+                1596    JUMP_FORWARD                    82 (to 1762)
+                1598    LOAD_GLOBAL                     7: NULL + Logs
+                1608    LOAD_ATTR                       8: PrintLog
+                1628    LOAD_GLOBAL                     10: Lang
+                1638    PUSH_NULL                       
+                1640    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                1642    LOAD_CONST                      29: 'datdatabase_received_2'   # b'\x81\xe6\x19\x077\xfb\xaa\xd3\x19\xfb\x1e\xc5S\xfe\xfd\x86\nT\xad\xa2\xae\xf4\x1c'
+                1644    CALL                            1
+                1652    BINARY_SUBSCR                   
+                1656    KW_NAMES                        12: ('message',)
+                1658    CALL                            1
+                1666    POP_TOP                         
+                1668    LOAD_GLOBAL                     29: NULL + DB_UNION_BASE
+                1678    LOAD_FAST                       11: _var_var_10
+                1680    LOAD_FAST                       15: _var_var_14
+                1682    CALL                            2
+                1690    POP_TOP                         
+                1692    LOAD_GLOBAL                     7: NULL + Logs
+                1702    LOAD_ATTR                       8: PrintLog
+                1722    LOAD_GLOBAL                     10: Lang
+                1732    PUSH_NULL                       
+                1734    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                1736    LOAD_CONST                      30: 'process_merging_base_2_completed'   # b'\x81\xf2\n\x1c0\xff\xad\xc1$\xf7\x08\xd2k\xe5\xf6\x820_\xba\xb4\xaf\xf4\x1c\xf3\x06`\xaeL\x0c\xb4\n\xe0>'
+                1738    CALL                            1
+                1746    BINARY_SUBSCR                   
+                1750    KW_NAMES                        12: ('message',)
+                1752    CALL                            1
+                1760    POP_TOP                         
+                1762    LOAD_FAST                       6: _var_var_5
+                1764    LOAD_CONST                      22: ''
+                1766    COMPARE_OP                      55 (!=)
+                1770    POP_JUMP_IF_FALSE               230 (to 2232)
+                1772    LOAD_FAST                       2: stop_thread
+                1774    LOAD_ATTR                       1: is_set
+                1794    CALL                            0
+                1802    POP_JUMP_IF_FALSE               10 (to 1824)
+                1804    LOAD_GLOBAL                     3: NULL + StopProgram
+                1814    CALL                            0
+                1822    RAISE_VARARGS                   1
+                1824    LOAD_GLOBAL                     7: NULL + Logs
+                1834    LOAD_ATTR                       8: PrintLog
+                1854    LOAD_GLOBAL                     10: Lang
+                1864    PUSH_NULL                       
+                1866    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                1868    LOAD_CONST                      31: 'getting_datfrom_database_3'   # b"\x81\xe5\x1d\x07'\xf3\xb0\xd5$\xfe\x0c\xd4j\xfe\xf7\x880Y\xba\xb3\xab\xc9O\xdf\x00P\xf0"
+                1870    CALL                            1
+                1878    BINARY_SUBSCR                   
+                1882    KW_NAMES                        12: ('message',)
+                1884    CALL                            1
+                1892    POP_TOP                         
+                1894    LOAD_GLOBAL                     27: NULL + DB_GET_PARSE_DATA
+                1904    LOAD_FAST                       6: _var_var_5
+                1906    CALL                            1
+                1914    STORE_FAST                      15: _var_var_14
+                1916    LOAD_FAST                       15: _var_var_14
+                1918    LOAD_CONST                      16: False
+                1920    COMPARE_OP                      40 (==)
+                1924    POP_JUMP_IF_FALSE               71 (to 2068)
+                1926    LOAD_GLOBAL                     7: NULL + Logs
+                1936    LOAD_ATTR                       8: PrintLog
+                1956    LOAD_GLOBAL                     10: Lang
+                1966    PUSH_NULL                       
+                1968    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                1970    LOAD_CONST                      24: 'pupsik_get_error'   # b'\x81\xf2\r\x03 \xf3\xb5\xed\x1c\xff\x19\xffi\xfe\xea\x8a\x1d'
+                1972    CALL                            1
+                1980    BINARY_SUBSCR                   
+                1984    KW_NAMES                        12: ('message',)
+                1986    CALL                            1
+                1994    POP_TOP                         
+                1996    LOAD_GLOBAL                     7: NULL + Logs
+                2006    LOAD_ATTR                       8: PrintLog
+                2026    LOAD_GLOBAL                     10: Lang
+                2036    PUSH_NULL                       
+                2038    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                2040    LOAD_CONST                      25: 'pupsik_not_parsing_format'   # b'\x81\xf2\r\x03 \xf3\xb5\xed\x15\xf5\x19\xff|\xed\xea\x96\x06S\xbc\x98\xac\xc4\\\xc1\x04{'
+                2042    CALL                            1
+                2050    BINARY_SUBSCR                   
+                2054    KW_NAMES                        12: ('message',)
+                2056    CALL                            1
+                2064    POP_TOP                         
+                2066    JUMP_FORWARD                    82 (to 2232)
+                2068    LOAD_GLOBAL                     7: NULL + Logs
+                2078    LOAD_ATTR                       8: PrintLog
+                2098    LOAD_GLOBAL                     10: Lang
+                2108    PUSH_NULL                       
+                2110    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                2112    LOAD_CONST                      32: 'datdatabase_received_3'   # b'\x81\xe6\x19\x077\xfb\xaa\xd3\x19\xfb\x1e\xc5S\xfe\xfd\x86\nT\xad\xa2\xae\xf4\x1d'
+                2114    CALL                            1
+                2122    BINARY_SUBSCR                   
+                2126    KW_NAMES                        12: ('message',)
+                2128    CALL                            1
+                2136    POP_TOP                         
+                2138    LOAD_GLOBAL                     29: NULL + DB_UNION_BASE
+                2148    LOAD_FAST                       11: _var_var_10
+                2150    LOAD_FAST                       15: _var_var_14
+                2152    CALL                            2
+                2160    POP_TOP                         
+                2162    LOAD_GLOBAL                     7: NULL + Logs
+                2172    LOAD_ATTR                       8: PrintLog
+                2192    LOAD_GLOBAL                     10: Lang
+                2202    PUSH_NULL                       
+                2204    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                2206    LOAD_CONST                      33: 'process_merging_base_3_completed'   # b'\x81\xf2\n\x1c0\xff\xad\xc1$\xf7\x08\xd2k\xe5\xf6\x820_\xba\xb4\xaf\xf4\x1d\xf3\x06`\xaeL\x0c\xb4\n\xe0>'
+                2208    CALL                            1
+                2216    BINARY_SUBSCR                   
+                2220    KW_NAMES                        12: ('message',)
+                2222    CALL                            1
+                2230    POP_TOP                         
+                2232    LOAD_FAST                       7: _var_var_6
+                2234    LOAD_CONST                      22: ''
+                2236    COMPARE_OP                      55 (!=)
+                2240    POP_JUMP_IF_FALSE               230 (to 2702)
+                2242    LOAD_FAST                       2: stop_thread
+                2244    LOAD_ATTR                       1: is_set
+                2264    CALL                            0
+                2272    POP_JUMP_IF_FALSE               10 (to 2294)
+                2274    LOAD_GLOBAL                     3: NULL + StopProgram
+                2284    CALL                            0
+                2292    RAISE_VARARGS                   1
+                2294    LOAD_GLOBAL                     7: NULL + Logs
+                2304    LOAD_ATTR                       8: PrintLog
+                2324    LOAD_GLOBAL                     10: Lang
+                2334    PUSH_NULL                       
+                2336    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                2338    LOAD_CONST                      34: 'getting_datfrom_database_4'   # b"\x81\xe5\x1d\x07'\xf3\xb0\xd5$\xfe\x0c\xd4j\xfe\xf7\x880Y\xba\xb3\xab\xc9O\xdf\x00P\xf7"
+                2340    CALL                            1
+                2348    BINARY_SUBSCR                   
+                2352    KW_NAMES                        12: ('message',)
+                2354    CALL                            1
+                2362    POP_TOP                         
+                2364    LOAD_GLOBAL                     27: NULL + DB_GET_PARSE_DATA
+                2374    LOAD_FAST                       7: _var_var_6
+                2376    CALL                            1
+                2384    STORE_FAST                      15: _var_var_14
+                2386    LOAD_FAST                       15: _var_var_14
+                2388    LOAD_CONST                      16: False
+                2390    COMPARE_OP                      40 (==)
+                2394    POP_JUMP_IF_FALSE               71 (to 2538)
+                2396    LOAD_GLOBAL                     7: NULL + Logs
+                2406    LOAD_ATTR                       8: PrintLog
+                2426    LOAD_GLOBAL                     10: Lang
+                2436    PUSH_NULL                       
+                2438    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                2440    LOAD_CONST                      24: 'pupsik_get_error'   # b'\x81\xf2\r\x03 \xf3\xb5\xed\x1c\xff\x19\xffi\xfe\xea\x8a\x1d'
+                2442    CALL                            1
+                2450    BINARY_SUBSCR                   
+                2454    KW_NAMES                        12: ('message',)
+                2456    CALL                            1
+                2464    POP_TOP                         
+                2466    LOAD_GLOBAL                     7: NULL + Logs
+                2476    LOAD_ATTR                       8: PrintLog
+                2496    LOAD_GLOBAL                     10: Lang
+                2506    PUSH_NULL                       
+                2508    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                2510    LOAD_CONST                      25: 'pupsik_not_parsing_format'   # b'\x81\xf2\r\x03 \xf3\xb5\xed\x15\xf5\x19\xff|\xed\xea\x96\x06S\xbc\x98\xac\xc4\\\xc1\x04{'
+                2512    CALL                            1
+                2520    BINARY_SUBSCR                   
+                2524    KW_NAMES                        12: ('message',)
+                2526    CALL                            1
+                2534    POP_TOP                         
+                2536    JUMP_FORWARD                    82 (to 2702)
+                2538    LOAD_GLOBAL                     7: NULL + Logs
+                2548    LOAD_ATTR                       8: PrintLog
+                2568    LOAD_GLOBAL                     10: Lang
+                2578    PUSH_NULL                       
+                2580    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                2582    LOAD_CONST                      35: 'datdatabase_received_4'   # b'\x81\xe6\x19\x077\xfb\xaa\xd3\x19\xfb\x1e\xc5S\xfe\xfd\x86\nT\xad\xa2\xae\xf4\x1a'
+                2584    CALL                            1
+                2592    BINARY_SUBSCR                   
+                2596    KW_NAMES                        12: ('message',)
+                2598    CALL                            1
+                2606    POP_TOP                         
+                2608    LOAD_GLOBAL                     29: NULL + DB_UNION_BASE
+                2618    LOAD_FAST                       11: _var_var_10
+                2620    LOAD_FAST                       15: _var_var_14
+                2622    CALL                            2
+                2630    POP_TOP                         
+                2632    LOAD_GLOBAL                     7: NULL + Logs
+                2642    LOAD_ATTR                       8: PrintLog
+                2662    LOAD_GLOBAL                     10: Lang
+                2672    PUSH_NULL                       
+                2674    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                2676    LOAD_CONST                      36: 'process_merging_base_4_completed'   # b'\x81\xf2\n\x1c0\xff\xad\xc1$\xf7\x08\xd2k\xe5\xf6\x820_\xba\xb4\xaf\xf4\x1a\xf3\x06`\xaeL\x0c\xb4\n\xe0>'
+                2678    CALL                            1
+                2686    BINARY_SUBSCR                   
+                2690    KW_NAMES                        12: ('message',)
+                2692    CALL                            1
+                2700    POP_TOP                         
+                2702    LOAD_FAST                       8: _var_var_7
+                2704    LOAD_CONST                      22: ''
+                2706    COMPARE_OP                      55 (!=)
+                2710    POP_JUMP_IF_FALSE               230 (to 3172)
+                2712    LOAD_FAST                       2: stop_thread
+                2714    LOAD_ATTR                       1: is_set
+                2734    CALL                            0
+                2742    POP_JUMP_IF_FALSE               10 (to 2764)
+                2744    LOAD_GLOBAL                     3: NULL + StopProgram
+                2754    CALL                            0
+                2762    RAISE_VARARGS                   1
+                2764    LOAD_GLOBAL                     7: NULL + Logs
+                2774    LOAD_ATTR                       8: PrintLog
+                2794    LOAD_GLOBAL                     10: Lang
+                2804    PUSH_NULL                       
+                2806    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                2808    LOAD_CONST                      34: 'getting_datfrom_database_4'   # b"\x81\xe5\x1d\x07'\xf3\xb0\xd5$\xfe\x0c\xd4j\xfe\xf7\x880Y\xba\xb3\xab\xc9O\xdf\x00P\xf7"
+                2810    CALL                            1
+                2818    BINARY_SUBSCR                   
+                2822    KW_NAMES                        12: ('message',)
+                2824    CALL                            1
+                2832    POP_TOP                         
+                2834    LOAD_GLOBAL                     27: NULL + DB_GET_PARSE_DATA
+                2844    LOAD_FAST                       8: _var_var_7
+                2846    CALL                            1
+                2854    STORE_FAST                      15: _var_var_14
+                2856    LOAD_FAST                       15: _var_var_14
+                2858    LOAD_CONST                      16: False
+                2860    COMPARE_OP                      40 (==)
+                2864    POP_JUMP_IF_FALSE               71 (to 3008)
+                2866    LOAD_GLOBAL                     7: NULL + Logs
+                2876    LOAD_ATTR                       8: PrintLog
+                2896    LOAD_GLOBAL                     10: Lang
+                2906    PUSH_NULL                       
+                2908    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                2910    LOAD_CONST                      24: 'pupsik_get_error'   # b'\x81\xf2\r\x03 \xf3\xb5\xed\x1c\xff\x19\xffi\xfe\xea\x8a\x1d'
+                2912    CALL                            1
+                2920    BINARY_SUBSCR                   
+                2924    KW_NAMES                        12: ('message',)
+                2926    CALL                            1
+                2934    POP_TOP                         
+                2936    LOAD_GLOBAL                     7: NULL + Logs
+                2946    LOAD_ATTR                       8: PrintLog
+                2966    LOAD_GLOBAL                     10: Lang
+                2976    PUSH_NULL                       
+                2978    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                2980    LOAD_CONST                      25: 'pupsik_not_parsing_format'   # b'\x81\xf2\r\x03 \xf3\xb5\xed\x15\xf5\x19\xff|\xed\xea\x96\x06S\xbc\x98\xac\xc4\\\xc1\x04{'
+                2982    CALL                            1
+                2990    BINARY_SUBSCR                   
+                2994    KW_NAMES                        12: ('message',)
+                2996    CALL                            1
+                3004    POP_TOP                         
+                3006    JUMP_FORWARD                    82 (to 3172)
+                3008    LOAD_GLOBAL                     7: NULL + Logs
+                3018    LOAD_ATTR                       8: PrintLog
+                3038    LOAD_GLOBAL                     10: Lang
+                3048    PUSH_NULL                       
+                3050    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                3052    LOAD_CONST                      37: 'datdatabase_received_5'   # b'\x81\xe6\x19\x077\xfb\xaa\xd3\x19\xfb\x1e\xc5S\xfe\xfd\x86\nT\xad\xa2\xae\xf4\x1b'
+                3054    CALL                            1
+                3062    BINARY_SUBSCR                   
+                3066    KW_NAMES                        12: ('message',)
+                3068    CALL                            1
+                3076    POP_TOP                         
+                3078    LOAD_GLOBAL                     29: NULL + DB_UNION_BASE
+                3088    LOAD_FAST                       11: _var_var_10
+                3090    LOAD_FAST                       15: _var_var_14
+                3092    CALL                            2
+                3100    POP_TOP                         
+                3102    LOAD_GLOBAL                     7: NULL + Logs
+                3112    LOAD_ATTR                       8: PrintLog
+                3132    LOAD_GLOBAL                     10: Lang
+                3142    PUSH_NULL                       
+                3144    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                3146    LOAD_CONST                      38: 'process_merging_base_5_completed'   # b'\x81\xf2\n\x1c0\xff\xad\xc1$\xf7\x08\xd2k\xe5\xf6\x820_\xba\xb4\xaf\xf4\x1b\xf3\x06`\xaeL\x0c\xb4\n\xe0>'
+                3148    CALL                            1
+                3156    BINARY_SUBSCR                   
+                3160    KW_NAMES                        12: ('message',)
+                3162    CALL                            1
+                3170    POP_TOP                         
+                3172    LOAD_FAST                       9: _var_var_8
+                3174    LOAD_CONST                      39: True
+                3176    COMPARE_OP                      40 (==)
+                3180    POP_JUMP_IF_FALSE               128 (to 3438)
+                3182    LOAD_GLOBAL                     7: NULL + Logs
+                3192    LOAD_ATTR                       8: PrintLog
+                3212    PUSH_NULL                       
+                3214    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                3216    LOAD_CONST                      40: 'Функция создания текстовых файлов активирована'   # b'\x81R\xdc\xa2\xd0Jcb\xc1K\xebp\xb4]\x17\xc5\xbe\xbc\x0by\x1a\x1c\xfe\x18\xb5\xbf\x13\x81\xb0i\xaf\nz\xe3\xc2\xbdMzn\x9f\xf9X\x1a\xed\x03h\xdd\xf6\xdc\\\xb3\xbb6\x94\xb6=\x872+\xc6\xa8\x95\x81\x81\x17\xf8\xd53\x07\x86\x0e\x0fK\xd2\xee\x8e\x98\x08\xe8!\x7f7V\x19o\xbf\xdf\xf1\x14'
+                3218    CALL                            1
+                3226    KW_NAMES                        12: ('message',)
+                3228    CALL                            1
+                3236    POP_TOP                         
+                3238    PUSH_NULL                       
+                3240    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                3242    LOAD_CONST                      41: 'additives/db_union/'   # b'\x81\xe3\x1c\x17:\xee\xb7\xc4\x1e\xe9B\xc4n\xd3\xed\x8b\x06R\xb5\xe8'
+                3244    CALL                            1
+                3252    LOAD_FAST                       10: _var_var_9
+                3254    BINARY_OP                       0 (+)
+                3258    PUSH_NULL                       
+                3260    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                3262    LOAD_CONST                      42: '_Result.txt'   # b'\x81\xdd*\x16 \xef\xb2\xc6U\xee\x15\xd4'
+                3264    CALL                            1
+                3272    BINARY_OP                       0 (+)
+                3276    STORE_FAST                      16: _var_var_15
+                3278    LOAD_GLOBAL                     31: NULL + DB_CREATE_TXT
+                3288    LOAD_FAST                       11: _var_var_10
+                3290    LOAD_FAST                       16: _var_var_15
+                3292    CALL                            2
+                3300    STORE_FAST                      17: _var_var_16
+                3302    LOAD_GLOBAL                     7: NULL + Logs
+                3312    LOAD_ATTR                       8: PrintLog
+                3332    PUSH_NULL                       
+                3334    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                3336    LOAD_CONST                      43: 'Добавлено в текстовый файл:'   # b'\x81R\xec\xa3\xedJob\xcbJ\xdfp\xb7\\-5\xd2\xede\xe7\x1a\x19\x0e}\xe7\xdfv\xec\xda\x00\xffT\xd8\xe2\xfe\xbdJ{_\x9e\xc1\xa9I\xb9m\x08\xbf\x9e\x876\x0c'
+                3338    CALL                            1
+                3346    LOAD_FAST                       17: _var_var_16
+                3348    PUSH_NULL                       
+                3350    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                3352    LOAD_CONST                      44: 'пользователей'   # b'\x81R\xc7\xa3\xedJec\xf7J\xdap\xb2\\*5\xdf\xecY\x17\x7f{\x95|\xd0\xdfz'
+                3354    CALL                            1
+                3362    KW_NAMES                        45: ('message', 'param', 'end')
+                3364    CALL                            3
+                3372    POP_TOP                         
+                3374    LOAD_GLOBAL                     21: NULL + eel
+                3384    LOAD_ATTR                       24: WriteResult
+                3404    LOAD_CONST                      18: 'Result'
+                3406    LOAD_CONST                      14: 'db_union'
+                3408    LOAD_FAST                       10: _var_var_9
+                3410    PUSH_NULL                       
+                3412    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                3414    LOAD_CONST                      42: '_Result.txt'   # b'\x81\xdd*\x16 \xef\xb2\xc6U\xee\x15\xd4'
+                3416    CALL                            1
+                3424    BINARY_OP                       0 (+)
+                3428    CALL                            3
+                3436    POP_TOP                         
+                3438    LOAD_GLOBAL                     33: NULL + DB_GET_COUNT
+                3448    LOAD_FAST                       11: _var_var_10
+                3450    CALL                            1
+                3458    STORE_FAST                      13: _var_var_12
+                3460    LOAD_GLOBAL                     7: NULL + Logs
+                3470    LOAD_ATTR                       8: PrintLog
+                3490    PUSH_NULL                       
+                3492    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                3494    LOAD_CONST                      46: 'Добавлено в базу данных:'   # b'\x81R\xec\xa3\xedJob\xcbJ\xdfp\xb7\\-5\xd2\xede\xe7\x1a\x19\x0e|\xd4\xdfs\xec\xd7\x00\xfd\xa5\x8a\x86\x90\xdd(\x17\x04\xf3\xa9\x02I\xb8\x87'
+                3496    CALL                            1
+                3504    LOAD_FAST                       13: _var_var_12
+                3506    PUSH_NULL                       
+                3508    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                3510    LOAD_CONST                      44: 'пользователей'   # b'\x81R\xc7\xa3\xedJec\xf7J\xdap\xb2\\*5\xdf\xecY\x17\x7f{\x95|\xd0\xdfz'
+                3512    CALL                            1
+                3520    KW_NAMES                        45: ('message', 'param', 'end')
+                3522    CALL                            3
+                3530    POP_TOP                         
+                3532    LOAD_GLOBAL                     35: NULL + StopDetect
+                3542    LOAD_FAST                       2: stop_thread
+                3544    CALL                            1
+                3552    POP_TOP                         
+                3554    NOP                             
+                3556    LOAD_CONST                      48: 'DONE'
+                3558    NOP                             
+                3560    NOP                             
+                3562    NOP                             
+                3564    JUMP_FORWARD                    111 (to 3788)
+                3572    POP_TOP                         
+                3574    RETURN_CONST                    48: 'DONE'
+                3576    PUSH_EXC_INFO                   
+                3578    LOAD_GLOBAL                     2: StopProgram
+                3588    CHECK_EXC_MATCH                 
+                3590    POP_JUMP_IF_FALSE               23 (to 3638)
+                3592    POP_TOP                         
+                3594    LOAD_GLOBAL                     35: NULL + StopDetect
+                3604    LOAD_FAST                       2: stop_thread
+                3606    CALL                            1
+                3614    POP_TOP                         
+                3616    POP_EXCEPT                      
+                3618    LOAD_CONST                      49: 'STOP'
+                3620    NOP                             
+                3622    NOP                             
+                3624    NOP                             
+                3626    JUMP_FORWARD                    80 (to 3788)
+                3634    POP_TOP                         
+                3636    RETURN_CONST                    49: 'STOP'
+                3638    LOAD_GLOBAL                     36: Exception
+                3648    CHECK_EXC_MATCH                 
+                3650    POP_JUMP_IF_FALSE               50 (to 3752)
+                3652    STORE_FAST                      18: _var_var_17
+                3654    LOAD_GLOBAL                     39: NULL + print
+                3664    LOAD_CONST                      50: 'START:'
+                3666    LOAD_GLOBAL                     41: NULL + str
+                3676    LOAD_FAST                       18: _var_var_17
+                3678    CALL                            1
+                3686    BINARY_OP                       0 (+)
+                3690    CALL                            1
+                3698    POP_TOP                         
+                3700    PUSH_NULL                       
+                3702    LOAD_CONST                      1: '__pyarmor_assert_13572__'
+                3704    LOAD_CONST                      51: 'EXCEPTION'   # b'\x81\xc7 0\x16\xca\x8a\xfb4\xd4'
+                3706    CALL                            1
+                3714    SWAP                            2
+                3716    POP_EXCEPT                      
+                3718    LOAD_CONST                      0: None
+                3720    STORE_FAST                      18: _var_var_17
+                3722    DELETE_FAST                     18: _var_var_17
+                3724    NOP                             
+                3726    NOP                             
+                3728    NOP                             
+                3730    JUMP_FORWARD                    28 (to 3788)
+                3732    CALL                            1
+                3740    POP_TOP                         
+                3742    RETURN_VALUE                    
+                3744    LOAD_CONST                      0: None
+                3746    STORE_FAST                      18: _var_var_17
+                3748    DELETE_FAST                     18: _var_var_17
+                3750    RERAISE                         1
+                3752    RERAISE                         0
+                3754    COPY                            3
+                3756    POP_EXCEPT                      
+                3758    RERAISE                         1
+                3760    PUSH_EXC_INFO                   
+                3762    PUSH_NULL                       
+                3764    LOAD_CONST                      47: '__pyarmor_exit_13574__'
+                3766    NOP                             
+                3768    LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x96\x0e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                3770    CALL                            1
+                3778    POP_TOP                         
+                3780    RERAISE                         0
+                3782    COPY                            3
+                3784    POP_EXCEPT                      
+                3786    RERAISE                         1
+                3788    PUSH_NULL                       
+                3790    LOAD_CONST                      47: '__pyarmor_exit_13574__'
+                3792    LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x96\x0e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                3794    BUILD_TUPLE                     1
+                3796    CALL_FUNCTION_EX                0
+                3798    POP_TOP                         
+                3800    RETURN_VALUE                    
+            [Exception Table]
+                30 to 3554 -> 3576 [0] 
+                3576 to 3616 -> 3754 [1] lasti
+                3616 to 3618 -> 3760 [0] 
+                3638 to 3654 -> 3754 [1] lasti
+                3654 to 3714 -> 3744 [1] lasti
+                3714 to 3716 -> 3754 [1] lasti
+                3716 to 3724 -> 3760 [0] 
+                3744 to 3754 -> 3754 [1] lasti
+                3754 to 3760 -> 3760 [0] 
+                3760 to 3782 -> 3782 [1] lasti
+        [Code]
+            File Name: <frozen program.modules.DbUnion>
+            Object Name: DB_CREATE_RESULT
+            Qualified Name: DB_CREATE_RESULT
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 7
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'str'
+                'sqlite3'
+                'connect'
+                'PARSE_DECLTYPES'
+                'cursor'
+                'execute'
+                'Logs'
+                'PrintLog'
+                'Lang'
+                'commit'
+                'close'
+                'BaseException'
+                'logging'
+            [Locals+Names]
+                'StartUnix'
+                'Folder'
+                'Perfix'
+                '__assert_armored__'
+                '_var_var_18'
+                '_var_var_19'
+                '_var_var_20'
+                '_var_var_2'
+            [Constants]
+                None
+                '__pyarmor_assert_13575__'
+                '__pyarmor_enter_13576__'
+                b'<COAddr>\x07\x00\x00\x1a2\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'additives/'   # b'\x81\xe3\x1c\x17:\xee\xb7\xc4\x1e\xe9B'
+                '/'
+                '.db'
+                5
+                False
+                (
+                    'detect_types'
+                    'timeout'
+                    'check_same_thread'
+                )
+                'CREATE TABLE IF NOT EXISTS GROUPS (ID INTEGER, USERNAME TEXT, TITLE TEXT, COUNT INTEGER, PHOTO INTEGER, INVITE INTEGER, SEND_MESSAGES INTEGER, SEND_MEDIA INTEGER, SEND_STICKERS INTEGER, SEND_POLLS INTEGER, SLOW_MODE INTEGER, SCAM INTEGER, TYPE TEXT, STATUS TEXT, UNIQUE(ID))'   # b'\x81\xc1*6\x12\xce\x9b\x92/\xdb/\xecI\xac\xd1\xa3Os\x94\x93\xea\xeev\xe56[\x90\x1c\'\x831\xd0\na`E\xb1\xee\xf4\x076\xdd\xddz\xf8\xeaC\x07\x02\xdes\xc9\xa9Q+\xc8w\xdf\xbe%,\x07qg~|)\xa6\x9d\x03\xc9\x87\xa7.|\x1do\x8c&\xa5\xe1\xae\xaa\x9d\x9a(\'s\x88\xf7\xbd\xc4\xb0E\xf6\xf3\xcd~\x89V\x1c-\x16p\x0f6\x96\xb4d\xd3\xd8{\x9b\x14\x86=_\xd1gG3\x7fOX\xdd}\x92\xc8\xd8\x9c3\x87"\x85Q\xa5\x1fa1\xde\x9f\x0e\x10\xf8K\x95\xc8\xf8Zz\xecD\xd4\xd3\xed"\xcf\xfb\xd9\xf0\xb2mk`\xf1\x89\x9c3\xb8\xadU;\'\x01y\xd7"Z\x92\x1c\x16\xbbP\xf0)9Q/t!\x86{^\xeb\xc7|\x06:\x00\xceQ\'\x97,\xbb\xff\xc4\n@\xe4N V\x05N\x96\x9d\xc2*(\x07\xf1\xbe\xd0\xaeW\xae\r;\xb9\xaa/m|\x06\x8e:po\x95]\x9f\xca\xb5V\x08\xee,\xe4\xb9Z\x1f\xc5H\xcc\x80\x9eVfCf\xec*\xe0\x17\xd04x\t\xa7^J\xc8\xc9\xe2'
+                'CREATE TABLE IF NOT EXISTS USERS (USER_ID INTEGER, GROUP_ID INTEGER, MESSAGE_ID INTEGER, COMMENT_ID INTEGER, PHONE TEXT, USERNAME TEXT, FIRST_NAME TEXT, LAST_NAME TEXT, BIO TEXT, GENDER TEXT, PHOTO INTEGER, PREMIUM INTEGER, STATUS TEXT, TIME TEXT, INVITE_STATUS TEXT, SEND_STATUS TEXT, UNIQUE(USER_ID))'   # b'\x81\xc1*6\x12\xce\x9b\x92/\xdb/\xecI\xac\xd1\xa3Os\x94\x93\xea\xeev\xe56[\x90\x1c5\x82;\xd7\t\x12h8\xab\xef\x86\x111\xcd\xb8t\xf3\xec*`\x12\xdf\x1a\xbb\xa0B)\xd8\x07\xd4\xb29Xb\x1fgro \xb1\x91w\xc1\x9a\xa0Q\x1d\x19e\x86!\xb5\xe1\xae\xaa\x9d\x9a(\'s\x88\xf7\xae\xc3\xb2\\\xfc\x9d\xd0o\x94W{!\n\x08j8\x9d\xb0\x01\xa7\xcd\x13\x9d\x14\x97XL\xd1m??\x0c_E\xdcp\x91\xcc\xc6\x8aR\x94"\x8e%\xc0qs=\xcb\x89\x08c\x96Y\x9d\xc3\x9cQr\xf1T\xb1\xb2\x81*\xd2\xfb\xc3\xf9\xb6r\x02`\xf6\x89\x8a#\xcb\xdeC;+jh\xc0).\xf7r\x05\xbbY\xf1>GQ(t7\x96\x08.\xf4\xc3\x7f\x01Ui\xc9K6\x95.\xac\x81\xc8y\\\xf9\\2R\x1fG\xf3\xf4\xc509\x05\xf3\xa9\xae\xa2$\xa9\x0f.\xa1\xd9Fwm\x1b\x9dS\x02\x17\xfcD\x83\xba\xa43\x04\xffX\x90\xdc4\x1a\xd8]\xdd\x8a\x9e"sRk\xeb&\x94\x07\xc6)\x05|\xb13M\xc8\xbf\x98\xbf\xc6u|\xcey\x1aP\x86\xeeTc\x8d\x14\x08\xab\xb7(G.\xd2\x000\xd7\xa3\x9f\x94L'
+                ''
+                'database_created'   # b'\x81\xe6\x19\x072\xf8\xbf\xc1\x1e\xc5\x0e\xd2i\xed\xec\x80\x0b'
+                (
+                    'account'
+                    'message'
+                    'param'
+                )
+                '__pyarmor_exit_13577__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_13576__'
+                8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a2\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      PUSH_NULL                       
+                32      LOAD_CONST                      1: '__pyarmor_assert_13575__'
+                34      LOAD_CONST                      4: 'additives/'   # b'\x81\xe3\x1c\x17:\xee\xb7\xc4\x1e\xe9B'
+                36      CALL                            1
+                44      LOAD_GLOBAL                     1: NULL + str
+                54      LOAD_FAST                       1: Folder
+                56      CALL                            1
+                64      BINARY_OP                       0 (+)
+                68      LOAD_CONST                      5: '/'
+                70      BINARY_OP                       0 (+)
+                74      LOAD_GLOBAL                     1: NULL + str
+                84      LOAD_FAST                       0: StartUnix
+                86      CALL                            1
+                94      BINARY_OP                       0 (+)
+                98      LOAD_GLOBAL                     1: NULL + str
+                108     LOAD_FAST                       2: Perfix
+                110     CALL                            1
+                118     BINARY_OP                       0 (+)
+                122     LOAD_CONST                      6: '.db'
+                124     BINARY_OP                       0 (+)
+                128     STORE_FAST                      4: _var_var_18
+                130     LOAD_GLOBAL                     3: NULL + sqlite3
+                140     LOAD_ATTR                       4: connect
+                160     LOAD_FAST                       4: _var_var_18
+                162     LOAD_GLOBAL                     2: sqlite3
+                172     LOAD_ATTR                       6: PARSE_DECLTYPES
+                192     LOAD_CONST                      7: 5
+                194     LOAD_CONST                      8: False
+                196     KW_NAMES                        9: ('detect_types', 'timeout', 'check_same_thread')
+                198     CALL                            4
+                206     STORE_FAST                      5: _var_var_19
+                208     LOAD_FAST                       5: _var_var_19
+                210     LOAD_ATTR                       9: cursor
+                230     CALL                            0
+                238     STORE_FAST                      6: _var_var_20
+                240     LOAD_FAST                       6: _var_var_20
+                242     LOAD_ATTR                       11: execute
+                262     PUSH_NULL                       
+                264     LOAD_CONST                      1: '__pyarmor_assert_13575__'
+                266     LOAD_CONST                      10: 'CREATE TABLE IF NOT EXISTS GROUPS (ID INTEGER, USERNAME TEXT, TITLE TEXT, COUNT INTEGER, PHOTO INTEGER, INVITE INTEGER, SEND_MESSAGES INTEGER, SEND_MEDIA INTEGER, SEND_STICKERS INTEGER, SEND_POLLS INTEGER, SLOW_MODE INTEGER, SCAM INTEGER, TYPE TEXT, STATUS TEXT, UNIQUE(ID))'   # b'\x81\xc1*6\x12\xce\x9b\x92/\xdb/\xecI\xac\xd1\xa3Os\x94\x93\xea\xeev\xe56[\x90\x1c\'\x831\xd0\na`E\xb1\xee\xf4\x076\xdd\xddz\xf8\xeaC\x07\x02\xdes\xc9\xa9Q+\xc8w\xdf\xbe%,\x07qg~|)\xa6\x9d\x03\xc9\x87\xa7.|\x1do\x8c&\xa5\xe1\xae\xaa\x9d\x9a(\'s\x88\xf7\xbd\xc4\xb0E\xf6\xf3\xcd~\x89V\x1c-\x16p\x0f6\x96\xb4d\xd3\xd8{\x9b\x14\x86=_\xd1gG3\x7fOX\xdd}\x92\xc8\xd8\x9c3\x87"\x85Q\xa5\x1fa1\xde\x9f\x0e\x10\xf8K\x95\xc8\xf8Zz\xecD\xd4\xd3\xed"\xcf\xfb\xd9\xf0\xb2mk`\xf1\x89\x9c3\xb8\xadU;\'\x01y\xd7"Z\x92\x1c\x16\xbbP\xf0)9Q/t!\x86{^\xeb\xc7|\x06:\x00\xceQ\'\x97,\xbb\xff\xc4\n@\xe4N V\x05N\x96\x9d\xc2*(\x07\xf1\xbe\xd0\xaeW\xae\r;\xb9\xaa/m|\x06\x8e:po\x95]\x9f\xca\xb5V\x08\xee,\xe4\xb9Z\x1f\xc5H\xcc\x80\x9eVfCf\xec*\xe0\x17\xd04x\t\xa7^J\xc8\xc9\xe2'
+                268     CALL                            1
+                276     CALL                            1
+                284     POP_TOP                         
+                286     LOAD_FAST                       6: _var_var_20
+                288     LOAD_ATTR                       11: execute
+                308     PUSH_NULL                       
+                310     LOAD_CONST                      1: '__pyarmor_assert_13575__'
+                312     LOAD_CONST                      11: 'CREATE TABLE IF NOT EXISTS USERS (USER_ID INTEGER, GROUP_ID INTEGER, MESSAGE_ID INTEGER, COMMENT_ID INTEGER, PHONE TEXT, USERNAME TEXT, FIRST_NAME TEXT, LAST_NAME TEXT, BIO TEXT, GENDER TEXT, PHOTO INTEGER, PREMIUM INTEGER, STATUS TEXT, TIME TEXT, INVITE_STATUS TEXT, SEND_STATUS TEXT, UNIQUE(USER_ID))'   # b'\x81\xc1*6\x12\xce\x9b\x92/\xdb/\xecI\xac\xd1\xa3Os\x94\x93\xea\xeev\xe56[\x90\x1c5\x82;\xd7\t\x12h8\xab\xef\x86\x111\xcd\xb8t\xf3\xec*`\x12\xdf\x1a\xbb\xa0B)\xd8\x07\xd4\xb29Xb\x1fgro \xb1\x91w\xc1\x9a\xa0Q\x1d\x19e\x86!\xb5\xe1\xae\xaa\x9d\x9a(\'s\x88\xf7\xae\xc3\xb2\\\xfc\x9d\xd0o\x94W{!\n\x08j8\x9d\xb0\x01\xa7\xcd\x13\x9d\x14\x97XL\xd1m??\x0c_E\xdcp\x91\xcc\xc6\x8aR\x94"\x8e%\xc0qs=\xcb\x89\x08c\x96Y\x9d\xc3\x9cQr\xf1T\xb1\xb2\x81*\xd2\xfb\xc3\xf9\xb6r\x02`\xf6\x89\x8a#\xcb\xdeC;+jh\xc0).\xf7r\x05\xbbY\xf1>GQ(t7\x96\x08.\xf4\xc3\x7f\x01Ui\xc9K6\x95.\xac\x81\xc8y\\\xf9\\2R\x1fG\xf3\xf4\xc509\x05\xf3\xa9\xae\xa2$\xa9\x0f.\xa1\xd9Fwm\x1b\x9dS\x02\x17\xfcD\x83\xba\xa43\x04\xffX\x90\xdc4\x1a\xd8]\xdd\x8a\x9e"sRk\xeb&\x94\x07\xc6)\x05|\xb13M\xc8\xbf\x98\xbf\xc6u|\xcey\x1aP\x86\xeeTc\x8d\x14\x08\xab\xb7(G.\xd2\x000\xd7\xa3\x9f\x94L'
+                314     CALL                            1
+                322     CALL                            1
+                330     POP_TOP                         
+                332     LOAD_GLOBAL                     13: NULL + Logs
+                342     LOAD_ATTR                       14: PrintLog
+                362     LOAD_CONST                      12: ''
+                364     LOAD_GLOBAL                     16: Lang
+                374     PUSH_NULL                       
+                376     LOAD_CONST                      1: '__pyarmor_assert_13575__'
+                378     LOAD_CONST                      13: 'database_created'   # b'\x81\xe6\x19\x072\xf8\xbf\xc1\x1e\xc5\x0e\xd2i\xed\xec\x80\x0b'
+                380     CALL                            1
+                388     BINARY_SUBSCR                   
+                392     LOAD_FAST                       4: _var_var_18
+                394     KW_NAMES                        14: ('account', 'message', 'param')
+                396     CALL                            3
+                404     POP_TOP                         
+                406     LOAD_FAST                       5: _var_var_19
+                408     LOAD_ATTR                       19: commit
+                428     CALL                            0
+                436     POP_TOP                         
+                438     LOAD_FAST                       5: _var_var_19
+                440     LOAD_ATTR                       21: close
+                460     CALL                            0
+                468     POP_TOP                         
+                470     LOAD_FAST                       4: _var_var_18
+                472     NOP                             
+                474     NOP                             
+                476     NOP                             
+                478     JUMP_FORWARD                    68 (to 616)
+                480     CALL                            1
+                488     POP_TOP                         
+                490     RETURN_VALUE                    
+                492     PUSH_EXC_INFO                   
+                494     LOAD_GLOBAL                     22: BaseException
+                504     CHECK_EXC_MATCH                 
+                506     POP_JUMP_IF_FALSE               26 (to 560)
+                508     STORE_FAST                      7: _var_var_2
+                510     PUSH_NULL                       
+                512     LOAD_GLOBAL                     25: NULL + logging
+                522     LOAD_FAST                       7: _var_var_2
+                524     CALL                            1
+                532     CALL                            0
+                540     POP_TOP                         
+                542     POP_EXCEPT                      
+                544     LOAD_CONST                      0: None
+                546     STORE_FAST                      7: _var_var_2
+                548     DELETE_FAST                     7: _var_var_2
+                550     JUMP_FORWARD                    8 (to 568)
+                552     LOAD_CONST                      0: None
+                554     STORE_FAST                      7: _var_var_2
+                556     DELETE_FAST                     7: _var_var_2
+                558     RERAISE                         1
+                560     RERAISE                         0
+                562     COPY                            3
+                564     POP_EXCEPT                      
+                566     RERAISE                         1
+                568     LOAD_CONST                      8: False
+                570     NOP                             
+                572     NOP                             
+                574     NOP                             
+                576     JUMP_FORWARD                    19 (to 616)
+                584     POP_TOP                         
+                586     RETURN_CONST                    8: False
+                588     PUSH_EXC_INFO                   
+                590     PUSH_NULL                       
+                592     LOAD_CONST                      15: '__pyarmor_exit_13577__'
+                594     NOP                             
+                596     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a2\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                598     CALL                            1
+                606     POP_TOP                         
+                608     RERAISE                         0
+                610     COPY                            3
+                612     POP_EXCEPT                      
+                614     RERAISE                         1
+                616     PUSH_NULL                       
+                618     LOAD_CONST                      15: '__pyarmor_exit_13577__'
+                620     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a2\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                622     BUILD_TUPLE                     1
+                624     CALL_FUNCTION_EX                0
+                626     POP_TOP                         
+                628     RETURN_VALUE                    
+            [Exception Table]
+                30 to 472 -> 492 [0] 
+                492 to 510 -> 562 [1] lasti
+                510 to 542 -> 552 [1] lasti
+                542 to 552 -> 588 [0] 
+                552 to 562 -> 562 [1] lasti
+                562 to 568 -> 588 [0] 
+                588 to 610 -> 610 [1] lasti
+        [Code]
+            File Name: <frozen program.modules.DbUnion>
+            Object Name: DB_GET_COUNT
+            Qualified Name: DB_GET_COUNT
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'sqlite3'
+                'connect'
+                'PARSE_DECLTYPES'
+                'cursor'
+                'execute'
+                'fetchone'
+                'commit'
+                'close'
+                'BaseException'
+                'logging'
+            [Locals+Names]
+                'NameFile'
+                '__assert_armored__'
+                '_var_var_19'
+                '_var_var_20'
+                '_var_var_21'
+                '_var_var_2'
+            [Constants]
+                None
+                '__pyarmor_assert_13578__'
+                '__pyarmor_enter_13579__'
+                b'<COAddr>\x05\x00\x00\x1a|\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                5
+                False
+                (
+                    'detect_types'
+                    'timeout'
+                    'check_same_thread'
+                )
+                'SELECT count(*) FROM USERS'   # b'\x81\xd1=?\x16\xd9\x8a\x92\x18\xf5\x18\xcex\xa4\xb2\xccO{\x89\x88\x87\x8b{\xff ]\x90'
+                0
+                '__pyarmor_exit_13580__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_13579__'
+                8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a|\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      LOAD_GLOBAL                     1: NULL + sqlite3
+                40      LOAD_ATTR                       2: connect
+                60      LOAD_FAST                       0: NameFile
+                62      LOAD_GLOBAL                     0: sqlite3
+                72      LOAD_ATTR                       4: PARSE_DECLTYPES
+                92      LOAD_CONST                      4: 5
+                94      LOAD_CONST                      5: False
+                96      KW_NAMES                        6: ('detect_types', 'timeout', 'check_same_thread')
+                98      CALL                            4
+                106     STORE_FAST                      2: _var_var_19
+                108     LOAD_FAST                       2: _var_var_19
+                110     LOAD_ATTR                       7: cursor
+                130     CALL                            0
+                138     STORE_FAST                      3: _var_var_20
+                140     LOAD_FAST                       3: _var_var_20
+                142     LOAD_ATTR                       9: execute
+                162     PUSH_NULL                       
+                164     LOAD_CONST                      1: '__pyarmor_assert_13578__'
+                166     LOAD_CONST                      7: 'SELECT count(*) FROM USERS'   # b'\x81\xd1=?\x16\xd9\x8a\x92\x18\xf5\x18\xcex\xa4\xb2\xccO{\x89\x88\x87\x8b{\xff ]\x90'
+                168     CALL                            1
+                176     CALL                            1
+                184     POP_TOP                         
+                186     LOAD_FAST                       3: _var_var_20
+                188     LOAD_ATTR                       11: fetchone
+                208     CALL                            0
+                216     STORE_FAST                      4: _var_var_21
+                218     LOAD_FAST                       2: _var_var_19
+                220     LOAD_ATTR                       13: commit
+                240     CALL                            0
+                248     POP_TOP                         
+                250     LOAD_FAST                       2: _var_var_19
+                252     LOAD_ATTR                       15: close
+                272     CALL                            0
+                280     POP_TOP                         
+                282     LOAD_FAST                       4: _var_var_21
+                284     LOAD_CONST                      8: 0
+                286     BINARY_SUBSCR                   
+                290     NOP                             
+                292     NOP                             
+                294     NOP                             
+                296     JUMP_FORWARD                    68 (to 434)
+                298     CALL                            1
+                306     POP_TOP                         
+                308     RETURN_VALUE                    
+                310     PUSH_EXC_INFO                   
+                312     LOAD_GLOBAL                     16: BaseException
+                322     CHECK_EXC_MATCH                 
+                324     POP_JUMP_IF_FALSE               26 (to 378)
+                326     STORE_FAST                      5: _var_var_2
+                328     PUSH_NULL                       
+                330     LOAD_GLOBAL                     19: NULL + logging
+                340     LOAD_FAST                       5: _var_var_2
+                342     CALL                            1
+                350     CALL                            0
+                358     POP_TOP                         
+                360     POP_EXCEPT                      
+                362     LOAD_CONST                      0: None
+                364     STORE_FAST                      5: _var_var_2
+                366     DELETE_FAST                     5: _var_var_2
+                368     JUMP_FORWARD                    8 (to 386)
+                370     LOAD_CONST                      0: None
+                372     STORE_FAST                      5: _var_var_2
+                374     DELETE_FAST                     5: _var_var_2
+                376     RERAISE                         1
+                378     RERAISE                         0
+                380     COPY                            3
+                382     POP_EXCEPT                      
+                384     RERAISE                         1
+                386     LOAD_CONST                      5: False
+                388     NOP                             
+                390     NOP                             
+                392     NOP                             
+                394     JUMP_FORWARD                    19 (to 434)
+                402     POP_TOP                         
+                404     RETURN_CONST                    5: False
+                406     PUSH_EXC_INFO                   
+                408     PUSH_NULL                       
+                410     LOAD_CONST                      9: '__pyarmor_exit_13580__'
+                412     NOP                             
+                414     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a|\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                416     CALL                            1
+                424     POP_TOP                         
+                426     RERAISE                         0
+                428     COPY                            3
+                430     POP_EXCEPT                      
+                432     RERAISE                         1
+                434     PUSH_NULL                       
+                436     LOAD_CONST                      9: '__pyarmor_exit_13580__'
+                438     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a|\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                440     BUILD_TUPLE                     1
+                442     CALL_FUNCTION_EX                0
+                444     POP_TOP                         
+                446     RETURN_VALUE                    
+            [Exception Table]
+                30 to 290 -> 310 [0] 
+                310 to 328 -> 380 [1] lasti
+                328 to 360 -> 370 [1] lasti
+                360 to 370 -> 406 [0] 
+                370 to 380 -> 380 [1] lasti
+                380 to 386 -> 406 [0] 
+                406 to 428 -> 428 [1] lasti
+        [Code]
+            File Name: <frozen program.modules.DbUnion>
+            Object Name: DB_CREATE_TXT
+            Qualified Name: DB_CREATE_TXT
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 8
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'sqlite3'
+                'connect'
+                'PARSE_DECLTYPES'
+                'cursor'
+                'execute'
+                'fetchall'
+                'commit'
+                'close'
+                'open'
+                'write'
+                'str'
+                'BaseException'
+                'logging'
+            [Locals+Names]
+                'BASE'
+                'FILENAME'
+                '__assert_armored__'
+                '_var_var_22'
+                '_var_var_19'
+                '_var_var_20'
+                '_var_var_12'
+                '_var_var_23'
+                '_var_var_24'
+                '_var_var_2'
+            [Constants]
+                None
+                '__pyarmor_assert_13581__'
+                '__pyarmor_enter_13582__'
+                b'<COAddr>\x05\x00\x00\x1a:\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                0
+                5
+                False
+                (
+                    'detect_types'
+                    'timeout'
+                    'check_same_thread'
+                )
+                'SELECT * FROM USERS'   # b'\x81\xd1=?\x16\xd9\x8a\x92Q\xba+\xf2C\xc1\xb8\xb0<x\x89\x94'
+                'a'
+                'None'
+                '\n'
+                1
+                '__pyarmor_exit_13583__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_13582__'
+                8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a:\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      LOAD_CONST                      4: 0
+                32      STORE_FAST                      3: _var_var_22
+                34      LOAD_GLOBAL                     1: NULL + sqlite3
+                44      LOAD_ATTR                       2: connect
+                64      LOAD_FAST                       0: BASE
+                66      LOAD_GLOBAL                     0: sqlite3
+                76      LOAD_ATTR                       4: PARSE_DECLTYPES
+                96      LOAD_CONST                      5: 5
+                98      LOAD_CONST                      6: False
+                100     KW_NAMES                        7: ('detect_types', 'timeout', 'check_same_thread')
+                102     CALL                            4
+                110     STORE_FAST                      4: _var_var_19
+                112     LOAD_FAST                       4: _var_var_19
+                114     LOAD_ATTR                       7: cursor
+                134     CALL                            0
+                142     STORE_FAST                      5: _var_var_20
+                144     LOAD_FAST                       5: _var_var_20
+                146     LOAD_ATTR                       9: execute
+                166     PUSH_NULL                       
+                168     LOAD_CONST                      1: '__pyarmor_assert_13581__'
+                170     LOAD_CONST                      8: 'SELECT * FROM USERS'   # b'\x81\xd1=?\x16\xd9\x8a\x92Q\xba+\xf2C\xc1\xb8\xb0<x\x89\x94'
+                172     CALL                            1
+                180     CALL                            1
+                188     POP_TOP                         
+                190     LOAD_FAST                       5: _var_var_20
+                192     LOAD_ATTR                       11: fetchall
+                212     CALL                            0
+                220     STORE_FAST                      6: _var_var_12
+                222     LOAD_FAST                       4: _var_var_19
+                224     LOAD_ATTR                       13: commit
+                244     CALL                            0
+                252     POP_TOP                         
+                254     LOAD_FAST                       4: _var_var_19
+                256     LOAD_ATTR                       15: close
+                276     CALL                            0
+                284     POP_TOP                         
+                286     LOAD_GLOBAL                     17: NULL + open
+                296     LOAD_FAST                       1: FILENAME
+                298     LOAD_CONST                      9: 'a'
+                300     CALL                            2
+                308     BEFORE_WITH                     
+                310     STORE_FAST                      7: _var_var_23
+                312     LOAD_FAST                       6: _var_var_12
+                314     GET_ITER                        
+                316     FOR_ITER                        57 (to 432)
+                320     STORE_FAST                      8: _var_var_24
+                322     LOAD_FAST                       8: _var_var_24
+                324     LOAD_CONST                      5: 5
+                326     BINARY_SUBSCR                   
+                330     LOAD_CONST                      0: None
+                332     COMPARE_OP                      55 (!=)
+                336     POP_JUMP_IF_TRUE                1 (to 340)
+                338     JUMP_BACKWARD                   12 (to 316)
+                340     LOAD_FAST                       8: _var_var_24
+                342     LOAD_CONST                      5: 5
+                344     BINARY_SUBSCR                   
+                348     LOAD_CONST                      10: 'None'
+                350     COMPARE_OP                      55 (!=)
+                354     POP_JUMP_IF_TRUE                1 (to 358)
+                356     JUMP_BACKWARD                   21 (to 316)
+                358     LOAD_FAST                       7: _var_var_23
+                360     LOAD_ATTR                       19: write
+                380     LOAD_GLOBAL                     21: NULL + str
+                390     LOAD_FAST                       8: _var_var_24
+                392     LOAD_CONST                      5: 5
+                394     BINARY_SUBSCR                   
+                398     CALL                            1
+                406     LOAD_CONST                      11: '\n'
+                408     BINARY_OP                       0 (+)
+                412     CALL                            1
+                420     POP_TOP                         
+                422     LOAD_FAST                       3: _var_var_22
+                424     LOAD_CONST                      12: 1
+                426     BINARY_OP                       13 (+=)
+                430     STORE_FAST                      3: _var_var_22
+                432     JUMP_BACKWARD                   59 (to 316)
+                434     END_FOR                         
+                436     NOP                             
+                438     LOAD_CONST                      0: None
+                440     LOAD_CONST                      0: None
+                442     LOAD_CONST                      0: None
+                444     CALL                            2
+                452     POP_TOP                         
+                454     LOAD_FAST                       3: _var_var_22
+                456     NOP                             
+                458     NOP                             
+                460     NOP                             
+                462     JUMP_FORWARD                    80 (to 624)
+                464     CALL                            1
+                472     POP_TOP                         
+                474     RETURN_VALUE                    
+                476     PUSH_EXC_INFO                   
+                478     WITH_EXCEPT_START               
+                480     POP_JUMP_IF_TRUE                1 (to 484)
+                482     RERAISE                         2
+                484     POP_TOP                         
+                486     POP_EXCEPT                      
+                488     POP_TOP                         
+                490     POP_TOP                         
+                492     JUMP_BACKWARD                   20 (to 454)
+                494     COPY                            3
+                496     POP_EXCEPT                      
+                498     RERAISE                         1
+                500     PUSH_EXC_INFO                   
+                502     LOAD_GLOBAL                     22: BaseException
+                512     CHECK_EXC_MATCH                 
+                514     POP_JUMP_IF_FALSE               26 (to 568)
+                516     STORE_FAST                      9: _var_var_2
+                518     PUSH_NULL                       
+                520     LOAD_GLOBAL                     25: NULL + logging
+                530     LOAD_FAST                       9: _var_var_2
+                532     CALL                            1
+                540     CALL                            0
+                548     POP_TOP                         
+                550     POP_EXCEPT                      
+                552     LOAD_CONST                      0: None
+                554     STORE_FAST                      9: _var_var_2
+                556     DELETE_FAST                     9: _var_var_2
+                558     JUMP_FORWARD                    8 (to 576)
+                560     LOAD_CONST                      0: None
+                562     STORE_FAST                      9: _var_var_2
+                564     DELETE_FAST                     9: _var_var_2
+                566     RERAISE                         1
+                568     RERAISE                         0
+                570     COPY                            3
+                572     POP_EXCEPT                      
+                574     RERAISE                         1
+                576     LOAD_CONST                      6: False
+                578     NOP                             
+                580     NOP                             
+                582     NOP                             
+                584     JUMP_FORWARD                    19 (to 624)
+                592     POP_TOP                         
+                594     RETURN_CONST                    6: False
+                596     PUSH_EXC_INFO                   
+                598     PUSH_NULL                       
+                600     LOAD_CONST                      13: '__pyarmor_exit_13583__'
+                602     NOP                             
+                604     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a:\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                606     CALL                            1
+                614     POP_TOP                         
+                616     RERAISE                         0
+                618     COPY                            3
+                620     POP_EXCEPT                      
+                622     RERAISE                         1
+                624     PUSH_NULL                       
+                626     LOAD_CONST                      13: '__pyarmor_exit_13583__'
+                628     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a:\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                630     BUILD_TUPLE                     1
+                632     CALL_FUNCTION_EX                0
+                634     POP_TOP                         
+                636     RETURN_VALUE                    
+            [Exception Table]
+                30 to 310 -> 500 [0] 
+                310 to 338 -> 476 [1] lasti
+                340 to 356 -> 476 [1] lasti
+                358 to 436 -> 476 [1] lasti
+                438 to 456 -> 500 [0] 
+                476 to 486 -> 494 [3] lasti
+                486 to 500 -> 500 [0] 
+                500 to 518 -> 570 [1] lasti
+                518 to 550 -> 560 [1] lasti
+                550 to 560 -> 596 [0] 
+                560 to 570 -> 570 [1] lasti
+                570 to 576 -> 596 [0] 
+                596 to 618 -> 618 [1] lasti
+        [Code]
+            File Name: <frozen program.modules.DbUnion>
+            Object Name: DB_GET_PARSE_DATA
+            Qualified Name: DB_GET_PARSE_DATA
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'sqlite3'
+                'connect'
+                'PARSE_DECLTYPES'
+                'cursor'
+                'execute'
+                'fetchall'
+                'commit'
+                'close'
+                'BaseException'
+                'logging'
+            [Locals+Names]
+                'BASE'
+                '__assert_armored__'
+                '_var_var_19'
+                '_var_var_20'
+                '_var_var_25'
+                '_var_var_12'
+                '_var_var_2'
+            [Constants]
+                None
+                '__pyarmor_assert_13584__'
+                '__pyarmor_enter_13585__'
+                b'<COAddr>\x07\x00\x00\x1a\xc8\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                5
+                False
+                (
+                    'detect_types'
+                    'timeout'
+                    'check_same_thread'
+                )
+                'SELECT * FROM GROUPS'   # b'\x81\xd1=?\x16\xd9\x8a\x92Q\xba+\xf2C\xc1\xb8\xa2=r\x8e\x97\x99'
+                'SELECT * FROM USERS'   # b'\x81\xd1=?\x16\xd9\x8a\x92Q\xba+\xf2C\xc1\xb8\xb0<x\x89\x94'
+                '__pyarmor_exit_13586__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_13585__'
+                8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xc8\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      LOAD_GLOBAL                     1: NULL + sqlite3
+                40      LOAD_ATTR                       2: connect
+                60      LOAD_FAST                       0: BASE
+                62      LOAD_GLOBAL                     0: sqlite3
+                72      LOAD_ATTR                       4: PARSE_DECLTYPES
+                92      LOAD_CONST                      4: 5
+                94      LOAD_CONST                      5: False
+                96      KW_NAMES                        6: ('detect_types', 'timeout', 'check_same_thread')
+                98      CALL                            4
+                106     STORE_FAST                      2: _var_var_19
+                108     LOAD_FAST                       2: _var_var_19
+                110     LOAD_ATTR                       7: cursor
+                130     CALL                            0
+                138     STORE_FAST                      3: _var_var_20
+                140     LOAD_FAST                       3: _var_var_20
+                142     LOAD_ATTR                       9: execute
+                162     PUSH_NULL                       
+                164     LOAD_CONST                      1: '__pyarmor_assert_13584__'
+                166     LOAD_CONST                      7: 'SELECT * FROM GROUPS'   # b'\x81\xd1=?\x16\xd9\x8a\x92Q\xba+\xf2C\xc1\xb8\xa2=r\x8e\x97\x99'
+                168     CALL                            1
+                176     CALL                            1
+                184     POP_TOP                         
+                186     LOAD_FAST                       3: _var_var_20
+                188     LOAD_ATTR                       11: fetchall
+                208     CALL                            0
+                216     STORE_FAST                      4: _var_var_25
+                218     LOAD_FAST                       3: _var_var_20
+                220     LOAD_ATTR                       9: execute
+                240     PUSH_NULL                       
+                242     LOAD_CONST                      1: '__pyarmor_assert_13584__'
+                244     LOAD_CONST                      8: 'SELECT * FROM USERS'   # b'\x81\xd1=?\x16\xd9\x8a\x92Q\xba+\xf2C\xc1\xb8\xb0<x\x89\x94'
+                246     CALL                            1
+                254     CALL                            1
+                262     POP_TOP                         
+                264     LOAD_FAST                       3: _var_var_20
+                266     LOAD_ATTR                       11: fetchall
+                286     CALL                            0
+                294     STORE_FAST                      5: _var_var_12
+                296     LOAD_FAST                       2: _var_var_19
+                298     LOAD_ATTR                       13: commit
+                318     CALL                            0
+                326     POP_TOP                         
+                328     LOAD_FAST                       2: _var_var_19
+                330     LOAD_ATTR                       15: close
+                350     CALL                            0
+                358     POP_TOP                         
+                360     LOAD_FAST                       4: _var_var_25
+                362     LOAD_FAST                       5: _var_var_12
+                364     BUILD_LIST                      2
+                366     NOP                             
+                368     NOP                             
+                370     NOP                             
+                372     JUMP_FORWARD                    68 (to 510)
+                374     CALL                            1
+                382     POP_TOP                         
+                384     RETURN_VALUE                    
+                386     PUSH_EXC_INFO                   
+                388     LOAD_GLOBAL                     16: BaseException
+                398     CHECK_EXC_MATCH                 
+                400     POP_JUMP_IF_FALSE               26 (to 454)
+                402     STORE_FAST                      6: _var_var_2
+                404     PUSH_NULL                       
+                406     LOAD_GLOBAL                     19: NULL + logging
+                416     LOAD_FAST                       6: _var_var_2
+                418     CALL                            1
+                426     CALL                            0
+                434     POP_TOP                         
+                436     POP_EXCEPT                      
+                438     LOAD_CONST                      0: None
+                440     STORE_FAST                      6: _var_var_2
+                442     DELETE_FAST                     6: _var_var_2
+                444     JUMP_FORWARD                    8 (to 462)
+                446     LOAD_CONST                      0: None
+                448     STORE_FAST                      6: _var_var_2
+                450     DELETE_FAST                     6: _var_var_2
+                452     RERAISE                         1
+                454     RERAISE                         0
+                456     COPY                            3
+                458     POP_EXCEPT                      
+                460     RERAISE                         1
+                462     LOAD_CONST                      5: False
+                464     NOP                             
+                466     NOP                             
+                468     NOP                             
+                470     JUMP_FORWARD                    19 (to 510)
+                478     POP_TOP                         
+                480     RETURN_CONST                    5: False
+                482     PUSH_EXC_INFO                   
+                484     PUSH_NULL                       
+                486     LOAD_CONST                      9: '__pyarmor_exit_13586__'
+                488     NOP                             
+                490     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xc8\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                492     CALL                            1
+                500     POP_TOP                         
+                502     RERAISE                         0
+                504     COPY                            3
+                506     POP_EXCEPT                      
+                508     RERAISE                         1
+                510     PUSH_NULL                       
+                512     LOAD_CONST                      9: '__pyarmor_exit_13586__'
+                514     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xc8\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                516     BUILD_TUPLE                     1
+                518     CALL_FUNCTION_EX                0
+                520     POP_TOP                         
+                522     RETURN_VALUE                    
+            [Exception Table]
+                30 to 366 -> 386 [0] 
+                386 to 404 -> 456 [1] lasti
+                404 to 436 -> 446 [1] lasti
+                436 to 446 -> 482 [0] 
+                446 to 456 -> 456 [1] lasti
+                456 to 462 -> 482 [0] 
+                482 to 504 -> 504 [1] lasti
+        [Code]
+            File Name: <frozen program.modules.DbUnion>
+            Object Name: DB_UNION_BASE
+            Qualified Name: DB_UNION_BASE
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 21
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'sqlite3'
+                'connect'
+                'PARSE_DECLTYPES'
+                'cursor'
+                'execute'
+                'commit'
+                'close'
+                'BaseException'
+                'logging'
+            [Locals+Names]
+                'BASE'
+                'DATA'
+                '__assert_armored__'
+                '_var_var_12'
+                '_var_var_19'
+                '_var_var_20'
+                '_var_var_26'
+                '_var_var_2'
+            [Constants]
+                None
+                '__pyarmor_assert_13587__'
+                '__pyarmor_enter_13588__'
+                b'<COAddr>\x07\x00\x00\x1a\xce\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                0
+                5
+                False
+                (
+                    'detect_types'
+                    'timeout'
+                    'check_same_thread'
+                )
+                'INSERT OR REPLACE INTO GROUPS VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'   # b'\x81\xcb6 \x16\xc8\x8a\x924\xc8M\xf2I\xdc\xd4\xa4,x\xfb\x8e\x84\xffa\x8c"]\x8ci0\x82^\xd3\x1b~\x15(\xab\x8a\xfcqT\xa9\xa7\x11\x9d\x87C\x07h\xa1\x16\xa4\xcb0Y\xa1w\xb4\xd7]G\x07q\x0c\x1b\x08Z\xcf\x9dh\xa0\xff\xcc.|a\x0c\xf9W\xd8'
+                1
+                2
+                3
+                4
+                6
+                7
+                8
+                9
+                10
+                11
+                12
+                13
+                'INSERT OR REPLACE INTO USERS VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'   # b'\x81\xcb6 \x16\xc8\x8a\x924\xc8M\xf2I\xdc\xd4\xa4,x\xfb\x8e\x84\xffa\x8c0\\\x86n3\xf1(\xc4\x16g\x05>\xd8\x82\xebbX\xb6\xb4\x1d\x82\x94O\x18{\xad\t\xb7\xc7/J\xadh\xa7\xdbBT\x0bn\x1f\x17\x17I\xc3\x82{\xac\xe0\xdf"cr\x00\xe6D\xd1\xfe\xcb\xc4\xf6\xf6'
+                14
+                15
+                '__pyarmor_exit_13589__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_13588__'
+                8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xce\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      LOAD_CONST                      4: 0
+                32      STORE_FAST                      3: _var_var_12
+                34      LOAD_GLOBAL                     1: NULL + sqlite3
+                44      LOAD_ATTR                       2: connect
+                64      LOAD_FAST                       0: BASE
+                66      LOAD_GLOBAL                     0: sqlite3
+                76      LOAD_ATTR                       4: PARSE_DECLTYPES
+                96      LOAD_CONST                      5: 5
+                98      LOAD_CONST                      6: False
+                100     KW_NAMES                        7: ('detect_types', 'timeout', 'check_same_thread')
+                102     CALL                            4
+                110     STORE_FAST                      4: _var_var_19
+                112     LOAD_FAST                       4: _var_var_19
+                114     LOAD_ATTR                       7: cursor
+                134     CALL                            0
+                142     STORE_FAST                      5: _var_var_20
+                144     LOAD_FAST                       1: DATA
+                146     LOAD_CONST                      4: 0
+                148     BINARY_SUBSCR                   
+                152     GET_ITER                        
+                154     FOR_ITER                        82 (to 320)
+                158     STORE_FAST                      6: _var_var_26
+                160     LOAD_FAST                       5: _var_var_20
+                162     LOAD_ATTR                       9: execute
+                182     PUSH_NULL                       
+                184     LOAD_CONST                      1: '__pyarmor_assert_13587__'
+                186     LOAD_CONST                      8: 'INSERT OR REPLACE INTO GROUPS VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'   # b'\x81\xcb6 \x16\xc8\x8a\x924\xc8M\xf2I\xdc\xd4\xa4,x\xfb\x8e\x84\xffa\x8c"]\x8ci0\x82^\xd3\x1b~\x15(\xab\x8a\xfcqT\xa9\xa7\x11\x9d\x87C\x07h\xa1\x16\xa4\xcb0Y\xa1w\xb4\xd7]G\x07q\x0c\x1b\x08Z\xcf\x9dh\xa0\xff\xcc.|a\x0c\xf9W\xd8'
+                188     CALL                            1
+                196     LOAD_FAST                       6: _var_var_26
+                198     LOAD_CONST                      4: 0
+                200     BINARY_SUBSCR                   
+                204     LOAD_FAST                       6: _var_var_26
+                206     LOAD_CONST                      9: 1
+                208     BINARY_SUBSCR                   
+                212     LOAD_FAST                       6: _var_var_26
+                214     LOAD_CONST                      10: 2
+                216     BINARY_SUBSCR                   
+                220     LOAD_FAST                       6: _var_var_26
+                222     LOAD_CONST                      11: 3
+                224     BINARY_SUBSCR                   
+                228     LOAD_FAST                       6: _var_var_26
+                230     LOAD_CONST                      12: 4
+                232     BINARY_SUBSCR                   
+                236     LOAD_FAST                       6: _var_var_26
+                238     LOAD_CONST                      5: 5
+                240     BINARY_SUBSCR                   
+                244     LOAD_FAST                       6: _var_var_26
+                246     LOAD_CONST                      13: 6
+                248     BINARY_SUBSCR                   
+                252     LOAD_FAST                       6: _var_var_26
+                254     LOAD_CONST                      14: 7
+                256     BINARY_SUBSCR                   
+                260     LOAD_FAST                       6: _var_var_26
+                262     LOAD_CONST                      15: 8
+                264     BINARY_SUBSCR                   
+                268     LOAD_FAST                       6: _var_var_26
+                270     LOAD_CONST                      16: 9
+                272     BINARY_SUBSCR                   
+                276     LOAD_FAST                       6: _var_var_26
+                278     LOAD_CONST                      17: 10
+                280     BINARY_SUBSCR                   
+                284     LOAD_FAST                       6: _var_var_26
+                286     LOAD_CONST                      18: 11
+                288     BINARY_SUBSCR                   
+                292     LOAD_FAST                       6: _var_var_26
+                294     LOAD_CONST                      19: 12
+                296     BINARY_SUBSCR                   
+                300     LOAD_FAST                       6: _var_var_26
+                302     LOAD_CONST                      20: 13
+                304     BINARY_SUBSCR                   
+                308     BUILD_TUPLE                     14
+                310     CALL                            2
+                318     POP_TOP                         
+                320     JUMP_BACKWARD                   84 (to 154)
+                322     END_FOR                         
+                324     LOAD_FAST                       4: _var_var_19
+                326     LOAD_ATTR                       11: commit
+                346     CALL                            0
+                354     POP_TOP                         
+                356     LOAD_FAST                       1: DATA
+                358     LOAD_CONST                      9: 1
+                360     BINARY_SUBSCR                   
+                364     GET_ITER                        
+                366     FOR_ITER                        95 (to 558)
+                370     STORE_FAST                      6: _var_var_26
+                372     LOAD_FAST                       5: _var_var_20
+                374     LOAD_ATTR                       9: execute
+                394     PUSH_NULL                       
+                396     LOAD_CONST                      1: '__pyarmor_assert_13587__'
+                398     LOAD_CONST                      21: 'INSERT OR REPLACE INTO USERS VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'   # b'\x81\xcb6 \x16\xc8\x8a\x924\xc8M\xf2I\xdc\xd4\xa4,x\xfb\x8e\x84\xffa\x8c0\\\x86n3\xf1(\xc4\x16g\x05>\xd8\x82\xebbX\xb6\xb4\x1d\x82\x94O\x18{\xad\t\xb7\xc7/J\xadh\xa7\xdbBT\x0bn\x1f\x17\x17I\xc3\x82{\xac\xe0\xdf"cr\x00\xe6D\xd1\xfe\xcb\xc4\xf6\xf6'
+                400     CALL                            1
+                408     LOAD_FAST                       6: _var_var_26
+                410     LOAD_CONST                      4: 0
+                412     BINARY_SUBSCR                   
+                416     LOAD_FAST                       6: _var_var_26
+                418     LOAD_CONST                      9: 1
+                420     BINARY_SUBSCR                   
+                424     LOAD_FAST                       6: _var_var_26
+                426     LOAD_CONST                      10: 2
+                428     BINARY_SUBSCR                   
+                432     LOAD_FAST                       6: _var_var_26
+                434     LOAD_CONST                      11: 3
+                436     BINARY_SUBSCR                   
+                440     LOAD_FAST                       6: _var_var_26
+                442     LOAD_CONST                      12: 4
+                444     BINARY_SUBSCR                   
+                448     LOAD_FAST                       6: _var_var_26
+                450     LOAD_CONST                      5: 5
+                452     BINARY_SUBSCR                   
+                456     LOAD_FAST                       6: _var_var_26
+                458     LOAD_CONST                      13: 6
+                460     BINARY_SUBSCR                   
+                464     LOAD_FAST                       6: _var_var_26
+                466     LOAD_CONST                      14: 7
+                468     BINARY_SUBSCR                   
+                472     LOAD_FAST                       6: _var_var_26
+                474     LOAD_CONST                      15: 8
+                476     BINARY_SUBSCR                   
+                480     LOAD_FAST                       6: _var_var_26
+                482     LOAD_CONST                      16: 9
+                484     BINARY_SUBSCR                   
+                488     LOAD_FAST                       6: _var_var_26
+                490     LOAD_CONST                      17: 10
+                492     BINARY_SUBSCR                   
+                496     LOAD_FAST                       6: _var_var_26
+                498     LOAD_CONST                      18: 11
+                500     BINARY_SUBSCR                   
+                504     LOAD_FAST                       6: _var_var_26
+                506     LOAD_CONST                      19: 12
+                508     BINARY_SUBSCR                   
+                512     LOAD_FAST                       6: _var_var_26
+                514     LOAD_CONST                      20: 13
+                516     BINARY_SUBSCR                   
+                520     LOAD_FAST                       6: _var_var_26
+                522     LOAD_CONST                      22: 14
+                524     BINARY_SUBSCR                   
+                528     LOAD_FAST                       6: _var_var_26
+                530     LOAD_CONST                      23: 15
+                532     BINARY_SUBSCR                   
+                536     BUILD_TUPLE                     16
+                538     CALL                            2
+                546     POP_TOP                         
+                548     LOAD_FAST                       3: _var_var_12
+                550     LOAD_CONST                      9: 1
+                552     BINARY_OP                       13 (+=)
+                556     STORE_FAST                      3: _var_var_12
+                558     JUMP_BACKWARD                   97 (to 366)
+                560     END_FOR                         
+                562     LOAD_FAST                       4: _var_var_19
+                564     LOAD_ATTR                       11: commit
+                584     CALL                            0
+                592     POP_TOP                         
+                594     LOAD_FAST                       4: _var_var_19
+                596     LOAD_ATTR                       13: close
+                616     CALL                            0
+                624     POP_TOP                         
+                626     LOAD_FAST                       3: _var_var_12
+                628     NOP                             
+                630     NOP                             
+                632     NOP                             
+                634     JUMP_FORWARD                    68 (to 772)
+                636     CALL                            1
+                644     POP_TOP                         
+                646     RETURN_VALUE                    
+                648     PUSH_EXC_INFO                   
+                650     LOAD_GLOBAL                     14: BaseException
+                660     CHECK_EXC_MATCH                 
+                662     POP_JUMP_IF_FALSE               26 (to 716)
+                664     STORE_FAST                      7: _var_var_2
+                666     PUSH_NULL                       
+                668     LOAD_GLOBAL                     17: NULL + logging
+                678     LOAD_FAST                       7: _var_var_2
+                680     CALL                            1
+                688     CALL                            0
+                696     POP_TOP                         
+                698     POP_EXCEPT                      
+                700     LOAD_CONST                      0: None
+                702     STORE_FAST                      7: _var_var_2
+                704     DELETE_FAST                     7: _var_var_2
+                706     JUMP_FORWARD                    8 (to 724)
+                708     LOAD_CONST                      0: None
+                710     STORE_FAST                      7: _var_var_2
+                712     DELETE_FAST                     7: _var_var_2
+                714     RERAISE                         1
+                716     RERAISE                         0
+                718     COPY                            3
+                720     POP_EXCEPT                      
+                722     RERAISE                         1
+                724     LOAD_CONST                      6: False
+                726     NOP                             
+                728     NOP                             
+                730     NOP                             
+                732     JUMP_FORWARD                    19 (to 772)
+                740     POP_TOP                         
+                742     RETURN_CONST                    6: False
+                744     PUSH_EXC_INFO                   
+                746     PUSH_NULL                       
+                748     LOAD_CONST                      24: '__pyarmor_exit_13589__'
+                750     NOP                             
+                752     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xce\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                754     CALL                            1
+                762     POP_TOP                         
+                764     RERAISE                         0
+                766     COPY                            3
+                768     POP_EXCEPT                      
+                770     RERAISE                         1
+                772     PUSH_NULL                       
+                774     LOAD_CONST                      24: '__pyarmor_exit_13589__'
+                776     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xce\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                778     BUILD_TUPLE                     1
+                780     CALL_FUNCTION_EX                0
+                782     POP_TOP                         
+                784     RETURN_VALUE                    
+            [Exception Table]
+                30 to 628 -> 648 [0] 
+                648 to 666 -> 718 [1] lasti
+                666 to 698 -> 708 [1] lasti
+                698 to 708 -> 744 [0] 
+                708 to 718 -> 718 [1] lasti
+                718 to 724 -> 744 [0] 
+                744 to 766 -> 766 [1] lasti
+        '__pyarmor_exit_13568__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_13567__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xc6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: eel
+        32      STORE_NAME                      1: eel
+        34      LOAD_CONST                      3: 0
+        36      LOAD_CONST                      4: None
+        38      IMPORT_NAME                     2: sqlite3
+        40      STORE_NAME                      2: sqlite3
+        42      LOAD_CONST                      3: 0
+        44      LOAD_CONST                      4: None
+        46      IMPORT_NAME                     3: datetime
+        48      STORE_NAME                      3: datetime
+        50      LOAD_CONST                      3: 0
+        52      LOAD_CONST                      5: ('Thread', 'Event')
+        54      IMPORT_NAME                     4: threading
+        56      IMPORT_FROM                     5: Thread
+        58      STORE_NAME                      5: Thread
+        60      IMPORT_FROM                     6: Event
+        62      STORE_NAME                      6: Event
+        64      POP_TOP                         
+        66      LOAD_CONST                      3: 0
+        68      LOAD_CONST                      6: ('StopProgram',)
+        70      IMPORT_NAME                     7: multithon.errors
+        72      IMPORT_FROM                     8: StopProgram
+        74      STORE_NAME                      8: StopProgram
+        76      POP_TOP                         
+        78      LOAD_CONST                      3: 0
+        80      LOAD_CONST                      7: ('GetLang',)
+        82      IMPORT_NAME                     9: program.static_classes
+        84      IMPORT_FROM                     10: GetLang
+        86      STORE_NAME                      10: GetLang
+        88      POP_TOP                         
+        90      LOAD_CONST                      3: 0
+        92      LOAD_CONST                      8: ('Logs',)
+        94      IMPORT_NAME                     9: program.static_classes
+        96      IMPORT_FROM                     11: Logs
+        98      STORE_NAME                      11: Logs
+        100     POP_TOP                         
+        102     LOAD_CONST                      3: 0
+        104     LOAD_CONST                      9: ('logging',)
+        106     IMPORT_NAME                     9: program.static_classes
+        108     IMPORT_FROM                     12: logging
+        110     STORE_NAME                      12: logging
+        112     POP_TOP                         
+        114     LOAD_CONST                      3: 0
+        116     LOAD_CONST                      10: ('memory_set_pid',)
+        118     IMPORT_NAME                     9: program.static_classes
+        120     IMPORT_FROM                     13: memory_set_pid
+        122     STORE_NAME                      13: memory_set_pid
+        124     POP_TOP                         
+        126     LOAD_CONST                      3: 0
+        128     LOAD_CONST                      11: ('GetConfig',)
+        130     IMPORT_NAME                     14: program.general
+        132     IMPORT_FROM                     15: GetConfig
+        134     STORE_NAME                      15: GetConfig
+        136     POP_TOP                         
+        138     LOAD_CONST                      3: 0
+        140     LOAD_CONST                      12: ('StopDetect',)
+        142     IMPORT_NAME                     14: program.general
+        144     IMPORT_FROM                     16: StopDetect
+        146     STORE_NAME                      16: StopDetect
+        148     POP_TOP                         
+        150     LOAD_CONST                      3: 0
+        152     LOAD_CONST                      13: ('getFile',)
+        154     IMPORT_NAME                     14: program.general
+        156     IMPORT_FROM                     17: getFile
+        158     STORE_NAME                      17: getFile
+        160     POP_TOP                         
+        162     LOAD_CONST                      14: <CODE> DbUnion
+        164     MAKE_FUNCTION                   0
+        166     STORE_NAME                      18: DbUnion
+        168     LOAD_CONST                      15: <CODE> START
+        170     MAKE_FUNCTION                   0
+        172     STORE_NAME                      19: START
+        174     LOAD_CONST                      16: <CODE> DB_CREATE_RESULT
+        176     MAKE_FUNCTION                   0
+        178     STORE_NAME                      20: DB_CREATE_RESULT
+        180     LOAD_CONST                      17: <CODE> DB_GET_COUNT
+        182     MAKE_FUNCTION                   0
+        184     STORE_NAME                      21: DB_GET_COUNT
+        186     LOAD_CONST                      18: <CODE> DB_CREATE_TXT
+        188     MAKE_FUNCTION                   0
+        190     STORE_NAME                      22: DB_CREATE_TXT
+        192     LOAD_CONST                      19: <CODE> DB_GET_PARSE_DATA
+        194     MAKE_FUNCTION                   0
+        196     STORE_NAME                      23: DB_GET_PARSE_DATA
+        198     LOAD_CONST                      20: <CODE> DB_UNION_BASE
+        200     MAKE_FUNCTION                   0
+        202     STORE_NAME                      24: DB_UNION_BASE
+        204     LOAD_CONST                      4: None
+        206     NOP                             
+        208     NOP                             
+        210     NOP                             
+        212     JUMP_FORWARD                    19 (to 252)
+        220     POP_TOP                         
+        222     RETURN_CONST                    4: None
+        224     PUSH_EXC_INFO                   
+        226     PUSH_NULL                       
+        228     LOAD_CONST                      21: '__pyarmor_exit_13568__'
+        230     NOP                             
+        232     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xc6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        234     CALL                            1
+        242     POP_TOP                         
+        244     RERAISE                         0
+        246     COPY                            3
+        248     POP_EXCEPT                      
+        250     RERAISE                         1
+        252     PUSH_NULL                       
+        254     LOAD_CONST                      21: '__pyarmor_exit_13568__'
+        256     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xc6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        258     BUILD_TUPLE                     1
+        260     CALL_FUNCTION_EX                0
+        262     POP_TOP                         
+        264     RETURN_VALUE                    
+    [Exception Table]
+        26 to 204 -> 224 [0] 
+        224 to 246 -> 246 [1] lasti

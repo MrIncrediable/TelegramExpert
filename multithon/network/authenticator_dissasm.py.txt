@@ -1,0 +1,1295 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.network.authenticator>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'os'
+        'time'
+        'hashlib'
+        'sha1'
+        'tl.types'
+        'ResPQ'
+        'PQInnerData'
+        'ServerDHParamsFail'
+        'ServerDHParamsOk'
+        'ServerDHInnerData'
+        'ClientDHInnerData'
+        'DhGenOk'
+        'DhGenRetry'
+        'DhGenFail'
+        ''
+        'helpers'
+        'crypto'
+        'AES'
+        'AuthKey'
+        'Factorization'
+        'rsa'
+        'errors'
+        'SecurityError'
+        'extensions'
+        'BinaryReader'
+        'tl.functions'
+        'ReqPqMultiRequest'
+        'ReqDHParamsRequest'
+        'SetClientDHParamsRequest'
+        'do_authentication'
+        'get_int'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_23046__'
+        '__pyarmor_enter_23047__'
+        b'<COAddr>\x05\x00\x00\x1a\xca\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        "\nThis module contains several functions that authenticate the client machine\nwith Telegram's servers, effectively creating an authorization key.\n"   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xfb\x8a\x01I\xba\xae\xa4\xd8\x0e\xdf\x00y\xa6N\x01\xbd^\xe3/\\#\x19\x91\xc5\xba=X\xfd\xf0\\\xc9\x98\x0eR#\xe5S\xf5\x93y\x05\xec#\xee\xdb\t\x10NqP[A\x00\x8d\xc9w\xe1\xbe\x90j50E\xd3\x1f\x98\xb5\x8f\xc4\x9d\xba\x03\x07F\xd6\xb6\x80\xab\x8c1\xca\xb6\xf6F\xb8a(Dd9I\x19\xbd\x81Y\xee\xeb>\xbe#\xf2\x1bj\xf1T\x1fzBm6\xf8L\xff\xec\xfe\xbb\x1a\xaf\x15\xbf\x0b\x8d%\\\x1b\xf7\xfa7Y\xa16\xda'
+        0
+        None
+        (
+            'sha1'
+        )
+        2
+        (
+            'ResPQ'
+            'PQInnerData'
+            'ServerDHParamsFail'
+            'ServerDHParamsOk'
+            'ServerDHInnerData'
+            'ClientDHInnerData'
+            'DhGenOk'
+            'DhGenRetry'
+            'DhGenFail'
+        )
+        (
+            'helpers'
+        )
+        (
+            'AES'
+            'AuthKey'
+            'Factorization'
+            'rsa'
+        )
+        (
+            'SecurityError'
+        )
+        (
+            'BinaryReader'
+        )
+        (
+            'ReqPqMultiRequest'
+            'ReqDHParamsRequest'
+            'SetClientDHParamsRequest'
+        )
+        [Code]
+            File Name: <frozen multithon.network.authenticator>
+            Object Name: do_authentication
+            Qualified Name: do_authentication
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 12
+            Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'int'
+                'from_bytes'
+                'os'
+                'urandom'
+                'send'
+                'ReqPqMultiRequest'
+                'isinstance'
+                'ResPQ'
+                'nonce'
+                'SecurityError'
+                'get_int'
+                'pq'
+                'Factorization'
+                'factorize'
+                'rsa'
+                'get_byte_array'
+                'bytes'
+                'PQInnerData'
+                'server_nonce'
+                'server_public_key_fingerprints'
+                'encrypt'
+                'format'
+                'join'
+                'str'
+                'ReqDHParamsRequest'
+                'ServerDHParamsOk'
+                'ServerDHParamsFail'
+                'sha1'
+                'to_bytes'
+                'digest'
+                'new_nonce_hash'
+                'helpers'
+                'generate_key_data_from_nonce'
+                'len'
+                'encrypted_answer'
+                'AES'
+                'decrypt_ige'
+                'BinaryReader'
+                'read'
+                'tgread_object'
+                'ServerDHInnerData'
+                'dh_prime'
+                'g'
+                'g_a'
+                'server_time'
+                'time'
+                'pow'
+                'ClientDHInnerData'
+                'encrypt_ige'
+                'SetClientDHParamsRequest'
+                'DhGenOk'
+                'DhGenRetry'
+                'DhGenFail'
+                '__class__'
+                '__name__'
+                'AuthKey'
+                'index'
+                'type'
+                'calc_new_nonce_hash'
+                'getattr'
+                'AssertionError'
+            [Locals+Names]
+                'sender'
+                '__assert_armored__'
+                '_var_var_0'
+                '_var_var_1'
+                '_var_var_2'
+                '_var_var_3'
+                '_var_var_4'
+                '_var_var_5'
+                '_var_var_6'
+                '_var_var_7'
+                '_var_var_8'
+                '_var_var_9'
+                '_var_var_10'
+                '_var_var_11'
+                '_var_var_12'
+                '_var_var_13'
+                '_var_var_14'
+                '_var_var_15'
+                '_var_var_16'
+                '_var_var_17'
+                '_var_var_18'
+                '_var_var_19'
+                '_var_var_20'
+                '_var_var_21'
+                '_var_var_22'
+                '_var_var_23'
+                '_var_var_24'
+                '_var_var_25'
+                '_var_var_26'
+                '_var_var_27'
+                '_var_var_28'
+                '_var_var_29'
+                '_var_var_30'
+                '_var_var_31'
+                '_var_var_32'
+                '_var_var_33'
+                '_var_var_34'
+                '_var_var_35'
+            [Constants]
+                '\n    Executes the authentication process with the Telegram servers.\n\n    :param sender: a connected `MTProtoPlainSender`.\n    :return: returns a (authorization key, time offset) tuple.\n    '
+                '__pyarmor_assert_23049__'
+                '__pyarmor_enter_23050__'
+                b'<COAddr>\x05\x00\x00\x1e\xc4\x0f\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                16
+                'big'
+                True
+                (
+                    'signed'
+                )
+                None
+                'Step 1 answer was %s'   # b'\x81\xd1\x0c\x16#\xba\xef\x92\x1a\xf4\x1e\xd7i\xfe\xb8\x92\x0eN\xfb\xe2\xb9'
+                'Step 1 invalid nonce from server'   # b'\x81\xd1\x0c\x16#\xba\xef\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5\x01R\xb5\xa4\xaf\x8bH\xde\nb\xe3O\x05\xa3\x08\xe0('
+                32
+                'little'
+                (
+                    'pq'
+                    'p'
+                    'q'
+                    'nonce'
+                    'server_nonce'
+                    'new_nonce'
+                )
+                (
+                    None
+                    None
+                )
+                (
+                    'use_old'
+                )
+                'Step 2 could not find a valid key for fingerprints: {}'   # b'\x81\xd1\x0c\x16#\xba\xec\x92\x18\xf5\x18\xcch\xac\xf6\x8a\x1b\x1d\xbd\xae\xa4\xcf\x0e\xcdEy\xa2P\t\xb5^\xee?K`\x0b\x97\xd8\xf4(\x11\xe7\xffX\xcf\xc8\x1dN9\xf9E\xa1\xc7k\x1b'
+                ', '
+                (
+                    'nonce'
+                    'server_nonce'
+                    'p'
+                    'q'
+                    'public_key_fingerprint'
+                    'encrypted_data'
+                )
+                'Step 2.1 answer was %s'   # b'\x81\xd1\x0c\x16#\xba\xec\x9cJ\xba\x0c\xce\x7f\xfb\xfd\x97OJ\xba\xb4\xea\x8e]'
+                'Step 2 invalid nonce from server'   # b'\x81\xd1\x0c\x16#\xba\xec\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5\x01R\xb5\xa4\xaf\x8bH\xde\nb\xe3O\x05\xa3\x08\xe0('
+                'Step 2 invalid server nonce from server'   # b'\x81\xd1\x0c\x16#\xba\xec\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5\x1cX\xa9\xb1\xaf\xd9\x0e\xc2\na\xa0Y@\xb7\x0c\xea7\x123\x08\x8a\xdc\xb1<'
+                4
+                20
+                'Step 2 invalid DH fail nonce from server'   # b'\x81\xd1\x0c\x16#\xba\xec\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5+u\xfb\xa1\xab\xc2B\x8c\x0b`\xad_\x05\xf1\x18\xf75_`\x1e\x9d\xd8\xa2+\n'
+                'Step 2.2 answer was %s'   # b'\x81\xd1\x0c\x16#\xba\xec\x9cI\xba\x0c\xce\x7f\xfb\xfd\x97OJ\xba\xb4\xea\x8e]'
+                0
+                'Step 3 AES block size mismatch'   # b'\x81\xd1\x0c\x16#\xba\xed\x92:\xdf>\x80n\xe0\xf7\x86\x04\x1d\xa8\xae\xb0\xce\x0e\xc1\x0c|\xae]\x14\xb2\x16'
+                'Step 3 answer was %s'   # b'\x81\xd1\x0c\x16#\xba\xed\x92\x1a\xf4\x1e\xd7i\xfe\xb8\x92\x0eN\xfb\xe2\xb9'
+                'Step 3 Invalid nonce in encrypted answer'   # b'\x81\xd1\x0c\x16#\xba\xed\x922\xf4\x1b\xc1`\xe5\xfc\xc5\x01R\xb5\xa4\xaf\x8bG\xc2Ej\xad_\x12\xa8\x0e\xf1?V`\x0c\x96\xd9\xa3+\n'
+                'Step 3 Invalid server nonce in encrypted answer'   # b'\x81\xd1\x0c\x16#\xba\xed\x922\xf4\x1b\xc1`\xe5\xfc\xc5\x1cX\xa9\xb1\xaf\xd9\x0e\xc2\na\xa0Y@\xb8\x10\xa5?\\#\x1f\x81\xda\xa0+\x1c\xa9\xf9S\xce\xcf\nU'
+                False
+                256
+                1
+                'g_a is not within (1, dh_prime - 1)'   # b"\x81\xe5'\x12s\xf3\xad\x92\x15\xf5\x19\x80{\xe5\xec\x8d\x06S\xfb\xef\xfb\x87\x0e\xc8\rP\xb3N\t\xbc\x1b\xa5w\x12qD"
+                'g_b is not within (1, dh_prime - 1)'   # b"\x81\xe5'\x11s\xf3\xad\x92\x15\xf5\x19\x80{\xe5\xec\x8d\x06S\xfb\xef\xfb\x87\x0e\xc8\rP\xb3N\t\xbc\x1b\xa5w\x12qD"
+                2
+                1984
+                'g_a is not within (2^{2048-64}, dh_prime - 2^{2048-64})'   # b"\x81\xe5'\x12s\xf3\xad\x92\x15\xf5\x19\x80{\xe5\xec\x8d\x06S\xfb\xef\xf8\xf5U\x9eU;\xfb\x11V\xe5\x03\xa9zV(2\x88\xd8\xbd#\x1d\xa9\xb5\x1d\x8f\xe6\x14\x15g\xb9\x0e\xb6\xd1$\x1b\xa4"
+                'g_b is not within (2^{2048-64}, dh_prime - 2^{2048-64})'   # b"\x81\xe5'\x11s\xf3\xad\x92\x15\xf5\x19\x80{\xe5\xec\x8d\x06S\xfb\xef\xf8\xf5U\x9eU;\xfb\x11V\xe5\x03\xa9zV(2\x88\xd8\xbd#\x1d\xa9\xb5\x1d\x8f\xe6\x14\x15g\xb9\x0e\xb6\xd1$\x1b\xa4"
+                (
+                    'nonce'
+                    'server_nonce'
+                    'retry_id'
+                    'g_b'
+                )
+                (
+                    'nonce'
+                    'server_nonce'
+                    'encrypted_data'
+                )
+                'Step 3.1 answer was %s'   # b'\x81\xd1\x0c\x16#\xba\xed\x9cJ\xba\x0c\xce\x7f\xfb\xfd\x97OJ\xba\xb4\xea\x8e]'
+                'Step 3 invalid {} nonce from server'   # b'\x81\xd1\x0c\x16#\xba\xed\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5\x14@\xfb\xa9\xa5\xc5M\xc9Ei\xb1S\r\xf1\r\xe0(D%\x1f'
+                'Step 3 invalid {} server nonce from server'   # b'\x81\xd1\x0c\x16#\xba\xed\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5\x14@\xfb\xb4\xaf\xd9X\xc9\x17/\xadS\x0e\xb2\x1b\xa5<@/\x00\xd8\xd9\xb1<\x0e\xec\xea'
+                'new_nonce_hash{}'   # b'\x81\xec\x1d\x04\x0c\xf4\xb1\xdc\x18\xff2\xc8m\xff\xf0\x9e\x12'
+                'Step 3 invalid new nonce hash'   # b'\x81\xd1\x0c\x16#\xba\xed\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5\x01X\xac\xe7\xa4\xc4@\xcf\x00/\xab]\x13\xb9'
+                'Step 3.2 answer was %s'   # b'\x81\xd1\x0c\x16#\xba\xed\x9cI\xba\x0c\xce\x7f\xfb\xfd\x97OJ\xba\xb4\xea\x8e]'
+                '__pyarmor_exit_23051__'
+            [Disassembly]
+                0       RETURN_GENERATOR                
+                2       POP_TOP                         
+                4       NOP                             
+                6       NOP                             
+                8       PUSH_NULL                       
+                10      LOAD_CONST                      2: '__pyarmor_enter_23050__'
+                12      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\xc4\x0f\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                14      BUILD_TUPLE                     1
+                16      CALL_FUNCTION_EX                0
+                18      POP_TOP                         
+                20      RESUME                          0
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      LOAD_GLOBAL                     0: int
+                42      LOAD_ATTR                       3: from_bytes
+                62      LOAD_GLOBAL                     5: NULL + os
+                72      LOAD_ATTR                       6: urandom
+                92      LOAD_CONST                      4: 16
+                94      CALL                            1
+                102     LOAD_CONST                      5: 'big'
+                104     LOAD_CONST                      6: True
+                106     KW_NAMES                        7: ('signed',)
+                108     CALL                            3
+                116     STORE_FAST                      2: _var_var_0
+                118     LOAD_FAST                       0: sender
+                120     LOAD_ATTR                       9: send
+                140     LOAD_GLOBAL                     11: NULL + ReqPqMultiRequest
+                150     LOAD_FAST                       2: _var_var_0
+                152     CALL                            1
+                160     CALL                            1
+                168     GET_AWAITABLE                   0
+                170     LOAD_CONST                      8: None
+                172     SEND                            3 (to 180)
+                176     YIELD_VALUE                     3
+                178     RESUME                          3
+                180     JUMP_BACKWARD_NO_INTERRUPT      5 (to 172)
+                182     END_SEND                        
+                184     STORE_FAST                      3: _var_var_1
+                186     LOAD_GLOBAL                     13: NULL + isinstance
+                196     LOAD_FAST                       3: _var_var_1
+                198     LOAD_GLOBAL                     14: ResPQ
+                208     CALL                            2
+                216     POP_JUMP_IF_TRUE                16 (to 250)
+                218     LOAD_ASSERTION_ERROR            
+                220     PUSH_NULL                       
+                222     LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                224     LOAD_CONST                      9: 'Step 1 answer was %s'   # b'\x81\xd1\x0c\x16#\xba\xef\x92\x1a\xf4\x1e\xd7i\xfe\xb8\x92\x0eN\xfb\xe2\xb9'
+                226     CALL                            1
+                234     LOAD_FAST                       3: _var_var_1
+                236     BINARY_OP                       6 (%)
+                240     CALL                            0
+                248     RAISE_VARARGS                   1
+                250     LOAD_FAST                       3: _var_var_1
+                252     LOAD_ATTR                       16: nonce
+                272     LOAD_FAST                       2: _var_var_0
+                274     COMPARE_OP                      55 (!=)
+                278     POP_JUMP_IF_FALSE               17 (to 314)
+                280     LOAD_GLOBAL                     19: NULL + SecurityError
+                290     PUSH_NULL                       
+                292     LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                294     LOAD_CONST                      10: 'Step 1 invalid nonce from server'   # b'\x81\xd1\x0c\x16#\xba\xef\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5\x01R\xb5\xa4\xaf\x8bH\xde\nb\xe3O\x05\xa3\x08\xe0('
+                296     CALL                            1
+                304     CALL                            1
+                312     RAISE_VARARGS                   1
+                314     LOAD_GLOBAL                     21: NULL + get_int
+                324     LOAD_FAST                       3: _var_var_1
+                326     LOAD_ATTR                       22: pq
+                346     CALL                            1
+                354     STORE_FAST                      4: _var_var_2
+                356     LOAD_GLOBAL                     25: NULL + Factorization
+                366     LOAD_ATTR                       26: factorize
+                386     LOAD_FAST                       4: _var_var_2
+                388     CALL                            1
+                396     UNPACK_SEQUENCE                 2
+                400     STORE_FAST                      5: _var_var_3
+                402     STORE_FAST                      6: _var_var_4
+                404     LOAD_GLOBAL                     29: NULL + rsa
+                414     LOAD_ATTR                       30: get_byte_array
+                434     LOAD_FAST                       5: _var_var_3
+                436     CALL                            1
+                444     LOAD_GLOBAL                     29: NULL + rsa
+                454     LOAD_ATTR                       30: get_byte_array
+                474     LOAD_FAST                       6: _var_var_4
+                476     CALL                            1
+                484     STORE_FAST                      6: _var_var_4
+                486     STORE_FAST                      5: _var_var_3
+                488     LOAD_GLOBAL                     0: int
+                498     LOAD_ATTR                       3: from_bytes
+                518     LOAD_GLOBAL                     5: NULL + os
+                528     LOAD_ATTR                       6: urandom
+                548     LOAD_CONST                      11: 32
+                550     CALL                            1
+                558     LOAD_CONST                      12: 'little'
+                560     LOAD_CONST                      6: True
+                562     KW_NAMES                        7: ('signed',)
+                564     CALL                            3
+                572     STORE_FAST                      7: _var_var_5
+                574     LOAD_GLOBAL                     33: NULL + bytes
+                584     LOAD_GLOBAL                     35: NULL + PQInnerData
+                594     LOAD_GLOBAL                     29: NULL + rsa
+                604     LOAD_ATTR                       30: get_byte_array
+                624     LOAD_FAST                       4: _var_var_2
+                626     CALL                            1
+                634     LOAD_FAST                       5: _var_var_3
+                636     LOAD_FAST                       6: _var_var_4
+                638     LOAD_FAST                       3: _var_var_1
+                640     LOAD_ATTR                       16: nonce
+                660     LOAD_FAST                       3: _var_var_1
+                662     LOAD_ATTR                       36: server_nonce
+                682     LOAD_FAST                       7: _var_var_5
+                684     KW_NAMES                        13: ('pq', 'p', 'q', 'nonce', 'server_nonce', 'new_nonce')
+                686     CALL                            6
+                694     CALL                            1
+                702     STORE_FAST                      8: _var_var_6
+                704     LOAD_CONST                      14: (None, None)
+                706     UNPACK_SEQUENCE                 2
+                710     STORE_FAST                      9: _var_var_7
+                712     STORE_FAST                      10: _var_var_8
+                714     LOAD_FAST                       3: _var_var_1
+                716     LOAD_ATTR                       38: server_public_key_fingerprints
+                736     GET_ITER                        
+                738     FOR_ITER                        30 (to 800)
+                742     STORE_FAST                      11: _var_var_9
+                744     LOAD_GLOBAL                     29: NULL + rsa
+                754     LOAD_ATTR                       40: encrypt
+                774     LOAD_FAST                       11: _var_var_9
+                776     LOAD_FAST                       8: _var_var_6
+                778     CALL                            2
+                786     STORE_FAST                      9: _var_var_7
+                788     LOAD_FAST                       9: _var_var_7
+                790     POP_JUMP_IF_NOT_NONE            1 (to 794)
+                792     JUMP_BACKWARD                   28 (to 738)
+                794     LOAD_FAST                       11: _var_var_9
+                796     STORE_FAST                      10: _var_var_8
+                798     POP_TOP                         
+                800     JUMP_FORWARD                    1 (to 804)
+                802     END_FOR                         
+                804     LOAD_FAST                       9: _var_var_7
+                806     POP_JUMP_IF_NOT_NONE            47 (to 902)
+                808     LOAD_FAST                       3: _var_var_1
+                810     LOAD_ATTR                       38: server_public_key_fingerprints
+                830     GET_ITER                        
+                832     FOR_ITER                        32 (to 898)
+                836     STORE_FAST                      11: _var_var_9
+                838     LOAD_GLOBAL                     29: NULL + rsa
+                848     LOAD_ATTR                       40: encrypt
+                868     LOAD_FAST                       11: _var_var_9
+                870     LOAD_FAST                       8: _var_var_6
+                872     LOAD_CONST                      6: True
+                874     KW_NAMES                        15: ('use_old',)
+                876     CALL                            3
+                884     STORE_FAST                      9: _var_var_7
+                886     LOAD_FAST                       9: _var_var_7
+                888     POP_JUMP_IF_NOT_NONE            1 (to 892)
+                890     JUMP_BACKWARD                   30 (to 832)
+                892     LOAD_FAST                       11: _var_var_9
+                894     STORE_FAST                      10: _var_var_8
+                896     POP_TOP                         
+                898     JUMP_FORWARD                    1 (to 902)
+                900     END_FOR                         
+                902     LOAD_FAST                       9: _var_var_7
+                904     POP_JUMP_IF_NOT_NONE            80 (to 1066)
+                906     LOAD_GLOBAL                     19: NULL + SecurityError
+                916     PUSH_NULL                       
+                918     LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                920     LOAD_CONST                      16: 'Step 2 could not find a valid key for fingerprints: {}'   # b'\x81\xd1\x0c\x16#\xba\xec\x92\x18\xf5\x18\xcch\xac\xf6\x8a\x1b\x1d\xbd\xae\xa4\xcf\x0e\xcdEy\xa2P\t\xb5^\xee?K`\x0b\x97\xd8\xf4(\x11\xe7\xffX\xcf\xc8\x1dN9\xf9E\xa1\xc7k\x1b'
+                922     CALL                            1
+                930     LOAD_ATTR                       43: format
+                950     LOAD_CONST                      17: ', '
+                952     LOAD_ATTR                       45: join
+                972     LOAD_FAST                       3: _var_var_1
+                974     LOAD_ATTR                       38: server_public_key_fingerprints
+                994     GET_ITER                        
+                996     LOAD_FAST_AND_CLEAR             12: _var_var_10
+                998     SWAP                            2
+                1000    BUILD_LIST                      0
+                1002    SWAP                            2
+                1004    FOR_ITER                        13 (to 1032)
+                1008    STORE_FAST                      12: _var_var_10
+                1010    LOAD_GLOBAL                     47: NULL + str
+                1020    LOAD_FAST                       12: _var_var_10
+                1022    CALL                            1
+                1030    LIST_APPEND                     2
+                1032    JUMP_BACKWARD                   15 (to 1004)
+                1034    END_FOR                         
+                1036    SWAP                            2
+                1038    STORE_FAST                      12: _var_var_10
+                1040    CALL                            1
+                1048    CALL                            1
+                1056    CALL                            1
+                1064    RAISE_VARARGS                   1
+                1066    LOAD_FAST                       0: sender
+                1068    LOAD_ATTR                       9: send
+                1088    LOAD_GLOBAL                     49: NULL + ReqDHParamsRequest
+                1098    LOAD_FAST                       3: _var_var_1
+                1100    LOAD_ATTR                       16: nonce
+                1120    LOAD_FAST                       3: _var_var_1
+                1122    LOAD_ATTR                       36: server_nonce
+                1142    LOAD_FAST                       5: _var_var_3
+                1144    LOAD_FAST                       6: _var_var_4
+                1146    LOAD_FAST                       10: _var_var_8
+                1148    LOAD_FAST                       9: _var_var_7
+                1150    KW_NAMES                        18: ('nonce', 'server_nonce', 'p', 'q', 'public_key_fingerprint', 'encrypted_data')
+                1152    CALL                            6
+                1160    CALL                            1
+                1168    GET_AWAITABLE                   0
+                1170    LOAD_CONST                      8: None
+                1172    SEND                            3 (to 1180)
+                1176    YIELD_VALUE                     3
+                1178    RESUME                          3
+                1180    JUMP_BACKWARD_NO_INTERRUPT      5 (to 1172)
+                1182    END_SEND                        
+                1184    STORE_FAST                      13: _var_var_11
+                1186    LOAD_GLOBAL                     13: NULL + isinstance
+                1196    LOAD_FAST                       13: _var_var_11
+                1198    LOAD_GLOBAL                     50: ServerDHParamsOk
+                1208    LOAD_GLOBAL                     52: ServerDHParamsFail
+                1218    BUILD_TUPLE                     2
+                1220    CALL                            2
+                1228    POP_JUMP_IF_TRUE                16 (to 1262)
+                1230    LOAD_ASSERTION_ERROR            
+                1232    PUSH_NULL                       
+                1234    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                1236    LOAD_CONST                      19: 'Step 2.1 answer was %s'   # b'\x81\xd1\x0c\x16#\xba\xec\x9cJ\xba\x0c\xce\x7f\xfb\xfd\x97OJ\xba\xb4\xea\x8e]'
+                1238    CALL                            1
+                1246    LOAD_FAST                       13: _var_var_11
+                1248    BINARY_OP                       6 (%)
+                1252    CALL                            0
+                1260    RAISE_VARARGS                   1
+                1262    LOAD_FAST                       13: _var_var_11
+                1264    LOAD_ATTR                       16: nonce
+                1284    LOAD_FAST                       3: _var_var_1
+                1286    LOAD_ATTR                       16: nonce
+                1306    COMPARE_OP                      55 (!=)
+                1310    POP_JUMP_IF_FALSE               17 (to 1346)
+                1312    LOAD_GLOBAL                     19: NULL + SecurityError
+                1322    PUSH_NULL                       
+                1324    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                1326    LOAD_CONST                      20: 'Step 2 invalid nonce from server'   # b'\x81\xd1\x0c\x16#\xba\xec\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5\x01R\xb5\xa4\xaf\x8bH\xde\nb\xe3O\x05\xa3\x08\xe0('
+                1328    CALL                            1
+                1336    CALL                            1
+                1344    RAISE_VARARGS                   1
+                1346    LOAD_FAST                       13: _var_var_11
+                1348    LOAD_ATTR                       36: server_nonce
+                1368    LOAD_FAST                       3: _var_var_1
+                1370    LOAD_ATTR                       36: server_nonce
+                1390    COMPARE_OP                      55 (!=)
+                1394    POP_JUMP_IF_FALSE               17 (to 1430)
+                1396    LOAD_GLOBAL                     19: NULL + SecurityError
+                1406    PUSH_NULL                       
+                1408    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                1410    LOAD_CONST                      21: 'Step 2 invalid server nonce from server'   # b'\x81\xd1\x0c\x16#\xba\xec\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5\x1cX\xa9\xb1\xaf\xd9\x0e\xc2\na\xa0Y@\xb7\x0c\xea7\x123\x08\x8a\xdc\xb1<'
+                1412    CALL                            1
+                1420    CALL                            1
+                1428    RAISE_VARARGS                   1
+                1430    LOAD_GLOBAL                     13: NULL + isinstance
+                1440    LOAD_FAST                       13: _var_var_11
+                1442    LOAD_GLOBAL                     52: ServerDHParamsFail
+                1452    CALL                            2
+                1460    POP_JUMP_IF_FALSE               100 (to 1662)
+                1462    LOAD_GLOBAL                     0: int
+                1472    LOAD_ATTR                       3: from_bytes
+                1492    LOAD_GLOBAL                     55: NULL + sha1
+                1502    LOAD_FAST                       7: _var_var_5
+                1504    LOAD_ATTR                       57: to_bytes
+                1524    LOAD_CONST                      11: 32
+                1526    LOAD_CONST                      12: 'little'
+                1528    LOAD_CONST                      6: True
+                1530    KW_NAMES                        7: ('signed',)
+                1532    CALL                            3
+                1540    CALL                            1
+                1548    LOAD_ATTR                       59: digest
+                1568    CALL                            0
+                1576    LOAD_CONST                      22: 4
+                1578    LOAD_CONST                      23: 20
+                1580    BINARY_SLICE                    
+                1582    LOAD_CONST                      12: 'little'
+                1584    LOAD_CONST                      6: True
+                1586    KW_NAMES                        7: ('signed',)
+                1588    CALL                            3
+                1596    STORE_FAST                      14: _var_var_12
+                1598    LOAD_FAST                       13: _var_var_11
+                1600    LOAD_ATTR                       60: new_nonce_hash
+                1620    LOAD_FAST                       14: _var_var_12
+                1622    COMPARE_OP                      55 (!=)
+                1626    POP_JUMP_IF_FALSE               17 (to 1662)
+                1628    LOAD_GLOBAL                     19: NULL + SecurityError
+                1638    PUSH_NULL                       
+                1640    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                1642    LOAD_CONST                      24: 'Step 2 invalid DH fail nonce from server'   # b'\x81\xd1\x0c\x16#\xba\xec\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5+u\xfb\xa1\xab\xc2B\x8c\x0b`\xad_\x05\xf1\x18\xf75_`\x1e\x9d\xd8\xa2+\n'
+                1644    CALL                            1
+                1652    CALL                            1
+                1660    RAISE_VARARGS                   1
+                1662    LOAD_GLOBAL                     13: NULL + isinstance
+                1672    LOAD_FAST                       13: _var_var_11
+                1674    LOAD_GLOBAL                     50: ServerDHParamsOk
+                1684    CALL                            2
+                1692    POP_JUMP_IF_TRUE                16 (to 1726)
+                1694    LOAD_ASSERTION_ERROR            
+                1696    PUSH_NULL                       
+                1698    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                1700    LOAD_CONST                      25: 'Step 2.2 answer was %s'   # b'\x81\xd1\x0c\x16#\xba\xec\x9cI\xba\x0c\xce\x7f\xfb\xfd\x97OJ\xba\xb4\xea\x8e]'
+                1702    CALL                            1
+                1710    LOAD_FAST                       13: _var_var_11
+                1712    BINARY_OP                       6 (%)
+                1716    CALL                            0
+                1724    RAISE_VARARGS                   1
+                1726    LOAD_GLOBAL                     63: NULL + helpers
+                1736    LOAD_ATTR                       64: generate_key_data_from_nonce
+                1756    LOAD_FAST                       3: _var_var_1
+                1758    LOAD_ATTR                       36: server_nonce
+                1778    LOAD_FAST                       7: _var_var_5
+                1780    CALL                            2
+                1788    UNPACK_SEQUENCE                 2
+                1792    STORE_FAST                      15: _var_var_13
+                1794    STORE_FAST                      16: _var_var_14
+                1796    LOAD_GLOBAL                     67: NULL + len
+                1806    LOAD_FAST                       13: _var_var_11
+                1808    LOAD_ATTR                       68: encrypted_answer
+                1828    CALL                            1
+                1836    LOAD_CONST                      4: 16
+                1838    BINARY_OP                       6 (%)
+                1842    LOAD_CONST                      26: 0
+                1844    COMPARE_OP                      55 (!=)
+                1848    POP_JUMP_IF_FALSE               17 (to 1884)
+                1850    LOAD_GLOBAL                     19: NULL + SecurityError
+                1860    PUSH_NULL                       
+                1862    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                1864    LOAD_CONST                      27: 'Step 3 AES block size mismatch'   # b'\x81\xd1\x0c\x16#\xba\xed\x92:\xdf>\x80n\xe0\xf7\x86\x04\x1d\xa8\xae\xb0\xce\x0e\xc1\x0c|\xae]\x14\xb2\x16'
+                1866    CALL                            1
+                1874    CALL                            1
+                1882    RAISE_VARARGS                   1
+                1884    LOAD_GLOBAL                     71: NULL + AES
+                1894    LOAD_ATTR                       72: decrypt_ige
+                1914    LOAD_FAST                       13: _var_var_11
+                1916    LOAD_ATTR                       68: encrypted_answer
+                1936    LOAD_FAST                       15: _var_var_13
+                1938    LOAD_FAST                       16: _var_var_14
+                1940    CALL                            3
+                1948    STORE_FAST                      17: _var_var_15
+                1950    LOAD_GLOBAL                     75: NULL + BinaryReader
+                1960    LOAD_FAST                       17: _var_var_15
+                1962    CALL                            1
+                1970    BEFORE_WITH                     
+                1972    STORE_FAST                      18: _var_var_16
+                1974    LOAD_FAST                       18: _var_var_16
+                1976    LOAD_ATTR                       77: read
+                1996    LOAD_CONST                      23: 20
+                1998    CALL                            1
+                2006    POP_TOP                         
+                2008    LOAD_FAST                       18: _var_var_16
+                2010    LOAD_ATTR                       79: tgread_object
+                2030    CALL                            0
+                2038    STORE_FAST                      19: _var_var_17
+                2040    LOAD_GLOBAL                     13: NULL + isinstance
+                2050    LOAD_FAST                       19: _var_var_17
+                2052    LOAD_GLOBAL                     80: ServerDHInnerData
+                2062    CALL                            2
+                2070    POP_JUMP_IF_TRUE                16 (to 2104)
+                2072    LOAD_ASSERTION_ERROR            
+                2074    PUSH_NULL                       
+                2076    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                2078    LOAD_CONST                      28: 'Step 3 answer was %s'   # b'\x81\xd1\x0c\x16#\xba\xed\x92\x1a\xf4\x1e\xd7i\xfe\xb8\x92\x0eN\xfb\xe2\xb9'
+                2080    CALL                            1
+                2088    LOAD_FAST                       19: _var_var_17
+                2090    BINARY_OP                       6 (%)
+                2094    CALL                            0
+                2102    RAISE_VARARGS                   1
+                2104    NOP                             
+                2106    LOAD_CONST                      8: None
+                2108    LOAD_CONST                      8: None
+                2110    LOAD_CONST                      8: None
+                2112    CALL                            2
+                2120    POP_TOP                         
+                2122    LOAD_FAST_CHECK                 19: _var_var_17
+                2124    LOAD_ATTR                       16: nonce
+                2144    LOAD_FAST                       3: _var_var_1
+                2146    LOAD_ATTR                       16: nonce
+                2166    COMPARE_OP                      55 (!=)
+                2170    POP_JUMP_IF_FALSE               17 (to 2206)
+                2172    LOAD_GLOBAL                     19: NULL + SecurityError
+                2182    PUSH_NULL                       
+                2184    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                2186    LOAD_CONST                      29: 'Step 3 Invalid nonce in encrypted answer'   # b'\x81\xd1\x0c\x16#\xba\xed\x922\xf4\x1b\xc1`\xe5\xfc\xc5\x01R\xb5\xa4\xaf\x8bG\xc2Ej\xad_\x12\xa8\x0e\xf1?V`\x0c\x96\xd9\xa3+\n'
+                2188    CALL                            1
+                2196    CALL                            1
+                2204    RAISE_VARARGS                   1
+                2206    LOAD_FAST                       19: _var_var_17
+                2208    LOAD_ATTR                       36: server_nonce
+                2228    LOAD_FAST                       3: _var_var_1
+                2230    LOAD_ATTR                       36: server_nonce
+                2250    COMPARE_OP                      55 (!=)
+                2254    POP_JUMP_IF_FALSE               17 (to 2290)
+                2256    LOAD_GLOBAL                     19: NULL + SecurityError
+                2266    PUSH_NULL                       
+                2268    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                2270    LOAD_CONST                      30: 'Step 3 Invalid server nonce in encrypted answer'   # b'\x81\xd1\x0c\x16#\xba\xed\x922\xf4\x1b\xc1`\xe5\xfc\xc5\x1cX\xa9\xb1\xaf\xd9\x0e\xc2\na\xa0Y@\xb8\x10\xa5?\\#\x1f\x81\xda\xa0+\x1c\xa9\xf9S\xce\xcf\nU'
+                2272    CALL                            1
+                2280    CALL                            1
+                2288    RAISE_VARARGS                   1
+                2290    LOAD_GLOBAL                     21: NULL + get_int
+                2300    LOAD_FAST                       19: _var_var_17
+                2302    LOAD_ATTR                       82: dh_prime
+                2322    LOAD_CONST                      31: False
+                2324    KW_NAMES                        7: ('signed',)
+                2326    CALL                            2
+                2334    STORE_FAST                      20: _var_var_18
+                2336    LOAD_FAST                       19: _var_var_17
+                2338    LOAD_ATTR                       84: g
+                2358    STORE_FAST                      21: _var_var_19
+                2360    LOAD_GLOBAL                     21: NULL + get_int
+                2370    LOAD_FAST                       19: _var_var_17
+                2372    LOAD_ATTR                       86: g_a
+                2392    LOAD_CONST                      31: False
+                2394    KW_NAMES                        7: ('signed',)
+                2396    CALL                            2
+                2404    STORE_FAST                      22: _var_var_20
+                2406    LOAD_FAST                       19: _var_var_17
+                2408    LOAD_ATTR                       88: server_time
+                2428    LOAD_GLOBAL                     1: NULL + int
+                2438    LOAD_GLOBAL                     91: NULL + time
+                2448    LOAD_ATTR                       90: time
+                2468    CALL                            0
+                2476    CALL                            1
+                2484    BINARY_OP                       10 (-)
+                2488    STORE_FAST                      23: _var_var_21
+                2490    LOAD_GLOBAL                     21: NULL + get_int
+                2500    LOAD_GLOBAL                     5: NULL + os
+                2510    LOAD_ATTR                       6: urandom
+                2530    LOAD_CONST                      32: 256
+                2532    CALL                            1
+                2540    LOAD_CONST                      31: False
+                2542    KW_NAMES                        7: ('signed',)
+                2544    CALL                            2
+                2552    STORE_FAST                      24: _var_var_22
+                2554    LOAD_GLOBAL                     93: NULL + pow
+                2564    LOAD_FAST                       21: _var_var_19
+                2566    LOAD_FAST                       24: _var_var_22
+                2568    LOAD_FAST                       20: _var_var_18
+                2570    CALL                            3
+                2578    STORE_FAST                      25: _var_var_23
+                2580    LOAD_GLOBAL                     93: NULL + pow
+                2590    LOAD_FAST                       22: _var_var_20
+                2592    LOAD_FAST                       24: _var_var_22
+                2594    LOAD_FAST                       20: _var_var_18
+                2596    CALL                            3
+                2604    STORE_FAST                      26: _var_var_24
+                2606    LOAD_CONST                      33: 1
+                2608    LOAD_FAST                       21: _var_var_19
+                2610    SWAP                            2
+                2612    COPY                            2
+                2614    COMPARE_OP                      2 (<)
+                2618    POP_JUMP_IF_FALSE               8 (to 2636)
+                2620    LOAD_FAST                       20: _var_var_18
+                2622    LOAD_CONST                      33: 1
+                2624    BINARY_OP                       10 (-)
+                2628    COMPARE_OP                      2 (<)
+                2632    POP_JUMP_IF_TRUE                19 (to 2672)
+                2634    JUMP_FORWARD                    1 (to 2638)
+                2636    POP_TOP                         
+                2638    LOAD_GLOBAL                     19: NULL + SecurityError
+                2648    PUSH_NULL                       
+                2650    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                2652    LOAD_CONST                      34: 'g_a is not within (1, dh_prime - 1)'   # b"\x81\xe5'\x12s\xf3\xad\x92\x15\xf5\x19\x80{\xe5\xec\x8d\x06S\xfb\xef\xfb\x87\x0e\xc8\rP\xb3N\t\xbc\x1b\xa5w\x12qD"
+                2654    CALL                            1
+                2662    CALL                            1
+                2670    RAISE_VARARGS                   1
+                2672    LOAD_CONST                      33: 1
+                2674    LOAD_FAST                       22: _var_var_20
+                2676    SWAP                            2
+                2678    COPY                            2
+                2680    COMPARE_OP                      2 (<)
+                2684    POP_JUMP_IF_FALSE               8 (to 2702)
+                2686    LOAD_FAST                       20: _var_var_18
+                2688    LOAD_CONST                      33: 1
+                2690    BINARY_OP                       10 (-)
+                2694    COMPARE_OP                      2 (<)
+                2698    POP_JUMP_IF_TRUE                19 (to 2738)
+                2700    JUMP_FORWARD                    1 (to 2704)
+                2702    POP_TOP                         
+                2704    LOAD_GLOBAL                     19: NULL + SecurityError
+                2714    PUSH_NULL                       
+                2716    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                2718    LOAD_CONST                      34: 'g_a is not within (1, dh_prime - 1)'   # b"\x81\xe5'\x12s\xf3\xad\x92\x15\xf5\x19\x80{\xe5\xec\x8d\x06S\xfb\xef\xfb\x87\x0e\xc8\rP\xb3N\t\xbc\x1b\xa5w\x12qD"
+                2720    CALL                            1
+                2728    CALL                            1
+                2736    RAISE_VARARGS                   1
+                2738    LOAD_CONST                      33: 1
+                2740    LOAD_FAST                       25: _var_var_23
+                2742    SWAP                            2
+                2744    COPY                            2
+                2746    COMPARE_OP                      2 (<)
+                2750    POP_JUMP_IF_FALSE               8 (to 2768)
+                2752    LOAD_FAST                       20: _var_var_18
+                2754    LOAD_CONST                      33: 1
+                2756    BINARY_OP                       10 (-)
+                2760    COMPARE_OP                      2 (<)
+                2764    POP_JUMP_IF_TRUE                19 (to 2804)
+                2766    JUMP_FORWARD                    1 (to 2770)
+                2768    POP_TOP                         
+                2770    LOAD_GLOBAL                     19: NULL + SecurityError
+                2780    PUSH_NULL                       
+                2782    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                2784    LOAD_CONST                      35: 'g_b is not within (1, dh_prime - 1)'   # b"\x81\xe5'\x11s\xf3\xad\x92\x15\xf5\x19\x80{\xe5\xec\x8d\x06S\xfb\xef\xfb\x87\x0e\xc8\rP\xb3N\t\xbc\x1b\xa5w\x12qD"
+                2786    CALL                            1
+                2794    CALL                            1
+                2802    RAISE_VARARGS                   1
+                2804    LOAD_CONST                      36: 2
+                2806    LOAD_CONST                      37: 1984
+                2808    BINARY_OP                       8 (**)
+                2812    STORE_FAST                      27: _var_var_25
+                2814    LOAD_FAST                       27: _var_var_25
+                2816    LOAD_FAST                       22: _var_var_20
+                2818    SWAP                            2
+                2820    COPY                            2
+                2822    COMPARE_OP                      26 (<=)
+                2826    POP_JUMP_IF_FALSE               8 (to 2844)
+                2828    LOAD_FAST                       20: _var_var_18
+                2830    LOAD_FAST                       27: _var_var_25
+                2832    BINARY_OP                       10 (-)
+                2836    COMPARE_OP                      26 (<=)
+                2840    POP_JUMP_IF_TRUE                19 (to 2880)
+                2842    JUMP_FORWARD                    1 (to 2846)
+                2844    POP_TOP                         
+                2846    LOAD_GLOBAL                     19: NULL + SecurityError
+                2856    PUSH_NULL                       
+                2858    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                2860    LOAD_CONST                      38: 'g_a is not within (2^{2048-64}, dh_prime - 2^{2048-64})'   # b"\x81\xe5'\x12s\xf3\xad\x92\x15\xf5\x19\x80{\xe5\xec\x8d\x06S\xfb\xef\xf8\xf5U\x9eU;\xfb\x11V\xe5\x03\xa9zV(2\x88\xd8\xbd#\x1d\xa9\xb5\x1d\x8f\xe6\x14\x15g\xb9\x0e\xb6\xd1$\x1b\xa4"
+                2862    CALL                            1
+                2870    CALL                            1
+                2878    RAISE_VARARGS                   1
+                2880    LOAD_FAST                       27: _var_var_25
+                2882    LOAD_FAST                       25: _var_var_23
+                2884    SWAP                            2
+                2886    COPY                            2
+                2888    COMPARE_OP                      26 (<=)
+                2892    POP_JUMP_IF_FALSE               8 (to 2910)
+                2894    LOAD_FAST                       20: _var_var_18
+                2896    LOAD_FAST                       27: _var_var_25
+                2898    BINARY_OP                       10 (-)
+                2902    COMPARE_OP                      26 (<=)
+                2906    POP_JUMP_IF_TRUE                19 (to 2946)
+                2908    JUMP_FORWARD                    1 (to 2912)
+                2910    POP_TOP                         
+                2912    LOAD_GLOBAL                     19: NULL + SecurityError
+                2922    PUSH_NULL                       
+                2924    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                2926    LOAD_CONST                      39: 'g_b is not within (2^{2048-64}, dh_prime - 2^{2048-64})'   # b"\x81\xe5'\x11s\xf3\xad\x92\x15\xf5\x19\x80{\xe5\xec\x8d\x06S\xfb\xef\xf8\xf5U\x9eU;\xfb\x11V\xe5\x03\xa9zV(2\x88\xd8\xbd#\x1d\xa9\xb5\x1d\x8f\xe6\x14\x15g\xb9\x0e\xb6\xd1$\x1b\xa4"
+                2928    CALL                            1
+                2936    CALL                            1
+                2944    RAISE_VARARGS                   1
+                2946    LOAD_GLOBAL                     33: NULL + bytes
+                2956    LOAD_GLOBAL                     95: NULL + ClientDHInnerData
+                2966    LOAD_FAST                       3: _var_var_1
+                2968    LOAD_ATTR                       16: nonce
+                2988    LOAD_FAST                       3: _var_var_1
+                2990    LOAD_ATTR                       36: server_nonce
+                3010    LOAD_CONST                      26: 0
+                3012    LOAD_GLOBAL                     29: NULL + rsa
+                3022    LOAD_ATTR                       30: get_byte_array
+                3042    LOAD_FAST                       25: _var_var_23
+                3044    CALL                            1
+                3052    KW_NAMES                        40: ('nonce', 'server_nonce', 'retry_id', 'g_b')
+                3054    CALL                            4
+                3062    CALL                            1
+                3070    STORE_FAST                      28: _var_var_26
+                3072    LOAD_GLOBAL                     55: NULL + sha1
+                3082    LOAD_FAST                       28: _var_var_26
+                3084    CALL                            1
+                3092    LOAD_ATTR                       59: digest
+                3112    CALL                            0
+                3120    LOAD_FAST                       28: _var_var_26
+                3122    BINARY_OP                       0 (+)
+                3126    STORE_FAST                      29: _var_var_27
+                3128    LOAD_GLOBAL                     71: NULL + AES
+                3138    LOAD_ATTR                       96: encrypt_ige
+                3158    LOAD_FAST                       29: _var_var_27
+                3160    LOAD_FAST                       15: _var_var_13
+                3162    LOAD_FAST                       16: _var_var_14
+                3164    CALL                            3
+                3172    STORE_FAST                      30: _var_var_28
+                3174    LOAD_FAST                       0: sender
+                3176    LOAD_ATTR                       9: send
+                3196    LOAD_GLOBAL                     99: NULL + SetClientDHParamsRequest
+                3206    LOAD_FAST                       3: _var_var_1
+                3208    LOAD_ATTR                       16: nonce
+                3228    LOAD_FAST                       3: _var_var_1
+                3230    LOAD_ATTR                       36: server_nonce
+                3250    LOAD_FAST                       30: _var_var_28
+                3252    KW_NAMES                        41: ('nonce', 'server_nonce', 'encrypted_data')
+                3254    CALL                            3
+                3262    CALL                            1
+                3270    GET_AWAITABLE                   0
+                3272    LOAD_CONST                      8: None
+                3274    SEND                            3 (to 3282)
+                3278    YIELD_VALUE                     3
+                3280    RESUME                          3
+                3282    JUMP_BACKWARD_NO_INTERRUPT      5 (to 3274)
+                3284    END_SEND                        
+                3286    STORE_FAST                      31: _var_var_29
+                3288    LOAD_GLOBAL                     100: DhGenOk
+                3298    LOAD_GLOBAL                     102: DhGenRetry
+                3308    LOAD_GLOBAL                     104: DhGenFail
+                3318    BUILD_TUPLE                     3
+                3320    STORE_FAST                      32: _var_var_30
+                3322    LOAD_GLOBAL                     13: NULL + isinstance
+                3332    LOAD_FAST                       31: _var_var_29
+                3334    LOAD_FAST                       32: _var_var_30
+                3336    CALL                            2
+                3344    POP_JUMP_IF_TRUE                16 (to 3378)
+                3346    LOAD_ASSERTION_ERROR            
+                3348    PUSH_NULL                       
+                3350    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                3352    LOAD_CONST                      42: 'Step 3.1 answer was %s'   # b'\x81\xd1\x0c\x16#\xba\xed\x9cJ\xba\x0c\xce\x7f\xfb\xfd\x97OJ\xba\xb4\xea\x8e]'
+                3354    CALL                            1
+                3362    LOAD_FAST                       31: _var_var_29
+                3364    BINARY_OP                       6 (%)
+                3368    CALL                            0
+                3376    RAISE_VARARGS                   1
+                3378    LOAD_FAST                       31: _var_var_29
+                3380    LOAD_ATTR                       106: __class__
+                3400    LOAD_ATTR                       108: __name__
+                3420    STORE_FAST                      33: _var_var_31
+                3422    LOAD_FAST                       31: _var_var_29
+                3424    LOAD_ATTR                       16: nonce
+                3444    LOAD_FAST                       3: _var_var_1
+                3446    LOAD_ATTR                       16: nonce
+                3466    COMPARE_OP                      55 (!=)
+                3470    POP_JUMP_IF_FALSE               32 (to 3536)
+                3472    LOAD_GLOBAL                     19: NULL + SecurityError
+                3482    PUSH_NULL                       
+                3484    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                3486    LOAD_CONST                      43: 'Step 3 invalid {} nonce from server'   # b'\x81\xd1\x0c\x16#\xba\xed\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5\x14@\xfb\xa9\xa5\xc5M\xc9Ei\xb1S\r\xf1\r\xe0(D%\x1f'
+                3488    CALL                            1
+                3496    LOAD_ATTR                       43: format
+                3516    LOAD_FAST                       33: _var_var_31
+                3518    CALL                            1
+                3526    CALL                            1
+                3534    RAISE_VARARGS                   1
+                3536    LOAD_FAST                       31: _var_var_29
+                3538    LOAD_ATTR                       36: server_nonce
+                3558    LOAD_FAST                       3: _var_var_1
+                3560    LOAD_ATTR                       36: server_nonce
+                3580    COMPARE_OP                      55 (!=)
+                3584    POP_JUMP_IF_FALSE               32 (to 3650)
+                3586    LOAD_GLOBAL                     19: NULL + SecurityError
+                3596    PUSH_NULL                       
+                3598    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                3600    LOAD_CONST                      44: 'Step 3 invalid {} server nonce from server'   # b'\x81\xd1\x0c\x16#\xba\xed\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5\x14@\xfb\xb4\xaf\xd9X\xc9\x17/\xadS\x0e\xb2\x1b\xa5<@/\x00\xd8\xd9\xb1<\x0e\xec\xea'
+                3602    CALL                            1
+                3610    LOAD_ATTR                       43: format
+                3630    LOAD_FAST                       33: _var_var_31
+                3632    CALL                            1
+                3640    CALL                            1
+                3648    RAISE_VARARGS                   1
+                3650    LOAD_GLOBAL                     111: NULL + AuthKey
+                3660    LOAD_GLOBAL                     29: NULL + rsa
+                3670    LOAD_ATTR                       30: get_byte_array
+                3690    LOAD_FAST                       26: _var_var_24
+                3692    CALL                            1
+                3700    CALL                            1
+                3708    STORE_FAST                      34: _var_var_32
+                3710    LOAD_CONST                      33: 1
+                3712    LOAD_FAST                       32: _var_var_30
+                3714    LOAD_ATTR                       113: index
+                3734    LOAD_GLOBAL                     115: NULL + type
+                3744    LOAD_FAST                       31: _var_var_29
+                3746    CALL                            1
+                3754    CALL                            1
+                3762    BINARY_OP                       0 (+)
+                3766    STORE_FAST                      35: _var_var_33
+                3768    LOAD_FAST                       34: _var_var_32
+                3770    LOAD_ATTR                       117: calc_new_nonce_hash
+                3790    LOAD_FAST                       7: _var_var_5
+                3792    LOAD_FAST                       35: _var_var_33
+                3794    CALL                            2
+                3802    STORE_FAST                      36: _var_var_34
+                3804    LOAD_GLOBAL                     119: NULL + getattr
+                3814    LOAD_FAST                       31: _var_var_29
+                3816    PUSH_NULL                       
+                3818    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                3820    LOAD_CONST                      45: 'new_nonce_hash{}'   # b'\x81\xec\x1d\x04\x0c\xf4\xb1\xdc\x18\xff2\xc8m\xff\xf0\x9e\x12'
+                3822    CALL                            1
+                3830    LOAD_ATTR                       43: format
+                3850    LOAD_FAST                       35: _var_var_33
+                3852    CALL                            1
+                3860    CALL                            2
+                3868    STORE_FAST                      37: _var_var_35
+                3870    LOAD_FAST                       37: _var_var_35
+                3872    LOAD_FAST                       36: _var_var_34
+                3874    COMPARE_OP                      55 (!=)
+                3878    POP_JUMP_IF_FALSE               17 (to 3914)
+                3880    LOAD_GLOBAL                     19: NULL + SecurityError
+                3890    PUSH_NULL                       
+                3892    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                3894    LOAD_CONST                      46: 'Step 3 invalid new nonce hash'   # b'\x81\xd1\x0c\x16#\xba\xed\x92\x12\xf4\x1b\xc1`\xe5\xfc\xc5\x01X\xac\xe7\xa4\xc4@\xcf\x00/\xab]\x13\xb9'
+                3896    CALL                            1
+                3904    CALL                            1
+                3912    RAISE_VARARGS                   1
+                3914    LOAD_GLOBAL                     13: NULL + isinstance
+                3924    LOAD_FAST                       31: _var_var_29
+                3926    LOAD_GLOBAL                     100: DhGenOk
+                3936    CALL                            2
+                3944    POP_JUMP_IF_TRUE                20 (to 3986)
+                3946    LOAD_GLOBAL                     121: NULL + AssertionError
+                3956    PUSH_NULL                       
+                3958    LOAD_CONST                      1: '__pyarmor_assert_23049__'
+                3960    LOAD_CONST                      47: 'Step 3.2 answer was %s'   # b'\x81\xd1\x0c\x16#\xba\xed\x9cI\xba\x0c\xce\x7f\xfb\xfd\x97OJ\xba\xb4\xea\x8e]'
+                3962    CALL                            1
+                3970    LOAD_FAST                       31: _var_var_29
+                3972    BINARY_OP                       6 (%)
+                3976    CALL                            1
+                3984    RAISE_VARARGS                   1
+                3986    LOAD_FAST                       34: _var_var_32
+                3988    LOAD_FAST                       23: _var_var_21
+                3990    BUILD_TUPLE                     2
+                3992    NOP                             
+                3994    NOP                             
+                3996    NOP                             
+                3998    JUMP_FORWARD                    49 (to 4098)
+                4000    CALL                            1
+                4008    POP_TOP                         
+                4010    RETURN_VALUE                    
+                4012    CLEANUP_THROW                   
+                4014    JUMP_BACKWARD                   1918 (to 182)
+                4018    SWAP                            2
+                4020    POP_TOP                         
+                4022    SWAP                            2
+                4024    STORE_FAST                      12: _var_var_10
+                4026    RERAISE                         0
+                4028    CLEANUP_THROW                   
+                4030    JUMP_BACKWARD                   1426 (to 1182)
+                4034    PUSH_EXC_INFO                   
+                4036    WITH_EXCEPT_START               
+                4038    POP_JUMP_IF_TRUE                1 (to 4042)
+                4040    RERAISE                         2
+                4042    POP_TOP                         
+                4044    POP_EXCEPT                      
+                4046    POP_TOP                         
+                4048    POP_TOP                         
+                4050    JUMP_BACKWARD                   966 (to 2122)
+                4054    COPY                            3
+                4056    POP_EXCEPT                      
+                4058    RERAISE                         1
+                4060    CLEANUP_THROW                   
+                4062    JUMP_BACKWARD                   391 (to 3284)
+                4066    PUSH_EXC_INFO                   
+                4068    PUSH_NULL                       
+                4070    LOAD_CONST                      48: '__pyarmor_exit_23051__'
+                4072    NOP                             
+                4074    LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\xc4\x0f\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                4076    CALL                            1
+                4084    POP_TOP                         
+                4086    RERAISE                         0
+                4088    COPY                            3
+                4090    POP_EXCEPT                      
+                4092    RERAISE                         1
+                4094    CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                4096    RERAISE                         1
+                4098    PUSH_NULL                       
+                4100    LOAD_CONST                      48: '__pyarmor_exit_23051__'
+                4102    LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\xc4\x0f\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                4104    BUILD_TUPLE                     1
+                4106    CALL_FUNCTION_EX                0
+                4108    POP_TOP                         
+                4110    RETURN_VALUE                    
+            [Exception Table]
+                4 to 30 -> 4094 [0] lasti
+                32 to 176 -> 4066 [0] 
+                176 to 178 -> 4012 [2] 
+                178 to 792 -> 4066 [0] 
+                794 to 890 -> 4066 [0] 
+                892 to 1000 -> 4066 [0] 
+                1000 to 1036 -> 4018 [8] 
+                1036 to 1176 -> 4066 [0] 
+                1176 to 1178 -> 4028 [2] 
+                1178 to 1972 -> 4066 [0] 
+                1972 to 2104 -> 4034 [1] lasti
+                2106 to 3278 -> 4066 [0] 
+                3278 to 3280 -> 4060 [2] 
+                3280 to 3992 -> 4066 [0] 
+                3992 to 4012 -> 4094 [0] lasti
+                4012 to 4014 -> 4066 [0] 
+                4018 to 4030 -> 4066 [0] 
+                4034 to 4044 -> 4054 [3] lasti
+                4044 to 4062 -> 4066 [0] 
+                4066 to 4088 -> 4088 [1] lasti
+                4088 to 4094 -> 4094 [0] lasti
+        [Code]
+            File Name: <frozen multithon.network.authenticator>
+            Object Name: get_int
+            Qualified Name: get_int
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'int'
+                'from_bytes'
+            [Locals+Names]
+                'byte_array'
+                'signed'
+                '__assert_armored__'
+            [Constants]
+                '\n    Gets the specified integer from its byte array.\n    This should be used by this module alone, as it works with big endian.\n\n    :param byte_array: the byte array representing th integer.\n    :param signed: whether the number is signed or not.\n    :return: the integer representing the given byte array.\n    '
+                '__pyarmor_assert_23052__'
+                '__pyarmor_enter_23053__'
+                b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'big'
+                (
+                    'byteorder'
+                    'signed'
+                )
+                '__pyarmor_exit_23054__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_23053__'
+                8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_GLOBAL                     0: int
+                38      LOAD_ATTR                       3: from_bytes
+                58      LOAD_FAST                       0: byte_array
+                60      LOAD_CONST                      4: 'big'
+                62      LOAD_FAST                       1: signed
+                64      KW_NAMES                        5: ('byteorder', 'signed')
+                66      CALL                            3
+                74      NOP                             
+                76      NOP                             
+                78      NOP                             
+                80      JUMP_FORWARD                    20 (to 122)
+                82      CALL                            1
+                90      POP_TOP                         
+                92      RETURN_VALUE                    
+                94      PUSH_EXC_INFO                   
+                96      PUSH_NULL                       
+                98      LOAD_CONST                      6: '__pyarmor_exit_23054__'
+                100     NOP                             
+                102     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                104     CALL                            1
+                112     POP_TOP                         
+                114     RERAISE                         0
+                116     COPY                            3
+                118     POP_EXCEPT                      
+                120     RERAISE                         1
+                122     PUSH_NULL                       
+                124     LOAD_CONST                      6: '__pyarmor_exit_23054__'
+                126     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                128     BUILD_TUPLE                     1
+                130     CALL_FUNCTION_EX                0
+                132     POP_TOP                         
+                134     RETURN_VALUE                    
+            [Exception Table]
+                28 to 74 -> 94 [0] 
+                94 to 116 -> 116 [1] lasti
+        '__pyarmor_exit_23048__'
+        (
+            True
+        )
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_23047__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xca\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      PUSH_NULL                       
+        28      LOAD_CONST                      0: '__pyarmor_assert_23046__'
+        30      LOAD_CONST                      3: "\nThis module contains several functions that authenticate the client machine\nwith Telegram's servers, effectively creating an authorization key.\n"   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xfb\x8a\x01I\xba\xae\xa4\xd8\x0e\xdf\x00y\xa6N\x01\xbd^\xe3/\\#\x19\x91\xc5\xba=X\xfd\xf0\\\xc9\x98\x0eR#\xe5S\xf5\x93y\x05\xec#\xee\xdb\t\x10NqP[A\x00\x8d\xc9w\xe1\xbe\x90j50E\xd3\x1f\x98\xb5\x8f\xc4\x9d\xba\x03\x07F\xd6\xb6\x80\xab\x8c1\xca\xb6\xf6F\xb8a(Dd9I\x19\xbd\x81Y\xee\xeb>\xbe#\xf2\x1bj\xf1T\x1fzBm6\xf8L\xff\xec\xfe\xbb\x1a\xaf\x15\xbf\x0b\x8d%\\\x1b\xf7\xfa7Y\xa16\xda'
+        32      CALL                            1
+        40      POP_TOP                         
+        42      LOAD_CONST                      4: 0
+        44      LOAD_CONST                      5: None
+        46      IMPORT_NAME                     1: os
+        48      STORE_NAME                      1: os
+        50      LOAD_CONST                      4: 0
+        52      LOAD_CONST                      5: None
+        54      IMPORT_NAME                     2: time
+        56      STORE_NAME                      2: time
+        58      LOAD_CONST                      4: 0
+        60      LOAD_CONST                      6: ('sha1',)
+        62      IMPORT_NAME                     3: hashlib
+        64      IMPORT_FROM                     4: sha1
+        66      STORE_NAME                      4: sha1
+        68      POP_TOP                         
+        70      LOAD_CONST                      7: 2
+        72      LOAD_CONST                      8: ('ResPQ', 'PQInnerData', 'ServerDHParamsFail', 'ServerDHParamsOk', 'ServerDHInnerData', 'ClientDHInnerData', 'DhGenOk', 'DhGenRetry', 'DhGenFail')
+        74      IMPORT_NAME                     5: tl.types
+        76      IMPORT_FROM                     6: ResPQ
+        78      STORE_NAME                      6: ResPQ
+        80      IMPORT_FROM                     7: PQInnerData
+        82      STORE_NAME                      7: PQInnerData
+        84      IMPORT_FROM                     8: ServerDHParamsFail
+        86      STORE_NAME                      8: ServerDHParamsFail
+        88      IMPORT_FROM                     9: ServerDHParamsOk
+        90      STORE_NAME                      9: ServerDHParamsOk
+        92      IMPORT_FROM                     10: ServerDHInnerData
+        94      STORE_NAME                      10: ServerDHInnerData
+        96      IMPORT_FROM                     11: ClientDHInnerData
+        98      STORE_NAME                      11: ClientDHInnerData
+        100     IMPORT_FROM                     12: DhGenOk
+        102     STORE_NAME                      12: DhGenOk
+        104     IMPORT_FROM                     13: DhGenRetry
+        106     STORE_NAME                      13: DhGenRetry
+        108     IMPORT_FROM                     14: DhGenFail
+        110     STORE_NAME                      14: DhGenFail
+        112     POP_TOP                         
+        114     LOAD_CONST                      7: 2
+        116     LOAD_CONST                      9: ('helpers',)
+        118     IMPORT_NAME                     15: 
+        120     IMPORT_FROM                     16: helpers
+        122     STORE_NAME                      16: helpers
+        124     POP_TOP                         
+        126     LOAD_CONST                      7: 2
+        128     LOAD_CONST                      10: ('AES', 'AuthKey', 'Factorization', 'rsa')
+        130     IMPORT_NAME                     17: crypto
+        132     IMPORT_FROM                     18: AES
+        134     STORE_NAME                      18: AES
+        136     IMPORT_FROM                     19: AuthKey
+        138     STORE_NAME                      19: AuthKey
+        140     IMPORT_FROM                     20: Factorization
+        142     STORE_NAME                      20: Factorization
+        144     IMPORT_FROM                     21: rsa
+        146     STORE_NAME                      21: rsa
+        148     POP_TOP                         
+        150     LOAD_CONST                      7: 2
+        152     LOAD_CONST                      11: ('SecurityError',)
+        154     IMPORT_NAME                     22: errors
+        156     IMPORT_FROM                     23: SecurityError
+        158     STORE_NAME                      23: SecurityError
+        160     POP_TOP                         
+        162     LOAD_CONST                      7: 2
+        164     LOAD_CONST                      12: ('BinaryReader',)
+        166     IMPORT_NAME                     24: extensions
+        168     IMPORT_FROM                     25: BinaryReader
+        170     STORE_NAME                      25: BinaryReader
+        172     POP_TOP                         
+        174     LOAD_CONST                      7: 2
+        176     LOAD_CONST                      13: ('ReqPqMultiRequest', 'ReqDHParamsRequest', 'SetClientDHParamsRequest')
+        178     IMPORT_NAME                     26: tl.functions
+        180     IMPORT_FROM                     27: ReqPqMultiRequest
+        182     STORE_NAME                      27: ReqPqMultiRequest
+        184     IMPORT_FROM                     28: ReqDHParamsRequest
+        186     STORE_NAME                      28: ReqDHParamsRequest
+        188     IMPORT_FROM                     29: SetClientDHParamsRequest
+        190     STORE_NAME                      29: SetClientDHParamsRequest
+        192     POP_TOP                         
+        194     LOAD_CONST                      14: <CODE> do_authentication
+        196     MAKE_FUNCTION                   0
+        198     STORE_NAME                      30: do_authentication
+        200     LOAD_CONST                      17: (True,)
+        202     LOAD_CONST                      15: <CODE> get_int
+        204     MAKE_FUNCTION                   1
+        206     STORE_NAME                      31: get_int
+        208     LOAD_CONST                      5: None
+        210     NOP                             
+        212     NOP                             
+        214     NOP                             
+        216     JUMP_FORWARD                    19 (to 256)
+        224     POP_TOP                         
+        226     RETURN_CONST                    5: None
+        228     PUSH_EXC_INFO                   
+        230     PUSH_NULL                       
+        232     LOAD_CONST                      16: '__pyarmor_exit_23048__'
+        234     NOP                             
+        236     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xca\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        238     CALL                            1
+        246     POP_TOP                         
+        248     RERAISE                         0
+        250     COPY                            3
+        252     POP_EXCEPT                      
+        254     RERAISE                         1
+        256     PUSH_NULL                       
+        258     LOAD_CONST                      16: '__pyarmor_exit_23048__'
+        260     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xca\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        262     BUILD_TUPLE                     1
+        264     CALL_FUNCTION_EX                0
+        266     POP_TOP                         
+        268     RETURN_VALUE                    
+    [Exception Table]
+        26 to 208 -> 228 [0] 
+        228 to 250 -> 250 [1] lasti

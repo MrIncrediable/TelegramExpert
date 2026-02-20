@@ -1,0 +1,192 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 11
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'client.telegramclient'
+        'TelegramClient'
+        'network'
+        'connection'
+        'tl.custom'
+        'Button'
+        'tl'
+        'patched'
+        '_'
+        ''
+        'version'
+        'events'
+        'utils'
+        'errors'
+        'types'
+        'functions'
+        'custom'
+        '__version__'
+        '__all__'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_16689__'
+        '__pyarmor_enter_16690__'
+        b'<COAddr>\x05\x00\x00\x1a\xba\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'TelegramClient'
+        )
+        (
+            'connection'
+        )
+        (
+            'Button'
+        )
+        (
+            'patched'
+        )
+        (
+            'version'
+            'events'
+            'utils'
+            'errors'
+            'types'
+            'functions'
+            'custom'
+        )
+        'TelegramClient'   # b'\x81\xd6\x1d\x1f6\xfd\xac\xd3\x16\xd9\x01\xc9i\xe2\xec'
+        'Button'
+        'types'
+        'functions'   # b'\x81\xe4\r\x1d0\xee\xb7\xdd\x15\xe9'
+        'custom'
+        'errors'
+        'events'
+        'utils'
+        'connection'   # b'\x81\xe1\x17\x1d=\xff\xbd\xc6\x12\xf5\x03'
+        '__pyarmor_exit_16691__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_16690__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xba\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('TelegramClient',)
+        30      IMPORT_NAME                     1: client.telegramclient
+        32      IMPORT_FROM                     2: TelegramClient
+        34      STORE_NAME                      2: TelegramClient
+        36      POP_TOP                         
+        38      LOAD_CONST                      3: 1
+        40      LOAD_CONST                      5: ('connection',)
+        42      IMPORT_NAME                     3: network
+        44      IMPORT_FROM                     4: connection
+        46      STORE_NAME                      4: connection
+        48      POP_TOP                         
+        50      LOAD_CONST                      3: 1
+        52      LOAD_CONST                      6: ('Button',)
+        54      IMPORT_NAME                     5: tl.custom
+        56      IMPORT_FROM                     6: Button
+        58      STORE_NAME                      6: Button
+        60      POP_TOP                         
+        62      LOAD_CONST                      3: 1
+        64      LOAD_CONST                      7: ('patched',)
+        66      IMPORT_NAME                     7: tl
+        68      IMPORT_FROM                     8: patched
+        70      STORE_NAME                      9: _
+        72      POP_TOP                         
+        74      LOAD_CONST                      3: 1
+        76      LOAD_CONST                      8: ('version', 'events', 'utils', 'errors', 'types', 'functions', 'custom')
+        78      IMPORT_NAME                     10: 
+        80      IMPORT_FROM                     11: version
+        82      STORE_NAME                      11: version
+        84      IMPORT_FROM                     12: events
+        86      STORE_NAME                      12: events
+        88      IMPORT_FROM                     13: utils
+        90      STORE_NAME                      13: utils
+        92      IMPORT_FROM                     14: errors
+        94      STORE_NAME                      14: errors
+        96      IMPORT_FROM                     15: types
+        98      STORE_NAME                      15: types
+        100     IMPORT_FROM                     16: functions
+        102     STORE_NAME                      16: functions
+        104     IMPORT_FROM                     17: custom
+        106     STORE_NAME                      17: custom
+        108     POP_TOP                         
+        110     LOAD_NAME                       11: version
+        112     LOAD_ATTR                       36: __version__
+        132     STORE_NAME                      18: __version__
+        134     PUSH_NULL                       
+        136     LOAD_CONST                      0: '__pyarmor_assert_16689__'
+        138     LOAD_CONST                      9: 'TelegramClient'   # b'\x81\xd6\x1d\x1f6\xfd\xac\xd3\x16\xd9\x01\xc9i\xe2\xec'
+        140     CALL                            1
+        148     LOAD_CONST                      10: 'Button'
+        150     LOAD_CONST                      11: 'types'
+        152     PUSH_NULL                       
+        154     LOAD_CONST                      0: '__pyarmor_assert_16689__'
+        156     LOAD_CONST                      12: 'functions'   # b'\x81\xe4\r\x1d0\xee\xb7\xdd\x15\xe9'
+        158     CALL                            1
+        166     LOAD_CONST                      13: 'custom'
+        168     LOAD_CONST                      14: 'errors'
+        170     LOAD_CONST                      15: 'events'
+        172     LOAD_CONST                      16: 'utils'
+        174     PUSH_NULL                       
+        176     LOAD_CONST                      0: '__pyarmor_assert_16689__'
+        178     LOAD_CONST                      17: 'connection'   # b'\x81\xe1\x17\x1d=\xff\xbd\xc6\x12\xf5\x03'
+        180     CALL                            1
+        188     BUILD_LIST                      9
+        190     STORE_NAME                      19: __all__
+        192     LOAD_CONST                      19: None
+        194     NOP                             
+        196     NOP                             
+        198     NOP                             
+        200     JUMP_FORWARD                    19 (to 240)
+        208     POP_TOP                         
+        210     RETURN_CONST                    19: None
+        212     PUSH_EXC_INFO                   
+        214     PUSH_NULL                       
+        216     LOAD_CONST                      18: '__pyarmor_exit_16691__'
+        218     NOP                             
+        220     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xba\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        222     CALL                            1
+        230     POP_TOP                         
+        232     RERAISE                         0
+        234     COPY                            3
+        236     POP_EXCEPT                      
+        238     RERAISE                         1
+        240     PUSH_NULL                       
+        242     LOAD_CONST                      18: '__pyarmor_exit_16691__'
+        244     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xba\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        246     BUILD_TUPLE                     1
+        248     CALL_FUNCTION_EX                0
+        250     POP_TOP                         
+        252     RETURN_VALUE                    
+    [Exception Table]
+        26 to 192 -> 212 [0] 
+        212 to 234 -> 234 [1] lasti

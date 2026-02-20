@@ -1,0 +1,606 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.sync>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 13
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'asyncio'
+        'functools'
+        'inspect'
+        ''
+        'events'
+        'errors'
+        'utils'
+        'connection'
+        'helpers'
+        'client.account'
+        '_TakeoutClient'
+        'client.telegramclient'
+        'TelegramClient'
+        'tl'
+        'types'
+        'functions'
+        'custom'
+        'tl.custom'
+        'Draft'
+        'Dialog'
+        'MessageButton'
+        'Forward'
+        'Button'
+        'Message'
+        'InlineResult'
+        'Conversation'
+        'tl.custom.chatgetter'
+        'ChatGetter'
+        'tl.custom.sendergetter'
+        'SenderGetter'
+        '_syncify_wrap'
+        'syncify'
+        '__all__'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_16500__'
+        '__pyarmor_enter_16501__'
+        b'<COAddr>\x07\x00\x00\x1aL\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        "\nThis magical module will rewrite all public methods in the public interface\nof the library so they can run the loop on their own if it's not already\nrunning. This rewrite may not be desirable if the end user always uses the\nmethods they way they should be ran, but it's incredibly useful for quick\nscripts and the runtime overhead is relatively low.\n\nSome really common methods which are hardly used offer this ability by\ndefault, such as ``.start()`` and ``.run_until_disconnected()`` (since\nyou may want to start, and then run until disconnected while using async\nevent handlers).\n"   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x1a\xfd\x04\xc3m\xe0\xb8\x88\x00Y\xae\xab\xaf\x8bY\xc5\tc\xe3N\x05\xa6\x0c\xec.W`\x0c\x94\xc6\xf4>\r\xeb\xf4T\xde\x98\x02B#\xe5Y\xff\x940\x0f\xe3w\xff\x93\x18X[$Q[A\x06\xc3\xd49\xf8\xba\x81d==E\xd3\x07\x97\xe1\x93\x8c\xac\xff\x03\x0bC\xd6\xb6\x9f\xf5\xdfb\xd6\xf3\xf0X\xb8j{\x0b%2\x0f\r\xad\x8c\r\xf3\xf5>\xf26\xbd\x17h\xb4Z\x053Xbs\xf0P\xff\xe2\xfc\xa1R\xa9\x01\xf6\x18\x98vFT\xf7\xb5(\x1c\xb9t\xa2\xe3\xddaN\xa3r\xe8\xfc\xa3\x02\xef\xc8\xb2\x97\xa3W.3\x82\xbe\xb7\x00\x95\x97u\x17D\']\xfcQ\x14\xb4&b\x9cr\x95\x1fp\x02\x15C\x0e\xa0Hk\x84\xe2Vun!\xe5%\x07\xbe\r\xc9\xa6\x97<~\x8bx\x13l+s\xa0\x9d\xfe\x17\x191\x96\x8f\xea\xe7}\x90+\x0e\x9c\xe5\x02P\x087\xa1\x1a[c\xc2h\xbf\xba\x84\x1e9\xd2T\xc3\xfd\x159\xfdm\xb8\xb7\xa8V@gP\x94&\xa27\xea]@(\xc5\x05#\xe5\x8e\xa8\x99\xe2E@\xff575\xab\xc9\x1d%\xad6a\x9c\x8d\x1fO\n\xf4,\x01\xe3\xe0\xa8\xde\x17?\x8a\xb23W~w\xa2\xd9\xf6\x0cu\xd1j\x83\xa4%Y\xd2i_\xae\xd1\xe5\n\x80\xc5\xb2#\xb7\xf3n\xfb8\x8d/1\x9e\x1d\x92\x85\xb1\xf6\x015f\xe1\xfcH\xe2&\x02G\xb9vJa/\xfb\x12\xfb\t\xceGj\xe9\xcaM\xbd\xfbJ\x0e\x9bG\x1a\x805\xc4\xbb\x06\xad\xa5)y\x0b/\x03\x9c\x854\x99\xa3\x10\xf1\xdd\xda\x89\xba9d\xa0\xf7Z\xb7\x90\x05\xcb#M5\x9f\xdc\xb5+`~\xa6\x8a\xee\x16\x8d\x9f\xdemu:\xae\xd3\xce\xb8\xf4\xbdw\xfbn\xc3\xcc\x11\xe7e\x87P\xfd-[U,>\x9ag\xd6\xba\xe6ZH_\xa9\x94\xba\x8dt\x82V8\x15\x99\x1f\xb4\xdb\xd4\xbc\x89\xe0c\xce\x1f.V\x83\xbe/3\x92\xc8\xd5\x85\xe1\xb2\x83\xc4)\xe0\xa4+\xc0`\xeee"<\xdc\xd7\x021\x15\xc0j\xa3\xc6\x8b\xb9\xf1\xfb\xef_\x88\x91m\xc1\xa7\xfa`\xdd\x15\xf6\xed\xb62i\xda\xfc\x103\x857\xc5<A\x14\x16\xf46\xfaST\xf2\xdd\xe4\x1b\xa90\x1a\x8bT\xda\xee\x07\x13\xdf\xe2\xea\xb4\x86I\xed1%..\xe2C\xd3\xb8,\xcf;\xa8U\xffa]\xab'
+        0
+        None
+        1
+        (
+            'events'
+            'errors'
+            'utils'
+            'connection'
+            'helpers'
+        )
+        (
+            '_TakeoutClient'
+        )
+        (
+            'TelegramClient'
+        )
+        (
+            'types'
+            'functions'
+            'custom'
+        )
+        (
+            'Draft'
+            'Dialog'
+            'MessageButton'
+            'Forward'
+            'Button'
+            'Message'
+            'InlineResult'
+            'Conversation'
+        )
+        (
+            'ChatGetter'
+        )
+        (
+            'SenderGetter'
+        )
+        [Code]
+            File Name: <frozen multithon.sync>
+            Object Name: _syncify_wrap
+            Qualified Name: _syncify_wrap
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'getattr'
+                'functools'
+                'wraps'
+                'setattr'
+            [Locals+Names]
+                't'
+                'method_name'
+                '__assert_armored__'
+                '_var_var_1'
+                '_var_var_0'
+            [Constants]
+                None
+                '__pyarmor_assert_16503__'
+                '__pyarmor_enter_16504__'
+                b'<COAddr>\x05\x00\x00\x1c\xa8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.sync>
+                    Object Name: syncified
+                    Qualified Name: _syncify_wrap.<locals>.syncified
+                    Arg Count: 0
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x2000001F (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_VARKEYWORDS | CO_NESTED | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'helpers'
+                        'get_running_loop'
+                        'is_running'
+                        'run_until_complete'
+                    [Locals+Names]
+                        'args'
+                        'kwargs'
+                        '__assert_armored__'
+                        '_var_var_2'
+                        '_var_var_3'
+                        '_var_var_0'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_16506__'
+                        '__pyarmor_enter_16507__'
+                        b'<COAddr>\x05\x00\x00\x1c\xa4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_16508__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_16507__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\xa4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      PUSH_NULL                       
+                        32      LOAD_DEREF                      5: _var_var_0
+                        34      LOAD_FAST                       0: args
+                        36      BUILD_MAP                       0
+                        38      LOAD_FAST                       1: kwargs
+                        40      DICT_MERGE                      1
+                        42      CALL_FUNCTION_EX                1
+                        44      STORE_FAST                      3: _var_var_2
+                        46      LOAD_GLOBAL                     1: NULL + helpers
+                        56      LOAD_ATTR                       2: get_running_loop
+                        76      CALL                            0
+                        84      STORE_FAST                      4: _var_var_3
+                        86      LOAD_FAST                       4: _var_var_3
+                        88      LOAD_ATTR                       5: is_running
+                        108     CALL                            0
+                        116     POP_JUMP_IF_FALSE               11 (to 140)
+                        118     LOAD_FAST                       3: _var_var_2
+                        120     NOP                             
+                        122     NOP                             
+                        124     NOP                             
+                        126     JUMP_FORWARD                    46 (to 220)
+                        128     CALL                            1
+                        136     POP_TOP                         
+                        138     RETURN_VALUE                    
+                        140     LOAD_FAST                       4: _var_var_3
+                        142     LOAD_ATTR                       7: run_until_complete
+                        162     LOAD_FAST                       3: _var_var_2
+                        164     CALL                            1
+                        172     NOP                             
+                        174     NOP                             
+                        176     NOP                             
+                        178     JUMP_FORWARD                    20 (to 220)
+                        180     CALL                            1
+                        188     POP_TOP                         
+                        190     RETURN_VALUE                    
+                        192     PUSH_EXC_INFO                   
+                        194     PUSH_NULL                       
+                        196     LOAD_CONST                      4: '__pyarmor_exit_16508__'
+                        198     NOP                             
+                        200     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\xa4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        202     CALL                            1
+                        210     POP_TOP                         
+                        212     RERAISE                         0
+                        214     COPY                            3
+                        216     POP_EXCEPT                      
+                        218     RERAISE                         1
+                        220     PUSH_NULL                       
+                        222     LOAD_CONST                      4: '__pyarmor_exit_16508__'
+                        224     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\xa4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        226     BUILD_TUPLE                     1
+                        228     CALL_FUNCTION_EX                0
+                        230     POP_TOP                         
+                        232     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 120 -> 192 [0] 
+                        140 to 172 -> 192 [0] 
+                        192 to 214 -> 214 [1] lasti
+                '__tl.sync'   # b"\x81\xdd'\x07?\xb4\xad\xcb\x15\xf9"
+                '__pyarmor_exit_16505__'
+            [Disassembly]
+                0       MAKE_CELL                       4: _var_var_0
+                2       NOP                             
+                4       NOP                             
+                6       PUSH_NULL                       
+                8       LOAD_CONST                      2: '__pyarmor_enter_16504__'
+                10      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\xa8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                12      BUILD_TUPLE                     1
+                14      CALL_FUNCTION_EX                0
+                16      POP_TOP                         
+                18      RESUME                          0
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      LOAD_GLOBAL                     1: NULL + getattr
+                40      LOAD_FAST                       0: t
+                42      LOAD_FAST                       1: method_name
+                44      CALL                            2
+                52      STORE_DEREF                     4: _var_var_0
+                54      LOAD_GLOBAL                     3: NULL + functools
+                64      LOAD_ATTR                       4: wraps
+                84      LOAD_DEREF                      4: _var_var_0
+                86      CALL                            1
+                94      LOAD_CLOSURE                    4: _var_var_0
+                96      BUILD_TUPLE                     1
+                98      LOAD_CONST                      4: <CODE> syncified
+                100     MAKE_FUNCTION                   8
+                102     CALL                            0
+                110     STORE_FAST                      3: _var_var_1
+                112     LOAD_GLOBAL                     7: NULL + setattr
+                122     LOAD_FAST                       3: _var_var_1
+                124     PUSH_NULL                       
+                126     LOAD_CONST                      1: '__pyarmor_assert_16503__'
+                128     LOAD_CONST                      5: '__tl.sync'   # b"\x81\xdd'\x07?\xb4\xad\xcb\x15\xf9"
+                130     CALL                            1
+                138     LOAD_DEREF                      4: _var_var_0
+                140     CALL                            3
+                148     POP_TOP                         
+                150     LOAD_GLOBAL                     7: NULL + setattr
+                160     LOAD_FAST                       0: t
+                162     LOAD_FAST                       1: method_name
+                164     LOAD_FAST                       3: _var_var_1
+                166     CALL                            3
+                174     POP_TOP                         
+                176     LOAD_CONST                      0: None
+                178     NOP                             
+                180     NOP                             
+                182     NOP                             
+                184     JUMP_FORWARD                    19 (to 224)
+                192     POP_TOP                         
+                194     RETURN_CONST                    0: None
+                196     PUSH_EXC_INFO                   
+                198     PUSH_NULL                       
+                200     LOAD_CONST                      6: '__pyarmor_exit_16505__'
+                202     NOP                             
+                204     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\xa8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                206     CALL                            1
+                214     POP_TOP                         
+                216     RERAISE                         0
+                218     COPY                            3
+                220     POP_EXCEPT                      
+                222     RERAISE                         1
+                224     PUSH_NULL                       
+                226     LOAD_CONST                      6: '__pyarmor_exit_16505__'
+                228     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\xa8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                230     BUILD_TUPLE                     1
+                232     CALL_FUNCTION_EX                0
+                234     POP_TOP                         
+                236     RETURN_VALUE                    
+            [Exception Table]
+                30 to 176 -> 196 [0] 
+                196 to 218 -> 218 [1] lasti
+        [Code]
+            File Name: <frozen multithon.sync>
+            Object Name: syncify
+            Qualified Name: syncify
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 8
+            Flags: 0x20000007 (CO_OPTIMIZED | CO_NEWLOCALS | CO_VARARGS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'dir'
+                'startswith'
+                'inspect'
+                'iscoroutinefunction'
+                'getattr'
+                '_syncify_wrap'
+            [Locals+Names]
+                'types'
+                '__assert_armored__'
+                '_var_var_4'
+                '_var_var_5'
+            [Constants]
+                "\n    Converts all the methods in the given types (class definitions)\n    into synchronous, which return either the coroutine or the result\n    based on whether ``asyncio's`` event loop is running.\n    "
+                '__pyarmor_assert_16509__'
+                '__pyarmor_enter_16510__'
+                b'<COAddr>\x07\x00\x00\x1a\xca\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '_'
+                '__call__'
+                '__pyarmor_exit_16511__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_16510__'
+                8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xca\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_FAST                       0: types
+                30      GET_ITER                        
+                32      FOR_ITER                        85 (to 204)
+                36      STORE_FAST                      2: _var_var_4
+                38      LOAD_GLOBAL                     1: NULL + dir
+                48      LOAD_FAST                       2: _var_var_4
+                50      CALL                            1
+                58      GET_ITER                        
+                60      FOR_ITER                        69 (to 200)
+                64      STORE_FAST                      3: _var_var_5
+                66      LOAD_FAST                       3: _var_var_5
+                68      LOAD_ATTR                       3: startswith
+                88      LOAD_CONST                      4: '_'
+                90      CALL                            1
+                98      POP_JUMP_IF_FALSE               6 (to 112)
+                100     LOAD_FAST                       3: _var_var_5
+                102     LOAD_CONST                      5: '__call__'
+                104     COMPARE_OP                      40 (==)
+                108     POP_JUMP_IF_TRUE                1 (to 112)
+                110     JUMP_BACKWARD                   26 (to 60)
+                112     LOAD_GLOBAL                     5: NULL + inspect
+                122     LOAD_ATTR                       6: iscoroutinefunction
+                142     LOAD_GLOBAL                     9: NULL + getattr
+                152     LOAD_FAST                       2: _var_var_4
+                154     LOAD_FAST                       3: _var_var_5
+                156     CALL                            2
+                164     CALL                            1
+                172     POP_JUMP_IF_TRUE                1 (to 176)
+                174     JUMP_BACKWARD                   58 (to 60)
+                176     LOAD_GLOBAL                     11: NULL + _syncify_wrap
+                186     LOAD_FAST                       2: _var_var_4
+                188     LOAD_FAST                       3: _var_var_5
+                190     CALL                            2
+                198     POP_TOP                         
+                200     JUMP_BACKWARD                   71 (to 60)
+                202     END_FOR                         
+                204     JUMP_BACKWARD                   87 (to 32)
+                206     END_FOR                         
+                208     LOAD_CONST                      7: None
+                210     NOP                             
+                212     NOP                             
+                214     NOP                             
+                216     JUMP_FORWARD                    19 (to 256)
+                224     POP_TOP                         
+                226     RETURN_CONST                    7: None
+                228     PUSH_EXC_INFO                   
+                230     PUSH_NULL                       
+                232     LOAD_CONST                      6: '__pyarmor_exit_16511__'
+                234     NOP                             
+                236     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xca\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                238     CALL                            1
+                246     POP_TOP                         
+                248     RERAISE                         0
+                250     COPY                            3
+                252     POP_EXCEPT                      
+                254     RERAISE                         1
+                256     PUSH_NULL                       
+                258     LOAD_CONST                      6: '__pyarmor_exit_16511__'
+                260     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xca\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                262     BUILD_TUPLE                     1
+                264     CALL_FUNCTION_EX                0
+                266     POP_TOP                         
+                268     RETURN_VALUE                    
+            [Exception Table]
+                28 to 110 -> 228 [0] 
+                112 to 174 -> 228 [0] 
+                176 to 208 -> 228 [0] 
+                228 to 250 -> 250 [1] lasti
+        '_get_result'   # b"\x81\xdd\x1f\x16'\xc5\xac\xd7\x08\xef\x01\xd4"
+        'TelegramClient'   # b'\x81\xd6\x1d\x1f6\xfd\xac\xd3\x16\xd9\x01\xc9i\xe2\xec'
+        'Button'
+        'types'
+        'functions'   # b'\x81\xe4\r\x1d0\xee\xb7\xdd\x15\xe9'
+        'custom'
+        'errors'
+        'events'
+        'utils'
+        'connection'   # b'\x81\xe1\x17\x1d=\xff\xbd\xc6\x12\xf5\x03'
+        '__pyarmor_exit_16502__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_16501__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aL\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      PUSH_NULL                       
+        28      LOAD_CONST                      0: '__pyarmor_assert_16500__'
+        30      LOAD_CONST                      3: "\nThis magical module will rewrite all public methods in the public interface\nof the library so they can run the loop on their own if it's not already\nrunning. This rewrite may not be desirable if the end user always uses the\nmethods they way they should be ran, but it's incredibly useful for quick\nscripts and the runtime overhead is relatively low.\n\nSome really common methods which are hardly used offer this ability by\ndefault, such as ``.start()`` and ``.run_until_disconnected()`` (since\nyou may want to start, and then run until disconnected while using async\nevent handlers).\n"   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x1a\xfd\x04\xc3m\xe0\xb8\x88\x00Y\xae\xab\xaf\x8bY\xc5\tc\xe3N\x05\xa6\x0c\xec.W`\x0c\x94\xc6\xf4>\r\xeb\xf4T\xde\x98\x02B#\xe5Y\xff\x940\x0f\xe3w\xff\x93\x18X[$Q[A\x06\xc3\xd49\xf8\xba\x81d==E\xd3\x07\x97\xe1\x93\x8c\xac\xff\x03\x0bC\xd6\xb6\x9f\xf5\xdfb\xd6\xf3\xf0X\xb8j{\x0b%2\x0f\r\xad\x8c\r\xf3\xf5>\xf26\xbd\x17h\xb4Z\x053Xbs\xf0P\xff\xe2\xfc\xa1R\xa9\x01\xf6\x18\x98vFT\xf7\xb5(\x1c\xb9t\xa2\xe3\xddaN\xa3r\xe8\xfc\xa3\x02\xef\xc8\xb2\x97\xa3W.3\x82\xbe\xb7\x00\x95\x97u\x17D\']\xfcQ\x14\xb4&b\x9cr\x95\x1fp\x02\x15C\x0e\xa0Hk\x84\xe2Vun!\xe5%\x07\xbe\r\xc9\xa6\x97<~\x8bx\x13l+s\xa0\x9d\xfe\x17\x191\x96\x8f\xea\xe7}\x90+\x0e\x9c\xe5\x02P\x087\xa1\x1a[c\xc2h\xbf\xba\x84\x1e9\xd2T\xc3\xfd\x159\xfdm\xb8\xb7\xa8V@gP\x94&\xa27\xea]@(\xc5\x05#\xe5\x8e\xa8\x99\xe2E@\xff575\xab\xc9\x1d%\xad6a\x9c\x8d\x1fO\n\xf4,\x01\xe3\xe0\xa8\xde\x17?\x8a\xb23W~w\xa2\xd9\xf6\x0cu\xd1j\x83\xa4%Y\xd2i_\xae\xd1\xe5\n\x80\xc5\xb2#\xb7\xf3n\xfb8\x8d/1\x9e\x1d\x92\x85\xb1\xf6\x015f\xe1\xfcH\xe2&\x02G\xb9vJa/\xfb\x12\xfb\t\xceGj\xe9\xcaM\xbd\xfbJ\x0e\x9bG\x1a\x805\xc4\xbb\x06\xad\xa5)y\x0b/\x03\x9c\x854\x99\xa3\x10\xf1\xdd\xda\x89\xba9d\xa0\xf7Z\xb7\x90\x05\xcb#M5\x9f\xdc\xb5+`~\xa6\x8a\xee\x16\x8d\x9f\xdemu:\xae\xd3\xce\xb8\xf4\xbdw\xfbn\xc3\xcc\x11\xe7e\x87P\xfd-[U,>\x9ag\xd6\xba\xe6ZH_\xa9\x94\xba\x8dt\x82V8\x15\x99\x1f\xb4\xdb\xd4\xbc\x89\xe0c\xce\x1f.V\x83\xbe/3\x92\xc8\xd5\x85\xe1\xb2\x83\xc4)\xe0\xa4+\xc0`\xeee"<\xdc\xd7\x021\x15\xc0j\xa3\xc6\x8b\xb9\xf1\xfb\xef_\x88\x91m\xc1\xa7\xfa`\xdd\x15\xf6\xed\xb62i\xda\xfc\x103\x857\xc5<A\x14\x16\xf46\xfaST\xf2\xdd\xe4\x1b\xa90\x1a\x8bT\xda\xee\x07\x13\xdf\xe2\xea\xb4\x86I\xed1%..\xe2C\xd3\xb8,\xcf;\xa8U\xffa]\xab'
+        32      CALL                            1
+        40      POP_TOP                         
+        42      LOAD_CONST                      4: 0
+        44      LOAD_CONST                      5: None
+        46      IMPORT_NAME                     1: asyncio
+        48      STORE_NAME                      1: asyncio
+        50      LOAD_CONST                      4: 0
+        52      LOAD_CONST                      5: None
+        54      IMPORT_NAME                     2: functools
+        56      STORE_NAME                      2: functools
+        58      LOAD_CONST                      4: 0
+        60      LOAD_CONST                      5: None
+        62      IMPORT_NAME                     3: inspect
+        64      STORE_NAME                      3: inspect
+        66      LOAD_CONST                      6: 1
+        68      LOAD_CONST                      7: ('events', 'errors', 'utils', 'connection', 'helpers')
+        70      IMPORT_NAME                     4: 
+        72      IMPORT_FROM                     5: events
+        74      STORE_NAME                      5: events
+        76      IMPORT_FROM                     6: errors
+        78      STORE_NAME                      6: errors
+        80      IMPORT_FROM                     7: utils
+        82      STORE_NAME                      7: utils
+        84      IMPORT_FROM                     8: connection
+        86      STORE_NAME                      8: connection
+        88      IMPORT_FROM                     9: helpers
+        90      STORE_NAME                      9: helpers
+        92      POP_TOP                         
+        94      LOAD_CONST                      6: 1
+        96      LOAD_CONST                      8: ('_TakeoutClient',)
+        98      IMPORT_NAME                     10: client.account
+        100     IMPORT_FROM                     11: _TakeoutClient
+        102     STORE_NAME                      11: _TakeoutClient
+        104     POP_TOP                         
+        106     LOAD_CONST                      6: 1
+        108     LOAD_CONST                      9: ('TelegramClient',)
+        110     IMPORT_NAME                     12: client.telegramclient
+        112     IMPORT_FROM                     13: TelegramClient
+        114     STORE_NAME                      13: TelegramClient
+        116     POP_TOP                         
+        118     LOAD_CONST                      6: 1
+        120     LOAD_CONST                      10: ('types', 'functions', 'custom')
+        122     IMPORT_NAME                     14: tl
+        124     IMPORT_FROM                     15: types
+        126     STORE_NAME                      15: types
+        128     IMPORT_FROM                     16: functions
+        130     STORE_NAME                      16: functions
+        132     IMPORT_FROM                     17: custom
+        134     STORE_NAME                      17: custom
+        136     POP_TOP                         
+        138     LOAD_CONST                      6: 1
+        140     LOAD_CONST                      11: ('Draft', 'Dialog', 'MessageButton', 'Forward', 'Button', 'Message', 'InlineResult', 'Conversation')
+        142     IMPORT_NAME                     18: tl.custom
+        144     IMPORT_FROM                     19: Draft
+        146     STORE_NAME                      19: Draft
+        148     IMPORT_FROM                     20: Dialog
+        150     STORE_NAME                      20: Dialog
+        152     IMPORT_FROM                     21: MessageButton
+        154     STORE_NAME                      21: MessageButton
+        156     IMPORT_FROM                     22: Forward
+        158     STORE_NAME                      22: Forward
+        160     IMPORT_FROM                     23: Button
+        162     STORE_NAME                      23: Button
+        164     IMPORT_FROM                     24: Message
+        166     STORE_NAME                      24: Message
+        168     IMPORT_FROM                     25: InlineResult
+        170     STORE_NAME                      25: InlineResult
+        172     IMPORT_FROM                     26: Conversation
+        174     STORE_NAME                      26: Conversation
+        176     POP_TOP                         
+        178     LOAD_CONST                      6: 1
+        180     LOAD_CONST                      12: ('ChatGetter',)
+        182     IMPORT_NAME                     27: tl.custom.chatgetter
+        184     IMPORT_FROM                     28: ChatGetter
+        186     STORE_NAME                      28: ChatGetter
+        188     POP_TOP                         
+        190     LOAD_CONST                      6: 1
+        192     LOAD_CONST                      13: ('SenderGetter',)
+        194     IMPORT_NAME                     29: tl.custom.sendergetter
+        196     IMPORT_FROM                     30: SenderGetter
+        198     STORE_NAME                      30: SenderGetter
+        200     POP_TOP                         
+        202     LOAD_CONST                      14: <CODE> _syncify_wrap
+        204     MAKE_FUNCTION                   0
+        206     STORE_NAME                      31: _syncify_wrap
+        208     LOAD_CONST                      15: <CODE> syncify
+        210     MAKE_FUNCTION                   0
+        212     STORE_NAME                      32: syncify
+        214     PUSH_NULL                       
+        216     LOAD_NAME                       32: syncify
+        218     LOAD_NAME                       13: TelegramClient
+        220     LOAD_NAME                       11: _TakeoutClient
+        222     LOAD_NAME                       19: Draft
+        224     LOAD_NAME                       20: Dialog
+        226     LOAD_NAME                       21: MessageButton
+        228     LOAD_NAME                       28: ChatGetter
+        230     LOAD_NAME                       30: SenderGetter
+        232     LOAD_NAME                       22: Forward
+        234     LOAD_NAME                       24: Message
+        236     LOAD_NAME                       25: InlineResult
+        238     LOAD_NAME                       26: Conversation
+        240     CALL                            11
+        248     POP_TOP                         
+        250     PUSH_NULL                       
+        252     LOAD_NAME                       31: _syncify_wrap
+        254     LOAD_NAME                       26: Conversation
+        256     PUSH_NULL                       
+        258     LOAD_CONST                      0: '__pyarmor_assert_16500__'
+        260     LOAD_CONST                      16: '_get_result'   # b"\x81\xdd\x1f\x16'\xc5\xac\xd7\x08\xef\x01\xd4"
+        262     CALL                            1
+        270     CALL                            2
+        278     POP_TOP                         
+        280     PUSH_NULL                       
+        282     LOAD_CONST                      0: '__pyarmor_assert_16500__'
+        284     LOAD_CONST                      17: 'TelegramClient'   # b'\x81\xd6\x1d\x1f6\xfd\xac\xd3\x16\xd9\x01\xc9i\xe2\xec'
+        286     CALL                            1
+        294     LOAD_CONST                      18: 'Button'
+        296     LOAD_CONST                      19: 'types'
+        298     PUSH_NULL                       
+        300     LOAD_CONST                      0: '__pyarmor_assert_16500__'
+        302     LOAD_CONST                      20: 'functions'   # b'\x81\xe4\r\x1d0\xee\xb7\xdd\x15\xe9'
+        304     CALL                            1
+        312     LOAD_CONST                      21: 'custom'
+        314     LOAD_CONST                      22: 'errors'
+        316     LOAD_CONST                      23: 'events'
+        318     LOAD_CONST                      24: 'utils'
+        320     PUSH_NULL                       
+        322     LOAD_CONST                      0: '__pyarmor_assert_16500__'
+        324     LOAD_CONST                      25: 'connection'   # b'\x81\xe1\x17\x1d=\xff\xbd\xc6\x12\xf5\x03'
+        326     CALL                            1
+        334     BUILD_LIST                      9
+        336     STORE_NAME                      33: __all__
+        338     LOAD_CONST                      5: None
+        340     NOP                             
+        342     NOP                             
+        344     NOP                             
+        346     JUMP_FORWARD                    19 (to 386)
+        354     POP_TOP                         
+        356     RETURN_CONST                    5: None
+        358     PUSH_EXC_INFO                   
+        360     PUSH_NULL                       
+        362     LOAD_CONST                      26: '__pyarmor_exit_16502__'
+        364     NOP                             
+        366     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aL\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        368     CALL                            1
+        376     POP_TOP                         
+        378     RERAISE                         0
+        380     COPY                            3
+        382     POP_EXCEPT                      
+        384     RERAISE                         1
+        386     PUSH_NULL                       
+        388     LOAD_CONST                      26: '__pyarmor_exit_16502__'
+        390     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aL\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        392     BUILD_TUPLE                     1
+        394     CALL_FUNCTION_EX                0
+        396     POP_TOP                         
+        398     RETURN_VALUE                    
+    [Exception Table]
+        26 to 338 -> 358 [0] 
+        358 to 380 -> 380 [1] lasti

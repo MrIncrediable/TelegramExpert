@@ -1,0 +1,538 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.client.buttons>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'typing'
+        ''
+        'utils'
+        'hints'
+        'tl'
+        'types'
+        'custom'
+        'ButtonMethods'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_16788__'
+        '__pyarmor_enter_16789__'
+        b'<COAddr>\x07\x00\x00\x1aP\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        2
+        (
+            'utils'
+            'hints'
+        )
+        (
+            'types'
+            'custom'
+        )
+        [Code]
+            File Name: <frozen multithon.client.buttons>
+            Object Name: ButtonMethods
+            Qualified Name: ButtonMethods
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 7
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+                'staticmethod'
+                'build_reply_markup'
+            [Locals+Names]
+            [Constants]
+                'ButtonMethods'
+                '__pyarmor_assert_16791__'
+                '__pyarmor_enter_16792__'
+                b'<COAddr>\x05\x00\x00"H\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'buttons'
+                'typing.Optional[hints.MarkupLike]'   # b'\x81\xf6\x01\x03:\xf4\xb9\x9c4\xea\x19\xc9c\xe2\xf9\x894U\xb2\xa9\xbe\xd8\x00\xe1\x04}\xa8I\x10\x9d\x17\xee?o'
+                'return'
+                'typing.Optional[types.TypeReplyMarkup]'   # b'\x81\xf6\x01\x03:\xf4\xb9\x9c4\xea\x19\xc9c\xe2\xf9\x894I\xa2\xb7\xaf\xd8\x00\xf8\x1c\x7f\xa6n\x05\xa1\x12\xfc\x17S2\x06\x8d\xda\x89'
+                [Code]
+                    File Name: <frozen multithon.client.buttons>
+                    Object Name: build_reply_markup
+                    Qualified Name: ButtonMethods.build_reply_markup
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 8
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'SUBCLASS_OF_ID'
+                        'AttributeError'
+                        'utils'
+                        'is_list_like'
+                        'isinstance'
+                        'custom'
+                        'Button'
+                        'resize'
+                        'single_use'
+                        'selective'
+                        'persistent'
+                        'placeholder'
+                        'button'
+                        'MessageButton'
+                        '_is_inline'
+                        'append'
+                        'types'
+                        'KeyboardButtonRow'
+                        'ValueError'
+                        'ReplyInlineMarkup'
+                        'ReplyKeyboardMarkup'
+                    [Locals+Names]
+                        'buttons'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                        '_var_var_2'
+                        '_var_var_3'
+                        '_var_var_4'
+                        '_var_var_5'
+                        '_var_var_6'
+                        '_var_var_7'
+                        '_var_var_8'
+                        '_var_var_9'
+                        '_var_var_10'
+                        '_var_var_11'
+                    [Constants]
+                        "\n        Builds a :tl:`ReplyInlineMarkup` or :tl:`ReplyKeyboardMarkup` for\n        the given buttons.\n\n        Does nothing if either no buttons are provided or the provided\n        argument is already a reply markup.\n\n        You should consider using this method if you are going to reuse\n        the markup very often. Otherwise, it is not necessary.\n\n        This method is **not** asynchronous (don't use ``await`` on it).\n\n        Arguments\n            buttons (`hints.MarkupLike`):\n                The button, list of buttons, array of buttons or markup\n                to convert into a markup.\n\n        Example\n            .. code-block:: python\n\n                from telethon import Button\n\n                markup = client.build_reply_markup(Button.inline('hi'))\n                # later\n                await client.send_message(chat, 'click me', buttons=markup)\n        "
+                        '__pyarmor_assert_16794__'
+                        '__pyarmor_enter_16795__'
+                        b'<COAddr>\x07\x00\x00\x1aN\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        None
+                        '__pyarmor_exit_16796__'
+                        0xE2E10EF2
+                        0
+                        False
+                        195916963
+                        'You cannot mix inline with normal buttons'   # b'\x81\xdb\x17\x06s\xf9\xbf\xdc\x15\xf5\x19\x80a\xe5\xe0\xc5\x06S\xb7\xae\xa4\xce\x0e\xdb\x0c{\xab\x1c\x0e\xbe\x0c\xe8;^`\x0f\x8d\xde\xa0!\x16\xfa'
+                        (
+                            'rows'
+                            'resize'
+                            'single_use'
+                            'selective'
+                            'persistent'
+                            'placeholder'
+                        )
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_16795__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aN\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: buttons
+                        30      POP_JUMP_IF_NOT_NONE            11 (to 54)
+                        32      NOP                             
+                        34      LOAD_CONST                      4: None
+                        36      NOP                             
+                        38      NOP                             
+                        40      JUMP_FORWARD                    556 (to 1156)
+                        50      POP_TOP                         
+                        52      RETURN_CONST                    4: None
+                        54      NOP                             
+                        56      LOAD_FAST                       0: buttons
+                        58      LOAD_ATTR                       0: SUBCLASS_OF_ID
+                        78      LOAD_CONST                      6: 0xE2E10EF2
+                        80      COMPARE_OP                      40 (==)
+                        84      POP_JUMP_IF_FALSE               11 (to 108)
+                        86      LOAD_FAST                       0: buttons
+                        88      NOP                             
+                        90      NOP                             
+                        92      JUMP_FORWARD                    530 (to 1156)
+                        96      CALL                            1
+                        104     POP_TOP                         
+                        106     RETURN_VALUE                    
+                        108     NOP                             
+                        110     LOAD_GLOBAL                     5: NULL + utils
+                        120     LOAD_ATTR                       6: is_list_like
+                        140     LOAD_FAST                       0: buttons
+                        142     CALL                            1
+                        150     POP_JUMP_IF_TRUE                5 (to 162)
+                        152     LOAD_FAST                       0: buttons
+                        154     BUILD_LIST                      1
+                        156     BUILD_LIST                      1
+                        158     STORE_FAST                      0: buttons
+                        160     JUMP_FORWARD                    29 (to 220)
+                        162     LOAD_FAST                       0: buttons
+                        164     POP_JUMP_IF_FALSE               24 (to 214)
+                        166     LOAD_GLOBAL                     5: NULL + utils
+                        176     LOAD_ATTR                       6: is_list_like
+                        196     LOAD_FAST                       0: buttons
+                        198     LOAD_CONST                      7: 0
+                        200     BINARY_SUBSCR                   
+                        204     CALL                            1
+                        212     POP_JUMP_IF_TRUE                3 (to 220)
+                        214     LOAD_FAST                       0: buttons
+                        216     BUILD_LIST                      1
+                        218     STORE_FAST                      0: buttons
+                        220     LOAD_CONST                      8: False
+                        222     STORE_FAST                      2: _var_var_0
+                        224     LOAD_CONST                      8: False
+                        226     STORE_FAST                      3: _var_var_1
+                        228     LOAD_CONST                      4: None
+                        230     STORE_FAST                      4: _var_var_2
+                        232     LOAD_CONST                      4: None
+                        234     STORE_FAST                      5: _var_var_3
+                        236     LOAD_CONST                      4: None
+                        238     STORE_FAST                      6: _var_var_4
+                        240     LOAD_CONST                      4: None
+                        242     STORE_FAST                      7: _var_var_5
+                        244     LOAD_CONST                      4: None
+                        246     STORE_FAST                      8: _var_var_6
+                        248     BUILD_LIST                      0
+                        250     STORE_FAST                      9: _var_var_7
+                        252     LOAD_FAST                       0: buttons
+                        254     GET_ITER                        
+                        256     FOR_ITER                        327 (to 914)
+                        262     STORE_FAST                      10: _var_var_8
+                        264     BUILD_LIST                      0
+                        266     STORE_FAST                      11: _var_var_9
+                        268     LOAD_FAST                       10: _var_var_8
+                        270     GET_ITER                        
+                        272     FOR_ITER                        276 (to 828)
+                        278     STORE_FAST                      12: _var_var_10
+                        280     LOAD_GLOBAL                     9: NULL + isinstance
+                        290     LOAD_FAST                       12: _var_var_10
+                        292     LOAD_GLOBAL                     10: custom
+                        302     LOAD_ATTR                       12: Button
+                        322     CALL                            2
+                        330     POP_JUMP_IF_FALSE               133 (to 598)
+                        332     LOAD_FAST                       12: _var_var_10
+                        334     LOAD_ATTR                       14: resize
+                        354     POP_JUMP_IF_NONE                12 (to 380)
+                        356     LOAD_FAST                       12: _var_var_10
+                        358     LOAD_ATTR                       14: resize
+                        378     STORE_FAST                      4: _var_var_2
+                        380     LOAD_FAST                       12: _var_var_10
+                        382     LOAD_ATTR                       16: single_use
+                        402     POP_JUMP_IF_NONE                12 (to 428)
+                        404     LOAD_FAST                       12: _var_var_10
+                        406     LOAD_ATTR                       16: single_use
+                        426     STORE_FAST                      5: _var_var_3
+                        428     LOAD_FAST                       12: _var_var_10
+                        430     LOAD_ATTR                       18: selective
+                        450     POP_JUMP_IF_NONE                12 (to 476)
+                        452     LOAD_FAST                       12: _var_var_10
+                        454     LOAD_ATTR                       18: selective
+                        474     STORE_FAST                      6: _var_var_4
+                        476     LOAD_FAST                       12: _var_var_10
+                        478     LOAD_ATTR                       20: persistent
+                        498     POP_JUMP_IF_NONE                12 (to 524)
+                        500     LOAD_FAST                       12: _var_var_10
+                        502     LOAD_ATTR                       20: persistent
+                        522     STORE_FAST                      7: _var_var_5
+                        524     LOAD_FAST                       12: _var_var_10
+                        526     LOAD_ATTR                       22: placeholder
+                        546     POP_JUMP_IF_NONE                12 (to 572)
+                        548     LOAD_FAST                       12: _var_var_10
+                        550     LOAD_ATTR                       22: placeholder
+                        570     STORE_FAST                      8: _var_var_6
+                        572     LOAD_FAST                       12: _var_var_10
+                        574     LOAD_ATTR                       24: button
+                        594     STORE_FAST                      12: _var_var_10
+                        596     JUMP_FORWARD                    38 (to 674)
+                        598     LOAD_GLOBAL                     9: NULL + isinstance
+                        608     LOAD_FAST                       12: _var_var_10
+                        610     LOAD_GLOBAL                     10: custom
+                        620     LOAD_ATTR                       26: MessageButton
+                        640     CALL                            2
+                        648     POP_JUMP_IF_FALSE               12 (to 674)
+                        650     LOAD_FAST                       12: _var_var_10
+                        652     LOAD_ATTR                       24: button
+                        672     STORE_FAST                      12: _var_var_10
+                        674     LOAD_GLOBAL                     10: custom
+                        684     LOAD_ATTR                       12: Button
+                        704     LOAD_ATTR                       29: _is_inline
+                        724     LOAD_FAST                       12: _var_var_10
+                        726     CALL                            1
+                        734     STORE_FAST                      13: _var_var_11
+                        736     LOAD_FAST                       2: _var_var_0
+                        738     LOAD_FAST                       13: _var_var_11
+                        740     BINARY_OP                       20 (|=)
+                        744     STORE_FAST                      2: _var_var_0
+                        746     LOAD_FAST                       3: _var_var_1
+                        748     LOAD_FAST                       13: _var_var_11
+                        750     UNARY_NOT                       
+                        752     BINARY_OP                       20 (|=)
+                        756     STORE_FAST                      3: _var_var_1
+                        758     LOAD_FAST                       12: _var_var_10
+                        760     LOAD_ATTR                       0: SUBCLASS_OF_ID
+                        780     LOAD_CONST                      9: 195916963
+                        782     COMPARE_OP                      40 (==)
+                        786     POP_JUMP_IF_TRUE                2 (to 792)
+                        788     JUMP_BACKWARD                   260 (to 272)
+                        792     LOAD_FAST                       11: _var_var_9
+                        794     LOAD_ATTR                       31: append
+                        814     LOAD_FAST                       12: _var_var_10
+                        816     CALL                            1
+                        824     POP_TOP                         
+                        826     JUMP_BACKWARD                   279 (to 272)
+                        830     END_FOR                         
+                        832     LOAD_FAST                       11: _var_var_9
+                        834     POP_JUMP_IF_TRUE                2 (to 840)
+                        836     JUMP_BACKWARD                   292 (to 256)
+                        840     LOAD_FAST                       9: _var_var_7
+                        842     LOAD_ATTR                       31: append
+                        862     LOAD_GLOBAL                     33: NULL + types
+                        872     LOAD_ATTR                       34: KeyboardButtonRow
+                        892     LOAD_FAST                       11: _var_var_9
+                        894     CALL                            1
+                        902     CALL                            1
+                        910     POP_TOP                         
+                        912     JUMP_BACKWARD                   330 (to 256)
+                        916     END_FOR                         
+                        918     LOAD_FAST                       2: _var_var_0
+                        920     POP_JUMP_IF_FALSE               19 (to 960)
+                        922     LOAD_FAST                       3: _var_var_1
+                        924     POP_JUMP_IF_FALSE               17 (to 960)
+                        926     LOAD_GLOBAL                     37: NULL + ValueError
+                        936     PUSH_NULL                       
+                        938     LOAD_CONST                      1: '__pyarmor_assert_16794__'
+                        940     LOAD_CONST                      10: 'You cannot mix inline with normal buttons'   # b'\x81\xdb\x17\x06s\xf9\xbf\xdc\x15\xf5\x19\x80a\xe5\xe0\xc5\x06S\xb7\xae\xa4\xce\x0e\xdb\x0c{\xab\x1c\x0e\xbe\x0c\xe8;^`\x0f\x8d\xde\xa0!\x16\xfa'
+                        942     CALL                            1
+                        950     CALL                            1
+                        958     RAISE_VARARGS                   1
+                        960     LOAD_FAST                       2: _var_var_0
+                        962     POP_JUMP_IF_FALSE               30 (to 1024)
+                        964     LOAD_GLOBAL                     33: NULL + types
+                        974     LOAD_ATTR                       38: ReplyInlineMarkup
+                        994     LOAD_FAST                       9: _var_var_7
+                        996     CALL                            1
+                        1004    NOP                             
+                        1006    NOP                             
+                        1008    NOP                             
+                        1010    JUMP_FORWARD                    72 (to 1156)
+                        1012    CALL                            1
+                        1020    POP_TOP                         
+                        1022    RETURN_VALUE                    
+                        1024    LOAD_GLOBAL                     33: NULL + types
+                        1034    LOAD_ATTR                       40: ReplyKeyboardMarkup
+                        1054    LOAD_FAST                       9: _var_var_7
+                        1056    LOAD_FAST                       4: _var_var_2
+                        1058    LOAD_FAST                       5: _var_var_3
+                        1060    LOAD_FAST                       6: _var_var_4
+                        1062    LOAD_FAST                       7: _var_var_5
+                        1064    LOAD_FAST                       8: _var_var_6
+                        1066    KW_NAMES                        11: ('rows', 'resize', 'single_use', 'selective', 'persistent', 'placeholder')
+                        1068    CALL                            6
+                        1076    NOP                             
+                        1078    NOP                             
+                        1080    NOP                             
+                        1082    JUMP_FORWARD                    36 (to 1156)
+                        1084    CALL                            1
+                        1092    POP_TOP                         
+                        1094    RETURN_VALUE                    
+                        1096    PUSH_EXC_INFO                   
+                        1098    LOAD_GLOBAL                     2: AttributeError
+                        1108    CHECK_EXC_MATCH                 
+                        1110    POP_JUMP_IF_FALSE               4 (to 1120)
+                        1112    POP_TOP                         
+                        1114    POP_EXCEPT                      
+                        1116    JUMP_BACKWARD                   505 (to 110)
+                        1120    RERAISE                         0
+                        1122    COPY                            3
+                        1124    POP_EXCEPT                      
+                        1126    RERAISE                         1
+                        1128    PUSH_EXC_INFO                   
+                        1130    PUSH_NULL                       
+                        1132    LOAD_CONST                      5: '__pyarmor_exit_16796__'
+                        1134    NOP                             
+                        1136    LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aN\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        1138    CALL                            1
+                        1146    POP_TOP                         
+                        1148    RERAISE                         0
+                        1150    COPY                            3
+                        1152    POP_EXCEPT                      
+                        1154    RERAISE                         1
+                        1156    PUSH_NULL                       
+                        1158    LOAD_CONST                      5: '__pyarmor_exit_16796__'
+                        1160    LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aN\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        1162    BUILD_TUPLE                     1
+                        1164    CALL_FUNCTION_EX                0
+                        1166    POP_TOP                         
+                        1168    RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 32 -> 1128 [0] 
+                        56 to 88 -> 1096 [0] 
+                        108 to 788 -> 1128 [0] 
+                        792 to 836 -> 1128 [0] 
+                        840 to 1004 -> 1128 [0] 
+                        1024 to 1076 -> 1128 [0] 
+                        1096 to 1114 -> 1122 [1] lasti
+                        1114 to 1120 -> 1128 [0] 
+                        1120 to 1122 -> 1122 [1] lasti
+                        1122 to 1128 -> 1128 [0] 
+                        1128 to 1150 -> 1150 [1] lasti
+                '__pyarmor_exit_16793__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'ButtonMethods'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_16792__'
+                16      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"H\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      LOAD_NAME                       4: staticmethod
+                38      LOAD_CONST                      4: 'buttons'
+                40      PUSH_NULL                       
+                42      LOAD_CONST                      1: '__pyarmor_assert_16791__'
+                44      LOAD_CONST                      5: 'typing.Optional[hints.MarkupLike]'   # b'\x81\xf6\x01\x03:\xf4\xb9\x9c4\xea\x19\xc9c\xe2\xf9\x894U\xb2\xa9\xbe\xd8\x00\xe1\x04}\xa8I\x10\x9d\x17\xee?o'
+                46      CALL                            1
+                54      LOAD_CONST                      6: 'return'
+                56      PUSH_NULL                       
+                58      LOAD_CONST                      1: '__pyarmor_assert_16791__'
+                60      LOAD_CONST                      7: 'typing.Optional[types.TypeReplyMarkup]'   # b'\x81\xf6\x01\x03:\xf4\xb9\x9c4\xea\x19\xc9c\xe2\xf9\x894I\xa2\xb7\xaf\xd8\x00\xf8\x1c\x7f\xa6n\x05\xa1\x12\xfc\x17S2\x06\x8d\xda\x89'
+                62      CALL                            1
+                70      BUILD_TUPLE                     4
+                72      LOAD_CONST                      8: <CODE> build_reply_markup
+                74      MAKE_FUNCTION                   4
+                76      CALL                            0
+                84      STORE_NAME                      5: build_reply_markup
+                86      LOAD_CONST                      10: None
+                88      NOP                             
+                90      NOP                             
+                92      NOP                             
+                94      JUMP_FORWARD                    19 (to 134)
+                102     POP_TOP                         
+                104     RETURN_CONST                    10: None
+                106     PUSH_EXC_INFO                   
+                108     PUSH_NULL                       
+                110     LOAD_CONST                      9: '__pyarmor_exit_16793__'
+                112     NOP                             
+                114     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"H\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                116     CALL                            1
+                124     POP_TOP                         
+                126     RERAISE                         0
+                128     COPY                            3
+                130     POP_EXCEPT                      
+                132     RERAISE                         1
+                134     PUSH_NULL                       
+                136     LOAD_CONST                      9: '__pyarmor_exit_16793__'
+                138     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"H\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                140     BUILD_TUPLE                     1
+                142     CALL_FUNCTION_EX                0
+                144     POP_TOP                         
+                146     RETURN_VALUE                    
+            [Exception Table]
+                36 to 86 -> 106 [0] 
+                106 to 128 -> 128 [1] lasti
+        'ButtonMethods'
+        '__pyarmor_exit_16790__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_16789__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aP\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: typing
+        32      STORE_NAME                      1: typing
+        34      LOAD_CONST                      5: 2
+        36      LOAD_CONST                      6: ('utils', 'hints')
+        38      IMPORT_NAME                     2: 
+        40      IMPORT_FROM                     3: utils
+        42      STORE_NAME                      3: utils
+        44      IMPORT_FROM                     4: hints
+        46      STORE_NAME                      4: hints
+        48      POP_TOP                         
+        50      LOAD_CONST                      5: 2
+        52      LOAD_CONST                      7: ('types', 'custom')
+        54      IMPORT_NAME                     5: tl
+        56      IMPORT_FROM                     6: types
+        58      STORE_NAME                      6: types
+        60      IMPORT_FROM                     7: custom
+        62      STORE_NAME                      7: custom
+        64      POP_TOP                         
+        66      PUSH_NULL                       
+        68      LOAD_BUILD_CLASS                
+        70      LOAD_CONST                      8: <CODE> ButtonMethods
+        72      MAKE_FUNCTION                   0
+        74      LOAD_CONST                      9: 'ButtonMethods'
+        76      CALL                            2
+        84      STORE_NAME                      8: ButtonMethods
+        86      LOAD_CONST                      4: None
+        88      NOP                             
+        90      NOP                             
+        92      NOP                             
+        94      JUMP_FORWARD                    19 (to 134)
+        102     POP_TOP                         
+        104     RETURN_CONST                    4: None
+        106     PUSH_EXC_INFO                   
+        108     PUSH_NULL                       
+        110     LOAD_CONST                      10: '__pyarmor_exit_16790__'
+        112     NOP                             
+        114     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aP\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        116     CALL                            1
+        124     POP_TOP                         
+        126     RERAISE                         0
+        128     COPY                            3
+        130     POP_EXCEPT                      
+        132     RERAISE                         1
+        134     PUSH_NULL                       
+        136     LOAD_CONST                      10: '__pyarmor_exit_16790__'
+        138     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aP\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        140     BUILD_TUPLE                     1
+        142     CALL_FUNCTION_EX                0
+        144     POP_TOP                         
+        146     RETURN_VALUE                    
+    [Exception Table]
+        26 to 86 -> 106 [0] 
+        106 to 128 -> 128 [1] lasti

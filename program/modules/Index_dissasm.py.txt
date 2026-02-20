@@ -1,0 +1,180 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.modules.Index>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'eel'
+        'program.static_classes'
+        'get_lic_key'
+        'Index'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_13722__'
+        '__pyarmor_enter_13723__'
+        b'<COAddr>\x05\x00\x00\x1a.\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        (
+            'get_lic_key'
+        )
+        [Code]
+            File Name: <frozen program.modules.Index>
+            Object Name: Index
+            Qualified Name: Index
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'get_lic_key'
+                'eel'
+                'ShowLicKey'
+            [Locals+Names]
+                'data'
+                '__assert_armored__'
+                '_var_var_0'
+            [Constants]
+                None
+                '__pyarmor_assert_13725__'
+                '__pyarmor_enter_13726__'
+                b'<COAddr>\x07\x00\x00\x1ad\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'action'
+                'getKey'
+                '__pyarmor_exit_13727__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_13726__'
+                8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1ad\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_FAST                       0: data
+                30      LOAD_CONST                      4: 'action'
+                32      BINARY_SUBSCR                   
+                36      LOAD_CONST                      5: 'getKey'
+                38      COMPARE_OP                      40 (==)
+                42      POP_JUMP_IF_FALSE               31 (to 106)
+                44      LOAD_GLOBAL                     1: NULL + get_lic_key
+                54      CALL                            0
+                62      STORE_FAST                      2: _var_var_0
+                64      LOAD_GLOBAL                     3: NULL + eel
+                74      LOAD_ATTR                       4: ShowLicKey
+                94      LOAD_FAST                       2: _var_var_0
+                96      CALL                            1
+                104     POP_TOP                         
+                106     LOAD_CONST                      0: None
+                108     NOP                             
+                110     NOP                             
+                112     NOP                             
+                114     JUMP_FORWARD                    19 (to 154)
+                122     POP_TOP                         
+                124     RETURN_CONST                    0: None
+                126     PUSH_EXC_INFO                   
+                128     PUSH_NULL                       
+                130     LOAD_CONST                      6: '__pyarmor_exit_13727__'
+                132     NOP                             
+                134     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1ad\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                136     CALL                            1
+                144     POP_TOP                         
+                146     RERAISE                         0
+                148     COPY                            3
+                150     POP_EXCEPT                      
+                152     RERAISE                         1
+                154     PUSH_NULL                       
+                156     LOAD_CONST                      6: '__pyarmor_exit_13727__'
+                158     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1ad\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                160     BUILD_TUPLE                     1
+                162     CALL_FUNCTION_EX                0
+                164     POP_TOP                         
+                166     RETURN_VALUE                    
+            [Exception Table]
+                28 to 106 -> 126 [0] 
+                126 to 148 -> 148 [1] lasti
+        '__pyarmor_exit_13724__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_13723__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a.\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: eel
+        32      STORE_NAME                      1: eel
+        34      LOAD_CONST                      3: 0
+        36      LOAD_CONST                      5: ('get_lic_key',)
+        38      IMPORT_NAME                     2: program.static_classes
+        40      IMPORT_FROM                     3: get_lic_key
+        42      STORE_NAME                      3: get_lic_key
+        44      POP_TOP                         
+        46      LOAD_CONST                      6: <CODE> Index
+        48      MAKE_FUNCTION                   0
+        50      STORE_NAME                      4: Index
+        52      LOAD_CONST                      4: None
+        54      NOP                             
+        56      NOP                             
+        58      NOP                             
+        60      JUMP_FORWARD                    19 (to 100)
+        68      POP_TOP                         
+        70      RETURN_CONST                    4: None
+        72      PUSH_EXC_INFO                   
+        74      PUSH_NULL                       
+        76      LOAD_CONST                      7: '__pyarmor_exit_13724__'
+        78      NOP                             
+        80      LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a.\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        82      CALL                            1
+        90      POP_TOP                         
+        92      RERAISE                         0
+        94      COPY                            3
+        96      POP_EXCEPT                      
+        98      RERAISE                         1
+        100     PUSH_NULL                       
+        102     LOAD_CONST                      7: '__pyarmor_exit_13724__'
+        104     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a.\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        106     BUILD_TUPLE                     1
+        108     CALL_FUNCTION_EX                0
+        110     POP_TOP                         
+        112     RETURN_VALUE                    
+    [Exception Table]
+        26 to 52 -> 72 [0] 
+        72 to 94 -> 94 [1] lasti

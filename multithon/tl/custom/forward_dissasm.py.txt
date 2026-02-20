@@ -1,0 +1,414 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.tl.custom.forward>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 6
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'chatgetter'
+        'ChatGetter'
+        'sendergetter'
+        'SenderGetter'
+        ''
+        'utils'
+        'helpers'
+        'tl'
+        'types'
+        'Forward'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_24243__'
+        '__pyarmor_enter_24244__'
+        b'<COAddr>\x05\x00\x00\x1a`\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'ChatGetter'
+        )
+        (
+            'SenderGetter'
+        )
+        3
+        (
+            'utils'
+            'helpers'
+        )
+        (
+            'types'
+        )
+        [Code]
+            File Name: <frozen multithon.tl.custom.forward>
+            Object Name: Forward
+            Qualified Name: Forward
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+            [Locals+Names]
+            [Constants]
+                'Forward'
+                '\n    Custom class that encapsulates a :tl:`MessageFwdHeader` providing an\n    abstraction to easily access information like the original sender.\n\n    Remember that this class implements `ChatGetter\n    <telethon.tl.custom.chatgetter.ChatGetter>` and `SenderGetter\n    <telethon.tl.custom.sendergetter.SenderGetter>` which means you\n    have access to all their sender and chat properties and methods.\n\n    Attributes:\n\n        original_fwd (:tl:`MessageFwdHeader`):\n            The original :tl:`MessageFwdHeader` instance.\n\n        Any other attribute:\n            Attributes not described here are the same as those available\n            in the original :tl:`MessageFwdHeader`.\n    '
+                '__pyarmor_assert_24246__'
+                '__pyarmor_enter_24247__'
+                b'<COAddr>\x07\x00\x00&\x1c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.tl.custom.forward>
+                    Object Name: __init__
+                    Qualified Name: Forward.__init__
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '__dict__'
+                        'update'
+                        'original_fwd'
+                        'from_id'
+                        'helpers'
+                        '_entity_type'
+                        '_EntityType'
+                        'USER'
+                        'utils'
+                        'get_peer_id'
+                        '_get_entity_pair'
+                        '_mb_entity_cache'
+                        'CHAT'
+                        'CHANNEL'
+                        'ChatGetter'
+                        '__init__'
+                        'SenderGetter'
+                        '_client'
+                    [Locals+Names]
+                        'self'
+                        'client'
+                        'original'
+                        'entities'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                        '_var_var_2'
+                        '_var_var_3'
+                        '_var_var_4'
+                        '_var_var_5'
+                        '_var_var_6'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_24249__'
+                        '__pyarmor_enter_24250__'
+                        b'<COAddr>\x07\x00\x00\x1a\x02\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        (
+                            'chat'
+                            'input_chat'
+                        )
+                        (
+                            'sender'
+                            'input_sender'
+                        )
+                        '__pyarmor_exit_24251__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_24250__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x02\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: __dict__
+                        50      LOAD_ATTR                       3: update
+                        70      LOAD_FAST                       2: original
+                        72      LOAD_ATTR                       0: __dict__
+                        92      CALL                            1
+                        100     POP_TOP                         
+                        102     LOAD_FAST                       2: original
+                        104     LOAD_FAST                       0: self
+                        106     STORE_ATTR                      2: original_fwd
+                        116     LOAD_CONST                      0: None
+                        118     COPY                            1
+                        120     STORE_FAST                      5: _var_var_0
+                        122     COPY                            1
+                        124     STORE_FAST                      6: _var_var_1
+                        126     COPY                            1
+                        128     STORE_FAST                      7: _var_var_2
+                        130     COPY                            1
+                        132     STORE_FAST                      8: _var_var_3
+                        134     COPY                            1
+                        136     STORE_FAST                      9: _var_var_4
+                        138     STORE_FAST                      10: _var_var_5
+                        140     LOAD_FAST                       2: original
+                        142     LOAD_ATTR                       6: from_id
+                        162     POP_JUMP_IF_FALSE               249 (to 662)
+                        164     LOAD_GLOBAL                     9: NULL + helpers
+                        174     LOAD_ATTR                       10: _entity_type
+                        194     LOAD_FAST                       2: original
+                        196     LOAD_ATTR                       6: from_id
+                        216     CALL                            1
+                        224     STORE_FAST                      11: _var_var_6
+                        226     LOAD_FAST                       11: _var_var_6
+                        228     LOAD_GLOBAL                     8: helpers
+                        238     LOAD_ATTR                       12: _EntityType
+                        258     LOAD_ATTR                       14: USER
+                        278     COMPARE_OP                      40 (==)
+                        282     POP_JUMP_IF_FALSE               68 (to 420)
+                        284     LOAD_GLOBAL                     17: NULL + utils
+                        294     LOAD_ATTR                       18: get_peer_id
+                        314     LOAD_FAST                       2: original
+                        316     LOAD_ATTR                       6: from_id
+                        336     CALL                            1
+                        344     STORE_FAST                      5: _var_var_0
+                        346     LOAD_GLOBAL                     17: NULL + utils
+                        356     LOAD_ATTR                       20: _get_entity_pair
+                        376     LOAD_FAST                       5: _var_var_0
+                        378     LOAD_FAST                       3: entities
+                        380     LOAD_FAST                       1: client
+                        382     LOAD_ATTR                       22: _mb_entity_cache
+                        402     CALL                            3
+                        410     UNPACK_SEQUENCE                 2
+                        414     STORE_FAST                      6: _var_var_1
+                        416     STORE_FAST                      7: _var_var_2
+                        418     JUMP_FORWARD                    121 (to 662)
+                        420     LOAD_FAST                       11: _var_var_6
+                        422     LOAD_GLOBAL                     8: helpers
+                        432     LOAD_ATTR                       12: _EntityType
+                        452     LOAD_ATTR                       24: CHAT
+                        472     LOAD_GLOBAL                     8: helpers
+                        482     LOAD_ATTR                       12: _EntityType
+                        502     LOAD_ATTR                       26: CHANNEL
+                        522     BUILD_TUPLE                     2
+                        524     CONTAINS_OP                     0 (in)
+                        526     POP_JUMP_IF_FALSE               67 (to 662)
+                        528     LOAD_FAST                       2: original
+                        530     LOAD_ATTR                       6: from_id
+                        550     STORE_FAST                      8: _var_var_3
+                        552     LOAD_GLOBAL                     17: NULL + utils
+                        562     LOAD_ATTR                       20: _get_entity_pair
+                        582     LOAD_GLOBAL                     17: NULL + utils
+                        592     LOAD_ATTR                       18: get_peer_id
+                        612     LOAD_FAST                       8: _var_var_3
+                        614     CALL                            1
+                        622     LOAD_FAST                       3: entities
+                        624     LOAD_FAST                       1: client
+                        626     LOAD_ATTR                       22: _mb_entity_cache
+                        646     CALL                            3
+                        654     UNPACK_SEQUENCE                 2
+                        658     STORE_FAST                      9: _var_var_4
+                        660     STORE_FAST                      10: _var_var_5
+                        662     LOAD_GLOBAL                     29: NULL + ChatGetter
+                        672     LOAD_ATTR                       30: __init__
+                        692     LOAD_FAST                       0: self
+                        694     LOAD_FAST                       8: _var_var_3
+                        696     LOAD_FAST                       9: _var_var_4
+                        698     LOAD_FAST                       10: _var_var_5
+                        700     KW_NAMES                        4: ('chat', 'input_chat')
+                        702     CALL                            4
+                        710     POP_TOP                         
+                        712     LOAD_GLOBAL                     33: NULL + SenderGetter
+                        722     LOAD_ATTR                       30: __init__
+                        742     LOAD_FAST                       0: self
+                        744     LOAD_FAST                       5: _var_var_0
+                        746     LOAD_FAST                       6: _var_var_1
+                        748     LOAD_FAST                       7: _var_var_2
+                        750     KW_NAMES                        5: ('sender', 'input_sender')
+                        752     CALL                            4
+                        760     POP_TOP                         
+                        762     LOAD_FAST                       1: client
+                        764     LOAD_FAST                       0: self
+                        766     STORE_ATTR                      17: _client
+                        776     LOAD_CONST                      0: None
+                        778     NOP                             
+                        780     NOP                             
+                        782     NOP                             
+                        784     JUMP_FORWARD                    19 (to 824)
+                        792     POP_TOP                         
+                        794     RETURN_CONST                    0: None
+                        796     PUSH_EXC_INFO                   
+                        798     PUSH_NULL                       
+                        800     LOAD_CONST                      6: '__pyarmor_exit_24251__'
+                        802     NOP                             
+                        804     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x02\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        806     CALL                            1
+                        814     POP_TOP                         
+                        816     RERAISE                         0
+                        818     COPY                            3
+                        820     POP_EXCEPT                      
+                        822     RERAISE                         1
+                        824     PUSH_NULL                       
+                        826     LOAD_CONST                      6: '__pyarmor_exit_24251__'
+                        828     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x02\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        830     BUILD_TUPLE                     1
+                        832     CALL_FUNCTION_EX                0
+                        834     POP_TOP                         
+                        836     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 776 -> 796 [0] 
+                        796 to 818 -> 818 [1] lasti
+                '__pyarmor_exit_24248__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'Forward'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    Custom class that encapsulates a :tl:`MessageFwdHeader` providing an\n    abstraction to easily access information like the original sender.\n\n    Remember that this class implements `ChatGetter\n    <telethon.tl.custom.chatgetter.ChatGetter>` and `SenderGetter\n    <telethon.tl.custom.sendergetter.SenderGetter>` which means you\n    have access to all their sender and chat properties and methods.\n\n    Attributes:\n\n        original_fwd (:tl:`MessageFwdHeader`):\n            The original :tl:`MessageFwdHeader` instance.\n\n        Any other attribute:\n            Attributes not described here are the same as those available\n            in the original :tl:`MessageFwdHeader`.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_24247__'
+                20      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: <CODE> __init__
+                42      MAKE_FUNCTION                   0
+                44      STORE_NAME                      5: __init__
+                46      LOAD_CONST                      7: None
+                48      NOP                             
+                50      NOP                             
+                52      NOP                             
+                54      JUMP_FORWARD                    19 (to 94)
+                62      POP_TOP                         
+                64      RETURN_CONST                    7: None
+                66      PUSH_EXC_INFO                   
+                68      PUSH_NULL                       
+                70      LOAD_CONST                      6: '__pyarmor_exit_24248__'
+                72      NOP                             
+                74      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                76      CALL                            1
+                84      POP_TOP                         
+                86      RERAISE                         0
+                88      COPY                            3
+                90      POP_EXCEPT                      
+                92      RERAISE                         1
+                94      PUSH_NULL                       
+                96      LOAD_CONST                      6: '__pyarmor_exit_24248__'
+                98      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                100     BUILD_TUPLE                     1
+                102     CALL_FUNCTION_EX                0
+                104     POP_TOP                         
+                106     RETURN_VALUE                    
+            [Exception Table]
+                40 to 46 -> 66 [0] 
+                66 to 88 -> 88 [1] lasti
+        'Forward'
+        '__pyarmor_exit_24245__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_24244__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a`\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('ChatGetter',)
+        30      IMPORT_NAME                     1: chatgetter
+        32      IMPORT_FROM                     2: ChatGetter
+        34      STORE_NAME                      2: ChatGetter
+        36      POP_TOP                         
+        38      LOAD_CONST                      3: 1
+        40      LOAD_CONST                      5: ('SenderGetter',)
+        42      IMPORT_NAME                     3: sendergetter
+        44      IMPORT_FROM                     4: SenderGetter
+        46      STORE_NAME                      4: SenderGetter
+        48      POP_TOP                         
+        50      LOAD_CONST                      6: 3
+        52      LOAD_CONST                      7: ('utils', 'helpers')
+        54      IMPORT_NAME                     5: 
+        56      IMPORT_FROM                     6: utils
+        58      STORE_NAME                      6: utils
+        60      IMPORT_FROM                     7: helpers
+        62      STORE_NAME                      7: helpers
+        64      POP_TOP                         
+        66      LOAD_CONST                      6: 3
+        68      LOAD_CONST                      8: ('types',)
+        70      IMPORT_NAME                     8: tl
+        72      IMPORT_FROM                     9: types
+        74      STORE_NAME                      9: types
+        76      POP_TOP                         
+        78      PUSH_NULL                       
+        80      LOAD_BUILD_CLASS                
+        82      LOAD_CONST                      9: <CODE> Forward
+        84      MAKE_FUNCTION                   0
+        86      LOAD_CONST                      10: 'Forward'
+        88      LOAD_NAME                       2: ChatGetter
+        90      LOAD_NAME                       4: SenderGetter
+        92      CALL                            4
+        100     STORE_NAME                      10: Forward
+        102     LOAD_CONST                      12: None
+        104     NOP                             
+        106     NOP                             
+        108     NOP                             
+        110     JUMP_FORWARD                    19 (to 150)
+        118     POP_TOP                         
+        120     RETURN_CONST                    12: None
+        122     PUSH_EXC_INFO                   
+        124     PUSH_NULL                       
+        126     LOAD_CONST                      11: '__pyarmor_exit_24245__'
+        128     NOP                             
+        130     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a`\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        132     CALL                            1
+        140     POP_TOP                         
+        142     RERAISE                         0
+        144     COPY                            3
+        146     POP_EXCEPT                      
+        148     RERAISE                         1
+        150     PUSH_NULL                       
+        152     LOAD_CONST                      11: '__pyarmor_exit_24245__'
+        154     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a`\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        156     BUILD_TUPLE                     1
+        158     CALL_FUNCTION_EX                0
+        160     POP_TOP                         
+        162     RETURN_VALUE                    
+    [Exception Table]
+        26 to 102 -> 122 [0] 
+        122 to 144 -> 144 [1] lasti

@@ -1,0 +1,525 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.events.messagedeleted>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 6
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'common'
+        'EventBuilder'
+        'EventCommon'
+        'name_inner_event'
+        'tl'
+        'types'
+        'MessageDeleted'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_22680__'
+        '__pyarmor_enter_22681__'
+        b'<COAddr>\x07\x00\x00\x1aT\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'EventBuilder'
+            'EventCommon'
+            'name_inner_event'
+        )
+        2
+        (
+            'types'
+        )
+        [Code]
+            File Name: <frozen multithon.events.messagedeleted>
+            Object Name: MessageDeleted
+            Qualified Name: MessageDeleted
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'classmethod'
+                'build'
+                'EventCommon'
+                'Event'
+            [Locals+Names]
+            [Constants]
+                'MessageDeleted'
+                "\n    Occurs whenever a message is deleted. Note that this event isn't 100%\n    reliable, since Telegram doesn't always notify the clients that a message\n    was deleted.\n\n    .. important::\n\n        Telegram **does not** send information about *where* a message\n        was deleted if it occurs in private conversations with other users\n        or in small group chats, because message IDs are *unique* and you\n        can identify the chat with the message ID alone if you saved it\n        previously.\n\n        Telethon **does not** save information of where messages occur,\n        so it cannot know in which chat a message was deleted (this will\n        only work in channels, where the channel ID *is* present).\n\n        This means that the ``chats=`` parameter will not work reliably,\n        unless you intend on working with channels and super-groups only.\n\n    Example\n        .. code-block:: python\n\n            from multithon import events\n\n            @client.on(events.MessageDeleted)\n            async def handler(event):\n                # Log all deleted message IDs\n                for msg_id in event.deleted_ids:\n                    print('Message', msg_id, 'was deleted in', event.chat_id)\n    "
+                '__pyarmor_assert_22683__'
+                '__pyarmor_enter_22684__'
+                b'<COAddr>\x05\x00\x00&>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                None
+                [Code]
+                    File Name: <frozen multithon.events.messagedeleted>
+                    Object Name: build
+                    Qualified Name: MessageDeleted.build
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'isinstance'
+                        'types'
+                        'UpdateDeleteMessages'
+                        'Event'
+                        'messages'
+                        'UpdateDeleteChannelMessages'
+                        'PeerChannel'
+                        'channel_id'
+                    [Locals+Names]
+                        'cls'
+                        'update'
+                        'others'
+                        'self_id'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_22686__'
+                        '__pyarmor_enter_22687__'
+                        b'<COAddr>\x07\x00\x00\x1aR\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        (
+                            'deleted_ids'
+                            'peer'
+                        )
+                        '__pyarmor_exit_22688__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_22687__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aR\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + isinstance
+                        38      LOAD_FAST                       1: update
+                        40      LOAD_GLOBAL                     2: types
+                        50      LOAD_ATTR                       4: UpdateDeleteMessages
+                        70      CALL                            2
+                        78      POP_JUMP_IF_FALSE               38 (to 156)
+                        80      LOAD_FAST                       0: cls
+                        82      LOAD_ATTR                       7: Event
+                        102     LOAD_FAST                       1: update
+                        104     LOAD_ATTR                       8: messages
+                        124     LOAD_CONST                      0: None
+                        126     KW_NAMES                        4: ('deleted_ids', 'peer')
+                        128     CALL                            2
+                        136     NOP                             
+                        138     NOP                             
+                        140     NOP                             
+                        142     JUMP_FORWARD                    124 (to 392)
+                        144     CALL                            1
+                        152     POP_TOP                         
+                        154     RETURN_VALUE                    
+                        156     LOAD_GLOBAL                     1: NULL + isinstance
+                        166     LOAD_FAST                       1: update
+                        168     LOAD_GLOBAL                     2: types
+                        178     LOAD_ATTR                       10: UpdateDeleteChannelMessages
+                        198     CALL                            2
+                        206     POP_JUMP_IF_FALSE               67 (to 342)
+                        208     LOAD_FAST                       0: cls
+                        210     LOAD_ATTR                       7: Event
+                        230     LOAD_FAST                       1: update
+                        232     LOAD_ATTR                       8: messages
+                        252     LOAD_GLOBAL                     3: NULL + types
+                        262     LOAD_ATTR                       12: PeerChannel
+                        282     LOAD_FAST                       1: update
+                        284     LOAD_ATTR                       14: channel_id
+                        304     CALL                            1
+                        312     KW_NAMES                        4: ('deleted_ids', 'peer')
+                        314     CALL                            2
+                        322     NOP                             
+                        324     NOP                             
+                        326     NOP                             
+                        328     JUMP_FORWARD                    31 (to 392)
+                        330     CALL                            1
+                        338     POP_TOP                         
+                        340     RETURN_VALUE                    
+                        342     NOP                             
+                        344     LOAD_CONST                      0: None
+                        346     NOP                             
+                        348     NOP                             
+                        350     NOP                             
+                        352     JUMP_FORWARD                    19 (to 392)
+                        360     POP_TOP                         
+                        362     RETURN_CONST                    0: None
+                        364     PUSH_EXC_INFO                   
+                        366     PUSH_NULL                       
+                        368     LOAD_CONST                      5: '__pyarmor_exit_22688__'
+                        370     NOP                             
+                        372     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aR\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        374     CALL                            1
+                        382     POP_TOP                         
+                        384     RERAISE                         0
+                        386     COPY                            3
+                        388     POP_EXCEPT                      
+                        390     RERAISE                         1
+                        392     PUSH_NULL                       
+                        394     LOAD_CONST                      5: '__pyarmor_exit_22688__'
+                        396     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aR\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        398     BUILD_TUPLE                     1
+                        400     CALL_FUNCTION_EX                0
+                        402     POP_TOP                         
+                        404     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 136 -> 364 [0] 
+                        156 to 322 -> 364 [0] 
+                        364 to 386 -> 386 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.events.messagedeleted>
+                    Object Name: Event
+                    Qualified Name: MessageDeleted.Event
+                    Arg Count: 0
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '__name__'
+                        '__module__'
+                        '__qualname__'
+                        '__assert_armored__'
+                        '__init__'
+                        '__classcell__'
+                    [Locals+Names]
+                        '__class__'
+                    [Constants]
+                        'MessageDeleted.Event'
+                        '__pyarmor_assert_22689__'
+                        '__pyarmor_enter_22690__'
+                        b'<COAddr>\x07\x00\x00$&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        [Code]
+                            File Name: <frozen multithon.events.messagedeleted>
+                            Object Name: __init__
+                            Qualified Name: MessageDeleted.Event.__init__
+                            Arg Count: 3
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Stack Size: 5
+                            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                            [Names]
+                                'super'
+                                '__init__'
+                                'deleted_id'
+                                'deleted_ids'
+                            [Locals+Names]
+                                'self'
+                                'deleted_ids'
+                                'peer'
+                                '__assert_armored__'
+                                '__class__'
+                            [Constants]
+                                None
+                                '__pyarmor_assert_22692__'
+                                '__pyarmor_enter_22693__'
+                                b'<COAddr>\x07\x00\x00\x1cr\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                                0
+                                (
+                                    'chat_peer'
+                                    'msg_id'
+                                )
+                                '__pyarmor_exit_22694__'
+                            [Disassembly]
+                                0       COPY_FREE_VARS                  1
+                                2       NOP                             
+                                4       NOP                             
+                                6       PUSH_NULL                       
+                                8       LOAD_CONST                      2: '__pyarmor_enter_22693__'
+                                10      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1cr\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                                12      BUILD_TUPLE                     1
+                                14      CALL_FUNCTION_EX                0
+                                16      POP_TOP                         
+                                18      RESUME                          0
+                                20      NOP                             
+                                22      NOP                             
+                                24      NOP                             
+                                26      NOP                             
+                                28      NOP                             
+                                30      LOAD_GLOBAL                     0: super
+                                40      LOAD_DEREF                      4: __class__
+                                42      LOAD_FAST                       0: self
+                                44      LOAD_SUPER_ATTR                 5: __init__
+                                48      LOAD_FAST                       2: peer
+                                50      LOAD_FAST                       1: deleted_ids
+                                52      COPY                            1
+                                54      POP_JUMP_IF_TRUE                3 (to 62)
+                                56      POP_TOP                         
+                                58      LOAD_CONST                      4: 0
+                                60      BUILD_LIST                      1
+                                62      LOAD_CONST                      4: 0
+                                64      BINARY_SUBSCR                   
+                                68      KW_NAMES                        5: ('chat_peer', 'msg_id')
+                                70      CALL                            2
+                                78      POP_TOP                         
+                                80      LOAD_FAST                       1: deleted_ids
+                                82      POP_JUMP_IF_TRUE                2 (to 88)
+                                84      LOAD_CONST                      0: None
+                                86      JUMP_FORWARD                    4 (to 96)
+                                88      LOAD_FAST                       1: deleted_ids
+                                90      LOAD_CONST                      4: 0
+                                92      BINARY_SUBSCR                   
+                                96      LOAD_FAST                       0: self
+                                98      STORE_ATTR                      2: deleted_id
+                                108     LOAD_FAST                       1: deleted_ids
+                                110     LOAD_FAST                       0: self
+                                112     STORE_ATTR                      3: deleted_ids
+                                122     LOAD_CONST                      0: None
+                                124     NOP                             
+                                126     NOP                             
+                                128     NOP                             
+                                130     JUMP_FORWARD                    19 (to 170)
+                                138     POP_TOP                         
+                                140     RETURN_CONST                    0: None
+                                142     PUSH_EXC_INFO                   
+                                144     PUSH_NULL                       
+                                146     LOAD_CONST                      6: '__pyarmor_exit_22694__'
+                                148     NOP                             
+                                150     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1cr\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                                152     CALL                            1
+                                160     POP_TOP                         
+                                162     RERAISE                         0
+                                164     COPY                            3
+                                166     POP_EXCEPT                      
+                                168     RERAISE                         1
+                                170     PUSH_NULL                       
+                                172     LOAD_CONST                      6: '__pyarmor_exit_22694__'
+                                174     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1cr\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                                176     BUILD_TUPLE                     1
+                                178     CALL_FUNCTION_EX                0
+                                180     POP_TOP                         
+                                182     RETURN_VALUE                    
+                            [Exception Table]
+                                30 to 122 -> 142 [0] 
+                                142 to 164 -> 164 [1] lasti
+                        '__pyarmor_exit_22691__'
+                    [Disassembly]
+                        0       MAKE_CELL                       0: __class__
+                        2       NOP                             
+                        4       LOAD_NAME                       0: __name__
+                        6       STORE_NAME                      1: __module__
+                        8       LOAD_CONST                      0: 'MessageDeleted.Event'
+                        10      STORE_NAME                      2: __qualname__
+                        12      NOP                             
+                        14      PUSH_NULL                       
+                        16      LOAD_CONST                      2: '__pyarmor_enter_22690__'
+                        18      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00$&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        20      BUILD_TUPLE                     1
+                        22      CALL_FUNCTION_EX                0
+                        24      POP_TOP                         
+                        26      RESUME                          0
+                        28      NOP                             
+                        30      NOP                             
+                        32      NOP                             
+                        34      NOP                             
+                        36      NOP                             
+                        38      LOAD_CLOSURE                    0: __class__
+                        40      BUILD_TUPLE                     1
+                        42      LOAD_CONST                      4: <CODE> __init__
+                        44      MAKE_FUNCTION                   8
+                        46      STORE_NAME                      4: __init__
+                        48      LOAD_CLOSURE                    0: __class__
+                        50      COPY                            1
+                        52      STORE_NAME                      5: __classcell__
+                        54      NOP                             
+                        56      NOP                             
+                        58      NOP                             
+                        60      JUMP_FORWARD                    20 (to 102)
+                        64      POP_TOP                         
+                        66      LOAD_CLOSURE                    0: __class__
+                        68      COPY                            1
+                        70      STORE_NAME                      5: __classcell__
+                        72      RETURN_VALUE                    
+                        74      PUSH_EXC_INFO                   
+                        76      PUSH_NULL                       
+                        78      LOAD_CONST                      5: '__pyarmor_exit_22691__'
+                        80      NOP                             
+                        82      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00$&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        84      CALL                            1
+                        92      POP_TOP                         
+                        94      RERAISE                         0
+                        96      COPY                            3
+                        98      POP_EXCEPT                      
+                        100     RERAISE                         1
+                        102     PUSH_NULL                       
+                        104     LOAD_CONST                      5: '__pyarmor_exit_22691__'
+                        106     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00$&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        108     BUILD_TUPLE                     1
+                        110     CALL_FUNCTION_EX                0
+                        112     POP_TOP                         
+                        114     RETURN_VALUE                    
+                    [Exception Table]
+                        38 to 48 -> 74 [0] 
+                        74 to 96 -> 96 [1] lasti
+                'Event'
+                '__pyarmor_exit_22685__'
+                (
+                    None
+                    None
+                )
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'MessageDeleted'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: "\n    Occurs whenever a message is deleted. Note that this event isn't 100%\n    reliable, since Telegram doesn't always notify the clients that a message\n    was deleted.\n\n    .. important::\n\n        Telegram **does not** send information about *where* a message\n        was deleted if it occurs in private conversations with other users\n        or in small group chats, because message IDs are *unique* and you\n        can identify the chat with the message ID alone if you saved it\n        previously.\n\n        Telethon **does not** save information of where messages occur,\n        so it cannot know in which chat a message was deleted (this will\n        only work in channels, where the channel ID *is* present).\n\n        This means that the ``chats=`` parameter will not work reliably,\n        unless you intend on working with channels and super-groups only.\n\n    Example\n        .. code-block:: python\n\n            from multithon import events\n\n            @client.on(events.MessageDeleted)\n            async def handler(event):\n                # Log all deleted message IDs\n                for msg_id in event.deleted_ids:\n                    print('Message', msg_id, 'was deleted in', event.chat_id)\n    "
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_22684__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_NAME                       5: classmethod
+                42      LOAD_CONST                      10: (None, None)
+                44      LOAD_CONST                      6: <CODE> build
+                46      MAKE_FUNCTION                   1
+                48      CALL                            0
+                56      STORE_NAME                      6: build
+                58      PUSH_NULL                       
+                60      LOAD_BUILD_CLASS                
+                62      LOAD_CONST                      7: <CODE> Event
+                64      MAKE_FUNCTION                   0
+                66      LOAD_CONST                      8: 'Event'
+                68      LOAD_NAME                       7: EventCommon
+                70      CALL                            3
+                78      STORE_NAME                      8: Event
+                80      LOAD_CONST                      5: None
+                82      NOP                             
+                84      NOP                             
+                86      NOP                             
+                88      JUMP_FORWARD                    19 (to 128)
+                96      POP_TOP                         
+                98      RETURN_CONST                    5: None
+                100     PUSH_EXC_INFO                   
+                102     PUSH_NULL                       
+                104     LOAD_CONST                      9: '__pyarmor_exit_22685__'
+                106     NOP                             
+                108     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                110     CALL                            1
+                118     POP_TOP                         
+                120     RERAISE                         0
+                122     COPY                            3
+                124     POP_EXCEPT                      
+                126     RERAISE                         1
+                128     PUSH_NULL                       
+                130     LOAD_CONST                      9: '__pyarmor_exit_22685__'
+                132     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                134     BUILD_TUPLE                     1
+                136     CALL_FUNCTION_EX                0
+                138     POP_TOP                         
+                140     RETURN_VALUE                    
+            [Exception Table]
+                40 to 80 -> 100 [0] 
+                100 to 122 -> 122 [1] lasti
+        'MessageDeleted'
+        '__pyarmor_exit_22682__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_22681__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aT\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('EventBuilder', 'EventCommon', 'name_inner_event')
+        30      IMPORT_NAME                     1: common
+        32      IMPORT_FROM                     2: EventBuilder
+        34      STORE_NAME                      2: EventBuilder
+        36      IMPORT_FROM                     3: EventCommon
+        38      STORE_NAME                      3: EventCommon
+        40      IMPORT_FROM                     4: name_inner_event
+        42      STORE_NAME                      4: name_inner_event
+        44      POP_TOP                         
+        46      LOAD_CONST                      5: 2
+        48      LOAD_CONST                      6: ('types',)
+        50      IMPORT_NAME                     5: tl
+        52      IMPORT_FROM                     6: types
+        54      STORE_NAME                      6: types
+        56      POP_TOP                         
+        58      LOAD_NAME                       4: name_inner_event
+        60      PUSH_NULL                       
+        62      LOAD_BUILD_CLASS                
+        64      LOAD_CONST                      7: <CODE> MessageDeleted
+        66      MAKE_FUNCTION                   0
+        68      LOAD_CONST                      8: 'MessageDeleted'
+        70      LOAD_NAME                       2: EventBuilder
+        72      CALL                            3
+        80      CALL                            0
+        88      STORE_NAME                      7: MessageDeleted
+        90      LOAD_CONST                      10: None
+        92      NOP                             
+        94      NOP                             
+        96      NOP                             
+        98      JUMP_FORWARD                    19 (to 138)
+        106     POP_TOP                         
+        108     RETURN_CONST                    10: None
+        110     PUSH_EXC_INFO                   
+        112     PUSH_NULL                       
+        114     LOAD_CONST                      9: '__pyarmor_exit_22682__'
+        116     NOP                             
+        118     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aT\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        120     CALL                            1
+        128     POP_TOP                         
+        130     RERAISE                         0
+        132     COPY                            3
+        134     POP_EXCEPT                      
+        136     RERAISE                         1
+        138     PUSH_NULL                       
+        140     LOAD_CONST                      9: '__pyarmor_exit_22682__'
+        142     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aT\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        144     BUILD_TUPLE                     1
+        146     CALL_FUNCTION_EX                0
+        148     POP_TOP                         
+        150     RETURN_VALUE                    
+    [Exception Table]
+        26 to 90 -> 110 [0] 
+        110 to 132 -> 132 [1] lasti

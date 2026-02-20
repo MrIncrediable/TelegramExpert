@@ -1,0 +1,139 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.crypto>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'aes'
+        'AES'
+        'aesctr'
+        'AESModeCTR'
+        'authkey'
+        'AuthKey'
+        'factorization'
+        'Factorization'
+        'cdndecrypter'
+        'CdnDecrypter'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_17496__'
+        '__pyarmor_enter_17497__'
+        b'<COAddr>\x07\x00\x00\x1a`\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        '\nThis module contains several utilities regarding cryptographic purposes,\nsuch as the AES IGE mode used by Telegram, the authorization key bound with\ntheir data centers, and so on.\n'   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xfb\x8a\x01I\xba\xae\xa4\xd8\x0e\xdf\x00y\xa6N\x01\xbd^\xf0.[,\x04\x8c\xc3\xb1=X\xfb\xfdZ\xdc\xca\x0bN9\xea\x16\xf8\x95i\x16\xf98\xec\x89\x1c\x08C8P\x17X\x10\x91\xcd8\xff\xba\x80.V-U\xba\x00\xd1\xa0\x94\xc4\xbd\xb7\nB`\xe1\x84\xcd\xc5\xb8T\x99\xbe\xebT\xb83.\x1b!8\x0f\x1d\xa1\xc2y\xe2\xf1>\xb5(\xb3\x154\xb4A\x03v\x0ckc\xedJ\xb0\xff\xe2\xb5\x13\xb4\x0e\xb9\x1f\xcc:P\r\xb9\xb83I\xb6|\xf0\xf1\xd5q_\xa3t\xf5\xf7\xa4\x19\xa1\xcb\xfd\xc3\x96\x1f$%\xcc\xb8\xb7\x05\x94\xd2!\x13\n.\x1c\xf6\x1eZ\xb4<l\xf4'
+        1
+        (
+            'AES'
+        )
+        (
+            'AESModeCTR'
+        )
+        (
+            'AuthKey'
+        )
+        (
+            'Factorization'
+        )
+        (
+            'CdnDecrypter'
+        )
+        '__pyarmor_exit_17498__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_17497__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a`\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      PUSH_NULL                       
+        28      LOAD_CONST                      0: '__pyarmor_assert_17496__'
+        30      LOAD_CONST                      3: '\nThis module contains several utilities regarding cryptographic purposes,\nsuch as the AES IGE mode used by Telegram, the authorization key bound with\ntheir data centers, and so on.\n'   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xfb\x8a\x01I\xba\xae\xa4\xd8\x0e\xdf\x00y\xa6N\x01\xbd^\xf0.[,\x04\x8c\xc3\xb1=X\xfb\xfdZ\xdc\xca\x0bN9\xea\x16\xf8\x95i\x16\xf98\xec\x89\x1c\x08C8P\x17X\x10\x91\xcd8\xff\xba\x80.V-U\xba\x00\xd1\xa0\x94\xc4\xbd\xb7\nB`\xe1\x84\xcd\xc5\xb8T\x99\xbe\xebT\xb83.\x1b!8\x0f\x1d\xa1\xc2y\xe2\xf1>\xb5(\xb3\x154\xb4A\x03v\x0ckc\xedJ\xb0\xff\xe2\xb5\x13\xb4\x0e\xb9\x1f\xcc:P\r\xb9\xb83I\xb6|\xf0\xf1\xd5q_\xa3t\xf5\xf7\xa4\x19\xa1\xcb\xfd\xc3\x96\x1f$%\xcc\xb8\xb7\x05\x94\xd2!\x13\n.\x1c\xf6\x1eZ\xb4<l\xf4'
+        32      CALL                            1
+        40      POP_TOP                         
+        42      LOAD_CONST                      4: 1
+        44      LOAD_CONST                      5: ('AES',)
+        46      IMPORT_NAME                     1: aes
+        48      IMPORT_FROM                     2: AES
+        50      STORE_NAME                      2: AES
+        52      POP_TOP                         
+        54      LOAD_CONST                      4: 1
+        56      LOAD_CONST                      6: ('AESModeCTR',)
+        58      IMPORT_NAME                     3: aesctr
+        60      IMPORT_FROM                     4: AESModeCTR
+        62      STORE_NAME                      4: AESModeCTR
+        64      POP_TOP                         
+        66      LOAD_CONST                      4: 1
+        68      LOAD_CONST                      7: ('AuthKey',)
+        70      IMPORT_NAME                     5: authkey
+        72      IMPORT_FROM                     6: AuthKey
+        74      STORE_NAME                      6: AuthKey
+        76      POP_TOP                         
+        78      LOAD_CONST                      4: 1
+        80      LOAD_CONST                      8: ('Factorization',)
+        82      IMPORT_NAME                     7: factorization
+        84      IMPORT_FROM                     8: Factorization
+        86      STORE_NAME                      8: Factorization
+        88      POP_TOP                         
+        90      LOAD_CONST                      4: 1
+        92      LOAD_CONST                      9: ('CdnDecrypter',)
+        94      IMPORT_NAME                     9: cdndecrypter
+        96      IMPORT_FROM                     10: CdnDecrypter
+        98      STORE_NAME                      10: CdnDecrypter
+        100     POP_TOP                         
+        102     LOAD_CONST                      11: None
+        104     NOP                             
+        106     NOP                             
+        108     NOP                             
+        110     JUMP_FORWARD                    19 (to 150)
+        118     POP_TOP                         
+        120     RETURN_CONST                    11: None
+        122     PUSH_EXC_INFO                   
+        124     PUSH_NULL                       
+        126     LOAD_CONST                      10: '__pyarmor_exit_17498__'
+        128     NOP                             
+        130     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a`\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        132     CALL                            1
+        140     POP_TOP                         
+        142     RERAISE                         0
+        144     COPY                            3
+        146     POP_EXCEPT                      
+        148     RERAISE                         1
+        150     PUSH_NULL                       
+        152     LOAD_CONST                      10: '__pyarmor_exit_17498__'
+        154     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a`\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        156     BUILD_TUPLE                     1
+        158     CALL_FUNCTION_EX                0
+        160     POP_TOP                         
+        162     RETURN_VALUE                    
+    [Exception Table]
+        26 to 102 -> 122 [0] 
+        122 to 144 -> 144 [1] lasti

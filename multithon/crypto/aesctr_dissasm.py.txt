@@ -1,0 +1,432 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.crypto.aesctr>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'pyaes'
+        'AESModeCTR'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_17397__'
+        '__pyarmor_enter_17398__'
+        b'<COAddr>\x05\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        '\nThis module holds the AESModeCTR wrapper class.\n'   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xf0\x8a\x03Y\xa8\xe7\xbe\xc3K\x8c$J\x90q\x0f\xb5\x1b\xc6\x0e``\x1a\x8a\xcb\xa4>\x1d\xfb\xb8^\xd1\xd9\x1cTy\x87'
+        0
+        None
+        [Code]
+            File Name: <frozen multithon.crypto.aesctr>
+            Object Name: AESModeCTR
+            Qualified Name: AESModeCTR
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                'encrypt'
+                'decrypt'
+            [Locals+Names]
+            [Constants]
+                'AESModeCTR'
+                'Wrapper around pyaes.AESModeOfOperationCTR mode with custom IV'
+                '__pyarmor_assert_17400__'
+                '__pyarmor_enter_17401__'
+                b'<COAddr>\x07\x00\x00&(\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.crypto.aesctr>
+                    Object Name: __init__
+                    Qualified Name: AESModeCTR.__init__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'isinstance'
+                        'bytes'
+                        'pyaes'
+                        'AESModeOfOperationCTR'
+                        '_aes'
+                        'len'
+                        'list'
+                        '_counter'
+                    [Locals+Names]
+                        'self'
+                        'key'
+                        'iv'
+                        '__assert_armored__'
+                    [Constants]
+                        '\n        Initializes the AES CTR mode with the given key/iv pair.\n\n        :param key: the key to be used as bytes.\n        :param iv: the bytes initialization vector. Must have a length of 16.\n        '
+                        '__pyarmor_assert_17403__'
+                        '__pyarmor_enter_17404__'
+                        b'<COAddr>\x07\x00\x00\x1a\xfa\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        16
+                        '__pyarmor_exit_17405__'
+                        None
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17404__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xfa\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + isinstance
+                        38      LOAD_FAST                       1: key
+                        40      LOAD_GLOBAL                     2: bytes
+                        50      CALL                            2
+                        58      POP_JUMP_IF_TRUE                2 (to 64)
+                        60      LOAD_ASSERTION_ERROR            
+                        62      RAISE_VARARGS                   1
+                        64      LOAD_GLOBAL                     5: NULL + pyaes
+                        74      LOAD_ATTR                       6: AESModeOfOperationCTR
+                        94      LOAD_FAST                       1: key
+                        96      CALL                            1
+                        104     LOAD_FAST                       0: self
+                        106     STORE_ATTR                      4: _aes
+                        116     LOAD_GLOBAL                     1: NULL + isinstance
+                        126     LOAD_FAST                       2: iv
+                        128     LOAD_GLOBAL                     2: bytes
+                        138     CALL                            2
+                        146     POP_JUMP_IF_TRUE                2 (to 152)
+                        148     LOAD_ASSERTION_ERROR            
+                        150     RAISE_VARARGS                   1
+                        152     LOAD_GLOBAL                     11: NULL + len
+                        162     LOAD_FAST                       2: iv
+                        164     CALL                            1
+                        172     LOAD_CONST                      4: 16
+                        174     COMPARE_OP                      40 (==)
+                        178     POP_JUMP_IF_TRUE                2 (to 184)
+                        180     LOAD_ASSERTION_ERROR            
+                        182     RAISE_VARARGS                   1
+                        184     LOAD_GLOBAL                     13: NULL + list
+                        194     LOAD_FAST                       2: iv
+                        196     CALL                            1
+                        204     LOAD_FAST                       0: self
+                        206     LOAD_ATTR                       8: _aes
+                        226     LOAD_ATTR                       14: _counter
+                        246     STORE_ATTR                      7: _counter
+                        256     LOAD_CONST                      6: None
+                        258     NOP                             
+                        260     NOP                             
+                        262     NOP                             
+                        264     JUMP_FORWARD                    19 (to 304)
+                        272     POP_TOP                         
+                        274     RETURN_CONST                    6: None
+                        276     PUSH_EXC_INFO                   
+                        278     PUSH_NULL                       
+                        280     LOAD_CONST                      5: '__pyarmor_exit_17405__'
+                        282     NOP                             
+                        284     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xfa\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        286     CALL                            1
+                        294     POP_TOP                         
+                        296     RERAISE                         0
+                        298     COPY                            3
+                        300     POP_EXCEPT                      
+                        302     RERAISE                         1
+                        304     PUSH_NULL                       
+                        306     LOAD_CONST                      5: '__pyarmor_exit_17405__'
+                        308     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xfa\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        310     BUILD_TUPLE                     1
+                        312     CALL_FUNCTION_EX                0
+                        314     POP_TOP                         
+                        316     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 256 -> 276 [0] 
+                        276 to 298 -> 298 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.crypto.aesctr>
+                    Object Name: encrypt
+                    Qualified Name: AESModeCTR.encrypt
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_aes'
+                        'encrypt'
+                    [Locals+Names]
+                        'self'
+                        'data'
+                        '__assert_armored__'
+                    [Constants]
+                        '\n        Encrypts the given plain text through AES CTR.\n\n        :param data: the plain text to be encrypted.\n        :return: the encrypted cipher text.\n        '
+                        '__pyarmor_assert_17406__'
+                        '__pyarmor_enter_17407__'
+                        b'<COAddr>\x05\x00\x00\x1aJ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_17408__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17407__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aJ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _aes
+                        50      LOAD_ATTR                       3: encrypt
+                        70      LOAD_FAST                       1: data
+                        72      CALL                            1
+                        80      NOP                             
+                        82      NOP                             
+                        84      NOP                             
+                        86      JUMP_FORWARD                    20 (to 128)
+                        88      CALL                            1
+                        96      POP_TOP                         
+                        98      RETURN_VALUE                    
+                        100     PUSH_EXC_INFO                   
+                        102     PUSH_NULL                       
+                        104     LOAD_CONST                      4: '__pyarmor_exit_17408__'
+                        106     NOP                             
+                        108     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aJ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        110     CALL                            1
+                        118     POP_TOP                         
+                        120     RERAISE                         0
+                        122     COPY                            3
+                        124     POP_EXCEPT                      
+                        126     RERAISE                         1
+                        128     PUSH_NULL                       
+                        130     LOAD_CONST                      4: '__pyarmor_exit_17408__'
+                        132     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aJ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        134     BUILD_TUPLE                     1
+                        136     CALL_FUNCTION_EX                0
+                        138     POP_TOP                         
+                        140     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 80 -> 100 [0] 
+                        100 to 122 -> 122 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.crypto.aesctr>
+                    Object Name: decrypt
+                    Qualified Name: AESModeCTR.decrypt
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_aes'
+                        'decrypt'
+                    [Locals+Names]
+                        'self'
+                        'data'
+                        '__assert_armored__'
+                    [Constants]
+                        '\n        Decrypts the given cipher text through AES CTR\n\n        :param data: the cipher text to be decrypted.\n        :return: the decrypted plain text.\n        '
+                        '__pyarmor_assert_17409__'
+                        '__pyarmor_enter_17410__'
+                        b'<COAddr>\x05\x00\x00\x1aJ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_17411__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17410__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aJ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _aes
+                        50      LOAD_ATTR                       3: decrypt
+                        70      LOAD_FAST                       1: data
+                        72      CALL                            1
+                        80      NOP                             
+                        82      NOP                             
+                        84      NOP                             
+                        86      JUMP_FORWARD                    20 (to 128)
+                        88      CALL                            1
+                        96      POP_TOP                         
+                        98      RETURN_VALUE                    
+                        100     PUSH_EXC_INFO                   
+                        102     PUSH_NULL                       
+                        104     LOAD_CONST                      4: '__pyarmor_exit_17411__'
+                        106     NOP                             
+                        108     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aJ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        110     CALL                            1
+                        118     POP_TOP                         
+                        120     RERAISE                         0
+                        122     COPY                            3
+                        124     POP_EXCEPT                      
+                        126     RERAISE                         1
+                        128     PUSH_NULL                       
+                        130     LOAD_CONST                      4: '__pyarmor_exit_17411__'
+                        132     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aJ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        134     BUILD_TUPLE                     1
+                        136     CALL_FUNCTION_EX                0
+                        138     POP_TOP                         
+                        140     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 80 -> 100 [0] 
+                        100 to 122 -> 122 [1] lasti
+                '__pyarmor_exit_17402__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'AESModeCTR'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: 'Wrapper around pyaes.AESModeOfOperationCTR mode with custom IV'
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17401__'
+                20      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&(\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: <CODE> __init__
+                42      MAKE_FUNCTION                   0
+                44      STORE_NAME                      5: __init__
+                46      LOAD_CONST                      6: <CODE> encrypt
+                48      MAKE_FUNCTION                   0
+                50      STORE_NAME                      6: encrypt
+                52      LOAD_CONST                      7: <CODE> decrypt
+                54      MAKE_FUNCTION                   0
+                56      STORE_NAME                      7: decrypt
+                58      LOAD_CONST                      9: None
+                60      NOP                             
+                62      NOP                             
+                64      NOP                             
+                66      JUMP_FORWARD                    19 (to 106)
+                74      POP_TOP                         
+                76      RETURN_CONST                    9: None
+                78      PUSH_EXC_INFO                   
+                80      PUSH_NULL                       
+                82      LOAD_CONST                      8: '__pyarmor_exit_17402__'
+                84      NOP                             
+                86      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&(\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      CALL                            1
+                96      POP_TOP                         
+                98      RERAISE                         0
+                100     COPY                            3
+                102     POP_EXCEPT                      
+                104     RERAISE                         1
+                106     PUSH_NULL                       
+                108     LOAD_CONST                      8: '__pyarmor_exit_17402__'
+                110     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&(\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                112     BUILD_TUPLE                     1
+                114     CALL_FUNCTION_EX                0
+                116     POP_TOP                         
+                118     RETURN_VALUE                    
+            [Exception Table]
+                40 to 58 -> 78 [0] 
+                78 to 100 -> 100 [1] lasti
+        'AESModeCTR'
+        '__pyarmor_exit_17399__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_17398__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      PUSH_NULL                       
+        28      LOAD_CONST                      0: '__pyarmor_assert_17397__'
+        30      LOAD_CONST                      3: '\nThis module holds the AESModeCTR wrapper class.\n'   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xf0\x8a\x03Y\xa8\xe7\xbe\xc3K\x8c$J\x90q\x0f\xb5\x1b\xc6\x0e``\x1a\x8a\xcb\xa4>\x1d\xfb\xb8^\xd1\xd9\x1cTy\x87'
+        32      CALL                            1
+        40      POP_TOP                         
+        42      LOAD_CONST                      4: 0
+        44      LOAD_CONST                      5: None
+        46      IMPORT_NAME                     1: pyaes
+        48      STORE_NAME                      1: pyaes
+        50      PUSH_NULL                       
+        52      LOAD_BUILD_CLASS                
+        54      LOAD_CONST                      6: <CODE> AESModeCTR
+        56      MAKE_FUNCTION                   0
+        58      LOAD_CONST                      7: 'AESModeCTR'
+        60      CALL                            2
+        68      STORE_NAME                      2: AESModeCTR
+        70      LOAD_CONST                      5: None
+        72      NOP                             
+        74      NOP                             
+        76      NOP                             
+        78      JUMP_FORWARD                    19 (to 118)
+        86      POP_TOP                         
+        88      RETURN_CONST                    5: None
+        90      PUSH_EXC_INFO                   
+        92      PUSH_NULL                       
+        94      LOAD_CONST                      8: '__pyarmor_exit_17399__'
+        96      NOP                             
+        98      LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        100     CALL                            1
+        108     POP_TOP                         
+        110     RERAISE                         0
+        112     COPY                            3
+        114     POP_EXCEPT                      
+        116     RERAISE                         1
+        118     PUSH_NULL                       
+        120     LOAD_CONST                      8: '__pyarmor_exit_17399__'
+        122     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        124     BUILD_TUPLE                     1
+        126     CALL_FUNCTION_EX                0
+        128     POP_TOP                         
+        130     RETURN_VALUE                    
+    [Exception Table]
+        26 to 70 -> 90 [0] 
+        90 to 112 -> 112 [1] lasti

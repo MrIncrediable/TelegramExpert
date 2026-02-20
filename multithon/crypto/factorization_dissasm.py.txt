@@ -1,0 +1,546 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.crypto.factorization>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'random'
+        'randint'
+        'Factorization'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_17454__'
+        '__pyarmor_enter_17455__'
+        b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        '\nThis module holds a fast Factorization class.\n'   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xf0\x8a\x03Y\xa8\xe7\xab\x8bH\xcd\x16{\xe3z\x01\xb2\n\xea([:\x0c\x8c\xc3\xbb X\xea\xf4\\\xce\xcbA-'
+        0
+        (
+            'randint'
+        )
+        [Code]
+            File Name: <frozen multithon.crypto.factorization>
+            Object Name: Factorization
+            Qualified Name: Factorization
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'classmethod'
+                'factorize'
+                'staticmethod'
+                'gcd'
+            [Locals+Names]
+            [Constants]
+                'Factorization'
+                '\n    Simple module to factorize large numbers really quickly.\n    '
+                '__pyarmor_assert_17457__'
+                '__pyarmor_enter_17458__'
+                b'<COAddr>\x05\x00\x00&6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.crypto.factorization>
+                    Object Name: factorize
+                    Qualified Name: Factorization.factorize
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'randint'
+                        'range'
+                        'pow'
+                        'min'
+                        'abs'
+                        'gcd'
+                    [Locals+Names]
+                        'cls'
+                        'pq'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                        '_var_var_2'
+                        '_var_var_3'
+                        '_var_var_4'
+                        '_var_var_5'
+                        '_var_var_6'
+                        '_var_var_7'
+                        '_var_var_8'
+                        '_var_var_9'
+                        '_var_var_10'
+                    [Constants]
+                        '\n        Factorizes the given large integer.\n\n        Implementation from https://comeoncodeon.wordpress.com/2010/09/18/pollard-rho-brent-integer-factorization/.\n\n        :param pq: the prime pair pq.\n        :return: a tuple containing the two factors p and q.\n        '
+                        '__pyarmor_assert_17460__'
+                        '__pyarmor_enter_17461__'
+                        b'<COAddr>\x07\x00\x00\x1a\xa8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        2
+                        0
+                        '__pyarmor_exit_17462__'
+                        1
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17461__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xa8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: pq
+                        30      LOAD_CONST                      4: 2
+                        32      BINARY_OP                       6 (%)
+                        36      LOAD_CONST                      5: 0
+                        38      COMPARE_OP                      40 (==)
+                        42      POP_JUMP_IF_FALSE               16 (to 76)
+                        44      LOAD_CONST                      4: 2
+                        46      LOAD_FAST                       1: pq
+                        48      LOAD_CONST                      4: 2
+                        50      BINARY_OP                       2 (//)
+                        54      BUILD_TUPLE                     2
+                        56      NOP                             
+                        58      NOP                             
+                        60      JUMP_FORWARD                    335 (to 734)
+                        64      CALL                            1
+                        72      POP_TOP                         
+                        74      RETURN_VALUE                    
+                        76      LOAD_GLOBAL                     1: NULL + randint
+                        86      LOAD_CONST                      7: 1
+                        88      LOAD_FAST                       1: pq
+                        90      LOAD_CONST                      7: 1
+                        92      BINARY_OP                       10 (-)
+                        96      CALL                            2
+                        104     LOAD_GLOBAL                     1: NULL + randint
+                        114     LOAD_CONST                      7: 1
+                        116     LOAD_FAST                       1: pq
+                        118     LOAD_CONST                      7: 1
+                        120     BINARY_OP                       10 (-)
+                        124     CALL                            2
+                        132     LOAD_GLOBAL                     1: NULL + randint
+                        142     LOAD_CONST                      7: 1
+                        144     LOAD_FAST                       1: pq
+                        146     LOAD_CONST                      7: 1
+                        148     BINARY_OP                       10 (-)
+                        152     CALL                            2
+                        160     STORE_FAST                      5: _var_var_2
+                        162     STORE_FAST                      4: _var_var_1
+                        164     STORE_FAST                      3: _var_var_0
+                        166     LOAD_CONST                      7: 1
+                        168     COPY                            1
+                        170     STORE_FAST                      6: _var_var_3
+                        172     COPY                            1
+                        174     STORE_FAST                      7: _var_var_4
+                        176     STORE_FAST                      8: _var_var_5
+                        178     LOAD_CONST                      5: 0
+                        180     COPY                            1
+                        182     STORE_FAST                      9: _var_var_6
+                        184     STORE_FAST                      10: _var_var_7
+                        186     LOAD_FAST                       6: _var_var_3
+                        188     LOAD_CONST                      7: 1
+                        190     COMPARE_OP                      40 (==)
+                        194     POP_JUMP_IF_FALSE               164 (to 524)
+                        196     LOAD_FAST                       3: _var_var_0
+                        198     STORE_FAST                      9: _var_var_6
+                        200     LOAD_GLOBAL                     3: NULL + range
+                        210     LOAD_FAST                       7: _var_var_4
+                        212     CALL                            1
+                        220     GET_ITER                        
+                        222     FOR_ITER                        21 (to 266)
+                        226     STORE_FAST                      11: _var_var_8
+                        228     LOAD_GLOBAL                     5: NULL + pow
+                        238     LOAD_FAST                       3: _var_var_0
+                        240     LOAD_CONST                      4: 2
+                        242     LOAD_FAST                       1: pq
+                        244     CALL                            3
+                        252     LOAD_FAST                       4: _var_var_1
+                        254     BINARY_OP                       0 (+)
+                        258     LOAD_FAST                       1: pq
+                        260     BINARY_OP                       6 (%)
+                        264     STORE_FAST                      3: _var_var_0
+                        266     JUMP_BACKWARD                   23 (to 222)
+                        268     END_FOR                         
+                        270     LOAD_CONST                      5: 0
+                        272     STORE_FAST                      12: _var_var_9
+                        274     LOAD_FAST                       12: _var_var_9
+                        276     LOAD_FAST                       7: _var_var_4
+                        278     COMPARE_OP                      2 (<)
+                        282     POP_JUMP_IF_FALSE               109 (to 502)
+                        284     LOAD_FAST                       6: _var_var_3
+                        286     LOAD_CONST                      7: 1
+                        288     COMPARE_OP                      40 (==)
+                        292     POP_JUMP_IF_FALSE               104 (to 502)
+                        294     LOAD_FAST                       3: _var_var_0
+                        296     STORE_FAST                      10: _var_var_7
+                        298     LOAD_GLOBAL                     3: NULL + range
+                        308     LOAD_GLOBAL                     7: NULL + min
+                        318     LOAD_FAST                       5: _var_var_2
+                        320     LOAD_FAST                       7: _var_var_4
+                        322     LOAD_FAST                       12: _var_var_9
+                        324     BINARY_OP                       10 (-)
+                        328     CALL                            2
+                        336     CALL                            1
+                        344     GET_ITER                        
+                        346     FOR_ITER                        41 (to 430)
+                        350     STORE_FAST                      11: _var_var_8
+                        352     LOAD_GLOBAL                     5: NULL + pow
+                        362     LOAD_FAST                       3: _var_var_0
+                        364     LOAD_CONST                      4: 2
+                        366     LOAD_FAST                       1: pq
+                        368     CALL                            3
+                        376     LOAD_FAST                       4: _var_var_1
+                        378     BINARY_OP                       0 (+)
+                        382     LOAD_FAST                       1: pq
+                        384     BINARY_OP                       6 (%)
+                        388     STORE_FAST                      3: _var_var_0
+                        390     LOAD_FAST                       8: _var_var_5
+                        392     LOAD_GLOBAL                     9: NULL + abs
+                        402     LOAD_FAST                       9: _var_var_6
+                        404     LOAD_FAST                       3: _var_var_0
+                        406     BINARY_OP                       10 (-)
+                        410     CALL                            1
+                        418     BINARY_OP                       5 (*)
+                        422     LOAD_FAST                       1: pq
+                        424     BINARY_OP                       6 (%)
+                        428     STORE_FAST                      8: _var_var_5
+                        430     JUMP_BACKWARD                   43 (to 346)
+                        432     END_FOR                         
+                        434     LOAD_FAST                       0: cls
+                        436     LOAD_ATTR                       11: gcd
+                        456     LOAD_FAST                       8: _var_var_5
+                        458     LOAD_FAST                       1: pq
+                        460     CALL                            2
+                        468     STORE_FAST                      6: _var_var_3
+                        470     LOAD_FAST                       12: _var_var_9
+                        472     LOAD_FAST                       5: _var_var_2
+                        474     BINARY_OP                       13 (+=)
+                        478     STORE_FAST                      12: _var_var_9
+                        480     LOAD_FAST                       12: _var_var_9
+                        482     LOAD_FAST                       7: _var_var_4
+                        484     COMPARE_OP                      2 (<)
+                        488     POP_JUMP_IF_FALSE               6 (to 502)
+                        490     LOAD_FAST                       6: _var_var_3
+                        492     LOAD_CONST                      7: 1
+                        494     COMPARE_OP                      40 (==)
+                        498     POP_JUMP_IF_FALSE               1 (to 502)
+                        500     JUMP_BACKWARD                   104 (to 294)
+                        502     LOAD_FAST                       7: _var_var_4
+                        504     LOAD_CONST                      4: 2
+                        506     BINARY_OP                       18 (*=)
+                        510     STORE_FAST                      7: _var_var_4
+                        512     LOAD_FAST                       6: _var_var_3
+                        514     LOAD_CONST                      7: 1
+                        516     COMPARE_OP                      40 (==)
+                        520     POP_JUMP_IF_FALSE               1 (to 524)
+                        522     JUMP_BACKWARD                   164 (to 196)
+                        524     LOAD_FAST                       6: _var_var_3
+                        526     LOAD_FAST                       1: pq
+                        528     COMPARE_OP                      40 (==)
+                        532     POP_JUMP_IF_FALSE               57 (to 648)
+                        534     NOP                             
+                        536     LOAD_GLOBAL                     5: NULL + pow
+                        546     LOAD_FAST                       10: _var_var_7
+                        548     LOAD_CONST                      4: 2
+                        550     LOAD_FAST                       1: pq
+                        552     CALL                            3
+                        560     LOAD_FAST                       4: _var_var_1
+                        562     BINARY_OP                       0 (+)
+                        566     LOAD_FAST                       1: pq
+                        568     BINARY_OP                       6 (%)
+                        572     STORE_FAST                      10: _var_var_7
+                        574     LOAD_FAST                       0: cls
+                        576     LOAD_ATTR                       11: gcd
+                        596     LOAD_GLOBAL                     9: NULL + abs
+                        606     LOAD_FAST                       9: _var_var_6
+                        608     LOAD_FAST                       10: _var_var_7
+                        610     BINARY_OP                       10 (-)
+                        614     CALL                            1
+                        622     LOAD_FAST                       1: pq
+                        624     CALL                            2
+                        632     STORE_FAST                      6: _var_var_3
+                        634     LOAD_FAST                       6: _var_var_3
+                        636     LOAD_CONST                      7: 1
+                        638     COMPARE_OP                      68 (>)
+                        642     POP_JUMP_IF_FALSE               1 (to 646)
+                        644     JUMP_FORWARD                    1 (to 648)
+                        646     JUMP_BACKWARD                   56 (to 536)
+                        648     LOAD_FAST                       6: _var_var_3
+                        650     LOAD_FAST                       1: pq
+                        652     LOAD_FAST                       6: _var_var_3
+                        654     BINARY_OP                       2 (//)
+                        658     STORE_FAST                      8: _var_var_5
+                        660     STORE_FAST                      13: _var_var_10
+                        662     LOAD_FAST                       13: _var_var_10
+                        664     LOAD_FAST                       8: _var_var_5
+                        666     COMPARE_OP                      2 (<)
+                        670     POP_JUMP_IF_FALSE               4 (to 680)
+                        672     LOAD_FAST                       13: _var_var_10
+                        674     LOAD_FAST                       8: _var_var_5
+                        676     BUILD_TUPLE                     2
+                        678     JUMP_FORWARD                    3 (to 686)
+                        680     LOAD_FAST                       8: _var_var_5
+                        682     LOAD_FAST                       13: _var_var_10
+                        684     BUILD_TUPLE                     2
+                        686     NOP                             
+                        688     NOP                             
+                        690     NOP                             
+                        692     JUMP_FORWARD                    20 (to 734)
+                        694     CALL                            1
+                        702     POP_TOP                         
+                        704     RETURN_VALUE                    
+                        706     PUSH_EXC_INFO                   
+                        708     PUSH_NULL                       
+                        710     LOAD_CONST                      6: '__pyarmor_exit_17462__'
+                        712     NOP                             
+                        714     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xa8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        716     CALL                            1
+                        724     POP_TOP                         
+                        726     RERAISE                         0
+                        728     COPY                            3
+                        730     POP_EXCEPT                      
+                        732     RERAISE                         1
+                        734     PUSH_NULL                       
+                        736     LOAD_CONST                      6: '__pyarmor_exit_17462__'
+                        738     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xa8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        740     BUILD_TUPLE                     1
+                        742     CALL_FUNCTION_EX                0
+                        744     POP_TOP                         
+                        746     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 56 -> 706 [0] 
+                        76 to 500 -> 706 [0] 
+                        502 to 522 -> 706 [0] 
+                        524 to 686 -> 706 [0] 
+                        706 to 728 -> 728 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.crypto.factorization>
+                    Object Name: gcd
+                    Qualified Name: Factorization.gcd
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                    [Locals+Names]
+                        'a'
+                        'b'
+                        '__assert_armored__'
+                    [Constants]
+                        '\n        Calculates the Greatest Common Divisor.\n\n        :param a: the first number.\n        :param b: the second number.\n        :return: GCD(a, b)\n        '
+                        '__pyarmor_assert_17463__'
+                        '__pyarmor_enter_17464__'
+                        b'<COAddr>\x07\x00\x00\x1a0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_17465__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_17464__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: b
+                        30      POP_JUMP_IF_FALSE               10 (to 52)
+                        32      LOAD_FAST                       1: b
+                        34      LOAD_FAST                       0: a
+                        36      LOAD_FAST                       1: b
+                        38      BINARY_OP                       6 (%)
+                        42      STORE_FAST                      1: b
+                        44      STORE_FAST                      0: a
+                        46      LOAD_FAST                       1: b
+                        48      POP_JUMP_IF_FALSE               1 (to 52)
+                        50      JUMP_BACKWARD                   10 (to 32)
+                        52      LOAD_FAST                       0: a
+                        54      NOP                             
+                        56      NOP                             
+                        58      NOP                             
+                        60      JUMP_FORWARD                    20 (to 102)
+                        62      CALL                            1
+                        70      POP_TOP                         
+                        72      RETURN_VALUE                    
+                        74      PUSH_EXC_INFO                   
+                        76      PUSH_NULL                       
+                        78      LOAD_CONST                      4: '__pyarmor_exit_17465__'
+                        80      NOP                             
+                        82      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        84      CALL                            1
+                        92      POP_TOP                         
+                        94      RERAISE                         0
+                        96      COPY                            3
+                        98      POP_EXCEPT                      
+                        100     RERAISE                         1
+                        102     PUSH_NULL                       
+                        104     LOAD_CONST                      4: '__pyarmor_exit_17465__'
+                        106     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        108     BUILD_TUPLE                     1
+                        110     CALL_FUNCTION_EX                0
+                        112     POP_TOP                         
+                        114     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 50 -> 74 [0] 
+                        52 to 54 -> 74 [0] 
+                        74 to 96 -> 96 [1] lasti
+                '__pyarmor_exit_17459__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'Factorization'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    Simple module to factorize large numbers really quickly.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17458__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_NAME                       5: classmethod
+                42      LOAD_CONST                      5: <CODE> factorize
+                44      MAKE_FUNCTION                   0
+                46      CALL                            0
+                54      STORE_NAME                      6: factorize
+                56      LOAD_NAME                       7: staticmethod
+                58      LOAD_CONST                      6: <CODE> gcd
+                60      MAKE_FUNCTION                   0
+                62      CALL                            0
+                70      STORE_NAME                      8: gcd
+                72      LOAD_CONST                      8: None
+                74      NOP                             
+                76      NOP                             
+                78      NOP                             
+                80      JUMP_FORWARD                    19 (to 120)
+                88      POP_TOP                         
+                90      RETURN_CONST                    8: None
+                92      PUSH_EXC_INFO                   
+                94      PUSH_NULL                       
+                96      LOAD_CONST                      7: '__pyarmor_exit_17459__'
+                98      NOP                             
+                100     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                102     CALL                            1
+                110     POP_TOP                         
+                112     RERAISE                         0
+                114     COPY                            3
+                116     POP_EXCEPT                      
+                118     RERAISE                         1
+                120     PUSH_NULL                       
+                122     LOAD_CONST                      7: '__pyarmor_exit_17459__'
+                124     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                126     BUILD_TUPLE                     1
+                128     CALL_FUNCTION_EX                0
+                130     POP_TOP                         
+                132     RETURN_VALUE                    
+            [Exception Table]
+                40 to 72 -> 92 [0] 
+                92 to 114 -> 114 [1] lasti
+        'Factorization'
+        '__pyarmor_exit_17456__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_17455__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      PUSH_NULL                       
+        28      LOAD_CONST                      0: '__pyarmor_assert_17454__'
+        30      LOAD_CONST                      3: '\nThis module holds a fast Factorization class.\n'   # b'\x81\x88,\x1b:\xe9\xfe\xdf\x14\xfe\x18\xcci\xac\xf0\x8a\x03Y\xa8\xe7\xab\x8bH\xcd\x16{\xe3z\x01\xb2\n\xea([:\x0c\x8c\xc3\xbb X\xea\xf4\\\xce\xcbA-'
+        32      CALL                            1
+        40      POP_TOP                         
+        42      LOAD_CONST                      4: 0
+        44      LOAD_CONST                      5: ('randint',)
+        46      IMPORT_NAME                     1: random
+        48      IMPORT_FROM                     2: randint
+        50      STORE_NAME                      2: randint
+        52      POP_TOP                         
+        54      PUSH_NULL                       
+        56      LOAD_BUILD_CLASS                
+        58      LOAD_CONST                      6: <CODE> Factorization
+        60      MAKE_FUNCTION                   0
+        62      LOAD_CONST                      7: 'Factorization'
+        64      CALL                            2
+        72      STORE_NAME                      3: Factorization
+        74      LOAD_CONST                      9: None
+        76      NOP                             
+        78      NOP                             
+        80      NOP                             
+        82      JUMP_FORWARD                    19 (to 122)
+        90      POP_TOP                         
+        92      RETURN_CONST                    9: None
+        94      PUSH_EXC_INFO                   
+        96      PUSH_NULL                       
+        98      LOAD_CONST                      8: '__pyarmor_exit_17456__'
+        100     NOP                             
+        102     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        104     CALL                            1
+        112     POP_TOP                         
+        114     RERAISE                         0
+        116     COPY                            3
+        118     POP_EXCEPT                      
+        120     RERAISE                         1
+        122     PUSH_NULL                       
+        124     LOAD_CONST                      8: '__pyarmor_exit_17456__'
+        126     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        128     BUILD_TUPLE                     1
+        130     CALL_FUNCTION_EX                0
+        132     POP_TOP                         
+        134     RETURN_VALUE                    
+    [Exception Table]
+        26 to 74 -> 94 [0] 
+        94 to 116 -> 116 [1] lasti

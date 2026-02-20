@@ -1,0 +1,1810 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.extensions.html>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 24
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'collections'
+        'deque'
+        'html'
+        'escape'
+        'html.parser'
+        'HTMLParser'
+        'typing'
+        'Iterable'
+        'Tuple'
+        'List'
+        'helpers'
+        'add_surrogate'
+        'del_surrogate'
+        'within_surrogate'
+        'strip_text'
+        'tl'
+        'TLObject'
+        'tl.types'
+        'MessageEntityBold'
+        'MessageEntityItalic'
+        'MessageEntityCode'
+        'MessageEntityPre'
+        'MessageEntityEmail'
+        'MessageEntityUrl'
+        'MessageEntityTextUrl'
+        'MessageEntityMentionName'
+        'MessageEntityUnderline'
+        'MessageEntityStrike'
+        'MessageEntityBlockquote'
+        'MessageEntityCustomEmoji'
+        'TypeMessageEntity'
+        'HTMLToTelegramParser'
+        'str'
+        'parse'
+        'ENTITY_TO_FORMATTER'
+        'unparse'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_22992__'
+        '__pyarmor_enter_22993__'
+        b'<COAddr>\x07\x00\x00\x1ax\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        '\nSimple HTML -> Telegram entity parser.\n'   # b'\x81\x88+\x1a>\xea\xb2\xd7[\xd29\xed@\xac\xb5\xdbOi\xbe\xab\xaf\xcc\\\xcd\x08/\xa6R\x14\xb8\n\xfczB!\x1f\x8b\xcf\xa6`r'
+        0
+        (
+            'deque'
+        )
+        (
+            'escape'
+        )
+        (
+            'HTMLParser'
+        )
+        (
+            'Iterable'
+            'Tuple'
+            'List'
+        )
+        2
+        (
+            'add_surrogate'
+            'del_surrogate'
+            'within_surrogate'
+            'strip_text'
+        )
+        (
+            'TLObject'
+        )
+        (
+            'MessageEntityBold'
+            'MessageEntityItalic'
+            'MessageEntityCode'
+            'MessageEntityPre'
+            'MessageEntityEmail'
+            'MessageEntityUrl'
+            'MessageEntityTextUrl'
+            'MessageEntityMentionName'
+            'MessageEntityUnderline'
+            'MessageEntityStrike'
+            'MessageEntityBlockquote'
+            'MessageEntityCustomEmoji'
+            'TypeMessageEntity'
+        )
+        [Code]
+            File Name: <frozen multithon.extensions.html>
+            Object Name: HTMLToTelegramParser
+            Qualified Name: HTMLToTelegramParser
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+                '__init__'
+                'handle_starttag'
+                'handle_data'
+                'handle_endtag'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                'HTMLToTelegramParser'
+                '__pyarmor_assert_22995__'
+                '__pyarmor_enter_22996__'
+                b'<COAddr>\x07\x00\x00$8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.extensions.html>
+                    Object Name: __init__
+                    Qualified Name: HTMLToTelegramParser.__init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'super'
+                        '__init__'
+                        'text'
+                        'entities'
+                        '_building_entities'
+                        'deque'
+                        '_open_tags'
+                        '_open_tags_meta'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_22998__'
+                        '__pyarmor_enter_22999__'
+                        b'<COAddr>\x05\x00\x00\x1c\x98\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        ''
+                        '__pyarmor_exit_23000__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_22999__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\x98\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     0: super
+                        40      LOAD_DEREF                      2: __class__
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_SUPER_ATTR                 5: __init__
+                        48      CALL                            0
+                        56      POP_TOP                         
+                        58      LOAD_CONST                      4: ''
+                        60      LOAD_FAST                       0: self
+                        62      STORE_ATTR                      2: text
+                        72      BUILD_LIST                      0
+                        74      LOAD_FAST                       0: self
+                        76      STORE_ATTR                      3: entities
+                        86      BUILD_MAP                       0
+                        88      LOAD_FAST                       0: self
+                        90      STORE_ATTR                      4: _building_entities
+                        100     LOAD_GLOBAL                     11: NULL + deque
+                        110     CALL                            0
+                        118     LOAD_FAST                       0: self
+                        120     STORE_ATTR                      6: _open_tags
+                        130     LOAD_GLOBAL                     11: NULL + deque
+                        140     CALL                            0
+                        148     LOAD_FAST                       0: self
+                        150     STORE_ATTR                      7: _open_tags_meta
+                        160     LOAD_CONST                      0: None
+                        162     NOP                             
+                        164     NOP                             
+                        166     NOP                             
+                        168     JUMP_FORWARD                    19 (to 208)
+                        176     POP_TOP                         
+                        178     RETURN_CONST                    0: None
+                        180     PUSH_EXC_INFO                   
+                        182     PUSH_NULL                       
+                        184     LOAD_CONST                      5: '__pyarmor_exit_23000__'
+                        186     NOP                             
+                        188     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\x98\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        190     CALL                            1
+                        198     POP_TOP                         
+                        200     RERAISE                         0
+                        202     COPY                            3
+                        204     POP_EXCEPT                      
+                        206     RERAISE                         1
+                        208     PUSH_NULL                       
+                        210     LOAD_CONST                      5: '__pyarmor_exit_23000__'
+                        212     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\x98\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        214     BUILD_TUPLE                     1
+                        216     CALL_FUNCTION_EX                0
+                        218     POP_TOP                         
+                        220     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 160 -> 180 [0] 
+                        180 to 202 -> 202 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.extensions.html>
+                    Object Name: handle_starttag
+                    Qualified Name: HTMLToTelegramParser.handle_starttag
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_open_tags'
+                        'appendleft'
+                        '_open_tags_meta'
+                        'dict'
+                        'MessageEntityBold'
+                        'MessageEntityItalic'
+                        'MessageEntityUnderline'
+                        'MessageEntityStrike'
+                        'MessageEntityBlockquote'
+                        '_building_entities'
+                        'len'
+                        'language'
+                        'KeyError'
+                        'MessageEntityCode'
+                        'MessageEntityPre'
+                        'startswith'
+                        'MessageEntityEmail'
+                        'get_starttag_text'
+                        'MessageEntityUrl'
+                        'MessageEntityTextUrl'
+                        'del_surrogate'
+                        'popleft'
+                        'int'
+                        'ValueError'
+                        'MessageEntityCustomEmoji'
+                        'text'
+                    [Locals+Names]
+                        'self'
+                        'tag'
+                        'attrs'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                        '_var_var_2'
+                        '_var_var_3'
+                        '_var_var_4'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23001__'
+                        '__pyarmor_enter_23002__'
+                        b'<COAddr>\x05\x00\x00\x1ax\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'strong'
+                        'b'
+                        'em'
+                        'i'
+                        'u'
+                        'del'
+                        's'
+                        'blockquote'   # b'\x81\xe0\x14\x1c0\xf1\xaf\xc7\x14\xee\x08'
+                        'code'
+                        'pre'
+                        'class'
+                        'language-'   # b'\x81\xee\x19\x1d4\xef\xbf\xd5\x1e\xb7'
+                        ''
+                        'language'
+                        'a'
+                        'href'
+                        '__pyarmor_exit_23003__'
+                        'mailto:'
+                        'url'
+                        'tg-emoji'
+                        'emoji-id'
+                        'document_id'   # b'\x81\xe6\x17\x10&\xf7\xbb\xdc\x0f\xc5\x04\xc4'
+                        0
+                        (
+                            'offset'
+                            'length'
+                        )
+                        (
+                        )
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23002__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ax\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _open_tags
+                        50      LOAD_ATTR                       3: appendleft
+                        70      LOAD_FAST                       1: tag
+                        72      CALL                            1
+                        80      POP_TOP                         
+                        82      LOAD_FAST                       0: self
+                        84      LOAD_ATTR                       4: _open_tags_meta
+                        104     LOAD_ATTR                       3: appendleft
+                        124     LOAD_CONST                      0: None
+                        126     CALL                            1
+                        134     POP_TOP                         
+                        136     LOAD_GLOBAL                     7: NULL + dict
+                        146     LOAD_FAST                       2: attrs
+                        148     CALL                            1
+                        156     STORE_FAST                      2: attrs
+                        158     LOAD_CONST                      0: None
+                        160     STORE_FAST                      4: _var_var_0
+                        162     BUILD_MAP                       0
+                        164     STORE_FAST                      5: _var_var_1
+                        166     LOAD_FAST                       1: tag
+                        168     LOAD_CONST                      4: 'strong'
+                        170     COMPARE_OP                      40 (==)
+                        174     POP_JUMP_IF_TRUE                5 (to 186)
+                        176     LOAD_FAST                       1: tag
+                        178     LOAD_CONST                      5: 'b'
+                        180     COMPARE_OP                      40 (==)
+                        184     POP_JUMP_IF_FALSE               8 (to 202)
+                        186     LOAD_GLOBAL                     8: MessageEntityBold
+                        196     STORE_FAST                      4: _var_var_0
+                        198     JUMP_FORWARD                    324 (to 850)
+                        202     LOAD_FAST                       1: tag
+                        204     LOAD_CONST                      6: 'em'
+                        206     COMPARE_OP                      40 (==)
+                        210     POP_JUMP_IF_TRUE                5 (to 222)
+                        212     LOAD_FAST                       1: tag
+                        214     LOAD_CONST                      7: 'i'
+                        216     COMPARE_OP                      40 (==)
+                        220     POP_JUMP_IF_FALSE               8 (to 238)
+                        222     LOAD_GLOBAL                     10: MessageEntityItalic
+                        232     STORE_FAST                      4: _var_var_0
+                        234     JUMP_FORWARD                    306 (to 850)
+                        238     LOAD_FAST                       1: tag
+                        240     LOAD_CONST                      8: 'u'
+                        242     COMPARE_OP                      40 (==)
+                        246     POP_JUMP_IF_FALSE               8 (to 264)
+                        248     LOAD_GLOBAL                     12: MessageEntityUnderline
+                        258     STORE_FAST                      4: _var_var_0
+                        260     JUMP_FORWARD                    293 (to 850)
+                        264     LOAD_FAST                       1: tag
+                        266     LOAD_CONST                      9: 'del'
+                        268     COMPARE_OP                      40 (==)
+                        272     POP_JUMP_IF_TRUE                5 (to 284)
+                        274     LOAD_FAST                       1: tag
+                        276     LOAD_CONST                      10: 's'
+                        278     COMPARE_OP                      40 (==)
+                        282     POP_JUMP_IF_FALSE               8 (to 300)
+                        284     LOAD_GLOBAL                     14: MessageEntityStrike
+                        294     STORE_FAST                      4: _var_var_0
+                        296     JUMP_FORWARD                    275 (to 850)
+                        300     LOAD_FAST                       1: tag
+                        302     PUSH_NULL                       
+                        304     LOAD_CONST                      1: '__pyarmor_assert_23001__'
+                        306     LOAD_CONST                      11: 'blockquote'   # b'\x81\xe0\x14\x1c0\xf1\xaf\xc7\x14\xee\x08'
+                        308     CALL                            1
+                        316     COMPARE_OP                      40 (==)
+                        320     POP_JUMP_IF_FALSE               8 (to 338)
+                        322     LOAD_GLOBAL                     16: MessageEntityBlockquote
+                        332     STORE_FAST                      4: _var_var_0
+                        334     JUMP_FORWARD                    256 (to 850)
+                        338     LOAD_FAST                       1: tag
+                        340     LOAD_CONST                      12: 'code'
+                        342     COMPARE_OP                      40 (==)
+                        346     POP_JUMP_IF_FALSE               46 (to 440)
+                        348     NOP                             
+                        350     LOAD_FAST                       0: self
+                        352     LOAD_ATTR                       18: _building_entities
+                        372     LOAD_CONST                      13: 'pre'
+                        374     BINARY_SUBSCR                   
+                        378     STORE_FAST                      6: _var_var_2
+                        380     NOP                             
+                        382     LOAD_FAST                       2: attrs
+                        384     LOAD_CONST                      14: 'class'
+                        386     BINARY_SUBSCR                   
+                        390     LOAD_GLOBAL                     21: NULL + len
+                        400     PUSH_NULL                       
+                        402     LOAD_CONST                      1: '__pyarmor_assert_23001__'
+                        404     LOAD_CONST                      15: 'language-'   # b'\x81\xee\x19\x1d4\xef\xbf\xd5\x1e\xb7'
+                        406     CALL                            1
+                        414     CALL                            1
+                        422     LOAD_CONST                      0: None
+                        424     BINARY_SLICE                    
+                        426     LOAD_FAST                       6: _var_var_2
+                        428     STORE_ATTR                      11: language
+                        438     JUMP_FORWARD                    205 (to 850)
+                        440     LOAD_FAST                       1: tag
+                        442     LOAD_CONST                      13: 'pre'
+                        444     COMPARE_OP                      40 (==)
+                        448     POP_JUMP_IF_FALSE               12 (to 474)
+                        450     LOAD_GLOBAL                     28: MessageEntityPre
+                        460     STORE_FAST                      4: _var_var_0
+                        462     LOAD_CONST                      16: ''
+                        464     LOAD_FAST                       5: _var_var_1
+                        466     LOAD_CONST                      17: 'language'
+                        468     STORE_SUBSCR                    
+                        472     JUMP_FORWARD                    188 (to 850)
+                        474     LOAD_FAST                       1: tag
+                        476     LOAD_CONST                      18: 'a'
+                        478     COMPARE_OP                      40 (==)
+                        482     POP_JUMP_IF_FALSE               146 (to 776)
+                        484     NOP                             
+                        486     LOAD_FAST                       2: attrs
+                        488     LOAD_CONST                      19: 'href'
+                        490     BINARY_SUBSCR                   
+                        494     STORE_FAST                      7: _var_var_3
+                        496     LOAD_FAST                       7: _var_var_3
+                        498     LOAD_ATTR                       31: startswith
+                        518     LOAD_CONST                      21: 'mailto:'
+                        520     CALL                            1
+                        528     POP_JUMP_IF_FALSE               21 (to 572)
+                        530     LOAD_FAST                       7: _var_var_3
+                        532     LOAD_GLOBAL                     21: NULL + len
+                        542     LOAD_CONST                      21: 'mailto:'
+                        544     CALL                            1
+                        552     LOAD_CONST                      0: None
+                        554     BINARY_SLICE                    
+                        556     STORE_FAST                      7: _var_var_3
+                        558     LOAD_GLOBAL                     32: MessageEntityEmail
+                        568     STORE_FAST                      4: _var_var_0
+                        570     JUMP_FORWARD                    48 (to 668)
+                        572     LOAD_FAST                       0: self
+                        574     LOAD_ATTR                       35: get_starttag_text
+                        594     CALL                            0
+                        602     LOAD_FAST                       7: _var_var_3
+                        604     COMPARE_OP                      40 (==)
+                        608     POP_JUMP_IF_FALSE               7 (to 624)
+                        610     LOAD_GLOBAL                     36: MessageEntityUrl
+                        620     STORE_FAST                      4: _var_var_0
+                        622     JUMP_FORWARD                    22 (to 668)
+                        624     LOAD_GLOBAL                     38: MessageEntityTextUrl
+                        634     STORE_FAST                      4: _var_var_0
+                        636     LOAD_GLOBAL                     41: NULL + del_surrogate
+                        646     LOAD_FAST                       7: _var_var_3
+                        648     CALL                            1
+                        656     LOAD_FAST                       5: _var_var_1
+                        658     LOAD_CONST                      22: 'url'
+                        660     STORE_SUBSCR                    
+                        664     LOAD_CONST                      0: None
+                        666     STORE_FAST                      7: _var_var_3
+                        668     LOAD_FAST                       0: self
+                        670     LOAD_ATTR                       4: _open_tags_meta
+                        690     LOAD_ATTR                       43: popleft
+                        710     CALL                            0
+                        718     POP_TOP                         
+                        720     LOAD_FAST                       0: self
+                        722     LOAD_ATTR                       4: _open_tags_meta
+                        742     LOAD_ATTR                       3: appendleft
+                        762     LOAD_FAST                       7: _var_var_3
+                        764     CALL                            1
+                        772     POP_TOP                         
+                        774     JUMP_FORWARD                    37 (to 850)
+                        776     LOAD_FAST                       1: tag
+                        778     LOAD_CONST                      23: 'tg-emoji'
+                        780     COMPARE_OP                      40 (==)
+                        784     POP_JUMP_IF_FALSE               32 (to 850)
+                        786     NOP                             
+                        788     LOAD_GLOBAL                     45: NULL + int
+                        798     LOAD_FAST                       2: attrs
+                        800     LOAD_CONST                      24: 'emoji-id'
+                        802     BINARY_SUBSCR                   
+                        806     CALL                            1
+                        814     STORE_FAST                      8: _var_var_4
+                        816     LOAD_GLOBAL                     48: MessageEntityCustomEmoji
+                        826     STORE_FAST                      4: _var_var_0
+                        828     LOAD_FAST                       8: _var_var_4
+                        830     LOAD_FAST                       5: _var_var_1
+                        832     PUSH_NULL                       
+                        834     LOAD_CONST                      1: '__pyarmor_assert_23001__'
+                        836     LOAD_CONST                      25: 'document_id'   # b'\x81\xe6\x17\x10&\xf7\xbb\xdc\x0f\xc5\x04\xc4'
+                        838     CALL                            1
+                        846     STORE_SUBSCR                    
+                        850     LOAD_FAST                       4: _var_var_0
+                        852     POP_JUMP_IF_FALSE               57 (to 968)
+                        854     LOAD_FAST                       1: tag
+                        856     LOAD_FAST                       0: self
+                        858     LOAD_ATTR                       18: _building_entities
+                        878     CONTAINS_OP                     1 (not in)
+                        880     POP_JUMP_IF_FALSE               43 (to 968)
+                        882     PUSH_NULL                       
+                        884     LOAD_FAST                       4: _var_var_0
+                        886     LOAD_CONST                      28: ()
+                        888     LOAD_GLOBAL                     21: NULL + len
+                        898     LOAD_FAST                       0: self
+                        900     LOAD_ATTR                       50: text
+                        920     CALL                            1
+                        928     LOAD_CONST                      26: 0
+                        930     LOAD_CONST                      27: ('offset', 'length')
+                        932     BUILD_CONST_KEY_MAP             2
+                        934     LOAD_FAST                       5: _var_var_1
+                        936     DICT_MERGE                      1
+                        938     CALL_FUNCTION_EX                1
+                        940     LOAD_FAST                       0: self
+                        942     LOAD_ATTR                       18: _building_entities
+                        962     LOAD_FAST                       1: tag
+                        964     STORE_SUBSCR                    
+                        968     LOAD_CONST                      0: None
+                        970     NOP                             
+                        972     NOP                             
+                        974     NOP                             
+                        976     JUMP_FORWARD                    110 (to 1198)
+                        984     POP_TOP                         
+                        986     RETURN_CONST                    0: None
+                        988     PUSH_EXC_INFO                   
+                        990     LOAD_GLOBAL                     24: KeyError
+                        1000    CHECK_EXC_MATCH                 
+                        1002    POP_JUMP_IF_FALSE               4 (to 1012)
+                        1004    POP_TOP                         
+                        1006    POP_EXCEPT                      
+                        1008    JUMP_BACKWARD                   287 (to 438)
+                        1012    RERAISE                         0
+                        1014    COPY                            3
+                        1016    POP_EXCEPT                      
+                        1018    RERAISE                         1
+                        1020    PUSH_EXC_INFO                   
+                        1022    LOAD_GLOBAL                     24: KeyError
+                        1032    CHECK_EXC_MATCH                 
+                        1034    POP_JUMP_IF_FALSE               9 (to 1054)
+                        1036    POP_TOP                         
+                        1038    LOAD_GLOBAL                     26: MessageEntityCode
+                        1048    STORE_FAST                      4: _var_var_0
+                        1050    POP_EXCEPT                      
+                        1052    JUMP_BACKWARD                   102 (to 850)
+                        1054    RERAISE                         0
+                        1056    COPY                            3
+                        1058    POP_EXCEPT                      
+                        1060    RERAISE                         1
+                        1062    PUSH_EXC_INFO                   
+                        1064    LOAD_GLOBAL                     24: KeyError
+                        1074    CHECK_EXC_MATCH                 
+                        1076    POP_JUMP_IF_FALSE               12 (to 1102)
+                        1078    POP_TOP                         
+                        1080    POP_EXCEPT                      
+                        1082    LOAD_CONST                      0: None
+                        1084    NOP                             
+                        1086    NOP                             
+                        1088    NOP                             
+                        1090    JUMP_FORWARD                    53 (to 1198)
+                        1098    POP_TOP                         
+                        1100    RETURN_CONST                    0: None
+                        1102    RERAISE                         0
+                        1104    COPY                            3
+                        1106    POP_EXCEPT                      
+                        1108    RERAISE                         1
+                        1110    PUSH_EXC_INFO                   
+                        1112    LOAD_GLOBAL                     24: KeyError
+                        1122    LOAD_GLOBAL                     46: ValueError
+                        1132    BUILD_TUPLE                     2
+                        1134    CHECK_EXC_MATCH                 
+                        1136    POP_JUMP_IF_FALSE               12 (to 1162)
+                        1138    POP_TOP                         
+                        1140    POP_EXCEPT                      
+                        1142    LOAD_CONST                      0: None
+                        1144    NOP                             
+                        1146    NOP                             
+                        1148    NOP                             
+                        1150    JUMP_FORWARD                    23 (to 1198)
+                        1158    POP_TOP                         
+                        1160    RETURN_CONST                    0: None
+                        1162    RERAISE                         0
+                        1164    COPY                            3
+                        1166    POP_EXCEPT                      
+                        1168    RERAISE                         1
+                        1170    PUSH_EXC_INFO                   
+                        1172    PUSH_NULL                       
+                        1174    LOAD_CONST                      20: '__pyarmor_exit_23003__'
+                        1176    NOP                             
+                        1178    LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ax\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        1180    CALL                            1
+                        1188    POP_TOP                         
+                        1190    RERAISE                         0
+                        1192    COPY                            3
+                        1194    POP_EXCEPT                      
+                        1196    RERAISE                         1
+                        1198    PUSH_NULL                       
+                        1200    LOAD_CONST                      20: '__pyarmor_exit_23003__'
+                        1202    LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ax\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        1204    BUILD_TUPLE                     1
+                        1206    CALL_FUNCTION_EX                0
+                        1208    POP_TOP                         
+                        1210    RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 348 -> 1170 [0] 
+                        350 to 380 -> 1020 [0] 
+                        382 to 438 -> 988 [0] 
+                        438 to 484 -> 1170 [0] 
+                        486 to 496 -> 1062 [0] 
+                        496 to 786 -> 1170 [0] 
+                        788 to 816 -> 1110 [0] 
+                        816 to 968 -> 1170 [0] 
+                        988 to 1006 -> 1014 [1] lasti
+                        1006 to 1012 -> 1020 [0] 
+                        1012 to 1014 -> 1014 [1] lasti
+                        1014 to 1020 -> 1020 [0] 
+                        1020 to 1050 -> 1056 [1] lasti
+                        1050 to 1054 -> 1170 [0] 
+                        1054 to 1056 -> 1056 [1] lasti
+                        1056 to 1062 -> 1170 [0] 
+                        1062 to 1080 -> 1104 [1] lasti
+                        1080 to 1082 -> 1170 [0] 
+                        1102 to 1104 -> 1104 [1] lasti
+                        1104 to 1110 -> 1170 [0] 
+                        1110 to 1140 -> 1164 [1] lasti
+                        1140 to 1142 -> 1170 [0] 
+                        1162 to 1164 -> 1164 [1] lasti
+                        1164 to 1170 -> 1170 [0] 
+                        1170 to 1192 -> 1192 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.extensions.html>
+                    Object Name: handle_data
+                    Qualified Name: HTMLToTelegramParser.handle_data
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'len'
+                        '_open_tags'
+                        '_open_tags_meta'
+                        '_building_entities'
+                        'items'
+                        'length'
+                        'text'
+                    [Locals+Names]
+                        'self'
+                        'text'
+                        '__assert_armored__'
+                        '_var_var_5'
+                        '_var_var_3'
+                        '_var_var_6'
+                        '_var_var_7'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23004__'
+                        '__pyarmor_enter_23005__'
+                        b'<COAddr>\x05\x00\x00\x1aB\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        0
+                        ''
+                        'a'
+                        '__pyarmor_exit_23006__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23005__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aB\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + len
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_ATTR                       2: _open_tags
+                        60      CALL                            1
+                        68      LOAD_CONST                      4: 0
+                        70      COMPARE_OP                      68 (>)
+                        74      POP_JUMP_IF_FALSE               15 (to 106)
+                        76      LOAD_FAST                       0: self
+                        78      LOAD_ATTR                       2: _open_tags
+                        98      LOAD_CONST                      4: 0
+                        100     BINARY_SUBSCR                   
+                        104     JUMP_FORWARD                    1 (to 108)
+                        106     LOAD_CONST                      5: ''
+                        108     STORE_FAST                      3: _var_var_5
+                        110     LOAD_FAST                       3: _var_var_5
+                        112     LOAD_CONST                      6: 'a'
+                        114     COMPARE_OP                      40 (==)
+                        118     POP_JUMP_IF_FALSE               19 (to 158)
+                        120     LOAD_FAST                       0: self
+                        122     LOAD_ATTR                       4: _open_tags_meta
+                        142     LOAD_CONST                      4: 0
+                        144     BINARY_SUBSCR                   
+                        148     STORE_FAST                      4: _var_var_3
+                        150     LOAD_FAST                       4: _var_var_3
+                        152     POP_JUMP_IF_FALSE               2 (to 158)
+                        154     LOAD_FAST                       4: _var_var_3
+                        156     STORE_FAST                      1: text
+                        158     LOAD_FAST                       0: self
+                        160     LOAD_ATTR                       6: _building_entities
+                        180     LOAD_ATTR                       9: items
+                        200     CALL                            0
+                        208     GET_ITER                        
+                        210     FOR_ITER                        35 (to 282)
+                        214     UNPACK_SEQUENCE                 2
+                        218     STORE_FAST                      5: _var_var_6
+                        220     STORE_FAST                      6: _var_var_7
+                        222     LOAD_FAST                       6: _var_var_7
+                        224     COPY                            1
+                        226     LOAD_ATTR                       10: length
+                        246     LOAD_GLOBAL                     1: NULL + len
+                        256     LOAD_FAST                       1: text
+                        258     CALL                            1
+                        266     BINARY_OP                       13 (+=)
+                        270     SWAP                            2
+                        272     STORE_ATTR                      5: length
+                        282     JUMP_BACKWARD                   37 (to 210)
+                        284     END_FOR                         
+                        286     LOAD_FAST                       0: self
+                        288     COPY                            1
+                        290     LOAD_ATTR                       12: text
+                        310     LOAD_FAST                       1: text
+                        312     BINARY_OP                       13 (+=)
+                        316     SWAP                            2
+                        318     STORE_ATTR                      6: text
+                        328     LOAD_CONST                      0: None
+                        330     NOP                             
+                        332     NOP                             
+                        334     NOP                             
+                        336     JUMP_FORWARD                    19 (to 376)
+                        344     POP_TOP                         
+                        346     RETURN_CONST                    0: None
+                        348     PUSH_EXC_INFO                   
+                        350     PUSH_NULL                       
+                        352     LOAD_CONST                      7: '__pyarmor_exit_23006__'
+                        354     NOP                             
+                        356     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aB\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        358     CALL                            1
+                        366     POP_TOP                         
+                        368     RERAISE                         0
+                        370     COPY                            3
+                        372     POP_EXCEPT                      
+                        374     RERAISE                         1
+                        376     PUSH_NULL                       
+                        378     LOAD_CONST                      7: '__pyarmor_exit_23006__'
+                        380     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aB\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        382     BUILD_TUPLE                     1
+                        384     CALL_FUNCTION_EX                0
+                        386     POP_TOP                         
+                        388     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 328 -> 348 [0] 
+                        348 to 370 -> 370 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.extensions.html>
+                    Object Name: handle_endtag
+                    Qualified Name: HTMLToTelegramParser.handle_endtag
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_open_tags'
+                        'popleft'
+                        '_open_tags_meta'
+                        'IndexError'
+                        '_building_entities'
+                        'pop'
+                        'entities'
+                        'append'
+                    [Locals+Names]
+                        'self'
+                        'tag'
+                        '__assert_armored__'
+                        '_var_var_7'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23007__'
+                        '__pyarmor_enter_23008__'
+                        b'<COAddr>\x07\x00\x00\x1a\x10\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_23009__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23008__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x10\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       0: _open_tags
+                        52      LOAD_ATTR                       3: popleft
+                        72      CALL                            0
+                        80      POP_TOP                         
+                        82      LOAD_FAST                       0: self
+                        84      LOAD_ATTR                       4: _open_tags_meta
+                        104     LOAD_ATTR                       3: popleft
+                        124     CALL                            0
+                        132     POP_TOP                         
+                        134     LOAD_FAST                       0: self
+                        136     LOAD_ATTR                       8: _building_entities
+                        156     LOAD_ATTR                       11: pop
+                        176     LOAD_FAST                       1: tag
+                        178     LOAD_CONST                      0: None
+                        180     CALL                            2
+                        188     STORE_FAST                      3: _var_var_7
+                        190     LOAD_FAST                       3: _var_var_7
+                        192     POP_JUMP_IF_FALSE               27 (to 248)
+                        194     LOAD_FAST                       0: self
+                        196     LOAD_ATTR                       12: entities
+                        216     LOAD_ATTR                       15: append
+                        236     LOAD_FAST                       3: _var_var_7
+                        238     CALL                            1
+                        246     POP_TOP                         
+                        248     LOAD_CONST                      0: None
+                        250     NOP                             
+                        252     NOP                             
+                        254     NOP                             
+                        256     JUMP_FORWARD                    34 (to 326)
+                        264     POP_TOP                         
+                        266     RETURN_CONST                    0: None
+                        268     PUSH_EXC_INFO                   
+                        270     LOAD_GLOBAL                     6: IndexError
+                        280     CHECK_EXC_MATCH                 
+                        282     POP_JUMP_IF_FALSE               3 (to 290)
+                        284     POP_TOP                         
+                        286     POP_EXCEPT                      
+                        288     JUMP_BACKWARD                   78 (to 134)
+                        290     RERAISE                         0
+                        292     COPY                            3
+                        294     POP_EXCEPT                      
+                        296     RERAISE                         1
+                        298     PUSH_EXC_INFO                   
+                        300     PUSH_NULL                       
+                        302     LOAD_CONST                      4: '__pyarmor_exit_23009__'
+                        304     NOP                             
+                        306     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x10\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        308     CALL                            1
+                        316     POP_TOP                         
+                        318     RERAISE                         0
+                        320     COPY                            3
+                        322     POP_EXCEPT                      
+                        324     RERAISE                         1
+                        326     PUSH_NULL                       
+                        328     LOAD_CONST                      4: '__pyarmor_exit_23009__'
+                        330     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x10\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        332     BUILD_TUPLE                     1
+                        334     CALL_FUNCTION_EX                0
+                        336     POP_TOP                         
+                        338     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 134 -> 268 [0] 
+                        134 to 248 -> 298 [0] 
+                        268 to 286 -> 292 [1] lasti
+                        286 to 290 -> 298 [0] 
+                        290 to 292 -> 292 [1] lasti
+                        292 to 298 -> 298 [0] 
+                        298 to 320 -> 320 [1] lasti
+                '__pyarmor_exit_22997__'
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: 'HTMLToTelegramParser'
+                10      STORE_NAME                      2: __qualname__
+                12      NOP                             
+                14      PUSH_NULL                       
+                16      LOAD_CONST                      2: '__pyarmor_enter_22996__'
+                18      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00$8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                20      BUILD_TUPLE                     1
+                22      CALL_FUNCTION_EX                0
+                24      POP_TOP                         
+                26      RESUME                          0
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      LOAD_CLOSURE                    0: __class__
+                40      BUILD_TUPLE                     1
+                42      LOAD_CONST                      4: <CODE> __init__
+                44      MAKE_FUNCTION                   8
+                46      STORE_NAME                      4: __init__
+                48      LOAD_CONST                      5: <CODE> handle_starttag
+                50      MAKE_FUNCTION                   0
+                52      STORE_NAME                      5: handle_starttag
+                54      LOAD_CONST                      6: <CODE> handle_data
+                56      MAKE_FUNCTION                   0
+                58      STORE_NAME                      6: handle_data
+                60      LOAD_CONST                      7: <CODE> handle_endtag
+                62      MAKE_FUNCTION                   0
+                64      STORE_NAME                      7: handle_endtag
+                66      LOAD_CLOSURE                    0: __class__
+                68      COPY                            1
+                70      STORE_NAME                      8: __classcell__
+                72      NOP                             
+                74      NOP                             
+                76      NOP                             
+                78      JUMP_FORWARD                    20 (to 120)
+                82      POP_TOP                         
+                84      LOAD_CLOSURE                    0: __class__
+                86      COPY                            1
+                88      STORE_NAME                      8: __classcell__
+                90      RETURN_VALUE                    
+                92      PUSH_EXC_INFO                   
+                94      PUSH_NULL                       
+                96      LOAD_CONST                      8: '__pyarmor_exit_22997__'
+                98      NOP                             
+                100     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00$8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                102     CALL                            1
+                110     POP_TOP                         
+                112     RERAISE                         0
+                114     COPY                            3
+                116     POP_EXCEPT                      
+                118     RERAISE                         1
+                120     PUSH_NULL                       
+                122     LOAD_CONST                      8: '__pyarmor_exit_22997__'
+                124     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00$8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                126     BUILD_TUPLE                     1
+                128     CALL_FUNCTION_EX                0
+                130     POP_TOP                         
+                132     RETURN_VALUE                    
+            [Exception Table]
+                38 to 66 -> 92 [0] 
+                92 to 114 -> 114 [1] lasti
+        'HTMLToTelegramParser'
+        'html'
+        'return'
+        [Code]
+            File Name: <frozen multithon.extensions.html>
+            Object Name: parse
+            Qualified Name: parse
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'HTMLToTelegramParser'
+                'feed'
+                'add_surrogate'
+                'strip_text'
+                'text'
+                'entities'
+                'reverse'
+                'sort'
+                'del_surrogate'
+            [Locals+Names]
+                'html'
+                '__assert_armored__'
+                '_var_var_8'
+                '_var_var_9'
+            [Constants]
+                "\n    Parses the given HTML message and returns its stripped representation\n    plus a list of the MessageEntity's that were found.\n\n    :param html: the message with HTML to be parsed.\n    :return: a tuple consisting of (clean message, [message entities]).\n    "
+                '__pyarmor_assert_23010__'
+                '__pyarmor_enter_23011__'
+                b'<COAddr>\x07\x00\x00\x1aV\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_23012__'
+                [Code]
+                    File Name: <frozen multithon.extensions.html>
+                    Object Name: <lambda>
+                    Qualified Name: parse.<locals>.<lambda>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 1
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                        'offset'
+                    [Locals+Names]
+                        'entity'
+                    [Constants]
+                        None
+                    [Disassembly]
+                        0       RESUME                          0
+                        2       LOAD_FAST                       0: entity
+                        4       LOAD_ATTR                       0: offset
+                        24      RETURN_VALUE                    
+                    [Exception Table]
+                (
+                    'key'
+                )
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_23011__'
+                8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aV\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_FAST                       0: html
+                30      POP_JUMP_IF_TRUE                13 (to 58)
+                32      LOAD_FAST                       0: html
+                34      BUILD_LIST                      0
+                36      BUILD_TUPLE                     2
+                38      NOP                             
+                40      NOP                             
+                42      NOP                             
+                44      JUMP_FORWARD                    175 (to 396)
+                46      CALL                            1
+                54      POP_TOP                         
+                56      RETURN_VALUE                    
+                58      LOAD_GLOBAL                     1: NULL + HTMLToTelegramParser
+                68      CALL                            0
+                76      STORE_FAST                      2: _var_var_8
+                78      LOAD_FAST                       2: _var_var_8
+                80      LOAD_ATTR                       3: feed
+                100     LOAD_GLOBAL                     5: NULL + add_surrogate
+                110     LOAD_FAST                       0: html
+                112     CALL                            1
+                120     CALL                            1
+                128     POP_TOP                         
+                130     LOAD_GLOBAL                     7: NULL + strip_text
+                140     LOAD_FAST                       2: _var_var_8
+                142     LOAD_ATTR                       8: text
+                162     LOAD_FAST                       2: _var_var_8
+                164     LOAD_ATTR                       10: entities
+                184     CALL                            2
+                192     STORE_FAST                      3: _var_var_9
+                194     LOAD_FAST                       2: _var_var_8
+                196     LOAD_ATTR                       10: entities
+                216     LOAD_ATTR                       13: reverse
+                236     CALL                            0
+                244     POP_TOP                         
+                246     LOAD_FAST                       2: _var_var_8
+                248     LOAD_ATTR                       10: entities
+                268     LOAD_ATTR                       15: sort
+                288     LOAD_CONST                      5: <CODE> <lambda>
+                290     MAKE_FUNCTION                   0
+                292     KW_NAMES                        6: ('key',)
+                294     CALL                            1
+                302     POP_TOP                         
+                304     LOAD_GLOBAL                     17: NULL + del_surrogate
+                314     LOAD_FAST                       3: _var_var_9
+                316     CALL                            1
+                324     LOAD_FAST                       2: _var_var_8
+                326     LOAD_ATTR                       10: entities
+                346     BUILD_TUPLE                     2
+                348     NOP                             
+                350     NOP                             
+                352     NOP                             
+                354     JUMP_FORWARD                    20 (to 396)
+                356     CALL                            1
+                364     POP_TOP                         
+                366     RETURN_VALUE                    
+                368     PUSH_EXC_INFO                   
+                370     PUSH_NULL                       
+                372     LOAD_CONST                      4: '__pyarmor_exit_23012__'
+                374     NOP                             
+                376     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aV\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                378     CALL                            1
+                386     POP_TOP                         
+                388     RERAISE                         0
+                390     COPY                            3
+                392     POP_EXCEPT                      
+                394     RERAISE                         1
+                396     PUSH_NULL                       
+                398     LOAD_CONST                      4: '__pyarmor_exit_23012__'
+                400     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aV\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                402     BUILD_TUPLE                     1
+                404     CALL_FUNCTION_EX                0
+                406     POP_TOP                         
+                408     RETURN_VALUE                    
+            [Exception Table]
+                28 to 38 -> 368 [0] 
+                58 to 348 -> 368 [0] 
+                368 to 390 -> 390 [1] lasti
+        '<strong>'
+        '</strong>'   # b"\x81\xbeW\x00'\xe8\xb1\xdc\x1c\xa4"
+        (
+            '<em>'
+            '</em>'
+        )
+        (
+            '<code>'
+            '</code>'
+        )
+        (
+            '<u>'
+            '</u>'
+        )
+        (
+            '<del>'
+            '</del>'
+        )
+        '<blockquote>'   # b'\x81\xbe\x1a\x1f<\xf9\xb5\xc3\x0e\xf5\x19\xc52'
+        '</blockquote>'   # b'\x81\xbeW\x11?\xf5\xbd\xd9\n\xef\x02\xd4i\xb2'
+        [Code]
+            File Name: <frozen multithon.extensions.html>
+            Object Name: <lambda>
+            Qualified Name: <lambda>
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 3
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'format'
+                'language'
+            [Locals+Names]
+                'e'
+                '_'
+            [Constants]
+                None
+                "<pre>\n    <code class='language-{}'>\n        "
+                '{}\n    </code>\n</pre>'
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_CONST                      1: "<pre>\n    <code class='language-{}'>\n        "
+                4       LOAD_ATTR                       1: format
+                24      LOAD_FAST                       0: e
+                26      LOAD_ATTR                       2: language
+                46      CALL                            1
+                54      LOAD_CONST                      2: '{}\n    </code>\n</pre>'
+                56      BUILD_TUPLE                     2
+                58      RETURN_VALUE                    
+            [Exception Table]
+        [Code]
+            File Name: <frozen multithon.extensions.html>
+            Object Name: <lambda>
+            Qualified Name: <lambda>
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 3
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'format'
+            [Locals+Names]
+                '_'
+                't'
+            [Constants]
+                None
+                '<a href="mailto:{}">'
+                '</a>'
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_CONST                      1: '<a href="mailto:{}">'
+                4       LOAD_ATTR                       1: format
+                24      LOAD_FAST                       1: t
+                26      CALL                            1
+                34      LOAD_CONST                      2: '</a>'
+                36      BUILD_TUPLE                     2
+                38      RETURN_VALUE                    
+            [Exception Table]
+        [Code]
+            File Name: <frozen multithon.extensions.html>
+            Object Name: <lambda>
+            Qualified Name: <lambda>
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 3
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'format'
+            [Locals+Names]
+                '_'
+                't'
+            [Constants]
+                None
+                '<a href="{}">'
+                '</a>'
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_CONST                      1: '<a href="{}">'
+                4       LOAD_ATTR                       1: format
+                24      LOAD_FAST                       1: t
+                26      CALL                            1
+                34      LOAD_CONST                      2: '</a>'
+                36      BUILD_TUPLE                     2
+                38      RETURN_VALUE                    
+            [Exception Table]
+        [Code]
+            File Name: <frozen multithon.extensions.html>
+            Object Name: <lambda>
+            Qualified Name: <lambda>
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'format'
+                'escape'
+                'url'
+            [Locals+Names]
+                'e'
+                '_'
+            [Constants]
+                None
+                '<a href="{}">'
+                '</a>'
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_CONST                      1: '<a href="{}">'
+                4       LOAD_ATTR                       1: format
+                24      LOAD_GLOBAL                     3: NULL + escape
+                34      LOAD_FAST                       0: e
+                36      LOAD_ATTR                       4: url
+                56      CALL                            1
+                64      CALL                            1
+                72      LOAD_CONST                      2: '</a>'
+                74      BUILD_TUPLE                     2
+                76      RETURN_VALUE                    
+            [Exception Table]
+        [Code]
+            File Name: <frozen multithon.extensions.html>
+            Object Name: <lambda>
+            Qualified Name: <lambda>
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 3
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'format'
+                'user_id'
+            [Locals+Names]
+                'e'
+                '_'
+            [Constants]
+                None
+                '<a href="tg://user?id={}">'
+                '</a>'
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_CONST                      1: '<a href="tg://user?id={}">'
+                4       LOAD_ATTR                       1: format
+                24      LOAD_FAST                       0: e
+                26      LOAD_ATTR                       2: user_id
+                46      CALL                            1
+                54      LOAD_CONST                      2: '</a>'
+                56      BUILD_TUPLE                     2
+                58      RETURN_VALUE                    
+            [Exception Table]
+        [Code]
+            File Name: <frozen multithon.extensions.html>
+            Object Name: <lambda>
+            Qualified Name: <lambda>
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 3
+            Flags: 0x00000003 (CO_OPTIMIZED | CO_NEWLOCALS)
+            [Names]
+                'format'
+                'document_id'
+            [Locals+Names]
+                'e'
+                '_'
+            [Constants]
+                None
+                '<tg-emoji emoji-id="{}">'
+                '</tg-emoji>'
+            [Disassembly]
+                0       RESUME                          0
+                2       LOAD_CONST                      1: '<tg-emoji emoji-id="{}">'
+                4       LOAD_ATTR                       1: format
+                24      LOAD_FAST                       0: e
+                26      LOAD_ATTR                       2: document_id
+                46      CALL                            1
+                54      LOAD_CONST                      2: '</tg-emoji>'
+                56      BUILD_TUPLE                     2
+                58      RETURN_VALUE                    
+            [Exception Table]
+        'text'
+        'entities'
+        [Code]
+            File Name: <frozen multithon.extensions.html>
+            Object Name: unparse
+            Qualified Name: unparse
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 7
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'escape'
+                'isinstance'
+                'TLObject'
+                'add_surrogate'
+                'enumerate'
+                'offset'
+                'length'
+                'ENTITY_TO_FORMATTER'
+                'get'
+                'type'
+                'callable'
+                'append'
+                'sort'
+                'len'
+                'pop'
+                'within_surrogate'
+                'del_surrogate'
+            [Locals+Names]
+                'text'
+                'entities'
+                '__assert_armored__'
+                '_var_var_10'
+                '_var_var_11'
+                '_var_var_7'
+                '_var_var_12'
+                '_var_var_13'
+                '_var_var_14'
+                '_var_var_15'
+                '_var_var_16'
+                '_var_var_17'
+                '_var_var_18'
+            [Constants]
+                "\n    Performs the reverse operation to .parse(), effectively returning HTML\n    given a normal text and its MessageEntity's.\n\n    :param text: the text to be reconverted into HTML.\n    :param entities: the MessageEntity's applied to the text.\n    :return: a HTML representation of the combination of both inputs.\n    "
+                '__pyarmor_assert_23013__'
+                '__pyarmor_enter_23014__'
+                b'<COAddr>\x07\x00\x00\x1a\x00\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_23015__'
+                None
+                0
+                1
+                [Code]
+                    File Name: <frozen multithon.extensions.html>
+                    Object Name: <lambda>
+                    Qualified Name: unparse.<locals>.<lambda>
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 3
+                    Flags: 0x00000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED)
+                    [Names]
+                    [Locals+Names]
+                        't'
+                    [Constants]
+                        None
+                        0
+                        1
+                    [Disassembly]
+                        0       RESUME                          0
+                        2       LOAD_FAST                       0: t
+                        4       LOAD_CONST                      1: 0
+                        6       BINARY_SUBSCR                   
+                        10      LOAD_FAST                       0: t
+                        12      LOAD_CONST                      2: 1
+                        14      BINARY_SUBSCR                   
+                        18      BUILD_TUPLE                     2
+                        20      RETURN_VALUE                    
+                    [Exception Table]
+                (
+                    'key'
+                )
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_23014__'
+                8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x00\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_FAST                       0: text
+                30      POP_JUMP_IF_TRUE                11 (to 54)
+                32      LOAD_FAST                       0: text
+                34      NOP                             
+                36      NOP                             
+                38      JUMP_FORWARD                    390 (to 822)
+                42      CALL                            1
+                50      POP_TOP                         
+                52      RETURN_VALUE                    
+                54      LOAD_FAST                       1: entities
+                56      POP_JUMP_IF_TRUE                20 (to 98)
+                58      LOAD_GLOBAL                     1: NULL + escape
+                68      LOAD_FAST                       0: text
+                70      CALL                            1
+                78      NOP                             
+                80      NOP                             
+                82      JUMP_FORWARD                    368 (to 822)
+                86      CALL                            1
+                94      POP_TOP                         
+                96      RETURN_VALUE                    
+                98      LOAD_GLOBAL                     3: NULL + isinstance
+                108     LOAD_FAST                       1: entities
+                110     LOAD_GLOBAL                     4: TLObject
+                120     CALL                            2
+                128     POP_JUMP_IF_FALSE               3 (to 136)
+                130     LOAD_FAST                       1: entities
+                132     BUILD_TUPLE                     1
+                134     STORE_FAST                      1: entities
+                136     LOAD_GLOBAL                     7: NULL + add_surrogate
+                146     LOAD_FAST                       0: text
+                148     CALL                            1
+                156     STORE_FAST                      0: text
+                158     BUILD_LIST                      0
+                160     STORE_FAST                      3: _var_var_10
+                162     LOAD_GLOBAL                     9: NULL + enumerate
+                172     LOAD_FAST                       1: entities
+                174     CALL                            1
+                182     GET_ITER                        
+                184     FOR_ITER                        146 (to 478)
+                188     UNPACK_SEQUENCE                 2
+                192     STORE_FAST                      4: _var_var_11
+                194     STORE_FAST                      5: _var_var_7
+                196     LOAD_FAST                       5: _var_var_7
+                198     LOAD_ATTR                       10: offset
+                218     STORE_FAST                      6: _var_var_12
+                220     LOAD_FAST                       5: _var_var_7
+                222     LOAD_ATTR                       10: offset
+                242     LOAD_FAST                       5: _var_var_7
+                244     LOAD_ATTR                       12: length
+                264     BINARY_OP                       0 (+)
+                268     STORE_FAST                      7: _var_var_13
+                270     LOAD_GLOBAL                     14: ENTITY_TO_FORMATTER
+                280     LOAD_ATTR                       17: get
+                300     LOAD_GLOBAL                     19: NULL + type
+                310     LOAD_FAST                       5: _var_var_7
+                312     CALL                            1
+                320     LOAD_CONST                      5: None
+                322     CALL                            2
+                330     STORE_FAST                      8: _var_var_14
+                332     LOAD_FAST                       8: _var_var_14
+                334     POP_JUMP_IF_TRUE                1 (to 338)
+                336     JUMP_BACKWARD                   77 (to 184)
+                338     LOAD_GLOBAL                     21: NULL + callable
+                348     LOAD_FAST                       8: _var_var_14
+                350     CALL                            1
+                358     POP_JUMP_IF_FALSE               12 (to 384)
+                360     PUSH_NULL                       
+                362     LOAD_FAST                       8: _var_var_14
+                364     LOAD_FAST                       5: _var_var_7
+                366     LOAD_FAST                       0: text
+                368     LOAD_FAST                       6: _var_var_12
+                370     LOAD_FAST                       7: _var_var_13
+                372     BINARY_SLICE                    
+                374     CALL                            2
+                382     STORE_FAST                      8: _var_var_14
+                384     LOAD_FAST                       3: _var_var_10
+                386     LOAD_ATTR                       23: append
+                406     LOAD_FAST                       6: _var_var_12
+                408     LOAD_FAST                       4: _var_var_11
+                410     LOAD_FAST                       8: _var_var_14
+                412     LOAD_CONST                      6: 0
+                414     BINARY_SUBSCR                   
+                418     BUILD_TUPLE                     3
+                420     CALL                            1
+                428     POP_TOP                         
+                430     LOAD_FAST                       3: _var_var_10
+                432     LOAD_ATTR                       23: append
+                452     LOAD_FAST                       7: _var_var_13
+                454     LOAD_FAST                       4: _var_var_11
+                456     UNARY_NEGATIVE                  
+                458     LOAD_FAST                       8: _var_var_14
+                460     LOAD_CONST                      7: 1
+                462     BINARY_SUBSCR                   
+                466     BUILD_TUPLE                     3
+                468     CALL                            1
+                476     POP_TOP                         
+                478     JUMP_BACKWARD                   148 (to 184)
+                480     END_FOR                         
+                482     LOAD_FAST                       3: _var_var_10
+                484     LOAD_ATTR                       25: sort
+                504     LOAD_CONST                      8: <CODE> <lambda>
+                506     MAKE_FUNCTION                   0
+                508     KW_NAMES                        9: ('key',)
+                510     CALL                            1
+                518     POP_TOP                         
+                520     LOAD_GLOBAL                     27: NULL + len
+                530     LOAD_FAST                       0: text
+                532     CALL                            1
+                540     STORE_FAST                      9: _var_var_15
+                542     LOAD_FAST                       3: _var_var_10
+                544     POP_JUMP_IF_FALSE               84 (to 714)
+                546     LOAD_FAST                       3: _var_var_10
+                548     LOAD_ATTR                       29: pop
+                568     CALL                            0
+                576     UNPACK_SEQUENCE                 3
+                580     STORE_FAST                      10: _var_var_16
+                582     STORE_FAST                      11: _var_var_17
+                584     STORE_FAST                      12: _var_var_18
+                586     LOAD_GLOBAL                     31: NULL + within_surrogate
+                596     LOAD_FAST                       0: text
+                598     LOAD_FAST                       10: _var_var_16
+                600     CALL                            2
+                608     POP_JUMP_IF_FALSE               18 (to 646)
+                610     LOAD_FAST                       10: _var_var_16
+                612     LOAD_CONST                      7: 1
+                614     BINARY_OP                       13 (+=)
+                618     STORE_FAST                      10: _var_var_16
+                620     LOAD_GLOBAL                     31: NULL + within_surrogate
+                630     LOAD_FAST                       0: text
+                632     LOAD_FAST                       10: _var_var_16
+                634     CALL                            2
+                642     POP_JUMP_IF_FALSE               1 (to 646)
+                644     JUMP_BACKWARD                   18 (to 610)
+                646     LOAD_FAST                       0: text
+                648     LOAD_CONST                      5: None
+                650     LOAD_FAST                       10: _var_var_16
+                652     BINARY_SLICE                    
+                654     LOAD_FAST                       12: _var_var_18
+                656     BINARY_OP                       0 (+)
+                660     LOAD_GLOBAL                     1: NULL + escape
+                670     LOAD_FAST                       0: text
+                672     LOAD_FAST                       10: _var_var_16
+                674     LOAD_FAST                       9: _var_var_15
+                676     BINARY_SLICE                    
+                678     CALL                            1
+                686     BINARY_OP                       0 (+)
+                690     LOAD_FAST                       0: text
+                692     LOAD_FAST                       9: _var_var_15
+                694     LOAD_CONST                      5: None
+                696     BINARY_SLICE                    
+                698     BINARY_OP                       0 (+)
+                702     STORE_FAST                      0: text
+                704     LOAD_FAST                       10: _var_var_16
+                706     STORE_FAST                      9: _var_var_15
+                708     LOAD_FAST                       3: _var_var_10
+                710     POP_JUMP_IF_FALSE               1 (to 714)
+                712     JUMP_BACKWARD                   84 (to 546)
+                714     LOAD_GLOBAL                     1: NULL + escape
+                724     LOAD_FAST                       0: text
+                726     LOAD_CONST                      5: None
+                728     LOAD_FAST                       9: _var_var_15
+                730     BINARY_SLICE                    
+                732     CALL                            1
+                740     LOAD_FAST                       0: text
+                742     LOAD_FAST                       9: _var_var_15
+                744     LOAD_CONST                      5: None
+                746     BINARY_SLICE                    
+                748     BINARY_OP                       0 (+)
+                752     STORE_FAST                      0: text
+                754     LOAD_GLOBAL                     33: NULL + del_surrogate
+                764     LOAD_FAST                       0: text
+                766     CALL                            1
+                774     NOP                             
+                776     NOP                             
+                778     NOP                             
+                780     JUMP_FORWARD                    20 (to 822)
+                782     CALL                            1
+                790     POP_TOP                         
+                792     RETURN_VALUE                    
+                794     PUSH_EXC_INFO                   
+                796     PUSH_NULL                       
+                798     LOAD_CONST                      4: '__pyarmor_exit_23015__'
+                800     NOP                             
+                802     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x00\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                804     CALL                            1
+                812     POP_TOP                         
+                814     RERAISE                         0
+                816     COPY                            3
+                818     POP_EXCEPT                      
+                820     RERAISE                         1
+                822     PUSH_NULL                       
+                824     LOAD_CONST                      4: '__pyarmor_exit_23015__'
+                826     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x00\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                828     BUILD_TUPLE                     1
+                830     CALL_FUNCTION_EX                0
+                832     POP_TOP                         
+                834     RETURN_VALUE                    
+            [Exception Table]
+                28 to 34 -> 794 [0] 
+                54 to 78 -> 794 [0] 
+                98 to 336 -> 794 [0] 
+                338 to 644 -> 794 [0] 
+                646 to 712 -> 794 [0] 
+                714 to 774 -> 794 [0] 
+                794 to 816 -> 816 [1] lasti
+        '__pyarmor_exit_22994__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_22993__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1ax\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      PUSH_NULL                       
+        28      LOAD_CONST                      0: '__pyarmor_assert_22992__'
+        30      LOAD_CONST                      3: '\nSimple HTML -> Telegram entity parser.\n'   # b'\x81\x88+\x1a>\xea\xb2\xd7[\xd29\xed@\xac\xb5\xdbOi\xbe\xab\xaf\xcc\\\xcd\x08/\xa6R\x14\xb8\n\xfczB!\x1f\x8b\xcf\xa6`r'
+        32      CALL                            1
+        40      POP_TOP                         
+        42      LOAD_CONST                      4: 0
+        44      LOAD_CONST                      5: ('deque',)
+        46      IMPORT_NAME                     1: collections
+        48      IMPORT_FROM                     2: deque
+        50      STORE_NAME                      2: deque
+        52      POP_TOP                         
+        54      LOAD_CONST                      4: 0
+        56      LOAD_CONST                      6: ('escape',)
+        58      IMPORT_NAME                     3: html
+        60      IMPORT_FROM                     4: escape
+        62      STORE_NAME                      4: escape
+        64      POP_TOP                         
+        66      LOAD_CONST                      4: 0
+        68      LOAD_CONST                      7: ('HTMLParser',)
+        70      IMPORT_NAME                     5: html.parser
+        72      IMPORT_FROM                     6: HTMLParser
+        74      STORE_NAME                      6: HTMLParser
+        76      POP_TOP                         
+        78      LOAD_CONST                      4: 0
+        80      LOAD_CONST                      8: ('Iterable', 'Tuple', 'List')
+        82      IMPORT_NAME                     7: typing
+        84      IMPORT_FROM                     8: Iterable
+        86      STORE_NAME                      8: Iterable
+        88      IMPORT_FROM                     9: Tuple
+        90      STORE_NAME                      9: Tuple
+        92      IMPORT_FROM                     10: List
+        94      STORE_NAME                      10: List
+        96      POP_TOP                         
+        98      LOAD_CONST                      9: 2
+        100     LOAD_CONST                      10: ('add_surrogate', 'del_surrogate', 'within_surrogate', 'strip_text')
+        102     IMPORT_NAME                     11: helpers
+        104     IMPORT_FROM                     12: add_surrogate
+        106     STORE_NAME                      12: add_surrogate
+        108     IMPORT_FROM                     13: del_surrogate
+        110     STORE_NAME                      13: del_surrogate
+        112     IMPORT_FROM                     14: within_surrogate
+        114     STORE_NAME                      14: within_surrogate
+        116     IMPORT_FROM                     15: strip_text
+        118     STORE_NAME                      15: strip_text
+        120     POP_TOP                         
+        122     LOAD_CONST                      9: 2
+        124     LOAD_CONST                      11: ('TLObject',)
+        126     IMPORT_NAME                     16: tl
+        128     IMPORT_FROM                     17: TLObject
+        130     STORE_NAME                      17: TLObject
+        132     POP_TOP                         
+        134     LOAD_CONST                      9: 2
+        136     LOAD_CONST                      12: ('MessageEntityBold', 'MessageEntityItalic', 'MessageEntityCode', 'MessageEntityPre', 'MessageEntityEmail', 'MessageEntityUrl', 'MessageEntityTextUrl', 'MessageEntityMentionName', 'MessageEntityUnderline', 'MessageEntityStrike', 'MessageEntityBlockquote', 'MessageEntityCustomEmoji', 'TypeMessageEntity')
+        138     IMPORT_NAME                     18: tl.types
+        140     IMPORT_FROM                     19: MessageEntityBold
+        142     STORE_NAME                      19: MessageEntityBold
+        144     IMPORT_FROM                     20: MessageEntityItalic
+        146     STORE_NAME                      20: MessageEntityItalic
+        148     IMPORT_FROM                     21: MessageEntityCode
+        150     STORE_NAME                      21: MessageEntityCode
+        152     IMPORT_FROM                     22: MessageEntityPre
+        154     STORE_NAME                      22: MessageEntityPre
+        156     IMPORT_FROM                     23: MessageEntityEmail
+        158     STORE_NAME                      23: MessageEntityEmail
+        160     IMPORT_FROM                     24: MessageEntityUrl
+        162     STORE_NAME                      24: MessageEntityUrl
+        164     IMPORT_FROM                     25: MessageEntityTextUrl
+        166     STORE_NAME                      25: MessageEntityTextUrl
+        168     IMPORT_FROM                     26: MessageEntityMentionName
+        170     STORE_NAME                      26: MessageEntityMentionName
+        172     IMPORT_FROM                     27: MessageEntityUnderline
+        174     STORE_NAME                      27: MessageEntityUnderline
+        176     IMPORT_FROM                     28: MessageEntityStrike
+        178     STORE_NAME                      28: MessageEntityStrike
+        180     IMPORT_FROM                     29: MessageEntityBlockquote
+        182     STORE_NAME                      29: MessageEntityBlockquote
+        184     IMPORT_FROM                     30: MessageEntityCustomEmoji
+        186     STORE_NAME                      30: MessageEntityCustomEmoji
+        188     IMPORT_FROM                     31: TypeMessageEntity
+        190     STORE_NAME                      31: TypeMessageEntity
+        192     POP_TOP                         
+        194     PUSH_NULL                       
+        196     LOAD_BUILD_CLASS                
+        198     LOAD_CONST                      13: <CODE> HTMLToTelegramParser
+        200     MAKE_FUNCTION                   0
+        202     LOAD_CONST                      14: 'HTMLToTelegramParser'
+        204     LOAD_NAME                       6: HTMLParser
+        206     CALL                            3
+        214     STORE_NAME                      32: HTMLToTelegramParser
+        216     LOAD_CONST                      15: 'html'
+        218     LOAD_NAME                       33: str
+        220     LOAD_CONST                      16: 'return'
+        222     LOAD_NAME                       9: Tuple
+        224     LOAD_NAME                       33: str
+        226     LOAD_NAME                       10: List
+        228     LOAD_NAME                       31: TypeMessageEntity
+        230     BINARY_SUBSCR                   
+        234     BUILD_TUPLE                     2
+        236     BINARY_SUBSCR                   
+        240     BUILD_TUPLE                     4
+        242     LOAD_CONST                      17: <CODE> parse
+        244     MAKE_FUNCTION                   4
+        246     STORE_NAME                      34: parse
+        248     LOAD_NAME                       19: MessageEntityBold
+        250     LOAD_CONST                      18: '<strong>'
+        252     PUSH_NULL                       
+        254     LOAD_CONST                      0: '__pyarmor_assert_22992__'
+        256     LOAD_CONST                      19: '</strong>'   # b"\x81\xbeW\x00'\xe8\xb1\xdc\x1c\xa4"
+        258     CALL                            1
+        266     BUILD_TUPLE                     2
+        268     LOAD_NAME                       20: MessageEntityItalic
+        270     LOAD_CONST                      20: ('<em>', '</em>')
+        272     LOAD_NAME                       21: MessageEntityCode
+        274     LOAD_CONST                      21: ('<code>', '</code>')
+        276     LOAD_NAME                       27: MessageEntityUnderline
+        278     LOAD_CONST                      22: ('<u>', '</u>')
+        280     LOAD_NAME                       28: MessageEntityStrike
+        282     LOAD_CONST                      23: ('<del>', '</del>')
+        284     LOAD_NAME                       29: MessageEntityBlockquote
+        286     PUSH_NULL                       
+        288     LOAD_CONST                      0: '__pyarmor_assert_22992__'
+        290     LOAD_CONST                      24: '<blockquote>'   # b'\x81\xbe\x1a\x1f<\xf9\xb5\xc3\x0e\xf5\x19\xc52'
+        292     CALL                            1
+        300     PUSH_NULL                       
+        302     LOAD_CONST                      0: '__pyarmor_assert_22992__'
+        304     LOAD_CONST                      25: '</blockquote>'   # b'\x81\xbeW\x11?\xf5\xbd\xd9\n\xef\x02\xd4i\xb2'
+        306     CALL                            1
+        314     BUILD_TUPLE                     2
+        316     LOAD_NAME                       22: MessageEntityPre
+        318     LOAD_CONST                      26: <CODE> <lambda>
+        320     MAKE_FUNCTION                   0
+        322     LOAD_NAME                       23: MessageEntityEmail
+        324     LOAD_CONST                      27: <CODE> <lambda>
+        326     MAKE_FUNCTION                   0
+        328     LOAD_NAME                       24: MessageEntityUrl
+        330     LOAD_CONST                      28: <CODE> <lambda>
+        332     MAKE_FUNCTION                   0
+        334     LOAD_NAME                       25: MessageEntityTextUrl
+        336     LOAD_CONST                      29: <CODE> <lambda>
+        338     MAKE_FUNCTION                   0
+        340     LOAD_NAME                       26: MessageEntityMentionName
+        342     LOAD_CONST                      30: <CODE> <lambda>
+        344     MAKE_FUNCTION                   0
+        346     LOAD_NAME                       30: MessageEntityCustomEmoji
+        348     LOAD_CONST                      31: <CODE> <lambda>
+        350     MAKE_FUNCTION                   0
+        352     BUILD_MAP                       12
+        354     STORE_NAME                      35: ENTITY_TO_FORMATTER
+        356     LOAD_CONST                      32: 'text'
+        358     LOAD_NAME                       33: str
+        360     LOAD_CONST                      33: 'entities'
+        362     LOAD_NAME                       8: Iterable
+        364     LOAD_NAME                       31: TypeMessageEntity
+        366     BINARY_SUBSCR                   
+        370     LOAD_CONST                      16: 'return'
+        372     LOAD_NAME                       33: str
+        374     BUILD_TUPLE                     6
+        376     LOAD_CONST                      34: <CODE> unparse
+        378     MAKE_FUNCTION                   4
+        380     STORE_NAME                      36: unparse
+        382     LOAD_CONST                      36: None
+        384     NOP                             
+        386     NOP                             
+        388     NOP                             
+        390     JUMP_FORWARD                    19 (to 430)
+        398     POP_TOP                         
+        400     RETURN_CONST                    36: None
+        402     PUSH_EXC_INFO                   
+        404     PUSH_NULL                       
+        406     LOAD_CONST                      35: '__pyarmor_exit_22994__'
+        408     NOP                             
+        410     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1ax\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        412     CALL                            1
+        420     POP_TOP                         
+        422     RERAISE                         0
+        424     COPY                            3
+        426     POP_EXCEPT                      
+        428     RERAISE                         1
+        430     PUSH_NULL                       
+        432     LOAD_CONST                      35: '__pyarmor_exit_22994__'
+        434     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1ax\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        436     BUILD_TUPLE                     1
+        438     CALL_FUNCTION_EX                0
+        440     POP_TOP                         
+        442     RETURN_VALUE                    
+    [Exception Table]
+        26 to 382 -> 402 [0] 
+        402 to 424 -> 424 [1] lasti

@@ -1,0 +1,167 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.network.connection>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'connection'
+        'Connection'
+        'tcpfull'
+        'ConnectionTcpFull'
+        'tcpintermediate'
+        'ConnectionTcpIntermediate'
+        'tcpabridged'
+        'ConnectionTcpAbridged'
+        'tcpobfuscated'
+        'ConnectionTcpObfuscated'
+        'tcpmtproxy'
+        'TcpMTProxy'
+        'ConnectionTcpMTProxyAbridged'
+        'ConnectionTcpMTProxyIntermediate'
+        'ConnectionTcpMTProxyRandomizedIntermediate'
+        'http'
+        'ConnectionHttp'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_23454__'
+        '__pyarmor_enter_23455__'
+        b'<COAddr>\x05\x00\x00\x1at\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'Connection'
+        )
+        (
+            'ConnectionTcpFull'
+        )
+        (
+            'ConnectionTcpIntermediate'
+        )
+        (
+            'ConnectionTcpAbridged'
+        )
+        (
+            'ConnectionTcpObfuscated'
+        )
+        (
+            'TcpMTProxy'
+            'ConnectionTcpMTProxyAbridged'
+            'ConnectionTcpMTProxyIntermediate'
+            'ConnectionTcpMTProxyRandomizedIntermediate'
+        )
+        (
+            'ConnectionHttp'
+        )
+        '__pyarmor_exit_23456__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_23455__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1at\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('Connection',)
+        30      IMPORT_NAME                     1: connection
+        32      IMPORT_FROM                     2: Connection
+        34      STORE_NAME                      2: Connection
+        36      POP_TOP                         
+        38      LOAD_CONST                      3: 1
+        40      LOAD_CONST                      5: ('ConnectionTcpFull',)
+        42      IMPORT_NAME                     3: tcpfull
+        44      IMPORT_FROM                     4: ConnectionTcpFull
+        46      STORE_NAME                      4: ConnectionTcpFull
+        48      POP_TOP                         
+        50      LOAD_CONST                      3: 1
+        52      LOAD_CONST                      6: ('ConnectionTcpIntermediate',)
+        54      IMPORT_NAME                     5: tcpintermediate
+        56      IMPORT_FROM                     6: ConnectionTcpIntermediate
+        58      STORE_NAME                      6: ConnectionTcpIntermediate
+        60      POP_TOP                         
+        62      LOAD_CONST                      3: 1
+        64      LOAD_CONST                      7: ('ConnectionTcpAbridged',)
+        66      IMPORT_NAME                     7: tcpabridged
+        68      IMPORT_FROM                     8: ConnectionTcpAbridged
+        70      STORE_NAME                      8: ConnectionTcpAbridged
+        72      POP_TOP                         
+        74      LOAD_CONST                      3: 1
+        76      LOAD_CONST                      8: ('ConnectionTcpObfuscated',)
+        78      IMPORT_NAME                     9: tcpobfuscated
+        80      IMPORT_FROM                     10: ConnectionTcpObfuscated
+        82      STORE_NAME                      10: ConnectionTcpObfuscated
+        84      POP_TOP                         
+        86      LOAD_CONST                      3: 1
+        88      LOAD_CONST                      9: ('TcpMTProxy', 'ConnectionTcpMTProxyAbridged', 'ConnectionTcpMTProxyIntermediate', 'ConnectionTcpMTProxyRandomizedIntermediate')
+        90      IMPORT_NAME                     11: tcpmtproxy
+        92      IMPORT_FROM                     12: TcpMTProxy
+        94      STORE_NAME                      12: TcpMTProxy
+        96      IMPORT_FROM                     13: ConnectionTcpMTProxyAbridged
+        98      STORE_NAME                      13: ConnectionTcpMTProxyAbridged
+        100     IMPORT_FROM                     14: ConnectionTcpMTProxyIntermediate
+        102     STORE_NAME                      14: ConnectionTcpMTProxyIntermediate
+        104     IMPORT_FROM                     15: ConnectionTcpMTProxyRandomizedIntermediate
+        106     STORE_NAME                      15: ConnectionTcpMTProxyRandomizedIntermediate
+        108     POP_TOP                         
+        110     LOAD_CONST                      3: 1
+        112     LOAD_CONST                      10: ('ConnectionHttp',)
+        114     IMPORT_NAME                     16: http
+        116     IMPORT_FROM                     17: ConnectionHttp
+        118     STORE_NAME                      17: ConnectionHttp
+        120     POP_TOP                         
+        122     LOAD_CONST                      12: None
+        124     NOP                             
+        126     NOP                             
+        128     NOP                             
+        130     JUMP_FORWARD                    19 (to 170)
+        138     POP_TOP                         
+        140     RETURN_CONST                    12: None
+        142     PUSH_EXC_INFO                   
+        144     PUSH_NULL                       
+        146     LOAD_CONST                      11: '__pyarmor_exit_23456__'
+        148     NOP                             
+        150     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1at\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        152     CALL                            1
+        160     POP_TOP                         
+        162     RERAISE                         0
+        164     COPY                            3
+        166     POP_EXCEPT                      
+        168     RERAISE                         1
+        170     PUSH_NULL                       
+        172     LOAD_CONST                      11: '__pyarmor_exit_23456__'
+        174     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1at\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        176     BUILD_TUPLE                     1
+        178     CALL_FUNCTION_EX                0
+        180     POP_TOP                         
+        182     RETURN_VALUE                    
+    [Exception Table]
+        26 to 122 -> 142 [0] 
+        142 to 164 -> 164 [1] lasti

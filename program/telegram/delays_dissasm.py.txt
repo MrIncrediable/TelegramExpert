@@ -1,0 +1,806 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.telegram.delays>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'time'
+        'random'
+        'multithon.sync'
+        'functions'
+        'multithon.errors'
+        'StopProgram'
+        'program.static_classes'
+        'Logs'
+        'Thread_wait'
+        'Restart_wait'
+        'DelayOnline'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_16044__'
+        '__pyarmor_enter_16045__'
+        b'<COAddr>\x05\x00\x00\x1aZ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        (
+            'functions'
+        )
+        (
+            'StopProgram'
+        )
+        (
+            'Logs'
+        )
+        [Code]
+            File Name: <frozen program.telegram.delays>
+            Object Name: Thread_wait
+            Qualified Name: Thread_wait
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 7
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'is_set'
+                'StopProgram'
+                'get'
+                'int'
+                'random'
+                'randint'
+                'Logs'
+                'PrintLog'
+                'range'
+                'time'
+                'sleep'
+            [Locals+Names]
+                'data'
+                'config'
+                'stop_thread'
+                '__assert_armored__'
+                '_var_var_0'
+                '_var_var_1'
+                '_var_var_2'
+                '_var_var_3'
+                '_var_var_4'
+            [Constants]
+                None
+                '__pyarmor_assert_16047__'
+                '__pyarmor_enter_16048__'
+                b'<COAddr>\x07\x00\x00\x1a*\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'Settings'
+                False
+                'thread_rules'   # b'\x81\xf6\x10\x016\xfb\xba\xed\t\xef\x01\xc5\x7f'
+                True
+                'thread_wait_from'   # b'\x81\xf6\x10\x016\xfb\xba\xed\x0c\xfb\x04\xd4S\xea\xea\x8a\x02'
+                'thread_wait_to'   # b'\x81\xf6\x10\x016\xfb\xba\xed\x0c\xfb\x04\xd4S\xf8\xf7'
+                0
+                'The delay before the start of the stream is activated'   # b'\x81\xd6\x10\x16s\xfe\xbb\xde\x1a\xe3M\xc2i\xea\xf7\x97\n\x1d\xaf\xaf\xaf\x8b]\xd8\x04}\xb7\x1c\x0f\xb7^\xf12W`\x1e\x8c\xd8\xb1/\x15\xa9\xf1N\x9d\xd9\x0cS>\xfbW\xef\x82t'
+                (
+                    'config'
+                    'message'
+                )
+                'Wait'
+                'second'
+                (
+                    'config'
+                    'message'
+                    'param'
+                    'end'
+                )
+                1
+                '__pyarmor_exit_16049__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_16048__'
+                8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a*\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      LOAD_FAST                       2: stop_thread
+                32      LOAD_ATTR                       1: is_set
+                52      CALL                            0
+                60      POP_JUMP_IF_FALSE               10 (to 82)
+                62      LOAD_GLOBAL                     3: NULL + StopProgram
+                72      CALL                            0
+                80      RAISE_VARARGS                   1
+                82      LOAD_FAST                       0: data
+                84      POP_JUMP_IF_NONE                78 (to 242)
+                86      LOAD_FAST                       0: data
+                88      LOAD_ATTR                       5: get
+                108     LOAD_CONST                      4: 'Settings'
+                110     LOAD_CONST                      5: False
+                112     CALL                            2
+                120     LOAD_CONST                      5: False
+                122     COMPARE_OP                      55 (!=)
+                126     POP_JUMP_IF_FALSE               57 (to 242)
+                128     LOAD_FAST                       0: data
+                130     LOAD_CONST                      4: 'Settings'
+                132     BINARY_SUBSCR                   
+                136     LOAD_ATTR                       5: get
+                156     PUSH_NULL                       
+                158     LOAD_CONST                      1: '__pyarmor_assert_16047__'
+                160     LOAD_CONST                      6: 'thread_rules'   # b'\x81\xf6\x10\x016\xfb\xba\xed\t\xef\x01\xc5\x7f'
+                162     CALL                            1
+                170     LOAD_CONST                      5: False
+                172     CALL                            2
+                180     LOAD_CONST                      5: False
+                182     COMPARE_OP                      55 (!=)
+                186     POP_JUMP_IF_FALSE               27 (to 242)
+                188     LOAD_FAST                       0: data
+                190     LOAD_CONST                      4: 'Settings'
+                192     BINARY_SUBSCR                   
+                196     LOAD_ATTR                       5: get
+                216     PUSH_NULL                       
+                218     LOAD_CONST                      1: '__pyarmor_assert_16047__'
+                220     LOAD_CONST                      6: 'thread_rules'   # b'\x81\xf6\x10\x016\xfb\xba\xed\t\xef\x01\xc5\x7f'
+                222     CALL                            1
+                230     CALL                            1
+                238     STORE_FAST                      4: _var_var_0
+                240     JUMP_FORWARD                    2 (to 246)
+                242     LOAD_CONST                      5: False
+                244     STORE_FAST                      4: _var_var_0
+                246     LOAD_FAST                       4: _var_var_0
+                248     LOAD_CONST                      7: True
+                250     COMPARE_OP                      40 (==)
+                254     POP_JUMP_IF_FALSE               71 (to 398)
+                256     LOAD_GLOBAL                     7: NULL + int
+                266     LOAD_FAST                       0: data
+                268     LOAD_CONST                      4: 'Settings'
+                270     BINARY_SUBSCR                   
+                274     LOAD_ATTR                       5: get
+                294     PUSH_NULL                       
+                296     LOAD_CONST                      1: '__pyarmor_assert_16047__'
+                298     LOAD_CONST                      8: 'thread_wait_from'   # b'\x81\xf6\x10\x016\xfb\xba\xed\x0c\xfb\x04\xd4S\xea\xea\x8a\x02'
+                300     CALL                            1
+                308     CALL                            1
+                316     CALL                            1
+                324     STORE_FAST                      5: _var_var_1
+                326     LOAD_GLOBAL                     7: NULL + int
+                336     LOAD_FAST                       0: data
+                338     LOAD_CONST                      4: 'Settings'
+                340     BINARY_SUBSCR                   
+                344     LOAD_ATTR                       5: get
+                364     PUSH_NULL                       
+                366     LOAD_CONST                      1: '__pyarmor_assert_16047__'
+                368     LOAD_CONST                      9: 'thread_wait_to'   # b'\x81\xf6\x10\x016\xfb\xba\xed\x0c\xfb\x04\xd4S\xf8\xf7'
+                370     CALL                            1
+                378     CALL                            1
+                386     CALL                            1
+                394     STORE_FAST                      6: _var_var_2
+                396     JUMP_FORWARD                    40 (to 478)
+                398     LOAD_GLOBAL                     7: NULL + int
+                408     LOAD_FAST                       1: config
+                410     PUSH_NULL                       
+                412     LOAD_CONST                      1: '__pyarmor_assert_16047__'
+                414     LOAD_CONST                      8: 'thread_wait_from'   # b'\x81\xf6\x10\x016\xfb\xba\xed\x0c\xfb\x04\xd4S\xea\xea\x8a\x02'
+                416     CALL                            1
+                424     BINARY_SUBSCR                   
+                428     CALL                            1
+                436     STORE_FAST                      5: _var_var_1
+                438     LOAD_GLOBAL                     7: NULL + int
+                448     LOAD_FAST                       1: config
+                450     PUSH_NULL                       
+                452     LOAD_CONST                      1: '__pyarmor_assert_16047__'
+                454     LOAD_CONST                      9: 'thread_wait_to'   # b'\x81\xf6\x10\x016\xfb\xba\xed\x0c\xfb\x04\xd4S\xf8\xf7'
+                456     CALL                            1
+                464     BINARY_SUBSCR                   
+                468     CALL                            1
+                476     STORE_FAST                      6: _var_var_2
+                478     LOAD_FAST                       5: _var_var_1
+                480     LOAD_FAST                       6: _var_var_2
+                482     COMPARE_OP                      68 (>)
+                486     POP_JUMP_IF_FALSE               4 (to 496)
+                488     LOAD_CONST                      10: 0
+                490     STORE_FAST                      5: _var_var_1
+                492     LOAD_CONST                      10: 0
+                494     STORE_FAST                      6: _var_var_2
+                496     LOAD_GLOBAL                     9: NULL + random
+                506     LOAD_ATTR                       10: randint
+                526     LOAD_FAST                       5: _var_var_1
+                528     LOAD_FAST                       6: _var_var_2
+                530     CALL                            2
+                538     STORE_FAST                      7: _var_var_3
+                540     LOAD_FAST                       7: _var_var_3
+                542     LOAD_CONST                      10: 0
+                544     COMPARE_OP                      55 (!=)
+                548     POP_JUMP_IF_FALSE               117 (to 784)
+                550     LOAD_GLOBAL                     13: NULL + Logs
+                560     LOAD_ATTR                       14: PrintLog
+                580     LOAD_FAST                       1: config
+                582     PUSH_NULL                       
+                584     LOAD_CONST                      1: '__pyarmor_assert_16047__'
+                586     LOAD_CONST                      11: 'The delay before the start of the stream is activated'   # b'\x81\xd6\x10\x16s\xfe\xbb\xde\x1a\xe3M\xc2i\xea\xf7\x97\n\x1d\xaf\xaf\xaf\x8b]\xd8\x04}\xb7\x1c\x0f\xb7^\xf12W`\x1e\x8c\xd8\xb1/\x15\xa9\xf1N\x9d\xd9\x0cS>\xfbW\xef\x82t'
+                588     CALL                            1
+                596     KW_NAMES                        12: ('config', 'message')
+                598     CALL                            2
+                606     POP_TOP                         
+                608     LOAD_GLOBAL                     13: NULL + Logs
+                618     LOAD_ATTR                       14: PrintLog
+                638     LOAD_FAST                       1: config
+                640     LOAD_CONST                      13: 'Wait'
+                642     LOAD_FAST                       7: _var_var_3
+                644     LOAD_CONST                      14: 'second'
+                646     KW_NAMES                        15: ('config', 'message', 'param', 'end')
+                648     CALL                            4
+                656     POP_TOP                         
+                658     LOAD_GLOBAL                     17: NULL + range
+                668     LOAD_FAST                       7: _var_var_3
+                670     CALL                            1
+                678     GET_ITER                        
+                680     FOR_ITER                        49 (to 780)
+                684     STORE_FAST                      8: _var_var_4
+                686     LOAD_FAST                       2: stop_thread
+                688     LOAD_ATTR                       1: is_set
+                708     CALL                            0
+                716     POP_JUMP_IF_FALSE               10 (to 738)
+                718     LOAD_GLOBAL                     3: NULL + StopProgram
+                728     CALL                            0
+                736     RAISE_VARARGS                   1
+                738     LOAD_GLOBAL                     19: NULL + time
+                748     LOAD_ATTR                       20: sleep
+                768     LOAD_CONST                      16: 1
+                770     CALL                            1
+                778     POP_TOP                         
+                780     JUMP_BACKWARD                   51 (to 680)
+                782     END_FOR                         
+                784     LOAD_CONST                      0: None
+                786     NOP                             
+                788     NOP                             
+                790     NOP                             
+                792     JUMP_FORWARD                    35 (to 864)
+                800     POP_TOP                         
+                802     RETURN_CONST                    0: None
+                804     PUSH_EXC_INFO                   
+                806     LOAD_GLOBAL                     2: StopProgram
+                816     CHECK_EXC_MATCH                 
+                818     POP_JUMP_IF_FALSE               2 (to 824)
+                820     POP_TOP                         
+                822     RAISE_VARARGS                   0
+                824     POP_TOP                         
+                826     POP_EXCEPT                      
+                828     JUMP_BACKWARD                   23 (to 784)
+                830     COPY                            3
+                832     POP_EXCEPT                      
+                834     RERAISE                         1
+                836     PUSH_EXC_INFO                   
+                838     PUSH_NULL                       
+                840     LOAD_CONST                      17: '__pyarmor_exit_16049__'
+                842     NOP                             
+                844     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a*\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                846     CALL                            1
+                854     POP_TOP                         
+                856     RERAISE                         0
+                858     COPY                            3
+                860     POP_EXCEPT                      
+                862     RERAISE                         1
+                864     PUSH_NULL                       
+                866     LOAD_CONST                      17: '__pyarmor_exit_16049__'
+                868     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a*\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                870     BUILD_TUPLE                     1
+                872     CALL_FUNCTION_EX                0
+                874     POP_TOP                         
+                876     RETURN_VALUE                    
+            [Exception Table]
+                30 to 784 -> 804 [0] 
+                804 to 826 -> 830 [1] lasti
+                826 to 836 -> 836 [0] 
+                836 to 858 -> 858 [1] lasti
+        [Code]
+            File Name: <frozen program.telegram.delays>
+            Object Name: Restart_wait
+            Qualified Name: Restart_wait
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 7
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'is_set'
+                'StopProgram'
+                'get'
+                'int'
+                'random'
+                'randint'
+                'Logs'
+                'PrintLog'
+                'range'
+                'time'
+                'sleep'
+            [Locals+Names]
+                'data'
+                'stop_thread'
+                '__assert_armored__'
+                '_var_var_5'
+                '_var_var_6'
+                '_var_var_7'
+                '_var_var_3'
+                '_var_var_4'
+            [Constants]
+                None
+                '__pyarmor_assert_16050__'
+                '__pyarmor_enter_16051__'
+                b'<COAddr>\x07\x00\x00\x1a\xa4\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'Settings'
+                'start_rules'   # b'\x81\xf1\x0c\x12!\xee\x81\xc0\x0e\xf6\x08\xd3'
+                True
+                'start_wait_from'   # b'\x81\xf1\x0c\x12!\xee\x81\xc5\x1a\xf3\x19\xffj\xfe\xf7\x88'
+                'start_wait_to'   # b'\x81\xf1\x0c\x12!\xee\x81\xc5\x1a\xf3\x19\xffx\xe3'
+                0
+                'Delay before restart is activated'   # b'\x81\xc6\x1d\x1f2\xe3\xfe\xd0\x1e\xfc\x02\xd2i\xac\xea\x80\x1cI\xba\xb5\xbe\x8bG\xdfEn\xa0H\t\xa7\x1f\xf1?V'
+                (
+                    'message'
+                )
+                'Wait'
+                'second'
+                (
+                    'message'
+                    'param'
+                    'end'
+                )
+                1
+                '__pyarmor_exit_16052__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_16051__'
+                8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xa4\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      LOAD_FAST                       1: stop_thread
+                32      LOAD_ATTR                       1: is_set
+                52      CALL                            0
+                60      POP_JUMP_IF_FALSE               10 (to 82)
+                62      LOAD_GLOBAL                     3: NULL + StopProgram
+                72      CALL                            0
+                80      RAISE_VARARGS                   1
+                82      LOAD_FAST                       0: data
+                84      LOAD_CONST                      4: 'Settings'
+                86      BINARY_SUBSCR                   
+                90      LOAD_ATTR                       5: get
+                110     PUSH_NULL                       
+                112     LOAD_CONST                      1: '__pyarmor_assert_16050__'
+                114     LOAD_CONST                      5: 'start_rules'   # b'\x81\xf1\x0c\x12!\xee\x81\xc0\x0e\xf6\x08\xd3'
+                116     CALL                            1
+                124     CALL                            1
+                132     STORE_FAST                      3: _var_var_5
+                134     LOAD_FAST                       3: _var_var_5
+                136     LOAD_CONST                      6: True
+                138     COMPARE_OP                      40 (==)
+                142     POP_JUMP_IF_FALSE               80 (to 304)
+                144     LOAD_GLOBAL                     7: NULL + int
+                154     LOAD_FAST                       0: data
+                156     LOAD_CONST                      4: 'Settings'
+                158     BINARY_SUBSCR                   
+                162     LOAD_ATTR                       5: get
+                182     PUSH_NULL                       
+                184     LOAD_CONST                      1: '__pyarmor_assert_16050__'
+                186     LOAD_CONST                      7: 'start_wait_from'   # b'\x81\xf1\x0c\x12!\xee\x81\xc5\x1a\xf3\x19\xffj\xfe\xf7\x88'
+                188     CALL                            1
+                196     CALL                            1
+                204     CALL                            1
+                212     STORE_FAST                      4: _var_var_6
+                214     LOAD_GLOBAL                     7: NULL + int
+                224     LOAD_FAST                       0: data
+                226     LOAD_CONST                      4: 'Settings'
+                228     BINARY_SUBSCR                   
+                232     LOAD_ATTR                       5: get
+                252     PUSH_NULL                       
+                254     LOAD_CONST                      1: '__pyarmor_assert_16050__'
+                256     LOAD_CONST                      8: 'start_wait_to'   # b'\x81\xf1\x0c\x12!\xee\x81\xc5\x1a\xf3\x19\xffx\xe3'
+                258     CALL                            1
+                266     CALL                            1
+                274     CALL                            1
+                282     STORE_FAST                      5: _var_var_7
+                284     LOAD_FAST                       4: _var_var_6
+                286     LOAD_FAST                       5: _var_var_7
+                288     COMPARE_OP                      68 (>)
+                292     POP_JUMP_IF_FALSE               9 (to 312)
+                294     LOAD_CONST                      9: 0
+                296     STORE_FAST                      4: _var_var_6
+                298     LOAD_CONST                      9: 0
+                300     STORE_FAST                      5: _var_var_7
+                302     JUMP_FORWARD                    4 (to 312)
+                304     LOAD_CONST                      9: 0
+                306     STORE_FAST                      4: _var_var_6
+                308     LOAD_CONST                      9: 0
+                310     STORE_FAST                      5: _var_var_7
+                312     LOAD_GLOBAL                     9: NULL + random
+                322     LOAD_ATTR                       10: randint
+                342     LOAD_FAST                       4: _var_var_6
+                344     LOAD_FAST                       5: _var_var_7
+                346     CALL                            2
+                354     STORE_FAST                      6: _var_var_3
+                356     LOAD_FAST                       6: _var_var_3
+                358     LOAD_CONST                      9: 0
+                360     COMPARE_OP                      55 (!=)
+                364     POP_JUMP_IF_FALSE               115 (to 596)
+                366     LOAD_GLOBAL                     13: NULL + Logs
+                376     LOAD_ATTR                       14: PrintLog
+                396     PUSH_NULL                       
+                398     LOAD_CONST                      1: '__pyarmor_assert_16050__'
+                400     LOAD_CONST                      10: 'Delay before restart is activated'   # b'\x81\xc6\x1d\x1f2\xe3\xfe\xd0\x1e\xfc\x02\xd2i\xac\xea\x80\x1cI\xba\xb5\xbe\x8bG\xdfEn\xa0H\t\xa7\x1f\xf1?V'
+                402     CALL                            1
+                410     KW_NAMES                        11: ('message',)
+                412     CALL                            1
+                420     POP_TOP                         
+                422     LOAD_GLOBAL                     13: NULL + Logs
+                432     LOAD_ATTR                       14: PrintLog
+                452     LOAD_CONST                      12: 'Wait'
+                454     LOAD_FAST                       6: _var_var_3
+                456     LOAD_CONST                      13: 'second'
+                458     KW_NAMES                        14: ('message', 'param', 'end')
+                460     CALL                            3
+                468     POP_TOP                         
+                470     LOAD_GLOBAL                     17: NULL + range
+                480     LOAD_FAST                       6: _var_var_3
+                482     CALL                            1
+                490     GET_ITER                        
+                492     FOR_ITER                        49 (to 592)
+                496     STORE_FAST                      7: _var_var_4
+                498     LOAD_FAST                       1: stop_thread
+                500     LOAD_ATTR                       1: is_set
+                520     CALL                            0
+                528     POP_JUMP_IF_FALSE               10 (to 550)
+                530     LOAD_GLOBAL                     3: NULL + StopProgram
+                540     CALL                            0
+                548     RAISE_VARARGS                   1
+                550     LOAD_GLOBAL                     19: NULL + time
+                560     LOAD_ATTR                       20: sleep
+                580     LOAD_CONST                      15: 1
+                582     CALL                            1
+                590     POP_TOP                         
+                592     JUMP_BACKWARD                   51 (to 492)
+                594     END_FOR                         
+                596     LOAD_FAST                       1: stop_thread
+                598     LOAD_ATTR                       1: is_set
+                618     CALL                            0
+                626     POP_JUMP_IF_FALSE               10 (to 648)
+                628     LOAD_GLOBAL                     3: NULL + StopProgram
+                638     CALL                            0
+                646     RAISE_VARARGS                   1
+                648     NOP                             
+                650     LOAD_CONST                      0: None
+                652     NOP                             
+                654     NOP                             
+                656     NOP                             
+                658     JUMP_FORWARD                    35 (to 730)
+                666     POP_TOP                         
+                668     RETURN_CONST                    0: None
+                670     PUSH_EXC_INFO                   
+                672     LOAD_GLOBAL                     2: StopProgram
+                682     CHECK_EXC_MATCH                 
+                684     POP_JUMP_IF_FALSE               2 (to 690)
+                686     POP_TOP                         
+                688     RAISE_VARARGS                   0
+                690     POP_TOP                         
+                692     POP_EXCEPT                      
+                694     JUMP_BACKWARD                   23 (to 650)
+                696     COPY                            3
+                698     POP_EXCEPT                      
+                700     RERAISE                         1
+                702     PUSH_EXC_INFO                   
+                704     PUSH_NULL                       
+                706     LOAD_CONST                      16: '__pyarmor_exit_16052__'
+                708     NOP                             
+                710     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xa4\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                712     CALL                            1
+                720     POP_TOP                         
+                722     RERAISE                         0
+                724     COPY                            3
+                726     POP_EXCEPT                      
+                728     RERAISE                         1
+                730     PUSH_NULL                       
+                732     LOAD_CONST                      16: '__pyarmor_exit_16052__'
+                734     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xa4\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                736     BUILD_TUPLE                     1
+                738     CALL_FUNCTION_EX                0
+                740     POP_TOP                         
+                742     RETURN_VALUE                    
+            [Exception Table]
+                30 to 648 -> 670 [0] 
+                648 to 650 -> 702 [0] 
+                670 to 692 -> 696 [1] lasti
+                692 to 702 -> 702 [0] 
+                702 to 724 -> 724 [1] lasti
+        [Code]
+            File Name: <frozen program.telegram.delays>
+            Object Name: DelayOnline
+            Qualified Name: DelayOnline
+            Arg Count: 5
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'random'
+                'randint'
+                'is_set'
+                'StopProgram'
+                'Logs'
+                'PrintLog'
+                'range'
+                'time'
+                'sleep'
+                'is_connected'
+                'connect'
+                'functions'
+                'account'
+                'UpdateStatusRequest'
+            [Locals+Names]
+                'account'
+                'client'
+                'min'
+                'max'
+                'stop_thread'
+                '__assert_armored__'
+                '_var_var_3'
+                '_var_var_4'
+            [Constants]
+                None
+                '__pyarmor_assert_16053__'
+                '__pyarmor_enter_16054__'
+                b'<COAddr>\x05\x00\x00\x1a\x14\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                0
+                'Wait'
+                'sec'
+                (
+                    'account'
+                    'message'
+                    'param'
+                    'end'
+                )
+                1
+                False
+                (
+                    'offline'
+                )
+                '__pyarmor_exit_16055__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_16054__'
+                8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x14\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      LOAD_GLOBAL                     1: NULL + random
+                40      LOAD_ATTR                       2: randint
+                60      LOAD_FAST                       2: min
+                62      LOAD_FAST                       3: max
+                64      CALL                            2
+                72      STORE_FAST                      6: _var_var_3
+                74      LOAD_FAST                       4: stop_thread
+                76      LOAD_ATTR                       5: is_set
+                96      CALL                            0
+                104     POP_JUMP_IF_FALSE               10 (to 126)
+                106     LOAD_GLOBAL                     7: NULL + StopProgram
+                116     CALL                            0
+                124     RAISE_VARARGS                   1
+                126     LOAD_FAST                       6: _var_var_3
+                128     LOAD_CONST                      4: 0
+                130     COMPARE_OP                      55 (!=)
+                134     POP_JUMP_IF_FALSE               158 (to 452)
+                136     LOAD_GLOBAL                     9: NULL + Logs
+                146     LOAD_ATTR                       10: PrintLog
+                166     LOAD_FAST                       0: account
+                168     LOAD_CONST                      5: 'Wait'
+                170     LOAD_FAST                       6: _var_var_3
+                172     LOAD_CONST                      6: 'sec'
+                174     KW_NAMES                        7: ('account', 'message', 'param', 'end')
+                176     CALL                            4
+                184     POP_TOP                         
+                186     LOAD_GLOBAL                     13: NULL + range
+                196     LOAD_FAST                       6: _var_var_3
+                198     CALL                            1
+                206     GET_ITER                        
+                208     FOR_ITER                        49 (to 308)
+                212     STORE_FAST                      7: _var_var_4
+                214     LOAD_FAST                       4: stop_thread
+                216     LOAD_ATTR                       5: is_set
+                236     CALL                            0
+                244     POP_JUMP_IF_FALSE               10 (to 266)
+                246     LOAD_GLOBAL                     7: NULL + StopProgram
+                256     CALL                            0
+                264     RAISE_VARARGS                   1
+                266     LOAD_GLOBAL                     15: NULL + time
+                276     LOAD_ATTR                       16: sleep
+                296     LOAD_CONST                      8: 1
+                298     CALL                            1
+                306     POP_TOP                         
+                308     JUMP_BACKWARD                   51 (to 208)
+                310     END_FOR                         
+                312     LOAD_FAST                       1: client
+                314     LOAD_ATTR                       19: is_connected
+                334     CALL                            0
+                342     POP_JUMP_IF_TRUE                16 (to 376)
+                344     LOAD_FAST                       1: client
+                346     LOAD_ATTR                       21: connect
+                366     CALL                            0
+                374     POP_TOP                         
+                376     PUSH_NULL                       
+                378     LOAD_FAST                       1: client
+                380     LOAD_GLOBAL                     22: functions
+                390     LOAD_ATTR                       24: account
+                410     LOAD_ATTR                       27: UpdateStatusRequest
+                430     LOAD_CONST                      9: False
+                432     KW_NAMES                        10: ('offline',)
+                434     CALL                            1
+                442     CALL                            1
+                450     POP_TOP                         
+                452     LOAD_FAST                       4: stop_thread
+                454     LOAD_ATTR                       5: is_set
+                474     CALL                            0
+                482     POP_JUMP_IF_FALSE               10 (to 504)
+                484     LOAD_GLOBAL                     7: NULL + StopProgram
+                494     CALL                            0
+                502     RAISE_VARARGS                   1
+                504     NOP                             
+                506     LOAD_CONST                      0: None
+                508     NOP                             
+                510     NOP                             
+                512     NOP                             
+                514     JUMP_FORWARD                    35 (to 586)
+                522     POP_TOP                         
+                524     RETURN_CONST                    0: None
+                526     PUSH_EXC_INFO                   
+                528     LOAD_GLOBAL                     6: StopProgram
+                538     CHECK_EXC_MATCH                 
+                540     POP_JUMP_IF_FALSE               2 (to 546)
+                542     POP_TOP                         
+                544     RAISE_VARARGS                   0
+                546     POP_TOP                         
+                548     POP_EXCEPT                      
+                550     JUMP_BACKWARD                   23 (to 506)
+                552     COPY                            3
+                554     POP_EXCEPT                      
+                556     RERAISE                         1
+                558     PUSH_EXC_INFO                   
+                560     PUSH_NULL                       
+                562     LOAD_CONST                      11: '__pyarmor_exit_16055__'
+                564     NOP                             
+                566     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x14\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                568     CALL                            1
+                576     POP_TOP                         
+                578     RERAISE                         0
+                580     COPY                            3
+                582     POP_EXCEPT                      
+                584     RERAISE                         1
+                586     PUSH_NULL                       
+                588     LOAD_CONST                      11: '__pyarmor_exit_16055__'
+                590     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x14\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                592     BUILD_TUPLE                     1
+                594     CALL_FUNCTION_EX                0
+                596     POP_TOP                         
+                598     RETURN_VALUE                    
+            [Exception Table]
+                30 to 504 -> 526 [0] 
+                504 to 506 -> 558 [0] 
+                526 to 548 -> 552 [1] lasti
+                548 to 558 -> 558 [0] 
+                558 to 580 -> 580 [1] lasti
+        '__pyarmor_exit_16046__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_16045__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1aZ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: time
+        32      STORE_NAME                      1: time
+        34      LOAD_CONST                      3: 0
+        36      LOAD_CONST                      4: None
+        38      IMPORT_NAME                     2: random
+        40      STORE_NAME                      2: random
+        42      LOAD_CONST                      3: 0
+        44      LOAD_CONST                      5: ('functions',)
+        46      IMPORT_NAME                     3: multithon.sync
+        48      IMPORT_FROM                     4: functions
+        50      STORE_NAME                      4: functions
+        52      POP_TOP                         
+        54      LOAD_CONST                      3: 0
+        56      LOAD_CONST                      6: ('StopProgram',)
+        58      IMPORT_NAME                     5: multithon.errors
+        60      IMPORT_FROM                     6: StopProgram
+        62      STORE_NAME                      6: StopProgram
+        64      POP_TOP                         
+        66      LOAD_CONST                      3: 0
+        68      LOAD_CONST                      7: ('Logs',)
+        70      IMPORT_NAME                     7: program.static_classes
+        72      IMPORT_FROM                     8: Logs
+        74      STORE_NAME                      8: Logs
+        76      POP_TOP                         
+        78      LOAD_CONST                      8: <CODE> Thread_wait
+        80      MAKE_FUNCTION                   0
+        82      STORE_NAME                      9: Thread_wait
+        84      LOAD_CONST                      9: <CODE> Restart_wait
+        86      MAKE_FUNCTION                   0
+        88      STORE_NAME                      10: Restart_wait
+        90      LOAD_CONST                      10: <CODE> DelayOnline
+        92      MAKE_FUNCTION                   0
+        94      STORE_NAME                      11: DelayOnline
+        96      LOAD_CONST                      4: None
+        98      NOP                             
+        100     NOP                             
+        102     NOP                             
+        104     JUMP_FORWARD                    19 (to 144)
+        112     POP_TOP                         
+        114     RETURN_CONST                    4: None
+        116     PUSH_EXC_INFO                   
+        118     PUSH_NULL                       
+        120     LOAD_CONST                      11: '__pyarmor_exit_16046__'
+        122     NOP                             
+        124     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1aZ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        126     CALL                            1
+        134     POP_TOP                         
+        136     RERAISE                         0
+        138     COPY                            3
+        140     POP_EXCEPT                      
+        142     RERAISE                         1
+        144     PUSH_NULL                       
+        146     LOAD_CONST                      11: '__pyarmor_exit_16046__'
+        148     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1aZ\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        150     BUILD_TUPLE                     1
+        152     CALL_FUNCTION_EX                0
+        154     POP_TOP                         
+        156     RETURN_VALUE                    
+    [Exception Table]
+        26 to 96 -> 116 [0] 
+        116 to 138 -> 138 [1] lasti

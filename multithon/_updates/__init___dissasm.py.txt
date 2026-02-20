@@ -1,0 +1,131 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon._updates>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'entitycache'
+        'EntityCache'
+        'messagebox'
+        'MessageBox'
+        'GapError'
+        'PrematureEndReason'
+        'session'
+        'SessionState'
+        'ChannelState'
+        'Entity'
+        'EntityType'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_60918__'
+        '__pyarmor_enter_60919__'
+        b'<COAddr>\x05\x00\x00\x1aL\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'EntityCache'
+        )
+        (
+            'MessageBox'
+            'GapError'
+            'PrematureEndReason'
+        )
+        (
+            'SessionState'
+            'ChannelState'
+            'Entity'
+            'EntityType'
+        )
+        '__pyarmor_exit_60920__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_60919__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1aL\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('EntityCache',)
+        30      IMPORT_NAME                     1: entitycache
+        32      IMPORT_FROM                     2: EntityCache
+        34      STORE_NAME                      2: EntityCache
+        36      POP_TOP                         
+        38      LOAD_CONST                      3: 1
+        40      LOAD_CONST                      5: ('MessageBox', 'GapError', 'PrematureEndReason')
+        42      IMPORT_NAME                     3: messagebox
+        44      IMPORT_FROM                     4: MessageBox
+        46      STORE_NAME                      4: MessageBox
+        48      IMPORT_FROM                     5: GapError
+        50      STORE_NAME                      5: GapError
+        52      IMPORT_FROM                     6: PrematureEndReason
+        54      STORE_NAME                      6: PrematureEndReason
+        56      POP_TOP                         
+        58      LOAD_CONST                      3: 1
+        60      LOAD_CONST                      6: ('SessionState', 'ChannelState', 'Entity', 'EntityType')
+        62      IMPORT_NAME                     7: session
+        64      IMPORT_FROM                     8: SessionState
+        66      STORE_NAME                      8: SessionState
+        68      IMPORT_FROM                     9: ChannelState
+        70      STORE_NAME                      9: ChannelState
+        72      IMPORT_FROM                     10: Entity
+        74      STORE_NAME                      10: Entity
+        76      IMPORT_FROM                     11: EntityType
+        78      STORE_NAME                      11: EntityType
+        80      POP_TOP                         
+        82      LOAD_CONST                      8: None
+        84      NOP                             
+        86      NOP                             
+        88      NOP                             
+        90      JUMP_FORWARD                    19 (to 130)
+        98      POP_TOP                         
+        100     RETURN_CONST                    8: None
+        102     PUSH_EXC_INFO                   
+        104     PUSH_NULL                       
+        106     LOAD_CONST                      7: '__pyarmor_exit_60920__'
+        108     NOP                             
+        110     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1aL\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        112     CALL                            1
+        120     POP_TOP                         
+        122     RERAISE                         0
+        124     COPY                            3
+        126     POP_EXCEPT                      
+        128     RERAISE                         1
+        130     PUSH_NULL                       
+        132     LOAD_CONST                      7: '__pyarmor_exit_60920__'
+        134     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1aL\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        136     BUILD_TUPLE                     1
+        138     CALL_FUNCTION_EX                0
+        140     POP_TOP                         
+        142     RETURN_VALUE                    
+    [Exception Table]
+        26 to 82 -> 102 [0] 
+        102 to 124 -> 124 [1] lasti

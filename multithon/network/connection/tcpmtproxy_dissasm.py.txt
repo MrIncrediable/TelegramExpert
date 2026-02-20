@@ -1,0 +1,1753 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.network.connection.tcpmtproxy>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'asyncio'
+        'hashlib'
+        'base64'
+        'os'
+        'connection'
+        'ObfuscatedConnection'
+        'tcpabridged'
+        'AbridgedPacketCodec'
+        'tcpintermediate'
+        'IntermediatePacketCodec'
+        'RandomizedIntermediatePacketCodec'
+        'crypto'
+        'AESModeCTR'
+        'MTProxyIO'
+        'TcpMTProxy'
+        'ConnectionTcpMTProxyAbridged'
+        'ConnectionTcpMTProxyIntermediate'
+        'ConnectionTcpMTProxyRandomizedIntermediate'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_23391__'
+        '__pyarmor_enter_23392__'
+        b'<COAddr>\x07\x00\x00\x1a\xd4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        1
+        (
+            'ObfuscatedConnection'
+        )
+        (
+            'AbridgedPacketCodec'
+        )
+        (
+            'IntermediatePacketCodec'
+            'RandomizedIntermediatePacketCodec'
+        )
+        3
+        (
+            'AESModeCTR'
+        )
+        [Code]
+            File Name: <frozen multithon.network.connection.tcpmtproxy>
+            Object Name: MTProxyIO
+            Qualified Name: MTProxyIO
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'header'
+                '__init__'
+                'staticmethod'
+                'init_header'
+                'readexactly'
+                'write'
+            [Locals+Names]
+            [Constants]
+                'MTProxyIO'
+                "\n    It's very similar to tcpobfuscated.ObfuscatedIO, but the way\n    encryption keys, protocol tag and dc_id are encoded is different.\n    "
+                '__pyarmor_assert_23394__'
+                '__pyarmor_enter_23395__'
+                b'<COAddr>\x05\x00\x00&<\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                None
+                [Code]
+                    File Name: <frozen multithon.network.connection.tcpmtproxy>
+                    Object Name: __init__
+                    Qualified Name: MTProxyIO.__init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_reader'
+                        '_writer'
+                        'init_header'
+                        '_secret'
+                        '_dc_id'
+                        'packet_codec'
+                        'header'
+                        '_encrypt'
+                        '_decrypt'
+                    [Locals+Names]
+                        'self'
+                        'connection'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23397__'
+                        '__pyarmor_enter_23398__'
+                        b'<COAddr>\x05\x00\x00\x1a\xe2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_23399__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23398__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xe2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: connection
+                        30      LOAD_ATTR                       0: _reader
+                        50      LOAD_FAST                       0: self
+                        52      STORE_ATTR                      0: _reader
+                        62      LOAD_FAST                       1: connection
+                        64      LOAD_ATTR                       2: _writer
+                        84      LOAD_FAST                       0: self
+                        86      STORE_ATTR                      1: _writer
+                        96      LOAD_FAST                       0: self
+                        98      LOAD_ATTR                       5: init_header
+                        118     LOAD_FAST                       1: connection
+                        120     LOAD_ATTR                       6: _secret
+                        140     LOAD_FAST                       1: connection
+                        142     LOAD_ATTR                       8: _dc_id
+                        162     LOAD_FAST                       1: connection
+                        164     LOAD_ATTR                       10: packet_codec
+                        184     CALL                            3
+                        192     UNPACK_SEQUENCE                 3
+                        196     LOAD_FAST                       0: self
+                        198     STORE_ATTR                      6: header
+                        208     LOAD_FAST                       0: self
+                        210     STORE_ATTR                      7: _encrypt
+                        220     LOAD_FAST                       0: self
+                        222     STORE_ATTR                      8: _decrypt
+                        232     LOAD_CONST                      0: None
+                        234     NOP                             
+                        236     NOP                             
+                        238     NOP                             
+                        240     JUMP_FORWARD                    19 (to 280)
+                        248     POP_TOP                         
+                        250     RETURN_CONST                    0: None
+                        252     PUSH_EXC_INFO                   
+                        254     PUSH_NULL                       
+                        256     LOAD_CONST                      4: '__pyarmor_exit_23399__'
+                        258     NOP                             
+                        260     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xe2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        262     CALL                            1
+                        270     POP_TOP                         
+                        272     RERAISE                         0
+                        274     COPY                            3
+                        276     POP_EXCEPT                      
+                        278     RERAISE                         1
+                        280     PUSH_NULL                       
+                        282     LOAD_CONST                      4: '__pyarmor_exit_23399__'
+                        284     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xe2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        286     BUILD_TUPLE                     1
+                        288     CALL_FUNCTION_EX                0
+                        290     POP_TOP                         
+                        292     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 232 -> 252 [0] 
+                        252 to 274 -> 274 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.network.connection.tcpmtproxy>
+                    Object Name: init_header
+                    Qualified Name: MTProxyIO.init_header
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'len'
+                        'issubclass'
+                        'RandomizedIntermediatePacketCodec'
+                        'ValueError'
+                        'os'
+                        'urandom'
+                        'bytearray'
+                        'hashlib'
+                        'sha256'
+                        'bytes'
+                        'digest'
+                        'AESModeCTR'
+                        'obfuscate_tag'
+                        'to_bytes'
+                        'encrypt'
+                    [Locals+Names]
+                        'secret'
+                        'dc_id'
+                        'packet_codec'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                        '_var_var_2'
+                        '_var_var_3'
+                        '_var_var_4'
+                        '_var_var_5'
+                        '_var_var_6'
+                        '_var_var_7'
+                        '_var_var_8'
+                        '_var_var_9'
+                        '_var_var_10'
+                        '_var_var_11'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23400__'
+                        '__pyarmor_enter_23401__'
+                        b'<COAddr>\x05\x00\x00\x1aB\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        17
+                        0
+                        221
+                        'Only RandomizedIntermediate can be used with dd-secrets'   # b'\x81\xcd\x16\x1f*\xba\x8c\xd3\x15\xfe\x02\xcde\xf6\xfd\x81&S\xaf\xa2\xb8\xc6K\xc8\x0cn\xb7Y@\xb2\x1f\xebzP%M\x8d\xd9\xb1*X\xfe\xf1I\xd5\x98\x0bCz\xfeS\xf8\x95u\x12\xfe'
+                        1
+                        16
+                        'MTProxy secret must be a hex-string representing 16 bytes'   # b'\x81\xcf,#!\xf5\xa6\xcb[\xe9\x08\xc3~\xe9\xec\xc5\x02H\xa8\xb3\xea\xc9K\x8c\x04/\xabY\x18\xfc\r\xf1([.\n\xd8\xd8\xb1>\n\xec\xebX\xd3\xcc\x06I0\xad\x07\xad\xc7r\x1f\xf92\xf8'
+                        (
+                            b'PVrG'
+                            b'GET '
+                            b'POST'
+                            b'\xee\xee\xee\xee'
+                        )
+                        True
+                        64
+                        239
+                        4
+                        b'\x00\x00\x00\x00'
+                        55
+                        7
+                        -1
+                        8
+                        40
+                        56
+                        32
+                        48
+                        60
+                        2
+                        'little'
+                        (
+                            'signed'
+                        )
+                        62
+                        '__pyarmor_exit_23402__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23401__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aB\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + len
+                        38      LOAD_FAST                       0: secret
+                        40      CALL                            1
+                        48      LOAD_CONST                      4: 17
+                        50      COMPARE_OP                      40 (==)
+                        54      COPY                            1
+                        56      POP_JUMP_IF_FALSE               8 (to 74)
+                        58      POP_TOP                         
+                        60      LOAD_FAST                       0: secret
+                        62      LOAD_CONST                      5: 0
+                        64      BINARY_SUBSCR                   
+                        68      LOAD_CONST                      6: 221
+                        70      COMPARE_OP                      40 (==)
+                        74      STORE_FAST                      4: _var_var_0
+                        76      LOAD_GLOBAL                     3: NULL + issubclass
+                        86      LOAD_FAST                       2: packet_codec
+                        88      LOAD_GLOBAL                     4: RandomizedIntermediatePacketCodec
+                        98      CALL                            2
+                        106     STORE_FAST                      5: _var_var_1
+                        108     LOAD_FAST                       4: _var_var_0
+                        110     POP_JUMP_IF_FALSE               19 (to 150)
+                        112     LOAD_FAST                       5: _var_var_1
+                        114     POP_JUMP_IF_TRUE                17 (to 150)
+                        116     LOAD_GLOBAL                     7: NULL + ValueError
+                        126     PUSH_NULL                       
+                        128     LOAD_CONST                      1: '__pyarmor_assert_23400__'
+                        130     LOAD_CONST                      7: 'Only RandomizedIntermediate can be used with dd-secrets'   # b'\x81\xcd\x16\x1f*\xba\x8c\xd3\x15\xfe\x02\xcde\xf6\xfd\x81&S\xaf\xa2\xb8\xc6K\xc8\x0cn\xb7Y@\xb2\x1f\xebzP%M\x8d\xd9\xb1*X\xfe\xf1I\xd5\x98\x0bCz\xfeS\xf8\x95u\x12\xfe'
+                        132     CALL                            1
+                        140     CALL                            1
+                        148     RAISE_VARARGS                   1
+                        150     LOAD_FAST                       4: _var_var_0
+                        152     POP_JUMP_IF_FALSE               5 (to 164)
+                        154     LOAD_FAST                       0: secret
+                        156     LOAD_CONST                      8: 1
+                        158     LOAD_CONST                      0: None
+                        160     BINARY_SLICE                    
+                        162     JUMP_FORWARD                    1 (to 166)
+                        164     LOAD_FAST                       0: secret
+                        166     STORE_FAST                      0: secret
+                        168     LOAD_GLOBAL                     1: NULL + len
+                        178     LOAD_FAST                       0: secret
+                        180     CALL                            1
+                        188     LOAD_CONST                      9: 16
+                        190     COMPARE_OP                      55 (!=)
+                        194     POP_JUMP_IF_FALSE               17 (to 230)
+                        196     LOAD_GLOBAL                     7: NULL + ValueError
+                        206     PUSH_NULL                       
+                        208     LOAD_CONST                      1: '__pyarmor_assert_23400__'
+                        210     LOAD_CONST                      10: 'MTProxy secret must be a hex-string representing 16 bytes'   # b'\x81\xcf,#!\xf5\xa6\xcb[\xe9\x08\xc3~\xe9\xec\xc5\x02H\xa8\xb3\xea\xc9K\x8c\x04/\xabY\x18\xfc\r\xf1([.\n\xd8\xd8\xb1>\n\xec\xebX\xd3\xcc\x06I0\xad\x07\xad\xc7r\x1f\xf92\xf8'
+                        212     CALL                            1
+                        220     CALL                            1
+                        228     RAISE_VARARGS                   1
+                        230     LOAD_CONST                      11: (b'PVrG', b'GET ', b'POST', b'\xee\xee\xee\xee')
+                        232     STORE_FAST                      6: _var_var_2
+                        234     NOP                             
+                        236     LOAD_GLOBAL                     9: NULL + os
+                        246     LOAD_ATTR                       10: urandom
+                        266     LOAD_CONST                      13: 64
+                        268     CALL                            1
+                        276     STORE_FAST                      7: _var_var_3
+                        278     LOAD_FAST                       7: _var_var_3
+                        280     LOAD_CONST                      5: 0
+                        282     BINARY_SUBSCR                   
+                        286     LOAD_CONST                      14: 239
+                        288     COMPARE_OP                      55 (!=)
+                        292     POP_JUMP_IF_FALSE               16 (to 326)
+                        294     LOAD_FAST                       7: _var_var_3
+                        296     LOAD_CONST                      0: None
+                        298     LOAD_CONST                      15: 4
+                        300     BINARY_SLICE                    
+                        302     LOAD_FAST                       6: _var_var_2
+                        304     CONTAINS_OP                     1 (not in)
+                        306     POP_JUMP_IF_FALSE               9 (to 326)
+                        308     LOAD_FAST                       7: _var_var_3
+                        310     LOAD_CONST                      15: 4
+                        312     LOAD_CONST                      15: 4
+                        314     BINARY_SLICE                    
+                        316     LOAD_CONST                      16: b'\x00\x00\x00\x00'
+                        318     COMPARE_OP                      55 (!=)
+                        322     POP_JUMP_IF_FALSE               1 (to 326)
+                        324     JUMP_FORWARD                    1 (to 328)
+                        326     JUMP_BACKWARD                   46 (to 236)
+                        328     LOAD_GLOBAL                     13: NULL + bytearray
+                        338     LOAD_FAST                       7: _var_var_3
+                        340     CALL                            1
+                        348     STORE_FAST                      7: _var_var_3
+                        350     LOAD_FAST                       7: _var_var_3
+                        352     LOAD_CONST                      17: 55
+                        354     LOAD_CONST                      18: 7
+                        356     LOAD_CONST                      19: -1
+                        358     BUILD_SLICE                     3
+                        360     BINARY_SUBSCR                   
+                        364     STORE_FAST                      8: _var_var_4
+                        366     LOAD_GLOBAL                     15: NULL + hashlib
+                        376     LOAD_ATTR                       16: sha256
+                        396     LOAD_GLOBAL                     19: NULL + bytes
+                        406     LOAD_FAST                       7: _var_var_3
+                        408     LOAD_CONST                      20: 8
+                        410     LOAD_CONST                      21: 40
+                        412     BINARY_SLICE                    
+                        414     CALL                            1
+                        422     LOAD_FAST                       0: secret
+                        424     BINARY_OP                       0 (+)
+                        428     CALL                            1
+                        436     LOAD_ATTR                       21: digest
+                        456     CALL                            0
+                        464     STORE_FAST                      9: _var_var_5
+                        466     LOAD_GLOBAL                     19: NULL + bytes
+                        476     LOAD_FAST                       7: _var_var_3
+                        478     LOAD_CONST                      21: 40
+                        480     LOAD_CONST                      22: 56
+                        482     BINARY_SLICE                    
+                        484     CALL                            1
+                        492     STORE_FAST                      10: _var_var_6
+                        494     LOAD_GLOBAL                     15: NULL + hashlib
+                        504     LOAD_ATTR                       16: sha256
+                        524     LOAD_GLOBAL                     19: NULL + bytes
+                        534     LOAD_FAST                       8: _var_var_4
+                        536     LOAD_CONST                      0: None
+                        538     LOAD_CONST                      23: 32
+                        540     BINARY_SLICE                    
+                        542     CALL                            1
+                        550     LOAD_FAST                       0: secret
+                        552     BINARY_OP                       0 (+)
+                        556     CALL                            1
+                        564     LOAD_ATTR                       21: digest
+                        584     CALL                            0
+                        592     STORE_FAST                      11: _var_var_7
+                        594     LOAD_GLOBAL                     19: NULL + bytes
+                        604     LOAD_FAST                       8: _var_var_4
+                        606     LOAD_CONST                      23: 32
+                        608     LOAD_CONST                      24: 48
+                        610     BINARY_SLICE                    
+                        612     CALL                            1
+                        620     STORE_FAST                      12: _var_var_8
+                        622     LOAD_GLOBAL                     23: NULL + AESModeCTR
+                        632     LOAD_FAST                       9: _var_var_5
+                        634     LOAD_FAST                       10: _var_var_6
+                        636     CALL                            2
+                        644     STORE_FAST                      13: _var_var_9
+                        646     LOAD_GLOBAL                     23: NULL + AESModeCTR
+                        656     LOAD_FAST                       11: _var_var_7
+                        658     LOAD_FAST                       12: _var_var_8
+                        660     CALL                            2
+                        668     STORE_FAST                      14: _var_var_10
+                        670     LOAD_FAST                       2: packet_codec
+                        672     LOAD_ATTR                       24: obfuscate_tag
+                        692     LOAD_FAST                       7: _var_var_3
+                        694     LOAD_CONST                      22: 56
+                        696     LOAD_CONST                      25: 60
+                        698     STORE_SLICE                     
+                        700     LOAD_FAST                       1: dc_id
+                        702     LOAD_ATTR                       27: to_bytes
+                        722     LOAD_CONST                      26: 2
+                        724     LOAD_CONST                      27: 'little'
+                        726     LOAD_CONST                      12: True
+                        728     KW_NAMES                        28: ('signed',)
+                        730     CALL                            3
+                        738     STORE_FAST                      15: _var_var_11
+                        740     LOAD_FAST                       7: _var_var_3
+                        742     LOAD_CONST                      0: None
+                        744     LOAD_CONST                      25: 60
+                        746     BINARY_SLICE                    
+                        748     LOAD_FAST                       15: _var_var_11
+                        750     BINARY_OP                       0 (+)
+                        754     LOAD_FAST                       7: _var_var_3
+                        756     LOAD_CONST                      29: 62
+                        758     LOAD_CONST                      0: None
+                        760     BINARY_SLICE                    
+                        762     BINARY_OP                       0 (+)
+                        766     STORE_FAST                      7: _var_var_3
+                        768     LOAD_FAST                       13: _var_var_9
+                        770     LOAD_ATTR                       29: encrypt
+                        790     LOAD_GLOBAL                     19: NULL + bytes
+                        800     LOAD_FAST                       7: _var_var_3
+                        802     CALL                            1
+                        810     CALL                            1
+                        818     LOAD_CONST                      22: 56
+                        820     LOAD_CONST                      13: 64
+                        822     BINARY_SLICE                    
+                        824     LOAD_FAST                       7: _var_var_3
+                        826     LOAD_CONST                      22: 56
+                        828     LOAD_CONST                      13: 64
+                        830     STORE_SLICE                     
+                        832     LOAD_FAST                       7: _var_var_3
+                        834     LOAD_FAST                       13: _var_var_9
+                        836     LOAD_FAST                       14: _var_var_10
+                        838     BUILD_TUPLE                     3
+                        840     NOP                             
+                        842     NOP                             
+                        844     NOP                             
+                        846     JUMP_FORWARD                    20 (to 888)
+                        848     CALL                            1
+                        856     POP_TOP                         
+                        858     RETURN_VALUE                    
+                        860     PUSH_EXC_INFO                   
+                        862     PUSH_NULL                       
+                        864     LOAD_CONST                      30: '__pyarmor_exit_23402__'
+                        866     NOP                             
+                        868     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aB\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        870     CALL                            1
+                        878     POP_TOP                         
+                        880     RERAISE                         0
+                        882     COPY                            3
+                        884     POP_EXCEPT                      
+                        886     RERAISE                         1
+                        888     PUSH_NULL                       
+                        890     LOAD_CONST                      30: '__pyarmor_exit_23402__'
+                        892     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aB\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        894     BUILD_TUPLE                     1
+                        896     CALL_FUNCTION_EX                0
+                        898     POP_TOP                         
+                        900     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 840 -> 860 [0] 
+                        860 to 882 -> 882 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.network.connection.tcpmtproxy>
+                    Object Name: readexactly
+                    Qualified Name: MTProxyIO.readexactly
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_decrypt'
+                        'encrypt'
+                        '_reader'
+                        'readexactly'
+                    [Locals+Names]
+                        'self'
+                        'n'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23403__'
+                        '__pyarmor_enter_23404__'
+                        b'<COAddr>\x05\x00\x00\x1e\x90\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_23405__'
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_23404__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\x90\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       0: _decrypt
+                        54      LOAD_ATTR                       3: encrypt
+                        74      LOAD_FAST                       0: self
+                        76      LOAD_ATTR                       4: _reader
+                        96      LOAD_ATTR                       7: readexactly
+                        116     LOAD_FAST                       1: n
+                        118     CALL                            1
+                        126     GET_AWAITABLE                   0
+                        128     LOAD_CONST                      0: None
+                        130     SEND                            3 (to 138)
+                        134     YIELD_VALUE                     3
+                        136     RESUME                          3
+                        138     JUMP_BACKWARD_NO_INTERRUPT      5 (to 130)
+                        140     END_SEND                        
+                        142     CALL                            1
+                        150     NOP                             
+                        152     NOP                             
+                        154     NOP                             
+                        156     JUMP_FORWARD                    24 (to 206)
+                        158     CALL                            1
+                        166     POP_TOP                         
+                        168     RETURN_VALUE                    
+                        170     CLEANUP_THROW                   
+                        172     JUMP_BACKWARD                   17 (to 140)
+                        174     PUSH_EXC_INFO                   
+                        176     PUSH_NULL                       
+                        178     LOAD_CONST                      4: '__pyarmor_exit_23405__'
+                        180     NOP                             
+                        182     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\x90\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        184     CALL                            1
+                        192     POP_TOP                         
+                        194     RERAISE                         0
+                        196     COPY                            3
+                        198     POP_EXCEPT                      
+                        200     RERAISE                         1
+                        202     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        204     RERAISE                         1
+                        206     PUSH_NULL                       
+                        208     LOAD_CONST                      4: '__pyarmor_exit_23405__'
+                        210     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\x90\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        212     BUILD_TUPLE                     1
+                        214     CALL_FUNCTION_EX                0
+                        216     POP_TOP                         
+                        218     RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 202 [0] lasti
+                        32 to 134 -> 174 [0] 
+                        134 to 136 -> 170 [4] 
+                        136 to 150 -> 174 [0] 
+                        150 to 170 -> 202 [0] lasti
+                        170 to 172 -> 174 [0] 
+                        174 to 196 -> 196 [1] lasti
+                        196 to 202 -> 202 [0] lasti
+                [Code]
+                    File Name: <frozen multithon.network.connection.tcpmtproxy>
+                    Object Name: write
+                    Qualified Name: MTProxyIO.write
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_writer'
+                        'write'
+                        '_encrypt'
+                        'encrypt'
+                    [Locals+Names]
+                        'self'
+                        'data'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23406__'
+                        '__pyarmor_enter_23407__'
+                        b'<COAddr>\x05\x00\x00\x1a~\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_23408__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23407__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a~\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _writer
+                        50      LOAD_ATTR                       3: write
+                        70      LOAD_FAST                       0: self
+                        72      LOAD_ATTR                       4: _encrypt
+                        92      LOAD_ATTR                       7: encrypt
+                        112     LOAD_FAST                       1: data
+                        114     CALL                            1
+                        122     CALL                            1
+                        130     POP_TOP                         
+                        132     LOAD_CONST                      0: None
+                        134     NOP                             
+                        136     NOP                             
+                        138     NOP                             
+                        140     JUMP_FORWARD                    19 (to 180)
+                        148     POP_TOP                         
+                        150     RETURN_CONST                    0: None
+                        152     PUSH_EXC_INFO                   
+                        154     PUSH_NULL                       
+                        156     LOAD_CONST                      4: '__pyarmor_exit_23408__'
+                        158     NOP                             
+                        160     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a~\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        162     CALL                            1
+                        170     POP_TOP                         
+                        172     RERAISE                         0
+                        174     COPY                            3
+                        176     POP_EXCEPT                      
+                        178     RERAISE                         1
+                        180     PUSH_NULL                       
+                        182     LOAD_CONST                      4: '__pyarmor_exit_23408__'
+                        184     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a~\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        186     BUILD_TUPLE                     1
+                        188     CALL_FUNCTION_EX                0
+                        190     POP_TOP                         
+                        192     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 132 -> 152 [0] 
+                        152 to 174 -> 174 [1] lasti
+                '__pyarmor_exit_23396__'
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'MTProxyIO'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: "\n    It's very similar to tcpobfuscated.ObfuscatedIO, but the way\n    encryption keys, protocol tag and dc_id are encoded is different.\n    "
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_23395__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&<\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: None
+                42      STORE_NAME                      5: header
+                44      LOAD_CONST                      6: <CODE> __init__
+                46      MAKE_FUNCTION                   0
+                48      STORE_NAME                      6: __init__
+                50      LOAD_NAME                       7: staticmethod
+                52      LOAD_CONST                      7: <CODE> init_header
+                54      MAKE_FUNCTION                   0
+                56      CALL                            0
+                64      STORE_NAME                      8: init_header
+                66      LOAD_CONST                      8: <CODE> readexactly
+                68      MAKE_FUNCTION                   0
+                70      STORE_NAME                      9: readexactly
+                72      LOAD_CONST                      9: <CODE> write
+                74      MAKE_FUNCTION                   0
+                76      STORE_NAME                      10: write
+                78      LOAD_CONST                      5: None
+                80      NOP                             
+                82      NOP                             
+                84      NOP                             
+                86      JUMP_FORWARD                    19 (to 126)
+                94      POP_TOP                         
+                96      RETURN_CONST                    5: None
+                98      PUSH_EXC_INFO                   
+                100     PUSH_NULL                       
+                102     LOAD_CONST                      10: '__pyarmor_exit_23396__'
+                104     NOP                             
+                106     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&<\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                108     CALL                            1
+                116     POP_TOP                         
+                118     RERAISE                         0
+                120     COPY                            3
+                122     POP_EXCEPT                      
+                124     RERAISE                         1
+                126     PUSH_NULL                       
+                128     LOAD_CONST                      10: '__pyarmor_exit_23396__'
+                130     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&<\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                132     BUILD_TUPLE                     1
+                134     CALL_FUNCTION_EX                0
+                136     POP_TOP                         
+                138     RETURN_VALUE                    
+            [Exception Table]
+                40 to 78 -> 98 [0] 
+                98 to 120 -> 120 [1] lasti
+        'MTProxyIO'
+        [Code]
+            File Name: <frozen multithon.network.connection.tcpmtproxy>
+            Object Name: TcpMTProxy
+            Qualified Name: TcpMTProxy
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'packet_codec'
+                'MTProxyIO'
+                'obfuscated_io'
+                '__init__'
+                '_connect'
+                'staticmethod'
+                'address_info'
+                'normalize_secret'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                'TcpMTProxy'
+                "\n    Connector which allows user to connect to the Telegram via proxy servers\n    commonly known as MTProxy.\n    Implemented very ugly due to the leaky abstractions in Telethon networking\n    classes that should be refactored later (TODO).\n\n    .. warning::\n\n        The support for TcpMTProxy classes is **EXPERIMENTAL** and prone to\n        be changed. You shouldn't be using this class yet.\n    "
+                '__pyarmor_assert_23409__'
+                '__pyarmor_enter_23410__'
+                b'<COAddr>\x07\x00\x00(b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                None
+                (
+                    'proxy'
+                    'local_addr'
+                )
+                [Code]
+                    File Name: <frozen multithon.network.connection.tcpmtproxy>
+                    Object Name: __init__
+                    Qualified Name: TcpMTProxy.__init__
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 3
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'address_info'
+                        'normalize_secret'
+                        '_secret'
+                        'super'
+                        '__init__'
+                    [Locals+Names]
+                        'self'
+                        'ip'
+                        'port'
+                        'dc_id'
+                        'loggers'
+                        'proxy'
+                        'local_addr'
+                        '__assert_armored__'
+                        '_var_var_12'
+                        '_var_var_13'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23412__'
+                        '__pyarmor_enter_23413__'
+                        b'<COAddr>\x07\x00\x00\x1c\x96\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        2
+                        (
+                            'loggers'
+                        )
+                        '__pyarmor_exit_23414__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_23413__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\x96\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       1: address_info
+                        52      LOAD_FAST                       5: proxy
+                        54      CALL                            1
+                        62      UNPACK_SEQUENCE                 2
+                        66      STORE_FAST                      8: _var_var_12
+                        68      STORE_FAST                      9: _var_var_13
+                        70      LOAD_FAST                       0: self
+                        72      LOAD_ATTR                       3: normalize_secret
+                        92      LOAD_FAST                       5: proxy
+                        94      LOAD_CONST                      4: 2
+                        96      BINARY_SUBSCR                   
+                        100     CALL                            1
+                        108     LOAD_FAST                       0: self
+                        110     STORE_ATTR                      2: _secret
+                        120     LOAD_GLOBAL                     6: super
+                        130     LOAD_DEREF                      10: __class__
+                        132     LOAD_FAST                       0: self
+                        134     LOAD_SUPER_ATTR                 17: __init__
+                        138     LOAD_FAST                       8: _var_var_12
+                        140     LOAD_FAST                       9: _var_var_13
+                        142     LOAD_FAST                       3: dc_id
+                        144     LOAD_FAST                       4: loggers
+                        146     KW_NAMES                        5: ('loggers',)
+                        148     CALL                            4
+                        156     POP_TOP                         
+                        158     LOAD_CONST                      0: None
+                        160     NOP                             
+                        162     NOP                             
+                        164     NOP                             
+                        166     JUMP_FORWARD                    19 (to 206)
+                        174     POP_TOP                         
+                        176     RETURN_CONST                    0: None
+                        178     PUSH_EXC_INFO                   
+                        180     PUSH_NULL                       
+                        182     LOAD_CONST                      6: '__pyarmor_exit_23414__'
+                        184     NOP                             
+                        186     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\x96\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        188     CALL                            1
+                        196     POP_TOP                         
+                        198     RERAISE                         0
+                        200     COPY                            3
+                        202     POP_EXCEPT                      
+                        204     RERAISE                         1
+                        206     PUSH_NULL                       
+                        208     LOAD_CONST                      6: '__pyarmor_exit_23414__'
+                        210     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\x96\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        212     BUILD_TUPLE                     1
+                        214     CALL_FUNCTION_EX                0
+                        216     POP_TOP                         
+                        218     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 158 -> 178 [0] 
+                        178 to 200 -> 200 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.network.connection.tcpmtproxy>
+                    Object Name: _connect
+                    Qualified Name: TcpMTProxy._connect
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'super'
+                        '_connect'
+                        'asyncio'
+                        'wait_for'
+                        '_reader'
+                        '_wait_for_data'
+                        'TimeoutError'
+                        'Exception'
+                        'sleep'
+                        'at_eof'
+                        'disconnect'
+                        'ConnectionError'
+                    [Locals+Names]
+                        'self'
+                        'timeout'
+                        'ssl'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23415__'
+                        '__pyarmor_enter_23416__'
+                        b'<COAddr>\x07\x00\x00 \xcc\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        (
+                            'timeout'
+                            'ssl'
+                        )
+                        'proxy'
+                        2
+                        'Proxy closed the connection after sending initial payload'   # b"\x81\xd2\n\x1c+\xe3\xfe\xd1\x17\xf5\x1e\xc5h\xac\xec\x8d\n\x1d\xb8\xa8\xa4\xc5K\xcf\x11f\xacR@\xb0\x18\xf1?@`\x1e\x9d\xc4\xb0'\x16\xee\xb8T\xd3\xd1\x1bN6\xe1\x16\xeb\x86i\n\xe26\xef"
+                        '__pyarmor_exit_23417__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       RETURN_GENERATOR                
+                        4       POP_TOP                         
+                        6       NOP                             
+                        8       NOP                             
+                        10      PUSH_NULL                       
+                        12      LOAD_CONST                      2: '__pyarmor_enter_23416__'
+                        14      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00 \xcc\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        16      BUILD_TUPLE                     1
+                        18      CALL_FUNCTION_EX                0
+                        20      POP_TOP                         
+                        22      RESUME                          0
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      NOP                             
+                        34      LOAD_GLOBAL                     0: super
+                        44      LOAD_DEREF                      4: __class__
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_SUPER_ATTR                 5: _connect
+                        52      LOAD_FAST                       1: timeout
+                        54      LOAD_FAST                       2: ssl
+                        56      KW_NAMES                        4: ('timeout', 'ssl')
+                        58      CALL                            2
+                        66      GET_AWAITABLE                   0
+                        68      LOAD_CONST                      0: None
+                        70      SEND                            3 (to 78)
+                        74      YIELD_VALUE                     3
+                        76      RESUME                          3
+                        78      JUMP_BACKWARD_NO_INTERRUPT      5 (to 70)
+                        80      END_SEND                        
+                        82      POP_TOP                         
+                        84      NOP                             
+                        86      LOAD_GLOBAL                     5: NULL + asyncio
+                        96      LOAD_ATTR                       6: wait_for
+                        116     LOAD_FAST                       0: self
+                        118     LOAD_ATTR                       8: _reader
+                        138     LOAD_ATTR                       11: _wait_for_data
+                        158     LOAD_CONST                      5: 'proxy'
+                        160     CALL                            1
+                        168     LOAD_CONST                      6: 2
+                        170     CALL                            2
+                        178     GET_AWAITABLE                   0
+                        180     LOAD_CONST                      0: None
+                        182     SEND                            3 (to 190)
+                        186     YIELD_VALUE                     4
+                        188     RESUME                          3
+                        190     JUMP_BACKWARD_NO_INTERRUPT      5 (to 182)
+                        192     END_SEND                        
+                        194     POP_TOP                         
+                        196     LOAD_FAST                       0: self
+                        198     LOAD_ATTR                       8: _reader
+                        218     LOAD_ATTR                       19: at_eof
+                        238     CALL                            0
+                        246     POP_JUMP_IF_FALSE               41 (to 330)
+                        248     LOAD_FAST                       0: self
+                        250     LOAD_ATTR                       21: disconnect
+                        270     CALL                            0
+                        278     GET_AWAITABLE                   0
+                        280     LOAD_CONST                      0: None
+                        282     SEND                            3 (to 290)
+                        286     YIELD_VALUE                     3
+                        288     RESUME                          3
+                        290     JUMP_BACKWARD_NO_INTERRUPT      5 (to 282)
+                        292     END_SEND                        
+                        294     POP_TOP                         
+                        296     LOAD_GLOBAL                     23: NULL + ConnectionError
+                        306     PUSH_NULL                       
+                        308     LOAD_CONST                      1: '__pyarmor_assert_23415__'
+                        310     LOAD_CONST                      7: 'Proxy closed the connection after sending initial payload'   # b"\x81\xd2\n\x1c+\xe3\xfe\xd1\x17\xf5\x1e\xc5h\xac\xec\x8d\n\x1d\xb8\xa8\xa4\xc5K\xcf\x11f\xacR@\xb0\x18\xf1?@`\x1e\x9d\xc4\xb0'\x16\xee\xb8T\xd3\xd1\x1bN6\xe1\x16\xeb\x86i\n\xe26\xef"
+                        312     CALL                            1
+                        320     CALL                            1
+                        328     RAISE_VARARGS                   1
+                        330     LOAD_CONST                      0: None
+                        332     NOP                             
+                        334     NOP                             
+                        336     NOP                             
+                        338     JUMP_FORWARD                    92 (to 524)
+                        346     POP_TOP                         
+                        348     RETURN_CONST                    0: None
+                        350     CLEANUP_THROW                   
+                        352     JUMP_BACKWARD                   137 (to 80)
+                        354     CLEANUP_THROW                   
+                        356     JUMP_BACKWARD                   83 (to 192)
+                        358     PUSH_EXC_INFO                   
+                        360     LOAD_GLOBAL                     4: asyncio
+                        370     LOAD_ATTR                       12: TimeoutError
+                        390     CHECK_EXC_MATCH                 
+                        392     POP_JUMP_IF_FALSE               3 (to 400)
+                        394     POP_TOP                         
+                        396     POP_EXCEPT                      
+                        398     JUMP_BACKWARD                   102 (to 196)
+                        400     LOAD_GLOBAL                     14: Exception
+                        410     CHECK_EXC_MATCH                 
+                        412     POP_JUMP_IF_FALSE               33 (to 480)
+                        414     POP_TOP                         
+                        416     LOAD_GLOBAL                     5: NULL + asyncio
+                        426     LOAD_ATTR                       16: sleep
+                        446     LOAD_CONST                      6: 2
+                        448     CALL                            1
+                        456     GET_AWAITABLE                   0
+                        458     LOAD_CONST                      0: None
+                        460     SEND                            4 (to 470)
+                        464     YIELD_VALUE                     4
+                        466     RESUME                          3
+                        468     JUMP_BACKWARD_NO_INTERRUPT      5 (to 460)
+                        470     CLEANUP_THROW                   
+                        472     END_SEND                        
+                        474     POP_TOP                         
+                        476     POP_EXCEPT                      
+                        478     JUMP_BACKWARD                   142 (to 196)
+                        480     RERAISE                         0
+                        482     COPY                            3
+                        484     POP_EXCEPT                      
+                        486     RERAISE                         1
+                        488     CLEANUP_THROW                   
+                        490     JUMP_BACKWARD                   100 (to 292)
+                        492     PUSH_EXC_INFO                   
+                        494     PUSH_NULL                       
+                        496     LOAD_CONST                      8: '__pyarmor_exit_23417__'
+                        498     NOP                             
+                        500     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00 \xcc\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        502     CALL                            1
+                        510     POP_TOP                         
+                        512     RERAISE                         0
+                        514     COPY                            3
+                        516     POP_EXCEPT                      
+                        518     RERAISE                         1
+                        520     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        522     RERAISE                         1
+                        524     PUSH_NULL                       
+                        526     LOAD_CONST                      8: '__pyarmor_exit_23417__'
+                        528     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00 \xcc\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        530     BUILD_TUPLE                     1
+                        532     CALL_FUNCTION_EX                0
+                        534     POP_TOP                         
+                        536     RETURN_VALUE                    
+                    [Exception Table]
+                        6 to 32 -> 520 [0] lasti
+                        34 to 74 -> 492 [0] 
+                        74 to 76 -> 350 [2] 
+                        76 to 84 -> 492 [0] 
+                        86 to 186 -> 358 [0] 
+                        186 to 188 -> 354 [2] 
+                        188 to 196 -> 358 [0] 
+                        196 to 286 -> 492 [0] 
+                        286 to 288 -> 488 [2] 
+                        288 to 330 -> 492 [0] 
+                        330 to 350 -> 520 [0] lasti
+                        350 to 352 -> 492 [0] 
+                        354 to 356 -> 358 [0] 
+                        358 to 396 -> 482 [1] lasti
+                        396 to 400 -> 492 [0] 
+                        400 to 464 -> 482 [1] lasti
+                        464 to 466 -> 470 [3] 
+                        466 to 476 -> 482 [1] lasti
+                        476 to 480 -> 492 [0] 
+                        480 to 482 -> 482 [1] lasti
+                        482 to 490 -> 492 [0] 
+                        492 to 514 -> 514 [1] lasti
+                        514 to 520 -> 520 [0] lasti
+                [Code]
+                    File Name: <frozen multithon.network.connection.tcpmtproxy>
+                    Object Name: address_info
+                    Qualified Name: TcpMTProxy.address_info
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'ValueError'
+                    [Locals+Names]
+                        'proxy_info'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23418__'
+                        '__pyarmor_enter_23419__'
+                        b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'No proxy info specified for MTProxy connection'   # b'\x81\xcc\x17S#\xe8\xb1\xca\x02\xba\x04\xcej\xe3\xb8\x96\x1fX\xb8\xae\xac\xc2K\xc8Ei\xacN@\x9c*\xd5(]8\x14\xd8\xc9\xbb \x16\xec\xfbI\xd4\xd7\x01'
+                        2
+                        '__pyarmor_exit_23420__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23419__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: proxy_info
+                        30      POP_JUMP_IF_NOT_NONE            17 (to 66)
+                        32      LOAD_GLOBAL                     1: NULL + ValueError
+                        42      PUSH_NULL                       
+                        44      LOAD_CONST                      1: '__pyarmor_assert_23418__'
+                        46      LOAD_CONST                      4: 'No proxy info specified for MTProxy connection'   # b'\x81\xcc\x17S#\xe8\xb1\xca\x02\xba\x04\xcej\xe3\xb8\x96\x1fX\xb8\xae\xac\xc2K\xc8Ei\xacN@\x9c*\xd5(]8\x14\xd8\xc9\xbb \x16\xec\xfbI\xd4\xd7\x01'
+                        48      CALL                            1
+                        56      CALL                            1
+                        64      RAISE_VARARGS                   1
+                        66      LOAD_FAST                       0: proxy_info
+                        68      LOAD_CONST                      0: None
+                        70      LOAD_CONST                      5: 2
+                        72      BINARY_SLICE                    
+                        74      NOP                             
+                        76      NOP                             
+                        78      NOP                             
+                        80      JUMP_FORWARD                    20 (to 122)
+                        82      CALL                            1
+                        90      POP_TOP                         
+                        92      RETURN_VALUE                    
+                        94      PUSH_EXC_INFO                   
+                        96      PUSH_NULL                       
+                        98      LOAD_CONST                      6: '__pyarmor_exit_23420__'
+                        100     NOP                             
+                        102     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        104     CALL                            1
+                        112     POP_TOP                         
+                        114     RERAISE                         0
+                        116     COPY                            3
+                        118     POP_EXCEPT                      
+                        120     RERAISE                         1
+                        122     PUSH_NULL                       
+                        124     LOAD_CONST                      6: '__pyarmor_exit_23420__'
+                        126     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        128     BUILD_TUPLE                     1
+                        130     CALL_FUNCTION_EX                0
+                        132     POP_TOP                         
+                        134     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 74 -> 94 [0] 
+                        94 to 116 -> 116 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.network.connection.tcpmtproxy>
+                    Object Name: normalize_secret
+                    Qualified Name: TcpMTProxy.normalize_secret
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'bytes'
+                        'fromhex'
+                        'ValueError'
+                        'len'
+                        'base64'
+                        'b64decode'
+                        'encode'
+                    [Locals+Names]
+                        'secret'
+                        '__assert_armored__'
+                        '_var_var_14'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23421__'
+                        '__pyarmor_enter_23422__'
+                        b'<COAddr>\x05\x00\x00\x1a\xf0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        2
+                        (
+                            'ee'
+                            'dd'
+                        )
+                        '='
+                        4
+                        16
+                        '__pyarmor_exit_23423__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23422__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xf0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: secret
+                        30      LOAD_CONST                      0: None
+                        32      LOAD_CONST                      4: 2
+                        34      BINARY_SLICE                    
+                        36      LOAD_CONST                      5: ('ee', 'dd')
+                        38      CONTAINS_OP                     0 (in)
+                        40      POP_JUMP_IF_FALSE               5 (to 52)
+                        42      LOAD_FAST                       0: secret
+                        44      LOAD_CONST                      4: 2
+                        46      LOAD_CONST                      0: None
+                        48      BINARY_SLICE                    
+                        50      STORE_FAST                      0: secret
+                        52      NOP                             
+                        54      LOAD_GLOBAL                     0: bytes
+                        64      LOAD_ATTR                       3: fromhex
+                        84      LOAD_FAST                       0: secret
+                        86      CALL                            1
+                        94      STORE_FAST                      2: _var_var_14
+                        96      LOAD_FAST                       2: _var_var_14
+                        98      LOAD_CONST                      0: None
+                        100     LOAD_CONST                      8: 16
+                        102     BINARY_SLICE                    
+                        104     NOP                             
+                        106     NOP                             
+                        108     NOP                             
+                        110     JUMP_FORWARD                    91 (to 294)
+                        112     CALL                            1
+                        120     POP_TOP                         
+                        122     RETURN_VALUE                    
+                        124     PUSH_EXC_INFO                   
+                        126     LOAD_GLOBAL                     4: ValueError
+                        136     CHECK_EXC_MATCH                 
+                        138     POP_JUMP_IF_FALSE               59 (to 258)
+                        140     POP_TOP                         
+                        142     LOAD_FAST                       0: secret
+                        144     LOAD_CONST                      6: '='
+                        146     LOAD_GLOBAL                     7: NULL + len
+                        156     LOAD_FAST                       0: secret
+                        158     CALL                            1
+                        166     UNARY_NEGATIVE                  
+                        168     LOAD_CONST                      7: 4
+                        170     BINARY_OP                       6 (%)
+                        174     BINARY_OP                       5 (*)
+                        178     BINARY_OP                       0 (+)
+                        182     STORE_FAST                      0: secret
+                        184     LOAD_GLOBAL                     9: NULL + base64
+                        194     LOAD_ATTR                       10: b64decode
+                        214     LOAD_FAST                       0: secret
+                        216     LOAD_ATTR                       13: encode
+                        236     CALL                            0
+                        244     CALL                            1
+                        252     STORE_FAST                      2: _var_var_14
+                        254     POP_EXCEPT                      
+                        256     JUMP_BACKWARD                   81 (to 96)
+                        258     RERAISE                         0
+                        260     COPY                            3
+                        262     POP_EXCEPT                      
+                        264     RERAISE                         1
+                        266     PUSH_EXC_INFO                   
+                        268     PUSH_NULL                       
+                        270     LOAD_CONST                      9: '__pyarmor_exit_23423__'
+                        272     NOP                             
+                        274     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xf0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        276     CALL                            1
+                        284     POP_TOP                         
+                        286     RERAISE                         0
+                        288     COPY                            3
+                        290     POP_EXCEPT                      
+                        292     RERAISE                         1
+                        294     PUSH_NULL                       
+                        296     LOAD_CONST                      9: '__pyarmor_exit_23423__'
+                        298     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xf0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        300     BUILD_TUPLE                     1
+                        302     CALL_FUNCTION_EX                0
+                        304     POP_TOP                         
+                        306     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 52 -> 266 [0] 
+                        54 to 96 -> 124 [0] 
+                        96 to 104 -> 266 [0] 
+                        124 to 254 -> 260 [1] lasti
+                        254 to 258 -> 266 [0] 
+                        258 to 260 -> 260 [1] lasti
+                        260 to 266 -> 266 [0] 
+                        266 to 288 -> 288 [1] lasti
+                '__pyarmor_exit_23411__'
+                (
+                    None
+                    None
+                )
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: 'TcpMTProxy'
+                10      STORE_NAME                      2: __qualname__
+                12      LOAD_CONST                      1: "\n    Connector which allows user to connect to the Telegram via proxy servers\n    commonly known as MTProxy.\n    Implemented very ugly due to the leaky abstractions in Telethon networking\n    classes that should be refactored later (TODO).\n\n    .. warning::\n\n        The support for TcpMTProxy classes is **EXPERIMENTAL** and prone to\n        be changed. You shouldn't be using this class yet.\n    "
+                14      STORE_NAME                      3: __doc__
+                16      NOP                             
+                18      PUSH_NULL                       
+                20      LOAD_CONST                      3: '__pyarmor_enter_23410__'
+                22      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                24      BUILD_TUPLE                     1
+                26      CALL_FUNCTION_EX                0
+                28      POP_TOP                         
+                30      RESUME                          0
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      LOAD_CONST                      5: None
+                44      STORE_NAME                      5: packet_codec
+                46      LOAD_NAME                       6: MTProxyIO
+                48      STORE_NAME                      7: obfuscated_io
+                50      LOAD_CONST                      5: None
+                52      LOAD_CONST                      5: None
+                54      LOAD_CONST                      6: ('proxy', 'local_addr')
+                56      BUILD_CONST_KEY_MAP             2
+                58      LOAD_CLOSURE                    0: __class__
+                60      BUILD_TUPLE                     1
+                62      LOAD_CONST                      7: <CODE> __init__
+                64      MAKE_FUNCTION                   10
+                66      STORE_NAME                      8: __init__
+                68      LOAD_CONST                      12: (None, None)
+                70      LOAD_CLOSURE                    0: __class__
+                72      BUILD_TUPLE                     1
+                74      LOAD_CONST                      8: <CODE> _connect
+                76      MAKE_FUNCTION                   9
+                78      STORE_NAME                      9: _connect
+                80      LOAD_NAME                       10: staticmethod
+                82      LOAD_CONST                      9: <CODE> address_info
+                84      MAKE_FUNCTION                   0
+                86      CALL                            0
+                94      STORE_NAME                      11: address_info
+                96      LOAD_NAME                       10: staticmethod
+                98      LOAD_CONST                      10: <CODE> normalize_secret
+                100     MAKE_FUNCTION                   0
+                102     CALL                            0
+                110     STORE_NAME                      12: normalize_secret
+                112     LOAD_CLOSURE                    0: __class__
+                114     COPY                            1
+                116     STORE_NAME                      13: __classcell__
+                118     NOP                             
+                120     NOP                             
+                122     NOP                             
+                124     JUMP_FORWARD                    20 (to 166)
+                128     POP_TOP                         
+                130     LOAD_CLOSURE                    0: __class__
+                132     COPY                            1
+                134     STORE_NAME                      13: __classcell__
+                136     RETURN_VALUE                    
+                138     PUSH_EXC_INFO                   
+                140     PUSH_NULL                       
+                142     LOAD_CONST                      11: '__pyarmor_exit_23411__'
+                144     NOP                             
+                146     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                148     CALL                            1
+                156     POP_TOP                         
+                158     RERAISE                         0
+                160     COPY                            3
+                162     POP_EXCEPT                      
+                164     RERAISE                         1
+                166     PUSH_NULL                       
+                168     LOAD_CONST                      11: '__pyarmor_exit_23411__'
+                170     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                172     BUILD_TUPLE                     1
+                174     CALL_FUNCTION_EX                0
+                176     POP_TOP                         
+                178     RETURN_VALUE                    
+            [Exception Table]
+                42 to 112 -> 138 [0] 
+                138 to 160 -> 160 [1] lasti
+        'TcpMTProxy'
+        [Code]
+            File Name: <frozen multithon.network.connection.tcpmtproxy>
+            Object Name: ConnectionTcpMTProxyAbridged
+            Qualified Name: ConnectionTcpMTProxyAbridged
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'AbridgedPacketCodec'
+                'packet_codec'
+            [Locals+Names]
+            [Constants]
+                'ConnectionTcpMTProxyAbridged'
+                '\n    Connect to proxy using abridged protocol\n    '
+                '__pyarmor_assert_23424__'
+                '__pyarmor_enter_23425__'
+                b'<COAddr>\x07\x00\x00&\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_23426__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'ConnectionTcpMTProxyAbridged'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    Connect to proxy using abridged protocol\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_23425__'
+                20      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_NAME                       5: AbridgedPacketCodec
+                42      STORE_NAME                      6: packet_codec
+                44      LOAD_CONST                      6: None
+                46      NOP                             
+                48      NOP                             
+                50      NOP                             
+                52      JUMP_FORWARD                    19 (to 92)
+                60      POP_TOP                         
+                62      RETURN_CONST                    6: None
+                64      PUSH_EXC_INFO                   
+                66      PUSH_NULL                       
+                68      LOAD_CONST                      5: '__pyarmor_exit_23426__'
+                70      NOP                             
+                72      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                74      CALL                            1
+                82      POP_TOP                         
+                84      RERAISE                         0
+                86      COPY                            3
+                88      POP_EXCEPT                      
+                90      RERAISE                         1
+                92      PUSH_NULL                       
+                94      LOAD_CONST                      5: '__pyarmor_exit_23426__'
+                96      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                98      BUILD_TUPLE                     1
+                100     CALL_FUNCTION_EX                0
+                102     POP_TOP                         
+                104     RETURN_VALUE                    
+            [Exception Table]
+                40 to 44 -> 64 [0] 
+                64 to 86 -> 86 [1] lasti
+        'ConnectionTcpMTProxyAbridged'
+        [Code]
+            File Name: <frozen multithon.network.connection.tcpmtproxy>
+            Object Name: ConnectionTcpMTProxyIntermediate
+            Qualified Name: ConnectionTcpMTProxyIntermediate
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'IntermediatePacketCodec'
+                'packet_codec'
+            [Locals+Names]
+            [Constants]
+                'ConnectionTcpMTProxyIntermediate'
+                '\n    Connect to proxy using intermediate protocol\n    '
+                '__pyarmor_assert_23427__'
+                '__pyarmor_enter_23428__'
+                b'<COAddr>\x07\x00\x00&\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_23429__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'ConnectionTcpMTProxyIntermediate'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    Connect to proxy using intermediate protocol\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_23428__'
+                20      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_NAME                       5: IntermediatePacketCodec
+                42      STORE_NAME                      6: packet_codec
+                44      LOAD_CONST                      6: None
+                46      NOP                             
+                48      NOP                             
+                50      NOP                             
+                52      JUMP_FORWARD                    19 (to 92)
+                60      POP_TOP                         
+                62      RETURN_CONST                    6: None
+                64      PUSH_EXC_INFO                   
+                66      PUSH_NULL                       
+                68      LOAD_CONST                      5: '__pyarmor_exit_23429__'
+                70      NOP                             
+                72      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                74      CALL                            1
+                82      POP_TOP                         
+                84      RERAISE                         0
+                86      COPY                            3
+                88      POP_EXCEPT                      
+                90      RERAISE                         1
+                92      PUSH_NULL                       
+                94      LOAD_CONST                      5: '__pyarmor_exit_23429__'
+                96      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                98      BUILD_TUPLE                     1
+                100     CALL_FUNCTION_EX                0
+                102     POP_TOP                         
+                104     RETURN_VALUE                    
+            [Exception Table]
+                40 to 44 -> 64 [0] 
+                64 to 86 -> 86 [1] lasti
+        'ConnectionTcpMTProxyIntermediate'
+        [Code]
+            File Name: <frozen multithon.network.connection.tcpmtproxy>
+            Object Name: ConnectionTcpMTProxyRandomizedIntermediate
+            Qualified Name: ConnectionTcpMTProxyRandomizedIntermediate
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'RandomizedIntermediatePacketCodec'
+                'packet_codec'
+            [Locals+Names]
+            [Constants]
+                'ConnectionTcpMTProxyRandomizedIntermediate'
+                '\n    Connect to proxy using randomized intermediate protocol (dd-secrets)\n    '
+                '__pyarmor_assert_23430__'
+                '__pyarmor_enter_23431__'
+                b'<COAddr>\x07\x00\x00&\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_23432__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'ConnectionTcpMTProxyRandomizedIntermediate'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    Connect to proxy using randomized intermediate protocol (dd-secrets)\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_23431__'
+                20      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_NAME                       5: RandomizedIntermediatePacketCodec
+                42      STORE_NAME                      6: packet_codec
+                44      LOAD_CONST                      6: None
+                46      NOP                             
+                48      NOP                             
+                50      NOP                             
+                52      JUMP_FORWARD                    19 (to 92)
+                60      POP_TOP                         
+                62      RETURN_CONST                    6: None
+                64      PUSH_EXC_INFO                   
+                66      PUSH_NULL                       
+                68      LOAD_CONST                      5: '__pyarmor_exit_23432__'
+                70      NOP                             
+                72      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                74      CALL                            1
+                82      POP_TOP                         
+                84      RERAISE                         0
+                86      COPY                            3
+                88      POP_EXCEPT                      
+                90      RERAISE                         1
+                92      PUSH_NULL                       
+                94      LOAD_CONST                      5: '__pyarmor_exit_23432__'
+                96      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x1a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                98      BUILD_TUPLE                     1
+                100     CALL_FUNCTION_EX                0
+                102     POP_TOP                         
+                104     RETURN_VALUE                    
+            [Exception Table]
+                40 to 44 -> 64 [0] 
+                64 to 86 -> 86 [1] lasti
+        'ConnectionTcpMTProxyRandomizedIntermediate'
+        '__pyarmor_exit_23393__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_23392__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xd4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: asyncio
+        32      STORE_NAME                      1: asyncio
+        34      LOAD_CONST                      3: 0
+        36      LOAD_CONST                      4: None
+        38      IMPORT_NAME                     2: hashlib
+        40      STORE_NAME                      2: hashlib
+        42      LOAD_CONST                      3: 0
+        44      LOAD_CONST                      4: None
+        46      IMPORT_NAME                     3: base64
+        48      STORE_NAME                      3: base64
+        50      LOAD_CONST                      3: 0
+        52      LOAD_CONST                      4: None
+        54      IMPORT_NAME                     4: os
+        56      STORE_NAME                      4: os
+        58      LOAD_CONST                      5: 1
+        60      LOAD_CONST                      6: ('ObfuscatedConnection',)
+        62      IMPORT_NAME                     5: connection
+        64      IMPORT_FROM                     6: ObfuscatedConnection
+        66      STORE_NAME                      6: ObfuscatedConnection
+        68      POP_TOP                         
+        70      LOAD_CONST                      5: 1
+        72      LOAD_CONST                      7: ('AbridgedPacketCodec',)
+        74      IMPORT_NAME                     7: tcpabridged
+        76      IMPORT_FROM                     8: AbridgedPacketCodec
+        78      STORE_NAME                      8: AbridgedPacketCodec
+        80      POP_TOP                         
+        82      LOAD_CONST                      5: 1
+        84      LOAD_CONST                      8: ('IntermediatePacketCodec', 'RandomizedIntermediatePacketCodec')
+        86      IMPORT_NAME                     9: tcpintermediate
+        88      IMPORT_FROM                     10: IntermediatePacketCodec
+        90      STORE_NAME                      10: IntermediatePacketCodec
+        92      IMPORT_FROM                     11: RandomizedIntermediatePacketCodec
+        94      STORE_NAME                      11: RandomizedIntermediatePacketCodec
+        96      POP_TOP                         
+        98      LOAD_CONST                      9: 3
+        100     LOAD_CONST                      10: ('AESModeCTR',)
+        102     IMPORT_NAME                     12: crypto
+        104     IMPORT_FROM                     13: AESModeCTR
+        106     STORE_NAME                      13: AESModeCTR
+        108     POP_TOP                         
+        110     PUSH_NULL                       
+        112     LOAD_BUILD_CLASS                
+        114     LOAD_CONST                      11: <CODE> MTProxyIO
+        116     MAKE_FUNCTION                   0
+        118     LOAD_CONST                      12: 'MTProxyIO'
+        120     CALL                            2
+        128     STORE_NAME                      14: MTProxyIO
+        130     PUSH_NULL                       
+        132     LOAD_BUILD_CLASS                
+        134     LOAD_CONST                      13: <CODE> TcpMTProxy
+        136     MAKE_FUNCTION                   0
+        138     LOAD_CONST                      14: 'TcpMTProxy'
+        140     LOAD_NAME                       6: ObfuscatedConnection
+        142     CALL                            3
+        150     STORE_NAME                      15: TcpMTProxy
+        152     PUSH_NULL                       
+        154     LOAD_BUILD_CLASS                
+        156     LOAD_CONST                      15: <CODE> ConnectionTcpMTProxyAbridged
+        158     MAKE_FUNCTION                   0
+        160     LOAD_CONST                      16: 'ConnectionTcpMTProxyAbridged'
+        162     LOAD_NAME                       15: TcpMTProxy
+        164     CALL                            3
+        172     STORE_NAME                      16: ConnectionTcpMTProxyAbridged
+        174     PUSH_NULL                       
+        176     LOAD_BUILD_CLASS                
+        178     LOAD_CONST                      17: <CODE> ConnectionTcpMTProxyIntermediate
+        180     MAKE_FUNCTION                   0
+        182     LOAD_CONST                      18: 'ConnectionTcpMTProxyIntermediate'
+        184     LOAD_NAME                       15: TcpMTProxy
+        186     CALL                            3
+        194     STORE_NAME                      17: ConnectionTcpMTProxyIntermediate
+        196     PUSH_NULL                       
+        198     LOAD_BUILD_CLASS                
+        200     LOAD_CONST                      19: <CODE> ConnectionTcpMTProxyRandomizedIntermediate
+        202     MAKE_FUNCTION                   0
+        204     LOAD_CONST                      20: 'ConnectionTcpMTProxyRandomizedIntermediate'
+        206     LOAD_NAME                       15: TcpMTProxy
+        208     CALL                            3
+        216     STORE_NAME                      18: ConnectionTcpMTProxyRandomizedIntermediate
+        218     LOAD_CONST                      4: None
+        220     NOP                             
+        222     NOP                             
+        224     NOP                             
+        226     JUMP_FORWARD                    19 (to 266)
+        234     POP_TOP                         
+        236     RETURN_CONST                    4: None
+        238     PUSH_EXC_INFO                   
+        240     PUSH_NULL                       
+        242     LOAD_CONST                      21: '__pyarmor_exit_23393__'
+        244     NOP                             
+        246     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xd4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        248     CALL                            1
+        256     POP_TOP                         
+        258     RERAISE                         0
+        260     COPY                            3
+        262     POP_EXCEPT                      
+        264     RERAISE                         1
+        266     PUSH_NULL                       
+        268     LOAD_CONST                      21: '__pyarmor_exit_23393__'
+        270     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xd4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        272     BUILD_TUPLE                     1
+        274     CALL_FUNCTION_EX                0
+        276     POP_TOP                         
+        278     RETURN_VALUE                    
+    [Exception Table]
+        26 to 218 -> 238 [0] 
+        238 to 260 -> 260 [1] lasti

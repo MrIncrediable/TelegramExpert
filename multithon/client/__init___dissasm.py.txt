@@ -1,0 +1,238 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.client>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'telegrambaseclient'
+        'TelegramBaseClient'
+        'users'
+        'UserMethods'
+        'messageparse'
+        'MessageParseMethods'
+        'uploads'
+        'UploadMethods'
+        'updates'
+        'UpdateMethods'
+        'buttons'
+        'ButtonMethods'
+        'messages'
+        'MessageMethods'
+        'chats'
+        'ChatMethods'
+        'dialogs'
+        'DialogMethods'
+        'downloads'
+        'DownloadMethods'
+        'account'
+        'AccountMethods'
+        'auth'
+        'AuthMethods'
+        'bots'
+        'BotMethods'
+        'telegramclient'
+        'TelegramClient'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_17382__'
+        '__pyarmor_enter_17383__'
+        b'<COAddr>\x05\x00\x00\x1a\xcc\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        '\nThis package defines clients as subclasses of others, and then a single\n`telethon.client.telegramclient.TelegramClient` which is subclass of them\nall to provide the final unified interface while the methods can live in\ndifferent subclasses to be more maintainable.\n\nThe ABC is `telethon.client.telegrambaseclient.TelegramBaseClient` and the\nfirst implementor is `telethon.client.users.UserMethods`, since calling\nrequests require them to be resolved first, and that requires accessing\nentities (users).\n'   # b'\x81\x88,\x1b:\xe9\xfe\xc2\x1a\xf9\x06\xc1k\xe9\xb8\x81\n[\xb2\xa9\xaf\xd8\x0e\xcf\tf\xa6R\x14\xa2^\xe4)\x123\x18\x9a\xc9\xb8/\x0b\xfa\xfdN\x9d\xd7\t\x078\xf9^\xfe\x95cJ\xad6\xe5\x9f]\x0cC4]\x17IE\x90\xd49\xeb\xb3\x96\x08<*E\xb5\r\x85\xa9\x88\x8a\xe7\xbc\x03\x0bD\xca\xa3\xc3\xf8\x9a}\xdc\xb4\xf6Q\xb0p7\x01!2[Q\x8c\x87A\xe2\xfa)\xb37\x91\x14q\xf1[\x1fs\x0c}~\xf0A\xb7\xad\xe2\xbcR\xb3\x12\xb4\x12\x800F\x07\xb9\xb5:\x1c\xacp\xb5\xeb\xb6d[\xc5 \xe9\xfd\xed\x1b\xf3\xc0\xea\xde\x93Zg4\xca\xa9\xf2\x11\x8e\x90`\x1eD?R\xec\x17\x13\xbe6b\x97y\xc1\x1eg\x17\x1dR\n\xe2Sf\xcd\xe7Uun!\xe5%\x0f\xb5\x1d\x81\xbc\x80*,\xc8x\x11;&c\xa5\xd8\xab\r\x12H\xd2\x92\xe4\xe4\x12\x8f+\x14\x80\xaa\x15VJ \xa5\x1eQ0\xd0z\xe6\xee\x9fV>\xceT\xdd\xfa\x08)\xb1d\xf9\xbc\xa3\x02SoP\xd9d\xac\'\xb0w#\x08\x8a\x13#\xcd\xa2\x88\xcb\xeeR\t\xfd-+y\xbb\xce\x10,\xb6t"\x96\x8b\x08\x01\x0f\xaf1\x07\xe4\x8f\xbc\xcf\x04;\x98\xa73\x12|u\xaf\x9c\xec\x10>\xa5}\x9a\xaf6B\xdea=\xa0\xd4\xe5;\x84\xc9\xb6)\xe3\xfa=\xba$\x8cc$\x82\x11\xee\x86\xb4\xfdR-)\xff\xbf2\x84\x10\x00O\xb2"Wvn\xfe\r\xa2I\xd9Mk\xe1\xd1K\xf2\xf8\x01\x19\x9fA\x1b\x9da\x9d\xa6\x1c\xab\xbfz6,9F\x86\xa9#\x89\xa7\x06\xb5\xdb\xc9\xc0\xfejb\xa8\xf2Z\xe5\xd3\x10\xcf&W{\x99\xb4\xae"x\x7f\xba\xd9\xf8\x1c\xa7\x89\xdeza&\xb0\xc2\xc2\xec\xef\xady\xb3:\xcd\x9fS\xe2%\xdbF\xfa#EWas\xdaa\x9f\xa9\xfbJD\x1f\xa8\xd4\xac\xd8n\xb5B"A\x82\x16\x9a\xca\xd4\xbd\x8f\xfc-\xc1\x19.G\x95\xa9nt\x95\xa2\x90\xc3\xe6\xb2\x99\xce)\x99\xfdl\xc03\xe6v(5\x85\xbc'
+        1
+        (
+            'TelegramBaseClient'
+        )
+        (
+            'UserMethods'
+        )
+        (
+            'MessageParseMethods'
+        )
+        (
+            'UploadMethods'
+        )
+        (
+            'UpdateMethods'
+        )
+        (
+            'ButtonMethods'
+        )
+        (
+            'MessageMethods'
+        )
+        (
+            'ChatMethods'
+        )
+        (
+            'DialogMethods'
+        )
+        (
+            'DownloadMethods'
+        )
+        (
+            'AccountMethods'
+        )
+        (
+            'AuthMethods'
+        )
+        (
+            'BotMethods'
+        )
+        (
+            'TelegramClient'
+        )
+        '__pyarmor_exit_17384__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_17383__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xcc\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      PUSH_NULL                       
+        28      LOAD_CONST                      0: '__pyarmor_assert_17382__'
+        30      LOAD_CONST                      3: '\nThis package defines clients as subclasses of others, and then a single\n`telethon.client.telegramclient.TelegramClient` which is subclass of them\nall to provide the final unified interface while the methods can live in\ndifferent subclasses to be more maintainable.\n\nThe ABC is `telethon.client.telegrambaseclient.TelegramBaseClient` and the\nfirst implementor is `telethon.client.users.UserMethods`, since calling\nrequests require them to be resolved first, and that requires accessing\nentities (users).\n'   # b'\x81\x88,\x1b:\xe9\xfe\xc2\x1a\xf9\x06\xc1k\xe9\xb8\x81\n[\xb2\xa9\xaf\xd8\x0e\xcf\tf\xa6R\x14\xa2^\xe4)\x123\x18\x9a\xc9\xb8/\x0b\xfa\xfdN\x9d\xd7\t\x078\xf9^\xfe\x95cJ\xad6\xe5\x9f]\x0cC4]\x17IE\x90\xd49\xeb\xb3\x96\x08<*E\xb5\r\x85\xa9\x88\x8a\xe7\xbc\x03\x0bD\xca\xa3\xc3\xf8\x9a}\xdc\xb4\xf6Q\xb0p7\x01!2[Q\x8c\x87A\xe2\xfa)\xb37\x91\x14q\xf1[\x1fs\x0c}~\xf0A\xb7\xad\xe2\xbcR\xb3\x12\xb4\x12\x800F\x07\xb9\xb5:\x1c\xacp\xb5\xeb\xb6d[\xc5 \xe9\xfd\xed\x1b\xf3\xc0\xea\xde\x93Zg4\xca\xa9\xf2\x11\x8e\x90`\x1eD?R\xec\x17\x13\xbe6b\x97y\xc1\x1eg\x17\x1dR\n\xe2Sf\xcd\xe7Uun!\xe5%\x0f\xb5\x1d\x81\xbc\x80*,\xc8x\x11;&c\xa5\xd8\xab\r\x12H\xd2\x92\xe4\xe4\x12\x8f+\x14\x80\xaa\x15VJ \xa5\x1eQ0\xd0z\xe6\xee\x9fV>\xceT\xdd\xfa\x08)\xb1d\xf9\xbc\xa3\x02SoP\xd9d\xac\'\xb0w#\x08\x8a\x13#\xcd\xa2\x88\xcb\xeeR\t\xfd-+y\xbb\xce\x10,\xb6t"\x96\x8b\x08\x01\x0f\xaf1\x07\xe4\x8f\xbc\xcf\x04;\x98\xa73\x12|u\xaf\x9c\xec\x10>\xa5}\x9a\xaf6B\xdea=\xa0\xd4\xe5;\x84\xc9\xb6)\xe3\xfa=\xba$\x8cc$\x82\x11\xee\x86\xb4\xfdR-)\xff\xbf2\x84\x10\x00O\xb2"Wvn\xfe\r\xa2I\xd9Mk\xe1\xd1K\xf2\xf8\x01\x19\x9fA\x1b\x9da\x9d\xa6\x1c\xab\xbfz6,9F\x86\xa9#\x89\xa7\x06\xb5\xdb\xc9\xc0\xfejb\xa8\xf2Z\xe5\xd3\x10\xcf&W{\x99\xb4\xae"x\x7f\xba\xd9\xf8\x1c\xa7\x89\xdeza&\xb0\xc2\xc2\xec\xef\xady\xb3:\xcd\x9fS\xe2%\xdbF\xfa#EWas\xdaa\x9f\xa9\xfbJD\x1f\xa8\xd4\xac\xd8n\xb5B"A\x82\x16\x9a\xca\xd4\xbd\x8f\xfc-\xc1\x19.G\x95\xa9nt\x95\xa2\x90\xc3\xe6\xb2\x99\xce)\x99\xfdl\xc03\xe6v(5\x85\xbc'
+        32      CALL                            1
+        40      POP_TOP                         
+        42      LOAD_CONST                      4: 1
+        44      LOAD_CONST                      5: ('TelegramBaseClient',)
+        46      IMPORT_NAME                     1: telegrambaseclient
+        48      IMPORT_FROM                     2: TelegramBaseClient
+        50      STORE_NAME                      2: TelegramBaseClient
+        52      POP_TOP                         
+        54      LOAD_CONST                      4: 1
+        56      LOAD_CONST                      6: ('UserMethods',)
+        58      IMPORT_NAME                     3: users
+        60      IMPORT_FROM                     4: UserMethods
+        62      STORE_NAME                      4: UserMethods
+        64      POP_TOP                         
+        66      LOAD_CONST                      4: 1
+        68      LOAD_CONST                      7: ('MessageParseMethods',)
+        70      IMPORT_NAME                     5: messageparse
+        72      IMPORT_FROM                     6: MessageParseMethods
+        74      STORE_NAME                      6: MessageParseMethods
+        76      POP_TOP                         
+        78      LOAD_CONST                      4: 1
+        80      LOAD_CONST                      8: ('UploadMethods',)
+        82      IMPORT_NAME                     7: uploads
+        84      IMPORT_FROM                     8: UploadMethods
+        86      STORE_NAME                      8: UploadMethods
+        88      POP_TOP                         
+        90      LOAD_CONST                      4: 1
+        92      LOAD_CONST                      9: ('UpdateMethods',)
+        94      IMPORT_NAME                     9: updates
+        96      IMPORT_FROM                     10: UpdateMethods
+        98      STORE_NAME                      10: UpdateMethods
+        100     POP_TOP                         
+        102     LOAD_CONST                      4: 1
+        104     LOAD_CONST                      10: ('ButtonMethods',)
+        106     IMPORT_NAME                     11: buttons
+        108     IMPORT_FROM                     12: ButtonMethods
+        110     STORE_NAME                      12: ButtonMethods
+        112     POP_TOP                         
+        114     LOAD_CONST                      4: 1
+        116     LOAD_CONST                      11: ('MessageMethods',)
+        118     IMPORT_NAME                     13: messages
+        120     IMPORT_FROM                     14: MessageMethods
+        122     STORE_NAME                      14: MessageMethods
+        124     POP_TOP                         
+        126     LOAD_CONST                      4: 1
+        128     LOAD_CONST                      12: ('ChatMethods',)
+        130     IMPORT_NAME                     15: chats
+        132     IMPORT_FROM                     16: ChatMethods
+        134     STORE_NAME                      16: ChatMethods
+        136     POP_TOP                         
+        138     LOAD_CONST                      4: 1
+        140     LOAD_CONST                      13: ('DialogMethods',)
+        142     IMPORT_NAME                     17: dialogs
+        144     IMPORT_FROM                     18: DialogMethods
+        146     STORE_NAME                      18: DialogMethods
+        148     POP_TOP                         
+        150     LOAD_CONST                      4: 1
+        152     LOAD_CONST                      14: ('DownloadMethods',)
+        154     IMPORT_NAME                     19: downloads
+        156     IMPORT_FROM                     20: DownloadMethods
+        158     STORE_NAME                      20: DownloadMethods
+        160     POP_TOP                         
+        162     LOAD_CONST                      4: 1
+        164     LOAD_CONST                      15: ('AccountMethods',)
+        166     IMPORT_NAME                     21: account
+        168     IMPORT_FROM                     22: AccountMethods
+        170     STORE_NAME                      22: AccountMethods
+        172     POP_TOP                         
+        174     LOAD_CONST                      4: 1
+        176     LOAD_CONST                      16: ('AuthMethods',)
+        178     IMPORT_NAME                     23: auth
+        180     IMPORT_FROM                     24: AuthMethods
+        182     STORE_NAME                      24: AuthMethods
+        184     POP_TOP                         
+        186     LOAD_CONST                      4: 1
+        188     LOAD_CONST                      17: ('BotMethods',)
+        190     IMPORT_NAME                     25: bots
+        192     IMPORT_FROM                     26: BotMethods
+        194     STORE_NAME                      26: BotMethods
+        196     POP_TOP                         
+        198     LOAD_CONST                      4: 1
+        200     LOAD_CONST                      18: ('TelegramClient',)
+        202     IMPORT_NAME                     27: telegramclient
+        204     IMPORT_FROM                     28: TelegramClient
+        206     STORE_NAME                      28: TelegramClient
+        208     POP_TOP                         
+        210     LOAD_CONST                      20: None
+        212     NOP                             
+        214     NOP                             
+        216     NOP                             
+        218     JUMP_FORWARD                    19 (to 258)
+        226     POP_TOP                         
+        228     RETURN_CONST                    20: None
+        230     PUSH_EXC_INFO                   
+        232     PUSH_NULL                       
+        234     LOAD_CONST                      19: '__pyarmor_exit_17384__'
+        236     NOP                             
+        238     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xcc\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        240     CALL                            1
+        248     POP_TOP                         
+        250     RERAISE                         0
+        252     COPY                            3
+        254     POP_EXCEPT                      
+        256     RERAISE                         1
+        258     PUSH_NULL                       
+        260     LOAD_CONST                      19: '__pyarmor_exit_17384__'
+        262     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xcc\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        264     BUILD_TUPLE                     1
+        266     CALL_FUNCTION_EX                0
+        268     POP_TOP                         
+        270     RETURN_VALUE                    
+    [Exception Table]
+        26 to 210 -> 230 [0] 
+        230 to 252 -> 252 [1] lasti

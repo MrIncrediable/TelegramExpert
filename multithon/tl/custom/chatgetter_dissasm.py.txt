@@ -1,0 +1,1228 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.tl.custom.chatgetter>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'abc'
+        ''
+        'errors'
+        'utils'
+        'tl'
+        'types'
+        'ABC'
+        'ChatGetter'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_24012__'
+        '__pyarmor_enter_24013__'
+        b'<COAddr>\x07\x00\x00\x1ab\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        3
+        (
+            'errors'
+            'utils'
+        )
+        (
+            'types'
+        )
+        [Code]
+            File Name: <frozen multithon.tl.custom.chatgetter>
+            Object Name: ChatGetter
+            Qualified Name: ChatGetter
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                'property'
+                'chat'
+                'get_chat'
+                'input_chat'
+                'get_input_chat'
+                'chat_id'
+                'is_private'
+                'is_group'
+                'is_channel'
+                '_refetch_chat'
+            [Locals+Names]
+            [Constants]
+                'ChatGetter'
+                '\n    Helper base class that introduces the `chat`, `input_chat`\n    and `chat_id` properties and `get_chat` and `get_input_chat`\n    methods.\n    '
+                '__pyarmor_assert_24015__'
+                '__pyarmor_enter_24016__'
+                b'<COAddr>\x05\x00\x00&\x9a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                None
+                (
+                    'input_chat'
+                    'chat'
+                    'broadcast'
+                )
+                [Code]
+                    File Name: <frozen multithon.tl.custom.chatgetter>
+                    Object Name: __init__
+                    Qualified Name: ChatGetter.__init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 3
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_chat_peer'
+                        '_input_chat'
+                        '_chat'
+                        '_broadcast'
+                        '_client'
+                    [Locals+Names]
+                        'self'
+                        'chat_peer'
+                        'input_chat'
+                        'chat'
+                        'broadcast'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_24018__'
+                        '__pyarmor_enter_24019__'
+                        b'<COAddr>\x07\x00\x00\x1a\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_24020__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_24019__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: chat_peer
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: _chat_peer
+                        42      LOAD_FAST                       2: input_chat
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      1: _input_chat
+                        56      LOAD_FAST                       3: chat
+                        58      LOAD_FAST                       0: self
+                        60      STORE_ATTR                      2: _chat
+                        70      LOAD_FAST                       4: broadcast
+                        72      LOAD_FAST                       0: self
+                        74      STORE_ATTR                      3: _broadcast
+                        84      LOAD_CONST                      0: None
+                        86      LOAD_FAST                       0: self
+                        88      STORE_ATTR                      4: _client
+                        98      LOAD_CONST                      0: None
+                        100     NOP                             
+                        102     NOP                             
+                        104     NOP                             
+                        106     JUMP_FORWARD                    19 (to 146)
+                        114     POP_TOP                         
+                        116     RETURN_CONST                    0: None
+                        118     PUSH_EXC_INFO                   
+                        120     PUSH_NULL                       
+                        122     LOAD_CONST                      4: '__pyarmor_exit_24020__'
+                        124     NOP                             
+                        126     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        128     CALL                            1
+                        136     POP_TOP                         
+                        138     RERAISE                         0
+                        140     COPY                            3
+                        142     POP_EXCEPT                      
+                        144     RERAISE                         1
+                        146     PUSH_NULL                       
+                        148     LOAD_CONST                      4: '__pyarmor_exit_24020__'
+                        150     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        152     BUILD_TUPLE                     1
+                        154     CALL_FUNCTION_EX                0
+                        156     POP_TOP                         
+                        158     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 98 -> 118 [0] 
+                        118 to 140 -> 140 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.custom.chatgetter>
+                    Object Name: chat
+                    Qualified Name: ChatGetter.chat
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_chat'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        "\n        Returns the :tl:`User`, :tl:`Chat` or :tl:`Channel` where this object\n        belongs to. It may be `None` if Telegram didn't send the chat.\n\n        If you only need the ID, use `chat_id` instead.\n\n        If you need to call a method which needs\n        this chat, use `input_chat` instead.\n\n        If you're using `telethon.events`, use `get_chat()` instead.\n        "
+                        '__pyarmor_assert_24021__'
+                        '__pyarmor_enter_24022__'
+                        b'<COAddr>\x07\x00\x00\x1a,\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_24023__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_24022__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a,\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _chat
+                        50      NOP                             
+                        52      NOP                             
+                        54      NOP                             
+                        56      JUMP_FORWARD                    20 (to 98)
+                        58      CALL                            1
+                        66      POP_TOP                         
+                        68      RETURN_VALUE                    
+                        70      PUSH_EXC_INFO                   
+                        72      PUSH_NULL                       
+                        74      LOAD_CONST                      4: '__pyarmor_exit_24023__'
+                        76      NOP                             
+                        78      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a,\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        80      CALL                            1
+                        88      POP_TOP                         
+                        90      RERAISE                         0
+                        92      COPY                            3
+                        94      POP_EXCEPT                      
+                        96      RERAISE                         1
+                        98      PUSH_NULL                       
+                        100     LOAD_CONST                      4: '__pyarmor_exit_24023__'
+                        102     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a,\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        104     BUILD_TUPLE                     1
+                        106     CALL_FUNCTION_EX                0
+                        108     POP_TOP                         
+                        110     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 50 -> 70 [0] 
+                        70 to 92 -> 92 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.custom.chatgetter>
+                    Object Name: get_chat
+                    Qualified Name: ChatGetter.get_chat
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_chat'
+                        'getattr'
+                        'get_input_chat'
+                        '_client'
+                        'get_entity'
+                        '_input_chat'
+                        'ValueError'
+                        '_refetch_chat'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        "\n        Returns `chat`, but will make an API call to find the\n        chat unless it's already cached.\n\n        If you only need the ID, use `chat_id` instead.\n\n        If you need to call a method which needs\n        this chat, use `get_input_chat()` instead.\n        "
+                        '__pyarmor_assert_24024__'
+                        '__pyarmor_enter_24025__'
+                        b'<COAddr>\x07\x00\x00\x1e`\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        None
+                        'min'
+                        '__pyarmor_exit_24026__'
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_24025__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e`\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       0: _chat
+                        54      POP_JUMP_IF_NONE                23 (to 102)
+                        56      LOAD_GLOBAL                     3: NULL + getattr
+                        66      LOAD_FAST                       0: self
+                        68      LOAD_ATTR                       0: _chat
+                        88      LOAD_CONST                      5: 'min'
+                        90      LOAD_CONST                      4: None
+                        92      CALL                            3
+                        100     POP_JUMP_IF_FALSE               75 (to 252)
+                        102     LOAD_FAST                       0: self
+                        104     LOAD_ATTR                       5: get_input_chat
+                        124     CALL                            0
+                        132     GET_AWAITABLE                   0
+                        134     LOAD_CONST                      4: None
+                        136     SEND                            3 (to 144)
+                        140     YIELD_VALUE                     3
+                        142     RESUME                          3
+                        144     JUMP_BACKWARD_NO_INTERRUPT      5 (to 136)
+                        146     END_SEND                        
+                        148     POP_JUMP_IF_FALSE               51 (to 252)
+                        150     NOP                             
+                        152     LOAD_FAST                       0: self
+                        154     LOAD_ATTR                       6: _client
+                        174     LOAD_ATTR                       9: get_entity
+                        194     LOAD_FAST                       0: self
+                        196     LOAD_ATTR                       10: _input_chat
+                        216     CALL                            1
+                        224     GET_AWAITABLE                   0
+                        226     LOAD_CONST                      4: None
+                        228     SEND                            3 (to 236)
+                        232     YIELD_VALUE                     4
+                        234     RESUME                          3
+                        236     JUMP_BACKWARD_NO_INTERRUPT      5 (to 228)
+                        238     END_SEND                        
+                        240     LOAD_FAST                       0: self
+                        242     STORE_ATTR                      0: _chat
+                        252     LOAD_FAST                       0: self
+                        254     LOAD_ATTR                       0: _chat
+                        274     NOP                             
+                        276     NOP                             
+                        278     NOP                             
+                        280     JUMP_FORWARD                    66 (to 414)
+                        282     CALL                            1
+                        290     POP_TOP                         
+                        292     RETURN_VALUE                    
+                        294     CLEANUP_THROW                   
+                        296     JUMP_BACKWARD                   76 (to 146)
+                        298     CLEANUP_THROW                   
+                        300     JUMP_BACKWARD                   32 (to 238)
+                        302     PUSH_EXC_INFO                   
+                        304     LOAD_GLOBAL                     12: ValueError
+                        314     CHECK_EXC_MATCH                 
+                        316     POP_JUMP_IF_FALSE               28 (to 374)
+                        318     POP_TOP                         
+                        320     LOAD_FAST                       0: self
+                        322     LOAD_ATTR                       15: _refetch_chat
+                        342     CALL                            0
+                        350     GET_AWAITABLE                   0
+                        352     LOAD_CONST                      4: None
+                        354     SEND                            4 (to 364)
+                        358     YIELD_VALUE                     4
+                        360     RESUME                          3
+                        362     JUMP_BACKWARD_NO_INTERRUPT      5 (to 354)
+                        364     CLEANUP_THROW                   
+                        366     END_SEND                        
+                        368     POP_TOP                         
+                        370     POP_EXCEPT                      
+                        372     JUMP_BACKWARD                   61 (to 252)
+                        374     RERAISE                         0
+                        376     COPY                            3
+                        378     POP_EXCEPT                      
+                        380     RERAISE                         1
+                        382     PUSH_EXC_INFO                   
+                        384     PUSH_NULL                       
+                        386     LOAD_CONST                      6: '__pyarmor_exit_24026__'
+                        388     NOP                             
+                        390     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e`\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        392     CALL                            1
+                        400     POP_TOP                         
+                        402     RERAISE                         0
+                        404     COPY                            3
+                        406     POP_EXCEPT                      
+                        408     RERAISE                         1
+                        410     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        412     RERAISE                         1
+                        414     PUSH_NULL                       
+                        416     LOAD_CONST                      6: '__pyarmor_exit_24026__'
+                        418     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e`\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        420     BUILD_TUPLE                     1
+                        422     CALL_FUNCTION_EX                0
+                        424     POP_TOP                         
+                        426     RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 410 [0] lasti
+                        32 to 140 -> 382 [0] 
+                        140 to 142 -> 294 [2] 
+                        142 to 150 -> 382 [0] 
+                        152 to 232 -> 302 [0] 
+                        232 to 234 -> 298 [2] 
+                        234 to 252 -> 302 [0] 
+                        252 to 274 -> 382 [0] 
+                        274 to 294 -> 410 [0] lasti
+                        294 to 296 -> 382 [0] 
+                        298 to 300 -> 302 [0] 
+                        302 to 358 -> 376 [1] lasti
+                        358 to 360 -> 364 [3] 
+                        360 to 370 -> 376 [1] lasti
+                        370 to 374 -> 382 [0] 
+                        374 to 376 -> 376 [1] lasti
+                        376 to 382 -> 382 [0] 
+                        382 to 404 -> 404 [1] lasti
+                        404 to 410 -> 410 [0] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.custom.chatgetter>
+                    Object Name: input_chat
+                    Qualified Name: ChatGetter.input_chat
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_input_chat'
+                        '_chat_peer'
+                        '_client'
+                        '_mb_entity_cache'
+                        'get'
+                        'utils'
+                        'get_peer_id'
+                        '_as_input_peer'
+                        'AttributeError'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        "\n        This :tl:`InputPeer` is the input version of the chat where the\n        message was sent. Similarly to `input_sender\n        <telethon.tl.custom.sendergetter.SenderGetter.input_sender>`, this\n        doesn't have things like username or similar, but still useful in\n        some cases.\n\n        Note that this might not be available if the library doesn't\n        have enough information available.\n        "
+                        '__pyarmor_assert_24027__'
+                        '__pyarmor_enter_24028__'
+                        b'<COAddr>\x05\x00\x00\x1aB\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        False
+                        (
+                            'add_mark'
+                        )
+                        '__pyarmor_exit_24029__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_24028__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aB\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _input_chat
+                        50      POP_JUMP_IF_NOT_NONE            112 (to 276)
+                        52      LOAD_FAST                       0: self
+                        54      LOAD_ATTR                       2: _chat_peer
+                        74      POP_JUMP_IF_FALSE               100 (to 276)
+                        76      LOAD_FAST                       0: self
+                        78      LOAD_ATTR                       4: _client
+                        98      POP_JUMP_IF_FALSE               88 (to 276)
+                        100     NOP                             
+                        102     LOAD_FAST                       0: self
+                        104     LOAD_ATTR                       4: _client
+                        124     LOAD_ATTR                       6: _mb_entity_cache
+                        144     LOAD_ATTR                       9: get
+                        164     LOAD_GLOBAL                     11: NULL + utils
+                        174     LOAD_ATTR                       12: get_peer_id
+                        194     LOAD_FAST                       0: self
+                        196     LOAD_ATTR                       2: _chat_peer
+                        216     LOAD_CONST                      4: False
+                        218     KW_NAMES                        5: ('add_mark',)
+                        220     CALL                            2
+                        228     CALL                            1
+                        236     LOAD_ATTR                       15: _as_input_peer
+                        256     CALL                            0
+                        264     LOAD_FAST                       0: self
+                        266     STORE_ATTR                      0: _input_chat
+                        276     LOAD_FAST                       0: self
+                        278     LOAD_ATTR                       0: _input_chat
+                        298     NOP                             
+                        300     NOP                             
+                        302     NOP                             
+                        304     JUMP_FORWARD                    35 (to 376)
+                        306     CALL                            1
+                        314     POP_TOP                         
+                        316     RETURN_VALUE                    
+                        318     PUSH_EXC_INFO                   
+                        320     LOAD_GLOBAL                     16: AttributeError
+                        330     CHECK_EXC_MATCH                 
+                        332     POP_JUMP_IF_FALSE               3 (to 340)
+                        334     POP_TOP                         
+                        336     POP_EXCEPT                      
+                        338     JUMP_BACKWARD                   32 (to 276)
+                        340     RERAISE                         0
+                        342     COPY                            3
+                        344     POP_EXCEPT                      
+                        346     RERAISE                         1
+                        348     PUSH_EXC_INFO                   
+                        350     PUSH_NULL                       
+                        352     LOAD_CONST                      6: '__pyarmor_exit_24029__'
+                        354     NOP                             
+                        356     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aB\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        358     CALL                            1
+                        366     POP_TOP                         
+                        368     RERAISE                         0
+                        370     COPY                            3
+                        372     POP_EXCEPT                      
+                        374     RERAISE                         1
+                        376     PUSH_NULL                       
+                        378     LOAD_CONST                      6: '__pyarmor_exit_24029__'
+                        380     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aB\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        382     BUILD_TUPLE                     1
+                        384     CALL_FUNCTION_EX                0
+                        386     POP_TOP                         
+                        388     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 100 -> 348 [0] 
+                        102 to 276 -> 318 [0] 
+                        276 to 298 -> 348 [0] 
+                        318 to 336 -> 342 [1] lasti
+                        336 to 340 -> 348 [0] 
+                        340 to 342 -> 342 [1] lasti
+                        342 to 348 -> 348 [0] 
+                        348 to 370 -> 370 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.custom.chatgetter>
+                    Object Name: get_input_chat
+                    Qualified Name: ChatGetter.get_input_chat
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'input_chat'
+                        'chat_id'
+                        '_client'
+                        'iter_dialogs'
+                        'id'
+                        'entity'
+                        '_chat'
+                        'input_entity'
+                        '_input_chat'
+                        'errors'
+                        'RPCError'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                    [Constants]
+                        "\n        Returns `input_chat`, but will make an API call to find the\n        input chat unless it's already cached.\n        "
+                        '__pyarmor_assert_24030__'
+                        '__pyarmor_enter_24031__'
+                        b'<COAddr>\x05\x00\x00\x1ev\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        None
+                        100
+                        '__pyarmor_exit_24032__'
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_24031__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ev\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       0: input_chat
+                        54      POP_JUMP_IF_NOT_NONE            124 (to 304)
+                        56      LOAD_FAST                       0: self
+                        58      LOAD_ATTR                       2: chat_id
+                        78      POP_JUMP_IF_FALSE               112 (to 304)
+                        80      LOAD_FAST                       0: self
+                        82      LOAD_ATTR                       4: _client
+                        102     POP_JUMP_IF_FALSE               100 (to 304)
+                        104     NOP                             
+                        106     LOAD_FAST                       0: self
+                        108     LOAD_ATTR                       2: chat_id
+                        128     STORE_FAST                      2: _var_var_0
+                        130     LOAD_FAST                       0: self
+                        132     LOAD_ATTR                       4: _client
+                        152     LOAD_ATTR                       7: iter_dialogs
+                        172     LOAD_CONST                      5: 100
+                        174     CALL                            1
+                        182     GET_AITER                       
+                        184     GET_ANEXT                       
+                        186     LOAD_CONST                      4: None
+                        188     SEND                            3 (to 196)
+                        192     YIELD_VALUE                     5
+                        194     RESUME                          3
+                        196     JUMP_BACKWARD_NO_INTERRUPT      5 (to 188)
+                        198     END_SEND                        
+                        200     STORE_FAST                      3: _var_var_1
+                        202     LOAD_FAST                       3: _var_var_1
+                        204     LOAD_ATTR                       8: id
+                        224     LOAD_FAST                       2: _var_var_0
+                        226     COMPARE_OP                      40 (==)
+                        230     POP_JUMP_IF_TRUE                1 (to 234)
+                        232     JUMP_BACKWARD                   25 (to 184)
+                        234     LOAD_FAST                       3: _var_var_1
+                        236     LOAD_ATTR                       10: entity
+                        256     LOAD_FAST                       0: self
+                        258     STORE_ATTR                      6: _chat
+                        268     LOAD_FAST                       3: _var_var_1
+                        270     LOAD_ATTR                       14: input_entity
+                        290     LOAD_FAST                       0: self
+                        292     STORE_ATTR                      8: _input_chat
+                        302     POP_TOP                         
+                        304     LOAD_FAST                       0: self
+                        306     LOAD_ATTR                       16: _input_chat
+                        326     NOP                             
+                        328     NOP                             
+                        330     NOP                             
+                        332     JUMP_FORWARD                    51 (to 436)
+                        334     CALL                            1
+                        342     POP_TOP                         
+                        344     RETURN_VALUE                    
+                        346     CLEANUP_THROW                   
+                        348     JUMP_BACKWARD                   76 (to 198)
+                        350     END_ASYNC_FOR                   
+                        352     JUMP_BACKWARD                   25 (to 304)
+                        354     PUSH_EXC_INFO                   
+                        356     LOAD_GLOBAL                     18: errors
+                        366     LOAD_ATTR                       20: RPCError
+                        386     CHECK_EXC_MATCH                 
+                        388     POP_JUMP_IF_FALSE               3 (to 396)
+                        390     POP_TOP                         
+                        392     POP_EXCEPT                      
+                        394     JUMP_BACKWARD                   46 (to 304)
+                        396     RERAISE                         0
+                        398     COPY                            3
+                        400     POP_EXCEPT                      
+                        402     RERAISE                         1
+                        404     PUSH_EXC_INFO                   
+                        406     PUSH_NULL                       
+                        408     LOAD_CONST                      6: '__pyarmor_exit_24032__'
+                        410     NOP                             
+                        412     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ev\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        414     CALL                            1
+                        422     POP_TOP                         
+                        424     RERAISE                         0
+                        426     COPY                            3
+                        428     POP_EXCEPT                      
+                        430     RERAISE                         1
+                        432     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        434     RERAISE                         1
+                        436     PUSH_NULL                       
+                        438     LOAD_CONST                      6: '__pyarmor_exit_24032__'
+                        440     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ev\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        442     BUILD_TUPLE                     1
+                        444     CALL_FUNCTION_EX                0
+                        446     POP_TOP                         
+                        448     RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 432 [0] lasti
+                        32 to 104 -> 404 [0] 
+                        106 to 184 -> 354 [0] 
+                        184 to 192 -> 350 [1] 
+                        192 to 194 -> 346 [3] 
+                        194 to 200 -> 350 [1] 
+                        200 to 232 -> 354 [0] 
+                        234 to 304 -> 354 [0] 
+                        304 to 326 -> 404 [0] 
+                        326 to 346 -> 432 [0] lasti
+                        346 to 348 -> 350 [1] 
+                        350 to 352 -> 354 [0] 
+                        354 to 392 -> 398 [1] lasti
+                        392 to 396 -> 404 [0] 
+                        396 to 398 -> 398 [1] lasti
+                        398 to 404 -> 404 [0] 
+                        404 to 426 -> 426 [1] lasti
+                        426 to 432 -> 432 [0] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.custom.chatgetter>
+                    Object Name: chat_id
+                    Qualified Name: ChatGetter.chat_id
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_chat_peer'
+                        'utils'
+                        'get_peer_id'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        '\n        Returns the marked chat integer ID. Note that this value **will\n        be different** from ``peer_id`` for incoming private messages, since\n        the chat *to* which the messages go is to your own person, but\n        the *chat* itself is with the one who sent the message.\n\n        TL;DR; this gets the ID that you expect.\n\n        If there is a chat in the object, `chat_id` will *always* be set,\n        which is why you should use it instead of `chat.id <chat>`.\n        '
+                        '__pyarmor_assert_24033__'
+                        '__pyarmor_enter_24034__'
+                        b'<COAddr>\x07\x00\x00\x1an\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        None
+                        '__pyarmor_exit_24035__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_24034__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1an\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _chat_peer
+                        50      POP_JUMP_IF_FALSE               31 (to 114)
+                        52      LOAD_GLOBAL                     3: NULL + utils
+                        62      LOAD_ATTR                       4: get_peer_id
+                        82      LOAD_FAST                       0: self
+                        84      LOAD_ATTR                       0: _chat_peer
+                        104     CALL                            1
+                        112     JUMP_FORWARD                    1 (to 116)
+                        114     LOAD_CONST                      4: None
+                        116     NOP                             
+                        118     NOP                             
+                        120     NOP                             
+                        122     JUMP_FORWARD                    20 (to 164)
+                        124     CALL                            1
+                        132     POP_TOP                         
+                        134     RETURN_VALUE                    
+                        136     PUSH_EXC_INFO                   
+                        138     PUSH_NULL                       
+                        140     LOAD_CONST                      5: '__pyarmor_exit_24035__'
+                        142     NOP                             
+                        144     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1an\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        146     CALL                            1
+                        154     POP_TOP                         
+                        156     RERAISE                         0
+                        158     COPY                            3
+                        160     POP_EXCEPT                      
+                        162     RERAISE                         1
+                        164     PUSH_NULL                       
+                        166     LOAD_CONST                      5: '__pyarmor_exit_24035__'
+                        168     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1an\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        170     BUILD_TUPLE                     1
+                        172     CALL_FUNCTION_EX                0
+                        174     POP_TOP                         
+                        176     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 116 -> 136 [0] 
+                        136 to 158 -> 158 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.custom.chatgetter>
+                    Object Name: is_private
+                    Qualified Name: ChatGetter.is_private
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_chat_peer'
+                        'isinstance'
+                        'types'
+                        'PeerUser'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        "\n        `True` if the message was sent as a private message.\n\n        Returns `None` if there isn't enough information\n        (e.g. on `events.MessageDeleted <telethon.events.messagedeleted.MessageDeleted>`).\n        "
+                        '__pyarmor_assert_24036__'
+                        '__pyarmor_enter_24037__'
+                        b'<COAddr>\x07\x00\x00\x1ax\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        None
+                        '__pyarmor_exit_24038__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_24037__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1ax\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _chat_peer
+                        50      POP_JUMP_IF_FALSE               36 (to 124)
+                        52      LOAD_GLOBAL                     3: NULL + isinstance
+                        62      LOAD_FAST                       0: self
+                        64      LOAD_ATTR                       0: _chat_peer
+                        84      LOAD_GLOBAL                     4: types
+                        94      LOAD_ATTR                       6: PeerUser
+                        114     CALL                            2
+                        122     JUMP_FORWARD                    1 (to 126)
+                        124     LOAD_CONST                      4: None
+                        126     NOP                             
+                        128     NOP                             
+                        130     NOP                             
+                        132     JUMP_FORWARD                    20 (to 174)
+                        134     CALL                            1
+                        142     POP_TOP                         
+                        144     RETURN_VALUE                    
+                        146     PUSH_EXC_INFO                   
+                        148     PUSH_NULL                       
+                        150     LOAD_CONST                      5: '__pyarmor_exit_24038__'
+                        152     NOP                             
+                        154     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1ax\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        156     CALL                            1
+                        164     POP_TOP                         
+                        166     RERAISE                         0
+                        168     COPY                            3
+                        170     POP_EXCEPT                      
+                        172     RERAISE                         1
+                        174     PUSH_NULL                       
+                        176     LOAD_CONST                      5: '__pyarmor_exit_24038__'
+                        178     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1ax\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        180     BUILD_TUPLE                     1
+                        182     CALL_FUNCTION_EX                0
+                        184     POP_TOP                         
+                        186     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 126 -> 146 [0] 
+                        146 to 168 -> 168 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.custom.chatgetter>
+                    Object Name: is_group
+                    Qualified Name: ChatGetter.is_group
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_broadcast'
+                        'hasattr'
+                        'chat'
+                        'bool'
+                        'broadcast'
+                        'isinstance'
+                        '_chat_peer'
+                        'types'
+                        'PeerChannel'
+                        'PeerChat'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        "\n        True if the message was sent on a group or megagroup.\n\n        Returns `None` if there isn't enough information\n        (e.g. on `events.MessageDeleted <telethon.events.messagedeleted.MessageDeleted>`).\n        "
+                        '__pyarmor_assert_24039__'
+                        '__pyarmor_enter_24040__'
+                        b'<COAddr>\x05\x00\x00\x1a\x96\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        None
+                        'broadcast'   # b'\x81\xe0\n\x1c2\xfe\xbd\xd3\x08\xee'
+                        '__pyarmor_exit_24041__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_24040__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x96\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _broadcast
+                        50      POP_JUMP_IF_NOT_NONE            64 (to 180)
+                        52      LOAD_GLOBAL                     3: NULL + hasattr
+                        62      LOAD_FAST                       0: self
+                        64      LOAD_ATTR                       4: chat
+                        84      PUSH_NULL                       
+                        86      LOAD_CONST                      1: '__pyarmor_assert_24039__'
+                        88      LOAD_CONST                      5: 'broadcast'   # b'\x81\xe0\n\x1c2\xfe\xbd\xd3\x08\xee'
+                        90      CALL                            1
+                        98      CALL                            2
+                        106     POP_JUMP_IF_FALSE               36 (to 180)
+                        108     LOAD_GLOBAL                     7: NULL + bool
+                        118     LOAD_FAST                       0: self
+                        120     LOAD_ATTR                       4: chat
+                        140     LOAD_ATTR                       8: broadcast
+                        160     CALL                            1
+                        168     LOAD_FAST                       0: self
+                        170     STORE_ATTR                      0: _broadcast
+                        180     LOAD_GLOBAL                     11: NULL + isinstance
+                        190     LOAD_FAST                       0: self
+                        192     LOAD_ATTR                       12: _chat_peer
+                        212     LOAD_GLOBAL                     14: types
+                        222     LOAD_ATTR                       16: PeerChannel
+                        242     CALL                            2
+                        250     POP_JUMP_IF_FALSE               45 (to 342)
+                        252     LOAD_FAST                       0: self
+                        254     LOAD_ATTR                       0: _broadcast
+                        274     POP_JUMP_IF_NOT_NONE            11 (to 298)
+                        276     NOP                             
+                        278     LOAD_CONST                      4: None
+                        280     NOP                             
+                        282     NOP                             
+                        284     NOP                             
+                        286     JUMP_FORWARD                    86 (to 460)
+                        294     POP_TOP                         
+                        296     RETURN_CONST                    4: None
+                        298     LOAD_FAST                       0: self
+                        300     LOAD_ATTR                       0: _broadcast
+                        320     UNARY_NOT                       
+                        322     NOP                             
+                        324     NOP                             
+                        326     NOP                             
+                        328     JUMP_FORWARD                    65 (to 460)
+                        330     CALL                            1
+                        338     POP_TOP                         
+                        340     RETURN_VALUE                    
+                        342     LOAD_GLOBAL                     11: NULL + isinstance
+                        352     LOAD_FAST                       0: self
+                        354     LOAD_ATTR                       12: _chat_peer
+                        374     LOAD_GLOBAL                     14: types
+                        384     LOAD_ATTR                       18: PeerChat
+                        404     CALL                            2
+                        412     NOP                             
+                        414     NOP                             
+                        416     NOP                             
+                        418     JUMP_FORWARD                    20 (to 460)
+                        420     CALL                            1
+                        428     POP_TOP                         
+                        430     RETURN_VALUE                    
+                        432     PUSH_EXC_INFO                   
+                        434     PUSH_NULL                       
+                        436     LOAD_CONST                      6: '__pyarmor_exit_24041__'
+                        438     NOP                             
+                        440     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x96\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        442     CALL                            1
+                        450     POP_TOP                         
+                        452     RERAISE                         0
+                        454     COPY                            3
+                        456     POP_EXCEPT                      
+                        458     RERAISE                         1
+                        460     PUSH_NULL                       
+                        462     LOAD_CONST                      6: '__pyarmor_exit_24041__'
+                        464     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x96\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        466     BUILD_TUPLE                     1
+                        468     CALL_FUNCTION_EX                0
+                        470     POP_TOP                         
+                        472     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 276 -> 432 [0] 
+                        298 to 322 -> 432 [0] 
+                        342 to 412 -> 432 [0] 
+                        432 to 454 -> 454 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.custom.chatgetter>
+                    Object Name: is_channel
+                    Qualified Name: ChatGetter.is_channel
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'isinstance'
+                        '_chat_peer'
+                        'types'
+                        'PeerChannel'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        '`True` if the message was sent on a megagroup or channel.'
+                        '__pyarmor_assert_24042__'
+                        '__pyarmor_enter_24043__'
+                        b'<COAddr>\x05\x00\x00\x1a\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_24044__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_24043__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + isinstance
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_ATTR                       2: _chat_peer
+                        60      LOAD_GLOBAL                     4: types
+                        70      LOAD_ATTR                       6: PeerChannel
+                        90      CALL                            2
+                        98      NOP                             
+                        100     NOP                             
+                        102     NOP                             
+                        104     JUMP_FORWARD                    20 (to 146)
+                        106     CALL                            1
+                        114     POP_TOP                         
+                        116     RETURN_VALUE                    
+                        118     PUSH_EXC_INFO                   
+                        120     PUSH_NULL                       
+                        122     LOAD_CONST                      4: '__pyarmor_exit_24044__'
+                        124     NOP                             
+                        126     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        128     CALL                            1
+                        136     POP_TOP                         
+                        138     RERAISE                         0
+                        140     COPY                            3
+                        142     POP_EXCEPT                      
+                        144     RERAISE                         1
+                        146     PUSH_NULL                       
+                        148     LOAD_CONST                      4: '__pyarmor_exit_24044__'
+                        150     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        152     BUILD_TUPLE                     1
+                        154     CALL_FUNCTION_EX                0
+                        156     POP_TOP                         
+                        158     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 98 -> 118 [0] 
+                        118 to 140 -> 140 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.custom.chatgetter>
+                    Object Name: _refetch_chat
+                    Qualified Name: ChatGetter._refetch_chat
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 2
+                    Flags: 0x00000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE)
+                    [Names]
+                    [Locals+Names]
+                        'self'
+                    [Constants]
+                        '\n        Re-fetches chat information through other means.\n        '
+                        None
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       RESUME                          0
+                        6       RETURN_CONST                    1: None
+                        8       CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        10      RERAISE                         1
+                    [Exception Table]
+                        4 to 8 -> 8 [0] lasti
+                '__pyarmor_exit_24017__'
+                (
+                    None
+                )
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'ChatGetter'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    Helper base class that introduces the `chat`, `input_chat`\n    and `chat_id` properties and `get_chat` and `get_input_chat`\n    methods.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_24016__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x9a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      18: (None,)
+                42      LOAD_CONST                      5: None
+                44      LOAD_CONST                      5: None
+                46      LOAD_CONST                      5: None
+                48      LOAD_CONST                      6: ('input_chat', 'chat', 'broadcast')
+                50      BUILD_CONST_KEY_MAP             3
+                52      LOAD_CONST                      7: <CODE> __init__
+                54      MAKE_FUNCTION                   3
+                56      STORE_NAME                      5: __init__
+                58      LOAD_NAME                       6: property
+                60      LOAD_CONST                      8: <CODE> chat
+                62      MAKE_FUNCTION                   0
+                64      CALL                            0
+                72      STORE_NAME                      7: chat
+                74      LOAD_CONST                      9: <CODE> get_chat
+                76      MAKE_FUNCTION                   0
+                78      STORE_NAME                      8: get_chat
+                80      LOAD_NAME                       6: property
+                82      LOAD_CONST                      10: <CODE> input_chat
+                84      MAKE_FUNCTION                   0
+                86      CALL                            0
+                94      STORE_NAME                      9: input_chat
+                96      LOAD_CONST                      11: <CODE> get_input_chat
+                98      MAKE_FUNCTION                   0
+                100     STORE_NAME                      10: get_input_chat
+                102     LOAD_NAME                       6: property
+                104     LOAD_CONST                      12: <CODE> chat_id
+                106     MAKE_FUNCTION                   0
+                108     CALL                            0
+                116     STORE_NAME                      11: chat_id
+                118     LOAD_NAME                       6: property
+                120     LOAD_CONST                      13: <CODE> is_private
+                122     MAKE_FUNCTION                   0
+                124     CALL                            0
+                132     STORE_NAME                      12: is_private
+                134     LOAD_NAME                       6: property
+                136     LOAD_CONST                      14: <CODE> is_group
+                138     MAKE_FUNCTION                   0
+                140     CALL                            0
+                148     STORE_NAME                      13: is_group
+                150     LOAD_NAME                       6: property
+                152     LOAD_CONST                      15: <CODE> is_channel
+                154     MAKE_FUNCTION                   0
+                156     CALL                            0
+                164     STORE_NAME                      14: is_channel
+                166     LOAD_CONST                      16: <CODE> _refetch_chat
+                168     MAKE_FUNCTION                   0
+                170     STORE_NAME                      15: _refetch_chat
+                172     LOAD_CONST                      5: None
+                174     NOP                             
+                176     NOP                             
+                178     NOP                             
+                180     JUMP_FORWARD                    19 (to 220)
+                188     POP_TOP                         
+                190     RETURN_CONST                    5: None
+                192     PUSH_EXC_INFO                   
+                194     PUSH_NULL                       
+                196     LOAD_CONST                      17: '__pyarmor_exit_24017__'
+                198     NOP                             
+                200     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x9a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                202     CALL                            1
+                210     POP_TOP                         
+                212     RERAISE                         0
+                214     COPY                            3
+                216     POP_EXCEPT                      
+                218     RERAISE                         1
+                220     PUSH_NULL                       
+                222     LOAD_CONST                      17: '__pyarmor_exit_24017__'
+                224     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\x9a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                226     BUILD_TUPLE                     1
+                228     CALL_FUNCTION_EX                0
+                230     POP_TOP                         
+                232     RETURN_VALUE                    
+            [Exception Table]
+                40 to 172 -> 192 [0] 
+                192 to 214 -> 214 [1] lasti
+        'ChatGetter'
+        '__pyarmor_exit_24014__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_24013__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1ab\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: abc
+        32      STORE_NAME                      1: abc
+        34      LOAD_CONST                      5: 3
+        36      LOAD_CONST                      6: ('errors', 'utils')
+        38      IMPORT_NAME                     2: 
+        40      IMPORT_FROM                     3: errors
+        42      STORE_NAME                      3: errors
+        44      IMPORT_FROM                     4: utils
+        46      STORE_NAME                      4: utils
+        48      POP_TOP                         
+        50      LOAD_CONST                      5: 3
+        52      LOAD_CONST                      7: ('types',)
+        54      IMPORT_NAME                     5: tl
+        56      IMPORT_FROM                     6: types
+        58      STORE_NAME                      6: types
+        60      POP_TOP                         
+        62      PUSH_NULL                       
+        64      LOAD_BUILD_CLASS                
+        66      LOAD_CONST                      8: <CODE> ChatGetter
+        68      MAKE_FUNCTION                   0
+        70      LOAD_CONST                      9: 'ChatGetter'
+        72      LOAD_NAME                       1: abc
+        74      LOAD_ATTR                       14: ABC
+        94      CALL                            3
+        102     STORE_NAME                      8: ChatGetter
+        104     LOAD_CONST                      4: None
+        106     NOP                             
+        108     NOP                             
+        110     NOP                             
+        112     JUMP_FORWARD                    19 (to 152)
+        120     POP_TOP                         
+        122     RETURN_CONST                    4: None
+        124     PUSH_EXC_INFO                   
+        126     PUSH_NULL                       
+        128     LOAD_CONST                      10: '__pyarmor_exit_24014__'
+        130     NOP                             
+        132     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1ab\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        134     CALL                            1
+        142     POP_TOP                         
+        144     RERAISE                         0
+        146     COPY                            3
+        148     POP_EXCEPT                      
+        150     RERAISE                         1
+        152     PUSH_NULL                       
+        154     LOAD_CONST                      10: '__pyarmor_exit_24014__'
+        156     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1ab\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        158     BUILD_TUPLE                     1
+        160     CALL_FUNCTION_EX                0
+        162     POP_TOP                         
+        164     RETURN_VALUE                    
+    [Exception Table]
+        26 to 104 -> 124 [0] 
+        124 to 146 -> 146 [1] lasti

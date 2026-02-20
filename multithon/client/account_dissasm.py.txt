@@ -1,0 +1,1772 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.client.account>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'functools'
+        'inspect'
+        'typing'
+        'users'
+        '_NOT_A_REQUEST'
+        ''
+        'helpers'
+        'utils'
+        'tl'
+        'functions'
+        'TLRequest'
+        'TYPE_CHECKING'
+        'telegramclient'
+        'TelegramClient'
+        '_TakeoutClient'
+        'AccountMethods'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_16692__'
+        '__pyarmor_enter_16693__'
+        b'<COAddr>\x07\x00\x00\x1a\xa4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        1
+        (
+            '_NOT_A_REQUEST'
+        )
+        2
+        (
+            'helpers'
+            'utils'
+        )
+        (
+            'functions'
+            'TLRequest'
+        )
+        (
+            'TelegramClient'
+        )
+        [Code]
+            File Name: <frozen multithon.client.account>
+            Object Name: _TakeoutClient
+            Qualified Name: _TakeoutClient
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '_TakeoutClient__PROXY_INTERFACE'
+                '__init__'
+                'property'
+                'success'
+                'setter'
+                '__aenter__'
+                '__aexit__'
+                'helpers'
+                '_sync_enter'
+                '__enter__'
+                '_sync_exit'
+                '__exit__'
+                '__call__'
+                '__getattribute__'
+                '__getattr__'
+                '__setattr__'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                '_TakeoutClient'
+                '\n    Proxy object over the client.\n    '
+                '__pyarmor_assert_16695__'
+                '__pyarmor_enter_16696__'
+                b'<COAddr>\x07\x00\x00(\xe4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__enter__'   # b"\x81\xdd'\x16=\xee\xbb\xc0$\xc5"
+                '__exit__'
+                '__aenter__'   # b"\x81\xdd'\x126\xf4\xaa\xd7\t\xc52"
+                '__aexit__'   # b"\x81\xdd'\x126\xe2\xb7\xc6$\xc5"
+                [Code]
+                    File Name: <frozen multithon.client.account>
+                    Object Name: __init__
+                    Qualified Name: _TakeoutClient.__init__
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_TakeoutClient__finalize'
+                        '_TakeoutClient__client'
+                        '_TakeoutClient__request'
+                        '_TakeoutClient__success'
+                    [Locals+Names]
+                        'self'
+                        'finalize'
+                        'client'
+                        'request'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_16698__'
+                        '__pyarmor_enter_16699__'
+                        b'<COAddr>\x05\x00\x00\x1aN\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_16700__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_16699__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aN\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: finalize
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: _TakeoutClient__finalize
+                        42      LOAD_FAST                       2: client
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      1: _TakeoutClient__client
+                        56      LOAD_FAST                       3: request
+                        58      LOAD_FAST                       0: self
+                        60      STORE_ATTR                      2: _TakeoutClient__request
+                        70      LOAD_CONST                      0: None
+                        72      LOAD_FAST                       0: self
+                        74      STORE_ATTR                      3: _TakeoutClient__success
+                        84      LOAD_CONST                      0: None
+                        86      NOP                             
+                        88      NOP                             
+                        90      NOP                             
+                        92      JUMP_FORWARD                    19 (to 132)
+                        100     POP_TOP                         
+                        102     RETURN_CONST                    0: None
+                        104     PUSH_EXC_INFO                   
+                        106     PUSH_NULL                       
+                        108     LOAD_CONST                      4: '__pyarmor_exit_16700__'
+                        110     NOP                             
+                        112     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aN\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        114     CALL                            1
+                        122     POP_TOP                         
+                        124     RERAISE                         0
+                        126     COPY                            3
+                        128     POP_EXCEPT                      
+                        130     RERAISE                         1
+                        132     PUSH_NULL                       
+                        134     LOAD_CONST                      4: '__pyarmor_exit_16700__'
+                        136     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1aN\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        138     BUILD_TUPLE                     1
+                        140     CALL_FUNCTION_EX                0
+                        142     POP_TOP                         
+                        144     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 84 -> 104 [0] 
+                        104 to 126 -> 126 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.client.account>
+                    Object Name: success
+                    Qualified Name: _TakeoutClient.success
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_TakeoutClient__success'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_16701__'
+                        '__pyarmor_enter_16702__'
+                        b'<COAddr>\x05\x00\x00\x1a,\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_16703__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_16702__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a,\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: _TakeoutClient__success
+                        50      NOP                             
+                        52      NOP                             
+                        54      NOP                             
+                        56      JUMP_FORWARD                    20 (to 98)
+                        58      CALL                            1
+                        66      POP_TOP                         
+                        68      RETURN_VALUE                    
+                        70      PUSH_EXC_INFO                   
+                        72      PUSH_NULL                       
+                        74      LOAD_CONST                      4: '__pyarmor_exit_16703__'
+                        76      NOP                             
+                        78      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a,\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        80      CALL                            1
+                        88      POP_TOP                         
+                        90      RERAISE                         0
+                        92      COPY                            3
+                        94      POP_EXCEPT                      
+                        96      RERAISE                         1
+                        98      PUSH_NULL                       
+                        100     LOAD_CONST                      4: '__pyarmor_exit_16703__'
+                        102     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a,\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        104     BUILD_TUPLE                     1
+                        106     CALL_FUNCTION_EX                0
+                        108     POP_TOP                         
+                        110     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 50 -> 70 [0] 
+                        70 to 92 -> 92 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.client.account>
+                    Object Name: success
+                    Qualified Name: _TakeoutClient.success
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_TakeoutClient__success'
+                    [Locals+Names]
+                        'self'
+                        'value'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_16704__'
+                        '__pyarmor_enter_16705__'
+                        b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_16706__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_16705__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: value
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: _TakeoutClient__success
+                        42      LOAD_CONST                      0: None
+                        44      NOP                             
+                        46      NOP                             
+                        48      NOP                             
+                        50      JUMP_FORWARD                    19 (to 90)
+                        58      POP_TOP                         
+                        60      RETURN_CONST                    0: None
+                        62      PUSH_EXC_INFO                   
+                        64      PUSH_NULL                       
+                        66      LOAD_CONST                      4: '__pyarmor_exit_16706__'
+                        68      NOP                             
+                        70      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        72      CALL                            1
+                        80      POP_TOP                         
+                        82      RERAISE                         0
+                        84      COPY                            3
+                        86      POP_EXCEPT                      
+                        88      RERAISE                         1
+                        90      PUSH_NULL                       
+                        92      LOAD_CONST                      4: '__pyarmor_exit_16706__'
+                        94      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        96      BUILD_TUPLE                     1
+                        98      CALL_FUNCTION_EX                0
+                        100     POP_TOP                         
+                        102     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 42 -> 62 [0] 
+                        62 to 84 -> 84 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.client.account>
+                    Object Name: __aenter__
+                    Qualified Name: _TakeoutClient.__aenter__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_TakeoutClient__client'
+                        'session'
+                        'takeout_id'
+                        '_TakeoutClient__request'
+                        'id'
+                        'ValueError'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                        '_var_var_0'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_16707__'
+                        '__pyarmor_enter_16708__'
+                        b'<COAddr>\x07\x00\x00\x1e\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        "Can't send a takeout request while another takeout for the current session still not been finished yet."   # b'\x81\xc1\x19\x1dt\xee\xfe\xc1\x1e\xf4\t\x80m\xac\xec\x84\x04X\xb4\xb2\xbe\x8b\\\xc9\x14z\xa6O\x14\xf1\t\xed3^%M\x99\xc4\xbb:\x10\xec\xea\x1d\xc9\xd9\x04B8\xf8B\xbb\x81\x7f\x14\xad#\xe3\x9e]\x1b^#ARF\x11\xc3\xce2\xff\xac\x9am2~S\xad\x01\x9d\xad\xc7\x8a\xa6\xabO\x00D\xc1\xb9\xcd\xea\x96\x7f\xd0\xa0\xecU\xb93"\r0r'
+                        '__pyarmor_exit_16709__'
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_16708__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       0: _TakeoutClient__client
+                        54      STORE_FAST                      2: _var_var_0
+                        56      LOAD_FAST                       2: _var_var_0
+                        58      LOAD_ATTR                       2: session
+                        78      LOAD_ATTR                       4: takeout_id
+                        98      POP_JUMP_IF_NOT_NONE            52 (to 204)
+                        100     PUSH_NULL                       
+                        102     LOAD_FAST                       2: _var_var_0
+                        104     LOAD_FAST                       0: self
+                        106     LOAD_ATTR                       6: _TakeoutClient__request
+                        126     CALL                            1
+                        134     GET_AWAITABLE                   0
+                        136     LOAD_CONST                      0: None
+                        138     SEND                            3 (to 146)
+                        142     YIELD_VALUE                     3
+                        144     RESUME                          3
+                        146     JUMP_BACKWARD_NO_INTERRUPT      5 (to 138)
+                        148     END_SEND                        
+                        150     LOAD_ATTR                       8: id
+                        170     LOAD_FAST                       2: _var_var_0
+                        172     LOAD_ATTR                       2: session
+                        192     STORE_ATTR                      2: takeout_id
+                        202     JUMP_FORWARD                    29 (to 262)
+                        204     LOAD_FAST                       0: self
+                        206     LOAD_ATTR                       6: _TakeoutClient__request
+                        226     POP_JUMP_IF_NONE                17 (to 262)
+                        228     LOAD_GLOBAL                     11: NULL + ValueError
+                        238     PUSH_NULL                       
+                        240     LOAD_CONST                      1: '__pyarmor_assert_16707__'
+                        242     LOAD_CONST                      4: "Can't send a takeout request while another takeout for the current session still not been finished yet."   # b'\x81\xc1\x19\x1dt\xee\xfe\xc1\x1e\xf4\t\x80m\xac\xec\x84\x04X\xb4\xb2\xbe\x8b\\\xc9\x14z\xa6O\x14\xf1\t\xed3^%M\x99\xc4\xbb:\x10\xec\xea\x1d\xc9\xd9\x04B8\xf8B\xbb\x81\x7f\x14\xad#\xe3\x9e]\x1b^#ARF\x11\xc3\xce2\xff\xac\x9am2~S\xad\x01\x9d\xad\xc7\x8a\xa6\xabO\x00D\xc1\xb9\xcd\xea\x96\x7f\xd0\xa0\xecU\xb93"\r0r'
+                        244     CALL                            1
+                        252     CALL                            1
+                        260     RAISE_VARARGS                   1
+                        262     LOAD_FAST                       0: self
+                        264     NOP                             
+                        266     NOP                             
+                        268     NOP                             
+                        270     JUMP_FORWARD                    24 (to 320)
+                        272     CALL                            1
+                        280     POP_TOP                         
+                        282     RETURN_VALUE                    
+                        284     CLEANUP_THROW                   
+                        286     JUMP_BACKWARD                   70 (to 148)
+                        288     PUSH_EXC_INFO                   
+                        290     PUSH_NULL                       
+                        292     LOAD_CONST                      5: '__pyarmor_exit_16709__'
+                        294     NOP                             
+                        296     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        298     CALL                            1
+                        306     POP_TOP                         
+                        308     RERAISE                         0
+                        310     COPY                            3
+                        312     POP_EXCEPT                      
+                        314     RERAISE                         1
+                        316     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        318     RERAISE                         1
+                        320     PUSH_NULL                       
+                        322     LOAD_CONST                      5: '__pyarmor_exit_16709__'
+                        324     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        326     BUILD_TUPLE                     1
+                        328     CALL_FUNCTION_EX                0
+                        330     POP_TOP                         
+                        332     RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 316 [0] lasti
+                        32 to 142 -> 288 [0] 
+                        142 to 144 -> 284 [2] 
+                        144 to 264 -> 288 [0] 
+                        264 to 284 -> 316 [0] lasti
+                        284 to 286 -> 288 [0] 
+                        288 to 310 -> 310 [1] lasti
+                        310 to 316 -> 316 [0] lasti
+                [Code]
+                    File Name: <frozen multithon.client.account>
+                    Object Name: __aexit__
+                    Qualified Name: _TakeoutClient.__aexit__
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_TakeoutClient__success'
+                        '_TakeoutClient__finalize'
+                        'functions'
+                        'account'
+                        'FinishTakeoutSessionRequest'
+                        'ValueError'
+                        'session'
+                        'takeout_id'
+                    [Locals+Names]
+                        'self'
+                        'exc_type'
+                        'exc_value'
+                        'traceback'
+                        '__assert_armored__'
+                        '_var_var_1'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_16710__'
+                        '__pyarmor_enter_16711__'
+                        b'<COAddr>\x07\x00\x00\x1e*\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'Failed to finish the takeout.'   # b'\x81\xc4\x19\x1a?\xff\xba\x92\x0f\xf5M\xc6e\xe2\xf1\x96\x07\x1d\xaf\xaf\xaf\x8bZ\xcd\x0ej\xacI\x14\xff'
+                        '__pyarmor_exit_16712__'
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_16711__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e*\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       0: _TakeoutClient__success
+                        54      POP_JUMP_IF_NOT_NONE            21 (to 98)
+                        56      LOAD_FAST                       0: self
+                        58      LOAD_ATTR                       2: _TakeoutClient__finalize
+                        78      POP_JUMP_IF_FALSE               9 (to 98)
+                        80      LOAD_FAST                       1: exc_type
+                        82      LOAD_CONST                      0: None
+                        84      IS_OP                           0 (is)
+                        86      LOAD_FAST                       0: self
+                        88      STORE_ATTR                      0: _TakeoutClient__success
+                        98      LOAD_FAST                       0: self
+                        100     LOAD_ATTR                       0: _TakeoutClient__success
+                        120     POP_JUMP_IF_NONE                91 (to 304)
+                        122     PUSH_NULL                       
+                        124     LOAD_FAST                       0: self
+                        126     LOAD_GLOBAL                     4: functions
+                        136     LOAD_ATTR                       6: account
+                        156     LOAD_ATTR                       9: FinishTakeoutSessionRequest
+                        176     LOAD_FAST                       0: self
+                        178     LOAD_ATTR                       0: _TakeoutClient__success
+                        198     CALL                            1
+                        206     CALL                            1
+                        214     GET_AWAITABLE                   0
+                        216     LOAD_CONST                      0: None
+                        218     SEND                            3 (to 226)
+                        222     YIELD_VALUE                     3
+                        224     RESUME                          3
+                        226     JUMP_BACKWARD_NO_INTERRUPT      5 (to 218)
+                        228     END_SEND                        
+                        230     STORE_FAST                      5: _var_var_1
+                        232     LOAD_FAST                       5: _var_var_1
+                        234     POP_JUMP_IF_TRUE                17 (to 270)
+                        236     LOAD_GLOBAL                     11: NULL + ValueError
+                        246     PUSH_NULL                       
+                        248     LOAD_CONST                      1: '__pyarmor_assert_16710__'
+                        250     LOAD_CONST                      4: 'Failed to finish the takeout.'   # b'\x81\xc4\x19\x1a?\xff\xba\x92\x0f\xf5M\xc6e\xe2\xf1\x96\x07\x1d\xaf\xaf\xaf\x8bZ\xcd\x0ej\xacI\x14\xff'
+                        252     CALL                            1
+                        260     CALL                            1
+                        268     RAISE_VARARGS                   1
+                        270     LOAD_CONST                      0: None
+                        272     LOAD_FAST                       0: self
+                        274     LOAD_ATTR                       12: session
+                        294     STORE_ATTR                      7: takeout_id
+                        304     LOAD_CONST                      0: None
+                        306     NOP                             
+                        308     NOP                             
+                        310     NOP                             
+                        312     JUMP_FORWARD                    23 (to 360)
+                        320     POP_TOP                         
+                        322     RETURN_CONST                    0: None
+                        324     CLEANUP_THROW                   
+                        326     JUMP_BACKWARD                   50 (to 228)
+                        328     PUSH_EXC_INFO                   
+                        330     PUSH_NULL                       
+                        332     LOAD_CONST                      5: '__pyarmor_exit_16712__'
+                        334     NOP                             
+                        336     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e*\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        338     CALL                            1
+                        346     POP_TOP                         
+                        348     RERAISE                         0
+                        350     COPY                            3
+                        352     POP_EXCEPT                      
+                        354     RERAISE                         1
+                        356     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        358     RERAISE                         1
+                        360     PUSH_NULL                       
+                        362     LOAD_CONST                      5: '__pyarmor_exit_16712__'
+                        364     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e*\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        366     BUILD_TUPLE                     1
+                        368     CALL_FUNCTION_EX                0
+                        370     POP_TOP                         
+                        372     RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 356 [0] lasti
+                        32 to 222 -> 328 [0] 
+                        222 to 224 -> 324 [2] 
+                        224 to 304 -> 328 [0] 
+                        304 to 324 -> 356 [0] lasti
+                        324 to 326 -> 328 [0] 
+                        328 to 350 -> 350 [1] lasti
+                        350 to 356 -> 356 [0] lasti
+                [Code]
+                    File Name: <frozen multithon.client.account>
+                    Object Name: __call__
+                    Qualified Name: _TakeoutClient.__call__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_TakeoutClient__client'
+                        'session'
+                        'takeout_id'
+                        'ValueError'
+                        'utils'
+                        'is_list_like'
+                        'isinstance'
+                        'TLRequest'
+                        '_NOT_A_REQUEST'
+                        'resolve'
+                        'append'
+                        'functions'
+                        'InvokeWithTakeoutRequest'
+                    [Locals+Names]
+                        'self'
+                        'request'
+                        'ordered'
+                        '__assert_armored__'
+                        '_var_var_2'
+                        '_var_var_3'
+                        '_var_var_4'
+                        '_var_var_5'
+                        '_var_var_6'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_16713__'
+                        '__pyarmor_enter_16714__'
+                        b'<COAddr>\x05\x00\x00\x1e\xcc\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'Takeout mode has not been initialized (are you calling outside of "with"?)'   # b'\x81\xd6\x19\x186\xf5\xab\xc6[\xf7\x02\xc4i\xac\xf0\x84\x1c\x1d\xb5\xa8\xbe\x8bL\xc9\x00a\xe3U\x0e\xb8\n\xec;^)\x17\x9d\xce\xf4f\x19\xfb\xfd\x1d\xc4\xd7\x1a\x074\xecZ\xf7\x8e~\x01\xad8\xfe\x8f\x0e\x11O4\x13XNE\xc1\xca>\xf8\xb7\xd1=u'
+                        0
+                        (
+                            'ordered'
+                        )
+                        '__pyarmor_exit_16715__'
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_16714__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\xcc\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      LOAD_FAST                       0: self
+                        34      LOAD_ATTR                       0: _TakeoutClient__client
+                        54      LOAD_ATTR                       2: session
+                        74      LOAD_ATTR                       4: takeout_id
+                        94      STORE_FAST                      4: _var_var_2
+                        96      LOAD_FAST                       4: _var_var_2
+                        98      POP_JUMP_IF_NOT_NONE            17 (to 134)
+                        100     LOAD_GLOBAL                     7: NULL + ValueError
+                        110     PUSH_NULL                       
+                        112     LOAD_CONST                      1: '__pyarmor_assert_16713__'
+                        114     LOAD_CONST                      4: 'Takeout mode has not been initialized (are you calling outside of "with"?)'   # b'\x81\xd6\x19\x186\xf5\xab\xc6[\xf7\x02\xc4i\xac\xf0\x84\x1c\x1d\xb5\xa8\xbe\x8bL\xc9\x00a\xe3U\x0e\xb8\n\xec;^)\x17\x9d\xce\xf4f\x19\xfb\xfd\x1d\xc4\xd7\x1a\x074\xecZ\xf7\x8e~\x01\xad8\xfe\x8f\x0e\x11O4\x13XNE\xc1\xca>\xf8\xb7\xd1=u'
+                        116     CALL                            1
+                        124     CALL                            1
+                        132     RAISE_VARARGS                   1
+                        134     LOAD_GLOBAL                     9: NULL + utils
+                        144     LOAD_ATTR                       10: is_list_like
+                        164     LOAD_FAST                       1: request
+                        166     CALL                            1
+                        174     UNARY_NOT                       
+                        176     STORE_FAST                      5: _var_var_3
+                        178     LOAD_FAST                       5: _var_var_3
+                        180     POP_JUMP_IF_FALSE               3 (to 188)
+                        182     LOAD_FAST                       1: request
+                        184     BUILD_TUPLE                     1
+                        186     JUMP_FORWARD                    1 (to 190)
+                        188     LOAD_FAST                       1: request
+                        190     STORE_FAST                      6: _var_var_4
+                        192     BUILD_LIST                      0
+                        194     STORE_FAST                      7: _var_var_5
+                        196     LOAD_FAST                       6: _var_var_4
+                        198     GET_ITER                        
+                        200     FOR_ITER                        95 (to 392)
+                        204     STORE_FAST                      8: _var_var_6
+                        206     LOAD_GLOBAL                     13: NULL + isinstance
+                        216     LOAD_FAST                       8: _var_var_6
+                        218     LOAD_GLOBAL                     14: TLRequest
+                        228     CALL                            2
+                        236     POP_JUMP_IF_TRUE                10 (to 258)
+                        238     LOAD_GLOBAL                     17: NULL + _NOT_A_REQUEST
+                        248     CALL                            0
+                        256     RAISE_VARARGS                   1
+                        258     LOAD_FAST                       8: _var_var_6
+                        260     LOAD_ATTR                       19: resolve
+                        280     LOAD_FAST                       0: self
+                        282     LOAD_GLOBAL                     8: utils
+                        292     CALL                            2
+                        300     GET_AWAITABLE                   0
+                        302     LOAD_CONST                      0: None
+                        304     SEND                            3 (to 312)
+                        308     YIELD_VALUE                     3
+                        310     RESUME                          3
+                        312     JUMP_BACKWARD_NO_INTERRUPT      5 (to 304)
+                        314     END_SEND                        
+                        316     POP_TOP                         
+                        318     LOAD_FAST                       7: _var_var_5
+                        320     LOAD_ATTR                       21: append
+                        340     LOAD_GLOBAL                     23: NULL + functions
+                        350     LOAD_ATTR                       24: InvokeWithTakeoutRequest
+                        370     LOAD_FAST                       4: _var_var_2
+                        372     LOAD_FAST                       8: _var_var_6
+                        374     CALL                            2
+                        382     CALL                            1
+                        390     POP_TOP                         
+                        392     JUMP_BACKWARD                   97 (to 200)
+                        394     END_FOR                         
+                        396     LOAD_FAST                       0: self
+                        398     LOAD_ATTR                       1: _TakeoutClient__client
+                        418     LOAD_FAST                       5: _var_var_3
+                        420     POP_JUMP_IF_FALSE               5 (to 432)
+                        422     LOAD_FAST                       7: _var_var_5
+                        424     LOAD_CONST                      5: 0
+                        426     BINARY_SUBSCR                   
+                        430     JUMP_FORWARD                    1 (to 434)
+                        432     LOAD_FAST                       7: _var_var_5
+                        434     LOAD_FAST                       2: ordered
+                        436     KW_NAMES                        6: ('ordered',)
+                        438     CALL                            2
+                        446     GET_AWAITABLE                   0
+                        448     LOAD_CONST                      0: None
+                        450     SEND                            3 (to 458)
+                        454     YIELD_VALUE                     3
+                        456     RESUME                          3
+                        458     JUMP_BACKWARD_NO_INTERRUPT      5 (to 450)
+                        460     END_SEND                        
+                        462     NOP                             
+                        464     NOP                             
+                        466     NOP                             
+                        468     JUMP_FORWARD                    26 (to 522)
+                        470     CALL                            1
+                        478     POP_TOP                         
+                        480     RETURN_VALUE                    
+                        482     CLEANUP_THROW                   
+                        484     JUMP_BACKWARD                   86 (to 314)
+                        486     CLEANUP_THROW                   
+                        488     JUMP_BACKWARD                   15 (to 460)
+                        490     PUSH_EXC_INFO                   
+                        492     PUSH_NULL                       
+                        494     LOAD_CONST                      7: '__pyarmor_exit_16715__'
+                        496     NOP                             
+                        498     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\xcc\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        500     CALL                            1
+                        508     POP_TOP                         
+                        510     RERAISE                         0
+                        512     COPY                            3
+                        514     POP_EXCEPT                      
+                        516     RERAISE                         1
+                        518     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        520     RERAISE                         1
+                        522     PUSH_NULL                       
+                        524     LOAD_CONST                      7: '__pyarmor_exit_16715__'
+                        526     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\xcc\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        528     BUILD_TUPLE                     1
+                        530     CALL_FUNCTION_EX                0
+                        532     POP_TOP                         
+                        534     RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 518 [0] lasti
+                        32 to 308 -> 490 [0] 
+                        308 to 310 -> 482 [3] 
+                        310 to 454 -> 490 [0] 
+                        454 to 456 -> 486 [2] 
+                        456 to 462 -> 490 [0] 
+                        462 to 482 -> 518 [0] lasti
+                        482 to 484 -> 490 [0] 
+                        486 to 488 -> 490 [0] 
+                        490 to 512 -> 512 [1] lasti
+                        512 to 518 -> 518 [0] lasti
+                [Code]
+                    File Name: <frozen multithon.client.account>
+                    Object Name: __getattribute__
+                    Qualified Name: _TakeoutClient.__getattribute__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'startswith'
+                        'type'
+                        '_TakeoutClient__PROXY_INTERFACE'
+                        'AttributeError'
+                        'super'
+                        '__getattribute__'
+                    [Locals+Names]
+                        'self'
+                        'name'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_16716__'
+                        '__pyarmor_enter_16717__'
+                        b'<COAddr>\x05\x00\x00\x1c\x8e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__'
+                        '__pyarmor_exit_16718__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_16717__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\x8e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_FAST                       1: name
+                        32      LOAD_ATTR                       1: startswith
+                        52      LOAD_CONST                      4: '__'
+                        54      CALL                            1
+                        62      POP_JUMP_IF_FALSE               29 (to 122)
+                        64      LOAD_FAST                       1: name
+                        66      LOAD_GLOBAL                     3: NULL + type
+                        76      LOAD_FAST                       0: self
+                        78      CALL                            1
+                        86      LOAD_ATTR                       4: _TakeoutClient__PROXY_INTERFACE
+                        106     CONTAINS_OP                     1 (not in)
+                        108     POP_JUMP_IF_FALSE               6 (to 122)
+                        110     LOAD_GLOBAL                     6: AttributeError
+                        120     RAISE_VARARGS                   1
+                        122     LOAD_GLOBAL                     8: super
+                        132     LOAD_DEREF                      3: __class__
+                        134     LOAD_FAST                       0: self
+                        136     LOAD_SUPER_ATTR                 21: __getattribute__
+                        140     LOAD_FAST                       1: name
+                        142     CALL                            1
+                        150     NOP                             
+                        152     NOP                             
+                        154     NOP                             
+                        156     JUMP_FORWARD                    20 (to 198)
+                        158     CALL                            1
+                        166     POP_TOP                         
+                        168     RETURN_VALUE                    
+                        170     PUSH_EXC_INFO                   
+                        172     PUSH_NULL                       
+                        174     LOAD_CONST                      5: '__pyarmor_exit_16718__'
+                        176     NOP                             
+                        178     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\x8e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        180     CALL                            1
+                        188     POP_TOP                         
+                        190     RERAISE                         0
+                        192     COPY                            3
+                        194     POP_EXCEPT                      
+                        196     RERAISE                         1
+                        198     PUSH_NULL                       
+                        200     LOAD_CONST                      5: '__pyarmor_exit_16718__'
+                        202     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c\x8e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        204     BUILD_TUPLE                     1
+                        206     CALL_FUNCTION_EX                0
+                        208     POP_TOP                         
+                        210     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 150 -> 170 [0] 
+                        170 to 192 -> 192 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.client.account>
+                    Object Name: __getattr__
+                    Qualified Name: _TakeoutClient.__getattr__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'getattr'
+                        '_TakeoutClient__client'
+                        'inspect'
+                        'ismethod'
+                        'functools'
+                        'partial'
+                        '__class__'
+                    [Locals+Names]
+                        'self'
+                        'name'
+                        '__assert_armored__'
+                        '_var_var_7'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_16719__'
+                        '__pyarmor_enter_16720__'
+                        b'<COAddr>\x07\x00\x00\x1a\xe8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_16721__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_16720__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xe8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + getattr
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_ATTR                       2: _TakeoutClient__client
+                        60      LOAD_FAST                       1: name
+                        62      CALL                            2
+                        70      STORE_FAST                      3: _var_var_7
+                        72      LOAD_GLOBAL                     5: NULL + inspect
+                        82      LOAD_ATTR                       6: ismethod
+                        102     LOAD_FAST                       3: _var_var_7
+                        104     CALL                            1
+                        112     POP_JUMP_IF_FALSE               61 (to 236)
+                        114     LOAD_GLOBAL                     9: NULL + functools
+                        124     LOAD_ATTR                       10: partial
+                        144     LOAD_GLOBAL                     1: NULL + getattr
+                        154     LOAD_FAST                       0: self
+                        156     LOAD_ATTR                       2: _TakeoutClient__client
+                        176     LOAD_ATTR                       12: __class__
+                        196     LOAD_FAST                       1: name
+                        198     CALL                            2
+                        206     LOAD_FAST                       0: self
+                        208     CALL                            2
+                        216     NOP                             
+                        218     NOP                             
+                        220     NOP                             
+                        222     JUMP_FORWARD                    31 (to 286)
+                        224     CALL                            1
+                        232     POP_TOP                         
+                        234     RETURN_VALUE                    
+                        236     LOAD_FAST                       3: _var_var_7
+                        238     NOP                             
+                        240     NOP                             
+                        242     NOP                             
+                        244     JUMP_FORWARD                    20 (to 286)
+                        246     CALL                            1
+                        254     POP_TOP                         
+                        256     RETURN_VALUE                    
+                        258     PUSH_EXC_INFO                   
+                        260     PUSH_NULL                       
+                        262     LOAD_CONST                      4: '__pyarmor_exit_16721__'
+                        264     NOP                             
+                        266     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xe8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        268     CALL                            1
+                        276     POP_TOP                         
+                        278     RERAISE                         0
+                        280     COPY                            3
+                        282     POP_EXCEPT                      
+                        284     RERAISE                         1
+                        286     PUSH_NULL                       
+                        288     LOAD_CONST                      4: '__pyarmor_exit_16721__'
+                        290     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xe8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        292     BUILD_TUPLE                     1
+                        294     CALL_FUNCTION_EX                0
+                        296     POP_TOP                         
+                        298     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 216 -> 258 [0] 
+                        236 to 238 -> 258 [0] 
+                        258 to 280 -> 280 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.client.account>
+                    Object Name: __setattr__
+                    Qualified Name: _TakeoutClient.__setattr__
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'startswith'
+                        'format'
+                        'type'
+                        '__name__'
+                        'lstrip'
+                        'super'
+                        '__setattr__'
+                        'setattr'
+                        '_TakeoutClient__client'
+                    [Locals+Names]
+                        'self'
+                        'name'
+                        'value'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_16722__'
+                        '__pyarmor_enter_16723__'
+                        b'<COAddr>\x07\x00\x00\x1c\xf8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '_{}__'
+                        '_'
+                        '__pyarmor_exit_16724__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_16723__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\xf8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_FAST                       1: name
+                        32      LOAD_ATTR                       1: startswith
+                        52      LOAD_CONST                      4: '_{}__'
+                        54      LOAD_ATTR                       3: format
+                        74      LOAD_GLOBAL                     5: NULL + type
+                        84      LOAD_FAST                       0: self
+                        86      CALL                            1
+                        94      LOAD_ATTR                       6: __name__
+                        114     LOAD_ATTR                       9: lstrip
+                        134     LOAD_CONST                      5: '_'
+                        136     CALL                            1
+                        144     CALL                            1
+                        152     CALL                            1
+                        160     POP_JUMP_IF_FALSE               25 (to 212)
+                        162     LOAD_GLOBAL                     10: super
+                        172     LOAD_DEREF                      4: __class__
+                        174     LOAD_FAST                       0: self
+                        176     LOAD_SUPER_ATTR                 25: __setattr__
+                        180     LOAD_FAST                       1: name
+                        182     LOAD_FAST                       2: value
+                        184     CALL                            2
+                        192     NOP                             
+                        194     NOP                             
+                        196     NOP                             
+                        198     JUMP_FORWARD                    52 (to 304)
+                        200     CALL                            1
+                        208     POP_TOP                         
+                        210     RETURN_VALUE                    
+                        212     LOAD_GLOBAL                     15: NULL + setattr
+                        222     LOAD_FAST                       0: self
+                        224     LOAD_ATTR                       16: _TakeoutClient__client
+                        244     LOAD_FAST                       1: name
+                        246     LOAD_FAST                       2: value
+                        248     CALL                            3
+                        256     NOP                             
+                        258     NOP                             
+                        260     NOP                             
+                        262     JUMP_FORWARD                    20 (to 304)
+                        264     CALL                            1
+                        272     POP_TOP                         
+                        274     RETURN_VALUE                    
+                        276     PUSH_EXC_INFO                   
+                        278     PUSH_NULL                       
+                        280     LOAD_CONST                      6: '__pyarmor_exit_16724__'
+                        282     NOP                             
+                        284     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\xf8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        286     CALL                            1
+                        294     POP_TOP                         
+                        296     RERAISE                         0
+                        298     COPY                            3
+                        300     POP_EXCEPT                      
+                        302     RERAISE                         1
+                        304     PUSH_NULL                       
+                        306     LOAD_CONST                      6: '__pyarmor_exit_16724__'
+                        308     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\xf8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        310     BUILD_TUPLE                     1
+                        312     CALL_FUNCTION_EX                0
+                        314     POP_TOP                         
+                        316     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 192 -> 276 [0] 
+                        212 to 256 -> 276 [0] 
+                        276 to 298 -> 298 [1] lasti
+                '__pyarmor_exit_16697__'
+                (
+                    False
+                )
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: '_TakeoutClient'
+                10      STORE_NAME                      2: __qualname__
+                12      LOAD_CONST                      1: '\n    Proxy object over the client.\n    '
+                14      STORE_NAME                      3: __doc__
+                16      NOP                             
+                18      PUSH_NULL                       
+                20      LOAD_CONST                      3: '__pyarmor_enter_16696__'
+                22      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(\xe4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                24      BUILD_TUPLE                     1
+                26      CALL_FUNCTION_EX                0
+                28      POP_TOP                         
+                30      RESUME                          0
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      PUSH_NULL                       
+                44      LOAD_CONST                      2: '__pyarmor_assert_16695__'
+                46      LOAD_CONST                      5: '__enter__'   # b"\x81\xdd'\x16=\xee\xbb\xc0$\xc5"
+                48      CALL                            1
+                56      LOAD_CONST                      6: '__exit__'
+                58      PUSH_NULL                       
+                60      LOAD_CONST                      2: '__pyarmor_assert_16695__'
+                62      LOAD_CONST                      7: '__aenter__'   # b"\x81\xdd'\x126\xf4\xaa\xd7\t\xc52"
+                64      CALL                            1
+                72      PUSH_NULL                       
+                74      LOAD_CONST                      2: '__pyarmor_assert_16695__'
+                76      LOAD_CONST                      8: '__aexit__'   # b"\x81\xdd'\x126\xe2\xb7\xc6$\xc5"
+                78      CALL                            1
+                86      BUILD_TUPLE                     4
+                88      STORE_NAME                      5: _TakeoutClient__PROXY_INTERFACE
+                90      LOAD_CONST                      9: <CODE> __init__
+                92      MAKE_FUNCTION                   0
+                94      STORE_NAME                      6: __init__
+                96      LOAD_NAME                       7: property
+                98      LOAD_CONST                      10: <CODE> success
+                100     MAKE_FUNCTION                   0
+                102     CALL                            0
+                110     STORE_NAME                      8: success
+                112     LOAD_NAME                       8: success
+                114     LOAD_ATTR                       18: setter
+                134     LOAD_CONST                      11: <CODE> success
+                136     MAKE_FUNCTION                   0
+                138     CALL                            0
+                146     STORE_NAME                      8: success
+                148     LOAD_CONST                      12: <CODE> __aenter__
+                150     MAKE_FUNCTION                   0
+                152     STORE_NAME                      10: __aenter__
+                154     LOAD_CONST                      13: <CODE> __aexit__
+                156     MAKE_FUNCTION                   0
+                158     STORE_NAME                      11: __aexit__
+                160     LOAD_NAME                       12: helpers
+                162     LOAD_ATTR                       26: _sync_enter
+                182     STORE_NAME                      14: __enter__
+                184     LOAD_NAME                       12: helpers
+                186     LOAD_ATTR                       30: _sync_exit
+                206     STORE_NAME                      16: __exit__
+                208     LOAD_CONST                      19: (False,)
+                210     LOAD_CONST                      14: <CODE> __call__
+                212     MAKE_FUNCTION                   1
+                214     STORE_NAME                      17: __call__
+                216     LOAD_CLOSURE                    0: __class__
+                218     BUILD_TUPLE                     1
+                220     LOAD_CONST                      15: <CODE> __getattribute__
+                222     MAKE_FUNCTION                   8
+                224     STORE_NAME                      18: __getattribute__
+                226     LOAD_CONST                      16: <CODE> __getattr__
+                228     MAKE_FUNCTION                   0
+                230     STORE_NAME                      19: __getattr__
+                232     LOAD_CLOSURE                    0: __class__
+                234     BUILD_TUPLE                     1
+                236     LOAD_CONST                      17: <CODE> __setattr__
+                238     MAKE_FUNCTION                   8
+                240     STORE_NAME                      20: __setattr__
+                242     LOAD_CLOSURE                    0: __class__
+                244     COPY                            1
+                246     STORE_NAME                      21: __classcell__
+                248     NOP                             
+                250     NOP                             
+                252     NOP                             
+                254     JUMP_FORWARD                    20 (to 296)
+                258     POP_TOP                         
+                260     LOAD_CLOSURE                    0: __class__
+                262     COPY                            1
+                264     STORE_NAME                      21: __classcell__
+                266     RETURN_VALUE                    
+                268     PUSH_EXC_INFO                   
+                270     PUSH_NULL                       
+                272     LOAD_CONST                      18: '__pyarmor_exit_16697__'
+                274     NOP                             
+                276     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(\xe4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                278     CALL                            1
+                286     POP_TOP                         
+                288     RERAISE                         0
+                290     COPY                            3
+                292     POP_EXCEPT                      
+                294     RERAISE                         1
+                296     PUSH_NULL                       
+                298     LOAD_CONST                      18: '__pyarmor_exit_16697__'
+                300     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(\xe4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                302     BUILD_TUPLE                     1
+                304     CALL_FUNCTION_EX                0
+                306     POP_TOP                         
+                308     RETURN_VALUE                    
+            [Exception Table]
+                42 to 242 -> 268 [0] 
+                268 to 290 -> 290 [1] lasti
+        '_TakeoutClient'
+        [Code]
+            File Name: <frozen multithon.client.account>
+            Object Name: AccountMethods
+            Qualified Name: AccountMethods
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 24
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+                'bool'
+                'takeout'
+                'end_takeout'
+            [Locals+Names]
+            [Constants]
+                'AccountMethods'
+                '__pyarmor_assert_16725__'
+                '__pyarmor_enter_16726__'
+                b'<COAddr>\x05\x00\x00"\x94\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                None
+                (
+                    'contacts'
+                    'users'
+                    'chats'
+                    'megagroups'
+                    'channels'
+                    'files'
+                    'max_file_size'
+                )
+                'self'
+                'TelegramClient'   # b'\x81\xd6\x1d\x1f6\xfd\xac\xd3\x16\xd9\x01\xc9i\xe2\xec'
+                'finalize'
+                'contacts'
+                'users'
+                'chats'
+                'megagroups'
+                'channels'
+                'files'
+                'max_file_size'
+                'return'
+                [Code]
+                    File Name: <frozen multithon.client.account>
+                    Object Name: takeout
+                    Qualified Name: AccountMethods.takeout
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 7
+                    Stack Size: 9
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'dict'
+                        'values'
+                        'session'
+                        'takeout_id'
+                        'any'
+                        'functions'
+                        'account'
+                        'InitTakeoutSessionRequest'
+                        '_TakeoutClient'
+                    [Locals+Names]
+                        'self'
+                        'finalize'
+                        'contacts'
+                        'users'
+                        'chats'
+                        'megagroups'
+                        'channels'
+                        'files'
+                        'max_file_size'
+                        '__assert_armored__'
+                        '_var_var_8'
+                        '_var_var_9'
+                        '_var_var_10'
+                    [Constants]
+                        "\n        Returns a :ref:`telethon-client` which calls methods behind a takeout session.\n\n        It does so by creating a proxy object over the current client through\n        which making requests will use :tl:`InvokeWithTakeoutRequest` to wrap\n        them. In other words, returns the current client modified so that\n        requests are done as a takeout:\n\n        Some of the calls made through the takeout session will have lower\n        flood limits. This is useful if you want to export the data from\n        conversations or mass-download media, since the rate limits will\n        be lower. Only some requests will be affected, and you will need\n        to adjust the `wait_time` of methods like `client.iter_messages\n        <telethon.client.messages.MessageMethods.iter_messages>`.\n\n        By default, all parameters are `None`, and you need to enable those\n        you plan to use by setting them to either `True` or `False`.\n\n        You should ``except errors.TakeoutInitDelayError as e``, since this\n        exception will raise depending on the condition of the session. You\n        can then access ``e.seconds`` to know how long you should wait for\n        before calling the method again.\n\n        There's also a `success` property available in the takeout proxy\n        object, so from the `with` body you can set the boolean result that\n        will be sent back to Telegram. But if it's left `None` as by\n        default, then the action is based on the `finalize` parameter. If\n        it's `True` then the takeout will be finished, and if no exception\n        occurred during it, then `True` will be considered as a result.\n        Otherwise, the takeout will not be finished and its ID will be\n        preserved for future usage as `client.session.takeout_id\n        <telethon.sessions.abstract.Session.takeout_id>`.\n\n        Arguments\n            finalize (`bool`):\n                Whether the takeout session should be finalized upon\n                exit or not.\n\n            contacts (`bool`):\n                Set to `True` if you plan on downloading contacts.\n\n            users (`bool`):\n                Set to `True` if you plan on downloading information\n                from users and their private conversations with you.\n\n            chats (`bool`):\n                Set to `True` if you plan on downloading information\n                from small group chats, such as messages and media.\n\n            megagroups (`bool`):\n                Set to `True` if you plan on downloading information\n                from megagroups (channels), such as messages and media.\n\n            channels (`bool`):\n                Set to `True` if you plan on downloading information\n                from broadcast channels, such as messages and media.\n\n            files (`bool`):\n                Set to `True` if you plan on downloading media and\n                you don't only wish to export messages.\n\n            max_file_size (`int`):\n                The maximum file size, in bytes, that you plan\n                to download for each message with media.\n\n        Example\n            .. code-block:: python\n\n                from multithon import errors\n\n                try:\n                    async with client.takeout() as takeout:\n                        await client.get_messages('me')  # normal call\n                        await takeout.get_messages('me')  # wrapped through takeout (less limits)\n\n                        async for message in takeout.iter_messages(chat, wait_time=0):\n                            ...  # Do something with the message\n\n                except errors.TakeoutInitDelayError as e:\n                    print('Must wait', e.seconds, 'before takeout')\n        "
+                        '__pyarmor_assert_16728__'
+                        '__pyarmor_enter_16729__'
+                        b'<COAddr>\x05\x00\x00\x1a\x06\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        (
+                            'contacts'
+                            'message_users'
+                            'message_chats'
+                            'message_megagroups'
+                            'message_channels'
+                            'files'
+                            'file_max_size'
+                        )
+                        [Code]
+                            File Name: <frozen multithon.client.account>
+                            Object Name: <genexpr>
+                            Qualified Name: AccountMethods.takeout.<locals>.<genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Stack Size: 3
+                            Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                            [Names]
+                            [Locals+Names]
+                                '.0'
+                                '_var_var_11'
+                            [Constants]
+                                None
+                            [Disassembly]
+                                0       RETURN_GENERATOR                
+                                2       POP_TOP                         
+                                4       RESUME                          0
+                                6       LOAD_FAST                       0: .0
+                                8       FOR_ITER                        8 (to 26)
+                                12      STORE_FAST                      1: _var_var_11
+                                14      LOAD_FAST                       1: _var_var_11
+                                16      LOAD_CONST                      0: None
+                                18      IS_OP                           1 (is not)
+                                20      YIELD_VALUE                     1
+                                22      RESUME                          1
+                                24      POP_TOP                         
+                                26      JUMP_BACKWARD                   10 (to 8)
+                                28      END_FOR                         
+                                30      RETURN_CONST                    0: None
+                                32      CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                                34      RERAISE                         1
+                            [Exception Table]
+                                4 to 32 -> 32 [0] lasti
+                        None
+                        '__pyarmor_exit_16730__'
+                        (
+                        )
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_16729__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x06\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + dict
+                        38      LOAD_FAST                       2: contacts
+                        40      LOAD_FAST                       3: users
+                        42      LOAD_FAST                       4: chats
+                        44      LOAD_FAST                       5: megagroups
+                        46      LOAD_FAST                       6: channels
+                        48      LOAD_FAST                       7: files
+                        50      LOAD_FAST                       8: max_file_size
+                        52      KW_NAMES                        4: ('contacts', 'message_users', 'message_chats', 'message_megagroups', 'message_channels', 'files', 'file_max_size')
+                        54      CALL                            7
+                        62      STORE_FAST                      10: _var_var_8
+                        64      LOAD_CONST                      5: <CODE> <genexpr>
+                        66      MAKE_FUNCTION                   0
+                        68      LOAD_FAST                       10: _var_var_8
+                        70      LOAD_ATTR                       3: values
+                        90      CALL                            0
+                        98      GET_ITER                        
+                        100     CALL                            0
+                        108     STORE_FAST                      11: _var_var_9
+                        110     LOAD_FAST                       0: self
+                        112     LOAD_ATTR                       4: session
+                        132     LOAD_ATTR                       6: takeout_id
+                        152     POP_JUMP_IF_NONE                11 (to 176)
+                        154     LOAD_GLOBAL                     9: NULL + any
+                        164     LOAD_FAST                       11: _var_var_9
+                        166     CALL                            1
+                        174     POP_JUMP_IF_FALSE               32 (to 240)
+                        176     LOAD_GLOBAL                     11: NULL + functions
+                        186     LOAD_ATTR                       12: account
+                        206     LOAD_ATTR                       14: InitTakeoutSessionRequest
+                        226     LOAD_CONST                      8: ()
+                        228     BUILD_MAP                       0
+                        230     LOAD_FAST                       10: _var_var_8
+                        232     DICT_MERGE                      1
+                        234     CALL_FUNCTION_EX                1
+                        236     STORE_FAST                      12: _var_var_10
+                        238     JUMP_FORWARD                    2 (to 244)
+                        240     LOAD_CONST                      6: None
+                        242     STORE_FAST                      12: _var_var_10
+                        244     LOAD_GLOBAL                     17: NULL + _TakeoutClient
+                        254     LOAD_FAST                       1: finalize
+                        256     LOAD_FAST                       0: self
+                        258     LOAD_FAST                       12: _var_var_10
+                        260     CALL                            3
+                        268     NOP                             
+                        270     NOP                             
+                        272     NOP                             
+                        274     JUMP_FORWARD                    20 (to 316)
+                        276     CALL                            1
+                        284     POP_TOP                         
+                        286     RETURN_VALUE                    
+                        288     PUSH_EXC_INFO                   
+                        290     PUSH_NULL                       
+                        292     LOAD_CONST                      7: '__pyarmor_exit_16730__'
+                        294     NOP                             
+                        296     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x06\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        298     CALL                            1
+                        306     POP_TOP                         
+                        308     RERAISE                         0
+                        310     COPY                            3
+                        312     POP_EXCEPT                      
+                        314     RERAISE                         1
+                        316     PUSH_NULL                       
+                        318     LOAD_CONST                      7: '__pyarmor_exit_16730__'
+                        320     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x06\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        322     BUILD_TUPLE                     1
+                        324     CALL_FUNCTION_EX                0
+                        326     POP_TOP                         
+                        328     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 268 -> 288 [0] 
+                        288 to 310 -> 310 [1] lasti
+                'success'
+                [Code]
+                    File Name: <frozen multithon.client.account>
+                    Object Name: end_takeout
+                    Qualified Name: AccountMethods.end_takeout
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_TakeoutClient'
+                        'success'
+                        'ValueError'
+                    [Locals+Names]
+                        'self'
+                        'success'
+                        '__assert_armored__'
+                        '_var_var_12'
+                    [Constants]
+                        '\n        Finishes the current takeout session.\n\n        Arguments\n            success (`bool`):\n                Whether the takeout completed successfully or not.\n\n        Returns\n            `True` if the operation was successful, `False` otherwise.\n\n        Example\n            .. code-block:: python\n\n                await client.end_takeout(success=False)\n        '
+                        '__pyarmor_assert_16731__'
+                        '__pyarmor_enter_16732__'
+                        b'<COAddr>\x05\x00\x00\x1e\xd4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        True
+                        None
+                        '__pyarmor_exit_16733__'
+                        False
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_16732__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\xd4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      NOP                             
+                        34      LOAD_GLOBAL                     1: NULL + _TakeoutClient
+                        44      LOAD_CONST                      4: True
+                        46      LOAD_FAST                       0: self
+                        48      LOAD_CONST                      5: None
+                        50      CALL                            3
+                        58      BEFORE_ASYNC_WITH               
+                        60      GET_AWAITABLE                   1
+                        62      LOAD_CONST                      5: None
+                        64      SEND                            3 (to 72)
+                        68      YIELD_VALUE                     4
+                        70      RESUME                          3
+                        72      JUMP_BACKWARD_NO_INTERRUPT      5 (to 64)
+                        74      END_SEND                        
+                        76      STORE_FAST                      3: _var_var_12
+                        78      LOAD_FAST                       1: success
+                        80      LOAD_FAST                       3: _var_var_12
+                        82      STORE_ATTR                      1: success
+                        92      LOAD_CONST                      5: None
+                        94      LOAD_CONST                      5: None
+                        96      LOAD_CONST                      5: None
+                        98      CALL                            2
+                        106     GET_AWAITABLE                   2
+                        108     LOAD_CONST                      5: None
+                        110     SEND                            3 (to 118)
+                        114     YIELD_VALUE                     4
+                        116     RESUME                          3
+                        118     JUMP_BACKWARD_NO_INTERRUPT      5 (to 110)
+                        120     END_SEND                        
+                        122     POP_TOP                         
+                        124     LOAD_CONST                      4: True
+                        126     NOP                             
+                        128     NOP                             
+                        130     NOP                             
+                        132     JUMP_FORWARD                    70 (to 274)
+                        140     POP_TOP                         
+                        142     RETURN_CONST                    4: True
+                        144     CLEANUP_THROW                   
+                        146     JUMP_BACKWARD                   37 (to 74)
+                        148     CLEANUP_THROW                   
+                        150     JUMP_BACKWARD                   16 (to 120)
+                        152     PUSH_EXC_INFO                   
+                        154     WITH_EXCEPT_START               
+                        156     GET_AWAITABLE                   2
+                        158     LOAD_CONST                      5: None
+                        160     SEND                            4 (to 170)
+                        164     YIELD_VALUE                     5
+                        166     RESUME                          3
+                        168     JUMP_BACKWARD_NO_INTERRUPT      5 (to 160)
+                        170     CLEANUP_THROW                   
+                        172     END_SEND                        
+                        174     POP_JUMP_IF_TRUE                1 (to 178)
+                        176     RERAISE                         2
+                        178     POP_TOP                         
+                        180     POP_EXCEPT                      
+                        182     POP_TOP                         
+                        184     POP_TOP                         
+                        186     JUMP_BACKWARD                   32 (to 124)
+                        188     COPY                            3
+                        190     POP_EXCEPT                      
+                        192     RERAISE                         1
+                        194     PUSH_EXC_INFO                   
+                        196     LOAD_GLOBAL                     4: ValueError
+                        206     CHECK_EXC_MATCH                 
+                        208     POP_JUMP_IF_FALSE               12 (to 234)
+                        210     POP_TOP                         
+                        212     POP_EXCEPT                      
+                        214     LOAD_CONST                      7: False
+                        216     NOP                             
+                        218     NOP                             
+                        220     NOP                             
+                        222     JUMP_FORWARD                    25 (to 274)
+                        230     POP_TOP                         
+                        232     RETURN_CONST                    7: False
+                        234     RERAISE                         0
+                        236     COPY                            3
+                        238     POP_EXCEPT                      
+                        240     RERAISE                         1
+                        242     PUSH_EXC_INFO                   
+                        244     PUSH_NULL                       
+                        246     LOAD_CONST                      6: '__pyarmor_exit_16733__'
+                        248     NOP                             
+                        250     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\xd4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        252     CALL                            1
+                        260     POP_TOP                         
+                        262     RERAISE                         0
+                        264     COPY                            3
+                        266     POP_EXCEPT                      
+                        268     RERAISE                         1
+                        270     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        272     RERAISE                         1
+                        274     PUSH_NULL                       
+                        276     LOAD_CONST                      6: '__pyarmor_exit_16733__'
+                        278     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\xd4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        280     BUILD_TUPLE                     1
+                        282     CALL_FUNCTION_EX                0
+                        284     POP_TOP                         
+                        286     RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 270 [0] lasti
+                        34 to 68 -> 194 [0] 
+                        68 to 70 -> 144 [3] 
+                        70 to 76 -> 194 [0] 
+                        76 to 92 -> 152 [1] lasti
+                        92 to 114 -> 194 [0] 
+                        114 to 116 -> 148 [2] 
+                        116 to 124 -> 194 [0] 
+                        124 to 144 -> 270 [0] lasti
+                        144 to 146 -> 194 [0] 
+                        148 to 150 -> 194 [0] 
+                        152 to 164 -> 188 [3] lasti
+                        164 to 166 -> 170 [6] 
+                        166 to 180 -> 188 [3] lasti
+                        180 to 194 -> 194 [0] 
+                        194 to 212 -> 236 [1] lasti
+                        212 to 214 -> 242 [0] 
+                        214 to 234 -> 270 [0] lasti
+                        234 to 236 -> 236 [1] lasti
+                        236 to 242 -> 242 [0] 
+                        242 to 264 -> 264 [1] lasti
+                        264 to 270 -> 270 [0] lasti
+                '__pyarmor_exit_16727__'
+                (
+                    True
+                )
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'AccountMethods'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_16726__'
+                16      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x94\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      LOAD_CONST                      21: (True,)
+                40      LOAD_CONST                      4: None
+                42      LOAD_CONST                      4: None
+                44      LOAD_CONST                      4: None
+                46      LOAD_CONST                      4: None
+                48      LOAD_CONST                      4: None
+                50      LOAD_CONST                      4: None
+                52      LOAD_CONST                      4: None
+                54      LOAD_CONST                      5: ('contacts', 'users', 'chats', 'megagroups', 'channels', 'files', 'max_file_size')
+                56      BUILD_CONST_KEY_MAP             7
+                58      LOAD_CONST                      6: 'self'
+                60      PUSH_NULL                       
+                62      LOAD_CONST                      1: '__pyarmor_assert_16725__'
+                64      LOAD_CONST                      7: 'TelegramClient'   # b'\x81\xd6\x1d\x1f6\xfd\xac\xd3\x16\xd9\x01\xc9i\xe2\xec'
+                66      CALL                            1
+                74      LOAD_CONST                      8: 'finalize'
+                76      LOAD_NAME                       4: bool
+                78      LOAD_CONST                      9: 'contacts'
+                80      LOAD_NAME                       4: bool
+                82      LOAD_CONST                      10: 'users'
+                84      LOAD_NAME                       4: bool
+                86      LOAD_CONST                      11: 'chats'
+                88      LOAD_NAME                       4: bool
+                90      LOAD_CONST                      12: 'megagroups'
+                92      LOAD_NAME                       4: bool
+                94      LOAD_CONST                      13: 'channels'
+                96      LOAD_NAME                       4: bool
+                98      LOAD_CONST                      14: 'files'
+                100     LOAD_NAME                       4: bool
+                102     LOAD_CONST                      15: 'max_file_size'
+                104     LOAD_NAME                       4: bool
+                106     LOAD_CONST                      16: 'return'
+                108     PUSH_NULL                       
+                110     LOAD_CONST                      1: '__pyarmor_assert_16725__'
+                112     LOAD_CONST                      7: 'TelegramClient'   # b'\x81\xd6\x1d\x1f6\xfd\xac\xd3\x16\xd9\x01\xc9i\xe2\xec'
+                114     CALL                            1
+                122     BUILD_TUPLE                     20
+                124     LOAD_CONST                      17: <CODE> takeout
+                126     MAKE_FUNCTION                   7
+                128     STORE_NAME                      5: takeout
+                130     LOAD_CONST                      6: 'self'
+                132     PUSH_NULL                       
+                134     LOAD_CONST                      1: '__pyarmor_assert_16725__'
+                136     LOAD_CONST                      7: 'TelegramClient'   # b'\x81\xd6\x1d\x1f6\xfd\xac\xd3\x16\xd9\x01\xc9i\xe2\xec'
+                138     CALL                            1
+                146     LOAD_CONST                      18: 'success'
+                148     LOAD_NAME                       4: bool
+                150     LOAD_CONST                      16: 'return'
+                152     LOAD_NAME                       4: bool
+                154     BUILD_TUPLE                     6
+                156     LOAD_CONST                      19: <CODE> end_takeout
+                158     MAKE_FUNCTION                   4
+                160     STORE_NAME                      6: end_takeout
+                162     LOAD_CONST                      4: None
+                164     NOP                             
+                166     NOP                             
+                168     NOP                             
+                170     JUMP_FORWARD                    19 (to 210)
+                178     POP_TOP                         
+                180     RETURN_CONST                    4: None
+                182     PUSH_EXC_INFO                   
+                184     PUSH_NULL                       
+                186     LOAD_CONST                      20: '__pyarmor_exit_16727__'
+                188     NOP                             
+                190     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x94\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                192     CALL                            1
+                200     POP_TOP                         
+                202     RERAISE                         0
+                204     COPY                            3
+                206     POP_EXCEPT                      
+                208     RERAISE                         1
+                210     PUSH_NULL                       
+                212     LOAD_CONST                      20: '__pyarmor_exit_16727__'
+                214     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x94\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                216     BUILD_TUPLE                     1
+                218     CALL_FUNCTION_EX                0
+                220     POP_TOP                         
+                222     RETURN_VALUE                    
+            [Exception Table]
+                36 to 162 -> 182 [0] 
+                182 to 204 -> 204 [1] lasti
+        'AccountMethods'
+        '__pyarmor_exit_16694__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_16693__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xa4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: functools
+        32      STORE_NAME                      1: functools
+        34      LOAD_CONST                      3: 0
+        36      LOAD_CONST                      4: None
+        38      IMPORT_NAME                     2: inspect
+        40      STORE_NAME                      2: inspect
+        42      LOAD_CONST                      3: 0
+        44      LOAD_CONST                      4: None
+        46      IMPORT_NAME                     3: typing
+        48      STORE_NAME                      3: typing
+        50      LOAD_CONST                      5: 1
+        52      LOAD_CONST                      6: ('_NOT_A_REQUEST',)
+        54      IMPORT_NAME                     4: users
+        56      IMPORT_FROM                     5: _NOT_A_REQUEST
+        58      STORE_NAME                      5: _NOT_A_REQUEST
+        60      POP_TOP                         
+        62      LOAD_CONST                      7: 2
+        64      LOAD_CONST                      8: ('helpers', 'utils')
+        66      IMPORT_NAME                     6: 
+        68      IMPORT_FROM                     7: helpers
+        70      STORE_NAME                      7: helpers
+        72      IMPORT_FROM                     8: utils
+        74      STORE_NAME                      8: utils
+        76      POP_TOP                         
+        78      LOAD_CONST                      7: 2
+        80      LOAD_CONST                      9: ('functions', 'TLRequest')
+        82      IMPORT_NAME                     9: tl
+        84      IMPORT_FROM                     10: functions
+        86      STORE_NAME                      10: functions
+        88      IMPORT_FROM                     11: TLRequest
+        90      STORE_NAME                      11: TLRequest
+        92      POP_TOP                         
+        94      LOAD_NAME                       3: typing
+        96      LOAD_ATTR                       24: TYPE_CHECKING
+        116     POP_JUMP_IF_FALSE               6 (to 130)
+        118     LOAD_CONST                      5: 1
+        120     LOAD_CONST                      10: ('TelegramClient',)
+        122     IMPORT_NAME                     13: telegramclient
+        124     IMPORT_FROM                     14: TelegramClient
+        126     STORE_NAME                      14: TelegramClient
+        128     POP_TOP                         
+        130     PUSH_NULL                       
+        132     LOAD_BUILD_CLASS                
+        134     LOAD_CONST                      11: <CODE> _TakeoutClient
+        136     MAKE_FUNCTION                   0
+        138     LOAD_CONST                      12: '_TakeoutClient'
+        140     CALL                            2
+        148     STORE_NAME                      15: _TakeoutClient
+        150     PUSH_NULL                       
+        152     LOAD_BUILD_CLASS                
+        154     LOAD_CONST                      13: <CODE> AccountMethods
+        156     MAKE_FUNCTION                   0
+        158     LOAD_CONST                      14: 'AccountMethods'
+        160     CALL                            2
+        168     STORE_NAME                      16: AccountMethods
+        170     LOAD_CONST                      4: None
+        172     NOP                             
+        174     NOP                             
+        176     NOP                             
+        178     JUMP_FORWARD                    19 (to 218)
+        186     POP_TOP                         
+        188     RETURN_CONST                    4: None
+        190     PUSH_EXC_INFO                   
+        192     PUSH_NULL                       
+        194     LOAD_CONST                      15: '__pyarmor_exit_16694__'
+        196     NOP                             
+        198     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xa4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        200     CALL                            1
+        208     POP_TOP                         
+        210     RERAISE                         0
+        212     COPY                            3
+        214     POP_EXCEPT                      
+        216     RERAISE                         1
+        218     PUSH_NULL                       
+        220     LOAD_CONST                      15: '__pyarmor_exit_16694__'
+        222     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xa4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        224     BUILD_TUPLE                     1
+        226     CALL_FUNCTION_EX                0
+        228     POP_TOP                         
+        230     RETURN_VALUE                    
+    [Exception Table]
+        26 to 170 -> 190 [0] 
+        190 to 212 -> 212 [1] lasti

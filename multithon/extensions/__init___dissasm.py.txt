@@ -1,0 +1,95 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.extensions>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'binaryreader'
+        'BinaryReader'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_23043__'
+        '__pyarmor_enter_23044__'
+        b'<COAddr>\x05\x00\x00\x1a0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        '\nSeveral extensions Python is missing, such as a proper class to handle a TCP\ncommunication with support for cancelling the operation, and a utility class\nto read arbitrary binary data in a more comfortable way, with int/strings/etc.\n'   # b'\x81\x88+\x16%\xff\xac\xd3\x17\xba\x08\xd8x\xe9\xf6\x96\x06R\xb5\xb4\xea\xfbW\xd8\r`\xad\x1c\t\xa2^\xe83A3\x04\x96\xcd\xf8n\x0b\xfc\xfbU\x9d\xd9\x1c\x076\xadF\xe9\x88`\x03\xffw\xe8\x97\x1c\x0bXqGX\x08\r\x82\xd33\xe0\xba\xd3c|\nc\x89b\x92\xae\x8a\x89\xbc\xb1\x06\x01@\xd0\xbe\x82\xe2\xdff\xd0\xa7\xec\x10\xaef+\x18+.[_\xbe\x8d_\xa7\xfe:\xbc9\xb7\x14t\xfd[\x0c3Xbs\xb9M\xaf\xe8\xf9\xae\x06\xa9\x08\xb8]\xcc0[\x10\xb9\xbb|I\xacq\xbc\xef\xc8|\x17\xcal\xfc\xe1\xbea\xf5\xc0\xbc\xc5\x92^#`\xc3\xbe\xb0\x1e\x93\x8c`\x00\x1dj^\xec\x1f\x1b\xa9+b\x9av\xc1\x1a5\x18\x12\x11\x0e\xe2Ia\xd6\xee\x106u$\xe6j\x10\xa4\x08\x8b\xbf\x81y{\xca`S;=c\xa7\xd5\xab\r\x126\x99\x88\xf6\xf0\x1e\x93)\t\xdb\xef\x12@\x06I'
+        1
+        (
+            'BinaryReader'
+        )
+        '__pyarmor_exit_23045__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_23044__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      PUSH_NULL                       
+        28      LOAD_CONST                      0: '__pyarmor_assert_23043__'
+        30      LOAD_CONST                      3: '\nSeveral extensions Python is missing, such as a proper class to handle a TCP\ncommunication with support for cancelling the operation, and a utility class\nto read arbitrary binary data in a more comfortable way, with int/strings/etc.\n'   # b'\x81\x88+\x16%\xff\xac\xd3\x17\xba\x08\xd8x\xe9\xf6\x96\x06R\xb5\xb4\xea\xfbW\xd8\r`\xad\x1c\t\xa2^\xe83A3\x04\x96\xcd\xf8n\x0b\xfc\xfbU\x9d\xd9\x1c\x076\xadF\xe9\x88`\x03\xffw\xe8\x97\x1c\x0bXqGX\x08\r\x82\xd33\xe0\xba\xd3c|\nc\x89b\x92\xae\x8a\x89\xbc\xb1\x06\x01@\xd0\xbe\x82\xe2\xdff\xd0\xa7\xec\x10\xaef+\x18+.[_\xbe\x8d_\xa7\xfe:\xbc9\xb7\x14t\xfd[\x0c3Xbs\xb9M\xaf\xe8\xf9\xae\x06\xa9\x08\xb8]\xcc0[\x10\xb9\xbb|I\xacq\xbc\xef\xc8|\x17\xcal\xfc\xe1\xbea\xf5\xc0\xbc\xc5\x92^#`\xc3\xbe\xb0\x1e\x93\x8c`\x00\x1dj^\xec\x1f\x1b\xa9+b\x9av\xc1\x1a5\x18\x12\x11\x0e\xe2Ia\xd6\xee\x106u$\xe6j\x10\xa4\x08\x8b\xbf\x81y{\xca`S;=c\xa7\xd5\xab\r\x126\x99\x88\xf6\xf0\x1e\x93)\t\xdb\xef\x12@\x06I'
+        32      CALL                            1
+        40      POP_TOP                         
+        42      LOAD_CONST                      4: 1
+        44      LOAD_CONST                      5: ('BinaryReader',)
+        46      IMPORT_NAME                     1: binaryreader
+        48      IMPORT_FROM                     2: BinaryReader
+        50      STORE_NAME                      2: BinaryReader
+        52      POP_TOP                         
+        54      LOAD_CONST                      7: None
+        56      NOP                             
+        58      NOP                             
+        60      NOP                             
+        62      JUMP_FORWARD                    19 (to 102)
+        70      POP_TOP                         
+        72      RETURN_CONST                    7: None
+        74      PUSH_EXC_INFO                   
+        76      PUSH_NULL                       
+        78      LOAD_CONST                      6: '__pyarmor_exit_23045__'
+        80      NOP                             
+        82      LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        84      CALL                            1
+        92      POP_TOP                         
+        94      RERAISE                         0
+        96      COPY                            3
+        98      POP_EXCEPT                      
+        100     RERAISE                         1
+        102     PUSH_NULL                       
+        104     LOAD_CONST                      6: '__pyarmor_exit_23045__'
+        106     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        108     BUILD_TUPLE                     1
+        110     CALL_FUNCTION_EX                0
+        112     POP_TOP                         
+        114     RETURN_VALUE                    
+    [Exception Table]
+        26 to 54 -> 74 [0] 
+        74 to 96 -> 96 [1] lasti

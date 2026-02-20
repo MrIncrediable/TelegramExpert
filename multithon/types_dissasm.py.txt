@@ -1,0 +1,87 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.types>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'tl.types'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_16512__'
+        '__pyarmor_enter_16513__'
+        b'<COAddr>\x07\x00\x00\x1a\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            '*'
+        )
+        '__pyarmor_exit_16514__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_16513__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('*',)
+        30      IMPORT_NAME                     1: tl.types
+        32      CALL_INTRINSIC_1                2 (INTRINSIC_IMPORT_STAR)
+        34      POP_TOP                         
+        36      LOAD_CONST                      6: None
+        38      NOP                             
+        40      NOP                             
+        42      NOP                             
+        44      JUMP_FORWARD                    19 (to 84)
+        52      POP_TOP                         
+        54      RETURN_CONST                    6: None
+        56      PUSH_EXC_INFO                   
+        58      PUSH_NULL                       
+        60      LOAD_CONST                      5: '__pyarmor_exit_16514__'
+        62      NOP                             
+        64      LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        66      CALL                            1
+        74      POP_TOP                         
+        76      RERAISE                         0
+        78      COPY                            3
+        80      POP_EXCEPT                      
+        82      RERAISE                         1
+        84      PUSH_NULL                       
+        86      LOAD_CONST                      5: '__pyarmor_exit_16514__'
+        88      LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\x1e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        90      BUILD_TUPLE                     1
+        92      CALL_FUNCTION_EX                0
+        94      POP_TOP                         
+        96      RETURN_VALUE                    
+    [Exception Table]
+        26 to 36 -> 56 [0] 
+        56 to 78 -> 78 [1] lasti

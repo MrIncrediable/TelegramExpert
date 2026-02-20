@@ -1,0 +1,122 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.sessions>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'abstract'
+        'Session'
+        'memory'
+        'MemorySession'
+        'sqlite'
+        'SQLiteSession'
+        'string'
+        'StringSession'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_23706__'
+        '__pyarmor_enter_23707__'
+        b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'Session'
+        )
+        (
+            'MemorySession'
+        )
+        (
+            'SQLiteSession'
+        )
+        (
+            'StringSession'
+        )
+        '__pyarmor_exit_23708__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_23707__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('Session',)
+        30      IMPORT_NAME                     1: abstract
+        32      IMPORT_FROM                     2: Session
+        34      STORE_NAME                      2: Session
+        36      POP_TOP                         
+        38      LOAD_CONST                      3: 1
+        40      LOAD_CONST                      5: ('MemorySession',)
+        42      IMPORT_NAME                     3: memory
+        44      IMPORT_FROM                     4: MemorySession
+        46      STORE_NAME                      4: MemorySession
+        48      POP_TOP                         
+        50      LOAD_CONST                      3: 1
+        52      LOAD_CONST                      6: ('SQLiteSession',)
+        54      IMPORT_NAME                     5: sqlite
+        56      IMPORT_FROM                     6: SQLiteSession
+        58      STORE_NAME                      6: SQLiteSession
+        60      POP_TOP                         
+        62      LOAD_CONST                      3: 1
+        64      LOAD_CONST                      7: ('StringSession',)
+        66      IMPORT_NAME                     7: string
+        68      IMPORT_FROM                     8: StringSession
+        70      STORE_NAME                      8: StringSession
+        72      POP_TOP                         
+        74      LOAD_CONST                      9: None
+        76      NOP                             
+        78      NOP                             
+        80      NOP                             
+        82      JUMP_FORWARD                    19 (to 122)
+        90      POP_TOP                         
+        92      RETURN_CONST                    9: None
+        94      PUSH_EXC_INFO                   
+        96      PUSH_NULL                       
+        98      LOAD_CONST                      8: '__pyarmor_exit_23708__'
+        100     NOP                             
+        102     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        104     CALL                            1
+        112     POP_TOP                         
+        114     RERAISE                         0
+        116     COPY                            3
+        118     POP_EXCEPT                      
+        120     RERAISE                         1
+        122     PUSH_NULL                       
+        124     LOAD_CONST                      8: '__pyarmor_exit_23708__'
+        126     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        128     BUILD_TUPLE                     1
+        130     CALL_FUNCTION_EX                0
+        132     POP_TOP                         
+        134     RETURN_VALUE                    
+    [Exception Table]
+        26 to 74 -> 94 [0] 
+        94 to 116 -> 116 [1] lasti

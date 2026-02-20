@@ -1,0 +1,496 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.database>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 30
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'base'
+        'db_base'
+        'db_check_links_no_accounts'
+        'db_contacts'
+        'db_contacts_export'
+        'db_contacts_statistic'
+        'db_coordinates'
+        'db_create_bots'
+        'db_create_channels'
+        'db_create_postbot'
+        'db_edit_message'
+        'db_export_offline'
+        'db_param_accounts'
+        'db_parsing'
+        'db_parsing_res'
+        'db_proxy'
+        'db_reactions'
+        'db_reg_statistic'
+        'db_reporter'
+        'db_search_global'
+        'db_search_groups'
+        'db_statistic'
+        'db_stories_del_statistic'
+        'db_stories_public'
+        'db_stories_public_statistic'
+        'db_stories_public_users'
+        'db_stories_send'
+        'db_subscribe'
+        'db_subscribe_bot'
+        '__all__'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_12561__'
+        '__pyarmor_enter_12562__'
+        b'<COAddr>\x07\x00\x00\x1a\xd8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'db_base'
+        )
+        (
+            'db_check_links_no_accounts'
+        )
+        (
+            'db_contacts'
+        )
+        (
+            'db_contacts_export'
+        )
+        (
+            'db_contacts_statistic'
+        )
+        (
+            'db_coordinates'
+        )
+        (
+            'db_create_bots'
+        )
+        (
+            'db_create_channels'
+        )
+        (
+            'db_create_postbot'
+        )
+        (
+            'db_edit_message'
+        )
+        (
+            'db_export_offline'
+        )
+        (
+            'db_param_accounts'
+        )
+        (
+            'db_parsing'
+        )
+        (
+            'db_parsing_res'
+        )
+        (
+            'db_proxy'
+        )
+        (
+            'db_reactions'
+        )
+        (
+            'db_reg_statistic'
+        )
+        (
+            'db_reporter'
+        )
+        (
+            'db_search_global'
+        )
+        (
+            'db_search_groups'
+        )
+        (
+            'db_statistic'
+        )
+        (
+            'db_stories_del_statistic'
+        )
+        (
+            'db_stories_public'
+        )
+        (
+            'db_stories_public_statistic'
+        )
+        (
+            'db_stories_public_users'
+        )
+        (
+            'db_stories_send'
+        )
+        (
+            'db_subscribe'
+        )
+        (
+            'db_subscribe_bot'
+        )
+        'db_base'
+        'db_check_links_no_accounts'   # b'\x81\xe6\x1a,0\xf2\xbb\xd1\x10\xc5\x01\xc9b\xe7\xeb\xba\x01R\x84\xa6\xa9\xc8A\xd9\x0b{\xb0'
+        'db_contacts'   # b'\x81\xe6\x1a,0\xf5\xb0\xc6\x1a\xf9\x19\xd3'
+        'db_contacts_export'   # b'\x81\xe6\x1a,0\xf5\xb0\xc6\x1a\xf9\x19\xd3S\xe9\xe0\x95\x00O\xaf'
+        'db_contacts_statistic'   # b'\x81\xe6\x1a,0\xf5\xb0\xc6\x1a\xf9\x19\xd3S\xff\xec\x84\x1bT\xa8\xb3\xa3\xc8'
+        'db_coordinates'   # b'\x81\xe6\x1a,0\xf5\xb1\xc0\x1f\xf3\x03\xc1x\xe9\xeb'
+        'db_create_bots'   # b'\x81\xe6\x1a,0\xe8\xbb\xd3\x0f\xff2\xc2c\xf8\xeb'
+        'db_create_channels'   # b'\x81\xe6\x1a,0\xe8\xbb\xd3\x0f\xff2\xc3d\xed\xf6\x8b\nQ\xa8'
+        'db_create_postbot'   # b'\x81\xe6\x1a,0\xe8\xbb\xd3\x0f\xff2\xd0c\xff\xec\x87\x00I'
+        'db_edit_message'   # b'\x81\xe6\x1a,6\xfe\xb7\xc6$\xf7\x08\xd3\x7f\xed\xff\x80'
+        'db_export_offline'   # b'\x81\xe6\x1a,6\xe2\xae\xdd\t\xee2\xcfj\xea\xf4\x8c\x01X'
+        'db_param_accounts'   # b'\x81\xe6\x1a,#\xfb\xac\xd3\x16\xc5\x0c\xc3o\xe3\xed\x8b\x1bN'
+        'db_parsing'   # b'\x81\xe6\x1a,#\xfb\xac\xc1\x12\xf4\n'
+        'db_parsing_res'   # b'\x81\xe6\x1a,#\xfb\xac\xc1\x12\xf4\n\xff~\xe9\xeb'
+        'db_proxy'
+        'db_reactions'   # b'\x81\xe6\x1a,!\xff\xbf\xd1\x0f\xf3\x02\xce\x7f'
+        'db_reg_statistic'   # b'\x81\xe6\x1a,!\xff\xb9\xed\x08\xee\x0c\xd4e\xff\xec\x8c\x0c'
+        'db_reporter'   # b'\x81\xe6\x1a,!\xff\xae\xdd\t\xee\x08\xd2'
+        'db_search_global'   # b'\x81\xe6\x1a, \xff\xbf\xc0\x18\xf22\xc7`\xe3\xfa\x84\x03'
+        'db_search_groups'   # b'\x81\xe6\x1a, \xff\xbf\xc0\x18\xf22\xc7~\xe3\xed\x95\x1c'
+        'db_statistic'   # b'\x81\xe6\x1a, \xee\xbf\xc6\x12\xe9\x19\xc9o'
+        'db_stories_del_statistic'   # b'\x81\xe6\x1a, \xee\xb1\xc0\x12\xff\x1e\xffh\xe9\xf4\xba\x1cI\xba\xb3\xa3\xd8Z\xc5\x06'
+        'db_stories_public'   # b'\x81\xe6\x1a, \xee\xb1\xc0\x12\xff\x1e\xff|\xf9\xfa\x89\x06^'
+        'db_stories_public_statistic'   # b'\x81\xe6\x1a, \xee\xb1\xc0\x12\xff\x1e\xff|\xf9\xfa\x89\x06^\x84\xb4\xbe\xcaZ\xc5\x16{\xaa_'
+        'db_stories_public_users'   # b'\x81\xe6\x1a, \xee\xb1\xc0\x12\xff\x1e\xff|\xf9\xfa\x89\x06^\x84\xb2\xb9\xce\\\xdf'
+        'db_stories_send'   # b'\x81\xe6\x1a, \xee\xb1\xc0\x12\xff\x1e\xff\x7f\xe9\xf6\x81'
+        'db_subscribe'   # b'\x81\xe6\x1a, \xef\xbc\xc1\x18\xe8\x04\xc2i'
+        'db_subscribe_bot'   # b'\x81\xe6\x1a, \xef\xbc\xc1\x18\xe8\x04\xc2i\xd3\xfa\x8a\x1b'
+        '__pyarmor_exit_12563__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_12562__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xd8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('db_base',)
+        30      IMPORT_NAME                     1: base
+        32      IMPORT_FROM                     2: db_base
+        34      STORE_NAME                      2: db_base
+        36      POP_TOP                         
+        38      LOAD_CONST                      3: 1
+        40      LOAD_CONST                      5: ('db_check_links_no_accounts',)
+        42      IMPORT_NAME                     1: base
+        44      IMPORT_FROM                     3: db_check_links_no_accounts
+        46      STORE_NAME                      3: db_check_links_no_accounts
+        48      POP_TOP                         
+        50      LOAD_CONST                      3: 1
+        52      LOAD_CONST                      6: ('db_contacts',)
+        54      IMPORT_NAME                     1: base
+        56      IMPORT_FROM                     4: db_contacts
+        58      STORE_NAME                      4: db_contacts
+        60      POP_TOP                         
+        62      LOAD_CONST                      3: 1
+        64      LOAD_CONST                      7: ('db_contacts_export',)
+        66      IMPORT_NAME                     1: base
+        68      IMPORT_FROM                     5: db_contacts_export
+        70      STORE_NAME                      5: db_contacts_export
+        72      POP_TOP                         
+        74      LOAD_CONST                      3: 1
+        76      LOAD_CONST                      8: ('db_contacts_statistic',)
+        78      IMPORT_NAME                     1: base
+        80      IMPORT_FROM                     6: db_contacts_statistic
+        82      STORE_NAME                      6: db_contacts_statistic
+        84      POP_TOP                         
+        86      LOAD_CONST                      3: 1
+        88      LOAD_CONST                      9: ('db_coordinates',)
+        90      IMPORT_NAME                     1: base
+        92      IMPORT_FROM                     7: db_coordinates
+        94      STORE_NAME                      7: db_coordinates
+        96      POP_TOP                         
+        98      LOAD_CONST                      3: 1
+        100     LOAD_CONST                      10: ('db_create_bots',)
+        102     IMPORT_NAME                     1: base
+        104     IMPORT_FROM                     8: db_create_bots
+        106     STORE_NAME                      8: db_create_bots
+        108     POP_TOP                         
+        110     LOAD_CONST                      3: 1
+        112     LOAD_CONST                      11: ('db_create_channels',)
+        114     IMPORT_NAME                     1: base
+        116     IMPORT_FROM                     9: db_create_channels
+        118     STORE_NAME                      9: db_create_channels
+        120     POP_TOP                         
+        122     LOAD_CONST                      3: 1
+        124     LOAD_CONST                      12: ('db_create_postbot',)
+        126     IMPORT_NAME                     1: base
+        128     IMPORT_FROM                     10: db_create_postbot
+        130     STORE_NAME                      10: db_create_postbot
+        132     POP_TOP                         
+        134     LOAD_CONST                      3: 1
+        136     LOAD_CONST                      13: ('db_edit_message',)
+        138     IMPORT_NAME                     1: base
+        140     IMPORT_FROM                     11: db_edit_message
+        142     STORE_NAME                      11: db_edit_message
+        144     POP_TOP                         
+        146     LOAD_CONST                      3: 1
+        148     LOAD_CONST                      14: ('db_export_offline',)
+        150     IMPORT_NAME                     1: base
+        152     IMPORT_FROM                     12: db_export_offline
+        154     STORE_NAME                      12: db_export_offline
+        156     POP_TOP                         
+        158     LOAD_CONST                      3: 1
+        160     LOAD_CONST                      15: ('db_param_accounts',)
+        162     IMPORT_NAME                     1: base
+        164     IMPORT_FROM                     13: db_param_accounts
+        166     STORE_NAME                      13: db_param_accounts
+        168     POP_TOP                         
+        170     LOAD_CONST                      3: 1
+        172     LOAD_CONST                      16: ('db_parsing',)
+        174     IMPORT_NAME                     1: base
+        176     IMPORT_FROM                     14: db_parsing
+        178     STORE_NAME                      14: db_parsing
+        180     POP_TOP                         
+        182     LOAD_CONST                      3: 1
+        184     LOAD_CONST                      17: ('db_parsing_res',)
+        186     IMPORT_NAME                     1: base
+        188     IMPORT_FROM                     15: db_parsing_res
+        190     STORE_NAME                      15: db_parsing_res
+        192     POP_TOP                         
+        194     LOAD_CONST                      3: 1
+        196     LOAD_CONST                      18: ('db_proxy',)
+        198     IMPORT_NAME                     1: base
+        200     IMPORT_FROM                     16: db_proxy
+        202     STORE_NAME                      16: db_proxy
+        204     POP_TOP                         
+        206     LOAD_CONST                      3: 1
+        208     LOAD_CONST                      19: ('db_reactions',)
+        210     IMPORT_NAME                     1: base
+        212     IMPORT_FROM                     17: db_reactions
+        214     STORE_NAME                      17: db_reactions
+        216     POP_TOP                         
+        218     LOAD_CONST                      3: 1
+        220     LOAD_CONST                      20: ('db_reg_statistic',)
+        222     IMPORT_NAME                     1: base
+        224     IMPORT_FROM                     18: db_reg_statistic
+        226     STORE_NAME                      18: db_reg_statistic
+        228     POP_TOP                         
+        230     LOAD_CONST                      3: 1
+        232     LOAD_CONST                      21: ('db_reporter',)
+        234     IMPORT_NAME                     1: base
+        236     IMPORT_FROM                     19: db_reporter
+        238     STORE_NAME                      19: db_reporter
+        240     POP_TOP                         
+        242     LOAD_CONST                      3: 1
+        244     LOAD_CONST                      22: ('db_search_global',)
+        246     IMPORT_NAME                     1: base
+        248     IMPORT_FROM                     20: db_search_global
+        250     STORE_NAME                      20: db_search_global
+        252     POP_TOP                         
+        254     LOAD_CONST                      3: 1
+        256     LOAD_CONST                      23: ('db_search_groups',)
+        258     IMPORT_NAME                     1: base
+        260     IMPORT_FROM                     21: db_search_groups
+        262     STORE_NAME                      21: db_search_groups
+        264     POP_TOP                         
+        266     LOAD_CONST                      3: 1
+        268     LOAD_CONST                      24: ('db_statistic',)
+        270     IMPORT_NAME                     1: base
+        272     IMPORT_FROM                     22: db_statistic
+        274     STORE_NAME                      22: db_statistic
+        276     POP_TOP                         
+        278     LOAD_CONST                      3: 1
+        280     LOAD_CONST                      25: ('db_stories_del_statistic',)
+        282     IMPORT_NAME                     1: base
+        284     IMPORT_FROM                     23: db_stories_del_statistic
+        286     STORE_NAME                      23: db_stories_del_statistic
+        288     POP_TOP                         
+        290     LOAD_CONST                      3: 1
+        292     LOAD_CONST                      26: ('db_stories_public',)
+        294     IMPORT_NAME                     1: base
+        296     IMPORT_FROM                     24: db_stories_public
+        298     STORE_NAME                      24: db_stories_public
+        300     POP_TOP                         
+        302     LOAD_CONST                      3: 1
+        304     LOAD_CONST                      27: ('db_stories_public_statistic',)
+        306     IMPORT_NAME                     1: base
+        308     IMPORT_FROM                     25: db_stories_public_statistic
+        310     STORE_NAME                      25: db_stories_public_statistic
+        312     POP_TOP                         
+        314     LOAD_CONST                      3: 1
+        316     LOAD_CONST                      28: ('db_stories_public_users',)
+        318     IMPORT_NAME                     1: base
+        320     IMPORT_FROM                     26: db_stories_public_users
+        322     STORE_NAME                      26: db_stories_public_users
+        324     POP_TOP                         
+        326     LOAD_CONST                      3: 1
+        328     LOAD_CONST                      29: ('db_stories_send',)
+        330     IMPORT_NAME                     1: base
+        332     IMPORT_FROM                     27: db_stories_send
+        334     STORE_NAME                      27: db_stories_send
+        336     POP_TOP                         
+        338     LOAD_CONST                      3: 1
+        340     LOAD_CONST                      30: ('db_subscribe',)
+        342     IMPORT_NAME                     1: base
+        344     IMPORT_FROM                     28: db_subscribe
+        346     STORE_NAME                      28: db_subscribe
+        348     POP_TOP                         
+        350     LOAD_CONST                      3: 1
+        352     LOAD_CONST                      31: ('db_subscribe_bot',)
+        354     IMPORT_NAME                     1: base
+        356     IMPORT_FROM                     29: db_subscribe_bot
+        358     STORE_NAME                      29: db_subscribe_bot
+        360     POP_TOP                         
+        362     LOAD_CONST                      32: 'db_base'
+        364     PUSH_NULL                       
+        366     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        368     LOAD_CONST                      33: 'db_check_links_no_accounts'   # b'\x81\xe6\x1a,0\xf2\xbb\xd1\x10\xc5\x01\xc9b\xe7\xeb\xba\x01R\x84\xa6\xa9\xc8A\xd9\x0b{\xb0'
+        370     CALL                            1
+        378     PUSH_NULL                       
+        380     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        382     LOAD_CONST                      34: 'db_contacts'   # b'\x81\xe6\x1a,0\xf5\xb0\xc6\x1a\xf9\x19\xd3'
+        384     CALL                            1
+        392     PUSH_NULL                       
+        394     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        396     LOAD_CONST                      35: 'db_contacts_export'   # b'\x81\xe6\x1a,0\xf5\xb0\xc6\x1a\xf9\x19\xd3S\xe9\xe0\x95\x00O\xaf'
+        398     CALL                            1
+        406     PUSH_NULL                       
+        408     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        410     LOAD_CONST                      36: 'db_contacts_statistic'   # b'\x81\xe6\x1a,0\xf5\xb0\xc6\x1a\xf9\x19\xd3S\xff\xec\x84\x1bT\xa8\xb3\xa3\xc8'
+        412     CALL                            1
+        420     PUSH_NULL                       
+        422     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        424     LOAD_CONST                      37: 'db_coordinates'   # b'\x81\xe6\x1a,0\xf5\xb1\xc0\x1f\xf3\x03\xc1x\xe9\xeb'
+        426     CALL                            1
+        434     PUSH_NULL                       
+        436     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        438     LOAD_CONST                      38: 'db_create_bots'   # b'\x81\xe6\x1a,0\xe8\xbb\xd3\x0f\xff2\xc2c\xf8\xeb'
+        440     CALL                            1
+        448     PUSH_NULL                       
+        450     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        452     LOAD_CONST                      39: 'db_create_channels'   # b'\x81\xe6\x1a,0\xe8\xbb\xd3\x0f\xff2\xc3d\xed\xf6\x8b\nQ\xa8'
+        454     CALL                            1
+        462     PUSH_NULL                       
+        464     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        466     LOAD_CONST                      40: 'db_create_postbot'   # b'\x81\xe6\x1a,0\xe8\xbb\xd3\x0f\xff2\xd0c\xff\xec\x87\x00I'
+        468     CALL                            1
+        476     PUSH_NULL                       
+        478     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        480     LOAD_CONST                      41: 'db_edit_message'   # b'\x81\xe6\x1a,6\xfe\xb7\xc6$\xf7\x08\xd3\x7f\xed\xff\x80'
+        482     CALL                            1
+        490     PUSH_NULL                       
+        492     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        494     LOAD_CONST                      42: 'db_export_offline'   # b'\x81\xe6\x1a,6\xe2\xae\xdd\t\xee2\xcfj\xea\xf4\x8c\x01X'
+        496     CALL                            1
+        504     PUSH_NULL                       
+        506     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        508     LOAD_CONST                      43: 'db_param_accounts'   # b'\x81\xe6\x1a,#\xfb\xac\xd3\x16\xc5\x0c\xc3o\xe3\xed\x8b\x1bN'
+        510     CALL                            1
+        518     PUSH_NULL                       
+        520     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        522     LOAD_CONST                      44: 'db_parsing'   # b'\x81\xe6\x1a,#\xfb\xac\xc1\x12\xf4\n'
+        524     CALL                            1
+        532     PUSH_NULL                       
+        534     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        536     LOAD_CONST                      45: 'db_parsing_res'   # b'\x81\xe6\x1a,#\xfb\xac\xc1\x12\xf4\n\xff~\xe9\xeb'
+        538     CALL                            1
+        546     LOAD_CONST                      46: 'db_proxy'
+        548     PUSH_NULL                       
+        550     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        552     LOAD_CONST                      47: 'db_reactions'   # b'\x81\xe6\x1a,!\xff\xbf\xd1\x0f\xf3\x02\xce\x7f'
+        554     CALL                            1
+        562     PUSH_NULL                       
+        564     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        566     LOAD_CONST                      48: 'db_reg_statistic'   # b'\x81\xe6\x1a,!\xff\xb9\xed\x08\xee\x0c\xd4e\xff\xec\x8c\x0c'
+        568     CALL                            1
+        576     PUSH_NULL                       
+        578     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        580     LOAD_CONST                      49: 'db_reporter'   # b'\x81\xe6\x1a,!\xff\xae\xdd\t\xee\x08\xd2'
+        582     CALL                            1
+        590     PUSH_NULL                       
+        592     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        594     LOAD_CONST                      50: 'db_search_global'   # b'\x81\xe6\x1a, \xff\xbf\xc0\x18\xf22\xc7`\xe3\xfa\x84\x03'
+        596     CALL                            1
+        604     PUSH_NULL                       
+        606     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        608     LOAD_CONST                      51: 'db_search_groups'   # b'\x81\xe6\x1a, \xff\xbf\xc0\x18\xf22\xc7~\xe3\xed\x95\x1c'
+        610     CALL                            1
+        618     PUSH_NULL                       
+        620     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        622     LOAD_CONST                      52: 'db_statistic'   # b'\x81\xe6\x1a, \xee\xbf\xc6\x12\xe9\x19\xc9o'
+        624     CALL                            1
+        632     PUSH_NULL                       
+        634     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        636     LOAD_CONST                      53: 'db_stories_del_statistic'   # b'\x81\xe6\x1a, \xee\xb1\xc0\x12\xff\x1e\xffh\xe9\xf4\xba\x1cI\xba\xb3\xa3\xd8Z\xc5\x06'
+        638     CALL                            1
+        646     PUSH_NULL                       
+        648     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        650     LOAD_CONST                      54: 'db_stories_public'   # b'\x81\xe6\x1a, \xee\xb1\xc0\x12\xff\x1e\xff|\xf9\xfa\x89\x06^'
+        652     CALL                            1
+        660     PUSH_NULL                       
+        662     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        664     LOAD_CONST                      55: 'db_stories_public_statistic'   # b'\x81\xe6\x1a, \xee\xb1\xc0\x12\xff\x1e\xff|\xf9\xfa\x89\x06^\x84\xb4\xbe\xcaZ\xc5\x16{\xaa_'
+        666     CALL                            1
+        674     PUSH_NULL                       
+        676     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        678     LOAD_CONST                      56: 'db_stories_public_users'   # b'\x81\xe6\x1a, \xee\xb1\xc0\x12\xff\x1e\xff|\xf9\xfa\x89\x06^\x84\xb2\xb9\xce\\\xdf'
+        680     CALL                            1
+        688     PUSH_NULL                       
+        690     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        692     LOAD_CONST                      57: 'db_stories_send'   # b'\x81\xe6\x1a, \xee\xb1\xc0\x12\xff\x1e\xff\x7f\xe9\xf6\x81'
+        694     CALL                            1
+        702     PUSH_NULL                       
+        704     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        706     LOAD_CONST                      58: 'db_subscribe'   # b'\x81\xe6\x1a, \xef\xbc\xc1\x18\xe8\x04\xc2i'
+        708     CALL                            1
+        716     PUSH_NULL                       
+        718     LOAD_CONST                      0: '__pyarmor_assert_12561__'
+        720     LOAD_CONST                      59: 'db_subscribe_bot'   # b'\x81\xe6\x1a, \xef\xbc\xc1\x18\xe8\x04\xc2i\xd3\xfa\x8a\x1b'
+        722     CALL                            1
+        730     BUILD_LIST                      28
+        732     STORE_NAME                      30: __all__
+        734     LOAD_CONST                      61: None
+        736     NOP                             
+        738     NOP                             
+        740     NOP                             
+        742     JUMP_FORWARD                    19 (to 782)
+        750     POP_TOP                         
+        752     RETURN_CONST                    61: None
+        754     PUSH_EXC_INFO                   
+        756     PUSH_NULL                       
+        758     LOAD_CONST                      60: '__pyarmor_exit_12563__'
+        760     NOP                             
+        762     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xd8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        764     CALL                            1
+        772     POP_TOP                         
+        774     RERAISE                         0
+        776     COPY                            3
+        778     POP_EXCEPT                      
+        780     RERAISE                         1
+        782     PUSH_NULL                       
+        784     LOAD_CONST                      60: '__pyarmor_exit_12563__'
+        786     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xd8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        788     BUILD_TUPLE                     1
+        790     CALL_FUNCTION_EX                0
+        792     POP_TOP                         
+        794     RETURN_VALUE                    
+    [Exception Table]
+        26 to 734 -> 754 [0] 
+        754 to 776 -> 776 [1] lasti

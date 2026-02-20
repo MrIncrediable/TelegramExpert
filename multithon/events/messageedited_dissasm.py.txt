@@ -1,0 +1,381 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.events.messageedited>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 6
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'common'
+        'name_inner_event'
+        'newmessage'
+        'NewMessage'
+        'tl'
+        'types'
+        'MessageEdited'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_22695__'
+        '__pyarmor_enter_22696__'
+        b'<COAddr>\x07\x00\x00\x1aX\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'name_inner_event'
+        )
+        (
+            'NewMessage'
+        )
+        2
+        (
+            'types'
+        )
+        [Code]
+            File Name: <frozen multithon.events.messageedited>
+            Object Name: MessageEdited
+            Qualified Name: MessageEdited
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'classmethod'
+                'build'
+                'NewMessage'
+                'Event'
+            [Locals+Names]
+            [Constants]
+                'MessageEdited'
+                '\n    Occurs whenever a message is edited. Just like `NewMessage\n    <telethon.events.newmessage.NewMessage>`, you should treat\n    this event as a `Message <telethon.tl.custom.message.Message>`.\n\n    .. warning::\n\n        On channels, `Message.out <telethon.tl.custom.message.Message>`\n        will be `True` if you sent the message originally, **not if\n        you edited it**! This can be dangerous if you run outgoing\n        commands on edits.\n\n        Some examples follow:\n\n        * You send a message "A", ``out is True``.\n        * You edit "A" to "B", ``out is True``.\n        * Someone else edits "B" to "C", ``out is True`` (**be careful!**).\n        * Someone sends "X", ``out is False``.\n        * Someone edits "X" to "Y", ``out is False``.\n        * You edit "Y" to "Z", ``out is False``.\n\n        Since there are useful cases where you need the right ``out``\n        value, the library cannot do anything automatically to help you.\n        Instead, consider using ``from_users=\'me\'`` (it won\'t work in\n        broadcast channels at all since the sender is the channel and\n        not you).\n\n    Example\n        .. code-block:: python\n\n            from multithon import events\n\n            @client.on(events.MessageEdited)\n            async def handler(event):\n                # Log the date of new edits\n                print(\'Message\', event.id, \'changed at\', event.date)\n    '
+                '__pyarmor_assert_22698__'
+                '__pyarmor_enter_22699__'
+                b'<COAddr>\x07\x00\x00&R\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                None
+                [Code]
+                    File Name: <frozen multithon.events.messageedited>
+                    Object Name: build
+                    Qualified Name: MessageEdited.build
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'isinstance'
+                        'types'
+                        'UpdateEditMessage'
+                        'UpdateEditChannelMessage'
+                        'Event'
+                        'message'
+                    [Locals+Names]
+                        'cls'
+                        'update'
+                        'others'
+                        'self_id'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_22701__'
+                        '__pyarmor_enter_22702__'
+                        b'<COAddr>\x07\x00\x00\x1a\xb2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_22703__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_22702__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xb2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + isinstance
+                        38      LOAD_FAST                       1: update
+                        40      LOAD_GLOBAL                     2: types
+                        50      LOAD_ATTR                       4: UpdateEditMessage
+                        70      LOAD_GLOBAL                     2: types
+                        80      LOAD_ATTR                       6: UpdateEditChannelMessage
+                        100     BUILD_TUPLE                     2
+                        102     CALL                            2
+                        110     POP_JUMP_IF_FALSE               36 (to 184)
+                        112     LOAD_FAST                       0: cls
+                        114     LOAD_ATTR                       9: Event
+                        134     LOAD_FAST                       1: update
+                        136     LOAD_ATTR                       10: message
+                        156     CALL                            1
+                        164     NOP                             
+                        166     NOP                             
+                        168     NOP                             
+                        170     JUMP_FORWARD                    30 (to 232)
+                        172     CALL                            1
+                        180     POP_TOP                         
+                        182     RETURN_VALUE                    
+                        184     LOAD_CONST                      0: None
+                        186     NOP                             
+                        188     NOP                             
+                        190     NOP                             
+                        192     JUMP_FORWARD                    19 (to 232)
+                        200     POP_TOP                         
+                        202     RETURN_CONST                    0: None
+                        204     PUSH_EXC_INFO                   
+                        206     PUSH_NULL                       
+                        208     LOAD_CONST                      4: '__pyarmor_exit_22703__'
+                        210     NOP                             
+                        212     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xb2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        214     CALL                            1
+                        222     POP_TOP                         
+                        224     RERAISE                         0
+                        226     COPY                            3
+                        228     POP_EXCEPT                      
+                        230     RERAISE                         1
+                        232     PUSH_NULL                       
+                        234     LOAD_CONST                      4: '__pyarmor_exit_22703__'
+                        236     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xb2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        238     BUILD_TUPLE                     1
+                        240     CALL_FUNCTION_EX                0
+                        242     POP_TOP                         
+                        244     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 164 -> 204 [0] 
+                        204 to 226 -> 226 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.events.messageedited>
+                    Object Name: Event
+                    Qualified Name: MessageEdited.Event
+                    Arg Count: 0
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '__name__'
+                        '__module__'
+                        '__qualname__'
+                        '__assert_armored__'
+                    [Locals+Names]
+                    [Constants]
+                        'MessageEdited.Event'
+                        '__pyarmor_assert_22704__'
+                        '__pyarmor_enter_22705__'
+                        b'<COAddr>\x07\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_22706__'
+                        None
+                    [Disassembly]
+                        0       NOP                             
+                        2       LOAD_NAME                       0: __name__
+                        4       STORE_NAME                      1: __module__
+                        6       LOAD_CONST                      0: 'MessageEdited.Event'
+                        8       STORE_NAME                      2: __qualname__
+                        10      NOP                             
+                        12      PUSH_NULL                       
+                        14      LOAD_CONST                      2: '__pyarmor_enter_22705__'
+                        16      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        18      BUILD_TUPLE                     1
+                        20      CALL_FUNCTION_EX                0
+                        22      POP_TOP                         
+                        24      RESUME                          0
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      NOP                             
+                        34      NOP                             
+                        36      LOAD_CONST                      5: None
+                        38      NOP                             
+                        40      NOP                             
+                        42      NOP                             
+                        44      JUMP_FORWARD                    19 (to 84)
+                        52      POP_TOP                         
+                        54      RETURN_CONST                    5: None
+                        56      PUSH_EXC_INFO                   
+                        58      PUSH_NULL                       
+                        60      LOAD_CONST                      4: '__pyarmor_exit_22706__'
+                        62      NOP                             
+                        64      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        66      CALL                            1
+                        74      POP_TOP                         
+                        76      RERAISE                         0
+                        78      COPY                            3
+                        80      POP_EXCEPT                      
+                        82      RERAISE                         1
+                        84      PUSH_NULL                       
+                        86      LOAD_CONST                      4: '__pyarmor_exit_22706__'
+                        88      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        90      BUILD_TUPLE                     1
+                        92      CALL_FUNCTION_EX                0
+                        94      POP_TOP                         
+                        96      RETURN_VALUE                    
+                    [Exception Table]
+                        56 to 78 -> 78 [1] lasti
+                'Event'
+                '__pyarmor_exit_22700__'
+                (
+                    None
+                    None
+                )
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'MessageEdited'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    Occurs whenever a message is edited. Just like `NewMessage\n    <telethon.events.newmessage.NewMessage>`, you should treat\n    this event as a `Message <telethon.tl.custom.message.Message>`.\n\n    .. warning::\n\n        On channels, `Message.out <telethon.tl.custom.message.Message>`\n        will be `True` if you sent the message originally, **not if\n        you edited it**! This can be dangerous if you run outgoing\n        commands on edits.\n\n        Some examples follow:\n\n        * You send a message "A", ``out is True``.\n        * You edit "A" to "B", ``out is True``.\n        * Someone else edits "B" to "C", ``out is True`` (**be careful!**).\n        * Someone sends "X", ``out is False``.\n        * Someone edits "X" to "Y", ``out is False``.\n        * You edit "Y" to "Z", ``out is False``.\n\n        Since there are useful cases where you need the right ``out``\n        value, the library cannot do anything automatically to help you.\n        Instead, consider using ``from_users=\'me\'`` (it won\'t work in\n        broadcast channels at all since the sender is the channel and\n        not you).\n\n    Example\n        .. code-block:: python\n\n            from multithon import events\n\n            @client.on(events.MessageEdited)\n            async def handler(event):\n                # Log the date of new edits\n                print(\'Message\', event.id, \'changed at\', event.date)\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_22699__'
+                20      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&R\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_NAME                       5: classmethod
+                42      LOAD_CONST                      10: (None, None)
+                44      LOAD_CONST                      6: <CODE> build
+                46      MAKE_FUNCTION                   1
+                48      CALL                            0
+                56      STORE_NAME                      6: build
+                58      PUSH_NULL                       
+                60      LOAD_BUILD_CLASS                
+                62      LOAD_CONST                      7: <CODE> Event
+                64      MAKE_FUNCTION                   0
+                66      LOAD_CONST                      8: 'Event'
+                68      LOAD_NAME                       7: NewMessage
+                70      LOAD_ATTR                       16: Event
+                90      CALL                            3
+                98      STORE_NAME                      8: Event
+                100     LOAD_CONST                      5: None
+                102     NOP                             
+                104     NOP                             
+                106     NOP                             
+                108     JUMP_FORWARD                    19 (to 148)
+                116     POP_TOP                         
+                118     RETURN_CONST                    5: None
+                120     PUSH_EXC_INFO                   
+                122     PUSH_NULL                       
+                124     LOAD_CONST                      9: '__pyarmor_exit_22700__'
+                126     NOP                             
+                128     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&R\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                130     CALL                            1
+                138     POP_TOP                         
+                140     RERAISE                         0
+                142     COPY                            3
+                144     POP_EXCEPT                      
+                146     RERAISE                         1
+                148     PUSH_NULL                       
+                150     LOAD_CONST                      9: '__pyarmor_exit_22700__'
+                152     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&R\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                154     BUILD_TUPLE                     1
+                156     CALL_FUNCTION_EX                0
+                158     POP_TOP                         
+                160     RETURN_VALUE                    
+            [Exception Table]
+                40 to 100 -> 120 [0] 
+                120 to 142 -> 142 [1] lasti
+        'MessageEdited'
+        '__pyarmor_exit_22697__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_22696__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aX\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('name_inner_event',)
+        30      IMPORT_NAME                     1: common
+        32      IMPORT_FROM                     2: name_inner_event
+        34      STORE_NAME                      2: name_inner_event
+        36      POP_TOP                         
+        38      LOAD_CONST                      3: 1
+        40      LOAD_CONST                      5: ('NewMessage',)
+        42      IMPORT_NAME                     3: newmessage
+        44      IMPORT_FROM                     4: NewMessage
+        46      STORE_NAME                      4: NewMessage
+        48      POP_TOP                         
+        50      LOAD_CONST                      6: 2
+        52      LOAD_CONST                      7: ('types',)
+        54      IMPORT_NAME                     5: tl
+        56      IMPORT_FROM                     6: types
+        58      STORE_NAME                      6: types
+        60      POP_TOP                         
+        62      LOAD_NAME                       2: name_inner_event
+        64      PUSH_NULL                       
+        66      LOAD_BUILD_CLASS                
+        68      LOAD_CONST                      8: <CODE> MessageEdited
+        70      MAKE_FUNCTION                   0
+        72      LOAD_CONST                      9: 'MessageEdited'
+        74      LOAD_NAME                       4: NewMessage
+        76      CALL                            3
+        84      CALL                            0
+        92      STORE_NAME                      7: MessageEdited
+        94      LOAD_CONST                      11: None
+        96      NOP                             
+        98      NOP                             
+        100     NOP                             
+        102     JUMP_FORWARD                    19 (to 142)
+        110     POP_TOP                         
+        112     RETURN_CONST                    11: None
+        114     PUSH_EXC_INFO                   
+        116     PUSH_NULL                       
+        118     LOAD_CONST                      10: '__pyarmor_exit_22697__'
+        120     NOP                             
+        122     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aX\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        124     CALL                            1
+        132     POP_TOP                         
+        134     RERAISE                         0
+        136     COPY                            3
+        138     POP_EXCEPT                      
+        140     RERAISE                         1
+        142     PUSH_NULL                       
+        144     LOAD_CONST                      10: '__pyarmor_exit_22697__'
+        146     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aX\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        148     BUILD_TUPLE                     1
+        150     CALL_FUNCTION_EX                0
+        152     POP_TOP                         
+        154     RETURN_VALUE                    
+    [Exception Table]
+        26 to 94 -> 114 [0] 
+        114 to 136 -> 136 [1] lasti

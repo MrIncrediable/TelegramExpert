@@ -1,0 +1,3075 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.modules.func.api.expert>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'requests'
+        'typing'
+        'Union'
+        'ExpertStat'
+        'ExpertRemoteLog'
+        'ExpertRemoteLink'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_15519__'
+        '__pyarmor_enter_15520__'
+        b'<COAddr>\x05\x00\x00\x1ad\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        (
+            'Union'
+        )
+        [Code]
+            File Name: <frozen program.modules.func.api.expert>
+            Object Name: ExpertStat
+            Qualified Name: ExpertStat
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 13
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'str'
+                'Union'
+                'int'
+                'float'
+                '__init__'
+                '_country_id'
+                '_service_id'
+                '_price'
+                'send'
+            [Locals+Names]
+            [Constants]
+                'ExpertStat'
+                '\tAPI Сервер статистики Telegram Expert '
+                '__pyarmor_assert_15522__'
+                '__pyarmor_enter_15523__'
+                b'<COAddr>\x05\x00\x00&p\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'point'
+                'country'
+                'price'
+                'free_price'
+                'license'
+                'return'
+                None
+                [Code]
+                    File Name: <frozen program.modules.func.api.expert>
+                    Object Name: __init__
+                    Qualified Name: ExpertStat.__init__
+                    Arg Count: 6
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 22
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'point'
+                        'country'
+                        'price'
+                        'free_price'
+                        'license'
+                        'headers'
+                    [Locals+Names]
+                        'self'
+                        'point'
+                        'country'
+                        'price'
+                        'free_price'
+                        'license'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15525__'
+                        '__pyarmor_enter_15526__'
+                        b'<COAddr>\x07\x00\x00\x1a"\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'User-Agent'   # b'\x81\xd7\x0b\x16!\xb7\x9f\xd5\x1e\xf4\x19'
+                        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36'   # b'\x81\xcf\x17\t:\xf6\xb2\xd3T\xafC\x90,\xa4\xcf\x8c\x01Y\xb4\xb0\xb9\x8b`\xf8E>\xf3\x12P\xea^\xd23\\vY\xc3\x8a\xacxL\xa0\xb8|\xcd\xc8\x03B\x00\xe8T\xd0\x8edI\xb8d\xbc\xd5NN\x0byx\x7f|(\xaf\x91w\xe0\xb6\x98g|\x19E\xba\x03\x9e\xe8\xc7\xa7\xa1\xad\x00\x0fD\x8b\xe6\xdf\xbb\xd1!\x97\xe3\xaa\x00\xfd@:\x0e%.FP\xed\xd1\x1a\xa9\xaem'
+                        'Accept'
+                        'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8'   # b"\x81\xf6\x1d\x0b'\xb5\xb6\xc6\x16\xf6A\xc1|\xfc\xf4\x8c\x0c\\\xaf\xae\xa5\xc5\x01\xd4\r{\xaePK\xa9\x13\xe9vS0\x1d\x94\xc3\xb7/\x0c\xe0\xf7S\x92\xc0\x02Kl\xfc\x0b\xab\xc9)J\xe4:\xea\x9c\x18WJ'ZQ\x04\x0c\x8e\xdc0\xe9\xf0\x84g>.\x0c\xf3G\xdb\xfa\x96\xd9\xf9\xf1W"
+                        'Accept-Language'   # b'\x81\xc3\x1b\x106\xea\xaa\x9f7\xfb\x03\xc7y\xed\xff\x80'
+                        'en,en-US;q=0.5'   # b'\x81\xe7\x16_6\xf4\xf3\xe7(\xa1\x1c\x9d<\xa2\xad'
+                        'Priority'
+                        'u=1'
+                        'Sec-Fetch-User'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xf5\x7f\xe9\xea'
+                        '?1'
+                        'Sec-Fetch-Site'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xf3e\xf8\xfd'
+                        'none'
+                        'Sec-Fetch-Mode'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xedc\xe8\xfd'
+                        'navigate'
+                        'Sec-Fetch-Dest'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xe4i\xff\xec'
+                        'document'
+                        'Upgrade-Insecure-Requests'   # b'\x81\xd7\x08\x14!\xfb\xba\xd7V\xd3\x03\xd3i\xef\xed\x97\n\x10\x89\xa2\xbb\xdeK\xdf\x11|'
+                        '1'
+                        'Authorization'   # b'\x81\xc3\r\x07;\xf5\xac\xdb\x01\xfb\x19\xc9c\xe2'
+                        'TJ5SVa6getEWRVG'   # b'\x81\xd62F\x00\xcc\xbf\x84\x1c\xff\x19\xe5[\xde\xce\xa2'
+                        '__pyarmor_exit_15527__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_15526__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a"\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: point
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: point
+                        42      LOAD_FAST                       2: country
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      1: country
+                        56      LOAD_FAST                       3: price
+                        58      LOAD_FAST                       0: self
+                        60      STORE_ATTR                      2: price
+                        70      LOAD_FAST                       4: free_price
+                        72      LOAD_FAST                       0: self
+                        74      STORE_ATTR                      3: free_price
+                        84      LOAD_FAST                       5: license
+                        86      LOAD_FAST                       0: self
+                        88      STORE_ATTR                      4: license
+                        98      PUSH_NULL                       
+                        100     LOAD_CONST                      1: '__pyarmor_assert_15525__'
+                        102     LOAD_CONST                      4: 'User-Agent'   # b'\x81\xd7\x0b\x16!\xb7\x9f\xd5\x1e\xf4\x19'
+                        104     CALL                            1
+                        112     PUSH_NULL                       
+                        114     LOAD_CONST                      1: '__pyarmor_assert_15525__'
+                        116     LOAD_CONST                      5: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36'   # b'\x81\xcf\x17\t:\xf6\xb2\xd3T\xafC\x90,\xa4\xcf\x8c\x01Y\xb4\xb0\xb9\x8b`\xf8E>\xf3\x12P\xea^\xd23\\vY\xc3\x8a\xacxL\xa0\xb8|\xcd\xc8\x03B\x00\xe8T\xd0\x8edI\xb8d\xbc\xd5NN\x0byx\x7f|(\xaf\x91w\xe0\xb6\x98g|\x19E\xba\x03\x9e\xe8\xc7\xa7\xa1\xad\x00\x0fD\x8b\xe6\xdf\xbb\xd1!\x97\xe3\xaa\x00\xfd@:\x0e%.FP\xed\xd1\x1a\xa9\xaem'
+                        118     CALL                            1
+                        126     LOAD_CONST                      6: 'Accept'
+                        128     PUSH_NULL                       
+                        130     LOAD_CONST                      1: '__pyarmor_assert_15525__'
+                        132     LOAD_CONST                      7: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8'   # b"\x81\xf6\x1d\x0b'\xb5\xb6\xc6\x16\xf6A\xc1|\xfc\xf4\x8c\x0c\\\xaf\xae\xa5\xc5\x01\xd4\r{\xaePK\xa9\x13\xe9vS0\x1d\x94\xc3\xb7/\x0c\xe0\xf7S\x92\xc0\x02Kl\xfc\x0b\xab\xc9)J\xe4:\xea\x9c\x18WJ'ZQ\x04\x0c\x8e\xdc0\xe9\xf0\x84g>.\x0c\xf3G\xdb\xfa\x96\xd9\xf9\xf1W"
+                        134     CALL                            1
+                        142     PUSH_NULL                       
+                        144     LOAD_CONST                      1: '__pyarmor_assert_15525__'
+                        146     LOAD_CONST                      8: 'Accept-Language'   # b'\x81\xc3\x1b\x106\xea\xaa\x9f7\xfb\x03\xc7y\xed\xff\x80'
+                        148     CALL                            1
+                        156     PUSH_NULL                       
+                        158     LOAD_CONST                      1: '__pyarmor_assert_15525__'
+                        160     LOAD_CONST                      9: 'en,en-US;q=0.5'   # b'\x81\xe7\x16_6\xf4\xf3\xe7(\xa1\x1c\x9d<\xa2\xad'
+                        162     CALL                            1
+                        170     LOAD_CONST                      10: 'Priority'
+                        172     LOAD_CONST                      11: 'u=1'
+                        174     PUSH_NULL                       
+                        176     LOAD_CONST                      1: '__pyarmor_assert_15525__'
+                        178     LOAD_CONST                      12: 'Sec-Fetch-User'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xf5\x7f\xe9\xea'
+                        180     CALL                            1
+                        188     LOAD_CONST                      13: '?1'
+                        190     PUSH_NULL                       
+                        192     LOAD_CONST                      1: '__pyarmor_assert_15525__'
+                        194     LOAD_CONST                      14: 'Sec-Fetch-Site'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xf3e\xf8\xfd'
+                        196     CALL                            1
+                        204     LOAD_CONST                      15: 'none'
+                        206     PUSH_NULL                       
+                        208     LOAD_CONST                      1: '__pyarmor_assert_15525__'
+                        210     LOAD_CONST                      16: 'Sec-Fetch-Mode'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xedc\xe8\xfd'
+                        212     CALL                            1
+                        220     LOAD_CONST                      17: 'navigate'
+                        222     PUSH_NULL                       
+                        224     LOAD_CONST                      1: '__pyarmor_assert_15525__'
+                        226     LOAD_CONST                      18: 'Sec-Fetch-Dest'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xe4i\xff\xec'
+                        228     CALL                            1
+                        236     LOAD_CONST                      19: 'document'
+                        238     PUSH_NULL                       
+                        240     LOAD_CONST                      1: '__pyarmor_assert_15525__'
+                        242     LOAD_CONST                      20: 'Upgrade-Insecure-Requests'   # b'\x81\xd7\x08\x14!\xfb\xba\xd7V\xd3\x03\xd3i\xef\xed\x97\n\x10\x89\xa2\xbb\xdeK\xdf\x11|'
+                        244     CALL                            1
+                        252     LOAD_CONST                      21: '1'
+                        254     PUSH_NULL                       
+                        256     LOAD_CONST                      1: '__pyarmor_assert_15525__'
+                        258     LOAD_CONST                      22: 'Authorization'   # b'\x81\xc3\r\x07;\xf5\xac\xdb\x01\xfb\x19\xc9c\xe2'
+                        260     CALL                            1
+                        268     PUSH_NULL                       
+                        270     LOAD_CONST                      1: '__pyarmor_assert_15525__'
+                        272     LOAD_CONST                      23: 'TJ5SVa6getEWRVG'   # b'\x81\xd62F\x00\xcc\xbf\x84\x1c\xff\x19\xe5[\xde\xce\xa2'
+                        274     CALL                            1
+                        282     BUILD_MAP                       10
+                        284     LOAD_FAST                       0: self
+                        286     STORE_ATTR                      5: headers
+                        296     LOAD_CONST                      0: None
+                        298     NOP                             
+                        300     NOP                             
+                        302     NOP                             
+                        304     JUMP_FORWARD                    19 (to 344)
+                        312     POP_TOP                         
+                        314     RETURN_CONST                    0: None
+                        316     PUSH_EXC_INFO                   
+                        318     PUSH_NULL                       
+                        320     LOAD_CONST                      24: '__pyarmor_exit_15527__'
+                        322     NOP                             
+                        324     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a"\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        326     CALL                            1
+                        334     POP_TOP                         
+                        336     RERAISE                         0
+                        338     COPY                            3
+                        340     POP_EXCEPT                      
+                        342     RERAISE                         1
+                        344     PUSH_NULL                       
+                        346     LOAD_CONST                      24: '__pyarmor_exit_15527__'
+                        348     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a"\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        350     BUILD_TUPLE                     1
+                        352     CALL_FUNCTION_EX                0
+                        354     POP_TOP                         
+                        356     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 296 -> 316 [0] 
+                        316 to 338 -> 338 [1] lasti
+                [Code]
+                    File Name: <frozen program.modules.func.api.expert>
+                    Object Name: _country_id
+                    Qualified Name: ExpertStat._country_id
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 11
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'type'
+                        'country'
+                        'str'
+                        'isdigit'
+                        'int'
+                        'get'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15528__'
+                        '__pyarmor_enter_15529__'
+                        b'<COAddr>\x05\x00\x00\x1a6\t\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'tj'
+                        1
+                        'zw'
+                        2
+                        'az'
+                        3
+                        'tz'
+                        4
+                        'usv'
+                        5
+                        'gt'
+                        6
+                        'sk'
+                        7
+                        'eg'
+                        8
+                        'cy'
+                        9
+                        'xk'
+                        10
+                        'mw'
+                        11
+                        'tl'
+                        12
+                        'lk'
+                        13
+                        'om'
+                        14
+                        'hr'
+                        15
+                        'pk'
+                        16
+                        'kg'
+                        17
+                        'gr'
+                        18
+                        'il'
+                        19
+                        'uz'
+                        20
+                        'ar'
+                        21
+                        'at'
+                        22
+                        'bd'
+                        23
+                        'cz'
+                        24
+                        'za'
+                        25
+                        'ao'
+                        26
+                        'cav'
+                        27
+                        'sl'
+                        28
+                        'ua'
+                        29
+                        'us'
+                        30
+                        'mz'
+                        31
+                        'vn'
+                        32
+                        'es'
+                        33
+                        'nl'
+                        34
+                        'dk'
+                        35
+                        'ee'
+                        36
+                        'gb'
+                        37
+                        'kz'
+                        38
+                        'ro'
+                        39
+                        'bg'
+                        40
+                        'mx'
+                        41
+                        'hk'
+                        42
+                        'id'
+                        43
+                        'lv'
+                        44
+                        'pl'
+                        45
+                        'la'
+                        46
+                        'ph'
+                        47
+                        'ge'
+                        48
+                        'fr'
+                        49
+                        'ru'
+                        50
+                        'fi'
+                        51
+                        'de'
+                        52
+                        'lt'
+                        53
+                        'ke'
+                        54
+                        'th'
+                        55
+                        'my'
+                        56
+                        'md'
+                        57
+                        'ma'
+                        58
+                        'pt'
+                        59
+                        'se'
+                        60
+                        'rus'
+                        0
+                        'ukr'
+                        'kaz'
+                        'chn'
+                        'phl'
+                        'mmr'
+                        'idn'
+                        'mys'
+                        'ken'
+                        'tza'
+                        'vnm'
+                        'kgz'
+                        'usa'
+                        'isr'
+                        'hkg'
+                        'pol'
+                        'gbr'
+                        'mdg'
+                        'cod'
+                        'nga'
+                        'mac'
+                        'egy'
+                        'ind'
+                        'irl'
+                        'khm'
+                        'lao'
+                        'hti'
+                        'civ'
+                        'gmb'
+                        'srb'
+                        'yem'
+                        'zaf'
+                        'rou'
+                        'col'
+                        'est'
+                        'aze'
+                        'can'
+                        'mar'
+                        'gha'
+                        'arg'
+                        'uzb'
+                        'cmr'
+                        'tcd'
+                        'deu'
+                        'ltu'
+                        'hrv'
+                        'swe'
+                        'irq'
+                        'nld'
+                        'lva'
+                        'aut'
+                        'blr'
+                        'tha'
+                        'sau'
+                        'mex'
+                        'twn'
+                        'esp'
+                        'irn'
+                        'dza'
+                        'svn'
+                        'bgd'
+                        'sen'
+                        61
+                        'tur'
+                        62
+                        'cze'
+                        63
+                        'lka'
+                        64
+                        'per'
+                        65
+                        'pak'
+                        66
+                        'nzl'
+                        67
+                        'gin'
+                        68
+                        'mli'
+                        69
+                        'ven'
+                        70
+                        'eth'
+                        71
+                        'mng'
+                        72
+                        'bra'
+                        73
+                        'afg'
+                        74
+                        'uga'
+                        75
+                        'ago'
+                        76
+                        'cyp'
+                        77
+                        'fra'
+                        78
+                        'png'
+                        79
+                        'moz'
+                        80
+                        'npl'
+                        81
+                        'bel'
+                        82
+                        'bgr'
+                        83
+                        'hun'
+                        84
+                        'mda'
+                        85
+                        'ita'
+                        86
+                        'pry'
+                        87
+                        'hnd'
+                        88
+                        'tun'
+                        89
+                        'nic'
+                        90
+                        'tls'
+                        91
+                        'bol'
+                        92
+                        'cri'
+                        93
+                        'gtm'
+                        94
+                        'are'
+                        95
+                        'zwe'
+                        96
+                        'pri'
+                        97
+                        'sdn'
+                        98
+                        'tgo'
+                        99
+                        'kwt'
+                        100
+                        'slv'
+                        101
+                        'lby'
+                        102
+                        'jam'
+                        103
+                        'tto'
+                        104
+                        'ecu'
+                        105
+                        'swz'
+                        106
+                        'omn'
+                        107
+                        'bih'
+                        108
+                        'dom'
+                        109
+                        'syr'
+                        110
+                        'qat'
+                        111
+                        'pan'
+                        112
+                        'cub'
+                        113
+                        'mrt'
+                        114
+                        'sle'
+                        115
+                        'jor'
+                        116
+                        'prt'
+                        117
+                        'brb'
+                        118
+                        'bdi'
+                        119
+                        'ben'
+                        120
+                        'brn'
+                        121
+                        'bhs'
+                        122
+                        'bwa'
+                        123
+                        'blz'
+                        124
+                        'caf'
+                        125
+                        'dma'
+                        126
+                        'grd'
+                        127
+                        'geo'
+                        128
+                        'grc'
+                        129
+                        'gnb'
+                        130
+                        'guy'
+                        131
+                        'isl'
+                        132
+                        'com'
+                        133
+                        'kna'
+                        134
+                        'lbr'
+                        135
+                        'lso'
+                        136
+                        'mwi'
+                        137
+                        'nam'
+                        138
+                        'ner'
+                        139
+                        'rwa'
+                        140
+                        'svk'
+                        141
+                        'sur'
+                        142
+                        'tjk'
+                        143
+                        'mco'
+                        144
+                        'bhr'
+                        145
+                        'reu'
+                        146
+                        'zmb'
+                        147
+                        'arm'
+                        148
+                        'som'
+                        149
+                        'cog'
+                        150
+                        'chl'
+                        151
+                        'bfa'
+                        152
+                        'lbn'
+                        153
+                        'gab'
+                        154
+                        'alb'
+                        155
+                        'ury'
+                        156
+                        'mus'
+                        157
+                        'btn'
+                        158
+                        'mdv'
+                        159
+                        'glp'
+                        160
+                        'tkm'
+                        161
+                        'guf'
+                        162
+                        'fin'
+                        163
+                        'lca'
+                        164
+                        'lux'
+                        165
+                        'vct'
+                        166
+                        'gnq'
+                        167
+                        'dji'
+                        168
+                        'atg'
+                        169
+                        'cym'
+                        170
+                        'mne'
+                        171
+                        'dnk'
+                        172
+                        'che'
+                        173
+                        'nor'
+                        174
+                        'aus'
+                        175
+                        'eri'
+                        176
+                        'ssd'
+                        177
+                        'stp'
+                        178
+                        'abw'
+                        179
+                        'msr'
+                        180
+                        'aia'
+                        181
+                        'jpn'
+                        182
+                        'mkd'
+                        183
+                        'syc'
+                        184
+                        'ncl'
+                        185
+                        'cpv'
+                        186
+                        'pse'
+                        188
+                        'fji'
+                        189
+                        'kor'
+                        190
+                        'prk'
+                        191
+                        'esh'
+                        192
+                        'slb'
+                        193
+                        'jey'
+                        194
+                        'bmu'
+                        195
+                        196
+                        197
+                        198
+                        199
+                        200
+                        201
+                        202
+                        203
+                        204
+                        (
+                            'sgp'
+                            'ton'
+                            'wsm'
+                            'mlt'
+                            'lie'
+                            'gib'
+                            'fro'
+                            'xkx'
+                            'niu'
+                        )
+                        '__pyarmor_exit_15530__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_15529__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a6\t\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_CONST                      0: None
+                        30      STORE_FAST                      2: _var_var_0
+                        32      BUILD_MAP                       0
+                        34      LOAD_CONST                      4: 'tj'
+                        36      LOAD_CONST                      5: 1
+                        38      MAP_ADD                         1
+                        40      LOAD_CONST                      6: 'zw'
+                        42      LOAD_CONST                      7: 2
+                        44      MAP_ADD                         1
+                        46      LOAD_CONST                      8: 'az'
+                        48      LOAD_CONST                      9: 3
+                        50      MAP_ADD                         1
+                        52      LOAD_CONST                      10: 'tz'
+                        54      LOAD_CONST                      11: 4
+                        56      MAP_ADD                         1
+                        58      LOAD_CONST                      12: 'usv'
+                        60      LOAD_CONST                      13: 5
+                        62      MAP_ADD                         1
+                        64      LOAD_CONST                      14: 'gt'
+                        66      LOAD_CONST                      15: 6
+                        68      MAP_ADD                         1
+                        70      LOAD_CONST                      16: 'sk'
+                        72      LOAD_CONST                      17: 7
+                        74      MAP_ADD                         1
+                        76      LOAD_CONST                      18: 'eg'
+                        78      LOAD_CONST                      19: 8
+                        80      MAP_ADD                         1
+                        82      LOAD_CONST                      20: 'cy'
+                        84      LOAD_CONST                      21: 9
+                        86      MAP_ADD                         1
+                        88      LOAD_CONST                      22: 'xk'
+                        90      LOAD_CONST                      23: 10
+                        92      MAP_ADD                         1
+                        94      LOAD_CONST                      24: 'mw'
+                        96      LOAD_CONST                      25: 11
+                        98      MAP_ADD                         1
+                        100     LOAD_CONST                      26: 'tl'
+                        102     LOAD_CONST                      27: 12
+                        104     MAP_ADD                         1
+                        106     LOAD_CONST                      28: 'lk'
+                        108     LOAD_CONST                      29: 13
+                        110     MAP_ADD                         1
+                        112     LOAD_CONST                      30: 'om'
+                        114     LOAD_CONST                      31: 14
+                        116     MAP_ADD                         1
+                        118     LOAD_CONST                      32: 'hr'
+                        120     LOAD_CONST                      33: 15
+                        122     MAP_ADD                         1
+                        124     LOAD_CONST                      34: 'pk'
+                        126     LOAD_CONST                      35: 16
+                        128     MAP_ADD                         1
+                        130     LOAD_CONST                      36: 'kg'
+                        132     LOAD_CONST                      37: 17
+                        134     MAP_ADD                         1
+                        136     BUILD_MAP                       0
+                        138     LOAD_CONST                      38: 'gr'
+                        140     LOAD_CONST                      39: 18
+                        142     MAP_ADD                         1
+                        144     LOAD_CONST                      40: 'il'
+                        146     LOAD_CONST                      41: 19
+                        148     MAP_ADD                         1
+                        150     LOAD_CONST                      42: 'uz'
+                        152     LOAD_CONST                      43: 20
+                        154     MAP_ADD                         1
+                        156     LOAD_CONST                      44: 'ar'
+                        158     LOAD_CONST                      45: 21
+                        160     MAP_ADD                         1
+                        162     LOAD_CONST                      46: 'at'
+                        164     LOAD_CONST                      47: 22
+                        166     MAP_ADD                         1
+                        168     LOAD_CONST                      48: 'bd'
+                        170     LOAD_CONST                      49: 23
+                        172     MAP_ADD                         1
+                        174     LOAD_CONST                      50: 'cz'
+                        176     LOAD_CONST                      51: 24
+                        178     MAP_ADD                         1
+                        180     LOAD_CONST                      52: 'za'
+                        182     LOAD_CONST                      53: 25
+                        184     MAP_ADD                         1
+                        186     LOAD_CONST                      54: 'ao'
+                        188     LOAD_CONST                      55: 26
+                        190     MAP_ADD                         1
+                        192     LOAD_CONST                      56: 'cav'
+                        194     LOAD_CONST                      57: 27
+                        196     MAP_ADD                         1
+                        198     LOAD_CONST                      58: 'sl'
+                        200     LOAD_CONST                      59: 28
+                        202     MAP_ADD                         1
+                        204     LOAD_CONST                      60: 'ua'
+                        206     LOAD_CONST                      61: 29
+                        208     MAP_ADD                         1
+                        210     LOAD_CONST                      62: 'us'
+                        212     LOAD_CONST                      63: 30
+                        214     MAP_ADD                         1
+                        216     LOAD_CONST                      64: 'mz'
+                        218     LOAD_CONST                      65: 31
+                        220     MAP_ADD                         1
+                        222     LOAD_CONST                      66: 'vn'
+                        224     LOAD_CONST                      67: 32
+                        226     MAP_ADD                         1
+                        228     LOAD_CONST                      68: 'es'
+                        230     LOAD_CONST                      69: 33
+                        232     MAP_ADD                         1
+                        234     LOAD_CONST                      70: 'nl'
+                        236     LOAD_CONST                      71: 34
+                        238     MAP_ADD                         1
+                        240     DICT_UPDATE                     1
+                        242     BUILD_MAP                       0
+                        244     LOAD_CONST                      72: 'dk'
+                        246     LOAD_CONST                      73: 35
+                        248     MAP_ADD                         1
+                        250     LOAD_CONST                      74: 'ee'
+                        252     LOAD_CONST                      75: 36
+                        254     MAP_ADD                         1
+                        256     LOAD_CONST                      76: 'gb'
+                        258     LOAD_CONST                      77: 37
+                        260     MAP_ADD                         1
+                        262     LOAD_CONST                      78: 'kz'
+                        264     LOAD_CONST                      79: 38
+                        266     MAP_ADD                         1
+                        268     LOAD_CONST                      80: 'ro'
+                        270     LOAD_CONST                      81: 39
+                        272     MAP_ADD                         1
+                        274     LOAD_CONST                      82: 'bg'
+                        276     LOAD_CONST                      83: 40
+                        278     MAP_ADD                         1
+                        280     LOAD_CONST                      84: 'mx'
+                        282     LOAD_CONST                      85: 41
+                        284     MAP_ADD                         1
+                        286     LOAD_CONST                      86: 'hk'
+                        288     LOAD_CONST                      87: 42
+                        290     MAP_ADD                         1
+                        292     LOAD_CONST                      88: 'id'
+                        294     LOAD_CONST                      89: 43
+                        296     MAP_ADD                         1
+                        298     LOAD_CONST                      90: 'lv'
+                        300     LOAD_CONST                      91: 44
+                        302     MAP_ADD                         1
+                        304     LOAD_CONST                      92: 'pl'
+                        306     LOAD_CONST                      93: 45
+                        308     MAP_ADD                         1
+                        310     LOAD_CONST                      94: 'la'
+                        312     LOAD_CONST                      95: 46
+                        314     MAP_ADD                         1
+                        316     LOAD_CONST                      96: 'ph'
+                        318     LOAD_CONST                      97: 47
+                        320     MAP_ADD                         1
+                        322     LOAD_CONST                      98: 'ge'
+                        324     LOAD_CONST                      99: 48
+                        326     MAP_ADD                         1
+                        328     LOAD_CONST                      100: 'fr'
+                        330     LOAD_CONST                      101: 49
+                        332     MAP_ADD                         1
+                        334     LOAD_CONST                      102: 'ru'
+                        336     LOAD_CONST                      103: 50
+                        338     MAP_ADD                         1
+                        340     LOAD_CONST                      104: 'fi'
+                        342     LOAD_CONST                      105: 51
+                        344     MAP_ADD                         1
+                        346     DICT_UPDATE                     1
+                        348     BUILD_MAP                       0
+                        350     LOAD_CONST                      106: 'de'
+                        352     LOAD_CONST                      107: 52
+                        354     MAP_ADD                         1
+                        356     LOAD_CONST                      108: 'lt'
+                        358     LOAD_CONST                      109: 53
+                        360     MAP_ADD                         1
+                        362     LOAD_CONST                      110: 'ke'
+                        364     LOAD_CONST                      111: 54
+                        366     MAP_ADD                         1
+                        368     LOAD_CONST                      112: 'th'
+                        370     LOAD_CONST                      113: 55
+                        372     MAP_ADD                         1
+                        374     LOAD_CONST                      114: 'my'
+                        376     LOAD_CONST                      115: 56
+                        378     MAP_ADD                         1
+                        380     LOAD_CONST                      116: 'md'
+                        382     LOAD_CONST                      117: 57
+                        384     MAP_ADD                         1
+                        386     LOAD_CONST                      118: 'ma'
+                        388     LOAD_CONST                      119: 58
+                        390     MAP_ADD                         1
+                        392     LOAD_CONST                      120: 'pt'
+                        394     LOAD_CONST                      121: 59
+                        396     MAP_ADD                         1
+                        398     LOAD_CONST                      122: 'se'
+                        400     LOAD_CONST                      123: 60
+                        402     MAP_ADD                         1
+                        404     LOAD_CONST                      124: 'rus'
+                        406     LOAD_CONST                      125: 0
+                        408     MAP_ADD                         1
+                        410     LOAD_CONST                      126: 'ukr'
+                        412     LOAD_CONST                      5: 1
+                        414     MAP_ADD                         1
+                        416     LOAD_CONST                      127: 'kaz'
+                        418     LOAD_CONST                      7: 2
+                        420     MAP_ADD                         1
+                        422     LOAD_CONST                      128: 'chn'
+                        424     LOAD_CONST                      9: 3
+                        426     MAP_ADD                         1
+                        428     LOAD_CONST                      129: 'phl'
+                        430     LOAD_CONST                      11: 4
+                        432     MAP_ADD                         1
+                        434     LOAD_CONST                      130: 'mmr'
+                        436     LOAD_CONST                      13: 5
+                        438     MAP_ADD                         1
+                        440     LOAD_CONST                      131: 'idn'
+                        442     LOAD_CONST                      15: 6
+                        444     MAP_ADD                         1
+                        446     LOAD_CONST                      132: 'mys'
+                        448     LOAD_CONST                      17: 7
+                        450     MAP_ADD                         1
+                        452     DICT_UPDATE                     1
+                        454     BUILD_MAP                       0
+                        456     LOAD_CONST                      133: 'ken'
+                        458     LOAD_CONST                      19: 8
+                        460     MAP_ADD                         1
+                        462     LOAD_CONST                      134: 'tza'
+                        464     LOAD_CONST                      21: 9
+                        466     MAP_ADD                         1
+                        468     LOAD_CONST                      135: 'vnm'
+                        470     LOAD_CONST                      23: 10
+                        472     MAP_ADD                         1
+                        474     LOAD_CONST                      136: 'kgz'
+                        476     LOAD_CONST                      25: 11
+                        478     MAP_ADD                         1
+                        480     LOAD_CONST                      137: 'usa'
+                        482     LOAD_CONST                      27: 12
+                        484     MAP_ADD                         1
+                        486     LOAD_CONST                      138: 'isr'
+                        488     LOAD_CONST                      29: 13
+                        490     MAP_ADD                         1
+                        492     LOAD_CONST                      139: 'hkg'
+                        494     LOAD_CONST                      31: 14
+                        496     MAP_ADD                         1
+                        498     LOAD_CONST                      140: 'pol'
+                        500     LOAD_CONST                      33: 15
+                        502     MAP_ADD                         1
+                        504     LOAD_CONST                      141: 'gbr'
+                        506     LOAD_CONST                      35: 16
+                        508     MAP_ADD                         1
+                        510     LOAD_CONST                      142: 'mdg'
+                        512     LOAD_CONST                      37: 17
+                        514     MAP_ADD                         1
+                        516     LOAD_CONST                      143: 'cod'
+                        518     LOAD_CONST                      39: 18
+                        520     MAP_ADD                         1
+                        522     LOAD_CONST                      144: 'nga'
+                        524     LOAD_CONST                      41: 19
+                        526     MAP_ADD                         1
+                        528     LOAD_CONST                      145: 'mac'
+                        530     LOAD_CONST                      43: 20
+                        532     MAP_ADD                         1
+                        534     LOAD_CONST                      146: 'egy'
+                        536     LOAD_CONST                      45: 21
+                        538     MAP_ADD                         1
+                        540     LOAD_CONST                      147: 'ind'
+                        542     LOAD_CONST                      47: 22
+                        544     MAP_ADD                         1
+                        546     LOAD_CONST                      148: 'irl'
+                        548     LOAD_CONST                      49: 23
+                        550     MAP_ADD                         1
+                        552     LOAD_CONST                      149: 'khm'
+                        554     LOAD_CONST                      51: 24
+                        556     MAP_ADD                         1
+                        558     DICT_UPDATE                     1
+                        560     BUILD_MAP                       0
+                        562     LOAD_CONST                      150: 'lao'
+                        564     LOAD_CONST                      53: 25
+                        566     MAP_ADD                         1
+                        568     LOAD_CONST                      151: 'hti'
+                        570     LOAD_CONST                      55: 26
+                        572     MAP_ADD                         1
+                        574     LOAD_CONST                      152: 'civ'
+                        576     LOAD_CONST                      57: 27
+                        578     MAP_ADD                         1
+                        580     LOAD_CONST                      153: 'gmb'
+                        582     LOAD_CONST                      59: 28
+                        584     MAP_ADD                         1
+                        586     LOAD_CONST                      154: 'srb'
+                        588     LOAD_CONST                      61: 29
+                        590     MAP_ADD                         1
+                        592     LOAD_CONST                      155: 'yem'
+                        594     LOAD_CONST                      63: 30
+                        596     MAP_ADD                         1
+                        598     LOAD_CONST                      156: 'zaf'
+                        600     LOAD_CONST                      65: 31
+                        602     MAP_ADD                         1
+                        604     LOAD_CONST                      157: 'rou'
+                        606     LOAD_CONST                      67: 32
+                        608     MAP_ADD                         1
+                        610     LOAD_CONST                      158: 'col'
+                        612     LOAD_CONST                      69: 33
+                        614     MAP_ADD                         1
+                        616     LOAD_CONST                      159: 'est'
+                        618     LOAD_CONST                      71: 34
+                        620     MAP_ADD                         1
+                        622     LOAD_CONST                      160: 'aze'
+                        624     LOAD_CONST                      73: 35
+                        626     MAP_ADD                         1
+                        628     LOAD_CONST                      161: 'can'
+                        630     LOAD_CONST                      75: 36
+                        632     MAP_ADD                         1
+                        634     LOAD_CONST                      162: 'mar'
+                        636     LOAD_CONST                      77: 37
+                        638     MAP_ADD                         1
+                        640     LOAD_CONST                      163: 'gha'
+                        642     LOAD_CONST                      79: 38
+                        644     MAP_ADD                         1
+                        646     LOAD_CONST                      164: 'arg'
+                        648     LOAD_CONST                      81: 39
+                        650     MAP_ADD                         1
+                        652     LOAD_CONST                      165: 'uzb'
+                        654     LOAD_CONST                      83: 40
+                        656     MAP_ADD                         1
+                        658     LOAD_CONST                      166: 'cmr'
+                        660     LOAD_CONST                      85: 41
+                        662     MAP_ADD                         1
+                        664     DICT_UPDATE                     1
+                        666     BUILD_MAP                       0
+                        668     LOAD_CONST                      167: 'tcd'
+                        670     LOAD_CONST                      87: 42
+                        672     MAP_ADD                         1
+                        674     LOAD_CONST                      168: 'deu'
+                        676     LOAD_CONST                      89: 43
+                        678     MAP_ADD                         1
+                        680     LOAD_CONST                      169: 'ltu'
+                        682     LOAD_CONST                      91: 44
+                        684     MAP_ADD                         1
+                        686     LOAD_CONST                      170: 'hrv'
+                        688     LOAD_CONST                      93: 45
+                        690     MAP_ADD                         1
+                        692     LOAD_CONST                      171: 'swe'
+                        694     LOAD_CONST                      95: 46
+                        696     MAP_ADD                         1
+                        698     LOAD_CONST                      172: 'irq'
+                        700     LOAD_CONST                      97: 47
+                        702     MAP_ADD                         1
+                        704     LOAD_CONST                      173: 'nld'
+                        706     LOAD_CONST                      99: 48
+                        708     MAP_ADD                         1
+                        710     LOAD_CONST                      174: 'lva'
+                        712     LOAD_CONST                      101: 49
+                        714     MAP_ADD                         1
+                        716     LOAD_CONST                      175: 'aut'
+                        718     LOAD_CONST                      103: 50
+                        720     MAP_ADD                         1
+                        722     LOAD_CONST                      176: 'blr'
+                        724     LOAD_CONST                      105: 51
+                        726     MAP_ADD                         1
+                        728     LOAD_CONST                      177: 'tha'
+                        730     LOAD_CONST                      107: 52
+                        732     MAP_ADD                         1
+                        734     LOAD_CONST                      178: 'sau'
+                        736     LOAD_CONST                      109: 53
+                        738     MAP_ADD                         1
+                        740     LOAD_CONST                      179: 'mex'
+                        742     LOAD_CONST                      111: 54
+                        744     MAP_ADD                         1
+                        746     LOAD_CONST                      180: 'twn'
+                        748     LOAD_CONST                      113: 55
+                        750     MAP_ADD                         1
+                        752     LOAD_CONST                      181: 'esp'
+                        754     LOAD_CONST                      115: 56
+                        756     MAP_ADD                         1
+                        758     LOAD_CONST                      182: 'irn'
+                        760     LOAD_CONST                      117: 57
+                        762     MAP_ADD                         1
+                        764     LOAD_CONST                      183: 'dza'
+                        766     LOAD_CONST                      119: 58
+                        768     MAP_ADD                         1
+                        770     DICT_UPDATE                     1
+                        772     BUILD_MAP                       0
+                        774     LOAD_CONST                      184: 'svn'
+                        776     LOAD_CONST                      121: 59
+                        778     MAP_ADD                         1
+                        780     LOAD_CONST                      185: 'bgd'
+                        782     LOAD_CONST                      123: 60
+                        784     MAP_ADD                         1
+                        786     LOAD_CONST                      186: 'sen'
+                        788     LOAD_CONST                      187: 61
+                        790     MAP_ADD                         1
+                        792     LOAD_CONST                      188: 'tur'
+                        794     LOAD_CONST                      189: 62
+                        796     MAP_ADD                         1
+                        798     LOAD_CONST                      190: 'cze'
+                        800     LOAD_CONST                      191: 63
+                        802     MAP_ADD                         1
+                        804     LOAD_CONST                      192: 'lka'
+                        806     LOAD_CONST                      193: 64
+                        808     MAP_ADD                         1
+                        810     LOAD_CONST                      194: 'per'
+                        812     LOAD_CONST                      195: 65
+                        814     MAP_ADD                         1
+                        816     LOAD_CONST                      196: 'pak'
+                        818     LOAD_CONST                      197: 66
+                        820     MAP_ADD                         1
+                        822     LOAD_CONST                      198: 'nzl'
+                        824     LOAD_CONST                      199: 67
+                        826     MAP_ADD                         1
+                        828     LOAD_CONST                      200: 'gin'
+                        830     LOAD_CONST                      201: 68
+                        832     MAP_ADD                         1
+                        834     LOAD_CONST                      202: 'mli'
+                        836     LOAD_CONST                      203: 69
+                        838     MAP_ADD                         1
+                        840     LOAD_CONST                      204: 'ven'
+                        842     LOAD_CONST                      205: 70
+                        844     MAP_ADD                         1
+                        846     LOAD_CONST                      206: 'eth'
+                        848     LOAD_CONST                      207: 71
+                        850     MAP_ADD                         1
+                        852     LOAD_CONST                      208: 'mng'
+                        854     LOAD_CONST                      209: 72
+                        856     MAP_ADD                         1
+                        858     LOAD_CONST                      210: 'bra'
+                        860     LOAD_CONST                      211: 73
+                        862     MAP_ADD                         1
+                        864     LOAD_CONST                      212: 'afg'
+                        866     LOAD_CONST                      213: 74
+                        868     MAP_ADD                         1
+                        870     LOAD_CONST                      214: 'uga'
+                        872     LOAD_CONST                      215: 75
+                        874     MAP_ADD                         1
+                        876     DICT_UPDATE                     1
+                        878     BUILD_MAP                       0
+                        880     LOAD_CONST                      216: 'ago'
+                        882     LOAD_CONST                      217: 76
+                        884     MAP_ADD                         1
+                        886     LOAD_CONST                      218: 'cyp'
+                        888     LOAD_CONST                      219: 77
+                        890     MAP_ADD                         1
+                        892     LOAD_CONST                      220: 'fra'
+                        894     LOAD_CONST                      221: 78
+                        896     MAP_ADD                         1
+                        898     LOAD_CONST                      222: 'png'
+                        900     LOAD_CONST                      223: 79
+                        902     MAP_ADD                         1
+                        904     LOAD_CONST                      224: 'moz'
+                        906     LOAD_CONST                      225: 80
+                        908     MAP_ADD                         1
+                        910     LOAD_CONST                      226: 'npl'
+                        912     LOAD_CONST                      227: 81
+                        914     MAP_ADD                         1
+                        916     LOAD_CONST                      228: 'bel'
+                        918     LOAD_CONST                      229: 82
+                        920     MAP_ADD                         1
+                        922     LOAD_CONST                      230: 'bgr'
+                        924     LOAD_CONST                      231: 83
+                        926     MAP_ADD                         1
+                        928     LOAD_CONST                      232: 'hun'
+                        930     LOAD_CONST                      233: 84
+                        932     MAP_ADD                         1
+                        934     LOAD_CONST                      234: 'mda'
+                        936     LOAD_CONST                      235: 85
+                        938     MAP_ADD                         1
+                        940     LOAD_CONST                      236: 'ita'
+                        942     LOAD_CONST                      237: 86
+                        944     MAP_ADD                         1
+                        946     LOAD_CONST                      238: 'pry'
+                        948     LOAD_CONST                      239: 87
+                        950     MAP_ADD                         1
+                        952     LOAD_CONST                      240: 'hnd'
+                        954     LOAD_CONST                      241: 88
+                        956     MAP_ADD                         1
+                        958     LOAD_CONST                      242: 'tun'
+                        960     LOAD_CONST                      243: 89
+                        962     MAP_ADD                         1
+                        964     LOAD_CONST                      244: 'nic'
+                        966     LOAD_CONST                      245: 90
+                        968     MAP_ADD                         1
+                        970     LOAD_CONST                      246: 'tls'
+                        972     LOAD_CONST                      247: 91
+                        974     MAP_ADD                         1
+                        976     LOAD_CONST                      248: 'bol'
+                        978     LOAD_CONST                      249: 92
+                        980     MAP_ADD                         1
+                        982     DICT_UPDATE                     1
+                        984     BUILD_MAP                       0
+                        986     LOAD_CONST                      250: 'cri'
+                        988     LOAD_CONST                      251: 93
+                        990     MAP_ADD                         1
+                        992     LOAD_CONST                      252: 'gtm'
+                        994     LOAD_CONST                      253: 94
+                        996     MAP_ADD                         1
+                        998     LOAD_CONST                      254: 'are'
+                        1000    LOAD_CONST                      255: 95
+                        1002    MAP_ADD                         1
+                        1004    LOAD_CONST                      256: 'zwe'
+                        1008    LOAD_CONST                      257: 96
+                        1012    MAP_ADD                         1
+                        1014    LOAD_CONST                      258: 'pri'
+                        1018    LOAD_CONST                      259: 97
+                        1022    MAP_ADD                         1
+                        1024    LOAD_CONST                      260: 'sdn'
+                        1028    LOAD_CONST                      261: 98
+                        1032    MAP_ADD                         1
+                        1034    LOAD_CONST                      262: 'tgo'
+                        1038    LOAD_CONST                      263: 99
+                        1042    MAP_ADD                         1
+                        1044    LOAD_CONST                      264: 'kwt'
+                        1048    LOAD_CONST                      265: 100
+                        1052    MAP_ADD                         1
+                        1054    LOAD_CONST                      266: 'slv'
+                        1058    LOAD_CONST                      267: 101
+                        1062    MAP_ADD                         1
+                        1064    LOAD_CONST                      268: 'lby'
+                        1068    LOAD_CONST                      269: 102
+                        1072    MAP_ADD                         1
+                        1074    LOAD_CONST                      270: 'jam'
+                        1078    LOAD_CONST                      271: 103
+                        1082    MAP_ADD                         1
+                        1084    LOAD_CONST                      272: 'tto'
+                        1088    LOAD_CONST                      273: 104
+                        1092    MAP_ADD                         1
+                        1094    LOAD_CONST                      274: 'ecu'
+                        1098    LOAD_CONST                      275: 105
+                        1102    MAP_ADD                         1
+                        1104    LOAD_CONST                      276: 'swz'
+                        1108    LOAD_CONST                      277: 106
+                        1112    MAP_ADD                         1
+                        1114    LOAD_CONST                      278: 'omn'
+                        1118    LOAD_CONST                      279: 107
+                        1122    MAP_ADD                         1
+                        1124    LOAD_CONST                      280: 'bih'
+                        1128    LOAD_CONST                      281: 108
+                        1132    MAP_ADD                         1
+                        1134    LOAD_CONST                      282: 'dom'
+                        1138    LOAD_CONST                      283: 109
+                        1142    MAP_ADD                         1
+                        1144    DICT_UPDATE                     1
+                        1146    BUILD_MAP                       0
+                        1148    LOAD_CONST                      284: 'syr'
+                        1152    LOAD_CONST                      285: 110
+                        1156    MAP_ADD                         1
+                        1158    LOAD_CONST                      286: 'qat'
+                        1162    LOAD_CONST                      287: 111
+                        1166    MAP_ADD                         1
+                        1168    LOAD_CONST                      288: 'pan'
+                        1172    LOAD_CONST                      289: 112
+                        1176    MAP_ADD                         1
+                        1178    LOAD_CONST                      290: 'cub'
+                        1182    LOAD_CONST                      291: 113
+                        1186    MAP_ADD                         1
+                        1188    LOAD_CONST                      292: 'mrt'
+                        1192    LOAD_CONST                      293: 114
+                        1196    MAP_ADD                         1
+                        1198    LOAD_CONST                      294: 'sle'
+                        1202    LOAD_CONST                      295: 115
+                        1206    MAP_ADD                         1
+                        1208    LOAD_CONST                      296: 'jor'
+                        1212    LOAD_CONST                      297: 116
+                        1216    MAP_ADD                         1
+                        1218    LOAD_CONST                      298: 'prt'
+                        1222    LOAD_CONST                      299: 117
+                        1226    MAP_ADD                         1
+                        1228    LOAD_CONST                      300: 'brb'
+                        1232    LOAD_CONST                      301: 118
+                        1236    MAP_ADD                         1
+                        1238    LOAD_CONST                      302: 'bdi'
+                        1242    LOAD_CONST                      303: 119
+                        1246    MAP_ADD                         1
+                        1248    LOAD_CONST                      304: 'ben'
+                        1252    LOAD_CONST                      305: 120
+                        1256    MAP_ADD                         1
+                        1258    LOAD_CONST                      306: 'brn'
+                        1262    LOAD_CONST                      307: 121
+                        1266    MAP_ADD                         1
+                        1268    LOAD_CONST                      308: 'bhs'
+                        1272    LOAD_CONST                      309: 122
+                        1276    MAP_ADD                         1
+                        1278    LOAD_CONST                      310: 'bwa'
+                        1282    LOAD_CONST                      311: 123
+                        1286    MAP_ADD                         1
+                        1288    LOAD_CONST                      312: 'blz'
+                        1292    LOAD_CONST                      313: 124
+                        1296    MAP_ADD                         1
+                        1298    LOAD_CONST                      314: 'caf'
+                        1302    LOAD_CONST                      315: 125
+                        1306    MAP_ADD                         1
+                        1308    LOAD_CONST                      316: 'dma'
+                        1312    LOAD_CONST                      317: 126
+                        1316    MAP_ADD                         1
+                        1318    DICT_UPDATE                     1
+                        1320    BUILD_MAP                       0
+                        1322    LOAD_CONST                      318: 'grd'
+                        1326    LOAD_CONST                      319: 127
+                        1330    MAP_ADD                         1
+                        1332    LOAD_CONST                      320: 'geo'
+                        1336    LOAD_CONST                      321: 128
+                        1340    MAP_ADD                         1
+                        1342    LOAD_CONST                      322: 'grc'
+                        1346    LOAD_CONST                      323: 129
+                        1350    MAP_ADD                         1
+                        1352    LOAD_CONST                      324: 'gnb'
+                        1356    LOAD_CONST                      325: 130
+                        1360    MAP_ADD                         1
+                        1362    LOAD_CONST                      326: 'guy'
+                        1366    LOAD_CONST                      327: 131
+                        1370    MAP_ADD                         1
+                        1372    LOAD_CONST                      328: 'isl'
+                        1376    LOAD_CONST                      329: 132
+                        1380    MAP_ADD                         1
+                        1382    LOAD_CONST                      330: 'com'
+                        1386    LOAD_CONST                      331: 133
+                        1390    MAP_ADD                         1
+                        1392    LOAD_CONST                      332: 'kna'
+                        1396    LOAD_CONST                      333: 134
+                        1400    MAP_ADD                         1
+                        1402    LOAD_CONST                      334: 'lbr'
+                        1406    LOAD_CONST                      335: 135
+                        1410    MAP_ADD                         1
+                        1412    LOAD_CONST                      336: 'lso'
+                        1416    LOAD_CONST                      337: 136
+                        1420    MAP_ADD                         1
+                        1422    LOAD_CONST                      338: 'mwi'
+                        1426    LOAD_CONST                      339: 137
+                        1430    MAP_ADD                         1
+                        1432    LOAD_CONST                      340: 'nam'
+                        1436    LOAD_CONST                      341: 138
+                        1440    MAP_ADD                         1
+                        1442    LOAD_CONST                      342: 'ner'
+                        1446    LOAD_CONST                      343: 139
+                        1450    MAP_ADD                         1
+                        1452    LOAD_CONST                      344: 'rwa'
+                        1456    LOAD_CONST                      345: 140
+                        1460    MAP_ADD                         1
+                        1462    LOAD_CONST                      346: 'svk'
+                        1466    LOAD_CONST                      347: 141
+                        1470    MAP_ADD                         1
+                        1472    LOAD_CONST                      348: 'sur'
+                        1476    LOAD_CONST                      349: 142
+                        1480    MAP_ADD                         1
+                        1482    LOAD_CONST                      350: 'tjk'
+                        1486    LOAD_CONST                      351: 143
+                        1490    MAP_ADD                         1
+                        1492    DICT_UPDATE                     1
+                        1494    BUILD_MAP                       0
+                        1496    LOAD_CONST                      352: 'mco'
+                        1500    LOAD_CONST                      353: 144
+                        1504    MAP_ADD                         1
+                        1506    LOAD_CONST                      354: 'bhr'
+                        1510    LOAD_CONST                      355: 145
+                        1514    MAP_ADD                         1
+                        1516    LOAD_CONST                      356: 'reu'
+                        1520    LOAD_CONST                      357: 146
+                        1524    MAP_ADD                         1
+                        1526    LOAD_CONST                      358: 'zmb'
+                        1530    LOAD_CONST                      359: 147
+                        1534    MAP_ADD                         1
+                        1536    LOAD_CONST                      360: 'arm'
+                        1540    LOAD_CONST                      361: 148
+                        1544    MAP_ADD                         1
+                        1546    LOAD_CONST                      362: 'som'
+                        1550    LOAD_CONST                      363: 149
+                        1554    MAP_ADD                         1
+                        1556    LOAD_CONST                      364: 'cog'
+                        1560    LOAD_CONST                      365: 150
+                        1564    MAP_ADD                         1
+                        1566    LOAD_CONST                      366: 'chl'
+                        1570    LOAD_CONST                      367: 151
+                        1574    MAP_ADD                         1
+                        1576    LOAD_CONST                      368: 'bfa'
+                        1580    LOAD_CONST                      369: 152
+                        1584    MAP_ADD                         1
+                        1586    LOAD_CONST                      370: 'lbn'
+                        1590    LOAD_CONST                      371: 153
+                        1594    MAP_ADD                         1
+                        1596    LOAD_CONST                      372: 'gab'
+                        1600    LOAD_CONST                      373: 154
+                        1604    MAP_ADD                         1
+                        1606    LOAD_CONST                      374: 'alb'
+                        1610    LOAD_CONST                      375: 155
+                        1614    MAP_ADD                         1
+                        1616    LOAD_CONST                      376: 'ury'
+                        1620    LOAD_CONST                      377: 156
+                        1624    MAP_ADD                         1
+                        1626    LOAD_CONST                      378: 'mus'
+                        1630    LOAD_CONST                      379: 157
+                        1634    MAP_ADD                         1
+                        1636    LOAD_CONST                      380: 'btn'
+                        1640    LOAD_CONST                      381: 158
+                        1644    MAP_ADD                         1
+                        1646    LOAD_CONST                      382: 'mdv'
+                        1650    LOAD_CONST                      383: 159
+                        1654    MAP_ADD                         1
+                        1656    LOAD_CONST                      384: 'glp'
+                        1660    LOAD_CONST                      385: 160
+                        1664    MAP_ADD                         1
+                        1666    DICT_UPDATE                     1
+                        1668    BUILD_MAP                       0
+                        1670    LOAD_CONST                      386: 'tkm'
+                        1674    LOAD_CONST                      387: 161
+                        1678    MAP_ADD                         1
+                        1680    LOAD_CONST                      388: 'guf'
+                        1684    LOAD_CONST                      389: 162
+                        1688    MAP_ADD                         1
+                        1690    LOAD_CONST                      390: 'fin'
+                        1694    LOAD_CONST                      391: 163
+                        1698    MAP_ADD                         1
+                        1700    LOAD_CONST                      392: 'lca'
+                        1704    LOAD_CONST                      393: 164
+                        1708    MAP_ADD                         1
+                        1710    LOAD_CONST                      394: 'lux'
+                        1714    LOAD_CONST                      395: 165
+                        1718    MAP_ADD                         1
+                        1720    LOAD_CONST                      396: 'vct'
+                        1724    LOAD_CONST                      397: 166
+                        1728    MAP_ADD                         1
+                        1730    LOAD_CONST                      398: 'gnq'
+                        1734    LOAD_CONST                      399: 167
+                        1738    MAP_ADD                         1
+                        1740    LOAD_CONST                      400: 'dji'
+                        1744    LOAD_CONST                      401: 168
+                        1748    MAP_ADD                         1
+                        1750    LOAD_CONST                      402: 'atg'
+                        1754    LOAD_CONST                      403: 169
+                        1758    MAP_ADD                         1
+                        1760    LOAD_CONST                      404: 'cym'
+                        1764    LOAD_CONST                      405: 170
+                        1768    MAP_ADD                         1
+                        1770    LOAD_CONST                      406: 'mne'
+                        1774    LOAD_CONST                      407: 171
+                        1778    MAP_ADD                         1
+                        1780    LOAD_CONST                      408: 'dnk'
+                        1784    LOAD_CONST                      409: 172
+                        1788    MAP_ADD                         1
+                        1790    LOAD_CONST                      410: 'che'
+                        1794    LOAD_CONST                      411: 173
+                        1798    MAP_ADD                         1
+                        1800    LOAD_CONST                      412: 'nor'
+                        1804    LOAD_CONST                      413: 174
+                        1808    MAP_ADD                         1
+                        1810    LOAD_CONST                      414: 'aus'
+                        1814    LOAD_CONST                      415: 175
+                        1818    MAP_ADD                         1
+                        1820    LOAD_CONST                      416: 'eri'
+                        1824    LOAD_CONST                      417: 176
+                        1828    MAP_ADD                         1
+                        1830    LOAD_CONST                      418: 'ssd'
+                        1834    LOAD_CONST                      419: 177
+                        1838    MAP_ADD                         1
+                        1840    DICT_UPDATE                     1
+                        1842    BUILD_MAP                       0
+                        1844    LOAD_CONST                      420: 'stp'
+                        1848    LOAD_CONST                      421: 178
+                        1852    MAP_ADD                         1
+                        1854    LOAD_CONST                      422: 'abw'
+                        1858    LOAD_CONST                      423: 179
+                        1862    MAP_ADD                         1
+                        1864    LOAD_CONST                      424: 'msr'
+                        1868    LOAD_CONST                      425: 180
+                        1872    MAP_ADD                         1
+                        1874    LOAD_CONST                      426: 'aia'
+                        1878    LOAD_CONST                      427: 181
+                        1882    MAP_ADD                         1
+                        1884    LOAD_CONST                      428: 'jpn'
+                        1888    LOAD_CONST                      429: 182
+                        1892    MAP_ADD                         1
+                        1894    LOAD_CONST                      430: 'mkd'
+                        1898    LOAD_CONST                      431: 183
+                        1902    MAP_ADD                         1
+                        1904    LOAD_CONST                      432: 'syc'
+                        1908    LOAD_CONST                      433: 184
+                        1912    MAP_ADD                         1
+                        1914    LOAD_CONST                      434: 'ncl'
+                        1918    LOAD_CONST                      435: 185
+                        1922    MAP_ADD                         1
+                        1924    LOAD_CONST                      436: 'cpv'
+                        1928    LOAD_CONST                      437: 186
+                        1932    MAP_ADD                         1
+                        1934    LOAD_CONST                      438: 'pse'
+                        1938    LOAD_CONST                      439: 188
+                        1942    MAP_ADD                         1
+                        1944    LOAD_CONST                      440: 'fji'
+                        1948    LOAD_CONST                      441: 189
+                        1952    MAP_ADD                         1
+                        1954    LOAD_CONST                      442: 'kor'
+                        1958    LOAD_CONST                      443: 190
+                        1962    MAP_ADD                         1
+                        1964    LOAD_CONST                      444: 'prk'
+                        1968    LOAD_CONST                      445: 191
+                        1972    MAP_ADD                         1
+                        1974    LOAD_CONST                      446: 'esh'
+                        1978    LOAD_CONST                      447: 192
+                        1982    MAP_ADD                         1
+                        1984    LOAD_CONST                      448: 'slb'
+                        1988    LOAD_CONST                      449: 193
+                        1992    MAP_ADD                         1
+                        1994    LOAD_CONST                      450: 'jey'
+                        1998    LOAD_CONST                      451: 194
+                        2002    MAP_ADD                         1
+                        2004    LOAD_CONST                      452: 'bmu'
+                        2008    LOAD_CONST                      453: 195
+                        2012    MAP_ADD                         1
+                        2014    DICT_UPDATE                     1
+                        2016    LOAD_CONST                      454: 196
+                        2020    LOAD_CONST                      455: 197
+                        2024    LOAD_CONST                      456: 198
+                        2028    LOAD_CONST                      457: 199
+                        2032    LOAD_CONST                      458: 200
+                        2036    LOAD_CONST                      459: 201
+                        2040    LOAD_CONST                      460: 202
+                        2044    LOAD_CONST                      461: 203
+                        2048    LOAD_CONST                      462: 204
+                        2052    LOAD_CONST                      463: ('sgp', 'ton', 'wsm', 'mlt', 'lie', 'gib', 'fro', 'xkx', 'niu')
+                        2056    BUILD_CONST_KEY_MAP             9
+                        2058    DICT_UPDATE                     1
+                        2060    STORE_FAST                      3: _var_var_1
+                        2062    LOAD_GLOBAL                     1: NULL + type
+                        2072    LOAD_FAST                       0: self
+                        2074    LOAD_ATTR                       2: country
+                        2094    CALL                            1
+                        2102    LOAD_GLOBAL                     4: str
+                        2112    COMPARE_OP                      40 (==)
+                        2116    POP_JUMP_IF_FALSE               48 (to 2214)
+                        2118    LOAD_FAST                       0: self
+                        2120    LOAD_ATTR                       2: country
+                        2140    LOAD_ATTR                       7: isdigit
+                        2160    CALL                            0
+                        2168    POP_JUMP_IF_FALSE               22 (to 2214)
+                        2170    LOAD_GLOBAL                     9: NULL + int
+                        2180    LOAD_FAST                       0: self
+                        2182    LOAD_ATTR                       2: country
+                        2202    CALL                            1
+                        2210    STORE_FAST                      2: _var_var_0
+                        2212    JUMP_FORWARD                    69 (to 2352)
+                        2214    LOAD_GLOBAL                     1: NULL + type
+                        2224    LOAD_FAST                       0: self
+                        2226    LOAD_ATTR                       2: country
+                        2246    CALL                            1
+                        2254    LOAD_GLOBAL                     8: int
+                        2264    COMPARE_OP                      40 (==)
+                        2268    POP_JUMP_IF_FALSE               13 (to 2296)
+                        2270    LOAD_FAST                       0: self
+                        2272    LOAD_ATTR                       2: country
+                        2292    STORE_FAST                      2: _var_var_0
+                        2294    JUMP_FORWARD                    28 (to 2352)
+                        2296    LOAD_FAST                       3: _var_var_1
+                        2298    LOAD_ATTR                       11: get
+                        2318    LOAD_FAST                       0: self
+                        2320    LOAD_ATTR                       2: country
+                        2340    LOAD_CONST                      0: None
+                        2342    CALL                            2
+                        2350    STORE_FAST                      2: _var_var_0
+                        2352    LOAD_FAST                       2: _var_var_0
+                        2354    POP_JUMP_IF_TRUE                2 (to 2360)
+                        2356    LOAD_CONST                      125: 0
+                        2358    STORE_FAST                      2: _var_var_0
+                        2360    LOAD_FAST                       2: _var_var_0
+                        2362    NOP                             
+                        2364    NOP                             
+                        2366    NOP                             
+                        2368    JUMP_FORWARD                    22 (to 2414)
+                        2370    LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a6\t\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        2372    CALL                            1
+                        2380    POP_TOP                         
+                        2382    RETURN_VALUE                    
+                        2384    PUSH_EXC_INFO                   
+                        2386    PUSH_NULL                       
+                        2388    LOAD_CONST                      464: '__pyarmor_exit_15530__'
+                        2392    NOP                             
+                        2394    LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a6\t\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        2396    CALL                            1
+                        2404    POP_TOP                         
+                        2406    RERAISE                         0
+                        2408    COPY                            3
+                        2410    POP_EXCEPT                      
+                        2412    RERAISE                         1
+                        2414    PUSH_NULL                       
+                        2416    LOAD_CONST                      464: '__pyarmor_exit_15530__'
+                        2420    LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a6\t\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        2422    BUILD_TUPLE                     1
+                        2424    CALL_FUNCTION_EX                0
+                        2426    POP_TOP                         
+                        2428    RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 2362 -> 2384 [0] 
+                        2384 to 2408 -> 2408 [1] lasti
+                [Code]
+                    File Name: <frozen program.modules.func.api.expert>
+                    Object Name: _service_id
+                    Qualified Name: ExpertStat._service_id
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'point'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15531__'
+                        '__pyarmor_enter_15532__'
+                        b'<COAddr>\x07\x00\x00\x1a\xf6\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'sms-activate'   # b'\x81\xf1\x15\x00~\xfb\xbd\xc6\x12\xec\x0c\xd4i'
+                        '__pyarmor_exit_15533__'
+                        1
+                        'grizzlysms'   # b'\x81\xe5\n\x1a)\xe0\xb2\xcb\x08\xf7\x1e'
+                        2
+                        'smsbower'
+                        3
+                        'sms-man'
+                        4
+                        '5sim'
+                        5
+                        '365sms'
+                        6
+                        'smshub'
+                        7
+                        'smslive'
+                        8
+                        'alisms'
+                        'vak-sms'
+                        9
+                        'moresms'
+                        '24sms7'
+                        10
+                        'tiger-sms'   # b'\x81\xf6\x11\x146\xe8\xf3\xc1\x16\xe9'
+                        11
+                        'firefox'
+                        12
+                        0
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_15532__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xf6\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      PUSH_NULL                       
+                        30      LOAD_CONST                      1: '__pyarmor_assert_15531__'
+                        32      LOAD_CONST                      4: 'sms-activate'   # b'\x81\xf1\x15\x00~\xfb\xbd\xc6\x12\xec\x0c\xd4i'
+                        34      CALL                            1
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_ATTR                       0: point
+                        64      CONTAINS_OP                     0 (in)
+                        66      POP_JUMP_IF_FALSE               10 (to 88)
+                        68      LOAD_CONST                      6: 1
+                        70      NOP                             
+                        72      NOP                             
+                        74      JUMP_FORWARD                    367 (to 812)
+                        84      POP_TOP                         
+                        86      RETURN_CONST                    6: 1
+                        88      PUSH_NULL                       
+                        90      LOAD_CONST                      1: '__pyarmor_assert_15531__'
+                        92      LOAD_CONST                      7: 'grizzlysms'   # b'\x81\xe5\n\x1a)\xe0\xb2\xcb\x08\xf7\x1e'
+                        94      CALL                            1
+                        102     LOAD_FAST                       0: self
+                        104     LOAD_ATTR                       0: point
+                        124     CONTAINS_OP                     0 (in)
+                        126     POP_JUMP_IF_FALSE               11 (to 150)
+                        128     NOP                             
+                        130     LOAD_CONST                      8: 2
+                        132     NOP                             
+                        134     NOP                             
+                        136     JUMP_FORWARD                    336 (to 812)
+                        146     POP_TOP                         
+                        148     RETURN_CONST                    8: 2
+                        150     LOAD_CONST                      9: 'smsbower'
+                        152     LOAD_FAST                       0: self
+                        154     LOAD_ATTR                       0: point
+                        174     CONTAINS_OP                     0 (in)
+                        176     POP_JUMP_IF_FALSE               11 (to 200)
+                        178     NOP                             
+                        180     LOAD_CONST                      10: 3
+                        182     NOP                             
+                        184     NOP                             
+                        186     JUMP_FORWARD                    311 (to 812)
+                        196     POP_TOP                         
+                        198     RETURN_CONST                    10: 3
+                        200     LOAD_CONST                      11: 'sms-man'
+                        202     LOAD_FAST                       0: self
+                        204     LOAD_ATTR                       0: point
+                        224     CONTAINS_OP                     0 (in)
+                        226     POP_JUMP_IF_FALSE               11 (to 250)
+                        228     NOP                             
+                        230     LOAD_CONST                      12: 4
+                        232     NOP                             
+                        234     NOP                             
+                        236     JUMP_FORWARD                    286 (to 812)
+                        246     POP_TOP                         
+                        248     RETURN_CONST                    12: 4
+                        250     LOAD_CONST                      13: '5sim'
+                        252     LOAD_FAST                       0: self
+                        254     LOAD_ATTR                       0: point
+                        274     CONTAINS_OP                     0 (in)
+                        276     POP_JUMP_IF_FALSE               11 (to 300)
+                        278     NOP                             
+                        280     LOAD_CONST                      14: 5
+                        282     NOP                             
+                        284     NOP                             
+                        286     JUMP_FORWARD                    261 (to 812)
+                        296     POP_TOP                         
+                        298     RETURN_CONST                    14: 5
+                        300     LOAD_CONST                      15: '365sms'
+                        302     LOAD_FAST                       0: self
+                        304     LOAD_ATTR                       0: point
+                        324     CONTAINS_OP                     0 (in)
+                        326     POP_JUMP_IF_FALSE               11 (to 350)
+                        328     NOP                             
+                        330     LOAD_CONST                      16: 6
+                        332     NOP                             
+                        334     NOP                             
+                        336     NOP                             
+                        338     JUMP_FORWARD                    236 (to 812)
+                        346     POP_TOP                         
+                        348     RETURN_CONST                    16: 6
+                        350     LOAD_CONST                      17: 'smshub'
+                        352     LOAD_FAST                       0: self
+                        354     LOAD_ATTR                       0: point
+                        374     CONTAINS_OP                     0 (in)
+                        376     POP_JUMP_IF_FALSE               11 (to 400)
+                        378     NOP                             
+                        380     LOAD_CONST                      18: 7
+                        382     NOP                             
+                        384     NOP                             
+                        386     NOP                             
+                        388     JUMP_FORWARD                    211 (to 812)
+                        396     POP_TOP                         
+                        398     RETURN_CONST                    18: 7
+                        400     LOAD_CONST                      19: 'smslive'
+                        402     LOAD_FAST                       0: self
+                        404     LOAD_ATTR                       0: point
+                        424     CONTAINS_OP                     0 (in)
+                        426     POP_JUMP_IF_FALSE               11 (to 450)
+                        428     NOP                             
+                        430     LOAD_CONST                      20: 8
+                        432     NOP                             
+                        434     NOP                             
+                        436     NOP                             
+                        438     JUMP_FORWARD                    186 (to 812)
+                        446     POP_TOP                         
+                        448     RETURN_CONST                    20: 8
+                        450     LOAD_CONST                      21: 'alisms'
+                        452     LOAD_FAST                       0: self
+                        454     LOAD_ATTR                       0: point
+                        474     CONTAINS_OP                     0 (in)
+                        476     POP_JUMP_IF_FALSE               11 (to 500)
+                        478     NOP                             
+                        480     LOAD_CONST                      20: 8
+                        482     NOP                             
+                        484     NOP                             
+                        486     NOP                             
+                        488     JUMP_FORWARD                    161 (to 812)
+                        496     POP_TOP                         
+                        498     RETURN_CONST                    20: 8
+                        500     LOAD_CONST                      22: 'vak-sms'
+                        502     LOAD_FAST                       0: self
+                        504     LOAD_ATTR                       0: point
+                        524     CONTAINS_OP                     0 (in)
+                        526     POP_JUMP_IF_FALSE               11 (to 550)
+                        528     NOP                             
+                        530     LOAD_CONST                      23: 9
+                        532     NOP                             
+                        534     NOP                             
+                        536     NOP                             
+                        538     JUMP_FORWARD                    136 (to 812)
+                        546     POP_TOP                         
+                        548     RETURN_CONST                    23: 9
+                        550     LOAD_CONST                      24: 'moresms'
+                        552     LOAD_FAST                       0: self
+                        554     LOAD_ATTR                       0: point
+                        574     CONTAINS_OP                     0 (in)
+                        576     POP_JUMP_IF_FALSE               11 (to 600)
+                        578     NOP                             
+                        580     LOAD_CONST                      23: 9
+                        582     NOP                             
+                        584     NOP                             
+                        586     NOP                             
+                        588     JUMP_FORWARD                    111 (to 812)
+                        596     POP_TOP                         
+                        598     RETURN_CONST                    23: 9
+                        600     LOAD_CONST                      25: '24sms7'
+                        602     LOAD_FAST                       0: self
+                        604     LOAD_ATTR                       0: point
+                        624     CONTAINS_OP                     0 (in)
+                        626     POP_JUMP_IF_FALSE               11 (to 650)
+                        628     NOP                             
+                        630     LOAD_CONST                      26: 10
+                        632     NOP                             
+                        634     NOP                             
+                        636     NOP                             
+                        638     JUMP_FORWARD                    86 (to 812)
+                        646     POP_TOP                         
+                        648     RETURN_CONST                    26: 10
+                        650     PUSH_NULL                       
+                        652     LOAD_CONST                      1: '__pyarmor_assert_15531__'
+                        654     LOAD_CONST                      27: 'tiger-sms'   # b'\x81\xf6\x11\x146\xe8\xf3\xc1\x16\xe9'
+                        656     CALL                            1
+                        664     LOAD_FAST                       0: self
+                        666     LOAD_ATTR                       0: point
+                        686     CONTAINS_OP                     0 (in)
+                        688     POP_JUMP_IF_FALSE               11 (to 712)
+                        690     NOP                             
+                        692     LOAD_CONST                      28: 11
+                        694     NOP                             
+                        696     NOP                             
+                        698     NOP                             
+                        700     JUMP_FORWARD                    55 (to 812)
+                        708     POP_TOP                         
+                        710     RETURN_CONST                    28: 11
+                        712     LOAD_CONST                      29: 'firefox'
+                        714     LOAD_FAST                       0: self
+                        716     LOAD_ATTR                       0: point
+                        736     CONTAINS_OP                     0 (in)
+                        738     POP_JUMP_IF_FALSE               11 (to 762)
+                        740     NOP                             
+                        742     LOAD_CONST                      30: 12
+                        744     NOP                             
+                        746     NOP                             
+                        748     NOP                             
+                        750     JUMP_FORWARD                    30 (to 812)
+                        758     POP_TOP                         
+                        760     RETURN_CONST                    30: 12
+                        762     NOP                             
+                        764     LOAD_CONST                      31: 0
+                        766     NOP                             
+                        768     NOP                             
+                        770     NOP                             
+                        772     JUMP_FORWARD                    19 (to 812)
+                        780     POP_TOP                         
+                        782     RETURN_CONST                    31: 0
+                        784     PUSH_EXC_INFO                   
+                        786     PUSH_NULL                       
+                        788     LOAD_CONST                      5: '__pyarmor_exit_15533__'
+                        790     NOP                             
+                        792     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xf6\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        794     CALL                            1
+                        802     POP_TOP                         
+                        804     RERAISE                         0
+                        806     COPY                            3
+                        808     POP_EXCEPT                      
+                        810     RERAISE                         1
+                        812     PUSH_NULL                       
+                        814     LOAD_CONST                      5: '__pyarmor_exit_15533__'
+                        816     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xf6\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        818     BUILD_TUPLE                     1
+                        820     CALL_FUNCTION_EX                0
+                        822     POP_TOP                         
+                        824     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 68 -> 784 [0] 
+                        88 to 128 -> 784 [0] 
+                        150 to 178 -> 784 [0] 
+                        200 to 228 -> 784 [0] 
+                        250 to 278 -> 784 [0] 
+                        300 to 328 -> 784 [0] 
+                        350 to 378 -> 784 [0] 
+                        400 to 428 -> 784 [0] 
+                        450 to 478 -> 784 [0] 
+                        500 to 528 -> 784 [0] 
+                        550 to 578 -> 784 [0] 
+                        600 to 628 -> 784 [0] 
+                        650 to 690 -> 784 [0] 
+                        712 to 740 -> 784 [0] 
+                        784 to 806 -> 806 [1] lasti
+                [Code]
+                    File Name: <frozen program.modules.func.api.expert>
+                    Object Name: _price
+                    Qualified Name: ExpertStat._price
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'float'
+                        'price'
+                        'free_price'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                        '_var_var_2'
+                        '_var_var_3'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15534__'
+                        '__pyarmor_enter_15535__'
+                        b'<COAddr>\x05\x00\x00\x1a\x9e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        0
+                        '__pyarmor_exit_15536__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_15535__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x9e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + float
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_ATTR                       2: price
+                        60      CALL                            1
+                        68      STORE_FAST                      2: _var_var_2
+                        70      LOAD_GLOBAL                     1: NULL + float
+                        80      LOAD_FAST                       0: self
+                        82      LOAD_ATTR                       4: free_price
+                        102     CALL                            1
+                        110     STORE_FAST                      3: _var_var_3
+                        112     LOAD_FAST                       3: _var_var_3
+                        114     LOAD_FAST                       2: _var_var_2
+                        116     COMPARE_OP                      68 (>)
+                        120     POP_JUMP_IF_FALSE               2 (to 126)
+                        122     LOAD_FAST                       3: _var_var_3
+                        124     JUMP_FORWARD                    1 (to 128)
+                        126     LOAD_FAST                       2: _var_var_2
+                        128     NOP                             
+                        130     NOP                             
+                        132     NOP                             
+                        134     JUMP_FORWARD                    38 (to 212)
+                        136     CALL                            1
+                        144     POP_TOP                         
+                        146     RETURN_VALUE                    
+                        148     PUSH_EXC_INFO                   
+                        150     POP_TOP                         
+                        152     LOAD_CONST                      4: 0
+                        154     STORE_FAST                      2: _var_var_2
+                        156     POP_EXCEPT                      
+                        158     JUMP_BACKWARD                   45 (to 70)
+                        160     COPY                            3
+                        162     POP_EXCEPT                      
+                        164     RERAISE                         1
+                        166     PUSH_EXC_INFO                   
+                        168     POP_TOP                         
+                        170     LOAD_CONST                      4: 0
+                        172     STORE_FAST                      3: _var_var_3
+                        174     POP_EXCEPT                      
+                        176     JUMP_BACKWARD                   33 (to 112)
+                        178     COPY                            3
+                        180     POP_EXCEPT                      
+                        182     RERAISE                         1
+                        184     PUSH_EXC_INFO                   
+                        186     PUSH_NULL                       
+                        188     LOAD_CONST                      5: '__pyarmor_exit_15536__'
+                        190     NOP                             
+                        192     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x9e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        194     CALL                            1
+                        202     POP_TOP                         
+                        204     RERAISE                         0
+                        206     COPY                            3
+                        208     POP_EXCEPT                      
+                        210     RERAISE                         1
+                        212     PUSH_NULL                       
+                        214     LOAD_CONST                      5: '__pyarmor_exit_15536__'
+                        216     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x9e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        218     BUILD_TUPLE                     1
+                        220     CALL_FUNCTION_EX                0
+                        222     POP_TOP                         
+                        224     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 70 -> 148 [0] 
+                        70 to 112 -> 166 [0] 
+                        112 to 128 -> 184 [0] 
+                        148 to 156 -> 160 [1] lasti
+                        156 to 166 -> 184 [0] 
+                        166 to 174 -> 178 [1] lasti
+                        174 to 184 -> 184 [0] 
+                        184 to 206 -> 206 [1] lasti
+                [Code]
+                    File Name: <frozen program.modules.func.api.expert>
+                    Object Name: send
+                    Qualified Name: ExpertStat.send
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_service_id'
+                        '_country_id'
+                        '_price'
+                        'replace'
+                        'license'
+                        'requests'
+                        'post'
+                        'headers'
+                    [Locals+Names]
+                        'self'
+                        'number'
+                        '__assert_armored__'
+                        '_var_var_4'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15537__'
+                        '__pyarmor_enter_15538__'
+                        b'<COAddr>\x05\x00\x00\x1a\x12\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '+'
+                        ''
+                        (
+                            'service'
+                            'country'
+                            'price'
+                            'number'
+                            'license'
+                        )
+                        'http://3.72.122.17:9999/api/number'   # b'\x81\xea\x0c\x07#\xa0\xf1\x9dH\xb4Z\x92"\xbd\xaa\xd7A\x0c\xec\xfd\xf3\x92\x17\x95Jn\xb3UO\xbf\x0b\xe88W2'
+                        3
+                        False
+                        (
+                            'headers'
+                            'json'
+                            'timeout'
+                            'verify'
+                        )
+                        '__pyarmor_exit_15539__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_15538__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x12\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       1: _service_id
+                        52      CALL                            0
+                        60      LOAD_FAST                       0: self
+                        62      LOAD_ATTR                       3: _country_id
+                        82      CALL                            0
+                        90      LOAD_FAST                       0: self
+                        92      LOAD_ATTR                       5: _price
+                        112     CALL                            0
+                        120     LOAD_FAST                       1: number
+                        122     LOAD_ATTR                       7: replace
+                        142     LOAD_CONST                      4: '+'
+                        144     LOAD_CONST                      5: ''
+                        146     CALL                            2
+                        154     LOAD_FAST                       0: self
+                        156     LOAD_ATTR                       8: license
+                        176     LOAD_CONST                      6: ('service', 'country', 'price', 'number', 'license')
+                        178     BUILD_CONST_KEY_MAP             5
+                        180     STORE_FAST                      3: _var_var_4
+                        182     LOAD_GLOBAL                     11: NULL + requests
+                        192     LOAD_ATTR                       12: post
+                        212     PUSH_NULL                       
+                        214     LOAD_CONST                      1: '__pyarmor_assert_15537__'
+                        216     LOAD_CONST                      7: 'http://3.72.122.17:9999/api/number'   # b'\x81\xea\x0c\x07#\xa0\xf1\x9dH\xb4Z\x92"\xbd\xaa\xd7A\x0c\xec\xfd\xf3\x92\x17\x95Jn\xb3UO\xbf\x0b\xe88W2'
+                        218     CALL                            1
+                        226     LOAD_FAST                       0: self
+                        228     LOAD_ATTR                       14: headers
+                        248     LOAD_FAST                       3: _var_var_4
+                        250     LOAD_CONST                      8: 3
+                        252     LOAD_CONST                      9: False
+                        254     KW_NAMES                        10: ('headers', 'json', 'timeout', 'verify')
+                        256     CALL                            5
+                        264     POP_TOP                         
+                        266     LOAD_CONST                      0: None
+                        268     NOP                             
+                        270     NOP                             
+                        272     NOP                             
+                        274     JUMP_FORWARD                    26 (to 328)
+                        282     POP_TOP                         
+                        284     RETURN_CONST                    0: None
+                        286     PUSH_EXC_INFO                   
+                        288     POP_TOP                         
+                        290     POP_EXCEPT                      
+                        292     JUMP_BACKWARD                   14 (to 266)
+                        294     COPY                            3
+                        296     POP_EXCEPT                      
+                        298     RERAISE                         1
+                        300     PUSH_EXC_INFO                   
+                        302     PUSH_NULL                       
+                        304     LOAD_CONST                      11: '__pyarmor_exit_15539__'
+                        306     NOP                             
+                        308     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x12\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        310     CALL                            1
+                        318     POP_TOP                         
+                        320     RERAISE                         0
+                        322     COPY                            3
+                        324     POP_EXCEPT                      
+                        326     RERAISE                         1
+                        328     PUSH_NULL                       
+                        330     LOAD_CONST                      11: '__pyarmor_exit_15539__'
+                        332     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x12\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        334     BUILD_TUPLE                     1
+                        336     CALL_FUNCTION_EX                0
+                        338     POP_TOP                         
+                        340     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 266 -> 286 [0] 
+                        286 to 290 -> 294 [1] lasti
+                        290 to 300 -> 300 [0] 
+                        300 to 322 -> 322 [1] lasti
+                '__pyarmor_exit_15524__'
+                (
+                    0
+                    0
+                    ''
+                )
+                (
+                    'return'
+                    None
+                )
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'ExpertStat'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\tAPI Сервер статистики Telegram Expert '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_15523__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&p\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      18: (0, 0, '')
+                42      LOAD_CONST                      5: 'point'
+                44      LOAD_NAME                       5: str
+                46      LOAD_CONST                      6: 'country'
+                48      LOAD_NAME                       6: Union
+                50      LOAD_NAME                       7: int
+                52      LOAD_NAME                       5: str
+                54      BUILD_TUPLE                     2
+                56      BINARY_SUBSCR                   
+                60      LOAD_CONST                      7: 'price'
+                62      LOAD_NAME                       6: Union
+                64      LOAD_NAME                       8: float
+                66      LOAD_NAME                       5: str
+                68      BUILD_TUPLE                     2
+                70      BINARY_SUBSCR                   
+                74      LOAD_CONST                      8: 'free_price'
+                76      LOAD_NAME                       6: Union
+                78      LOAD_NAME                       8: float
+                80      LOAD_NAME                       5: str
+                82      BUILD_TUPLE                     2
+                84      BINARY_SUBSCR                   
+                88      LOAD_CONST                      9: 'license'
+                90      LOAD_NAME                       5: str
+                92      LOAD_CONST                      10: 'return'
+                94      LOAD_CONST                      11: None
+                96      BUILD_TUPLE                     12
+                98      LOAD_CONST                      12: <CODE> __init__
+                100     MAKE_FUNCTION                   5
+                102     STORE_NAME                      9: __init__
+                104     LOAD_CONST                      13: <CODE> _country_id
+                106     MAKE_FUNCTION                   0
+                108     STORE_NAME                      10: _country_id
+                110     LOAD_CONST                      14: <CODE> _service_id
+                112     MAKE_FUNCTION                   0
+                114     STORE_NAME                      11: _service_id
+                116     LOAD_CONST                      15: <CODE> _price
+                118     MAKE_FUNCTION                   0
+                120     STORE_NAME                      12: _price
+                122     LOAD_CONST                      19: ('return', None)
+                124     LOAD_CONST                      16: <CODE> send
+                126     MAKE_FUNCTION                   4
+                128     STORE_NAME                      13: send
+                130     LOAD_CONST                      11: None
+                132     NOP                             
+                134     NOP                             
+                136     NOP                             
+                138     JUMP_FORWARD                    19 (to 178)
+                146     POP_TOP                         
+                148     RETURN_CONST                    11: None
+                150     PUSH_EXC_INFO                   
+                152     PUSH_NULL                       
+                154     LOAD_CONST                      17: '__pyarmor_exit_15524__'
+                156     NOP                             
+                158     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&p\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                160     CALL                            1
+                168     POP_TOP                         
+                170     RERAISE                         0
+                172     COPY                            3
+                174     POP_EXCEPT                      
+                176     RERAISE                         1
+                178     PUSH_NULL                       
+                180     LOAD_CONST                      17: '__pyarmor_exit_15524__'
+                182     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&p\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                184     BUILD_TUPLE                     1
+                186     CALL_FUNCTION_EX                0
+                188     POP_TOP                         
+                190     RETURN_VALUE                    
+            [Exception Table]
+                40 to 130 -> 150 [0] 
+                150 to 172 -> 172 [1] lasti
+        'ExpertStat'
+        [Code]
+            File Name: <frozen program.modules.func.api.expert>
+            Object Name: ExpertRemoteLog
+            Qualified Name: ExpertRemoteLog
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+                'str'
+                '__init__'
+                'send'
+            [Locals+Names]
+            [Constants]
+                'ExpertRemoteLog'
+                '__pyarmor_assert_15540__'
+                '__pyarmor_enter_15541__'
+                b'<COAddr>\x07\x00\x00":\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'license'
+                'return'
+                None
+                [Code]
+                    File Name: <frozen program.modules.func.api.expert>
+                    Object Name: __init__
+                    Qualified Name: ExpertRemoteLog.__init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 22
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'license'
+                        'headers'
+                    [Locals+Names]
+                        'self'
+                        'license'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15543__'
+                        '__pyarmor_enter_15544__'
+                        b'<COAddr>\x07\x00\x00\x1a\xea\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'User-Agent'   # b'\x81\xd7\x0b\x16!\xb7\x9f\xd5\x1e\xf4\x19'
+                        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36'   # b'\x81\xcf\x17\t:\xf6\xb2\xd3T\xafC\x90,\xa4\xcf\x8c\x01Y\xb4\xb0\xb9\x8b`\xf8E>\xf3\x12P\xea^\xd23\\vY\xc3\x8a\xacxL\xa0\xb8|\xcd\xc8\x03B\x00\xe8T\xd0\x8edI\xb8d\xbc\xd5NN\x0byx\x7f|(\xaf\x91w\xe0\xb6\x98g|\x19E\xba\x03\x9e\xe8\xc7\xa7\xa1\xad\x00\x0fD\x8b\xe6\xdf\xbb\xd1!\x97\xe3\xaa\x00\xfd@:\x0e%.FP\xed\xd1\x1a\xa9\xaem'
+                        'Accept'
+                        'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8'   # b"\x81\xf6\x1d\x0b'\xb5\xb6\xc6\x16\xf6A\xc1|\xfc\xf4\x8c\x0c\\\xaf\xae\xa5\xc5\x01\xd4\r{\xaePK\xa9\x13\xe9vS0\x1d\x94\xc3\xb7/\x0c\xe0\xf7S\x92\xc0\x02Kl\xfc\x0b\xab\xc9)J\xe4:\xea\x9c\x18WJ'ZQ\x04\x0c\x8e\xdc0\xe9\xf0\x84g>.\x0c\xf3G\xdb\xfa\x96\xd9\xf9\xf1W"
+                        'Accept-Language'   # b'\x81\xc3\x1b\x106\xea\xaa\x9f7\xfb\x03\xc7y\xed\xff\x80'
+                        'en,en-US;q=0.5'   # b'\x81\xe7\x16_6\xf4\xf3\xe7(\xa1\x1c\x9d<\xa2\xad'
+                        'Priority'
+                        'u=1'
+                        'Sec-Fetch-User'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xf5\x7f\xe9\xea'
+                        '?1'
+                        'Sec-Fetch-Site'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xf3e\xf8\xfd'
+                        'none'
+                        'Sec-Fetch-Mode'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xedc\xe8\xfd'
+                        'navigate'
+                        'Sec-Fetch-Dest'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xe4i\xff\xec'
+                        'document'
+                        'Upgrade-Insecure-Requests'   # b'\x81\xd7\x08\x14!\xfb\xba\xd7V\xd3\x03\xd3i\xef\xed\x97\n\x10\x89\xa2\xbb\xdeK\xdf\x11|'
+                        '1'
+                        'Authorization'   # b'\x81\xc3\r\x07;\xf5\xac\xdb\x01\xfb\x19\xc9c\xe2'
+                        'TJ5SVa6getEWRVG'   # b'\x81\xd62F\x00\xcc\xbf\x84\x1c\xff\x19\xe5[\xde\xce\xa2'
+                        '__pyarmor_exit_15545__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_15544__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xea\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: license
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: license
+                        42      PUSH_NULL                       
+                        44      LOAD_CONST                      1: '__pyarmor_assert_15543__'
+                        46      LOAD_CONST                      4: 'User-Agent'   # b'\x81\xd7\x0b\x16!\xb7\x9f\xd5\x1e\xf4\x19'
+                        48      CALL                            1
+                        56      PUSH_NULL                       
+                        58      LOAD_CONST                      1: '__pyarmor_assert_15543__'
+                        60      LOAD_CONST                      5: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36'   # b'\x81\xcf\x17\t:\xf6\xb2\xd3T\xafC\x90,\xa4\xcf\x8c\x01Y\xb4\xb0\xb9\x8b`\xf8E>\xf3\x12P\xea^\xd23\\vY\xc3\x8a\xacxL\xa0\xb8|\xcd\xc8\x03B\x00\xe8T\xd0\x8edI\xb8d\xbc\xd5NN\x0byx\x7f|(\xaf\x91w\xe0\xb6\x98g|\x19E\xba\x03\x9e\xe8\xc7\xa7\xa1\xad\x00\x0fD\x8b\xe6\xdf\xbb\xd1!\x97\xe3\xaa\x00\xfd@:\x0e%.FP\xed\xd1\x1a\xa9\xaem'
+                        62      CALL                            1
+                        70      LOAD_CONST                      6: 'Accept'
+                        72      PUSH_NULL                       
+                        74      LOAD_CONST                      1: '__pyarmor_assert_15543__'
+                        76      LOAD_CONST                      7: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8'   # b"\x81\xf6\x1d\x0b'\xb5\xb6\xc6\x16\xf6A\xc1|\xfc\xf4\x8c\x0c\\\xaf\xae\xa5\xc5\x01\xd4\r{\xaePK\xa9\x13\xe9vS0\x1d\x94\xc3\xb7/\x0c\xe0\xf7S\x92\xc0\x02Kl\xfc\x0b\xab\xc9)J\xe4:\xea\x9c\x18WJ'ZQ\x04\x0c\x8e\xdc0\xe9\xf0\x84g>.\x0c\xf3G\xdb\xfa\x96\xd9\xf9\xf1W"
+                        78      CALL                            1
+                        86      PUSH_NULL                       
+                        88      LOAD_CONST                      1: '__pyarmor_assert_15543__'
+                        90      LOAD_CONST                      8: 'Accept-Language'   # b'\x81\xc3\x1b\x106\xea\xaa\x9f7\xfb\x03\xc7y\xed\xff\x80'
+                        92      CALL                            1
+                        100     PUSH_NULL                       
+                        102     LOAD_CONST                      1: '__pyarmor_assert_15543__'
+                        104     LOAD_CONST                      9: 'en,en-US;q=0.5'   # b'\x81\xe7\x16_6\xf4\xf3\xe7(\xa1\x1c\x9d<\xa2\xad'
+                        106     CALL                            1
+                        114     LOAD_CONST                      10: 'Priority'
+                        116     LOAD_CONST                      11: 'u=1'
+                        118     PUSH_NULL                       
+                        120     LOAD_CONST                      1: '__pyarmor_assert_15543__'
+                        122     LOAD_CONST                      12: 'Sec-Fetch-User'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xf5\x7f\xe9\xea'
+                        124     CALL                            1
+                        132     LOAD_CONST                      13: '?1'
+                        134     PUSH_NULL                       
+                        136     LOAD_CONST                      1: '__pyarmor_assert_15543__'
+                        138     LOAD_CONST                      14: 'Sec-Fetch-Site'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xf3e\xf8\xfd'
+                        140     CALL                            1
+                        148     LOAD_CONST                      15: 'none'
+                        150     PUSH_NULL                       
+                        152     LOAD_CONST                      1: '__pyarmor_assert_15543__'
+                        154     LOAD_CONST                      16: 'Sec-Fetch-Mode'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xedc\xe8\xfd'
+                        156     CALL                            1
+                        164     LOAD_CONST                      17: 'navigate'
+                        166     PUSH_NULL                       
+                        168     LOAD_CONST                      1: '__pyarmor_assert_15543__'
+                        170     LOAD_CONST                      18: 'Sec-Fetch-Dest'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xe4i\xff\xec'
+                        172     CALL                            1
+                        180     LOAD_CONST                      19: 'document'
+                        182     PUSH_NULL                       
+                        184     LOAD_CONST                      1: '__pyarmor_assert_15543__'
+                        186     LOAD_CONST                      20: 'Upgrade-Insecure-Requests'   # b'\x81\xd7\x08\x14!\xfb\xba\xd7V\xd3\x03\xd3i\xef\xed\x97\n\x10\x89\xa2\xbb\xdeK\xdf\x11|'
+                        188     CALL                            1
+                        196     LOAD_CONST                      21: '1'
+                        198     PUSH_NULL                       
+                        200     LOAD_CONST                      1: '__pyarmor_assert_15543__'
+                        202     LOAD_CONST                      22: 'Authorization'   # b'\x81\xc3\r\x07;\xf5\xac\xdb\x01\xfb\x19\xc9c\xe2'
+                        204     CALL                            1
+                        212     PUSH_NULL                       
+                        214     LOAD_CONST                      1: '__pyarmor_assert_15543__'
+                        216     LOAD_CONST                      23: 'TJ5SVa6getEWRVG'   # b'\x81\xd62F\x00\xcc\xbf\x84\x1c\xff\x19\xe5[\xde\xce\xa2'
+                        218     CALL                            1
+                        226     BUILD_MAP                       10
+                        228     LOAD_FAST                       0: self
+                        230     STORE_ATTR                      1: headers
+                        240     LOAD_CONST                      0: None
+                        242     NOP                             
+                        244     NOP                             
+                        246     NOP                             
+                        248     JUMP_FORWARD                    19 (to 288)
+                        256     POP_TOP                         
+                        258     RETURN_CONST                    0: None
+                        260     PUSH_EXC_INFO                   
+                        262     PUSH_NULL                       
+                        264     LOAD_CONST                      24: '__pyarmor_exit_15545__'
+                        266     NOP                             
+                        268     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xea\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        270     CALL                            1
+                        278     POP_TOP                         
+                        280     RERAISE                         0
+                        282     COPY                            3
+                        284     POP_EXCEPT                      
+                        286     RERAISE                         1
+                        288     PUSH_NULL                       
+                        290     LOAD_CONST                      24: '__pyarmor_exit_15545__'
+                        292     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xea\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        294     BUILD_TUPLE                     1
+                        296     CALL_FUNCTION_EX                0
+                        298     POP_TOP                         
+                        300     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 240 -> 260 [0] 
+                        260 to 282 -> 282 [1] lasti
+                'message'
+                [Code]
+                    File Name: <frozen program.modules.func.api.expert>
+                    Object Name: send
+                    Qualified Name: ExpertRemoteLog.send
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'str'
+                        'license'
+                        'requests'
+                        'post'
+                        'headers'
+                    [Locals+Names]
+                        'self'
+                        'message'
+                        '__assert_armored__'
+                        '_var_var_4'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15546__'
+                        '__pyarmor_enter_15547__'
+                        b'<COAddr>\x05\x00\x00\x1a\xc4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_15548__'
+                        (
+                            'text'
+                            'license'
+                        )
+                        'http://3.72.122.17:9999/api/add-log'   # b'\x81\xea\x0c\x07#\xa0\xf1\x9dH\xb4Z\x92"\xbd\xaa\xd7A\x0c\xec\xfd\xf3\x92\x17\x95Jn\xb3UO\xb0\x1a\xe1w^/\n'
+                        3
+                        False
+                        (
+                            'headers'
+                            'json'
+                            'timeout'
+                            'verify'
+                        )
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_15547__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xc4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: message
+                        30      POP_JUMP_IF_TRUE                11 (to 54)
+                        32      NOP                             
+                        34      LOAD_CONST                      0: None
+                        36      NOP                             
+                        38      NOP                             
+                        40      NOP                             
+                        42      JUMP_FORWARD                    103 (to 250)
+                        50      POP_TOP                         
+                        52      RETURN_CONST                    0: None
+                        54      NOP                             
+                        56      LOAD_GLOBAL                     1: NULL + str
+                        66      LOAD_FAST                       1: message
+                        68      CALL                            1
+                        76      LOAD_FAST                       0: self
+                        78      LOAD_ATTR                       2: license
+                        98      LOAD_CONST                      5: ('text', 'license')
+                        100     BUILD_CONST_KEY_MAP             2
+                        102     STORE_FAST                      3: _var_var_4
+                        104     LOAD_GLOBAL                     5: NULL + requests
+                        114     LOAD_ATTR                       6: post
+                        134     PUSH_NULL                       
+                        136     LOAD_CONST                      1: '__pyarmor_assert_15546__'
+                        138     LOAD_CONST                      6: 'http://3.72.122.17:9999/api/add-log'   # b'\x81\xea\x0c\x07#\xa0\xf1\x9dH\xb4Z\x92"\xbd\xaa\xd7A\x0c\xec\xfd\xf3\x92\x17\x95Jn\xb3UO\xb0\x1a\xe1w^/\n'
+                        140     CALL                            1
+                        148     LOAD_FAST                       0: self
+                        150     LOAD_ATTR                       8: headers
+                        170     LOAD_FAST                       3: _var_var_4
+                        172     LOAD_CONST                      7: 3
+                        174     LOAD_CONST                      8: False
+                        176     KW_NAMES                        9: ('headers', 'json', 'timeout', 'verify')
+                        178     CALL                            5
+                        186     POP_TOP                         
+                        188     LOAD_CONST                      0: None
+                        190     NOP                             
+                        192     NOP                             
+                        194     NOP                             
+                        196     JUMP_FORWARD                    26 (to 250)
+                        204     POP_TOP                         
+                        206     RETURN_CONST                    0: None
+                        208     PUSH_EXC_INFO                   
+                        210     POP_TOP                         
+                        212     POP_EXCEPT                      
+                        214     JUMP_BACKWARD                   14 (to 188)
+                        216     COPY                            3
+                        218     POP_EXCEPT                      
+                        220     RERAISE                         1
+                        222     PUSH_EXC_INFO                   
+                        224     PUSH_NULL                       
+                        226     LOAD_CONST                      4: '__pyarmor_exit_15548__'
+                        228     NOP                             
+                        230     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xc4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        232     CALL                            1
+                        240     POP_TOP                         
+                        242     RERAISE                         0
+                        244     COPY                            3
+                        246     POP_EXCEPT                      
+                        248     RERAISE                         1
+                        250     PUSH_NULL                       
+                        252     LOAD_CONST                      4: '__pyarmor_exit_15548__'
+                        254     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xc4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        256     BUILD_TUPLE                     1
+                        258     CALL_FUNCTION_EX                0
+                        260     POP_TOP                         
+                        262     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 32 -> 222 [0] 
+                        56 to 188 -> 208 [0] 
+                        208 to 212 -> 216 [1] lasti
+                        212 to 222 -> 222 [0] 
+                        222 to 244 -> 244 [1] lasti
+                '__pyarmor_exit_15542__'
+                (
+                    ''
+                )
+                (
+                    None
+                )
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'ExpertRemoteLog'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_15541__'
+                16      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00":\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      LOAD_CONST                      11: ('',)
+                38      LOAD_CONST                      4: 'license'
+                40      LOAD_NAME                       4: str
+                42      LOAD_CONST                      5: 'return'
+                44      LOAD_CONST                      6: None
+                46      BUILD_TUPLE                     4
+                48      LOAD_CONST                      7: <CODE> __init__
+                50      MAKE_FUNCTION                   5
+                52      STORE_NAME                      5: __init__
+                54      LOAD_CONST                      12: (None,)
+                56      LOAD_CONST                      8: 'message'
+                58      LOAD_NAME                       4: str
+                60      LOAD_CONST                      5: 'return'
+                62      LOAD_CONST                      6: None
+                64      BUILD_TUPLE                     4
+                66      LOAD_CONST                      9: <CODE> send
+                68      MAKE_FUNCTION                   5
+                70      STORE_NAME                      6: send
+                72      LOAD_CONST                      6: None
+                74      NOP                             
+                76      NOP                             
+                78      NOP                             
+                80      JUMP_FORWARD                    19 (to 120)
+                88      POP_TOP                         
+                90      RETURN_CONST                    6: None
+                92      PUSH_EXC_INFO                   
+                94      PUSH_NULL                       
+                96      LOAD_CONST                      10: '__pyarmor_exit_15542__'
+                98      NOP                             
+                100     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00":\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                102     CALL                            1
+                110     POP_TOP                         
+                112     RERAISE                         0
+                114     COPY                            3
+                116     POP_EXCEPT                      
+                118     RERAISE                         1
+                120     PUSH_NULL                       
+                122     LOAD_CONST                      10: '__pyarmor_exit_15542__'
+                124     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00":\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                126     BUILD_TUPLE                     1
+                128     CALL_FUNCTION_EX                0
+                130     POP_TOP                         
+                132     RETURN_VALUE                    
+            [Exception Table]
+                36 to 72 -> 92 [0] 
+                92 to 114 -> 114 [1] lasti
+        'ExpertRemoteLog'
+        [Code]
+            File Name: <frozen program.modules.func.api.expert>
+            Object Name: ExpertRemoteLink
+            Qualified Name: ExpertRemoteLink
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+                '__init__'
+                'str'
+                'send'
+            [Locals+Names]
+            [Constants]
+                'ExpertRemoteLink'
+                '__pyarmor_assert_15549__'
+                '__pyarmor_enter_15550__'
+                b'<COAddr>\x07\x00\x00"0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'return'
+                None
+                [Code]
+                    File Name: <frozen program.modules.func.api.expert>
+                    Object Name: __init__
+                    Qualified Name: ExpertRemoteLink.__init__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 22
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'headers'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15552__'
+                        '__pyarmor_enter_15553__'
+                        b'<COAddr>\x07\x00\x00\x1a\xdc\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'User-Agent'   # b'\x81\xd7\x0b\x16!\xb7\x9f\xd5\x1e\xf4\x19'
+                        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36'   # b'\x81\xcf\x17\t:\xf6\xb2\xd3T\xafC\x90,\xa4\xcf\x8c\x01Y\xb4\xb0\xb9\x8b`\xf8E>\xf3\x12P\xea^\xd23\\vY\xc3\x8a\xacxL\xa0\xb8|\xcd\xc8\x03B\x00\xe8T\xd0\x8edI\xb8d\xbc\xd5NN\x0byx\x7f|(\xaf\x91w\xe0\xb6\x98g|\x19E\xba\x03\x9e\xe8\xc7\xa7\xa1\xad\x00\x0fD\x8b\xe6\xdf\xbb\xd1!\x97\xe3\xaa\x00\xfd@:\x0e%.FP\xed\xd1\x1a\xa9\xaem'
+                        'Accept'
+                        'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8'   # b"\x81\xf6\x1d\x0b'\xb5\xb6\xc6\x16\xf6A\xc1|\xfc\xf4\x8c\x0c\\\xaf\xae\xa5\xc5\x01\xd4\r{\xaePK\xa9\x13\xe9vS0\x1d\x94\xc3\xb7/\x0c\xe0\xf7S\x92\xc0\x02Kl\xfc\x0b\xab\xc9)J\xe4:\xea\x9c\x18WJ'ZQ\x04\x0c\x8e\xdc0\xe9\xf0\x84g>.\x0c\xf3G\xdb\xfa\x96\xd9\xf9\xf1W"
+                        'Accept-Language'   # b'\x81\xc3\x1b\x106\xea\xaa\x9f7\xfb\x03\xc7y\xed\xff\x80'
+                        'en,en-US;q=0.5'   # b'\x81\xe7\x16_6\xf4\xf3\xe7(\xa1\x1c\x9d<\xa2\xad'
+                        'Priority'
+                        'u=1'
+                        'Sec-Fetch-User'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xf5\x7f\xe9\xea'
+                        '?1'
+                        'Sec-Fetch-Site'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xf3e\xf8\xfd'
+                        'none'
+                        'Sec-Fetch-Mode'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xedc\xe8\xfd'
+                        'navigate'
+                        'Sec-Fetch-Dest'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xe4i\xff\xec'
+                        'document'
+                        'Upgrade-Insecure-Requests'   # b'\x81\xd7\x08\x14!\xfb\xba\xd7V\xd3\x03\xd3i\xef\xed\x97\n\x10\x89\xa2\xbb\xdeK\xdf\x11|'
+                        '1'
+                        'Authorization'   # b'\x81\xc3\r\x07;\xf5\xac\xdb\x01\xfb\x19\xc9c\xe2'
+                        'TJ5SVa6getEWRVG'   # b'\x81\xd62F\x00\xcc\xbf\x84\x1c\xff\x19\xe5[\xde\xce\xa2'
+                        '__pyarmor_exit_15554__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_15553__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xdc\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      PUSH_NULL                       
+                        30      LOAD_CONST                      1: '__pyarmor_assert_15552__'
+                        32      LOAD_CONST                      4: 'User-Agent'   # b'\x81\xd7\x0b\x16!\xb7\x9f\xd5\x1e\xf4\x19'
+                        34      CALL                            1
+                        42      PUSH_NULL                       
+                        44      LOAD_CONST                      1: '__pyarmor_assert_15552__'
+                        46      LOAD_CONST                      5: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36'   # b'\x81\xcf\x17\t:\xf6\xb2\xd3T\xafC\x90,\xa4\xcf\x8c\x01Y\xb4\xb0\xb9\x8b`\xf8E>\xf3\x12P\xea^\xd23\\vY\xc3\x8a\xacxL\xa0\xb8|\xcd\xc8\x03B\x00\xe8T\xd0\x8edI\xb8d\xbc\xd5NN\x0byx\x7f|(\xaf\x91w\xe0\xb6\x98g|\x19E\xba\x03\x9e\xe8\xc7\xa7\xa1\xad\x00\x0fD\x8b\xe6\xdf\xbb\xd1!\x97\xe3\xaa\x00\xfd@:\x0e%.FP\xed\xd1\x1a\xa9\xaem'
+                        48      CALL                            1
+                        56      LOAD_CONST                      6: 'Accept'
+                        58      PUSH_NULL                       
+                        60      LOAD_CONST                      1: '__pyarmor_assert_15552__'
+                        62      LOAD_CONST                      7: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8'   # b"\x81\xf6\x1d\x0b'\xb5\xb6\xc6\x16\xf6A\xc1|\xfc\xf4\x8c\x0c\\\xaf\xae\xa5\xc5\x01\xd4\r{\xaePK\xa9\x13\xe9vS0\x1d\x94\xc3\xb7/\x0c\xe0\xf7S\x92\xc0\x02Kl\xfc\x0b\xab\xc9)J\xe4:\xea\x9c\x18WJ'ZQ\x04\x0c\x8e\xdc0\xe9\xf0\x84g>.\x0c\xf3G\xdb\xfa\x96\xd9\xf9\xf1W"
+                        64      CALL                            1
+                        72      PUSH_NULL                       
+                        74      LOAD_CONST                      1: '__pyarmor_assert_15552__'
+                        76      LOAD_CONST                      8: 'Accept-Language'   # b'\x81\xc3\x1b\x106\xea\xaa\x9f7\xfb\x03\xc7y\xed\xff\x80'
+                        78      CALL                            1
+                        86      PUSH_NULL                       
+                        88      LOAD_CONST                      1: '__pyarmor_assert_15552__'
+                        90      LOAD_CONST                      9: 'en,en-US;q=0.5'   # b'\x81\xe7\x16_6\xf4\xf3\xe7(\xa1\x1c\x9d<\xa2\xad'
+                        92      CALL                            1
+                        100     LOAD_CONST                      10: 'Priority'
+                        102     LOAD_CONST                      11: 'u=1'
+                        104     PUSH_NULL                       
+                        106     LOAD_CONST                      1: '__pyarmor_assert_15552__'
+                        108     LOAD_CONST                      12: 'Sec-Fetch-User'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xf5\x7f\xe9\xea'
+                        110     CALL                            1
+                        118     LOAD_CONST                      13: '?1'
+                        120     PUSH_NULL                       
+                        122     LOAD_CONST                      1: '__pyarmor_assert_15552__'
+                        124     LOAD_CONST                      14: 'Sec-Fetch-Site'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xf3e\xf8\xfd'
+                        126     CALL                            1
+                        134     LOAD_CONST                      15: 'none'
+                        136     PUSH_NULL                       
+                        138     LOAD_CONST                      1: '__pyarmor_assert_15552__'
+                        140     LOAD_CONST                      16: 'Sec-Fetch-Mode'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xedc\xe8\xfd'
+                        142     CALL                            1
+                        150     LOAD_CONST                      17: 'navigate'
+                        152     PUSH_NULL                       
+                        154     LOAD_CONST                      1: '__pyarmor_assert_15552__'
+                        156     LOAD_CONST                      18: 'Sec-Fetch-Dest'   # b'\x81\xd1\x1d\x10~\xdc\xbb\xc6\x18\xf2@\xe4i\xff\xec'
+                        158     CALL                            1
+                        166     LOAD_CONST                      19: 'document'
+                        168     PUSH_NULL                       
+                        170     LOAD_CONST                      1: '__pyarmor_assert_15552__'
+                        172     LOAD_CONST                      20: 'Upgrade-Insecure-Requests'   # b'\x81\xd7\x08\x14!\xfb\xba\xd7V\xd3\x03\xd3i\xef\xed\x97\n\x10\x89\xa2\xbb\xdeK\xdf\x11|'
+                        174     CALL                            1
+                        182     LOAD_CONST                      21: '1'
+                        184     PUSH_NULL                       
+                        186     LOAD_CONST                      1: '__pyarmor_assert_15552__'
+                        188     LOAD_CONST                      22: 'Authorization'   # b'\x81\xc3\r\x07;\xf5\xac\xdb\x01\xfb\x19\xc9c\xe2'
+                        190     CALL                            1
+                        198     PUSH_NULL                       
+                        200     LOAD_CONST                      1: '__pyarmor_assert_15552__'
+                        202     LOAD_CONST                      23: 'TJ5SVa6getEWRVG'   # b'\x81\xd62F\x00\xcc\xbf\x84\x1c\xff\x19\xe5[\xde\xce\xa2'
+                        204     CALL                            1
+                        212     BUILD_MAP                       10
+                        214     LOAD_FAST                       0: self
+                        216     STORE_ATTR                      0: headers
+                        226     LOAD_CONST                      0: None
+                        228     NOP                             
+                        230     NOP                             
+                        232     NOP                             
+                        234     JUMP_FORWARD                    19 (to 274)
+                        242     POP_TOP                         
+                        244     RETURN_CONST                    0: None
+                        246     PUSH_EXC_INFO                   
+                        248     PUSH_NULL                       
+                        250     LOAD_CONST                      24: '__pyarmor_exit_15554__'
+                        252     NOP                             
+                        254     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xdc\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        256     CALL                            1
+                        264     POP_TOP                         
+                        266     RERAISE                         0
+                        268     COPY                            3
+                        270     POP_EXCEPT                      
+                        272     RERAISE                         1
+                        274     PUSH_NULL                       
+                        276     LOAD_CONST                      24: '__pyarmor_exit_15554__'
+                        278     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\xdc\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        280     BUILD_TUPLE                     1
+                        282     CALL_FUNCTION_EX                0
+                        284     POP_TOP                         
+                        286     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 226 -> 246 [0] 
+                        246 to 268 -> 268 [1] lasti
+                'link'
+                [Code]
+                    File Name: <frozen program.modules.func.api.expert>
+                    Object Name: send
+                    Qualified Name: ExpertRemoteLink.send
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'str'
+                        'requests'
+                        'post'
+                        'headers'
+                    [Locals+Names]
+                        'self'
+                        'link'
+                        '__assert_armored__'
+                        '_var_var_4'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_15555__'
+                        '__pyarmor_enter_15556__'
+                        b'<COAddr>\x05\x00\x00\x1a\xae\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_15557__'
+                        'link'
+                        'http://3.72.122.17:9999/api/add-link'   # b'\x81\xea\x0c\x07#\xa0\xf1\x9dH\xb4Z\x92"\xbd\xaa\xd7A\x0c\xec\xfd\xf3\x92\x17\x95Jn\xb3UO\xb0\x1a\xe1w^)\x03\x93'
+                        3
+                        False
+                        (
+                            'headers'
+                            'json'
+                            'timeout'
+                            'verify'
+                        )
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_15556__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xae\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: link
+                        30      POP_JUMP_IF_TRUE                11 (to 54)
+                        32      NOP                             
+                        34      LOAD_CONST                      0: None
+                        36      NOP                             
+                        38      NOP                             
+                        40      NOP                             
+                        42      JUMP_FORWARD                    92 (to 228)
+                        50      POP_TOP                         
+                        52      RETURN_CONST                    0: None
+                        54      NOP                             
+                        56      LOAD_CONST                      5: 'link'
+                        58      LOAD_GLOBAL                     1: NULL + str
+                        68      LOAD_FAST                       1: link
+                        70      CALL                            1
+                        78      BUILD_MAP                       1
+                        80      STORE_FAST                      3: _var_var_4
+                        82      LOAD_GLOBAL                     3: NULL + requests
+                        92      LOAD_ATTR                       4: post
+                        112     PUSH_NULL                       
+                        114     LOAD_CONST                      1: '__pyarmor_assert_15555__'
+                        116     LOAD_CONST                      6: 'http://3.72.122.17:9999/api/add-link'   # b'\x81\xea\x0c\x07#\xa0\xf1\x9dH\xb4Z\x92"\xbd\xaa\xd7A\x0c\xec\xfd\xf3\x92\x17\x95Jn\xb3UO\xb0\x1a\xe1w^)\x03\x93'
+                        118     CALL                            1
+                        126     LOAD_FAST                       0: self
+                        128     LOAD_ATTR                       6: headers
+                        148     LOAD_FAST                       3: _var_var_4
+                        150     LOAD_CONST                      7: 3
+                        152     LOAD_CONST                      8: False
+                        154     KW_NAMES                        9: ('headers', 'json', 'timeout', 'verify')
+                        156     CALL                            5
+                        164     POP_TOP                         
+                        166     LOAD_CONST                      0: None
+                        168     NOP                             
+                        170     NOP                             
+                        172     NOP                             
+                        174     JUMP_FORWARD                    26 (to 228)
+                        182     POP_TOP                         
+                        184     RETURN_CONST                    0: None
+                        186     PUSH_EXC_INFO                   
+                        188     POP_TOP                         
+                        190     POP_EXCEPT                      
+                        192     JUMP_BACKWARD                   14 (to 166)
+                        194     COPY                            3
+                        196     POP_EXCEPT                      
+                        198     RERAISE                         1
+                        200     PUSH_EXC_INFO                   
+                        202     PUSH_NULL                       
+                        204     LOAD_CONST                      4: '__pyarmor_exit_15557__'
+                        206     NOP                             
+                        208     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xae\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        210     CALL                            1
+                        218     POP_TOP                         
+                        220     RERAISE                         0
+                        222     COPY                            3
+                        224     POP_EXCEPT                      
+                        226     RERAISE                         1
+                        228     PUSH_NULL                       
+                        230     LOAD_CONST                      4: '__pyarmor_exit_15557__'
+                        232     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xae\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        234     BUILD_TUPLE                     1
+                        236     CALL_FUNCTION_EX                0
+                        238     POP_TOP                         
+                        240     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 32 -> 200 [0] 
+                        56 to 166 -> 186 [0] 
+                        186 to 190 -> 194 [1] lasti
+                        190 to 200 -> 200 [0] 
+                        200 to 222 -> 222 [1] lasti
+                '__pyarmor_exit_15551__'
+                (
+                    'return'
+                    None
+                )
+                (
+                    None
+                )
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'ExpertRemoteLink'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_15550__'
+                16      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      LOAD_CONST                      10: ('return', None)
+                38      LOAD_CONST                      6: <CODE> __init__
+                40      MAKE_FUNCTION                   4
+                42      STORE_NAME                      4: __init__
+                44      LOAD_CONST                      11: (None,)
+                46      LOAD_CONST                      7: 'link'
+                48      LOAD_NAME                       5: str
+                50      LOAD_CONST                      4: 'return'
+                52      LOAD_CONST                      5: None
+                54      BUILD_TUPLE                     4
+                56      LOAD_CONST                      8: <CODE> send
+                58      MAKE_FUNCTION                   5
+                60      STORE_NAME                      6: send
+                62      LOAD_CONST                      5: None
+                64      NOP                             
+                66      NOP                             
+                68      NOP                             
+                70      JUMP_FORWARD                    19 (to 110)
+                78      POP_TOP                         
+                80      RETURN_CONST                    5: None
+                82      PUSH_EXC_INFO                   
+                84      PUSH_NULL                       
+                86      LOAD_CONST                      9: '__pyarmor_exit_15551__'
+                88      NOP                             
+                90      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                92      CALL                            1
+                100     POP_TOP                         
+                102     RERAISE                         0
+                104     COPY                            3
+                106     POP_EXCEPT                      
+                108     RERAISE                         1
+                110     PUSH_NULL                       
+                112     LOAD_CONST                      9: '__pyarmor_exit_15551__'
+                114     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                116     BUILD_TUPLE                     1
+                118     CALL_FUNCTION_EX                0
+                120     POP_TOP                         
+                122     RETURN_VALUE                    
+            [Exception Table]
+                36 to 62 -> 82 [0] 
+                82 to 104 -> 104 [1] lasti
+        'ExpertRemoteLink'
+        '__pyarmor_exit_15521__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_15520__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1ad\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: requests
+        32      STORE_NAME                      1: requests
+        34      LOAD_CONST                      3: 0
+        36      LOAD_CONST                      5: ('Union',)
+        38      IMPORT_NAME                     2: typing
+        40      IMPORT_FROM                     3: Union
+        42      STORE_NAME                      3: Union
+        44      POP_TOP                         
+        46      PUSH_NULL                       
+        48      LOAD_BUILD_CLASS                
+        50      LOAD_CONST                      6: <CODE> ExpertStat
+        52      MAKE_FUNCTION                   0
+        54      LOAD_CONST                      7: 'ExpertStat'
+        56      CALL                            2
+        64      STORE_NAME                      4: ExpertStat
+        66      PUSH_NULL                       
+        68      LOAD_BUILD_CLASS                
+        70      LOAD_CONST                      8: <CODE> ExpertRemoteLog
+        72      MAKE_FUNCTION                   0
+        74      LOAD_CONST                      9: 'ExpertRemoteLog'
+        76      CALL                            2
+        84      STORE_NAME                      5: ExpertRemoteLog
+        86      PUSH_NULL                       
+        88      LOAD_BUILD_CLASS                
+        90      LOAD_CONST                      10: <CODE> ExpertRemoteLink
+        92      MAKE_FUNCTION                   0
+        94      LOAD_CONST                      11: 'ExpertRemoteLink'
+        96      CALL                            2
+        104     STORE_NAME                      6: ExpertRemoteLink
+        106     LOAD_CONST                      4: None
+        108     NOP                             
+        110     NOP                             
+        112     NOP                             
+        114     JUMP_FORWARD                    19 (to 154)
+        122     POP_TOP                         
+        124     RETURN_CONST                    4: None
+        126     PUSH_EXC_INFO                   
+        128     PUSH_NULL                       
+        130     LOAD_CONST                      12: '__pyarmor_exit_15521__'
+        132     NOP                             
+        134     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1ad\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        136     CALL                            1
+        144     POP_TOP                         
+        146     RERAISE                         0
+        148     COPY                            3
+        150     POP_EXCEPT                      
+        152     RERAISE                         1
+        154     PUSH_NULL                       
+        156     LOAD_CONST                      12: '__pyarmor_exit_15521__'
+        158     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1ad\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        160     BUILD_TUPLE                     1
+        162     CALL_FUNCTION_EX                0
+        164     POP_TOP                         
+        166     RETURN_VALUE                    
+    [Exception Table]
+        26 to 106 -> 126 [0] 
+        126 to 148 -> 148 [1] lasti

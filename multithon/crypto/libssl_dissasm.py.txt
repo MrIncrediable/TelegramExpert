@@ -1,0 +1,1011 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.crypto.libssl>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 7
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'ctypes'
+        'ctypes.util'
+        'platform'
+        'sys'
+        'ctypes.macholib.dyld'
+        'ImportError'
+        'logging'
+        'os'
+        'getLogger'
+        '__name__'
+        '__log__'
+        '_find_ssl_lib'
+        '_libssl'
+        'OSError'
+        'e'
+        'info'
+        'type'
+        'decrypt_ige'
+        'encrypt_ige'
+        'c_int'
+        'AES_ENCRYPT'
+        'AES_DECRYPT'
+        'AES_MAXNR'
+        'Structure'
+        'AES_KEY'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_17466__'
+        '__pyarmor_enter_17467__'
+        b'<COAddr>\x05\x00\x00\x1a\xa4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        "\nHelper module around the system's libssl library if available for IGE mode.\n"   # b'\x81\x880\x16?\xea\xbb\xc0[\xf7\x02\xc4y\xe0\xfd\xc5\x0eO\xb4\xb2\xa4\xcf\x0e\xd8\rj\xe3O\x19\xa2\n\xe07\x153M\x94\xc3\xb6=\x0b\xe5\xb8Q\xd4\xda\x1dF%\xf4\x16\xf2\x810\x07\xfb6\xe2\x97\x1c\x1aG4\x13QG\x17\xc3\xf4\x10\xc9\xff\x9em8;\x0e\xd3'
+        0
+        None
+        [Code]
+            File Name: <frozen multithon.crypto.libssl>
+            Object Name: _find_ssl_lib
+            Qualified Name: _find_ssl_lib
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 8
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'ctypes'
+                'util'
+                'find_library'
+                'sys'
+                'platform'
+                'mac_ver'
+                'split'
+                'int'
+                'OSError'
+                'cdll'
+                'LoadLibrary'
+                'macholib'
+                'dyld'
+                'DEFAULT_LIBRARY_FALLBACK'
+                'AttributeError'
+                'os'
+                'path'
+                'expanduser'
+                'isdir'
+                'walk'
+                'realpath'
+                'join'
+            [Locals+Names]
+                '__assert_armored__'
+                '_var_var_0'
+                '_var_var_1'
+                '_var_var_2'
+                '_var_var_3'
+                '_var_var_4'
+                '_var_var_5'
+                '_var_var_6'
+                '_var_var_7'
+                '_var_var_8'
+                '_var_var_9'
+                '_var_var_10'
+                '_var_var_11'
+            [Constants]
+                None
+                '__pyarmor_assert_17469__'
+                '__pyarmor_enter_17470__'
+                b'<COAddr>\x05\x00\x00\x1a\xda\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'ssl'
+                'darwin'
+                '.'
+                10
+                14
+                'libssl.46'   # b'\x81\xee\x11\x11 \xe9\xb2\x9cO\xac'
+                'libssl.44'   # b'\x81\xee\x11\x11 \xe9\xb2\x9cO\xae'
+                'libssl.42'   # b'\x81\xee\x11\x11 \xe9\xb2\x9cO\xa8'
+                'no library called "ssl" found'   # b'\x81\xec\x17S?\xf3\xbc\xc0\x1a\xe8\x14\x80o\xed\xf4\x89\nY\xfb\xe5\xb9\xd8B\x8eEi\xacI\x0e\xb5'
+                '__pyarmor_exit_17471__'
+                '~/lib'
+                '/usr/local/lib'   # b'\x81\xad\r\x00!\xb5\xb2\xdd\x18\xfb\x01\x8f`\xe5\xfa'
+                '/lib'
+                '/usr/lib'
+                'no absolute path for "%s" and cannot load by name'   # b'\x81\xec\x17S2\xf8\xad\xdd\x17\xef\x19\xc5,\xfc\xf9\x91\x07\x1d\xbd\xa8\xb8\x8b\x0c\x89\x16-\xe3]\x0e\xb5^\xe6;\\.\x02\x8c\x8a\xb8!\x19\xed\xb8_\xc4\x98\x01F:\xe8'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_17470__'
+                8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xda\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_GLOBAL                     0: ctypes
+                38      LOAD_ATTR                       2: util
+                58      LOAD_ATTR                       5: find_library
+                78      LOAD_CONST                      4: 'ssl'
+                80      CALL                            1
+                88      STORE_FAST                      1: _var_var_0
+                90      LOAD_GLOBAL                     6: sys
+                100     LOAD_ATTR                       8: platform
+                120     LOAD_CONST                      5: 'darwin'
+                122     COMPARE_OP                      40 (==)
+                126     POP_JUMP_IF_FALSE               201 (to 530)
+                128     LOAD_GLOBAL                     9: NULL + platform
+                138     LOAD_ATTR                       10: mac_ver
+                158     CALL                            0
+                166     UNPACK_SEQUENCE                 3
+                170     STORE_FAST                      2: _var_var_1
+                172     STORE_FAST                      3: _var_var_2
+                174     STORE_FAST                      4: _var_var_3
+                176     LOAD_FAST                       2: _var_var_1
+                178     LOAD_ATTR                       13: split
+                198     LOAD_CONST                      6: '.'
+                200     CALL                            1
+                208     UNPACK_EX                       2
+                210     STORE_FAST                      5: _var_var_4
+                212     STORE_FAST                      6: _var_var_5
+                214     STORE_FAST                      7: _var_var_6
+                216     LOAD_GLOBAL                     15: NULL + int
+                226     LOAD_FAST                       5: _var_var_4
+                228     CALL                            1
+                236     LOAD_CONST                      7: 10
+                238     COMPARE_OP                      68 (>)
+                242     POP_JUMP_IF_TRUE                28 (to 300)
+                244     LOAD_GLOBAL                     15: NULL + int
+                254     LOAD_FAST                       5: _var_var_4
+                256     CALL                            1
+                264     LOAD_CONST                      7: 10
+                266     COMPARE_OP                      40 (==)
+                270     POP_JUMP_IF_FALSE               129 (to 530)
+                272     LOAD_GLOBAL                     15: NULL + int
+                282     LOAD_FAST                       6: _var_var_5
+                284     CALL                            1
+                292     LOAD_CONST                      8: 14
+                294     COMPARE_OP                      68 (>)
+                298     POP_JUMP_IF_FALSE               115 (to 530)
+                300     LOAD_GLOBAL                     0: ctypes
+                310     LOAD_ATTR                       2: util
+                330     LOAD_ATTR                       5: find_library
+                350     PUSH_NULL                       
+                352     LOAD_CONST                      1: '__pyarmor_assert_17469__'
+                354     LOAD_CONST                      9: 'libssl.46'   # b'\x81\xee\x11\x11 \xe9\xb2\x9cO\xac'
+                356     CALL                            1
+                364     CALL                            1
+                372     COPY                            1
+                374     POP_JUMP_IF_TRUE                76 (to 528)
+                376     POP_TOP                         
+                378     LOAD_GLOBAL                     0: ctypes
+                388     LOAD_ATTR                       2: util
+                408     LOAD_ATTR                       5: find_library
+                428     PUSH_NULL                       
+                430     LOAD_CONST                      1: '__pyarmor_assert_17469__'
+                432     LOAD_CONST                      10: 'libssl.44'   # b'\x81\xee\x11\x11 \xe9\xb2\x9cO\xae'
+                434     CALL                            1
+                442     CALL                            1
+                450     COPY                            1
+                452     POP_JUMP_IF_TRUE                37 (to 528)
+                454     POP_TOP                         
+                456     LOAD_GLOBAL                     0: ctypes
+                466     LOAD_ATTR                       2: util
+                486     LOAD_ATTR                       5: find_library
+                506     PUSH_NULL                       
+                508     LOAD_CONST                      1: '__pyarmor_assert_17469__'
+                510     LOAD_CONST                      11: 'libssl.42'   # b'\x81\xee\x11\x11 \xe9\xb2\x9cO\xa8'
+                512     CALL                            1
+                520     CALL                            1
+                528     STORE_FAST                      1: _var_var_0
+                530     LOAD_FAST                       1: _var_var_0
+                532     POP_JUMP_IF_TRUE                17 (to 568)
+                534     LOAD_GLOBAL                     17: NULL + OSError
+                544     PUSH_NULL                       
+                546     LOAD_CONST                      1: '__pyarmor_assert_17469__'
+                548     LOAD_CONST                      12: 'no library called "ssl" found'   # b'\x81\xec\x17S?\xf3\xbc\xc0\x1a\xe8\x14\x80o\xed\xf4\x89\nY\xfb\xe5\xb9\xd8B\x8eEi\xacI\x0e\xb5'
+                550     CALL                            1
+                558     CALL                            1
+                566     RAISE_VARARGS                   1
+                568     NOP                             
+                570     LOAD_GLOBAL                     0: ctypes
+                580     LOAD_ATTR                       18: cdll
+                600     LOAD_ATTR                       21: LoadLibrary
+                620     LOAD_FAST                       1: _var_var_0
+                622     CALL                            1
+                630     STORE_FAST                      8: _var_var_7
+                632     LOAD_FAST                       8: _var_var_7
+                634     NOP                             
+                636     NOP                             
+                638     JUMP_FORWARD                    327 (to 1296)
+                642     CALL                            1
+                650     POP_TOP                         
+                652     RETURN_VALUE                    
+                654     PUSH_EXC_INFO                   
+                656     LOAD_GLOBAL                     16: OSError
+                666     CHECK_EXC_MATCH                 
+                668     POP_JUMP_IF_FALSE               3 (to 676)
+                670     POP_TOP                         
+                672     POP_EXCEPT                      
+                674     JUMP_FORWARD                    4 (to 684)
+                676     RERAISE                         0
+                678     COPY                            3
+                680     POP_EXCEPT                      
+                682     RERAISE                         1
+                684     NOP                             
+                686     LOAD_GLOBAL                     0: ctypes
+                696     LOAD_ATTR                       22: macholib
+                716     LOAD_ATTR                       24: dyld
+                736     LOAD_ATTR                       26: DEFAULT_LIBRARY_FALLBACK
+                756     STORE_FAST                      9: _var_var_8
+                758     JUMP_FORWARD                    56 (to 872)
+                760     PUSH_EXC_INFO                   
+                762     LOAD_GLOBAL                     28: AttributeError
+                772     CHECK_EXC_MATCH                 
+                774     POP_JUMP_IF_FALSE               44 (to 864)
+                776     POP_TOP                         
+                778     LOAD_GLOBAL                     30: os
+                788     LOAD_ATTR                       32: path
+                808     LOAD_ATTR                       35: expanduser
+                828     LOAD_CONST                      14: '~/lib'
+                830     CALL                            1
+                838     PUSH_NULL                       
+                840     LOAD_CONST                      1: '__pyarmor_assert_17469__'
+                842     LOAD_CONST                      15: '/usr/local/lib'   # b'\x81\xad\r\x00!\xb5\xb2\xdd\x18\xfb\x01\x8f`\xe5\xfa'
+                844     CALL                            1
+                852     LOAD_CONST                      16: '/lib'
+                854     LOAD_CONST                      17: '/usr/lib'
+                856     BUILD_LIST                      4
+                858     STORE_FAST                      9: _var_var_8
+                860     POP_EXCEPT                      
+                862     JUMP_FORWARD                    4 (to 872)
+                864     RERAISE                         0
+                866     COPY                            3
+                868     POP_EXCEPT                      
+                870     RERAISE                         1
+                872     LOAD_FAST                       9: _var_var_8
+                874     GET_ITER                        
+                876     FOR_ITER                        173 (to 1224)
+                880     STORE_FAST                      10: _var_var_9
+                882     LOAD_GLOBAL                     30: os
+                892     LOAD_ATTR                       32: path
+                912     LOAD_ATTR                       37: isdir
+                932     LOAD_FAST                       10: _var_var_9
+                934     CALL                            1
+                942     POP_JUMP_IF_TRUE                1 (to 946)
+                944     JUMP_BACKWARD                   35 (to 876)
+                946     LOAD_GLOBAL                     31: NULL + os
+                956     LOAD_ATTR                       38: walk
+                976     LOAD_FAST                       10: _var_var_9
+                978     CALL                            1
+                986     GET_ITER                        
+                988     FOR_ITER                        115 (to 1220)
+                992     UNPACK_SEQUENCE                 3
+                996     STORE_FAST                      11: _var_var_10
+                998     STORE_FAST                      7: _var_var_6
+                1000    STORE_FAST                      12: _var_var_11
+                1002    LOAD_FAST                       1: _var_var_0
+                1004    LOAD_FAST                       12: _var_var_11
+                1006    CONTAINS_OP                     0 (in)
+                1008    POP_JUMP_IF_TRUE                1 (to 1012)
+                1010    JUMP_BACKWARD                   12 (to 988)
+                1012    LOAD_GLOBAL                     30: os
+                1022    LOAD_ATTR                       32: path
+                1042    LOAD_ATTR                       41: realpath
+                1062    LOAD_GLOBAL                     30: os
+                1072    LOAD_ATTR                       32: path
+                1092    LOAD_ATTR                       43: join
+                1112    LOAD_FAST                       11: _var_var_10
+                1114    LOAD_FAST                       1: _var_var_0
+                1116    CALL                            2
+                1124    CALL                            1
+                1132    STORE_FAST                      1: _var_var_0
+                1134    LOAD_GLOBAL                     0: ctypes
+                1144    LOAD_ATTR                       18: cdll
+                1164    LOAD_ATTR                       21: LoadLibrary
+                1184    LOAD_FAST                       1: _var_var_0
+                1186    CALL                            1
+                1194    SWAP                            2
+                1196    POP_TOP                         
+                1198    SWAP                            2
+                1200    POP_TOP                         
+                1202    NOP                             
+                1204    NOP                             
+                1206    NOP                             
+                1208    JUMP_FORWARD                    43 (to 1296)
+                1210    CALL                            1
+                1218    POP_TOP                         
+                1220    RETURN_VALUE                    
+                1222    END_FOR                         
+                1224    JUMP_BACKWARD                   175 (to 876)
+                1226    END_FOR                         
+                1228    LOAD_GLOBAL                     17: NULL + OSError
+                1238    PUSH_NULL                       
+                1240    LOAD_CONST                      1: '__pyarmor_assert_17469__'
+                1242    LOAD_CONST                      18: 'no absolute path for "%s" and cannot load by name'   # b'\x81\xec\x17S2\xf8\xad\xdd\x17\xef\x19\xc5,\xfc\xf9\x91\x07\x1d\xbd\xa8\xb8\x8b\x0c\x89\x16-\xe3]\x0e\xb5^\xe6;\\.\x02\x8c\x8a\xb8!\x19\xed\xb8_\xc4\x98\x01F:\xe8'
+                1244    CALL                            1
+                1252    LOAD_FAST                       1: _var_var_0
+                1254    BINARY_OP                       6 (%)
+                1258    CALL                            1
+                1266    RAISE_VARARGS                   1
+                1268    PUSH_EXC_INFO                   
+                1270    PUSH_NULL                       
+                1272    LOAD_CONST                      13: '__pyarmor_exit_17471__'
+                1274    NOP                             
+                1276    LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xda\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                1278    CALL                            1
+                1286    POP_TOP                         
+                1288    RERAISE                         0
+                1290    COPY                            3
+                1292    POP_EXCEPT                      
+                1294    RERAISE                         1
+                1296    PUSH_NULL                       
+                1298    LOAD_CONST                      13: '__pyarmor_exit_17471__'
+                1300    LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xda\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                1302    BUILD_TUPLE                     1
+                1304    CALL_FUNCTION_EX                0
+                1306    POP_TOP                         
+                1308    RETURN_VALUE                    
+            [Exception Table]
+                28 to 568 -> 1268 [0] 
+                570 to 632 -> 654 [0] 
+                632 to 634 -> 1268 [0] 
+                654 to 672 -> 678 [1] lasti
+                672 to 676 -> 1268 [0] 
+                676 to 678 -> 678 [1] lasti
+                678 to 684 -> 1268 [0] 
+                686 to 758 -> 760 [0] 
+                758 to 760 -> 1268 [0] 
+                760 to 860 -> 866 [1] lasti
+                860 to 864 -> 1268 [0] 
+                864 to 866 -> 866 [1] lasti
+                866 to 944 -> 1268 [0] 
+                946 to 1010 -> 1268 [0] 
+                1012 to 1202 -> 1268 [0] 
+                1222 to 1268 -> 1268 [0] 
+                1268 to 1290 -> 1290 [1] lasti
+        'Failed to load SSL library: %s (%s)'   # b'\x81\xc4\x19\x1a?\xff\xba\x92\x0f\xf5M\xccc\xed\xfc\xc5<n\x97\xe7\xa6\xc2L\xde\x04}\xba\x06@\xf4\r\xa5r\x173D'
+        1
+        14
+        [Code]
+            File Name: <frozen multithon.crypto.libssl>
+            Object Name: AES_KEY
+            Qualified Name: AES_KEY
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                'ctypes'
+                'c_uint32'
+                'AES_MAXNR'
+                'c_uint'
+                '_fields_'
+            [Locals+Names]
+            [Constants]
+                'AES_KEY'
+                'Helper class representing an AES key'
+                '__pyarmor_assert_17472__'
+                '__pyarmor_enter_17473__'
+                b'<COAddr>\x05\x00\x00&`\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'rd_key'
+                4
+                1
+                'rounds'
+                '__pyarmor_exit_17474__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'AES_KEY'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: 'Helper class representing an AES key'
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_17473__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&`\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: 'rd_key'
+                42      LOAD_NAME                       5: ctypes
+                44      LOAD_ATTR                       12: c_uint32
+                64      LOAD_CONST                      6: 4
+                66      LOAD_NAME                       7: AES_MAXNR
+                68      LOAD_CONST                      7: 1
+                70      BINARY_OP                       0 (+)
+                74      BINARY_OP                       5 (*)
+                78      BINARY_OP                       5 (*)
+                82      BUILD_TUPLE                     2
+                84      LOAD_CONST                      8: 'rounds'
+                86      LOAD_NAME                       5: ctypes
+                88      LOAD_ATTR                       16: c_uint
+                108     BUILD_TUPLE                     2
+                110     BUILD_LIST                      2
+                112     STORE_NAME                      9: _fields_
+                114     LOAD_CONST                      10: None
+                116     NOP                             
+                118     NOP                             
+                120     NOP                             
+                122     JUMP_FORWARD                    19 (to 162)
+                130     POP_TOP                         
+                132     RETURN_CONST                    10: None
+                134     PUSH_EXC_INFO                   
+                136     PUSH_NULL                       
+                138     LOAD_CONST                      9: '__pyarmor_exit_17474__'
+                140     NOP                             
+                142     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&`\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                144     CALL                            1
+                152     POP_TOP                         
+                154     RERAISE                         0
+                156     COPY                            3
+                158     POP_EXCEPT                      
+                160     RERAISE                         1
+                162     PUSH_NULL                       
+                164     LOAD_CONST                      9: '__pyarmor_exit_17474__'
+                166     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&`\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                168     BUILD_TUPLE                     1
+                170     CALL_FUNCTION_EX                0
+                172     POP_TOP                         
+                174     RETURN_VALUE                    
+            [Exception Table]
+                40 to 114 -> 134 [0] 
+                134 to 156 -> 156 [1] lasti
+        'AES_KEY'
+        [Code]
+            File Name: <frozen multithon.crypto.libssl>
+            Object Name: decrypt_ige
+            Qualified Name: decrypt_ige
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 9
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'AES_KEY'
+                'ctypes'
+                'c_int'
+                'len'
+                'c_ubyte'
+                'c_size_t'
+                '_libssl'
+                'AES_set_decrypt_key'
+                'byref'
+                'AES_ige_encrypt'
+                'AES_DECRYPT'
+                'bytes'
+            [Locals+Names]
+                'cipher_text'
+                'key'
+                'iv'
+                '__assert_armored__'
+                '_var_var_12'
+                '_var_var_13'
+                '_var_var_14'
+                '_var_var_15'
+                '_var_var_16'
+            [Constants]
+                None
+                '__pyarmor_assert_17475__'
+                '__pyarmor_enter_17476__'
+                b'<COAddr>\x05\x00\x00\x1a\xd8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                8
+                '__pyarmor_exit_17477__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_17476__'
+                8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xd8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_GLOBAL                     1: NULL + AES_KEY
+                38      CALL                            0
+                46      STORE_FAST                      4: _var_var_12
+                48      LOAD_GLOBAL                     3: NULL + ctypes
+                58      LOAD_ATTR                       4: c_int
+                78      LOAD_CONST                      4: 8
+                80      LOAD_GLOBAL                     7: NULL + len
+                90      LOAD_FAST                       1: key
+                92      CALL                            1
+                100     BINARY_OP                       5 (*)
+                104     CALL                            1
+                112     STORE_FAST                      5: _var_var_13
+                114     LOAD_GLOBAL                     3: NULL + ctypes
+                124     LOAD_ATTR                       8: c_ubyte
+                144     LOAD_GLOBAL                     7: NULL + len
+                154     LOAD_FAST                       1: key
+                156     CALL                            1
+                164     BINARY_OP                       5 (*)
+                168     LOAD_FAST                       1: key
+                170     CALL_FUNCTION_EX                0
+                172     STORE_FAST                      1: key
+                174     LOAD_GLOBAL                     3: NULL + ctypes
+                184     LOAD_ATTR                       8: c_ubyte
+                204     LOAD_GLOBAL                     7: NULL + len
+                214     LOAD_FAST                       2: iv
+                216     CALL                            1
+                224     BINARY_OP                       5 (*)
+                228     LOAD_FAST                       2: iv
+                230     CALL_FUNCTION_EX                0
+                232     STORE_FAST                      2: iv
+                234     LOAD_GLOBAL                     3: NULL + ctypes
+                244     LOAD_ATTR                       10: c_size_t
+                264     LOAD_GLOBAL                     7: NULL + len
+                274     LOAD_FAST                       0: cipher_text
+                276     CALL                            1
+                284     CALL                            1
+                292     STORE_FAST                      6: _var_var_14
+                294     LOAD_GLOBAL                     3: NULL + ctypes
+                304     LOAD_ATTR                       8: c_ubyte
+                324     LOAD_GLOBAL                     7: NULL + len
+                334     LOAD_FAST                       0: cipher_text
+                336     CALL                            1
+                344     BINARY_OP                       5 (*)
+                348     LOAD_FAST                       0: cipher_text
+                350     CALL_FUNCTION_EX                0
+                352     STORE_FAST                      7: _var_var_15
+                354     LOAD_GLOBAL                     3: NULL + ctypes
+                364     LOAD_ATTR                       8: c_ubyte
+                384     LOAD_GLOBAL                     7: NULL + len
+                394     LOAD_FAST                       0: cipher_text
+                396     CALL                            1
+                404     BINARY_OP                       5 (*)
+                408     CALL                            0
+                416     STORE_FAST                      8: _var_var_16
+                418     LOAD_GLOBAL                     12: _libssl
+                428     LOAD_ATTR                       15: AES_set_decrypt_key
+                448     LOAD_FAST                       1: key
+                450     LOAD_FAST                       5: _var_var_13
+                452     LOAD_GLOBAL                     3: NULL + ctypes
+                462     LOAD_ATTR                       16: byref
+                482     LOAD_FAST                       4: _var_var_12
+                484     CALL                            1
+                492     CALL                            3
+                500     POP_TOP                         
+                502     LOAD_GLOBAL                     12: _libssl
+                512     LOAD_ATTR                       19: AES_ige_encrypt
+                532     LOAD_GLOBAL                     3: NULL + ctypes
+                542     LOAD_ATTR                       16: byref
+                562     LOAD_FAST                       7: _var_var_15
+                564     CALL                            1
+                572     LOAD_GLOBAL                     3: NULL + ctypes
+                582     LOAD_ATTR                       16: byref
+                602     LOAD_FAST                       8: _var_var_16
+                604     CALL                            1
+                612     LOAD_FAST                       6: _var_var_14
+                614     LOAD_GLOBAL                     3: NULL + ctypes
+                624     LOAD_ATTR                       16: byref
+                644     LOAD_FAST                       4: _var_var_12
+                646     CALL                            1
+                654     LOAD_GLOBAL                     3: NULL + ctypes
+                664     LOAD_ATTR                       16: byref
+                684     LOAD_FAST                       2: iv
+                686     CALL                            1
+                694     LOAD_GLOBAL                     20: AES_DECRYPT
+                704     CALL                            6
+                712     POP_TOP                         
+                714     LOAD_GLOBAL                     23: NULL + bytes
+                724     LOAD_FAST                       8: _var_var_16
+                726     CALL                            1
+                734     NOP                             
+                736     NOP                             
+                738     NOP                             
+                740     JUMP_FORWARD                    20 (to 782)
+                742     CALL                            1
+                750     POP_TOP                         
+                752     RETURN_VALUE                    
+                754     PUSH_EXC_INFO                   
+                756     PUSH_NULL                       
+                758     LOAD_CONST                      5: '__pyarmor_exit_17477__'
+                760     NOP                             
+                762     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xd8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                764     CALL                            1
+                772     POP_TOP                         
+                774     RERAISE                         0
+                776     COPY                            3
+                778     POP_EXCEPT                      
+                780     RERAISE                         1
+                782     PUSH_NULL                       
+                784     LOAD_CONST                      5: '__pyarmor_exit_17477__'
+                786     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xd8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                788     BUILD_TUPLE                     1
+                790     CALL_FUNCTION_EX                0
+                792     POP_TOP                         
+                794     RETURN_VALUE                    
+            [Exception Table]
+                28 to 734 -> 754 [0] 
+                754 to 776 -> 776 [1] lasti
+        [Code]
+            File Name: <frozen multithon.crypto.libssl>
+            Object Name: encrypt_ige
+            Qualified Name: encrypt_ige
+            Arg Count: 3
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 9
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'AES_KEY'
+                'ctypes'
+                'c_int'
+                'len'
+                'c_ubyte'
+                'c_size_t'
+                '_libssl'
+                'AES_set_encrypt_key'
+                'byref'
+                'AES_ige_encrypt'
+                'AES_ENCRYPT'
+                'bytes'
+            [Locals+Names]
+                'plain_text'
+                'key'
+                'iv'
+                '__assert_armored__'
+                '_var_var_12'
+                '_var_var_13'
+                '_var_var_14'
+                '_var_var_15'
+                '_var_var_16'
+            [Constants]
+                None
+                '__pyarmor_assert_17478__'
+                '__pyarmor_enter_17479__'
+                b'<COAddr>\x05\x00\x00\x1a\xd8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                8
+                '__pyarmor_exit_17480__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_17479__'
+                8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xd8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_GLOBAL                     1: NULL + AES_KEY
+                38      CALL                            0
+                46      STORE_FAST                      4: _var_var_12
+                48      LOAD_GLOBAL                     3: NULL + ctypes
+                58      LOAD_ATTR                       4: c_int
+                78      LOAD_CONST                      4: 8
+                80      LOAD_GLOBAL                     7: NULL + len
+                90      LOAD_FAST                       1: key
+                92      CALL                            1
+                100     BINARY_OP                       5 (*)
+                104     CALL                            1
+                112     STORE_FAST                      5: _var_var_13
+                114     LOAD_GLOBAL                     3: NULL + ctypes
+                124     LOAD_ATTR                       8: c_ubyte
+                144     LOAD_GLOBAL                     7: NULL + len
+                154     LOAD_FAST                       1: key
+                156     CALL                            1
+                164     BINARY_OP                       5 (*)
+                168     LOAD_FAST                       1: key
+                170     CALL_FUNCTION_EX                0
+                172     STORE_FAST                      1: key
+                174     LOAD_GLOBAL                     3: NULL + ctypes
+                184     LOAD_ATTR                       8: c_ubyte
+                204     LOAD_GLOBAL                     7: NULL + len
+                214     LOAD_FAST                       2: iv
+                216     CALL                            1
+                224     BINARY_OP                       5 (*)
+                228     LOAD_FAST                       2: iv
+                230     CALL_FUNCTION_EX                0
+                232     STORE_FAST                      2: iv
+                234     LOAD_GLOBAL                     3: NULL + ctypes
+                244     LOAD_ATTR                       10: c_size_t
+                264     LOAD_GLOBAL                     7: NULL + len
+                274     LOAD_FAST                       0: plain_text
+                276     CALL                            1
+                284     CALL                            1
+                292     STORE_FAST                      6: _var_var_14
+                294     LOAD_GLOBAL                     3: NULL + ctypes
+                304     LOAD_ATTR                       8: c_ubyte
+                324     LOAD_GLOBAL                     7: NULL + len
+                334     LOAD_FAST                       0: plain_text
+                336     CALL                            1
+                344     BINARY_OP                       5 (*)
+                348     LOAD_FAST                       0: plain_text
+                350     CALL_FUNCTION_EX                0
+                352     STORE_FAST                      7: _var_var_15
+                354     LOAD_GLOBAL                     3: NULL + ctypes
+                364     LOAD_ATTR                       8: c_ubyte
+                384     LOAD_GLOBAL                     7: NULL + len
+                394     LOAD_FAST                       0: plain_text
+                396     CALL                            1
+                404     BINARY_OP                       5 (*)
+                408     CALL                            0
+                416     STORE_FAST                      8: _var_var_16
+                418     LOAD_GLOBAL                     12: _libssl
+                428     LOAD_ATTR                       15: AES_set_encrypt_key
+                448     LOAD_FAST                       1: key
+                450     LOAD_FAST                       5: _var_var_13
+                452     LOAD_GLOBAL                     3: NULL + ctypes
+                462     LOAD_ATTR                       16: byref
+                482     LOAD_FAST                       4: _var_var_12
+                484     CALL                            1
+                492     CALL                            3
+                500     POP_TOP                         
+                502     LOAD_GLOBAL                     12: _libssl
+                512     LOAD_ATTR                       19: AES_ige_encrypt
+                532     LOAD_GLOBAL                     3: NULL + ctypes
+                542     LOAD_ATTR                       16: byref
+                562     LOAD_FAST                       7: _var_var_15
+                564     CALL                            1
+                572     LOAD_GLOBAL                     3: NULL + ctypes
+                582     LOAD_ATTR                       16: byref
+                602     LOAD_FAST                       8: _var_var_16
+                604     CALL                            1
+                612     LOAD_FAST                       6: _var_var_14
+                614     LOAD_GLOBAL                     3: NULL + ctypes
+                624     LOAD_ATTR                       16: byref
+                644     LOAD_FAST                       4: _var_var_12
+                646     CALL                            1
+                654     LOAD_GLOBAL                     3: NULL + ctypes
+                664     LOAD_ATTR                       16: byref
+                684     LOAD_FAST                       2: iv
+                686     CALL                            1
+                694     LOAD_GLOBAL                     20: AES_ENCRYPT
+                704     CALL                            6
+                712     POP_TOP                         
+                714     LOAD_GLOBAL                     23: NULL + bytes
+                724     LOAD_FAST                       8: _var_var_16
+                726     CALL                            1
+                734     NOP                             
+                736     NOP                             
+                738     NOP                             
+                740     JUMP_FORWARD                    20 (to 782)
+                742     CALL                            1
+                750     POP_TOP                         
+                752     RETURN_VALUE                    
+                754     PUSH_EXC_INFO                   
+                756     PUSH_NULL                       
+                758     LOAD_CONST                      5: '__pyarmor_exit_17480__'
+                760     NOP                             
+                762     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xd8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                764     CALL                            1
+                772     POP_TOP                         
+                774     RERAISE                         0
+                776     COPY                            3
+                778     POP_EXCEPT                      
+                780     RERAISE                         1
+                782     PUSH_NULL                       
+                784     LOAD_CONST                      5: '__pyarmor_exit_17480__'
+                786     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xd8\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                788     BUILD_TUPLE                     1
+                790     CALL_FUNCTION_EX                0
+                792     POP_TOP                         
+                794     RETURN_VALUE                    
+            [Exception Table]
+                28 to 734 -> 754 [0] 
+                754 to 776 -> 776 [1] lasti
+        '__pyarmor_exit_17468__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_17467__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xa4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      PUSH_NULL                       
+        28      LOAD_CONST                      0: '__pyarmor_assert_17466__'
+        30      LOAD_CONST                      3: "\nHelper module around the system's libssl library if available for IGE mode.\n"   # b'\x81\x880\x16?\xea\xbb\xc0[\xf7\x02\xc4y\xe0\xfd\xc5\x0eO\xb4\xb2\xa4\xcf\x0e\xd8\rj\xe3O\x19\xa2\n\xe07\x153M\x94\xc3\xb6=\x0b\xe5\xb8Q\xd4\xda\x1dF%\xf4\x16\xf2\x810\x07\xfb6\xe2\x97\x1c\x1aG4\x13QG\x17\xc3\xf4\x10\xc9\xff\x9em8;\x0e\xd3'
+        32      CALL                            1
+        40      POP_TOP                         
+        42      LOAD_CONST                      4: 0
+        44      LOAD_CONST                      5: None
+        46      IMPORT_NAME                     1: ctypes
+        48      STORE_NAME                      1: ctypes
+        50      LOAD_CONST                      4: 0
+        52      LOAD_CONST                      5: None
+        54      IMPORT_NAME                     2: ctypes.util
+        56      STORE_NAME                      1: ctypes
+        58      LOAD_CONST                      4: 0
+        60      LOAD_CONST                      5: None
+        62      IMPORT_NAME                     3: platform
+        64      STORE_NAME                      3: platform
+        66      LOAD_CONST                      4: 0
+        68      LOAD_CONST                      5: None
+        70      IMPORT_NAME                     4: sys
+        72      STORE_NAME                      4: sys
+        74      NOP                             
+        76      LOAD_CONST                      4: 0
+        78      LOAD_CONST                      5: None
+        80      IMPORT_NAME                     5: ctypes.macholib.dyld
+        82      STORE_NAME                      1: ctypes
+        84      LOAD_CONST                      4: 0
+        86      LOAD_CONST                      5: None
+        88      IMPORT_NAME                     7: logging
+        90      STORE_NAME                      7: logging
+        92      LOAD_CONST                      4: 0
+        94      LOAD_CONST                      5: None
+        96      IMPORT_NAME                     8: os
+        98      STORE_NAME                      8: os
+        100     PUSH_NULL                       
+        102     LOAD_NAME                       7: logging
+        104     LOAD_ATTR                       18: getLogger
+        124     LOAD_NAME                       10: __name__
+        126     CALL                            1
+        134     STORE_NAME                      11: __log__
+        136     LOAD_CONST                      6: <CODE> _find_ssl_lib
+        138     MAKE_FUNCTION                   0
+        140     STORE_NAME                      12: _find_ssl_lib
+        142     NOP                             
+        144     PUSH_NULL                       
+        146     LOAD_NAME                       12: _find_ssl_lib
+        148     CALL                            0
+        156     STORE_NAME                      13: _libssl
+        158     LOAD_NAME                       13: _libssl
+        160     POP_JUMP_IF_TRUE                5 (to 172)
+        162     LOAD_CONST                      5: None
+        164     STORE_NAME                      18: decrypt_ige
+        166     LOAD_CONST                      5: None
+        168     STORE_NAME                      19: encrypt_ige
+        170     JUMP_FORWARD                    65 (to 302)
+        172     PUSH_NULL                       
+        174     LOAD_NAME                       1: ctypes
+        176     LOAD_ATTR                       40: c_int
+        196     LOAD_CONST                      8: 1
+        198     CALL                            1
+        206     STORE_NAME                      21: AES_ENCRYPT
+        208     PUSH_NULL                       
+        210     LOAD_NAME                       1: ctypes
+        212     LOAD_ATTR                       40: c_int
+        232     LOAD_CONST                      4: 0
+        234     CALL                            1
+        242     STORE_NAME                      22: AES_DECRYPT
+        244     LOAD_CONST                      9: 14
+        246     STORE_NAME                      23: AES_MAXNR
+        248     PUSH_NULL                       
+        250     LOAD_BUILD_CLASS                
+        252     LOAD_CONST                      10: <CODE> AES_KEY
+        254     MAKE_FUNCTION                   0
+        256     LOAD_CONST                      11: 'AES_KEY'
+        258     LOAD_NAME                       1: ctypes
+        260     LOAD_ATTR                       48: Structure
+        280     CALL                            3
+        288     STORE_NAME                      25: AES_KEY
+        290     LOAD_CONST                      12: <CODE> decrypt_ige
+        292     MAKE_FUNCTION                   0
+        294     STORE_NAME                      18: decrypt_ige
+        296     LOAD_CONST                      13: <CODE> encrypt_ige
+        298     MAKE_FUNCTION                   0
+        300     STORE_NAME                      19: encrypt_ige
+        302     LOAD_CONST                      5: None
+        304     NOP                             
+        306     NOP                             
+        308     NOP                             
+        310     JUMP_FORWARD                    81 (to 474)
+        318     POP_TOP                         
+        320     RETURN_CONST                    5: None
+        322     PUSH_EXC_INFO                   
+        324     LOAD_NAME                       6: ImportError
+        326     CHECK_EXC_MATCH                 
+        328     POP_JUMP_IF_FALSE               3 (to 336)
+        330     POP_TOP                         
+        332     POP_EXCEPT                      
+        334     JUMP_BACKWARD                   126 (to 84)
+        336     RERAISE                         0
+        338     COPY                            3
+        340     POP_EXCEPT                      
+        342     RERAISE                         1
+        344     PUSH_EXC_INFO                   
+        346     LOAD_NAME                       14: OSError
+        348     CHECK_EXC_MATCH                 
+        350     POP_JUMP_IF_FALSE               43 (to 438)
+        352     STORE_NAME                      15: e
+        354     LOAD_NAME                       11: __log__
+        356     LOAD_ATTR                       33: info
+        376     PUSH_NULL                       
+        378     LOAD_CONST                      0: '__pyarmor_assert_17466__'
+        380     LOAD_CONST                      7: 'Failed to load SSL library: %s (%s)'   # b'\x81\xc4\x19\x1a?\xff\xba\x92\x0f\xf5M\xccc\xed\xfc\xc5<n\x97\xe7\xa6\xc2L\xde\x04}\xba\x06@\xf4\r\xa5r\x173D'
+        382     CALL                            1
+        390     PUSH_NULL                       
+        392     LOAD_NAME                       17: type
+        394     LOAD_NAME                       15: e
+        396     CALL                            1
+        404     LOAD_NAME                       15: e
+        406     CALL                            3
+        414     POP_TOP                         
+        416     LOAD_CONST                      5: None
+        418     STORE_NAME                      13: _libssl
+        420     POP_EXCEPT                      
+        422     LOAD_CONST                      5: None
+        424     STORE_NAME                      15: e
+        426     DELETE_NAME                     15: e
+        428     JUMP_BACKWARD                   136 (to 158)
+        430     LOAD_CONST                      5: None
+        432     STORE_NAME                      15: e
+        434     DELETE_NAME                     15: e
+        436     RERAISE                         1
+        438     RERAISE                         0
+        440     COPY                            3
+        442     POP_EXCEPT                      
+        444     RERAISE                         1
+        446     PUSH_EXC_INFO                   
+        448     PUSH_NULL                       
+        450     LOAD_CONST                      14: '__pyarmor_exit_17468__'
+        452     NOP                             
+        454     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xa4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        456     CALL                            1
+        464     POP_TOP                         
+        466     RERAISE                         0
+        468     COPY                            3
+        470     POP_EXCEPT                      
+        472     RERAISE                         1
+        474     PUSH_NULL                       
+        476     LOAD_CONST                      14: '__pyarmor_exit_17468__'
+        478     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xa4\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        480     BUILD_TUPLE                     1
+        482     CALL_FUNCTION_EX                0
+        484     POP_TOP                         
+        486     RETURN_VALUE                    
+    [Exception Table]
+        26 to 74 -> 446 [0] 
+        76 to 84 -> 322 [0] 
+        84 to 142 -> 446 [0] 
+        144 to 158 -> 344 [0] 
+        158 to 302 -> 446 [0] 
+        322 to 332 -> 338 [1] lasti
+        332 to 336 -> 446 [0] 
+        336 to 338 -> 338 [1] lasti
+        338 to 344 -> 446 [0] 
+        344 to 354 -> 440 [1] lasti
+        354 to 420 -> 430 [1] lasti
+        420 to 430 -> 446 [0] 
+        430 to 440 -> 440 [1] lasti
+        440 to 446 -> 446 [0] 
+        446 to 468 -> 468 [1] lasti

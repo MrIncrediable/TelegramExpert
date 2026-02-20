@@ -1,0 +1,701 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.general>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'mfunc'
+        'upgs_nonce'
+        'OnStart'
+        'CheckOneFolder'
+        'CreateConfig'
+        'Crypto'
+        'GetConfig'
+        'GetFileDB'
+        'GetFileTXT'
+        'GetFolderPath'
+        'GetProxy'
+        'GetUserNames'
+        'GetUserNamesManual'
+        'ProxyChecker'
+        'SendStop'
+        'StopDetect'
+        'Updater'
+        'check_get_settings'
+        'check_proxy'
+        'check_proxy_one'
+        'clear_task_manager'
+        'config_set'
+        'del_task_manager'
+        'getFile'
+        'getFileAdd'
+        'getListsUsers'
+        'getPath'
+        'get_account_time'
+        'get_key_lang'
+        'get_panel_accounts'
+        'get_server_file_url'
+        'get_server_lic_url'
+        'get_task_manager'
+        'get_user_lang'
+        'proxy_controller'
+        'reg_get_2fa'
+        'requests_reconnect'
+        'set_task_manager'
+        'task_manager'
+        'random_account_param'
+        'PROGRAM_VERSION'
+        '__all__'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_12762__'
+        '__pyarmor_enter_12763__'
+        b'<COAddr>\x05\x00\x00\x1a$\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'upgs_nonce'
+        )
+        (
+            'OnStart'
+        )
+        (
+            'CheckOneFolder'
+        )
+        (
+            'CreateConfig'
+        )
+        (
+            'Crypto'
+        )
+        (
+            'GetConfig'
+        )
+        (
+            'GetFileDB'
+        )
+        (
+            'GetFileTXT'
+        )
+        (
+            'GetFolderPath'
+        )
+        (
+            'GetProxy'
+        )
+        (
+            'GetUserNames'
+        )
+        (
+            'GetUserNamesManual'
+        )
+        (
+            'ProxyChecker'
+        )
+        (
+            'SendStop'
+        )
+        (
+            'StopDetect'
+        )
+        (
+            'Updater'
+        )
+        (
+            'check_get_settings'
+        )
+        (
+            'check_proxy'
+        )
+        (
+            'check_proxy_one'
+        )
+        (
+            'clear_task_manager'
+        )
+        (
+            'config_set'
+        )
+        (
+            'del_task_manager'
+        )
+        (
+            'getFile'
+        )
+        (
+            'getFileAdd'
+        )
+        (
+            'getListsUsers'
+        )
+        (
+            'getPath'
+        )
+        (
+            'get_account_time'
+        )
+        (
+            'get_key_lang'
+        )
+        (
+            'get_panel_accounts'
+        )
+        (
+            'get_server_file_url'
+        )
+        (
+            'get_server_lic_url'
+        )
+        (
+            'get_task_manager'
+        )
+        (
+            'get_user_lang'
+        )
+        (
+            'proxy_controller'
+        )
+        (
+            'reg_get_2fa'
+        )
+        (
+            'requests_reconnect'
+        )
+        (
+            'set_task_manager'
+        )
+        (
+            'task_manager'
+        )
+        (
+            'random_account_param'
+        )
+        (
+            'PROGRAM_VERSION'
+        )
+        'upgs_nonce'   # b'\x81\xf7\x08\x14 \xc5\xb0\xdd\x15\xf9\x08'
+        'OnStart'
+        'CheckOneFolder'   # b'\x81\xc1\x10\x160\xf1\x91\xdc\x1e\xdc\x02\xcch\xe9\xea'
+        'CreateConfig'   # b'\x81\xc1\n\x162\xee\xbb\xf1\x14\xf4\x0b\xc9k'
+        'Crypto'
+        'GetConfig'   # b'\x81\xc5\x1d\x07\x10\xf5\xb0\xd4\x12\xfd'
+        'GetFileDB'   # b'\x81\xc5\x1d\x07\x15\xf3\xb2\xd7?\xd8'
+        'GetFileTXT'   # b'\x81\xc5\x1d\x07\x15\xf3\xb2\xd7/\xc29'
+        'GetFolderPath'   # b'\x81\xc5\x1d\x07\x15\xf5\xb2\xd6\x1e\xe8=\xc1x\xe4'
+        'GetProxy'
+        'GetUserNames'   # b'\x81\xc5\x1d\x07\x06\xe9\xbb\xc05\xfb\x00\xc5\x7f'
+        'GetUserNamesManual'   # b'\x81\xc5\x1d\x07\x06\xe9\xbb\xc05\xfb\x00\xc5\x7f\xc1\xf9\x8b\x1a\\\xb7'
+        'ProxyChecker'   # b'\x81\xd2\n\x1c+\xe3\x9d\xda\x1e\xf9\x06\xc5~'
+        'SendStop'
+        'StopDetect'   # b'\x81\xd1\x0c\x1c#\xde\xbb\xc6\x1e\xf9\x19'
+        'Updater'
+        'check_get_settings'   # b'\x81\xe1\x10\x160\xf1\x81\xd5\x1e\xee2\xd3i\xf8\xec\x8c\x01Z\xa8'
+        'check_proxy'   # b'\x81\xe1\x10\x160\xf1\x81\xc2\t\xf5\x15\xd9'
+        'check_proxy_one'   # b'\x81\xe1\x10\x160\xf1\x81\xc2\t\xf5\x15\xd9S\xe3\xf6\x80'
+        'clear_task_manager'   # b'\x81\xe1\x14\x162\xe8\x81\xc6\x1a\xe9\x06\xffa\xed\xf6\x84\x08X\xa9'
+        'config_set'   # b'\x81\xe1\x17\x1d5\xf3\xb9\xed\x08\xff\x19'
+        'del_task_manager'   # b'\x81\xe6\x1d\x1f\x0c\xee\xbf\xc1\x10\xc5\x00\xc1b\xed\xff\x80\x1d'
+        'getFile'
+        'getFileAdd'   # b'\x81\xe5\x1d\x07\x15\xf3\xb2\xd7:\xfe\t'
+        'getListsUsers'   # b'\x81\xe5\x1d\x07\x1f\xf3\xad\xc6\x08\xcf\x1e\xc5~\xff'
+        'getPath'
+        'get_account_time'   # b'\x81\xe5\x1d\x07\x0c\xfb\xbd\xd1\x14\xef\x03\xd4S\xf8\xf1\x88\n'
+        'get_key_lang'   # b'\x81\xe5\x1d\x07\x0c\xf1\xbb\xcb$\xf6\x0c\xcek'
+        'get_panel_accounts'   # b'\x81\xe5\x1d\x07\x0c\xea\xbf\xdc\x1e\xf62\xc1o\xef\xf7\x90\x01I\xa8'
+        'get_server_file_url'   # b'\x81\xe5\x1d\x07\x0c\xe9\xbb\xc0\r\xff\x1f\xffj\xe5\xf4\x800H\xa9\xab'
+        'get_server_lic_url'   # b'\x81\xe5\x1d\x07\x0c\xe9\xbb\xc0\r\xff\x1f\xff`\xe5\xfb\xba\x1aO\xb7'
+        'get_task_manager'   # b'\x81\xe5\x1d\x07\x0c\xee\xbf\xc1\x10\xc5\x00\xc1b\xed\xff\x80\x1d'
+        'get_user_lang'   # b'\x81\xe5\x1d\x07\x0c\xef\xad\xd7\t\xc5\x01\xc1b\xeb'
+        'proxy_controller'   # b'\x81\xf2\n\x1c+\xe3\x81\xd1\x14\xf4\x19\xd2c\xe0\xf4\x80\x1d'
+        'reg_get_2fa'   # b'\x81\xf0\x1d\x14\x0c\xfd\xbb\xc6$\xa8\x0b\xc1'
+        'requests_reconnect'   # b'\x81\xf0\x1d\x02&\xff\xad\xc6\x08\xc5\x1f\xc5o\xe3\xf6\x8b\n^\xaf'
+        'set_task_manager'   # b'\x81\xf1\x1d\x07\x0c\xee\xbf\xc1\x10\xc5\x00\xc1b\xed\xff\x80\x1d'
+        'task_manager'   # b'\x81\xf6\x19\x008\xc5\xb3\xd3\x15\xfb\n\xc5~'
+        'random_account_param'   # b'\x81\xf0\x19\x1d7\xf5\xb3\xed\x1a\xf9\x0e\xcfy\xe2\xec\xba\x1f\\\xa9\xa6\xa7'
+        'PROGRAM_VERSION'   # b'\x81\xd2*<\x14\xc8\x9f\xff$\xcc(\xf2_\xc5\xd7\xab'
+        '__pyarmor_exit_12764__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_12763__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a$\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('upgs_nonce',)
+        30      IMPORT_NAME                     1: mfunc
+        32      IMPORT_FROM                     2: upgs_nonce
+        34      STORE_NAME                      2: upgs_nonce
+        36      POP_TOP                         
+        38      LOAD_CONST                      3: 1
+        40      LOAD_CONST                      5: ('OnStart',)
+        42      IMPORT_NAME                     1: mfunc
+        44      IMPORT_FROM                     3: OnStart
+        46      STORE_NAME                      3: OnStart
+        48      POP_TOP                         
+        50      LOAD_CONST                      3: 1
+        52      LOAD_CONST                      6: ('CheckOneFolder',)
+        54      IMPORT_NAME                     1: mfunc
+        56      IMPORT_FROM                     4: CheckOneFolder
+        58      STORE_NAME                      4: CheckOneFolder
+        60      POP_TOP                         
+        62      LOAD_CONST                      3: 1
+        64      LOAD_CONST                      7: ('CreateConfig',)
+        66      IMPORT_NAME                     1: mfunc
+        68      IMPORT_FROM                     5: CreateConfig
+        70      STORE_NAME                      5: CreateConfig
+        72      POP_TOP                         
+        74      LOAD_CONST                      3: 1
+        76      LOAD_CONST                      8: ('Crypto',)
+        78      IMPORT_NAME                     1: mfunc
+        80      IMPORT_FROM                     6: Crypto
+        82      STORE_NAME                      6: Crypto
+        84      POP_TOP                         
+        86      LOAD_CONST                      3: 1
+        88      LOAD_CONST                      9: ('GetConfig',)
+        90      IMPORT_NAME                     1: mfunc
+        92      IMPORT_FROM                     7: GetConfig
+        94      STORE_NAME                      7: GetConfig
+        96      POP_TOP                         
+        98      LOAD_CONST                      3: 1
+        100     LOAD_CONST                      10: ('GetFileDB',)
+        102     IMPORT_NAME                     1: mfunc
+        104     IMPORT_FROM                     8: GetFileDB
+        106     STORE_NAME                      8: GetFileDB
+        108     POP_TOP                         
+        110     LOAD_CONST                      3: 1
+        112     LOAD_CONST                      11: ('GetFileTXT',)
+        114     IMPORT_NAME                     1: mfunc
+        116     IMPORT_FROM                     9: GetFileTXT
+        118     STORE_NAME                      9: GetFileTXT
+        120     POP_TOP                         
+        122     LOAD_CONST                      3: 1
+        124     LOAD_CONST                      12: ('GetFolderPath',)
+        126     IMPORT_NAME                     1: mfunc
+        128     IMPORT_FROM                     10: GetFolderPath
+        130     STORE_NAME                      10: GetFolderPath
+        132     POP_TOP                         
+        134     LOAD_CONST                      3: 1
+        136     LOAD_CONST                      13: ('GetProxy',)
+        138     IMPORT_NAME                     1: mfunc
+        140     IMPORT_FROM                     11: GetProxy
+        142     STORE_NAME                      11: GetProxy
+        144     POP_TOP                         
+        146     LOAD_CONST                      3: 1
+        148     LOAD_CONST                      14: ('GetUserNames',)
+        150     IMPORT_NAME                     1: mfunc
+        152     IMPORT_FROM                     12: GetUserNames
+        154     STORE_NAME                      12: GetUserNames
+        156     POP_TOP                         
+        158     LOAD_CONST                      3: 1
+        160     LOAD_CONST                      15: ('GetUserNamesManual',)
+        162     IMPORT_NAME                     1: mfunc
+        164     IMPORT_FROM                     13: GetUserNamesManual
+        166     STORE_NAME                      13: GetUserNamesManual
+        168     POP_TOP                         
+        170     LOAD_CONST                      3: 1
+        172     LOAD_CONST                      16: ('ProxyChecker',)
+        174     IMPORT_NAME                     1: mfunc
+        176     IMPORT_FROM                     14: ProxyChecker
+        178     STORE_NAME                      14: ProxyChecker
+        180     POP_TOP                         
+        182     LOAD_CONST                      3: 1
+        184     LOAD_CONST                      17: ('SendStop',)
+        186     IMPORT_NAME                     1: mfunc
+        188     IMPORT_FROM                     15: SendStop
+        190     STORE_NAME                      15: SendStop
+        192     POP_TOP                         
+        194     LOAD_CONST                      3: 1
+        196     LOAD_CONST                      18: ('StopDetect',)
+        198     IMPORT_NAME                     1: mfunc
+        200     IMPORT_FROM                     16: StopDetect
+        202     STORE_NAME                      16: StopDetect
+        204     POP_TOP                         
+        206     LOAD_CONST                      3: 1
+        208     LOAD_CONST                      19: ('Updater',)
+        210     IMPORT_NAME                     1: mfunc
+        212     IMPORT_FROM                     17: Updater
+        214     STORE_NAME                      17: Updater
+        216     POP_TOP                         
+        218     LOAD_CONST                      3: 1
+        220     LOAD_CONST                      20: ('check_get_settings',)
+        222     IMPORT_NAME                     1: mfunc
+        224     IMPORT_FROM                     18: check_get_settings
+        226     STORE_NAME                      18: check_get_settings
+        228     POP_TOP                         
+        230     LOAD_CONST                      3: 1
+        232     LOAD_CONST                      21: ('check_proxy',)
+        234     IMPORT_NAME                     1: mfunc
+        236     IMPORT_FROM                     19: check_proxy
+        238     STORE_NAME                      19: check_proxy
+        240     POP_TOP                         
+        242     LOAD_CONST                      3: 1
+        244     LOAD_CONST                      22: ('check_proxy_one',)
+        246     IMPORT_NAME                     1: mfunc
+        248     IMPORT_FROM                     20: check_proxy_one
+        250     STORE_NAME                      20: check_proxy_one
+        252     POP_TOP                         
+        254     LOAD_CONST                      3: 1
+        256     LOAD_CONST                      23: ('clear_task_manager',)
+        258     IMPORT_NAME                     1: mfunc
+        260     IMPORT_FROM                     21: clear_task_manager
+        262     STORE_NAME                      21: clear_task_manager
+        264     POP_TOP                         
+        266     LOAD_CONST                      3: 1
+        268     LOAD_CONST                      24: ('config_set',)
+        270     IMPORT_NAME                     1: mfunc
+        272     IMPORT_FROM                     22: config_set
+        274     STORE_NAME                      22: config_set
+        276     POP_TOP                         
+        278     LOAD_CONST                      3: 1
+        280     LOAD_CONST                      25: ('del_task_manager',)
+        282     IMPORT_NAME                     1: mfunc
+        284     IMPORT_FROM                     23: del_task_manager
+        286     STORE_NAME                      23: del_task_manager
+        288     POP_TOP                         
+        290     LOAD_CONST                      3: 1
+        292     LOAD_CONST                      26: ('getFile',)
+        294     IMPORT_NAME                     1: mfunc
+        296     IMPORT_FROM                     24: getFile
+        298     STORE_NAME                      24: getFile
+        300     POP_TOP                         
+        302     LOAD_CONST                      3: 1
+        304     LOAD_CONST                      27: ('getFileAdd',)
+        306     IMPORT_NAME                     1: mfunc
+        308     IMPORT_FROM                     25: getFileAdd
+        310     STORE_NAME                      25: getFileAdd
+        312     POP_TOP                         
+        314     LOAD_CONST                      3: 1
+        316     LOAD_CONST                      28: ('getListsUsers',)
+        318     IMPORT_NAME                     1: mfunc
+        320     IMPORT_FROM                     26: getListsUsers
+        322     STORE_NAME                      26: getListsUsers
+        324     POP_TOP                         
+        326     LOAD_CONST                      3: 1
+        328     LOAD_CONST                      29: ('getPath',)
+        330     IMPORT_NAME                     1: mfunc
+        332     IMPORT_FROM                     27: getPath
+        334     STORE_NAME                      27: getPath
+        336     POP_TOP                         
+        338     LOAD_CONST                      3: 1
+        340     LOAD_CONST                      30: ('get_account_time',)
+        342     IMPORT_NAME                     1: mfunc
+        344     IMPORT_FROM                     28: get_account_time
+        346     STORE_NAME                      28: get_account_time
+        348     POP_TOP                         
+        350     LOAD_CONST                      3: 1
+        352     LOAD_CONST                      31: ('get_key_lang',)
+        354     IMPORT_NAME                     1: mfunc
+        356     IMPORT_FROM                     29: get_key_lang
+        358     STORE_NAME                      29: get_key_lang
+        360     POP_TOP                         
+        362     LOAD_CONST                      3: 1
+        364     LOAD_CONST                      32: ('get_panel_accounts',)
+        366     IMPORT_NAME                     1: mfunc
+        368     IMPORT_FROM                     30: get_panel_accounts
+        370     STORE_NAME                      30: get_panel_accounts
+        372     POP_TOP                         
+        374     LOAD_CONST                      3: 1
+        376     LOAD_CONST                      33: ('get_server_file_url',)
+        378     IMPORT_NAME                     1: mfunc
+        380     IMPORT_FROM                     31: get_server_file_url
+        382     STORE_NAME                      31: get_server_file_url
+        384     POP_TOP                         
+        386     LOAD_CONST                      3: 1
+        388     LOAD_CONST                      34: ('get_server_lic_url',)
+        390     IMPORT_NAME                     1: mfunc
+        392     IMPORT_FROM                     32: get_server_lic_url
+        394     STORE_NAME                      32: get_server_lic_url
+        396     POP_TOP                         
+        398     LOAD_CONST                      3: 1
+        400     LOAD_CONST                      35: ('get_task_manager',)
+        402     IMPORT_NAME                     1: mfunc
+        404     IMPORT_FROM                     33: get_task_manager
+        406     STORE_NAME                      33: get_task_manager
+        408     POP_TOP                         
+        410     LOAD_CONST                      3: 1
+        412     LOAD_CONST                      36: ('get_user_lang',)
+        414     IMPORT_NAME                     1: mfunc
+        416     IMPORT_FROM                     34: get_user_lang
+        418     STORE_NAME                      34: get_user_lang
+        420     POP_TOP                         
+        422     LOAD_CONST                      3: 1
+        424     LOAD_CONST                      37: ('proxy_controller',)
+        426     IMPORT_NAME                     1: mfunc
+        428     IMPORT_FROM                     35: proxy_controller
+        430     STORE_NAME                      35: proxy_controller
+        432     POP_TOP                         
+        434     LOAD_CONST                      3: 1
+        436     LOAD_CONST                      38: ('reg_get_2fa',)
+        438     IMPORT_NAME                     1: mfunc
+        440     IMPORT_FROM                     36: reg_get_2fa
+        442     STORE_NAME                      36: reg_get_2fa
+        444     POP_TOP                         
+        446     LOAD_CONST                      3: 1
+        448     LOAD_CONST                      39: ('requests_reconnect',)
+        450     IMPORT_NAME                     1: mfunc
+        452     IMPORT_FROM                     37: requests_reconnect
+        454     STORE_NAME                      37: requests_reconnect
+        456     POP_TOP                         
+        458     LOAD_CONST                      3: 1
+        460     LOAD_CONST                      40: ('set_task_manager',)
+        462     IMPORT_NAME                     1: mfunc
+        464     IMPORT_FROM                     38: set_task_manager
+        466     STORE_NAME                      38: set_task_manager
+        468     POP_TOP                         
+        470     LOAD_CONST                      3: 1
+        472     LOAD_CONST                      41: ('task_manager',)
+        474     IMPORT_NAME                     1: mfunc
+        476     IMPORT_FROM                     39: task_manager
+        478     STORE_NAME                      39: task_manager
+        480     POP_TOP                         
+        482     LOAD_CONST                      3: 1
+        484     LOAD_CONST                      42: ('random_account_param',)
+        486     IMPORT_NAME                     1: mfunc
+        488     IMPORT_FROM                     40: random_account_param
+        490     STORE_NAME                      40: random_account_param
+        492     POP_TOP                         
+        494     LOAD_CONST                      3: 1
+        496     LOAD_CONST                      43: ('PROGRAM_VERSION',)
+        498     IMPORT_NAME                     1: mfunc
+        500     IMPORT_FROM                     41: PROGRAM_VERSION
+        502     STORE_NAME                      41: PROGRAM_VERSION
+        504     POP_TOP                         
+        506     BUILD_LIST                      0
+        508     PUSH_NULL                       
+        510     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        512     LOAD_CONST                      44: 'upgs_nonce'   # b'\x81\xf7\x08\x14 \xc5\xb0\xdd\x15\xf9\x08'
+        514     CALL                            1
+        522     LIST_APPEND                     1
+        524     LOAD_CONST                      45: 'OnStart'
+        526     LIST_APPEND                     1
+        528     PUSH_NULL                       
+        530     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        532     LOAD_CONST                      46: 'CheckOneFolder'   # b'\x81\xc1\x10\x160\xf1\x91\xdc\x1e\xdc\x02\xcch\xe9\xea'
+        534     CALL                            1
+        542     LIST_APPEND                     1
+        544     PUSH_NULL                       
+        546     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        548     LOAD_CONST                      47: 'CreateConfig'   # b'\x81\xc1\n\x162\xee\xbb\xf1\x14\xf4\x0b\xc9k'
+        550     CALL                            1
+        558     LIST_APPEND                     1
+        560     LOAD_CONST                      48: 'Crypto'
+        562     LIST_APPEND                     1
+        564     PUSH_NULL                       
+        566     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        568     LOAD_CONST                      49: 'GetConfig'   # b'\x81\xc5\x1d\x07\x10\xf5\xb0\xd4\x12\xfd'
+        570     CALL                            1
+        578     LIST_APPEND                     1
+        580     PUSH_NULL                       
+        582     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        584     LOAD_CONST                      50: 'GetFileDB'   # b'\x81\xc5\x1d\x07\x15\xf3\xb2\xd7?\xd8'
+        586     CALL                            1
+        594     LIST_APPEND                     1
+        596     PUSH_NULL                       
+        598     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        600     LOAD_CONST                      51: 'GetFileTXT'   # b'\x81\xc5\x1d\x07\x15\xf3\xb2\xd7/\xc29'
+        602     CALL                            1
+        610     LIST_APPEND                     1
+        612     PUSH_NULL                       
+        614     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        616     LOAD_CONST                      52: 'GetFolderPath'   # b'\x81\xc5\x1d\x07\x15\xf5\xb2\xd6\x1e\xe8=\xc1x\xe4'
+        618     CALL                            1
+        626     LIST_APPEND                     1
+        628     LOAD_CONST                      53: 'GetProxy'
+        630     LIST_APPEND                     1
+        632     PUSH_NULL                       
+        634     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        636     LOAD_CONST                      54: 'GetUserNames'   # b'\x81\xc5\x1d\x07\x06\xe9\xbb\xc05\xfb\x00\xc5\x7f'
+        638     CALL                            1
+        646     LIST_APPEND                     1
+        648     PUSH_NULL                       
+        650     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        652     LOAD_CONST                      55: 'GetUserNamesManual'   # b'\x81\xc5\x1d\x07\x06\xe9\xbb\xc05\xfb\x00\xc5\x7f\xc1\xf9\x8b\x1a\\\xb7'
+        654     CALL                            1
+        662     LIST_APPEND                     1
+        664     PUSH_NULL                       
+        666     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        668     LOAD_CONST                      56: 'ProxyChecker'   # b'\x81\xd2\n\x1c+\xe3\x9d\xda\x1e\xf9\x06\xc5~'
+        670     CALL                            1
+        678     LIST_APPEND                     1
+        680     LOAD_CONST                      57: 'SendStop'
+        682     LIST_APPEND                     1
+        684     PUSH_NULL                       
+        686     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        688     LOAD_CONST                      58: 'StopDetect'   # b'\x81\xd1\x0c\x1c#\xde\xbb\xc6\x1e\xf9\x19'
+        690     CALL                            1
+        698     LIST_APPEND                     1
+        700     LOAD_CONST                      59: 'Updater'
+        702     LIST_APPEND                     1
+        704     PUSH_NULL                       
+        706     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        708     LOAD_CONST                      60: 'check_get_settings'   # b'\x81\xe1\x10\x160\xf1\x81\xd5\x1e\xee2\xd3i\xf8\xec\x8c\x01Z\xa8'
+        710     CALL                            1
+        718     LIST_APPEND                     1
+        720     PUSH_NULL                       
+        722     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        724     LOAD_CONST                      61: 'check_proxy'   # b'\x81\xe1\x10\x160\xf1\x81\xc2\t\xf5\x15\xd9'
+        726     CALL                            1
+        734     LIST_APPEND                     1
+        736     PUSH_NULL                       
+        738     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        740     LOAD_CONST                      62: 'check_proxy_one'   # b'\x81\xe1\x10\x160\xf1\x81\xc2\t\xf5\x15\xd9S\xe3\xf6\x80'
+        742     CALL                            1
+        750     LIST_APPEND                     1
+        752     PUSH_NULL                       
+        754     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        756     LOAD_CONST                      63: 'clear_task_manager'   # b'\x81\xe1\x14\x162\xe8\x81\xc6\x1a\xe9\x06\xffa\xed\xf6\x84\x08X\xa9'
+        758     CALL                            1
+        766     LIST_APPEND                     1
+        768     PUSH_NULL                       
+        770     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        772     LOAD_CONST                      64: 'config_set'   # b'\x81\xe1\x17\x1d5\xf3\xb9\xed\x08\xff\x19'
+        774     CALL                            1
+        782     LIST_APPEND                     1
+        784     PUSH_NULL                       
+        786     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        788     LOAD_CONST                      65: 'del_task_manager'   # b'\x81\xe6\x1d\x1f\x0c\xee\xbf\xc1\x10\xc5\x00\xc1b\xed\xff\x80\x1d'
+        790     CALL                            1
+        798     LIST_APPEND                     1
+        800     LOAD_CONST                      66: 'getFile'
+        802     LIST_APPEND                     1
+        804     PUSH_NULL                       
+        806     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        808     LOAD_CONST                      67: 'getFileAdd'   # b'\x81\xe5\x1d\x07\x15\xf3\xb2\xd7:\xfe\t'
+        810     CALL                            1
+        818     LIST_APPEND                     1
+        820     PUSH_NULL                       
+        822     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        824     LOAD_CONST                      68: 'getListsUsers'   # b'\x81\xe5\x1d\x07\x1f\xf3\xad\xc6\x08\xcf\x1e\xc5~\xff'
+        826     CALL                            1
+        834     LIST_APPEND                     1
+        836     LOAD_CONST                      69: 'getPath'
+        838     LIST_APPEND                     1
+        840     PUSH_NULL                       
+        842     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        844     LOAD_CONST                      70: 'get_account_time'   # b'\x81\xe5\x1d\x07\x0c\xfb\xbd\xd1\x14\xef\x03\xd4S\xf8\xf1\x88\n'
+        846     CALL                            1
+        854     LIST_APPEND                     1
+        856     PUSH_NULL                       
+        858     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        860     LOAD_CONST                      71: 'get_key_lang'   # b'\x81\xe5\x1d\x07\x0c\xf1\xbb\xcb$\xf6\x0c\xcek'
+        862     CALL                            1
+        870     LIST_APPEND                     1
+        872     PUSH_NULL                       
+        874     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        876     LOAD_CONST                      72: 'get_panel_accounts'   # b'\x81\xe5\x1d\x07\x0c\xea\xbf\xdc\x1e\xf62\xc1o\xef\xf7\x90\x01I\xa8'
+        878     CALL                            1
+        886     LIST_APPEND                     1
+        888     PUSH_NULL                       
+        890     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        892     LOAD_CONST                      73: 'get_server_file_url'   # b'\x81\xe5\x1d\x07\x0c\xe9\xbb\xc0\r\xff\x1f\xffj\xe5\xf4\x800H\xa9\xab'
+        894     CALL                            1
+        902     LIST_APPEND                     1
+        904     PUSH_NULL                       
+        906     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        908     LOAD_CONST                      74: 'get_server_lic_url'   # b'\x81\xe5\x1d\x07\x0c\xe9\xbb\xc0\r\xff\x1f\xff`\xe5\xfb\xba\x1aO\xb7'
+        910     CALL                            1
+        918     LIST_APPEND                     1
+        920     PUSH_NULL                       
+        922     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        924     LOAD_CONST                      75: 'get_task_manager'   # b'\x81\xe5\x1d\x07\x0c\xee\xbf\xc1\x10\xc5\x00\xc1b\xed\xff\x80\x1d'
+        926     CALL                            1
+        934     LIST_APPEND                     1
+        936     PUSH_NULL                       
+        938     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        940     LOAD_CONST                      76: 'get_user_lang'   # b'\x81\xe5\x1d\x07\x0c\xef\xad\xd7\t\xc5\x01\xc1b\xeb'
+        942     CALL                            1
+        950     LIST_APPEND                     1
+        952     PUSH_NULL                       
+        954     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        956     LOAD_CONST                      77: 'proxy_controller'   # b'\x81\xf2\n\x1c+\xe3\x81\xd1\x14\xf4\x19\xd2c\xe0\xf4\x80\x1d'
+        958     CALL                            1
+        966     LIST_APPEND                     1
+        968     PUSH_NULL                       
+        970     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        972     LOAD_CONST                      78: 'reg_get_2fa'   # b'\x81\xf0\x1d\x14\x0c\xfd\xbb\xc6$\xa8\x0b\xc1'
+        974     CALL                            1
+        982     LIST_APPEND                     1
+        984     PUSH_NULL                       
+        986     LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        988     LOAD_CONST                      79: 'requests_reconnect'   # b'\x81\xf0\x1d\x02&\xff\xad\xc6\x08\xc5\x1f\xc5o\xe3\xf6\x8b\n^\xaf'
+        990     CALL                            1
+        998     LIST_APPEND                     1
+        1000    PUSH_NULL                       
+        1002    LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        1004    LOAD_CONST                      80: 'set_task_manager'   # b'\x81\xf1\x1d\x07\x0c\xee\xbf\xc1\x10\xc5\x00\xc1b\xed\xff\x80\x1d'
+        1006    CALL                            1
+        1014    LIST_APPEND                     1
+        1016    PUSH_NULL                       
+        1018    LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        1020    LOAD_CONST                      81: 'task_manager'   # b'\x81\xf6\x19\x008\xc5\xb3\xd3\x15\xfb\n\xc5~'
+        1022    CALL                            1
+        1030    LIST_APPEND                     1
+        1032    PUSH_NULL                       
+        1034    LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        1036    LOAD_CONST                      82: 'random_account_param'   # b'\x81\xf0\x19\x1d7\xf5\xb3\xed\x1a\xf9\x0e\xcfy\xe2\xec\xba\x1f\\\xa9\xa6\xa7'
+        1038    CALL                            1
+        1046    LIST_APPEND                     1
+        1048    PUSH_NULL                       
+        1050    LOAD_CONST                      0: '__pyarmor_assert_12762__'
+        1052    LOAD_CONST                      83: 'PROGRAM_VERSION'   # b'\x81\xd2*<\x14\xc8\x9f\xff$\xcc(\xf2_\xc5\xd7\xab'
+        1054    CALL                            1
+        1062    LIST_APPEND                     1
+        1064    STORE_NAME                      42: __all__
+        1066    LOAD_CONST                      85: None
+        1068    NOP                             
+        1070    NOP                             
+        1072    NOP                             
+        1074    JUMP_FORWARD                    19 (to 1114)
+        1082    POP_TOP                         
+        1084    RETURN_CONST                    85: None
+        1086    PUSH_EXC_INFO                   
+        1088    PUSH_NULL                       
+        1090    LOAD_CONST                      84: '__pyarmor_exit_12764__'
+        1092    NOP                             
+        1094    LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a$\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1096    CALL                            1
+        1104    POP_TOP                         
+        1106    RERAISE                         0
+        1108    COPY                            3
+        1110    POP_EXCEPT                      
+        1112    RERAISE                         1
+        1114    PUSH_NULL                       
+        1116    LOAD_CONST                      84: '__pyarmor_exit_12764__'
+        1118    LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a$\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1120    BUILD_TUPLE                     1
+        1122    CALL_FUNCTION_EX                0
+        1124    POP_TOP                         
+        1126    RETURN_VALUE                    
+    [Exception Table]
+        26 to 1066 -> 1086 [0] 
+        1086 to 1108 -> 1108 [1] lasti

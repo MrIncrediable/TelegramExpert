@@ -1,0 +1,392 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите `"__pyarmor_enter_xxx__"(b"<COAddr>...")` и `"__pyarmor_leave_xxx__"(b"<COAddr>...")` (пролог/эпилог).
+# 3. `"__pyarmor_assert_xxx__"(A)` не является настоящим оператором assert.
+#    - Если `A` — это имя или читаемая строка: замените на `A`.
+#    - Если `A` — это `(X, "Y")`: замените на `X.Y`.
+#    - Если `A` — это `(X, "Y", Z)`: замените на `X.Y = Z`.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. `"__pyarmor_bcc_xxx__"(...)` указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen source.TelegramExpert>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'os'
+        'sys'
+        'program.updater'
+        'Updater'
+        'run_exe'
+        '_exit'
+        '__name__'
+        'print'
+        'exit'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_16411__'
+        '__pyarmor_enter_16412__'
+        b'<COAddr>\x03\x00\x00 @\x01\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        (
+            'Updater'
+        )
+        [Code]
+            File Name: <frozen source.TelegramExpert>
+            Object Name: run_exe
+            Qualified Name: run_exe
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'os'
+                'system'
+                'print'
+                '_exit'
+            [Locals+Names]
+                '__assert_armored__'
+                'program'
+            [Constants]
+                None
+                '__pyarmor_assert_16414__'
+                '__pyarmor_enter_16415__'
+                b'<COAddr>\x01\x00\x00 \x80\x00\x00\x00\x00\x00\x00\x00'
+                'unis.exe'
+                ' -checked'
+                ' - Error, I can not run the file, check the operating system settings'
+                '__pyarmor_exit_16416__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_16415__'
+                8       LOAD_CONST                      3: b'<COAddr>\x01\x00\x00 \x80\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      JUMP_FORWARD                    4 (to 28)
+                20      BUILD_TUPLE                     1
+                22      CALL_FUNCTION_EX                0
+                24      POP_TOP                         
+                26      RETURN_VALUE                    
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      LOAD_CONST                      4: 'unis.exe'
+                38      STORE_FAST                      1: program
+                40      LOAD_GLOBAL                     1: NULL + os
+                52      LOAD_ATTR                       1: system
+                62      LOAD_FAST                       1: program
+                64      LOAD_CONST                      5: ' -checked'
+                66      BINARY_OP                       0 (+)
+                70      PRECALL                         1
+                74      CALL                            1
+                84      POP_TOP                         
+                86      JUMP_FORWARD                    36 (to 160)
+                88      PUSH_EXC_INFO                   
+                90      POP_TOP                         
+                92      LOAD_GLOBAL                     5: NULL + print
+                104     LOAD_CONST                      6: ' - Error, I can not run the file, check the operating system settings'
+                106     PRECALL                         1
+                110     CALL                            1
+                120     POP_TOP                         
+                122     LOAD_GLOBAL                     7: NULL + _exit
+                134     PRECALL                         0
+                138     CALL                            0
+                148     POP_TOP                         
+                150     POP_EXCEPT                      
+                152     JUMP_FORWARD                    3 (to 160)
+                154     COPY                            3
+                156     POP_EXCEPT                      
+                158     RERAISE                         1
+                160     LOAD_CONST                      0: None
+                162     PUSH_NULL                       
+                164     LOAD_CONST                      7: '__pyarmor_exit_16416__'
+                166     NOP                             
+                168     LOAD_CONST                      3: b'<COAddr>\x01\x00\x00 \x80\x00\x00\x00\x00\x00\x00\x00'
+                170     BUILD_TUPLE                     1
+                172     CALL_FUNCTION_EX                0
+                174     NOP                             
+                176     NOP                             
+                178     NOP                             
+                180     NOP                             
+                182     NOP                             
+                184     POP_TOP                         
+                186     RETURN_VALUE                    
+                188     PUSH_EXC_INFO                   
+                190     PUSH_NULL                       
+                192     LOAD_CONST                      7: '__pyarmor_exit_16416__'
+                194     NOP                             
+                196     LOAD_CONST                      3: b'<COAddr>\x01\x00\x00 \x80\x00\x00\x00\x00\x00\x00\x00'
+                198     BUILD_TUPLE                     1
+                200     CALL_FUNCTION_EX                0
+                202     NOP                             
+                204     NOP                             
+                206     NOP                             
+                208     NOP                             
+                210     NOP                             
+                212     POP_TOP                         
+                214     RERAISE                         0
+                216     COPY                            3
+                218     POP_EXCEPT                      
+                220     RERAISE                         1
+            [Exception Table]
+                36 to 86 -> 88 [0] 
+                86 to 88 -> 188 [0] 
+                88 to 150 -> 154 [1] lasti
+                150 to 160 -> 188 [0] 
+                188 to 216 -> 216 [1] lasti
+        [Code]
+            File Name: <frozen source.TelegramExpert>
+            Object Name: _exit
+            Qualified Name: _exit
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'input'
+                'sys'
+                'exit'
+            [Locals+Names]
+                '__assert_armored__'
+            [Constants]
+                None
+                '__pyarmor_assert_16417__'
+                '__pyarmor_enter_16418__'
+                b'<COAddr>\x03\x00\x00 F\x00\x00\x00\x00\x00\x00\x00'
+                ' - To end the program, press [ENTER]'
+                '__pyarmor_exit_16419__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_16418__'
+                8       LOAD_CONST                      3: b'<COAddr>\x03\x00\x00 F\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      JUMP_FORWARD                    4 (to 28)
+                20      BUILD_TUPLE                     1
+                22      CALL_FUNCTION_EX                0
+                24      POP_TOP                         
+                26      RETURN_VALUE                    
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      LOAD_GLOBAL                     1: NULL + input
+                46      LOAD_CONST                      4: ' - To end the program, press [ENTER]'
+                48      PRECALL                         1
+                52      CALL                            1
+                62      POP_TOP                         
+                64      LOAD_GLOBAL                     3: NULL + sys
+                76      LOAD_ATTR                       2: exit
+                86      PRECALL                         0
+                90      CALL                            0
+                100     POP_TOP                         
+                102     LOAD_CONST                      0: None
+                104     PUSH_NULL                       
+                106     LOAD_CONST                      5: '__pyarmor_exit_16419__'
+                108     NOP                             
+                110     LOAD_CONST                      3: b'<COAddr>\x03\x00\x00 F\x00\x00\x00\x00\x00\x00\x00'
+                112     BUILD_TUPLE                     1
+                114     CALL_FUNCTION_EX                0
+                116     NOP                             
+                118     NOP                             
+                120     NOP                             
+                122     NOP                             
+                124     NOP                             
+                126     POP_TOP                         
+                128     RETURN_VALUE                    
+                130     PUSH_EXC_INFO                   
+                132     PUSH_NULL                       
+                134     LOAD_CONST                      5: '__pyarmor_exit_16419__'
+                136     NOP                             
+                138     LOAD_CONST                      3: b'<COAddr>\x03\x00\x00 F\x00\x00\x00\x00\x00\x00\x00'
+                140     BUILD_TUPLE                     1
+                142     CALL_FUNCTION_EX                0
+                144     NOP                             
+                146     NOP                             
+                148     NOP                             
+                150     NOP                             
+                152     NOP                             
+                154     POP_TOP                         
+                156     RERAISE                         0
+                158     COPY                            3
+                160     POP_EXCEPT                      
+                162     RERAISE                         1
+            [Exception Table]
+                34 to 102 -> 130 [0] 
+                130 to 158 -> 158 [1] lasti
+        '__main__'
+        ' ----------------------------------------------------------------------------- '
+        ' --                                                                         -- '
+        ' --                          TELEGRAM EXPERT RELEASE                        -- '
+        ' --  www.TelegramExpert.pro  --                     --  developed by STRIX  -- '
+        ''
+        '__pyarmor_exit_16413__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_16412__'
+        8       LOAD_CONST                      2: b'<COAddr>\x03\x00\x00 @\x01\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      JUMP_FORWARD                    4 (to 28)
+        20      BUILD_TUPLE                     1
+        22      CALL_FUNCTION_EX                0
+        24      POP_TOP                         
+        26      RETURN_VALUE                    
+        28      NOP                             
+        30      NOP                             
+        32      NOP                             
+        34      LOAD_CONST                      3: 0
+        36      LOAD_CONST                      4: None
+        38      IMPORT_NAME                     1: os
+        40      STORE_NAME                      1: os
+        42      LOAD_CONST                      3: 0
+        44      LOAD_CONST                      4: None
+        46      IMPORT_NAME                     2: sys
+        48      STORE_NAME                      2: sys
+        50      LOAD_CONST                      3: 0
+        52      LOAD_CONST                      5: ('Updater',)
+        54      IMPORT_NAME                     3: program.updater
+        56      IMPORT_FROM                     4: Updater
+        58      STORE_NAME                      4: Updater
+        60      POP_TOP                         
+        62      LOAD_CONST                      6: <CODE> run_exe
+        64      MAKE_FUNCTION                   0
+        66      STORE_NAME                      5: run_exe
+        68      LOAD_CONST                      7: <CODE> _exit
+        70      MAKE_FUNCTION                   0
+        72      STORE_NAME                      6: _exit
+        74      LOAD_NAME                       7: __name__
+        76      LOAD_CONST                      8: '__main__'
+        78      COMPARE_OP                      2 (==)
+        84      POP_JUMP_FORWARD_IF_FALSE       133 (to 352)
+        86      PUSH_NULL                       
+        88      LOAD_NAME                       8: print
+        90      LOAD_CONST                      9: ' ----------------------------------------------------------------------------- '
+        92      PRECALL                         1
+        96      CALL                            1
+        106     POP_TOP                         
+        108     PUSH_NULL                       
+        110     LOAD_NAME                       8: print
+        112     LOAD_CONST                      10: ' --                                                                         -- '
+        114     PRECALL                         1
+        118     CALL                            1
+        128     POP_TOP                         
+        130     PUSH_NULL                       
+        132     LOAD_NAME                       8: print
+        134     LOAD_CONST                      11: ' --                          TELEGRAM EXPERT RELEASE                        -- '
+        136     PRECALL                         1
+        140     CALL                            1
+        150     POP_TOP                         
+        152     PUSH_NULL                       
+        154     LOAD_NAME                       8: print
+        156     LOAD_CONST                      10: ' --                                                                         -- '
+        158     PRECALL                         1
+        162     CALL                            1
+        172     POP_TOP                         
+        174     PUSH_NULL                       
+        176     LOAD_NAME                       8: print
+        178     LOAD_CONST                      9: ' ----------------------------------------------------------------------------- '
+        180     PRECALL                         1
+        184     CALL                            1
+        194     POP_TOP                         
+        196     PUSH_NULL                       
+        198     LOAD_NAME                       8: print
+        200     LOAD_CONST                      12: ' --  www.TelegramExpert.pro  --                     --  developed by STRIX  -- '
+        202     PRECALL                         1
+        206     CALL                            1
+        216     POP_TOP                         
+        218     PUSH_NULL                       
+        220     LOAD_NAME                       8: print
+        222     LOAD_CONST                      9: ' ----------------------------------------------------------------------------- '
+        224     PRECALL                         1
+        228     CALL                            1
+        238     POP_TOP                         
+        240     PUSH_NULL                       
+        242     LOAD_NAME                       8: print
+        244     LOAD_CONST                      13: ''
+        246     PRECALL                         1
+        250     CALL                            1
+        260     POP_TOP                         
+        262     PUSH_NULL                       
+        264     LOAD_NAME                       4: Updater
+        266     PRECALL                         0
+        270     CALL                            0
+        280     POP_JUMP_FORWARD_IF_TRUE        15 (to 312)
+        282     PUSH_NULL                       
+        284     LOAD_NAME                       2: sys
+        286     LOAD_ATTR                       9: exit
+        296     PRECALL                         0
+        300     CALL                            0
+        310     POP_TOP                         
+        312     PUSH_NULL                       
+        314     LOAD_NAME                       5: run_exe
+        316     PRECALL                         0
+        320     CALL                            0
+        330     POP_TOP                         
+        332     PUSH_NULL                       
+        334     LOAD_NAME                       6: _exit
+        336     PRECALL                         0
+        340     CALL                            0
+        350     POP_TOP                         
+        352     LOAD_CONST                      4: None
+        354     PUSH_NULL                       
+        356     LOAD_CONST                      14: '__pyarmor_exit_16413__'
+        358     NOP                             
+        360     LOAD_CONST                      2: b'<COAddr>\x03\x00\x00 @\x01\x00\x00\x00\x00\x00\x00'
+        362     BUILD_TUPLE                     1
+        364     CALL_FUNCTION_EX                0
+        366     NOP                             
+        368     NOP                             
+        370     NOP                             
+        372     NOP                             
+        374     NOP                             
+        376     POP_TOP                         
+        378     RETURN_VALUE                    
+        380     PUSH_EXC_INFO                   
+        382     PUSH_NULL                       
+        384     LOAD_CONST                      14: '__pyarmor_exit_16413__'
+        386     NOP                             
+        388     LOAD_CONST                      2: b'<COAddr>\x03\x00\x00 @\x01\x00\x00\x00\x00\x00\x00'
+        390     BUILD_TUPLE                     1
+        392     CALL_FUNCTION_EX                0
+        394     NOP                             
+        396     NOP                             
+        398     NOP                             
+        400     NOP                             
+        402     NOP                             
+        404     POP_TOP                         
+        406     RERAISE                         0
+        408     COPY                            3
+        410     POP_EXCEPT                      
+        412     RERAISE                         1
+    [Exception Table]
+        34 to 352 -> 380 [0] 
+        380 to 408 -> 408 [1] lasti

@@ -1,0 +1,715 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.tl.core.gzippacked>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'gzip'
+        'struct'
+        ''
+        'TLObject'
+        'GzipPacked'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_23772__'
+        '__pyarmor_enter_23773__'
+        b'<COAddr>\x05\x00\x00\x1aF\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        2
+        (
+            'TLObject'
+        )
+        [Code]
+            File Name: <frozen multithon.tl.core.gzippacked>
+            Object Name: GzipPacked
+            Qualified Name: GzipPacked
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+                'CONSTRUCTOR_ID'
+                '__init__'
+                'staticmethod'
+                'gzip_if_smaller'
+                '__bytes__'
+                'read'
+                'classmethod'
+                'from_reader'
+                'to_dict'
+            [Locals+Names]
+            [Constants]
+                'GzipPacked'
+                '__pyarmor_assert_23775__'
+                '__pyarmor_enter_23776__'
+                b'<COAddr>\x05\x00\x00"\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                812830625
+                [Code]
+                    File Name: <frozen multithon.tl.core.gzippacked>
+                    Object Name: __init__
+                    Qualified Name: GzipPacked.__init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'data'
+                    [Locals+Names]
+                        'self'
+                        'data'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23778__'
+                        '__pyarmor_enter_23779__'
+                        b'<COAddr>\x07\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_23780__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23779__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: data
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: data
+                        42      LOAD_CONST                      0: None
+                        44      NOP                             
+                        46      NOP                             
+                        48      NOP                             
+                        50      JUMP_FORWARD                    19 (to 90)
+                        58      POP_TOP                         
+                        60      RETURN_CONST                    0: None
+                        62      PUSH_EXC_INFO                   
+                        64      PUSH_NULL                       
+                        66      LOAD_CONST                      4: '__pyarmor_exit_23780__'
+                        68      NOP                             
+                        70      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        72      CALL                            1
+                        80      POP_TOP                         
+                        82      RERAISE                         0
+                        84      COPY                            3
+                        86      POP_EXCEPT                      
+                        88      RERAISE                         1
+                        90      PUSH_NULL                       
+                        92      LOAD_CONST                      4: '__pyarmor_exit_23780__'
+                        94      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        96      BUILD_TUPLE                     1
+                        98      CALL_FUNCTION_EX                0
+                        100     POP_TOP                         
+                        102     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 42 -> 62 [0] 
+                        62 to 84 -> 84 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.core.gzippacked>
+                    Object Name: gzip_if_smaller
+                    Qualified Name: GzipPacked.gzip_if_smaller
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'len'
+                        'bytes'
+                        'GzipPacked'
+                    [Locals+Names]
+                        'content_related'
+                        'data'
+                        '__assert_armored__'
+                        '_var_var_0'
+                    [Constants]
+                        'Calls bytes(request), and based on a certain threshold,\n           optionally gzips the resulting data. If the gzipped data is\n           smaller than the original byte array, this is returned instead.\n\n           Note that this only applies to content related requests.\n        '
+                        '__pyarmor_assert_23781__'
+                        '__pyarmor_enter_23782__'
+                        b'<COAddr>\x05\x00\x00\x1a\xaa\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        512
+                        '__pyarmor_exit_23783__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23782__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xaa\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: content_related
+                        30      POP_JUMP_IF_FALSE               71 (to 174)
+                        32      LOAD_GLOBAL                     1: NULL + len
+                        42      LOAD_FAST                       1: data
+                        44      CALL                            1
+                        52      LOAD_CONST                      4: 512
+                        54      COMPARE_OP                      68 (>)
+                        58      POP_JUMP_IF_FALSE               57 (to 174)
+                        60      LOAD_GLOBAL                     3: NULL + bytes
+                        70      LOAD_GLOBAL                     5: NULL + GzipPacked
+                        80      LOAD_FAST                       1: data
+                        82      CALL                            1
+                        90      CALL                            1
+                        98      STORE_FAST                      3: _var_var_0
+                        100     LOAD_GLOBAL                     1: NULL + len
+                        110     LOAD_FAST                       3: _var_var_0
+                        112     CALL                            1
+                        120     LOAD_GLOBAL                     1: NULL + len
+                        130     LOAD_FAST                       1: data
+                        132     CALL                            1
+                        140     COMPARE_OP                      2 (<)
+                        144     POP_JUMP_IF_FALSE               2 (to 150)
+                        146     LOAD_FAST                       3: _var_var_0
+                        148     JUMP_FORWARD                    1 (to 152)
+                        150     LOAD_FAST                       1: data
+                        152     NOP                             
+                        154     NOP                             
+                        156     NOP                             
+                        158     NOP                             
+                        160     JUMP_FORWARD                    31 (to 224)
+                        162     CALL                            1
+                        170     POP_TOP                         
+                        172     RETURN_VALUE                    
+                        174     LOAD_FAST                       1: data
+                        176     NOP                             
+                        178     NOP                             
+                        180     NOP                             
+                        182     JUMP_FORWARD                    20 (to 224)
+                        184     CALL                            1
+                        192     POP_TOP                         
+                        194     RETURN_VALUE                    
+                        196     PUSH_EXC_INFO                   
+                        198     PUSH_NULL                       
+                        200     LOAD_CONST                      5: '__pyarmor_exit_23783__'
+                        202     NOP                             
+                        204     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xaa\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        206     CALL                            1
+                        214     POP_TOP                         
+                        216     RERAISE                         0
+                        218     COPY                            3
+                        220     POP_EXCEPT                      
+                        222     RERAISE                         1
+                        224     PUSH_NULL                       
+                        226     LOAD_CONST                      5: '__pyarmor_exit_23783__'
+                        228     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xaa\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        230     BUILD_TUPLE                     1
+                        232     CALL_FUNCTION_EX                0
+                        234     POP_TOP                         
+                        236     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 152 -> 196 [0] 
+                        174 to 176 -> 196 [0] 
+                        196 to 218 -> 218 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.core.gzippacked>
+                    Object Name: __bytes__
+                    Qualified Name: GzipPacked.__bytes__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'struct'
+                        'pack'
+                        'GzipPacked'
+                        'CONSTRUCTOR_ID'
+                        'TLObject'
+                        'serialize_bytes'
+                        'gzip'
+                        'compress'
+                        'data'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23784__'
+                        '__pyarmor_enter_23785__'
+                        b'<COAddr>\x05\x00\x00\x1a\xc2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '<I'
+                        '__pyarmor_exit_23786__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23785__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xc2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + struct
+                        38      LOAD_ATTR                       2: pack
+                        58      LOAD_CONST                      4: '<I'
+                        60      LOAD_GLOBAL                     4: GzipPacked
+                        70      LOAD_ATTR                       6: CONSTRUCTOR_ID
+                        90      CALL                            2
+                        98      LOAD_GLOBAL                     9: NULL + TLObject
+                        108     LOAD_ATTR                       10: serialize_bytes
+                        128     LOAD_GLOBAL                     13: NULL + gzip
+                        138     LOAD_ATTR                       14: compress
+                        158     LOAD_FAST                       0: self
+                        160     LOAD_ATTR                       16: data
+                        180     CALL                            1
+                        188     CALL                            1
+                        196     BINARY_OP                       0 (+)
+                        200     NOP                             
+                        202     NOP                             
+                        204     NOP                             
+                        206     JUMP_FORWARD                    20 (to 248)
+                        208     CALL                            1
+                        216     POP_TOP                         
+                        218     RETURN_VALUE                    
+                        220     PUSH_EXC_INFO                   
+                        222     PUSH_NULL                       
+                        224     LOAD_CONST                      5: '__pyarmor_exit_23786__'
+                        226     NOP                             
+                        228     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xc2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        230     CALL                            1
+                        238     POP_TOP                         
+                        240     RERAISE                         0
+                        242     COPY                            3
+                        244     POP_EXCEPT                      
+                        246     RERAISE                         1
+                        248     PUSH_NULL                       
+                        250     LOAD_CONST                      5: '__pyarmor_exit_23786__'
+                        252     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xc2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        254     BUILD_TUPLE                     1
+                        256     CALL_FUNCTION_EX                0
+                        258     POP_TOP                         
+                        260     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 200 -> 220 [0] 
+                        220 to 242 -> 242 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.core.gzippacked>
+                    Object Name: read
+                    Qualified Name: GzipPacked.read
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'read_int'
+                        'GzipPacked'
+                        'CONSTRUCTOR_ID'
+                        'gzip'
+                        'decompress'
+                        'tgread_bytes'
+                    [Locals+Names]
+                        'reader'
+                        '__assert_armored__'
+                        '_var_var_1'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23787__'
+                        '__pyarmor_enter_23788__'
+                        b'<COAddr>\x05\x00\x00\x1a\xa8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        False
+                        (
+                            'signed'
+                        )
+                        '__pyarmor_exit_23789__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23788__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xa8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: reader
+                        30      LOAD_ATTR                       1: read_int
+                        50      LOAD_CONST                      4: False
+                        52      KW_NAMES                        5: ('signed',)
+                        54      CALL                            1
+                        62      STORE_FAST                      2: _var_var_1
+                        64      LOAD_FAST                       2: _var_var_1
+                        66      LOAD_GLOBAL                     2: GzipPacked
+                        76      LOAD_ATTR                       4: CONSTRUCTOR_ID
+                        96      COMPARE_OP                      40 (==)
+                        100     POP_JUMP_IF_TRUE                2 (to 106)
+                        102     LOAD_ASSERTION_ERROR            
+                        104     RAISE_VARARGS                   1
+                        106     LOAD_GLOBAL                     7: NULL + gzip
+                        116     LOAD_ATTR                       8: decompress
+                        136     LOAD_FAST                       0: reader
+                        138     LOAD_ATTR                       11: tgread_bytes
+                        158     CALL                            0
+                        166     CALL                            1
+                        174     NOP                             
+                        176     NOP                             
+                        178     NOP                             
+                        180     JUMP_FORWARD                    20 (to 222)
+                        182     CALL                            1
+                        190     POP_TOP                         
+                        192     RETURN_VALUE                    
+                        194     PUSH_EXC_INFO                   
+                        196     PUSH_NULL                       
+                        198     LOAD_CONST                      6: '__pyarmor_exit_23789__'
+                        200     NOP                             
+                        202     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xa8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        204     CALL                            1
+                        212     POP_TOP                         
+                        214     RERAISE                         0
+                        216     COPY                            3
+                        218     POP_EXCEPT                      
+                        220     RERAISE                         1
+                        222     PUSH_NULL                       
+                        224     LOAD_CONST                      6: '__pyarmor_exit_23789__'
+                        226     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xa8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        228     BUILD_TUPLE                     1
+                        230     CALL_FUNCTION_EX                0
+                        232     POP_TOP                         
+                        234     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 174 -> 194 [0] 
+                        194 to 216 -> 216 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.core.gzippacked>
+                    Object Name: from_reader
+                    Qualified Name: GzipPacked.from_reader
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 6
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'GzipPacked'
+                        'gzip'
+                        'decompress'
+                        'tgread_bytes'
+                    [Locals+Names]
+                        'cls'
+                        'reader'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23790__'
+                        '__pyarmor_enter_23791__'
+                        b'<COAddr>\x05\x00\x00\x1al\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_23792__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23791__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1al\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + GzipPacked
+                        38      LOAD_GLOBAL                     3: NULL + gzip
+                        48      LOAD_ATTR                       4: decompress
+                        68      LOAD_FAST                       1: reader
+                        70      LOAD_ATTR                       7: tgread_bytes
+                        90      CALL                            0
+                        98      CALL                            1
+                        106     CALL                            1
+                        114     NOP                             
+                        116     NOP                             
+                        118     NOP                             
+                        120     JUMP_FORWARD                    20 (to 162)
+                        122     CALL                            1
+                        130     POP_TOP                         
+                        132     RETURN_VALUE                    
+                        134     PUSH_EXC_INFO                   
+                        136     PUSH_NULL                       
+                        138     LOAD_CONST                      4: '__pyarmor_exit_23792__'
+                        140     NOP                             
+                        142     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1al\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        144     CALL                            1
+                        152     POP_TOP                         
+                        154     RERAISE                         0
+                        156     COPY                            3
+                        158     POP_EXCEPT                      
+                        160     RERAISE                         1
+                        162     PUSH_NULL                       
+                        164     LOAD_CONST                      4: '__pyarmor_exit_23792__'
+                        166     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1al\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        168     BUILD_TUPLE                     1
+                        170     CALL_FUNCTION_EX                0
+                        172     POP_TOP                         
+                        174     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 114 -> 134 [0] 
+                        134 to 156 -> 156 [1] lasti
+                [Code]
+                    File Name: <frozen multithon.tl.core.gzippacked>
+                    Object Name: to_dict
+                    Qualified Name: GzipPacked.to_dict
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'data'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_23793__'
+                        '__pyarmor_enter_23794__'
+                        b'<COAddr>\x07\x00\x00\x1a>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        'GzipPacked'   # b'\x81\xc5\x02\x1a#\xca\xbf\xd1\x10\xff\t'
+                        (
+                            '_'
+                            'data'
+                        )
+                        '__pyarmor_exit_23795__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_23794__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      PUSH_NULL                       
+                        30      LOAD_CONST                      1: '__pyarmor_assert_23793__'
+                        32      LOAD_CONST                      4: 'GzipPacked'   # b'\x81\xc5\x02\x1a#\xca\xbf\xd1\x10\xff\t'
+                        34      CALL                            1
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_ATTR                       0: data
+                        64      LOAD_CONST                      5: ('_', 'data')
+                        66      BUILD_CONST_KEY_MAP             2
+                        68      NOP                             
+                        70      NOP                             
+                        72      NOP                             
+                        74      JUMP_FORWARD                    20 (to 116)
+                        76      CALL                            1
+                        84      POP_TOP                         
+                        86      RETURN_VALUE                    
+                        88      PUSH_EXC_INFO                   
+                        90      PUSH_NULL                       
+                        92      LOAD_CONST                      6: '__pyarmor_exit_23795__'
+                        94      NOP                             
+                        96      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        98      CALL                            1
+                        106     POP_TOP                         
+                        108     RERAISE                         0
+                        110     COPY                            3
+                        112     POP_EXCEPT                      
+                        114     RERAISE                         1
+                        116     PUSH_NULL                       
+                        118     LOAD_CONST                      6: '__pyarmor_exit_23795__'
+                        120     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        122     BUILD_TUPLE                     1
+                        124     CALL_FUNCTION_EX                0
+                        126     POP_TOP                         
+                        128     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 68 -> 88 [0] 
+                        88 to 110 -> 110 [1] lasti
+                '__pyarmor_exit_23777__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'GzipPacked'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_23776__'
+                16      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      LOAD_CONST                      4: 812830625
+                38      STORE_NAME                      4: CONSTRUCTOR_ID
+                40      LOAD_CONST                      5: <CODE> __init__
+                42      MAKE_FUNCTION                   0
+                44      STORE_NAME                      5: __init__
+                46      LOAD_NAME                       6: staticmethod
+                48      LOAD_CONST                      6: <CODE> gzip_if_smaller
+                50      MAKE_FUNCTION                   0
+                52      CALL                            0
+                60      STORE_NAME                      7: gzip_if_smaller
+                62      LOAD_CONST                      7: <CODE> __bytes__
+                64      MAKE_FUNCTION                   0
+                66      STORE_NAME                      8: __bytes__
+                68      LOAD_NAME                       6: staticmethod
+                70      LOAD_CONST                      8: <CODE> read
+                72      MAKE_FUNCTION                   0
+                74      CALL                            0
+                82      STORE_NAME                      9: read
+                84      LOAD_NAME                       10: classmethod
+                86      LOAD_CONST                      9: <CODE> from_reader
+                88      MAKE_FUNCTION                   0
+                90      CALL                            0
+                98      STORE_NAME                      11: from_reader
+                100     LOAD_CONST                      10: <CODE> to_dict
+                102     MAKE_FUNCTION                   0
+                104     STORE_NAME                      12: to_dict
+                106     LOAD_CONST                      12: None
+                108     NOP                             
+                110     NOP                             
+                112     NOP                             
+                114     JUMP_FORWARD                    19 (to 154)
+                122     POP_TOP                         
+                124     RETURN_CONST                    12: None
+                126     PUSH_EXC_INFO                   
+                128     PUSH_NULL                       
+                130     LOAD_CONST                      11: '__pyarmor_exit_23777__'
+                132     NOP                             
+                134     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                136     CALL                            1
+                144     POP_TOP                         
+                146     RERAISE                         0
+                148     COPY                            3
+                150     POP_EXCEPT                      
+                152     RERAISE                         1
+                154     PUSH_NULL                       
+                156     LOAD_CONST                      11: '__pyarmor_exit_23777__'
+                158     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\\\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                160     BUILD_TUPLE                     1
+                162     CALL_FUNCTION_EX                0
+                164     POP_TOP                         
+                166     RETURN_VALUE                    
+            [Exception Table]
+                36 to 106 -> 126 [0] 
+                126 to 148 -> 148 [1] lasti
+        'GzipPacked'
+        '__pyarmor_exit_23774__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_23773__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1aF\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: gzip
+        32      STORE_NAME                      1: gzip
+        34      LOAD_CONST                      3: 0
+        36      LOAD_CONST                      4: None
+        38      IMPORT_NAME                     2: struct
+        40      STORE_NAME                      2: struct
+        42      LOAD_CONST                      5: 2
+        44      LOAD_CONST                      6: ('TLObject',)
+        46      IMPORT_NAME                     3: 
+        48      IMPORT_FROM                     4: TLObject
+        50      STORE_NAME                      4: TLObject
+        52      POP_TOP                         
+        54      PUSH_NULL                       
+        56      LOAD_BUILD_CLASS                
+        58      LOAD_CONST                      7: <CODE> GzipPacked
+        60      MAKE_FUNCTION                   0
+        62      LOAD_CONST                      8: 'GzipPacked'
+        64      LOAD_NAME                       4: TLObject
+        66      CALL                            3
+        74      STORE_NAME                      5: GzipPacked
+        76      LOAD_CONST                      4: None
+        78      NOP                             
+        80      NOP                             
+        82      NOP                             
+        84      JUMP_FORWARD                    19 (to 124)
+        92      POP_TOP                         
+        94      RETURN_CONST                    4: None
+        96      PUSH_EXC_INFO                   
+        98      PUSH_NULL                       
+        100     LOAD_CONST                      9: '__pyarmor_exit_23774__'
+        102     NOP                             
+        104     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1aF\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        106     CALL                            1
+        114     POP_TOP                         
+        116     RERAISE                         0
+        118     COPY                            3
+        120     POP_EXCEPT                      
+        122     RERAISE                         1
+        124     PUSH_NULL                       
+        126     LOAD_CONST                      9: '__pyarmor_exit_23774__'
+        128     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1aF\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        130     BUILD_TUPLE                     1
+        132     CALL_FUNCTION_EX                0
+        134     POP_TOP                         
+        136     RETURN_VALUE                    
+    [Exception Table]
+        26 to 76 -> 96 [0] 
+        96 to 118 -> 118 [1] lasti

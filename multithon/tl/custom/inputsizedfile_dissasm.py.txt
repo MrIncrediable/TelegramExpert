@@ -1,0 +1,280 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.tl.custom.inputsizedfile>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'types'
+        'InputFile'
+        'InputSizedFile'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_24333__'
+        '__pyarmor_enter_24334__'
+        b'<COAddr>\x07\x00\x00\x1a6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        2
+        (
+            'InputFile'
+        )
+        [Code]
+            File Name: <frozen multithon.tl.custom.inputsizedfile>
+            Object Name: InputSizedFile
+            Qualified Name: InputSizedFile
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                '__classcell__'
+            [Locals+Names]
+                '__class__'
+            [Constants]
+                'InputSizedFile'
+                'InputFile class with two extra parameters: md5 (digest) and size'
+                '__pyarmor_assert_24336__'
+                '__pyarmor_enter_24337__'
+                b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.tl.custom.inputsizedfile>
+                    Object Name: __init__
+                    Qualified Name: InputSizedFile.__init__
+                    Arg Count: 6
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'super'
+                        '__init__'
+                        'hexdigest'
+                        'digest'
+                        'md5'
+                        'size'
+                    [Locals+Names]
+                        'self'
+                        'id_'
+                        'parts'
+                        'name'
+                        'md5'
+                        'size'
+                        '__assert_armored__'
+                        '__class__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_24339__'
+                        '__pyarmor_enter_24340__'
+                        b'<COAddr>\x07\x00\x00\x1c\x8e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_24341__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_24340__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\x8e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     0: super
+                        40      LOAD_DEREF                      7: __class__
+                        42      LOAD_FAST                       0: self
+                        44      LOAD_SUPER_ATTR                 5: __init__
+                        48      LOAD_FAST                       1: id_
+                        50      LOAD_FAST                       2: parts
+                        52      LOAD_FAST                       3: name
+                        54      LOAD_FAST                       4: md5
+                        56      LOAD_ATTR                       5: hexdigest
+                        76      CALL                            0
+                        84      CALL                            4
+                        92      POP_TOP                         
+                        94      LOAD_FAST                       4: md5
+                        96      LOAD_ATTR                       7: digest
+                        116     CALL                            0
+                        124     LOAD_FAST                       0: self
+                        126     STORE_ATTR                      4: md5
+                        136     LOAD_FAST                       5: size
+                        138     LOAD_FAST                       0: self
+                        140     STORE_ATTR                      5: size
+                        150     LOAD_CONST                      0: None
+                        152     NOP                             
+                        154     NOP                             
+                        156     NOP                             
+                        158     JUMP_FORWARD                    19 (to 198)
+                        166     POP_TOP                         
+                        168     RETURN_CONST                    0: None
+                        170     PUSH_EXC_INFO                   
+                        172     PUSH_NULL                       
+                        174     LOAD_CONST                      4: '__pyarmor_exit_24341__'
+                        176     NOP                             
+                        178     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\x8e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        180     CALL                            1
+                        188     POP_TOP                         
+                        190     RERAISE                         0
+                        192     COPY                            3
+                        194     POP_EXCEPT                      
+                        196     RERAISE                         1
+                        198     PUSH_NULL                       
+                        200     LOAD_CONST                      4: '__pyarmor_exit_24341__'
+                        202     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1c\x8e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        204     BUILD_TUPLE                     1
+                        206     CALL_FUNCTION_EX                0
+                        208     POP_TOP                         
+                        210     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 150 -> 170 [0] 
+                        170 to 192 -> 192 [1] lasti
+                '__pyarmor_exit_24338__'
+            [Disassembly]
+                0       MAKE_CELL                       0: __class__
+                2       NOP                             
+                4       LOAD_NAME                       0: __name__
+                6       STORE_NAME                      1: __module__
+                8       LOAD_CONST                      0: 'InputSizedFile'
+                10      STORE_NAME                      2: __qualname__
+                12      LOAD_CONST                      1: 'InputFile class with two extra parameters: md5 (digest) and size'
+                14      STORE_NAME                      3: __doc__
+                16      NOP                             
+                18      PUSH_NULL                       
+                20      LOAD_CONST                      3: '__pyarmor_enter_24337__'
+                22      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                24      BUILD_TUPLE                     1
+                26      CALL_FUNCTION_EX                0
+                28      POP_TOP                         
+                30      RESUME                          0
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      NOP                             
+                42      LOAD_CLOSURE                    0: __class__
+                44      BUILD_TUPLE                     1
+                46      LOAD_CONST                      5: <CODE> __init__
+                48      MAKE_FUNCTION                   8
+                50      STORE_NAME                      5: __init__
+                52      LOAD_CLOSURE                    0: __class__
+                54      COPY                            1
+                56      STORE_NAME                      6: __classcell__
+                58      NOP                             
+                60      NOP                             
+                62      NOP                             
+                64      JUMP_FORWARD                    20 (to 106)
+                68      POP_TOP                         
+                70      LOAD_CLOSURE                    0: __class__
+                72      COPY                            1
+                74      STORE_NAME                      6: __classcell__
+                76      RETURN_VALUE                    
+                78      PUSH_EXC_INFO                   
+                80      PUSH_NULL                       
+                82      LOAD_CONST                      6: '__pyarmor_exit_24338__'
+                84      NOP                             
+                86      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      CALL                            1
+                96      POP_TOP                         
+                98      RERAISE                         0
+                100     COPY                            3
+                102     POP_EXCEPT                      
+                104     RERAISE                         1
+                106     PUSH_NULL                       
+                108     LOAD_CONST                      6: '__pyarmor_exit_24338__'
+                110     LOAD_CONST                      4: b'<COAddr>\x07\x00\x00(&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                112     BUILD_TUPLE                     1
+                114     CALL_FUNCTION_EX                0
+                116     POP_TOP                         
+                118     RETURN_VALUE                    
+            [Exception Table]
+                42 to 52 -> 78 [0] 
+                78 to 100 -> 100 [1] lasti
+        'InputSizedFile'
+        '__pyarmor_exit_24335__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_24334__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 2
+        28      LOAD_CONST                      4: ('InputFile',)
+        30      IMPORT_NAME                     1: types
+        32      IMPORT_FROM                     2: InputFile
+        34      STORE_NAME                      2: InputFile
+        36      POP_TOP                         
+        38      PUSH_NULL                       
+        40      LOAD_BUILD_CLASS                
+        42      LOAD_CONST                      5: <CODE> InputSizedFile
+        44      MAKE_FUNCTION                   0
+        46      LOAD_CONST                      6: 'InputSizedFile'
+        48      LOAD_NAME                       2: InputFile
+        50      CALL                            3
+        58      STORE_NAME                      3: InputSizedFile
+        60      LOAD_CONST                      8: None
+        62      NOP                             
+        64      NOP                             
+        66      NOP                             
+        68      JUMP_FORWARD                    19 (to 108)
+        76      POP_TOP                         
+        78      RETURN_CONST                    8: None
+        80      PUSH_EXC_INFO                   
+        82      PUSH_NULL                       
+        84      LOAD_CONST                      7: '__pyarmor_exit_24335__'
+        86      NOP                             
+        88      LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        90      CALL                            1
+        98      POP_TOP                         
+        100     RERAISE                         0
+        102     COPY                            3
+        104     POP_EXCEPT                      
+        106     RERAISE                         1
+        108     PUSH_NULL                       
+        110     LOAD_CONST                      7: '__pyarmor_exit_24335__'
+        112     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        114     BUILD_TUPLE                     1
+        116     CALL_FUNCTION_EX                0
+        118     POP_TOP                         
+        120     RETURN_VALUE                    
+    [Exception Table]
+        26 to 60 -> 80 [0] 
+        80 to 102 -> 102 [1] lasti

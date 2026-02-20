@@ -1,0 +1,981 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon._updates.entitycache>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'session'
+        'EntityType'
+        'Entity'
+        'object'
+        '_sentinel'
+        'EntityCache'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_60705__'
+        '__pyarmor_enter_60706__'
+        b'<COAddr>\x07\x00\x00\x1aF\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'EntityType'
+            'Entity'
+        )
+        [Code]
+            File Name: <frozen multithon._updates.entitycache>
+            Object Name: EntityCache
+            Qualified Name: EntityCache
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 7
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+                '_sentinel'
+                'dict'
+                'int'
+                'bool'
+                '__init__'
+                'set_self_user'
+                'get'
+                'extend'
+                'put'
+                'retain'
+                '__len__'
+            [Locals+Names]
+            [Constants]
+                'EntityCache'
+                '__pyarmor_assert_60708__'
+                '__pyarmor_enter_60709__'
+                b'<COAddr>\x07\x00\x00"V\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                None
+                'hash_map'
+                'self_id'
+                'self_bot'
+                [Code]
+                    File Name: <frozen multithon._updates.entitycache>
+                    Object Name: __init__
+                    Qualified Name: EntityCache.__init__
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_sentinel'
+                        'hash_map'
+                        'self_id'
+                        'self_bot'
+                    [Locals+Names]
+                        'self'
+                        'hash_map'
+                        'self_id'
+                        'self_bot'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_60711__'
+                        '__pyarmor_enter_60712__'
+                        b'<COAddr>\x07\x00\x00\x1aT\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_60713__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_60712__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aT\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: hash_map
+                        30      LOAD_GLOBAL                     0: _sentinel
+                        40      IS_OP                           0 (is)
+                        42      POP_JUMP_IF_FALSE               2 (to 48)
+                        44      BUILD_MAP                       0
+                        46      JUMP_FORWARD                    1 (to 50)
+                        48      LOAD_FAST                       1: hash_map
+                        50      LOAD_FAST                       0: self
+                        52      STORE_ATTR                      1: hash_map
+                        62      LOAD_FAST                       2: self_id
+                        64      LOAD_FAST                       0: self
+                        66      STORE_ATTR                      2: self_id
+                        76      LOAD_FAST                       3: self_bot
+                        78      LOAD_FAST                       0: self
+                        80      STORE_ATTR                      3: self_bot
+                        90      LOAD_CONST                      0: None
+                        92      NOP                             
+                        94      NOP                             
+                        96      NOP                             
+                        98      JUMP_FORWARD                    19 (to 138)
+                        106     POP_TOP                         
+                        108     RETURN_CONST                    0: None
+                        110     PUSH_EXC_INFO                   
+                        112     PUSH_NULL                       
+                        114     LOAD_CONST                      4: '__pyarmor_exit_60713__'
+                        116     NOP                             
+                        118     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aT\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        120     CALL                            1
+                        128     POP_TOP                         
+                        130     RERAISE                         0
+                        132     COPY                            3
+                        134     POP_EXCEPT                      
+                        136     RERAISE                         1
+                        138     PUSH_NULL                       
+                        140     LOAD_CONST                      4: '__pyarmor_exit_60713__'
+                        142     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1aT\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        144     BUILD_TUPLE                     1
+                        146     CALL_FUNCTION_EX                0
+                        148     POP_TOP                         
+                        150     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 90 -> 110 [0] 
+                        110 to 132 -> 132 [1] lasti
+                [Code]
+                    File Name: <frozen multithon._updates.entitycache>
+                    Object Name: set_self_user
+                    Qualified Name: EntityCache.set_self_user
+                    Arg Count: 4
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'self_id'
+                        'self_bot'
+                        'EntityType'
+                        'BOT'
+                        'USER'
+                        'hash_map'
+                    [Locals+Names]
+                        'self'
+                        'id'
+                        'bot'
+                        'hash'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_60714__'
+                        '__pyarmor_enter_60715__'
+                        b'<COAddr>\x05\x00\x00\x1a\x98\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_60716__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_60715__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x98\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: id
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: self_id
+                        42      LOAD_FAST                       2: bot
+                        44      LOAD_FAST                       0: self
+                        46      STORE_ATTR                      1: self_bot
+                        56      LOAD_FAST                       3: hash
+                        58      POP_JUMP_IF_FALSE               49 (to 158)
+                        60      LOAD_FAST                       3: hash
+                        62      LOAD_FAST                       2: bot
+                        64      POP_JUMP_IF_FALSE               16 (to 98)
+                        66      LOAD_GLOBAL                     4: EntityType
+                        76      LOAD_ATTR                       6: BOT
+                        96      JUMP_FORWARD                    15 (to 128)
+                        98      LOAD_GLOBAL                     4: EntityType
+                        108     LOAD_ATTR                       8: USER
+                        128     BUILD_TUPLE                     2
+                        130     LOAD_FAST                       0: self
+                        132     LOAD_ATTR                       10: hash_map
+                        152     LOAD_FAST                       1: id
+                        154     STORE_SUBSCR                    
+                        158     LOAD_CONST                      0: None
+                        160     NOP                             
+                        162     NOP                             
+                        164     NOP                             
+                        166     JUMP_FORWARD                    19 (to 206)
+                        174     POP_TOP                         
+                        176     RETURN_CONST                    0: None
+                        178     PUSH_EXC_INFO                   
+                        180     PUSH_NULL                       
+                        182     LOAD_CONST                      4: '__pyarmor_exit_60716__'
+                        184     NOP                             
+                        186     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x98\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        188     CALL                            1
+                        196     POP_TOP                         
+                        198     RERAISE                         0
+                        200     COPY                            3
+                        202     POP_EXCEPT                      
+                        204     RERAISE                         1
+                        206     PUSH_NULL                       
+                        208     LOAD_CONST                      4: '__pyarmor_exit_60716__'
+                        210     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x98\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        212     BUILD_TUPLE                     1
+                        214     CALL_FUNCTION_EX                0
+                        216     POP_TOP                         
+                        218     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 158 -> 178 [0] 
+                        178 to 200 -> 200 [1] lasti
+                [Code]
+                    File Name: <frozen multithon._updates.entitycache>
+                    Object Name: get
+                    Qualified Name: EntityCache.get
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'hash_map'
+                        'Entity'
+                        'KeyError'
+                    [Locals+Names]
+                        'self'
+                        'id'
+                        '__assert_armored__'
+                        '_var_var_0'
+                        '_var_var_1'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_60717__'
+                        '__pyarmor_enter_60718__'
+                        b'<COAddr>\x05\x00\x00\x1a\x84\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_60719__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_60718__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x84\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_FAST                       0: self
+                        32      LOAD_ATTR                       0: hash_map
+                        52      LOAD_FAST                       1: id
+                        54      BINARY_SUBSCR                   
+                        58      UNPACK_SEQUENCE                 2
+                        62      STORE_FAST                      3: _var_var_0
+                        64      STORE_FAST                      4: _var_var_1
+                        66      LOAD_GLOBAL                     3: NULL + Entity
+                        76      LOAD_FAST                       4: _var_var_1
+                        78      LOAD_FAST                       1: id
+                        80      LOAD_FAST                       3: _var_var_0
+                        82      CALL                            3
+                        90      NOP                             
+                        92      NOP                             
+                        94      NOP                             
+                        96      JUMP_FORWARD                    44 (to 186)
+                        98      CALL                            1
+                        106     POP_TOP                         
+                        108     RETURN_VALUE                    
+                        110     PUSH_EXC_INFO                   
+                        112     LOAD_GLOBAL                     4: KeyError
+                        122     CHECK_EXC_MATCH                 
+                        124     POP_JUMP_IF_FALSE               12 (to 150)
+                        126     POP_TOP                         
+                        128     POP_EXCEPT                      
+                        130     LOAD_CONST                      0: None
+                        132     NOP                             
+                        134     NOP                             
+                        136     NOP                             
+                        138     JUMP_FORWARD                    23 (to 186)
+                        146     POP_TOP                         
+                        148     RETURN_CONST                    0: None
+                        150     RERAISE                         0
+                        152     COPY                            3
+                        154     POP_EXCEPT                      
+                        156     RERAISE                         1
+                        158     PUSH_EXC_INFO                   
+                        160     PUSH_NULL                       
+                        162     LOAD_CONST                      4: '__pyarmor_exit_60719__'
+                        164     NOP                             
+                        166     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x84\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        168     CALL                            1
+                        176     POP_TOP                         
+                        178     RERAISE                         0
+                        180     COPY                            3
+                        182     POP_EXCEPT                      
+                        184     RERAISE                         1
+                        186     PUSH_NULL                       
+                        188     LOAD_CONST                      4: '__pyarmor_exit_60719__'
+                        190     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x84\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        192     BUILD_TUPLE                     1
+                        194     CALL_FUNCTION_EX                0
+                        196     POP_TOP                         
+                        198     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 90 -> 110 [0] 
+                        110 to 128 -> 152 [1] lasti
+                        128 to 130 -> 158 [0] 
+                        150 to 152 -> 152 [1] lasti
+                        152 to 158 -> 158 [0] 
+                        158 to 180 -> 180 [1] lasti
+                [Code]
+                    File Name: <frozen multithon._updates.entitycache>
+                    Object Name: extend
+                    Qualified Name: EntityCache.extend
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'hash_map'
+                        'update'
+                    [Locals+Names]
+                        'self'
+                        'users'
+                        'chats'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_60720__'
+                        '__pyarmor_enter_60721__'
+                        b'<COAddr>\x05\x00\x00\x1a\x9e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        [Code]
+                            File Name: <frozen multithon._updates.entitycache>
+                            Object Name: <genexpr>
+                            Qualified Name: EntityCache.extend.<locals>.<genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Stack Size: 6
+                            Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                            [Names]
+                                'getattr'
+                                'min'
+                                'id'
+                                'access_hash'
+                                'bot'
+                                'EntityType'
+                                'BOT'
+                                'USER'
+                            [Locals+Names]
+                                '.0'
+                                '_var_var_2'
+                            [Constants]
+                                'access_hash'
+                                None
+                            [Disassembly]
+                                0       RETURN_GENERATOR                
+                                2       POP_TOP                         
+                                4       RESUME                          0
+                                6       LOAD_FAST                       0: .0
+                                8       FOR_ITER                        97 (to 204)
+                                12      STORE_FAST                      1: _var_var_2
+                                14      LOAD_GLOBAL                     1: NULL + getattr
+                                24      LOAD_FAST                       1: _var_var_2
+                                26      LOAD_CONST                      0: 'access_hash'
+                                28      LOAD_CONST                      1: None
+                                30      CALL                            3
+                                38      POP_JUMP_IF_FALSE               82 (to 204)
+                                40      LOAD_FAST                       1: _var_var_2
+                                42      LOAD_ATTR                       2: min
+                                62      POP_JUMP_IF_TRUE                70 (to 204)
+                                64      LOAD_FAST                       1: _var_var_2
+                                66      LOAD_ATTR                       4: id
+                                86      LOAD_FAST                       1: _var_var_2
+                                88      LOAD_ATTR                       6: access_hash
+                                108     LOAD_FAST                       1: _var_var_2
+                                110     LOAD_ATTR                       8: bot
+                                130     POP_JUMP_IF_FALSE               16 (to 164)
+                                132     LOAD_GLOBAL                     10: EntityType
+                                142     LOAD_ATTR                       12: BOT
+                                162     JUMP_FORWARD                    15 (to 194)
+                                164     LOAD_GLOBAL                     10: EntityType
+                                174     LOAD_ATTR                       14: USER
+                                194     BUILD_TUPLE                     2
+                                196     BUILD_TUPLE                     2
+                                198     YIELD_VALUE                     1
+                                200     RESUME                          1
+                                202     POP_TOP                         
+                                204     JUMP_BACKWARD                   99 (to 8)
+                                206     END_FOR                         
+                                208     RETURN_CONST                    1: None
+                                210     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                                212     RERAISE                         1
+                            [Exception Table]
+                                4 to 210 -> 210 [0] lasti
+                        [Code]
+                            File Name: <frozen multithon._updates.entitycache>
+                            Object Name: <genexpr>
+                            Qualified Name: EntityCache.extend.<locals>.<genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Stack Size: 8
+                            Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                            [Names]
+                                'getattr'
+                                'id'
+                                'access_hash'
+                                'megagroup'
+                                'EntityType'
+                                'MEGAGROUP'
+                                'GIGAGROUP'
+                                'CHANNEL'
+                            [Locals+Names]
+                                '.0'
+                                '_var_var_3'
+                            [Constants]
+                                'access_hash'
+                                None
+                                'min'
+                                'gigagroup'
+                            [Disassembly]
+                                0       RETURN_GENERATOR                
+                                2       POP_TOP                         
+                                4       RESUME                          0
+                                6       LOAD_FAST                       0: .0
+                                8       FOR_ITER                        127 (to 264)
+                                12      STORE_FAST                      1: _var_var_3
+                                14      LOAD_GLOBAL                     1: NULL + getattr
+                                24      LOAD_FAST                       1: _var_var_3
+                                26      LOAD_CONST                      0: 'access_hash'
+                                28      LOAD_CONST                      1: None
+                                30      CALL                            3
+                                38      POP_JUMP_IF_FALSE               112 (to 264)
+                                40      LOAD_GLOBAL                     1: NULL + getattr
+                                50      LOAD_FAST                       1: _var_var_3
+                                52      LOAD_CONST                      2: 'min'
+                                54      LOAD_CONST                      1: None
+                                56      CALL                            3
+                                64      POP_JUMP_IF_TRUE                99 (to 264)
+                                66      LOAD_FAST                       1: _var_var_3
+                                68      LOAD_ATTR                       2: id
+                                88      LOAD_FAST                       1: _var_var_3
+                                90      LOAD_ATTR                       4: access_hash
+                                110     LOAD_FAST                       1: _var_var_3
+                                112     LOAD_ATTR                       6: megagroup
+                                132     POP_JUMP_IF_FALSE               16 (to 166)
+                                134     LOAD_GLOBAL                     8: EntityType
+                                144     LOAD_ATTR                       10: MEGAGROUP
+                                164     JUMP_FORWARD                    44 (to 254)
+                                166     LOAD_GLOBAL                     1: NULL + getattr
+                                176     LOAD_FAST                       1: _var_var_3
+                                178     LOAD_CONST                      3: 'gigagroup'
+                                180     LOAD_CONST                      1: None
+                                182     CALL                            3
+                                190     POP_JUMP_IF_FALSE               16 (to 224)
+                                192     LOAD_GLOBAL                     8: EntityType
+                                202     LOAD_ATTR                       12: GIGAGROUP
+                                222     JUMP_FORWARD                    15 (to 254)
+                                224     LOAD_GLOBAL                     8: EntityType
+                                234     LOAD_ATTR                       14: CHANNEL
+                                254     BUILD_TUPLE                     2
+                                256     BUILD_TUPLE                     2
+                                258     YIELD_VALUE                     1
+                                260     RESUME                          1
+                                262     POP_TOP                         
+                                264     JUMP_BACKWARD                   129 (to 8)
+                                266     END_FOR                         
+                                268     RETURN_CONST                    1: None
+                                270     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                                272     RERAISE                         1
+                            [Exception Table]
+                                4 to 270 -> 270 [0] lasti
+                        '__pyarmor_exit_60722__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_60721__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x9e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: hash_map
+                        50      LOAD_ATTR                       3: update
+                        70      LOAD_CONST                      4: <CODE> <genexpr>
+                        72      MAKE_FUNCTION                   0
+                        74      LOAD_FAST                       1: users
+                        76      GET_ITER                        
+                        78      CALL                            0
+                        86      CALL                            1
+                        94      POP_TOP                         
+                        96      LOAD_FAST                       0: self
+                        98      LOAD_ATTR                       0: hash_map
+                        118     LOAD_ATTR                       3: update
+                        138     LOAD_CONST                      5: <CODE> <genexpr>
+                        140     MAKE_FUNCTION                   0
+                        142     LOAD_FAST                       2: chats
+                        144     GET_ITER                        
+                        146     CALL                            0
+                        154     CALL                            1
+                        162     POP_TOP                         
+                        164     LOAD_CONST                      0: None
+                        166     NOP                             
+                        168     NOP                             
+                        170     NOP                             
+                        172     JUMP_FORWARD                    19 (to 212)
+                        180     POP_TOP                         
+                        182     RETURN_CONST                    0: None
+                        184     PUSH_EXC_INFO                   
+                        186     PUSH_NULL                       
+                        188     LOAD_CONST                      6: '__pyarmor_exit_60722__'
+                        190     NOP                             
+                        192     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x9e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        194     CALL                            1
+                        202     POP_TOP                         
+                        204     RERAISE                         0
+                        206     COPY                            3
+                        208     POP_EXCEPT                      
+                        210     RERAISE                         1
+                        212     PUSH_NULL                       
+                        214     LOAD_CONST                      6: '__pyarmor_exit_60722__'
+                        216     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\x9e\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        218     BUILD_TUPLE                     1
+                        220     CALL_FUNCTION_EX                0
+                        222     POP_TOP                         
+                        224     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 164 -> 184 [0] 
+                        184 to 206 -> 206 [1] lasti
+                [Code]
+                    File Name: <frozen multithon._updates.entitycache>
+                    Object Name: put
+                    Qualified Name: EntityCache.put
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'hash'
+                        'ty'
+                        'hash_map'
+                        'id'
+                    [Locals+Names]
+                        'self'
+                        'entity'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_60723__'
+                        '__pyarmor_enter_60724__'
+                        b'<COAddr>\x07\x00\x00\x1at\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_60725__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_60724__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1at\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: entity
+                        30      LOAD_ATTR                       0: hash
+                        50      LOAD_FAST                       1: entity
+                        52      LOAD_ATTR                       2: ty
+                        72      BUILD_TUPLE                     2
+                        74      LOAD_FAST                       0: self
+                        76      LOAD_ATTR                       4: hash_map
+                        96      LOAD_FAST                       1: entity
+                        98      LOAD_ATTR                       6: id
+                        118     STORE_SUBSCR                    
+                        122     LOAD_CONST                      0: None
+                        124     NOP                             
+                        126     NOP                             
+                        128     NOP                             
+                        130     JUMP_FORWARD                    19 (to 170)
+                        138     POP_TOP                         
+                        140     RETURN_CONST                    0: None
+                        142     PUSH_EXC_INFO                   
+                        144     PUSH_NULL                       
+                        146     LOAD_CONST                      4: '__pyarmor_exit_60725__'
+                        148     NOP                             
+                        150     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1at\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        152     CALL                            1
+                        160     POP_TOP                         
+                        162     RERAISE                         0
+                        164     COPY                            3
+                        166     POP_EXCEPT                      
+                        168     RERAISE                         1
+                        170     PUSH_NULL                       
+                        172     LOAD_CONST                      4: '__pyarmor_exit_60725__'
+                        174     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1at\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        176     BUILD_TUPLE                     1
+                        178     CALL_FUNCTION_EX                0
+                        180     POP_TOP                         
+                        182     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 122 -> 142 [0] 
+                        142 to 164 -> 164 [1] lasti
+                [Code]
+                    File Name: <frozen multithon._updates.entitycache>
+                    Object Name: retain
+                    Qualified Name: EntityCache.retain
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 7
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'hash_map'
+                        'items'
+                    [Locals+Names]
+                        'self'
+                        'filter'
+                        '__assert_armored__'
+                        '_var_var_4'
+                        '_var_var_5'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_60726__'
+                        '__pyarmor_enter_60727__'
+                        b'<COAddr>\x07\x00\x00\x1a\x9a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_60728__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_60727__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x9a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       0: self
+                        30      LOAD_ATTR                       0: hash_map
+                        50      LOAD_ATTR                       3: items
+                        70      CALL                            0
+                        78      GET_ITER                        
+                        80      LOAD_FAST_AND_CLEAR             3: _var_var_4
+                        82      LOAD_FAST_AND_CLEAR             4: _var_var_5
+                        84      SWAP                            3
+                        86      BUILD_MAP                       0
+                        88      SWAP                            2
+                        90      FOR_ITER                        17 (to 126)
+                        94      UNPACK_SEQUENCE                 2
+                        98      STORE_FAST                      3: _var_var_4
+                        100     STORE_FAST                      4: _var_var_5
+                        102     PUSH_NULL                       
+                        104     LOAD_FAST                       1: filter
+                        106     LOAD_FAST                       3: _var_var_4
+                        108     CALL                            1
+                        116     POP_JUMP_IF_TRUE                1 (to 120)
+                        118     JUMP_BACKWARD                   15 (to 90)
+                        120     LOAD_FAST                       3: _var_var_4
+                        122     LOAD_FAST                       4: _var_var_5
+                        124     MAP_ADD                         2
+                        126     JUMP_BACKWARD                   19 (to 90)
+                        128     END_FOR                         
+                        130     SWAP                            3
+                        132     STORE_FAST                      4: _var_var_5
+                        134     STORE_FAST                      3: _var_var_4
+                        136     LOAD_FAST                       0: self
+                        138     STORE_ATTR                      0: hash_map
+                        148     LOAD_CONST                      0: None
+                        150     NOP                             
+                        152     NOP                             
+                        154     NOP                             
+                        156     JUMP_FORWARD                    25 (to 208)
+                        164     POP_TOP                         
+                        166     RETURN_CONST                    0: None
+                        168     SWAP                            2
+                        170     POP_TOP                         
+                        172     SWAP                            3
+                        174     STORE_FAST                      4: _var_var_5
+                        176     STORE_FAST                      3: _var_var_4
+                        178     RERAISE                         0
+                        180     PUSH_EXC_INFO                   
+                        182     PUSH_NULL                       
+                        184     LOAD_CONST                      4: '__pyarmor_exit_60728__'
+                        186     NOP                             
+                        188     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x9a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        190     CALL                            1
+                        198     POP_TOP                         
+                        200     RERAISE                         0
+                        202     COPY                            3
+                        204     POP_EXCEPT                      
+                        206     RERAISE                         1
+                        208     PUSH_NULL                       
+                        210     LOAD_CONST                      4: '__pyarmor_exit_60728__'
+                        212     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a\x9a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        214     BUILD_TUPLE                     1
+                        216     CALL_FUNCTION_EX                0
+                        218     POP_TOP                         
+                        220     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 86 -> 180 [0] 
+                        86 to 118 -> 168 [3] 
+                        120 to 130 -> 168 [3] 
+                        130 to 148 -> 180 [0] 
+                        168 to 180 -> 180 [0] 
+                        180 to 202 -> 202 [1] lasti
+                [Code]
+                    File Name: <frozen multithon._updates.entitycache>
+                    Object Name: __len__
+                    Qualified Name: EntityCache.__len__
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'len'
+                        'hash_map'
+                    [Locals+Names]
+                        'self'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_60729__'
+                        '__pyarmor_enter_60730__'
+                        b'<COAddr>\x07\x00\x00\x1a>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_60731__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_60730__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_GLOBAL                     1: NULL + len
+                        38      LOAD_FAST                       0: self
+                        40      LOAD_ATTR                       2: hash_map
+                        60      CALL                            1
+                        68      NOP                             
+                        70      NOP                             
+                        72      NOP                             
+                        74      JUMP_FORWARD                    20 (to 116)
+                        76      CALL                            1
+                        84      POP_TOP                         
+                        86      RETURN_VALUE                    
+                        88      PUSH_EXC_INFO                   
+                        90      PUSH_NULL                       
+                        92      LOAD_CONST                      4: '__pyarmor_exit_60731__'
+                        94      NOP                             
+                        96      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        98      CALL                            1
+                        106     POP_TOP                         
+                        108     RERAISE                         0
+                        110     COPY                            3
+                        112     POP_EXCEPT                      
+                        114     RERAISE                         1
+                        116     PUSH_NULL                       
+                        118     LOAD_CONST                      4: '__pyarmor_exit_60731__'
+                        120     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a>\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        122     BUILD_TUPLE                     1
+                        124     CALL_FUNCTION_EX                0
+                        126     POP_TOP                         
+                        128     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 68 -> 88 [0] 
+                        88 to 110 -> 110 [1] lasti
+                '__pyarmor_exit_60710__'
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'EntityCache'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_60709__'
+                16      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"V\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      LOAD_NAME                       4: _sentinel
+                38      LOAD_CONST                      4: None
+                40      LOAD_CONST                      4: None
+                42      BUILD_TUPLE                     3
+                44      LOAD_CONST                      5: 'hash_map'
+                46      LOAD_NAME                       5: dict
+                48      LOAD_CONST                      6: 'self_id'
+                50      LOAD_NAME                       6: int
+                52      LOAD_CONST                      7: 'self_bot'
+                54      LOAD_NAME                       7: bool
+                56      BUILD_TUPLE                     6
+                58      LOAD_CONST                      8: <CODE> __init__
+                60      MAKE_FUNCTION                   5
+                62      STORE_NAME                      8: __init__
+                64      LOAD_CONST                      9: <CODE> set_self_user
+                66      MAKE_FUNCTION                   0
+                68      STORE_NAME                      9: set_self_user
+                70      LOAD_CONST                      10: <CODE> get
+                72      MAKE_FUNCTION                   0
+                74      STORE_NAME                      10: get
+                76      LOAD_CONST                      11: <CODE> extend
+                78      MAKE_FUNCTION                   0
+                80      STORE_NAME                      11: extend
+                82      LOAD_CONST                      12: <CODE> put
+                84      MAKE_FUNCTION                   0
+                86      STORE_NAME                      12: put
+                88      LOAD_CONST                      13: <CODE> retain
+                90      MAKE_FUNCTION                   0
+                92      STORE_NAME                      13: retain
+                94      LOAD_CONST                      14: <CODE> __len__
+                96      MAKE_FUNCTION                   0
+                98      STORE_NAME                      14: __len__
+                100     LOAD_CONST                      4: None
+                102     NOP                             
+                104     NOP                             
+                106     NOP                             
+                108     JUMP_FORWARD                    19 (to 148)
+                116     POP_TOP                         
+                118     RETURN_CONST                    4: None
+                120     PUSH_EXC_INFO                   
+                122     PUSH_NULL                       
+                124     LOAD_CONST                      15: '__pyarmor_exit_60710__'
+                126     NOP                             
+                128     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"V\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                130     CALL                            1
+                138     POP_TOP                         
+                140     RERAISE                         0
+                142     COPY                            3
+                144     POP_EXCEPT                      
+                146     RERAISE                         1
+                148     PUSH_NULL                       
+                150     LOAD_CONST                      15: '__pyarmor_exit_60710__'
+                152     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00"V\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                154     BUILD_TUPLE                     1
+                156     CALL_FUNCTION_EX                0
+                158     POP_TOP                         
+                160     RETURN_VALUE                    
+            [Exception Table]
+                36 to 100 -> 120 [0] 
+                120 to 142 -> 142 [1] lasti
+        'EntityCache'
+        '__pyarmor_exit_60707__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_60706__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aF\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('EntityType', 'Entity')
+        30      IMPORT_NAME                     1: session
+        32      IMPORT_FROM                     2: EntityType
+        34      STORE_NAME                      2: EntityType
+        36      IMPORT_FROM                     3: Entity
+        38      STORE_NAME                      3: Entity
+        40      POP_TOP                         
+        42      PUSH_NULL                       
+        44      LOAD_NAME                       4: object
+        46      CALL                            0
+        54      STORE_NAME                      5: _sentinel
+        56      PUSH_NULL                       
+        58      LOAD_BUILD_CLASS                
+        60      LOAD_CONST                      5: <CODE> EntityCache
+        62      MAKE_FUNCTION                   0
+        64      LOAD_CONST                      6: 'EntityCache'
+        66      CALL                            2
+        74      STORE_NAME                      6: EntityCache
+        76      LOAD_CONST                      8: None
+        78      NOP                             
+        80      NOP                             
+        82      NOP                             
+        84      JUMP_FORWARD                    19 (to 124)
+        92      POP_TOP                         
+        94      RETURN_CONST                    8: None
+        96      PUSH_EXC_INFO                   
+        98      PUSH_NULL                       
+        100     LOAD_CONST                      7: '__pyarmor_exit_60707__'
+        102     NOP                             
+        104     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aF\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        106     CALL                            1
+        114     POP_TOP                         
+        116     RERAISE                         0
+        118     COPY                            3
+        120     POP_EXCEPT                      
+        122     RERAISE                         1
+        124     PUSH_NULL                       
+        126     LOAD_CONST                      7: '__pyarmor_exit_60707__'
+        128     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1aF\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        130     BUILD_TUPLE                     1
+        132     CALL_FUNCTION_EX                0
+        134     POP_TOP                         
+        136     RETURN_VALUE                    
+    [Exception Table]
+        26 to 76 -> 96 [0] 
+        96 to 118 -> 118 [1] lasti

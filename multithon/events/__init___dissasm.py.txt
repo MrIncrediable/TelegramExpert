@@ -1,0 +1,823 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.events>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'raw'
+        'Raw'
+        'album'
+        'Album'
+        'chataction'
+        'ChatAction'
+        'messagedeleted'
+        'MessageDeleted'
+        'messageedited'
+        'MessageEdited'
+        'messageread'
+        'MessageRead'
+        'newmessage'
+        'NewMessage'
+        'userupdate'
+        'UserUpdate'
+        'callbackquery'
+        'CallbackQuery'
+        'inlinequery'
+        'InlineQuery'
+        '_HANDLERS_ATTRIBUTE'
+        'Exception'
+        'StopPropagation'
+        'register'
+        'unregister'
+        'is_handler'
+        'list'
+        '_get_handlers'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_22899__'
+        '__pyarmor_enter_22900__'
+        b'<COAddr>\x07\x00\x00\x1a\xd4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'Raw'
+        )
+        (
+            'Album'
+        )
+        (
+            'ChatAction'
+        )
+        (
+            'MessageDeleted'
+        )
+        (
+            'MessageEdited'
+        )
+        (
+            'MessageRead'
+        )
+        (
+            'NewMessage'
+        )
+        (
+            'UserUpdate'
+        )
+        (
+            'CallbackQuery'
+        )
+        (
+            'InlineQuery'
+        )
+        '__tl.handlers'   # b"\x81\xdd'\x07?\xb4\xb6\xd3\x15\xfe\x01\xc5~\xff"
+        [Code]
+            File Name: <frozen multithon.events>
+            Object Name: StopPropagation
+            Qualified Name: StopPropagation
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+            [Locals+Names]
+            [Constants]
+                'StopPropagation'
+                '\n    If this exception is raised in any of the handlers for a given event,\n    it will stop the execution of all other registered event handlers.\n    It can be seen as the ``StopIteration`` in a for loop but for events.\n\n    Example usage:\n\n        >>> from multithon import TelegramClient, events\n        >>> client = TelegramClient(...)\n        >>>\n        >>> @client.on(events.NewMessage)\n        ... async def delete(event):\n        ...     await event.delete()\n        ...     # No other event handler will have a chance to handle this event\n        ...     raise StopPropagation\n        ...\n        >>> @client.on(events.NewMessage)\n        ... async def _(event):\n        ...     # Will never be reached, because it is the second handler\n        ...     pass\n    '
+                '__pyarmor_assert_22902__'
+                '__pyarmor_enter_22903__'
+                b'<COAddr>\x07\x00\x00&\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_22904__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'StopPropagation'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    If this exception is raised in any of the handlers for a given event,\n    it will stop the execution of all other registered event handlers.\n    It can be seen as the ``StopIteration`` in a for loop but for events.\n\n    Example usage:\n\n        >>> from multithon import TelegramClient, events\n        >>> client = TelegramClient(...)\n        >>>\n        >>> @client.on(events.NewMessage)\n        ... async def delete(event):\n        ...     await event.delete()\n        ...     # No other event handler will have a chance to handle this event\n        ...     raise StopPropagation\n        ...\n        >>> @client.on(events.NewMessage)\n        ... async def _(event):\n        ...     # Will never be reached, because it is the second handler\n        ...     pass\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_22903__'
+                20      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      6: None
+                42      NOP                             
+                44      NOP                             
+                46      NOP                             
+                48      JUMP_FORWARD                    19 (to 88)
+                56      POP_TOP                         
+                58      RETURN_CONST                    6: None
+                60      PUSH_EXC_INFO                   
+                62      PUSH_NULL                       
+                64      LOAD_CONST                      5: '__pyarmor_exit_22904__'
+                66      NOP                             
+                68      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                70      CALL                            1
+                78      POP_TOP                         
+                80      RERAISE                         0
+                82      COPY                            3
+                84      POP_EXCEPT                      
+                86      RERAISE                         1
+                88      PUSH_NULL                       
+                90      LOAD_CONST                      5: '__pyarmor_exit_22904__'
+                92      LOAD_CONST                      4: b'<COAddr>\x07\x00\x00&\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                94      BUILD_TUPLE                     1
+                96      CALL_FUNCTION_EX                0
+                98      POP_TOP                         
+                100     RETURN_VALUE                    
+            [Exception Table]
+                60 to 82 -> 82 [1] lasti
+        'StopPropagation'
+        None
+        [Code]
+            File Name: <frozen multithon.events>
+            Object Name: register
+            Qualified Name: register
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'isinstance'
+                'type'
+                'Raw'
+            [Locals+Names]
+                'event'
+                '__assert_armored__'
+                '_var_var_0'
+            [Constants]
+                "\n    Decorator method to *register* event handlers. This is the client-less\n    `add_event_handler()\n    <telethon.client.updates.UpdateMethods.add_event_handler>` variant.\n\n    Note that this method only registers callbacks as handlers,\n    and does not attach them to any client. This is useful for\n    external modules that don't have access to the client, but\n    still want to define themselves as a handler. Example:\n\n    >>> from multithon import events\n    >>> @events.register(events.NewMessage)\n    ... async def handler(event):\n    ...     ...\n    ...\n    >>> # (somewhere else)\n    ...\n    >>> from multithon import TelegramClient\n    >>> client = TelegramClient(...)\n    >>> client.add_event_handler(handler)\n\n    Remember that you can use this as a non-decorator\n    through ``register(event)(callback)``.\n\n    Args:\n        event (`_EventBuilder` | `type`):\n            The event builder class or instance to be used,\n            for instance ``events.NewMessage``.\n    "
+                '__pyarmor_assert_22905__'
+                '__pyarmor_enter_22906__'
+                b'<COAddr>\x05\x00\x00\x1cj\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.events>
+                    Object Name: decorator
+                    Qualified Name: register.<locals>.decorator
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000013 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'getattr'
+                        '_HANDLERS_ATTRIBUTE'
+                        'append'
+                        'setattr'
+                    [Locals+Names]
+                        'callback'
+                        '__assert_armored__'
+                        '_var_var_1'
+                        'event'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_22908__'
+                        '__pyarmor_enter_22909__'
+                        b'<COAddr>\x05\x00\x00\x1c~\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_22910__'
+                    [Disassembly]
+                        0       COPY_FREE_VARS                  1
+                        2       NOP                             
+                        4       NOP                             
+                        6       PUSH_NULL                       
+                        8       LOAD_CONST                      2: '__pyarmor_enter_22909__'
+                        10      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c~\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        12      BUILD_TUPLE                     1
+                        14      CALL_FUNCTION_EX                0
+                        16      POP_TOP                         
+                        18      RESUME                          0
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      LOAD_GLOBAL                     1: NULL + getattr
+                        40      LOAD_FAST                       0: callback
+                        42      LOAD_GLOBAL                     2: _HANDLERS_ATTRIBUTE
+                        52      BUILD_LIST                      0
+                        54      CALL                            3
+                        62      STORE_FAST                      2: _var_var_1
+                        64      LOAD_FAST                       2: _var_var_1
+                        66      LOAD_ATTR                       5: append
+                        86      LOAD_DEREF                      3: event
+                        88      CALL                            1
+                        96      POP_TOP                         
+                        98      LOAD_GLOBAL                     7: NULL + setattr
+                        108     LOAD_FAST                       0: callback
+                        110     LOAD_GLOBAL                     2: _HANDLERS_ATTRIBUTE
+                        120     LOAD_FAST                       2: _var_var_1
+                        122     CALL                            3
+                        130     POP_TOP                         
+                        132     LOAD_FAST                       0: callback
+                        134     NOP                             
+                        136     NOP                             
+                        138     NOP                             
+                        140     JUMP_FORWARD                    20 (to 182)
+                        142     CALL                            1
+                        150     POP_TOP                         
+                        152     RETURN_VALUE                    
+                        154     PUSH_EXC_INFO                   
+                        156     PUSH_NULL                       
+                        158     LOAD_CONST                      4: '__pyarmor_exit_22910__'
+                        160     NOP                             
+                        162     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c~\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        164     CALL                            1
+                        172     POP_TOP                         
+                        174     RERAISE                         0
+                        176     COPY                            3
+                        178     POP_EXCEPT                      
+                        180     RERAISE                         1
+                        182     PUSH_NULL                       
+                        184     LOAD_CONST                      4: '__pyarmor_exit_22910__'
+                        186     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1c~\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        188     BUILD_TUPLE                     1
+                        190     CALL_FUNCTION_EX                0
+                        192     POP_TOP                         
+                        194     RETURN_VALUE                    
+                    [Exception Table]
+                        30 to 134 -> 154 [0] 
+                        154 to 176 -> 176 [1] lasti
+                '__pyarmor_exit_22907__'
+            [Disassembly]
+                0       MAKE_CELL                       0: event
+                2       NOP                             
+                4       NOP                             
+                6       PUSH_NULL                       
+                8       LOAD_CONST                      2: '__pyarmor_enter_22906__'
+                10      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1cj\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                12      BUILD_TUPLE                     1
+                14      CALL_FUNCTION_EX                0
+                16      POP_TOP                         
+                18      RESUME                          0
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      NOP                             
+                30      LOAD_GLOBAL                     1: NULL + isinstance
+                40      LOAD_DEREF                      0: event
+                42      LOAD_GLOBAL                     2: type
+                52      CALL                            2
+                60      POP_JUMP_IF_FALSE               8 (to 78)
+                62      PUSH_NULL                       
+                64      LOAD_DEREF                      0: event
+                66      CALL                            0
+                74      STORE_DEREF                     0: event
+                76      JUMP_FORWARD                    12 (to 102)
+                78      LOAD_DEREF                      0: event
+                80      POP_JUMP_IF_TRUE                10 (to 102)
+                82      LOAD_GLOBAL                     5: NULL + Raw
+                92      CALL                            0
+                100     STORE_DEREF                     0: event
+                102     LOAD_CLOSURE                    0: event
+                104     BUILD_TUPLE                     1
+                106     LOAD_CONST                      4: <CODE> decorator
+                108     MAKE_FUNCTION                   8
+                110     STORE_FAST                      2: _var_var_0
+                112     LOAD_FAST                       2: _var_var_0
+                114     NOP                             
+                116     NOP                             
+                118     NOP                             
+                120     JUMP_FORWARD                    20 (to 162)
+                122     CALL                            1
+                130     POP_TOP                         
+                132     RETURN_VALUE                    
+                134     PUSH_EXC_INFO                   
+                136     PUSH_NULL                       
+                138     LOAD_CONST                      5: '__pyarmor_exit_22907__'
+                140     NOP                             
+                142     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1cj\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                144     CALL                            1
+                152     POP_TOP                         
+                154     RERAISE                         0
+                156     COPY                            3
+                158     POP_EXCEPT                      
+                160     RERAISE                         1
+                162     PUSH_NULL                       
+                164     LOAD_CONST                      5: '__pyarmor_exit_22907__'
+                166     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1cj\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                168     BUILD_TUPLE                     1
+                170     CALL_FUNCTION_EX                0
+                172     POP_TOP                         
+                174     RETURN_VALUE                    
+            [Exception Table]
+                30 to 114 -> 134 [0] 
+                134 to 156 -> 156 [1] lasti
+        [Code]
+            File Name: <frozen multithon.events>
+            Object Name: unregister
+            Qualified Name: unregister
+            Arg Count: 2
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'isinstance'
+                'type'
+                'getattr'
+                '_HANDLERS_ATTRIBUTE'
+                'append'
+                'len'
+            [Locals+Names]
+                'callback'
+                'event'
+                '__assert_armored__'
+                '_var_var_2'
+                '_var_var_1'
+                '_var_var_3'
+                '_var_var_4'
+            [Constants]
+                "\n    Inverse operation of `register` (though not a decorator). Client-less\n    `remove_event_handler\n    <telethon.client.updates.UpdateMethods.remove_event_handler>`\n    variant. **Note that this won't remove handlers from the client**,\n    because it simply can't, so you would generally use this before\n    adding the handlers to the client.\n\n    This method is here for symmetry. You will rarely need to\n    unregister events, since you can simply just not add them\n    to any client.\n\n    If no event is given, all events for this callback are removed.\n    Returns how many callbacks were removed.\n    "
+                '__pyarmor_assert_22911__'
+                '__pyarmor_enter_22912__'
+                b'<COAddr>\x05\x00\x00\x1a\xfe\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                0
+                1
+                '__pyarmor_exit_22913__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_22912__'
+                8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xfe\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_CONST                      4: 0
+                30      STORE_FAST                      3: _var_var_2
+                32      LOAD_FAST                       1: event
+                34      POP_JUMP_IF_FALSE               27 (to 90)
+                36      LOAD_GLOBAL                     1: NULL + isinstance
+                46      LOAD_FAST                       1: event
+                48      LOAD_GLOBAL                     2: type
+                58      CALL                            2
+                66      POP_JUMP_IF_TRUE                11 (to 90)
+                68      LOAD_GLOBAL                     3: NULL + type
+                78      LOAD_FAST                       1: event
+                80      CALL                            1
+                88      STORE_FAST                      1: event
+                90      LOAD_GLOBAL                     5: NULL + getattr
+                100     LOAD_FAST                       0: callback
+                102     LOAD_GLOBAL                     6: _HANDLERS_ATTRIBUTE
+                112     BUILD_LIST                      0
+                114     CALL                            3
+                122     STORE_FAST                      4: _var_var_1
+                124     LOAD_FAST                       4: _var_var_1
+                126     LOAD_ATTR                       9: append
+                146     LOAD_FAST                       1: event
+                148     LOAD_FAST                       0: callback
+                150     BUILD_TUPLE                     2
+                152     CALL                            1
+                160     POP_TOP                         
+                162     LOAD_GLOBAL                     11: NULL + len
+                172     LOAD_FAST                       4: _var_var_1
+                174     CALL                            1
+                182     STORE_FAST                      5: _var_var_3
+                184     LOAD_FAST                       5: _var_var_3
+                186     POP_JUMP_IF_FALSE               35 (to 258)
+                188     LOAD_FAST                       5: _var_var_3
+                190     LOAD_CONST                      5: 1
+                192     BINARY_OP                       23 (-=)
+                196     STORE_FAST                      5: _var_var_3
+                198     LOAD_FAST                       4: _var_var_1
+                200     LOAD_FAST                       5: _var_var_3
+                202     BINARY_SUBSCR                   
+                206     STORE_FAST                      6: _var_var_4
+                208     LOAD_FAST                       1: event
+                210     POP_JUMP_IF_FALSE               12 (to 236)
+                212     LOAD_GLOBAL                     1: NULL + isinstance
+                222     LOAD_FAST                       6: _var_var_4
+                224     LOAD_FAST                       1: event
+                226     CALL                            2
+                234     POP_JUMP_IF_FALSE               8 (to 252)
+                236     LOAD_FAST                       4: _var_var_1
+                238     LOAD_FAST                       5: _var_var_3
+                240     DELETE_SUBSCR                   
+                242     LOAD_FAST                       3: _var_var_2
+                244     LOAD_CONST                      5: 1
+                246     BINARY_OP                       13 (+=)
+                250     STORE_FAST                      3: _var_var_2
+                252     LOAD_FAST                       5: _var_var_3
+                254     POP_JUMP_IF_FALSE               1 (to 258)
+                256     JUMP_BACKWARD                   35 (to 188)
+                258     LOAD_FAST                       3: _var_var_2
+                260     NOP                             
+                262     NOP                             
+                264     NOP                             
+                266     JUMP_FORWARD                    20 (to 308)
+                268     CALL                            1
+                276     POP_TOP                         
+                278     RETURN_VALUE                    
+                280     PUSH_EXC_INFO                   
+                282     PUSH_NULL                       
+                284     LOAD_CONST                      6: '__pyarmor_exit_22913__'
+                286     NOP                             
+                288     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xfe\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                290     CALL                            1
+                298     POP_TOP                         
+                300     RERAISE                         0
+                302     COPY                            3
+                304     POP_EXCEPT                      
+                306     RERAISE                         1
+                308     PUSH_NULL                       
+                310     LOAD_CONST                      6: '__pyarmor_exit_22913__'
+                312     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xfe\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                314     BUILD_TUPLE                     1
+                316     CALL_FUNCTION_EX                0
+                318     POP_TOP                         
+                320     RETURN_VALUE                    
+            [Exception Table]
+                28 to 256 -> 280 [0] 
+                258 to 260 -> 280 [0] 
+                280 to 302 -> 302 [1] lasti
+        [Code]
+            File Name: <frozen multithon.events>
+            Object Name: is_handler
+            Qualified Name: is_handler
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'hasattr'
+                '_HANDLERS_ATTRIBUTE'
+            [Locals+Names]
+                'callback'
+                '__assert_armored__'
+            [Constants]
+                '\n    Returns `True` if the given callback is an\n    event handler (i.e. you used `register` on it).\n    '
+                '__pyarmor_assert_22914__'
+                '__pyarmor_enter_22915__'
+                b'<COAddr>\x05\x00\x00\x1a4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_22916__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_22915__'
+                8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_GLOBAL                     1: NULL + hasattr
+                38      LOAD_FAST                       0: callback
+                40      LOAD_GLOBAL                     2: _HANDLERS_ATTRIBUTE
+                50      CALL                            2
+                58      NOP                             
+                60      NOP                             
+                62      NOP                             
+                64      JUMP_FORWARD                    20 (to 106)
+                66      CALL                            1
+                74      POP_TOP                         
+                76      RETURN_VALUE                    
+                78      PUSH_EXC_INFO                   
+                80      PUSH_NULL                       
+                82      LOAD_CONST                      4: '__pyarmor_exit_22916__'
+                84      NOP                             
+                86      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                88      CALL                            1
+                96      POP_TOP                         
+                98      RERAISE                         0
+                100     COPY                            3
+                102     POP_EXCEPT                      
+                104     RERAISE                         1
+                106     PUSH_NULL                       
+                108     LOAD_CONST                      4: '__pyarmor_exit_22916__'
+                110     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                112     BUILD_TUPLE                     1
+                114     CALL_FUNCTION_EX                0
+                116     POP_TOP                         
+                118     RETURN_VALUE                    
+            [Exception Table]
+                28 to 58 -> 78 [0] 
+                78 to 100 -> 100 [1] lasti
+        [Code]
+            File Name: <frozen multithon.events>
+            Object Name: list
+            Qualified Name: list
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'getattr'
+                '_HANDLERS_ATTRIBUTE'
+            [Locals+Names]
+                'callback'
+                '__assert_armored__'
+            [Constants]
+                '\n    Returns a list containing the registered event\n    builders inside the specified callback handler.\n    '
+                '__pyarmor_assert_22917__'
+                '__pyarmor_enter_22918__'
+                b'<COAddr>\x07\x00\x00\x1a<\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                None
+                '__pyarmor_exit_22919__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_22918__'
+                8       LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a<\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_GLOBAL                     1: NULL + getattr
+                38      LOAD_FAST                       0: callback
+                40      LOAD_GLOBAL                     2: _HANDLERS_ATTRIBUTE
+                50      BUILD_LIST                      0
+                52      CALL                            3
+                60      LOAD_CONST                      4: None
+                62      LOAD_CONST                      4: None
+                64      BINARY_SLICE                    
+                66      NOP                             
+                68      NOP                             
+                70      NOP                             
+                72      JUMP_FORWARD                    20 (to 114)
+                74      CALL                            1
+                82      POP_TOP                         
+                84      RETURN_VALUE                    
+                86      PUSH_EXC_INFO                   
+                88      PUSH_NULL                       
+                90      LOAD_CONST                      5: '__pyarmor_exit_22919__'
+                92      NOP                             
+                94      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a<\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                96      CALL                            1
+                104     POP_TOP                         
+                106     RERAISE                         0
+                108     COPY                            3
+                110     POP_EXCEPT                      
+                112     RERAISE                         1
+                114     PUSH_NULL                       
+                116     LOAD_CONST                      5: '__pyarmor_exit_22919__'
+                118     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1a<\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                120     BUILD_TUPLE                     1
+                122     CALL_FUNCTION_EX                0
+                124     POP_TOP                         
+                126     RETURN_VALUE                    
+            [Exception Table]
+                28 to 66 -> 86 [0] 
+                86 to 108 -> 108 [1] lasti
+        [Code]
+            File Name: <frozen multithon.events>
+            Object Name: _get_handlers
+            Qualified Name: _get_handlers
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'getattr'
+                '_HANDLERS_ATTRIBUTE'
+            [Locals+Names]
+                'callback'
+                '__assert_armored__'
+            [Constants]
+                '\n    Like ``list`` but returns `None` if the callback was never registered.\n    '
+                '__pyarmor_assert_22920__'
+                '__pyarmor_enter_22921__'
+                b'<COAddr>\x05\x00\x00\x1a6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                None
+                '__pyarmor_exit_22922__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_22921__'
+                8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_GLOBAL                     1: NULL + getattr
+                38      LOAD_FAST                       0: callback
+                40      LOAD_GLOBAL                     2: _HANDLERS_ATTRIBUTE
+                50      LOAD_CONST                      4: None
+                52      CALL                            3
+                60      NOP                             
+                62      NOP                             
+                64      NOP                             
+                66      JUMP_FORWARD                    20 (to 108)
+                68      CALL                            1
+                76      POP_TOP                         
+                78      RETURN_VALUE                    
+                80      PUSH_EXC_INFO                   
+                82      PUSH_NULL                       
+                84      LOAD_CONST                      5: '__pyarmor_exit_22922__'
+                86      NOP                             
+                88      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                90      CALL                            1
+                98      POP_TOP                         
+                100     RERAISE                         0
+                102     COPY                            3
+                104     POP_EXCEPT                      
+                106     RERAISE                         1
+                108     PUSH_NULL                       
+                110     LOAD_CONST                      5: '__pyarmor_exit_22922__'
+                112     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a6\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                114     BUILD_TUPLE                     1
+                116     CALL_FUNCTION_EX                0
+                118     POP_TOP                         
+                120     RETURN_VALUE                    
+            [Exception Table]
+                28 to 60 -> 80 [0] 
+                80 to 102 -> 102 [1] lasti
+        '__pyarmor_exit_22901__'
+        (
+            None
+        )
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_22900__'
+        8       LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xd4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('Raw',)
+        30      IMPORT_NAME                     1: raw
+        32      IMPORT_FROM                     2: Raw
+        34      STORE_NAME                      2: Raw
+        36      POP_TOP                         
+        38      LOAD_CONST                      3: 1
+        40      LOAD_CONST                      5: ('Album',)
+        42      IMPORT_NAME                     3: album
+        44      IMPORT_FROM                     4: Album
+        46      STORE_NAME                      4: Album
+        48      POP_TOP                         
+        50      LOAD_CONST                      3: 1
+        52      LOAD_CONST                      6: ('ChatAction',)
+        54      IMPORT_NAME                     5: chataction
+        56      IMPORT_FROM                     6: ChatAction
+        58      STORE_NAME                      6: ChatAction
+        60      POP_TOP                         
+        62      LOAD_CONST                      3: 1
+        64      LOAD_CONST                      7: ('MessageDeleted',)
+        66      IMPORT_NAME                     7: messagedeleted
+        68      IMPORT_FROM                     8: MessageDeleted
+        70      STORE_NAME                      8: MessageDeleted
+        72      POP_TOP                         
+        74      LOAD_CONST                      3: 1
+        76      LOAD_CONST                      8: ('MessageEdited',)
+        78      IMPORT_NAME                     9: messageedited
+        80      IMPORT_FROM                     10: MessageEdited
+        82      STORE_NAME                      10: MessageEdited
+        84      POP_TOP                         
+        86      LOAD_CONST                      3: 1
+        88      LOAD_CONST                      9: ('MessageRead',)
+        90      IMPORT_NAME                     11: messageread
+        92      IMPORT_FROM                     12: MessageRead
+        94      STORE_NAME                      12: MessageRead
+        96      POP_TOP                         
+        98      LOAD_CONST                      3: 1
+        100     LOAD_CONST                      10: ('NewMessage',)
+        102     IMPORT_NAME                     13: newmessage
+        104     IMPORT_FROM                     14: NewMessage
+        106     STORE_NAME                      14: NewMessage
+        108     POP_TOP                         
+        110     LOAD_CONST                      3: 1
+        112     LOAD_CONST                      11: ('UserUpdate',)
+        114     IMPORT_NAME                     15: userupdate
+        116     IMPORT_FROM                     16: UserUpdate
+        118     STORE_NAME                      16: UserUpdate
+        120     POP_TOP                         
+        122     LOAD_CONST                      3: 1
+        124     LOAD_CONST                      12: ('CallbackQuery',)
+        126     IMPORT_NAME                     17: callbackquery
+        128     IMPORT_FROM                     18: CallbackQuery
+        130     STORE_NAME                      18: CallbackQuery
+        132     POP_TOP                         
+        134     LOAD_CONST                      3: 1
+        136     LOAD_CONST                      13: ('InlineQuery',)
+        138     IMPORT_NAME                     19: inlinequery
+        140     IMPORT_FROM                     20: InlineQuery
+        142     STORE_NAME                      20: InlineQuery
+        144     POP_TOP                         
+        146     PUSH_NULL                       
+        148     LOAD_CONST                      0: '__pyarmor_assert_22899__'
+        150     LOAD_CONST                      14: '__tl.handlers'   # b"\x81\xdd'\x07?\xb4\xb6\xd3\x15\xfe\x01\xc5~\xff"
+        152     CALL                            1
+        160     STORE_NAME                      21: _HANDLERS_ATTRIBUTE
+        162     PUSH_NULL                       
+        164     LOAD_BUILD_CLASS                
+        166     LOAD_CONST                      15: <CODE> StopPropagation
+        168     MAKE_FUNCTION                   0
+        170     LOAD_CONST                      16: 'StopPropagation'
+        172     LOAD_NAME                       22: Exception
+        174     CALL                            3
+        182     STORE_NAME                      23: StopPropagation
+        184     LOAD_CONST                      24: (None,)
+        186     LOAD_CONST                      18: <CODE> register
+        188     MAKE_FUNCTION                   1
+        190     STORE_NAME                      24: register
+        192     LOAD_CONST                      24: (None,)
+        194     LOAD_CONST                      19: <CODE> unregister
+        196     MAKE_FUNCTION                   1
+        198     STORE_NAME                      25: unregister
+        200     LOAD_CONST                      20: <CODE> is_handler
+        202     MAKE_FUNCTION                   0
+        204     STORE_NAME                      26: is_handler
+        206     LOAD_CONST                      21: <CODE> list
+        208     MAKE_FUNCTION                   0
+        210     STORE_NAME                      27: list
+        212     LOAD_CONST                      22: <CODE> _get_handlers
+        214     MAKE_FUNCTION                   0
+        216     STORE_NAME                      28: _get_handlers
+        218     LOAD_CONST                      17: None
+        220     NOP                             
+        222     NOP                             
+        224     NOP                             
+        226     JUMP_FORWARD                    19 (to 266)
+        234     POP_TOP                         
+        236     RETURN_CONST                    17: None
+        238     PUSH_EXC_INFO                   
+        240     PUSH_NULL                       
+        242     LOAD_CONST                      23: '__pyarmor_exit_22901__'
+        244     NOP                             
+        246     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xd4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        248     CALL                            1
+        256     POP_TOP                         
+        258     RERAISE                         0
+        260     COPY                            3
+        262     POP_EXCEPT                      
+        264     RERAISE                         1
+        266     PUSH_NULL                       
+        268     LOAD_CONST                      23: '__pyarmor_exit_22901__'
+        270     LOAD_CONST                      2: b'<COAddr>\x07\x00\x00\x1a\xd4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        272     BUILD_TUPLE                     1
+        274     CALL_FUNCTION_EX                0
+        276     POP_TOP                         
+        278     RETURN_VALUE                    
+    [Exception Table]
+        26 to 218 -> 238 [0] 
+        238 to 260 -> 260 [1] lasti

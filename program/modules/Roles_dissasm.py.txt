@@ -1,0 +1,210 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen program.modules.Roles>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 5
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'program.static_classes'
+        'AccsRole'
+        'Roles'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_14487__'
+        '__pyarmor_enter_14488__'
+        b'<COAddr>\x05\x00\x00\x1a&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        (
+            'AccsRole'
+        )
+        [Code]
+            File Name: <frozen program.modules.Roles>
+            Object Name: Roles
+            Qualified Name: Roles
+            Arg Count: 1
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 6
+            Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+            [Names]
+                'AccsRole'
+                'addAccountToRole'
+                'removeAccountFromRole'
+            [Locals+Names]
+                'data'
+                '__assert_armored__'
+                '_var_var_0'
+            [Constants]
+                None
+                '__pyarmor_assert_14490__'
+                '__pyarmor_enter_14491__'
+                b'<COAddr>\x05\x00\x00\x1a\xd2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                'action'
+                'set'
+                'accs'
+                'role'
+                'delete'
+                '__pyarmor_exit_14492__'
+            [Disassembly]
+                0       NOP                             
+                2       NOP                             
+                4       PUSH_NULL                       
+                6       LOAD_CONST                      2: '__pyarmor_enter_14491__'
+                8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xd2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                10      BUILD_TUPLE                     1
+                12      CALL_FUNCTION_EX                0
+                14      POP_TOP                         
+                16      RESUME                          0
+                18      NOP                             
+                20      NOP                             
+                22      NOP                             
+                24      NOP                             
+                26      NOP                             
+                28      LOAD_FAST                       0: data
+                30      LOAD_CONST                      4: 'action'
+                32      BINARY_SUBSCR                   
+                36      LOAD_CONST                      5: 'set'
+                38      COMPARE_OP                      40 (==)
+                42      POP_JUMP_IF_FALSE               39 (to 122)
+                44      LOAD_FAST                       0: data
+                46      LOAD_CONST                      6: 'accs'
+                48      BINARY_SUBSCR                   
+                52      GET_ITER                        
+                54      FOR_ITER                        31 (to 118)
+                58      STORE_FAST                      2: _var_var_0
+                60      LOAD_GLOBAL                     1: NULL + AccsRole
+                70      CALL                            0
+                78      LOAD_ATTR                       3: addAccountToRole
+                98      LOAD_FAST                       2: _var_var_0
+                100     LOAD_FAST                       0: data
+                102     LOAD_CONST                      7: 'role'
+                104     BINARY_SUBSCR                   
+                108     CALL                            2
+                116     POP_TOP                         
+                118     JUMP_BACKWARD                   33 (to 54)
+                120     END_FOR                         
+                122     LOAD_FAST                       0: data
+                124     LOAD_CONST                      4: 'action'
+                126     BINARY_SUBSCR                   
+                130     LOAD_CONST                      8: 'delete'
+                132     COMPARE_OP                      40 (==)
+                136     POP_JUMP_IF_FALSE               39 (to 216)
+                138     LOAD_FAST                       0: data
+                140     LOAD_CONST                      6: 'accs'
+                142     BINARY_SUBSCR                   
+                146     GET_ITER                        
+                148     FOR_ITER                        31 (to 212)
+                152     STORE_FAST                      2: _var_var_0
+                154     LOAD_GLOBAL                     1: NULL + AccsRole
+                164     CALL                            0
+                172     LOAD_ATTR                       5: removeAccountFromRole
+                192     LOAD_FAST                       2: _var_var_0
+                194     LOAD_FAST                       0: data
+                196     LOAD_CONST                      7: 'role'
+                198     BINARY_SUBSCR                   
+                202     CALL                            2
+                210     POP_TOP                         
+                212     JUMP_BACKWARD                   33 (to 148)
+                214     END_FOR                         
+                216     LOAD_CONST                      0: None
+                218     NOP                             
+                220     NOP                             
+                222     NOP                             
+                224     JUMP_FORWARD                    19 (to 264)
+                232     POP_TOP                         
+                234     RETURN_CONST                    0: None
+                236     PUSH_EXC_INFO                   
+                238     PUSH_NULL                       
+                240     LOAD_CONST                      9: '__pyarmor_exit_14492__'
+                242     NOP                             
+                244     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xd2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                246     CALL                            1
+                254     POP_TOP                         
+                256     RERAISE                         0
+                258     COPY                            3
+                260     POP_EXCEPT                      
+                262     RERAISE                         1
+                264     PUSH_NULL                       
+                266     LOAD_CONST                      9: '__pyarmor_exit_14492__'
+                268     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a\xd2\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                270     BUILD_TUPLE                     1
+                272     CALL_FUNCTION_EX                0
+                274     POP_TOP                         
+                276     RETURN_VALUE                    
+            [Exception Table]
+                28 to 216 -> 236 [0] 
+                236 to 258 -> 258 [1] lasti
+        '__pyarmor_exit_14489__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_14488__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: ('AccsRole',)
+        30      IMPORT_NAME                     1: program.static_classes
+        32      IMPORT_FROM                     2: AccsRole
+        34      STORE_NAME                      2: AccsRole
+        36      POP_TOP                         
+        38      LOAD_CONST                      5: <CODE> Roles
+        40      MAKE_FUNCTION                   0
+        42      STORE_NAME                      3: Roles
+        44      LOAD_CONST                      7: None
+        46      NOP                             
+        48      NOP                             
+        50      NOP                             
+        52      JUMP_FORWARD                    19 (to 92)
+        60      POP_TOP                         
+        62      RETURN_CONST                    7: None
+        64      PUSH_EXC_INFO                   
+        66      PUSH_NULL                       
+        68      LOAD_CONST                      6: '__pyarmor_exit_14489__'
+        70      NOP                             
+        72      LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        74      CALL                            1
+        82      POP_TOP                         
+        84      RERAISE                         0
+        86      COPY                            3
+        88      POP_EXCEPT                      
+        90      RERAISE                         1
+        92      PUSH_NULL                       
+        94      LOAD_CONST                      6: '__pyarmor_exit_14489__'
+        96      LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a&\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        98      BUILD_TUPLE                     1
+        100     CALL_FUNCTION_EX                0
+        102     POP_TOP                         
+        104     RETURN_VALUE                    
+    [Exception Table]
+        26 to 44 -> 64 [0] 
+        64 to 86 -> 86 [1] lasti

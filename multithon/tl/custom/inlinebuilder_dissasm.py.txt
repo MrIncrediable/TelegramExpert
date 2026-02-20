@@ -1,0 +1,1914 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.tl.custom.inlinebuilder>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 13
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        'hashlib'
+        ''
+        'functions'
+        'types'
+        'utils'
+        '_TYPE_TO_MIMES'
+        'InlineBuilder'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_24252__'
+        '__pyarmor_enter_24253__'
+        b'<COAddr>\x05\x00\x00\x1a\xf4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        0
+        None
+        2
+        (
+            'functions'
+            'types'
+        )
+        3
+        (
+            'utils'
+        )
+        'image/gif'   # b'\x81\xeb\x15\x124\xff\xf1\xd5\x12\xfc'
+        'text/html'   # b"\x81\xf6\x1d\x0b'\xb5\xb6\xc6\x16\xf6"
+        'audio/mpeg'   # b'\x81\xe3\r\x17:\xf5\xf1\xdf\x0b\xff\n'
+        'application/pdf'   # b'\x81\xe3\x08\x03?\xf3\xbd\xd3\x0f\xf3\x02\xce#\xfc\xfc\x83'
+        'application/zip'   # b'\x81\xe3\x08\x03?\xf3\xbd\xd3\x0f\xf3\x02\xce#\xf6\xf1\x95'
+        'image/jpeg'   # b'\x81\xeb\x15\x124\xff\xf1\xd8\x0b\xff\n'
+        'image/webp'   # b'\x81\xeb\x15\x124\xff\xf1\xc5\x1e\xf8\x1d'
+        'application/x-tgsticker'   # b'\x81\xe3\x08\x03?\xf3\xbd\xd3\x0f\xf3\x02\xce#\xf4\xb5\x91\x08N\xaf\xae\xa9\xc0K\xde'
+        'video/mp4'   # b'\x81\xf4\x11\x176\xf5\xf1\xdf\x0b\xae'
+        'audio/ogg'   # b'\x81\xe3\r\x17:\xf5\xf1\xdd\x1c\xfd'
+        (
+            'gif'
+            'article'
+            'audio'
+            'contact'
+            'file'
+            'geo'
+            'photo'
+            'sticker'
+            'venue'
+            'video'
+            'voice'
+        )
+        [Code]
+            File Name: <frozen multithon.tl.custom.inlinebuilder>
+            Object Name: InlineBuilder
+            Qualified Name: InlineBuilder
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 20
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__doc__'
+                '__assert_armored__'
+                '__init__'
+                'article'
+                'photo'
+                'document'
+                'game'
+                '_message'
+            [Locals+Names]
+            [Constants]
+                'InlineBuilder'
+                '\n    Helper class to allow defining `InlineQuery\n    <telethon.events.inlinequery.InlineQuery>` ``results``.\n\n    Common arguments to all methods are\n    explained here to avoid repetition:\n\n        text (`str`, optional):\n            If present, the user will send a text\n            message with this text upon being clicked.\n\n        link_preview (`bool`, optional):\n            Whether to show a link preview in the sent\n            text message or not.\n\n        geo (:tl:`InputGeoPoint`, :tl:`GeoPoint`, :tl:`InputMediaVenue`, :tl:`MessageMediaVenue`, optional):\n            If present, it may either be a geo point or a venue.\n\n        period (int, optional):\n            The period in seconds to be used for geo points.\n\n        contact (:tl:`InputMediaContact`, :tl:`MessageMediaContact`, optional):\n            If present, it must be the contact information to send.\n\n        game (`bool`, optional):\n            May be `True` to indicate that the game will be sent.\n\n        buttons (`list`, `custom.Button <telethon.tl.custom.button.Button>`, :tl:`KeyboardButton`, optional):\n            Same as ``buttons`` for `client.send_message()\n            <telethon.client.messages.MessageMethods.send_message>`.\n\n        parse_mode (`str`, optional):\n            Same as ``parse_mode`` for `client.send_message()\n            <telethon.client.messageparse.MessageParseMethods.parse_mode>`.\n\n        id (`str`, optional):\n            The string ID to use for this result. If not present, it\n            will be the SHA256 hexadecimal digest of converting the\n            created :tl:`InputBotInlineResult` with empty ID to ``bytes()``,\n            so that the ID will be deterministic for the same input.\n\n            .. note::\n\n                If two inputs are exactly the same, their IDs will be the same\n                too. If you send two articles with the same ID, it will raise\n                ``ResultIdDuplicateError``. Consider giving them an explicit\n                ID if you need to send two results that are the same.\n    '
+                '__pyarmor_assert_24255__'
+                '__pyarmor_enter_24256__'
+                b'<COAddr>\x05\x00\x00&\xca\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                [Code]
+                    File Name: <frozen multithon.tl.custom.inlinebuilder>
+                    Object Name: __init__
+                    Qualified Name: InlineBuilder.__init__
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 0
+                    Stack Size: 5
+                    Flags: 0x20000003 (CO_OPTIMIZED | CO_NEWLOCALS | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_client'
+                    [Locals+Names]
+                        'self'
+                        'client'
+                        '__assert_armored__'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_24258__'
+                        '__pyarmor_enter_24259__'
+                        b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        '__pyarmor_exit_24260__'
+                    [Disassembly]
+                        0       NOP                             
+                        2       NOP                             
+                        4       PUSH_NULL                       
+                        6       LOAD_CONST                      2: '__pyarmor_enter_24259__'
+                        8       LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        10      BUILD_TUPLE                     1
+                        12      CALL_FUNCTION_EX                0
+                        14      POP_TOP                         
+                        16      RESUME                          0
+                        18      NOP                             
+                        20      NOP                             
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      LOAD_FAST                       1: client
+                        30      LOAD_FAST                       0: self
+                        32      STORE_ATTR                      0: _client
+                        42      LOAD_CONST                      0: None
+                        44      NOP                             
+                        46      NOP                             
+                        48      NOP                             
+                        50      JUMP_FORWARD                    19 (to 90)
+                        58      POP_TOP                         
+                        60      RETURN_CONST                    0: None
+                        62      PUSH_EXC_INFO                   
+                        64      PUSH_NULL                       
+                        66      LOAD_CONST                      4: '__pyarmor_exit_24260__'
+                        68      NOP                             
+                        70      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        72      CALL                            1
+                        80      POP_TOP                         
+                        82      RERAISE                         0
+                        84      COPY                            3
+                        86      POP_EXCEPT                      
+                        88      RERAISE                         1
+                        90      PUSH_NULL                       
+                        92      LOAD_CONST                      4: '__pyarmor_exit_24260__'
+                        94      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1a$\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        96      BUILD_TUPLE                     1
+                        98      CALL_FUNCTION_EX                0
+                        100     POP_TOP                         
+                        102     RETURN_VALUE                    
+                    [Exception Table]
+                        28 to 42 -> 62 [0] 
+                        62 to 84 -> 84 [1] lasti
+                None
+                (
+                )
+                True
+                60
+                False
+                (
+                    'url'
+                    'thumb'
+                    'content'
+                    'id'
+                    'text'
+                    'parse_mode'
+                    'link_preview'
+                    'geo'
+                    'period'
+                    'contact'
+                    'game'
+                    'buttons'
+                )
+                [Code]
+                    File Name: <frozen multithon.tl.custom.inlinebuilder>
+                    Object Name: article
+                    Qualified Name: InlineBuilder.article
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 12
+                    Stack Size: 14
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'types'
+                        'InputBotInlineResult'
+                        '_message'
+                        'hashlib'
+                        'sha256'
+                        'bytes'
+                        'hexdigest'
+                        'id'
+                    [Locals+Names]
+                        'self'
+                        'title'
+                        'description'
+                        'url'
+                        'thumb'
+                        'content'
+                        'id'
+                        'text'
+                        'parse_mode'
+                        'link_preview'
+                        'geo'
+                        'period'
+                        'contact'
+                        'game'
+                        'buttons'
+                        '__assert_armored__'
+                        '_var_var_0'
+                    [Constants]
+                        "\n        Creates new inline result of article type.\n\n        Args:\n            title (`str`):\n                The title to be shown for this result.\n\n            description (`str`, optional):\n                Further explanation of what this result means.\n\n            url (`str`, optional):\n                The URL to be shown for this result.\n\n            thumb (:tl:`InputWebDocument`, optional):\n                The thumbnail to be shown for this result.\n                For now it has to be a :tl:`InputWebDocument` if present.\n\n            content (:tl:`InputWebDocument`, optional):\n                The content to be shown for this result.\n                For now it has to be a :tl:`InputWebDocument` if present.\n\n        Example:\n            .. code-block:: python\n\n                results = [\n                    # Option with title and description sending a message.\n                    builder.article(\n                        title='First option',\n                        description='This is the first option',\n                        text='Text sent after clicking this option',\n                    ),\n                    # Option with title URL to be opened when clicked.\n                    builder.article(\n                        title='Second option',\n                        url='https://example.com',\n                        text='Text sent if the user clicks the option and not the URL',\n                    ),\n                    # Sending a message with buttons.\n                    # You can use a list or a list of lists to include more buttons.\n                    builder.article(\n                        title='Third option',\n                        text='Text sent with buttons below',\n                        buttons=Button.url('https://example.com'),\n                    ),\n                ]\n        "
+                        '__pyarmor_assert_24261__'
+                        '__pyarmor_enter_24262__'
+                        b'<COAddr>\x07\x00\x00\x1e\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        ''
+                        'article'
+                        (
+                            'text'
+                            'parse_mode'
+                            'link_preview'
+                            'geo'
+                            'period'
+                            'contact'
+                            'game'
+                            'buttons'
+                        )
+                        None
+                        (
+                            'id'
+                            'type'
+                            'send_message'
+                            'title'
+                            'description'
+                            'url'
+                            'thumb'
+                            'content'
+                        )
+                        '__pyarmor_exit_24263__'
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_24262__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      LOAD_GLOBAL                     1: NULL + types
+                        42      LOAD_ATTR                       2: InputBotInlineResult
+                        62      LOAD_FAST                       6: id
+                        64      COPY                            1
+                        66      POP_JUMP_IF_TRUE                2 (to 72)
+                        68      POP_TOP                         
+                        70      LOAD_CONST                      4: ''
+                        72      LOAD_CONST                      5: 'article'
+                        74      LOAD_FAST                       0: self
+                        76      LOAD_ATTR                       5: _message
+                        96      LOAD_FAST                       7: text
+                        98      LOAD_FAST                       8: parse_mode
+                        100     LOAD_FAST                       9: link_preview
+                        102     LOAD_FAST                       10: geo
+                        104     LOAD_FAST                       11: period
+                        106     LOAD_FAST                       12: contact
+                        108     LOAD_FAST                       13: game
+                        110     LOAD_FAST                       14: buttons
+                        112     KW_NAMES                        6: ('text', 'parse_mode', 'link_preview', 'geo', 'period', 'contact', 'game', 'buttons')
+                        114     CALL                            8
+                        122     GET_AWAITABLE                   0
+                        124     LOAD_CONST                      7: None
+                        126     SEND                            3 (to 134)
+                        130     YIELD_VALUE                     3
+                        132     RESUME                          3
+                        134     JUMP_BACKWARD_NO_INTERRUPT      5 (to 126)
+                        136     END_SEND                        
+                        138     LOAD_FAST                       1: title
+                        140     LOAD_FAST                       2: description
+                        142     LOAD_FAST                       3: url
+                        144     LOAD_FAST                       4: thumb
+                        146     LOAD_FAST                       5: content
+                        148     KW_NAMES                        8: ('id', 'type', 'send_message', 'title', 'description', 'url', 'thumb', 'content')
+                        150     CALL                            8
+                        158     STORE_FAST                      16: _var_var_0
+                        160     LOAD_FAST                       6: id
+                        162     POP_JUMP_IF_NOT_NONE            49 (to 262)
+                        164     LOAD_GLOBAL                     7: NULL + hashlib
+                        174     LOAD_ATTR                       8: sha256
+                        194     LOAD_GLOBAL                     11: NULL + bytes
+                        204     LOAD_FAST                       16: _var_var_0
+                        206     CALL                            1
+                        214     CALL                            1
+                        222     LOAD_ATTR                       13: hexdigest
+                        242     CALL                            0
+                        250     LOAD_FAST                       16: _var_var_0
+                        252     STORE_ATTR                      7: id
+                        262     LOAD_FAST                       16: _var_var_0
+                        264     NOP                             
+                        266     NOP                             
+                        268     NOP                             
+                        270     JUMP_FORWARD                    24 (to 320)
+                        272     CALL                            1
+                        280     POP_TOP                         
+                        282     RETURN_VALUE                    
+                        284     CLEANUP_THROW                   
+                        286     JUMP_BACKWARD                   76 (to 136)
+                        288     PUSH_EXC_INFO                   
+                        290     PUSH_NULL                       
+                        292     LOAD_CONST                      9: '__pyarmor_exit_24263__'
+                        294     NOP                             
+                        296     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        298     CALL                            1
+                        306     POP_TOP                         
+                        308     RERAISE                         0
+                        310     COPY                            3
+                        312     POP_EXCEPT                      
+                        314     RERAISE                         1
+                        316     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        318     RERAISE                         1
+                        320     PUSH_NULL                       
+                        322     LOAD_CONST                      9: '__pyarmor_exit_24263__'
+                        324     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        326     BUILD_TUPLE                     1
+                        328     CALL_FUNCTION_EX                0
+                        330     POP_TOP                         
+                        332     RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 316 [0] lasti
+                        32 to 130 -> 288 [0] 
+                        130 to 132 -> 284 [6] 
+                        132 to 264 -> 288 [0] 
+                        264 to 284 -> 316 [0] lasti
+                        284 to 286 -> 288 [0] 
+                        288 to 310 -> 310 [1] lasti
+                        310 to 316 -> 316 [0] lasti
+                (
+                    'id'
+                    'include_media'
+                    'text'
+                    'parse_mode'
+                    'link_preview'
+                    'geo'
+                    'period'
+                    'contact'
+                    'game'
+                    'buttons'
+                )
+                [Code]
+                    File Name: <frozen multithon.tl.custom.inlinebuilder>
+                    Object Name: photo
+                    Qualified Name: InlineBuilder.photo
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 10
+                    Stack Size: 16
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'utils'
+                        'get_input_photo'
+                        'TypeError'
+                        '_client'
+                        '_file_to_media'
+                        'isinstance'
+                        'types'
+                        'InputPhoto'
+                        'functions'
+                        'messages'
+                        'UploadMediaRequest'
+                        'InputPeerSelf'
+                        'photo'
+                        'InputBotInlineResultPhoto'
+                        '_message'
+                        'hashlib'
+                        'sha256'
+                        'bytes'
+                        'hexdigest'
+                        'id'
+                    [Locals+Names]
+                        'self'
+                        'file'
+                        'id'
+                        'include_media'
+                        'text'
+                        'parse_mode'
+                        'link_preview'
+                        'geo'
+                        'period'
+                        'contact'
+                        'game'
+                        'buttons'
+                        '__assert_armored__'
+                        '_var_var_1'
+                        '_var_var_2'
+                        '_var_var_3'
+                        '_var_var_4'
+                        '_var_var_0'
+                    [Constants]
+                        "\n        Creates a new inline result of photo type.\n\n        Args:\n            include_media (`bool`, optional):\n                Whether the photo file used to display the result should be\n                included in the message itself or not. By default, the photo\n                is included, and the text parameter alters the caption.\n\n            file (`obj`, optional):\n                Same as ``file`` for `client.send_file()\n                <telethon.client.uploads.UploadMethods.send_file>`.\n\n        Example:\n            .. code-block:: python\n\n                results = [\n                    # Sending just the photo when the user selects it.\n                    builder.photo('/path/to/photo.jpg'),\n\n                    # Including a caption with some in-memory photo.\n                    photo_bytesio = ...\n                    builder.photo(\n                        photo_bytesio,\n                        text='This will be the caption of the sent photo',\n                    ),\n\n                    # Sending just the message without including the photo.\n                    builder.photo(\n                        photo,\n                        text='This will be a normal text message',\n                        include_media=False,\n                    ),\n                ]\n        "
+                        '__pyarmor_assert_24264__'
+                        '__pyarmor_enter_24265__'
+                        b'<COAddr>\x07\x00\x00\x1e\xb6\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        True
+                        (
+                            'allow_cache'
+                            'as_image'
+                        )
+                        None
+                        (
+                            'media'
+                        )
+                        ''
+                        'photo'
+                        (
+                            'text'
+                            'parse_mode'
+                            'link_preview'
+                            'media'
+                            'geo'
+                            'period'
+                            'contact'
+                            'game'
+                            'buttons'
+                        )
+                        (
+                            'id'
+                            'type'
+                            'photo'
+                            'send_message'
+                        )
+                        '__pyarmor_exit_24266__'
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_24265__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e\xb6\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      NOP                             
+                        34      LOAD_GLOBAL                     1: NULL + utils
+                        44      LOAD_ATTR                       2: get_input_photo
+                        64      LOAD_FAST                       1: file
+                        66      CALL                            1
+                        74      STORE_FAST                      13: _var_var_1
+                        76      LOAD_GLOBAL                     13: NULL + types
+                        86      LOAD_ATTR                       26: InputBotInlineResultPhoto
+                        106     LOAD_FAST                       2: id
+                        108     COPY                            1
+                        110     POP_JUMP_IF_TRUE                2 (to 116)
+                        112     POP_TOP                         
+                        114     LOAD_CONST                      8: ''
+                        116     LOAD_CONST                      9: 'photo'
+                        118     LOAD_FAST                       13: _var_var_1
+                        120     LOAD_FAST                       0: self
+                        122     LOAD_ATTR                       29: _message
+                        142     LOAD_FAST                       4: text
+                        144     COPY                            1
+                        146     POP_JUMP_IF_TRUE                2 (to 152)
+                        148     POP_TOP                         
+                        150     LOAD_CONST                      8: ''
+                        152     LOAD_FAST                       5: parse_mode
+                        154     LOAD_FAST                       6: link_preview
+                        156     LOAD_FAST                       3: include_media
+                        158     LOAD_FAST                       7: geo
+                        160     LOAD_FAST                       8: period
+                        162     LOAD_FAST                       9: contact
+                        164     LOAD_FAST                       10: game
+                        166     LOAD_FAST                       11: buttons
+                        168     KW_NAMES                        10: ('text', 'parse_mode', 'link_preview', 'media', 'geo', 'period', 'contact', 'game', 'buttons')
+                        170     CALL                            9
+                        178     GET_AWAITABLE                   0
+                        180     LOAD_CONST                      6: None
+                        182     SEND                            3 (to 190)
+                        186     YIELD_VALUE                     3
+                        188     RESUME                          3
+                        190     JUMP_BACKWARD_NO_INTERRUPT      5 (to 182)
+                        192     END_SEND                        
+                        194     KW_NAMES                        11: ('id', 'type', 'photo', 'send_message')
+                        196     CALL                            4
+                        204     STORE_FAST                      17: _var_var_0
+                        206     LOAD_FAST                       2: id
+                        208     POP_JUMP_IF_NOT_NONE            49 (to 308)
+                        210     LOAD_GLOBAL                     31: NULL + hashlib
+                        220     LOAD_ATTR                       32: sha256
+                        240     LOAD_GLOBAL                     35: NULL + bytes
+                        250     LOAD_FAST                       17: _var_var_0
+                        252     CALL                            1
+                        260     CALL                            1
+                        268     LOAD_ATTR                       37: hexdigest
+                        288     CALL                            0
+                        296     LOAD_FAST                       17: _var_var_0
+                        298     STORE_ATTR                      19: id
+                        308     LOAD_FAST                       17: _var_var_0
+                        310     NOP                             
+                        312     NOP                             
+                        314     NOP                             
+                        316     JUMP_FORWARD                    219 (to 756)
+                        318     CALL                            1
+                        326     POP_TOP                         
+                        328     RETURN_VALUE                    
+                        330     PUSH_EXC_INFO                   
+                        332     LOAD_GLOBAL                     4: TypeError
+                        342     CHECK_EXC_MATCH                 
+                        344     POP_JUMP_IF_FALSE               182 (to 710)
+                        346     POP_TOP                         
+                        348     LOAD_FAST                       0: self
+                        350     LOAD_ATTR                       6: _client
+                        370     LOAD_ATTR                       9: _file_to_media
+                        390     LOAD_FAST                       1: file
+                        392     LOAD_CONST                      4: True
+                        394     LOAD_CONST                      4: True
+                        396     KW_NAMES                        5: ('allow_cache', 'as_image')
+                        398     CALL                            3
+                        406     GET_AWAITABLE                   0
+                        408     LOAD_CONST                      6: None
+                        410     SEND                            4 (to 420)
+                        414     YIELD_VALUE                     4
+                        416     RESUME                          3
+                        418     JUMP_BACKWARD_NO_INTERRUPT      5 (to 410)
+                        420     CLEANUP_THROW                   
+                        422     END_SEND                        
+                        424     UNPACK_SEQUENCE                 3
+                        428     STORE_FAST                      14: _var_var_2
+                        430     STORE_FAST                      15: _var_var_3
+                        432     STORE_FAST                      14: _var_var_2
+                        434     LOAD_GLOBAL                     11: NULL + isinstance
+                        444     LOAD_FAST                       15: _var_var_3
+                        446     LOAD_GLOBAL                     12: types
+                        456     LOAD_ATTR                       14: InputPhoto
+                        476     CALL                            2
+                        484     POP_JUMP_IF_FALSE               3 (to 492)
+                        486     LOAD_FAST                       15: _var_var_3
+                        488     STORE_FAST                      13: _var_var_1
+                        490     JUMP_FORWARD                    106 (to 704)
+                        492     LOAD_FAST                       0: self
+                        494     LOAD_ATTR                       7: _client
+                        514     LOAD_GLOBAL                     16: functions
+                        524     LOAD_ATTR                       18: messages
+                        544     LOAD_ATTR                       21: UploadMediaRequest
+                        564     LOAD_GLOBAL                     13: NULL + types
+                        574     LOAD_ATTR                       22: InputPeerSelf
+                        594     CALL                            0
+                        602     LOAD_FAST                       15: _var_var_3
+                        604     KW_NAMES                        7: ('media',)
+                        606     CALL                            2
+                        614     CALL                            1
+                        622     GET_AWAITABLE                   0
+                        624     LOAD_CONST                      6: None
+                        626     SEND                            4 (to 636)
+                        630     YIELD_VALUE                     4
+                        632     RESUME                          3
+                        634     JUMP_BACKWARD_NO_INTERRUPT      5 (to 626)
+                        636     CLEANUP_THROW                   
+                        638     END_SEND                        
+                        640     STORE_FAST                      16: _var_var_4
+                        642     LOAD_GLOBAL                     1: NULL + utils
+                        652     LOAD_ATTR                       2: get_input_photo
+                        672     LOAD_FAST                       16: _var_var_4
+                        674     LOAD_ATTR                       24: photo
+                        694     CALL                            1
+                        702     STORE_FAST                      13: _var_var_1
+                        704     POP_EXCEPT                      
+                        706     JUMP_BACKWARD                   317 (to 76)
+                        710     RERAISE                         0
+                        712     COPY                            3
+                        714     POP_EXCEPT                      
+                        716     RERAISE                         1
+                        718     CLEANUP_THROW                   
+                        720     JUMP_BACKWARD                   266 (to 192)
+                        724     PUSH_EXC_INFO                   
+                        726     PUSH_NULL                       
+                        728     LOAD_CONST                      12: '__pyarmor_exit_24266__'
+                        730     NOP                             
+                        732     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e\xb6\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        734     CALL                            1
+                        742     POP_TOP                         
+                        744     RERAISE                         0
+                        746     COPY                            3
+                        748     POP_EXCEPT                      
+                        750     RERAISE                         1
+                        752     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        754     RERAISE                         1
+                        756     PUSH_NULL                       
+                        758     LOAD_CONST                      12: '__pyarmor_exit_24266__'
+                        760     LOAD_CONST                      3: b'<COAddr>\x07\x00\x00\x1e\xb6\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        762     BUILD_TUPLE                     1
+                        764     CALL_FUNCTION_EX                0
+                        766     POP_TOP                         
+                        768     RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 752 [0] lasti
+                        34 to 76 -> 330 [0] 
+                        76 to 186 -> 724 [0] 
+                        186 to 188 -> 718 [7] 
+                        188 to 310 -> 724 [0] 
+                        310 to 330 -> 752 [0] lasti
+                        330 to 414 -> 712 [1] lasti
+                        414 to 416 -> 420 [3] 
+                        416 to 630 -> 712 [1] lasti
+                        630 to 632 -> 636 [3] 
+                        632 to 704 -> 712 [1] lasti
+                        704 to 710 -> 724 [0] 
+                        710 to 712 -> 712 [1] lasti
+                        712 to 720 -> 724 [0] 
+                        724 to 746 -> 746 [1] lasti
+                        746 to 752 -> 752 [0] lasti
+                (
+                    'description'
+                    'type'
+                    'mime_type'
+                    'attributes'
+                    'force_document'
+                    'voice_note'
+                    'video_note'
+                    'use_cache'
+                    'id'
+                    'text'
+                    'parse_mode'
+                    'link_preview'
+                    'geo'
+                    'period'
+                    'contact'
+                    'game'
+                    'buttons'
+                    'include_media'
+                )
+                [Code]
+                    File Name: <frozen multithon.tl.custom.inlinebuilder>
+                    Object Name: document
+                    Qualified Name: InlineBuilder.document
+                    Arg Count: 3
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 18
+                    Stack Size: 16
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        '_TYPE_TO_MIMES'
+                        'items'
+                        'utils'
+                        'get_input_document'
+                        'TypeError'
+                        '_client'
+                        '_file_to_media'
+                        'isinstance'
+                        'types'
+                        'InputDocument'
+                        'functions'
+                        'messages'
+                        'UploadMediaRequest'
+                        'InputPeerSelf'
+                        'document'
+                        'InputBotInlineResultDocument'
+                        '_message'
+                        'hashlib'
+                        'sha256'
+                        'bytes'
+                        'hexdigest'
+                        'id'
+                    [Locals+Names]
+                        'self'
+                        'file'
+                        'title'
+                        'description'
+                        'type'
+                        'mime_type'
+                        'attributes'
+                        'force_document'
+                        'voice_note'
+                        'video_note'
+                        'use_cache'
+                        'id'
+                        'text'
+                        'parse_mode'
+                        'link_preview'
+                        'geo'
+                        'period'
+                        'contact'
+                        'game'
+                        'buttons'
+                        'include_media'
+                        '__assert_armored__'
+                        '_var_var_5'
+                        '_var_var_6'
+                        '_var_var_7'
+                        '_var_var_1'
+                        '_var_var_2'
+                        '_var_var_3'
+                        '_var_var_4'
+                        '_var_var_0'
+                    [Constants]
+                        "\n        Creates a new inline result of document type.\n\n        `use_cache`, `mime_type`, `attributes`, `force_document`,\n        `voice_note` and `video_note` are described in `client.send_file\n        <telethon.client.uploads.UploadMethods.send_file>`.\n\n        Args:\n            file (`obj`):\n                Same as ``file`` for `client.send_file()\n                <telethon.client.uploads.UploadMethods.send_file>`.\n\n            title (`str`, optional):\n                The title to be shown for this result.\n\n            description (`str`, optional):\n                Further explanation of what this result means.\n\n            type (`str`, optional):\n                The type of the document. May be one of: article, audio,\n                contact, file, geo, gif, photo, sticker, venue, video, voice.\n                It will be automatically set if ``mime_type`` is specified,\n                and default to ``'file'`` if no matching mime type is found.\n                you may need to pass ``attributes`` in order to use ``type``\n                effectively.\n\n            attributes (`list`, optional):\n                Optional attributes that override the inferred ones, like\n                :tl:`DocumentAttributeFilename` and so on.\n\n            include_media (`bool`, optional):\n                Whether the document file used to display the result should be\n                included in the message itself or not. By default, the document\n                is included, and the text parameter alters the caption.\n\n        Example:\n            .. code-block:: python\n\n                results = [\n                    # Sending just the file when the user selects it.\n                    builder.document('/path/to/file.pdf'),\n\n                    # Including a caption with some in-memory file.\n                    file_bytesio = ...\n                    builder.document(\n                        file_bytesio,\n                        text='This will be the caption of the sent file',\n                    ),\n\n                    # Sending just the message without including the file.\n                    builder.document(\n                        photo,\n                        text='This will be a normal text message',\n                        include_media=False,\n                    ),\n                ]\n        "
+                        '__pyarmor_assert_24267__'
+                        '__pyarmor_enter_24268__'
+                        b'<COAddr>\x05\x00\x00\x1e4\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        None
+                        'voice'
+                        'file'
+                        (
+                            'mime_type'
+                            'attributes'
+                            'force_document'
+                            'voice_note'
+                            'video_note'
+                            'allow_cache'
+                        )
+                        (
+                            'media'
+                        )
+                        ''
+                        (
+                            'text'
+                            'parse_mode'
+                            'link_preview'
+                            'media'
+                            'geo'
+                            'period'
+                            'contact'
+                            'game'
+                            'buttons'
+                        )
+                        (
+                            'id'
+                            'type'
+                            'document'
+                            'send_message'
+                            'title'
+                            'description'
+                        )
+                        '__pyarmor_exit_24269__'
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_24268__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e4\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      LOAD_FAST                       4: type
+                        34      POP_JUMP_IF_NOT_NONE            55 (to 146)
+                        36      LOAD_FAST                       8: voice_note
+                        38      POP_JUMP_IF_FALSE               3 (to 46)
+                        40      LOAD_CONST                      5: 'voice'
+                        42      STORE_FAST                      4: type
+                        44      JUMP_FORWARD                    46 (to 138)
+                        46      LOAD_FAST                       5: mime_type
+                        48      POP_JUMP_IF_FALSE               44 (to 138)
+                        50      LOAD_GLOBAL                     0: _TYPE_TO_MIMES
+                        60      LOAD_ATTR                       3: items
+                        80      CALL                            0
+                        88      GET_ITER                        
+                        90      FOR_ITER                        21 (to 134)
+                        94      UNPACK_SEQUENCE                 2
+                        98      STORE_FAST                      22: _var_var_5
+                        100     STORE_FAST                      23: _var_var_6
+                        102     LOAD_FAST                       23: _var_var_6
+                        104     GET_ITER                        
+                        106     FOR_ITER                        11 (to 130)
+                        110     STORE_FAST                      24: _var_var_7
+                        112     LOAD_FAST                       5: mime_type
+                        114     LOAD_FAST                       24: _var_var_7
+                        116     COMPARE_OP                      40 (==)
+                        120     POP_JUMP_IF_TRUE                1 (to 124)
+                        122     JUMP_BACKWARD                   9 (to 106)
+                        124     LOAD_FAST                       22: _var_var_5
+                        126     STORE_FAST                      4: type
+                        128     POP_TOP                         
+                        130     JUMP_BACKWARD                   21 (to 90)
+                        132     END_FOR                         
+                        134     JUMP_BACKWARD                   23 (to 90)
+                        136     END_FOR                         
+                        138     LOAD_FAST                       4: type
+                        140     POP_JUMP_IF_NOT_NONE            2 (to 146)
+                        142     LOAD_CONST                      6: 'file'
+                        144     STORE_FAST                      4: type
+                        146     NOP                             
+                        148     LOAD_GLOBAL                     5: NULL + utils
+                        158     LOAD_ATTR                       6: get_input_document
+                        178     LOAD_FAST                       1: file
+                        180     CALL                            1
+                        188     STORE_FAST                      25: _var_var_1
+                        190     LOAD_GLOBAL                     17: NULL + types
+                        200     LOAD_ATTR                       30: InputBotInlineResultDocument
+                        220     LOAD_FAST                       11: id
+                        222     COPY                            1
+                        224     POP_JUMP_IF_TRUE                2 (to 230)
+                        226     POP_TOP                         
+                        228     LOAD_CONST                      9: ''
+                        230     LOAD_FAST                       4: type
+                        232     LOAD_FAST                       25: _var_var_1
+                        234     LOAD_FAST                       0: self
+                        236     LOAD_ATTR                       33: _message
+                        256     LOAD_FAST                       12: text
+                        258     COPY                            1
+                        260     POP_JUMP_IF_TRUE                2 (to 266)
+                        262     POP_TOP                         
+                        264     LOAD_CONST                      9: ''
+                        266     LOAD_FAST                       13: parse_mode
+                        268     LOAD_FAST                       14: link_preview
+                        270     LOAD_FAST                       20: include_media
+                        272     LOAD_FAST                       15: geo
+                        274     LOAD_FAST                       16: period
+                        276     LOAD_FAST                       17: contact
+                        278     LOAD_FAST                       18: game
+                        280     LOAD_FAST                       19: buttons
+                        282     KW_NAMES                        10: ('text', 'parse_mode', 'link_preview', 'media', 'geo', 'period', 'contact', 'game', 'buttons')
+                        284     CALL                            9
+                        292     GET_AWAITABLE                   0
+                        294     LOAD_CONST                      4: None
+                        296     SEND                            3 (to 304)
+                        300     YIELD_VALUE                     3
+                        302     RESUME                          3
+                        304     JUMP_BACKWARD_NO_INTERRUPT      5 (to 296)
+                        306     END_SEND                        
+                        308     LOAD_FAST                       2: title
+                        310     LOAD_FAST                       3: description
+                        312     KW_NAMES                        11: ('id', 'type', 'document', 'send_message', 'title', 'description')
+                        314     CALL                            6
+                        322     STORE_FAST                      29: _var_var_0
+                        324     LOAD_FAST                       11: id
+                        326     POP_JUMP_IF_NOT_NONE            49 (to 426)
+                        328     LOAD_GLOBAL                     35: NULL + hashlib
+                        338     LOAD_ATTR                       36: sha256
+                        358     LOAD_GLOBAL                     39: NULL + bytes
+                        368     LOAD_FAST                       29: _var_var_0
+                        370     CALL                            1
+                        378     CALL                            1
+                        386     LOAD_ATTR                       41: hexdigest
+                        406     CALL                            0
+                        414     LOAD_FAST                       29: _var_var_0
+                        416     STORE_ATTR                      21: id
+                        426     LOAD_FAST                       29: _var_var_0
+                        428     NOP                             
+                        430     NOP                             
+                        432     NOP                             
+                        434     JUMP_FORWARD                    223 (to 882)
+                        436     CALL                            1
+                        444     POP_TOP                         
+                        446     RETURN_VALUE                    
+                        448     PUSH_EXC_INFO                   
+                        450     LOAD_GLOBAL                     8: TypeError
+                        460     CHECK_EXC_MATCH                 
+                        462     POP_JUMP_IF_FALSE               186 (to 836)
+                        464     POP_TOP                         
+                        466     LOAD_FAST                       0: self
+                        468     LOAD_ATTR                       10: _client
+                        488     LOAD_ATTR                       13: _file_to_media
+                        508     LOAD_FAST                       1: file
+                        510     LOAD_FAST                       5: mime_type
+                        512     LOAD_FAST                       6: attributes
+                        514     LOAD_FAST                       7: force_document
+                        516     LOAD_FAST                       8: voice_note
+                        518     LOAD_FAST                       9: video_note
+                        520     LOAD_FAST                       10: use_cache
+                        522     KW_NAMES                        7: ('mime_type', 'attributes', 'force_document', 'voice_note', 'video_note', 'allow_cache')
+                        524     CALL                            7
+                        532     GET_AWAITABLE                   0
+                        534     LOAD_CONST                      4: None
+                        536     SEND                            4 (to 546)
+                        540     YIELD_VALUE                     4
+                        542     RESUME                          3
+                        544     JUMP_BACKWARD_NO_INTERRUPT      5 (to 536)
+                        546     CLEANUP_THROW                   
+                        548     END_SEND                        
+                        550     UNPACK_SEQUENCE                 3
+                        554     STORE_FAST                      26: _var_var_2
+                        556     STORE_FAST                      27: _var_var_3
+                        558     STORE_FAST                      26: _var_var_2
+                        560     LOAD_GLOBAL                     15: NULL + isinstance
+                        570     LOAD_FAST                       27: _var_var_3
+                        572     LOAD_GLOBAL                     16: types
+                        582     LOAD_ATTR                       18: InputDocument
+                        602     CALL                            2
+                        610     POP_JUMP_IF_FALSE               3 (to 618)
+                        612     LOAD_FAST                       27: _var_var_3
+                        614     STORE_FAST                      25: _var_var_1
+                        616     JUMP_FORWARD                    106 (to 830)
+                        618     LOAD_FAST                       0: self
+                        620     LOAD_ATTR                       11: _client
+                        640     LOAD_GLOBAL                     20: functions
+                        650     LOAD_ATTR                       22: messages
+                        670     LOAD_ATTR                       25: UploadMediaRequest
+                        690     LOAD_GLOBAL                     17: NULL + types
+                        700     LOAD_ATTR                       26: InputPeerSelf
+                        720     CALL                            0
+                        728     LOAD_FAST                       27: _var_var_3
+                        730     KW_NAMES                        8: ('media',)
+                        732     CALL                            2
+                        740     CALL                            1
+                        748     GET_AWAITABLE                   0
+                        750     LOAD_CONST                      4: None
+                        752     SEND                            4 (to 762)
+                        756     YIELD_VALUE                     4
+                        758     RESUME                          3
+                        760     JUMP_BACKWARD_NO_INTERRUPT      5 (to 752)
+                        762     CLEANUP_THROW                   
+                        764     END_SEND                        
+                        766     STORE_FAST                      28: _var_var_4
+                        768     LOAD_GLOBAL                     5: NULL + utils
+                        778     LOAD_ATTR                       6: get_input_document
+                        798     LOAD_FAST                       28: _var_var_4
+                        800     LOAD_ATTR                       28: document
+                        820     CALL                            1
+                        828     STORE_FAST                      25: _var_var_1
+                        830     POP_EXCEPT                      
+                        832     JUMP_BACKWARD                   323 (to 190)
+                        836     RERAISE                         0
+                        838     COPY                            3
+                        840     POP_EXCEPT                      
+                        842     RERAISE                         1
+                        844     CLEANUP_THROW                   
+                        846     JUMP_BACKWARD                   272 (to 306)
+                        850     PUSH_EXC_INFO                   
+                        852     PUSH_NULL                       
+                        854     LOAD_CONST                      12: '__pyarmor_exit_24269__'
+                        856     NOP                             
+                        858     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e4\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        860     CALL                            1
+                        868     POP_TOP                         
+                        870     RERAISE                         0
+                        872     COPY                            3
+                        874     POP_EXCEPT                      
+                        876     RERAISE                         1
+                        878     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        880     RERAISE                         1
+                        882     PUSH_NULL                       
+                        884     LOAD_CONST                      12: '__pyarmor_exit_24269__'
+                        886     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e4\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        888     BUILD_TUPLE                     1
+                        890     CALL_FUNCTION_EX                0
+                        892     POP_TOP                         
+                        894     RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 878 [0] lasti
+                        32 to 122 -> 850 [0] 
+                        124 to 146 -> 850 [0] 
+                        148 to 190 -> 448 [0] 
+                        190 to 300 -> 850 [0] 
+                        300 to 302 -> 844 [7] 
+                        302 to 428 -> 850 [0] 
+                        428 to 448 -> 878 [0] lasti
+                        448 to 540 -> 838 [1] lasti
+                        540 to 542 -> 546 [3] 
+                        542 to 756 -> 838 [1] lasti
+                        756 to 758 -> 762 [3] 
+                        758 to 830 -> 838 [1] lasti
+                        830 to 836 -> 850 [0] 
+                        836 to 838 -> 838 [1] lasti
+                        838 to 846 -> 850 [0] 
+                        850 to 872 -> 872 [1] lasti
+                        872 to 878 -> 878 [0] lasti
+                (
+                    'id'
+                    'text'
+                    'parse_mode'
+                    'link_preview'
+                    'geo'
+                    'period'
+                    'contact'
+                    'game'
+                    'buttons'
+                )
+                [Code]
+                    File Name: <frozen multithon.tl.custom.inlinebuilder>
+                    Object Name: game
+                    Qualified Name: InlineBuilder.game
+                    Arg Count: 2
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 9
+                    Stack Size: 14
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'types'
+                        'InputBotInlineResultGame'
+                        '_message'
+                        'hashlib'
+                        'sha256'
+                        'bytes'
+                        'hexdigest'
+                        'id'
+                    [Locals+Names]
+                        'self'
+                        'short_name'
+                        'id'
+                        'text'
+                        'parse_mode'
+                        'link_preview'
+                        'geo'
+                        'period'
+                        'contact'
+                        'game'
+                        'buttons'
+                        '__assert_armored__'
+                        '_var_var_0'
+                    [Constants]
+                        '\n        Creates a new inline result of game type.\n\n        Args:\n            short_name (`str`):\n                The short name of the game to use.\n        '
+                        '__pyarmor_assert_24270__'
+                        '__pyarmor_enter_24271__'
+                        b'<COAddr>\x05\x00\x00\x1e\xf8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        ''
+                        (
+                            'text'
+                            'parse_mode'
+                            'link_preview'
+                            'geo'
+                            'period'
+                            'contact'
+                            'game'
+                            'buttons'
+                        )
+                        None
+                        (
+                            'id'
+                            'short_name'
+                            'send_message'
+                        )
+                        '__pyarmor_exit_24272__'
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_24271__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\xf8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      LOAD_GLOBAL                     1: NULL + types
+                        42      LOAD_ATTR                       2: InputBotInlineResultGame
+                        62      LOAD_FAST                       2: id
+                        64      COPY                            1
+                        66      POP_JUMP_IF_TRUE                2 (to 72)
+                        68      POP_TOP                         
+                        70      LOAD_CONST                      4: ''
+                        72      LOAD_FAST                       1: short_name
+                        74      LOAD_FAST                       0: self
+                        76      LOAD_ATTR                       5: _message
+                        96      LOAD_FAST                       3: text
+                        98      LOAD_FAST                       4: parse_mode
+                        100     LOAD_FAST                       5: link_preview
+                        102     LOAD_FAST                       6: geo
+                        104     LOAD_FAST                       7: period
+                        106     LOAD_FAST                       8: contact
+                        108     LOAD_FAST                       9: game
+                        110     LOAD_FAST                       10: buttons
+                        112     KW_NAMES                        5: ('text', 'parse_mode', 'link_preview', 'geo', 'period', 'contact', 'game', 'buttons')
+                        114     CALL                            8
+                        122     GET_AWAITABLE                   0
+                        124     LOAD_CONST                      6: None
+                        126     SEND                            3 (to 134)
+                        130     YIELD_VALUE                     3
+                        132     RESUME                          3
+                        134     JUMP_BACKWARD_NO_INTERRUPT      5 (to 126)
+                        136     END_SEND                        
+                        138     KW_NAMES                        7: ('id', 'short_name', 'send_message')
+                        140     CALL                            3
+                        148     STORE_FAST                      12: _var_var_0
+                        150     LOAD_FAST                       2: id
+                        152     POP_JUMP_IF_NOT_NONE            49 (to 252)
+                        154     LOAD_GLOBAL                     7: NULL + hashlib
+                        164     LOAD_ATTR                       8: sha256
+                        184     LOAD_GLOBAL                     11: NULL + bytes
+                        194     LOAD_FAST                       12: _var_var_0
+                        196     CALL                            1
+                        204     CALL                            1
+                        212     LOAD_ATTR                       13: hexdigest
+                        232     CALL                            0
+                        240     LOAD_FAST                       12: _var_var_0
+                        242     STORE_ATTR                      7: id
+                        252     LOAD_FAST                       12: _var_var_0
+                        254     NOP                             
+                        256     NOP                             
+                        258     NOP                             
+                        260     JUMP_FORWARD                    24 (to 310)
+                        262     CALL                            1
+                        270     POP_TOP                         
+                        272     RETURN_VALUE                    
+                        274     CLEANUP_THROW                   
+                        276     JUMP_BACKWARD                   71 (to 136)
+                        278     PUSH_EXC_INFO                   
+                        280     PUSH_NULL                       
+                        282     LOAD_CONST                      8: '__pyarmor_exit_24272__'
+                        284     NOP                             
+                        286     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\xf8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        288     CALL                            1
+                        296     POP_TOP                         
+                        298     RERAISE                         0
+                        300     COPY                            3
+                        302     POP_EXCEPT                      
+                        304     RERAISE                         1
+                        306     CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        308     RERAISE                         1
+                        310     PUSH_NULL                       
+                        312     LOAD_CONST                      8: '__pyarmor_exit_24272__'
+                        314     LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1e\xf8\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        316     BUILD_TUPLE                     1
+                        318     CALL_FUNCTION_EX                0
+                        320     POP_TOP                         
+                        322     RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 306 [0] lasti
+                        32 to 130 -> 278 [0] 
+                        130 to 132 -> 274 [6] 
+                        132 to 254 -> 278 [0] 
+                        254 to 274 -> 306 [0] lasti
+                        274 to 276 -> 278 [0] 
+                        278 to 300 -> 300 [1] lasti
+                        300 to 306 -> 306 [0] lasti
+                (
+                    'text'
+                    'parse_mode'
+                    'link_preview'
+                    'media'
+                    'geo'
+                    'period'
+                    'contact'
+                    'game'
+                    'buttons'
+                )
+                [Code]
+                    File Name: <frozen multithon.tl.custom.inlinebuilder>
+                    Object Name: _message
+                    Qualified Name: InlineBuilder._message
+                    Arg Count: 1
+                    Pos Only Arg Count: 0
+                    KW Only Arg Count: 9
+                    Stack Size: 11
+                    Flags: 0x20000083 (CO_OPTIMIZED | CO_NEWLOCALS | CO_COROUTINE | CO_PYARMOR_OBFUSCATED)
+                    [Names]
+                        'sum'
+                        'ValueError'
+                        'format'
+                        'join'
+                        'zip'
+                        'split'
+                        '_client'
+                        'build_reply_markup'
+                        '_parse_message_text'
+                        'types'
+                        'InputBotInlineMessageMediaAuto'
+                        'InputBotInlineMessageText'
+                        'isinstance'
+                        'InputGeoPoint'
+                        'GeoPoint'
+                        'InputBotInlineMessageMediaGeo'
+                        'utils'
+                        'get_input_geo'
+                        'InputMediaVenue'
+                        'MessageMediaVenue'
+                        'geo_point'
+                        'geo'
+                        'InputBotInlineMessageMediaVenue'
+                        'title'
+                        'address'
+                        'provider'
+                        'venue_id'
+                        'venue_type'
+                        'InputMediaContact'
+                        'MessageMediaContact'
+                        'InputBotInlineMessageMediaContact'
+                        'phone_number'
+                        'first_name'
+                        'last_name'
+                        'vcard'
+                        'InputBotInlineMessageGame'
+                    [Locals+Names]
+                        'self'
+                        'text'
+                        'parse_mode'
+                        'link_preview'
+                        'media'
+                        'geo'
+                        'period'
+                        'contact'
+                        'game'
+                        'buttons'
+                        '__assert_armored__'
+                        '_var_var_8'
+                        '_var_var_9'
+                        '_var_var_10'
+                        '_var_var_11'
+                    [Constants]
+                        None
+                        '__pyarmor_assert_24273__'
+                        '__pyarmor_enter_24274__'
+                        b'<COAddr>\x05\x00\x00\x1ez\x05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        ''
+                        '\x00'
+                        [Code]
+                            File Name: <frozen multithon.tl.custom.inlinebuilder>
+                            Object Name: <genexpr>
+                            Qualified Name: InlineBuilder._message.<locals>.<genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Stack Size: 3
+                            Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                            [Names]
+                            [Locals+Names]
+                                '.0'
+                                '_var_var_12'
+                            [Constants]
+                                None
+                                False
+                                1
+                            [Disassembly]
+                                0       RETURN_GENERATOR                
+                                2       POP_TOP                         
+                                4       RESUME                          0
+                                6       LOAD_FAST                       0: .0
+                                8       FOR_ITER                        14 (to 38)
+                                12      STORE_FAST                      1: _var_var_12
+                                14      LOAD_FAST                       1: _var_var_12
+                                16      POP_JUMP_IF_NOT_NONE            1 (to 20)
+                                18      JUMP_BACKWARD                   6 (to 8)
+                                20      LOAD_FAST                       1: _var_var_12
+                                22      LOAD_CONST                      1: False
+                                24      IS_OP                           1 (is not)
+                                26      POP_JUMP_IF_TRUE                1 (to 30)
+                                28      JUMP_BACKWARD                   11 (to 8)
+                                30      LOAD_CONST                      2: 1
+                                32      YIELD_VALUE                     1
+                                34      RESUME                          1
+                                36      POP_TOP                         
+                                38      JUMP_BACKWARD                   16 (to 8)
+                                40      END_FOR                         
+                                42      RETURN_CONST                    0: None
+                                44      CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                                46      RERAISE                         1
+                            [Exception Table]
+                                4 to 18 -> 44 [0] lasti
+                                20 to 28 -> 44 [0] lasti
+                                30 to 44 -> 44 [0] lasti
+                        1
+                        'Must set exactly one of text, geo, contact or game (set {})'   # b"\x81\xcf\r\x00'\xba\xad\xd7\x0f\xba\x08\xd8m\xef\xec\x89\x16\x1d\xb4\xa9\xaf\x8bA\xcaE{\xa6D\x14\xfd^\xe2?]lM\x9b\xc5\xba:\x19\xea\xec\x1d\xd2\xcaO@6\xe0S\xbb\xcfc\x03\xf9w\xf0\x86T"
+                        ', '
+                        [Code]
+                            File Name: <frozen multithon.tl.custom.inlinebuilder>
+                            Object Name: <genexpr>
+                            Qualified Name: InlineBuilder._message.<locals>.<genexpr>
+                            Arg Count: 1
+                            Pos Only Arg Count: 0
+                            KW Only Arg Count: 0
+                            Stack Size: 3
+                            Flags: 0x00000033 (CO_OPTIMIZED | CO_NEWLOCALS | CO_NESTED | CO_GENERATOR)
+                            [Names]
+                            [Locals+Names]
+                                '.0'
+                                '_var_var_12'
+                            [Constants]
+                                1
+                                0
+                                None
+                            [Disassembly]
+                                0       RETURN_GENERATOR                
+                                2       POP_TOP                         
+                                4       RESUME                          0
+                                6       LOAD_FAST                       0: .0
+                                8       FOR_ITER                        14 (to 38)
+                                12      STORE_FAST                      1: _var_var_12
+                                14      LOAD_FAST                       1: _var_var_12
+                                16      LOAD_CONST                      0: 1
+                                18      BINARY_SUBSCR                   
+                                22      POP_JUMP_IF_FALSE               7 (to 38)
+                                24      LOAD_FAST                       1: _var_var_12
+                                26      LOAD_CONST                      1: 0
+                                28      BINARY_SUBSCR                   
+                                32      YIELD_VALUE                     1
+                                34      RESUME                          1
+                                36      POP_TOP                         
+                                38      JUMP_BACKWARD                   16 (to 8)
+                                40      END_FOR                         
+                                42      RETURN_CONST                    2: None
+                                44      CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                                46      RERAISE                         1
+                            [Exception Table]
+                                4 to 44 -> 44 [0] lasti
+                        'text geo contact game'
+                        'none'
+                        True
+                        (
+                            'inline_only'
+                        )
+                        (
+                            'message'
+                            'entities'
+                            'reply_markup'
+                        )
+                        '__pyarmor_exit_24275__'
+                        (
+                            'message'
+                            'no_webpage'
+                            'entities'
+                            'reply_markup'
+                        )
+                        (
+                            'geo_point'
+                            'period'
+                            'reply_markup'
+                        )
+                        (
+                            'geo_point'
+                            'title'
+                            'address'
+                            'provider'
+                            'venue_id'
+                            'venue_type'
+                            'reply_markup'
+                        )
+                        (
+                            'phone_number'
+                            'first_name'
+                            'last_name'
+                            'vcard'
+                            'reply_markup'
+                        )
+                        (
+                            'reply_markup'
+                        )
+                        'No text, game or valid geo or contact given'   # b"\x81\xcc\x17S'\xff\xa6\xc6W\xba\n\xc1a\xe9\xb8\x8a\x1d\x1d\xad\xa6\xa6\xc2J\x8c\x02j\xac\x1c\x0f\xa3^\xe65\\4\x0c\x9b\xde\xf4)\x11\xff\xfdS"
+                    [Disassembly]
+                        0       RETURN_GENERATOR                
+                        2       POP_TOP                         
+                        4       NOP                             
+                        6       NOP                             
+                        8       PUSH_NULL                       
+                        10      LOAD_CONST                      2: '__pyarmor_enter_24274__'
+                        12      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ez\x05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        14      BUILD_TUPLE                     1
+                        16      CALL_FUNCTION_EX                0
+                        18      POP_TOP                         
+                        20      RESUME                          0
+                        22      NOP                             
+                        24      NOP                             
+                        26      NOP                             
+                        28      NOP                             
+                        30      NOP                             
+                        32      LOAD_FAST                       1: text
+                        34      LOAD_CONST                      4: ''
+                        36      COMPARE_OP                      40 (==)
+                        40      POP_JUMP_IF_FALSE               2 (to 46)
+                        42      LOAD_CONST                      5: '\x00'
+                        44      JUMP_FORWARD                    1 (to 48)
+                        46      LOAD_FAST                       1: text
+                        48      LOAD_FAST                       5: geo
+                        50      LOAD_FAST                       7: contact
+                        52      LOAD_FAST                       8: game
+                        54      BUILD_TUPLE                     4
+                        56      STORE_FAST                      11: _var_var_8
+                        58      LOAD_GLOBAL                     1: NULL + sum
+                        68      LOAD_CONST                      6: <CODE> <genexpr>
+                        70      MAKE_FUNCTION                   0
+                        72      LOAD_FAST                       11: _var_var_8
+                        74      GET_ITER                        
+                        76      CALL                            0
+                        84      CALL                            1
+                        92      LOAD_CONST                      7: 1
+                        94      COMPARE_OP                      55 (!=)
+                        98      POP_JUMP_IF_FALSE               82 (to 264)
+                        100     LOAD_GLOBAL                     3: NULL + ValueError
+                        110     PUSH_NULL                       
+                        112     LOAD_CONST                      1: '__pyarmor_assert_24273__'
+                        114     LOAD_CONST                      8: 'Must set exactly one of text, geo, contact or game (set {})'   # b"\x81\xcf\r\x00'\xba\xad\xd7\x0f\xba\x08\xd8m\xef\xec\x89\x16\x1d\xb4\xa9\xaf\x8bA\xcaE{\xa6D\x14\xfd^\xe2?]lM\x9b\xc5\xba:\x19\xea\xec\x1d\xd2\xcaO@6\xe0S\xbb\xcfc\x03\xf9w\xf0\x86T"
+                        116     CALL                            1
+                        124     LOAD_ATTR                       5: format
+                        144     LOAD_CONST                      9: ', '
+                        146     LOAD_ATTR                       7: join
+                        166     LOAD_CONST                      10: <CODE> <genexpr>
+                        168     MAKE_FUNCTION                   0
+                        170     LOAD_GLOBAL                     9: NULL + zip
+                        180     LOAD_CONST                      11: 'text geo contact game'
+                        182     LOAD_ATTR                       11: split
+                        202     CALL                            0
+                        210     LOAD_FAST                       11: _var_var_8
+                        212     CALL                            2
+                        220     GET_ITER                        
+                        222     CALL                            0
+                        230     CALL                            1
+                        238     COPY                            1
+                        240     POP_JUMP_IF_TRUE                2 (to 246)
+                        242     POP_TOP                         
+                        244     LOAD_CONST                      12: 'none'
+                        246     CALL                            1
+                        254     CALL                            1
+                        262     RAISE_VARARGS                   1
+                        264     LOAD_FAST                       0: self
+                        266     LOAD_ATTR                       12: _client
+                        286     LOAD_ATTR                       15: build_reply_markup
+                        306     LOAD_FAST                       9: buttons
+                        308     LOAD_CONST                      13: True
+                        310     KW_NAMES                        14: ('inline_only',)
+                        312     CALL                            2
+                        320     STORE_FAST                      12: _var_var_9
+                        322     LOAD_FAST                       1: text
+                        324     POP_JUMP_IF_NONE                109 (to 544)
+                        326     LOAD_FAST                       0: self
+                        328     LOAD_ATTR                       12: _client
+                        348     LOAD_ATTR                       17: _parse_message_text
+                        368     LOAD_FAST                       1: text
+                        370     LOAD_FAST                       2: parse_mode
+                        372     CALL                            2
+                        380     GET_AWAITABLE                   0
+                        382     LOAD_CONST                      0: None
+                        384     SEND                            3 (to 392)
+                        388     YIELD_VALUE                     3
+                        390     RESUME                          3
+                        392     JUMP_BACKWARD_NO_INTERRUPT      5 (to 384)
+                        394     END_SEND                        
+                        396     UNPACK_SEQUENCE                 2
+                        400     STORE_FAST                      1: text
+                        402     STORE_FAST                      13: _var_var_10
+                        404     LOAD_FAST                       4: media
+                        406     POP_JUMP_IF_FALSE               33 (to 474)
+                        408     LOAD_GLOBAL                     19: NULL + types
+                        418     LOAD_ATTR                       20: InputBotInlineMessageMediaAuto
+                        438     LOAD_FAST                       1: text
+                        440     LOAD_FAST                       13: _var_var_10
+                        442     LOAD_FAST                       12: _var_var_9
+                        444     KW_NAMES                        15: ('message', 'entities', 'reply_markup')
+                        446     CALL                            3
+                        454     NOP                             
+                        456     NOP                             
+                        458     JUMP_FORWARD                    501 (to 1464)
+                        462     CALL                            1
+                        470     POP_TOP                         
+                        472     RETURN_VALUE                    
+                        474     LOAD_GLOBAL                     19: NULL + types
+                        484     LOAD_ATTR                       22: InputBotInlineMessageText
+                        504     LOAD_FAST                       1: text
+                        506     LOAD_FAST                       3: link_preview
+                        508     UNARY_NOT                       
+                        510     LOAD_FAST                       13: _var_var_10
+                        512     LOAD_FAST                       12: _var_var_9
+                        514     KW_NAMES                        17: ('message', 'no_webpage', 'entities', 'reply_markup')
+                        516     CALL                            4
+                        524     NOP                             
+                        526     NOP                             
+                        528     JUMP_FORWARD                    466 (to 1464)
+                        532     CALL                            1
+                        540     POP_TOP                         
+                        542     RETURN_VALUE                    
+                        544     LOAD_GLOBAL                     25: NULL + isinstance
+                        554     LOAD_FAST                       5: geo
+                        556     LOAD_GLOBAL                     18: types
+                        566     LOAD_ATTR                       26: InputGeoPoint
+                        586     LOAD_GLOBAL                     18: types
+                        596     LOAD_ATTR                       28: GeoPoint
+                        616     BUILD_TUPLE                     2
+                        618     CALL                            2
+                        626     POP_JUMP_IF_FALSE               52 (to 732)
+                        628     LOAD_GLOBAL                     19: NULL + types
+                        638     LOAD_ATTR                       30: InputBotInlineMessageMediaGeo
+                        658     LOAD_GLOBAL                     33: NULL + utils
+                        668     LOAD_ATTR                       34: get_input_geo
+                        688     LOAD_FAST                       5: geo
+                        690     CALL                            1
+                        698     LOAD_FAST                       6: period
+                        700     LOAD_FAST                       12: _var_var_9
+                        702     KW_NAMES                        18: ('geo_point', 'period', 'reply_markup')
+                        704     CALL                            3
+                        712     NOP                             
+                        714     NOP                             
+                        716     JUMP_FORWARD                    372 (to 1464)
+                        720     CALL                            1
+                        728     POP_TOP                         
+                        730     RETURN_VALUE                    
+                        732     LOAD_GLOBAL                     25: NULL + isinstance
+                        742     LOAD_FAST                       5: geo
+                        744     LOAD_GLOBAL                     18: types
+                        754     LOAD_ATTR                       36: InputMediaVenue
+                        774     LOAD_GLOBAL                     18: types
+                        784     LOAD_ATTR                       38: MessageMediaVenue
+                        804     BUILD_TUPLE                     2
+                        806     CALL                            2
+                        814     POP_JUMP_IF_FALSE               138 (to 1092)
+                        816     LOAD_GLOBAL                     25: NULL + isinstance
+                        826     LOAD_FAST                       5: geo
+                        828     LOAD_GLOBAL                     18: types
+                        838     LOAD_ATTR                       36: InputMediaVenue
+                        858     CALL                            2
+                        866     POP_JUMP_IF_FALSE               13 (to 894)
+                        868     LOAD_FAST                       5: geo
+                        870     LOAD_ATTR                       40: geo_point
+                        890     STORE_FAST                      14: _var_var_11
+                        892     JUMP_FORWARD                    12 (to 918)
+                        894     LOAD_FAST                       5: geo
+                        896     LOAD_ATTR                       42: geo
+                        916     STORE_FAST                      14: _var_var_11
+                        918     LOAD_GLOBAL                     19: NULL + types
+                        928     LOAD_ATTR                       44: InputBotInlineMessageMediaVenue
+                        948     LOAD_FAST                       14: _var_var_11
+                        950     LOAD_FAST                       5: geo
+                        952     LOAD_ATTR                       46: title
+                        972     LOAD_FAST                       5: geo
+                        974     LOAD_ATTR                       48: address
+                        994     LOAD_FAST                       5: geo
+                        996     LOAD_ATTR                       50: provider
+                        1016    LOAD_FAST                       5: geo
+                        1018    LOAD_ATTR                       52: venue_id
+                        1038    LOAD_FAST                       5: geo
+                        1040    LOAD_ATTR                       54: venue_type
+                        1060    LOAD_FAST                       12: _var_var_9
+                        1062    KW_NAMES                        19: ('geo_point', 'title', 'address', 'provider', 'venue_id', 'venue_type', 'reply_markup')
+                        1064    CALL                            7
+                        1072    NOP                             
+                        1074    NOP                             
+                        1076    NOP                             
+                        1078    JUMP_FORWARD                    192 (to 1464)
+                        1080    CALL                            1
+                        1088    POP_TOP                         
+                        1090    RETURN_VALUE                    
+                        1092    LOAD_GLOBAL                     25: NULL + isinstance
+                        1102    LOAD_FAST                       7: contact
+                        1104    LOAD_GLOBAL                     18: types
+                        1114    LOAD_ATTR                       56: InputMediaContact
+                        1134    LOAD_GLOBAL                     18: types
+                        1144    LOAD_ATTR                       58: MessageMediaContact
+                        1164    BUILD_TUPLE                     2
+                        1166    CALL                            2
+                        1174    POP_JUMP_IF_FALSE               75 (to 1326)
+                        1176    LOAD_GLOBAL                     19: NULL + types
+                        1186    LOAD_ATTR                       60: InputBotInlineMessageMediaContact
+                        1206    LOAD_FAST                       7: contact
+                        1208    LOAD_ATTR                       62: phone_number
+                        1228    LOAD_FAST                       7: contact
+                        1230    LOAD_ATTR                       64: first_name
+                        1250    LOAD_FAST                       7: contact
+                        1252    LOAD_ATTR                       66: last_name
+                        1272    LOAD_FAST                       7: contact
+                        1274    LOAD_ATTR                       68: vcard
+                        1294    LOAD_FAST                       12: _var_var_9
+                        1296    KW_NAMES                        20: ('phone_number', 'first_name', 'last_name', 'vcard', 'reply_markup')
+                        1298    CALL                            5
+                        1306    NOP                             
+                        1308    NOP                             
+                        1310    NOP                             
+                        1312    JUMP_FORWARD                    75 (to 1464)
+                        1314    CALL                            1
+                        1322    POP_TOP                         
+                        1324    RETURN_VALUE                    
+                        1326    LOAD_FAST                       8: game
+                        1328    POP_JUMP_IF_FALSE               31 (to 1392)
+                        1330    LOAD_GLOBAL                     19: NULL + types
+                        1340    LOAD_ATTR                       70: InputBotInlineMessageGame
+                        1360    LOAD_FAST                       12: _var_var_9
+                        1362    KW_NAMES                        21: ('reply_markup',)
+                        1364    CALL                            1
+                        1372    NOP                             
+                        1374    NOP                             
+                        1376    NOP                             
+                        1378    JUMP_FORWARD                    42 (to 1464)
+                        1380    CALL                            1
+                        1388    POP_TOP                         
+                        1390    RETURN_VALUE                    
+                        1392    LOAD_GLOBAL                     3: NULL + ValueError
+                        1402    PUSH_NULL                       
+                        1404    LOAD_CONST                      1: '__pyarmor_assert_24273__'
+                        1406    LOAD_CONST                      22: 'No text, game or valid geo or contact given'   # b"\x81\xcc\x17S'\xff\xa6\xc6W\xba\n\xc1a\xe9\xb8\x8a\x1d\x1d\xad\xa6\xa6\xc2J\x8c\x02j\xac\x1c\x0f\xa3^\xe65\\4\x0c\x9b\xde\xf4)\x11\xff\xfdS"
+                        1408    CALL                            1
+                        1416    CALL                            1
+                        1424    RAISE_VARARGS                   1
+                        1426    CLEANUP_THROW                   
+                        1428    JUMP_BACKWARD                   519 (to 394)
+                        1432    PUSH_EXC_INFO                   
+                        1434    PUSH_NULL                       
+                        1436    LOAD_CONST                      16: '__pyarmor_exit_24275__'
+                        1438    NOP                             
+                        1440    LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ez\x05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        1442    CALL                            1
+                        1450    POP_TOP                         
+                        1452    RERAISE                         0
+                        1454    COPY                            3
+                        1456    POP_EXCEPT                      
+                        1458    RERAISE                         1
+                        1460    CALL_INTRINSIC_1                3 (INTRINSIC_STOPITERATION_ERROR)
+                        1462    RERAISE                         1
+                        1464    PUSH_NULL                       
+                        1466    LOAD_CONST                      16: '__pyarmor_exit_24275__'
+                        1468    LOAD_CONST                      3: b'<COAddr>\x05\x00\x00\x1ez\x05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                        1470    BUILD_TUPLE                     1
+                        1472    CALL_FUNCTION_EX                0
+                        1474    POP_TOP                         
+                        1476    RETURN_VALUE                    
+                    [Exception Table]
+                        4 to 30 -> 1460 [0] lasti
+                        32 to 388 -> 1432 [0] 
+                        388 to 390 -> 1426 [2] 
+                        390 to 454 -> 1432 [0] 
+                        454 to 474 -> 1460 [0] lasti
+                        474 to 524 -> 1432 [0] 
+                        524 to 544 -> 1460 [0] lasti
+                        544 to 712 -> 1432 [0] 
+                        712 to 732 -> 1460 [0] lasti
+                        732 to 1072 -> 1432 [0] 
+                        1072 to 1092 -> 1460 [0] lasti
+                        1092 to 1306 -> 1432 [0] 
+                        1306 to 1326 -> 1460 [0] lasti
+                        1326 to 1372 -> 1432 [0] 
+                        1372 to 1392 -> 1460 [0] lasti
+                        1392 to 1428 -> 1432 [0] 
+                        1432 to 1454 -> 1454 [1] lasti
+                        1454 to 1460 -> 1460 [0] lasti
+                '__pyarmor_exit_24257__'
+                (
+                    None
+                )
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'InlineBuilder'
+                8       STORE_NAME                      2: __qualname__
+                10      LOAD_CONST                      1: '\n    Helper class to allow defining `InlineQuery\n    <telethon.events.inlinequery.InlineQuery>` ``results``.\n\n    Common arguments to all methods are\n    explained here to avoid repetition:\n\n        text (`str`, optional):\n            If present, the user will send a text\n            message with this text upon being clicked.\n\n        link_preview (`bool`, optional):\n            Whether to show a link preview in the sent\n            text message or not.\n\n        geo (:tl:`InputGeoPoint`, :tl:`GeoPoint`, :tl:`InputMediaVenue`, :tl:`MessageMediaVenue`, optional):\n            If present, it may either be a geo point or a venue.\n\n        period (int, optional):\n            The period in seconds to be used for geo points.\n\n        contact (:tl:`InputMediaContact`, :tl:`MessageMediaContact`, optional):\n            If present, it must be the contact information to send.\n\n        game (`bool`, optional):\n            May be `True` to indicate that the game will be sent.\n\n        buttons (`list`, `custom.Button <telethon.tl.custom.button.Button>`, :tl:`KeyboardButton`, optional):\n            Same as ``buttons`` for `client.send_message()\n            <telethon.client.messages.MessageMethods.send_message>`.\n\n        parse_mode (`str`, optional):\n            Same as ``parse_mode`` for `client.send_message()\n            <telethon.client.messageparse.MessageParseMethods.parse_mode>`.\n\n        id (`str`, optional):\n            The string ID to use for this result. If not present, it\n            will be the SHA256 hexadecimal digest of converting the\n            created :tl:`InputBotInlineResult` with empty ID to ``bytes()``,\n            so that the ID will be deterministic for the same input.\n\n            .. note::\n\n                If two inputs are exactly the same, their IDs will be the same\n                too. If you send two articles with the same ID, it will raise\n                ``ResultIdDuplicateError``. Consider giving them an explicit\n                ID if you need to send two results that are the same.\n    '
+                12      STORE_NAME                      3: __doc__
+                14      NOP                             
+                16      PUSH_NULL                       
+                18      LOAD_CONST                      3: '__pyarmor_enter_24256__'
+                20      LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\xca\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                22      BUILD_TUPLE                     1
+                24      CALL_FUNCTION_EX                0
+                26      POP_TOP                         
+                28      RESUME                          0
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      NOP                             
+                38      NOP                             
+                40      LOAD_CONST                      5: <CODE> __init__
+                42      MAKE_FUNCTION                   0
+                44      STORE_NAME                      5: __init__
+                46      NOP                             
+                48      LOAD_CONST                      22: (None,)
+                50      LOAD_CONST                      6: None
+                52      LOAD_CONST                      6: None
+                54      LOAD_CONST                      6: None
+                56      LOAD_CONST                      6: None
+                58      LOAD_CONST                      6: None
+                60      LOAD_CONST                      7: ()
+                62      LOAD_CONST                      8: True
+                64      LOAD_CONST                      6: None
+                66      LOAD_CONST                      9: 60
+                68      LOAD_CONST                      6: None
+                70      LOAD_CONST                      10: False
+                72      LOAD_CONST                      6: None
+                74      LOAD_CONST                      11: ('url', 'thumb', 'content', 'id', 'text', 'parse_mode', 'link_preview', 'geo', 'period', 'contact', 'game', 'buttons')
+                76      BUILD_CONST_KEY_MAP             12
+                78      LOAD_CONST                      12: <CODE> article
+                80      MAKE_FUNCTION                   3
+                82      STORE_NAME                      6: article
+                84      LOAD_CONST                      6: None
+                86      LOAD_CONST                      8: True
+                88      LOAD_CONST                      6: None
+                90      LOAD_CONST                      7: ()
+                92      LOAD_CONST                      8: True
+                94      LOAD_CONST                      6: None
+                96      LOAD_CONST                      9: 60
+                98      LOAD_CONST                      6: None
+                100     LOAD_CONST                      10: False
+                102     LOAD_CONST                      6: None
+                104     LOAD_CONST                      13: ('id', 'include_media', 'text', 'parse_mode', 'link_preview', 'geo', 'period', 'contact', 'game', 'buttons')
+                106     BUILD_CONST_KEY_MAP             10
+                108     LOAD_CONST                      14: <CODE> photo
+                110     MAKE_FUNCTION                   2
+                112     STORE_NAME                      7: photo
+                114     NOP                             
+                116     LOAD_CONST                      22: (None,)
+                118     LOAD_CONST                      6: None
+                120     LOAD_CONST                      6: None
+                122     LOAD_CONST                      6: None
+                124     LOAD_CONST                      6: None
+                126     LOAD_CONST                      10: False
+                128     LOAD_CONST                      10: False
+                130     LOAD_CONST                      10: False
+                132     LOAD_CONST                      8: True
+                134     LOAD_CONST                      6: None
+                136     LOAD_CONST                      6: None
+                138     LOAD_CONST                      7: ()
+                140     LOAD_CONST                      8: True
+                142     LOAD_CONST                      6: None
+                144     LOAD_CONST                      9: 60
+                146     LOAD_CONST                      6: None
+                148     LOAD_CONST                      10: False
+                150     LOAD_CONST                      6: None
+                152     LOAD_CONST                      8: True
+                154     LOAD_CONST                      15: ('description', 'type', 'mime_type', 'attributes', 'force_document', 'voice_note', 'video_note', 'use_cache', 'id', 'text', 'parse_mode', 'link_preview', 'geo', 'period', 'contact', 'game', 'buttons', 'include_media')
+                156     BUILD_CONST_KEY_MAP             18
+                158     LOAD_CONST                      16: <CODE> document
+                160     MAKE_FUNCTION                   3
+                162     STORE_NAME                      8: document
+                164     LOAD_CONST                      6: None
+                166     LOAD_CONST                      6: None
+                168     LOAD_CONST                      7: ()
+                170     LOAD_CONST                      8: True
+                172     LOAD_CONST                      6: None
+                174     LOAD_CONST                      9: 60
+                176     LOAD_CONST                      6: None
+                178     LOAD_CONST                      10: False
+                180     LOAD_CONST                      6: None
+                182     LOAD_CONST                      17: ('id', 'text', 'parse_mode', 'link_preview', 'geo', 'period', 'contact', 'game', 'buttons')
+                184     BUILD_CONST_KEY_MAP             9
+                186     LOAD_CONST                      18: <CODE> game
+                188     MAKE_FUNCTION                   2
+                190     STORE_NAME                      9: game
+                192     LOAD_CONST                      6: None
+                194     LOAD_CONST                      7: ()
+                196     LOAD_CONST                      8: True
+                198     LOAD_CONST                      10: False
+                200     LOAD_CONST                      6: None
+                202     LOAD_CONST                      9: 60
+                204     LOAD_CONST                      6: None
+                206     LOAD_CONST                      10: False
+                208     LOAD_CONST                      6: None
+                210     LOAD_CONST                      19: ('text', 'parse_mode', 'link_preview', 'media', 'geo', 'period', 'contact', 'game', 'buttons')
+                212     BUILD_CONST_KEY_MAP             9
+                214     LOAD_CONST                      20: <CODE> _message
+                216     MAKE_FUNCTION                   2
+                218     STORE_NAME                      10: _message
+                220     LOAD_CONST                      6: None
+                222     NOP                             
+                224     NOP                             
+                226     NOP                             
+                228     JUMP_FORWARD                    19 (to 268)
+                236     POP_TOP                         
+                238     RETURN_CONST                    6: None
+                240     PUSH_EXC_INFO                   
+                242     PUSH_NULL                       
+                244     LOAD_CONST                      21: '__pyarmor_exit_24257__'
+                246     NOP                             
+                248     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\xca\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                250     CALL                            1
+                258     POP_TOP                         
+                260     RERAISE                         0
+                262     COPY                            3
+                264     POP_EXCEPT                      
+                266     RERAISE                         1
+                268     PUSH_NULL                       
+                270     LOAD_CONST                      21: '__pyarmor_exit_24257__'
+                272     LOAD_CONST                      4: b'<COAddr>\x05\x00\x00&\xca\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                274     BUILD_TUPLE                     1
+                276     CALL_FUNCTION_EX                0
+                278     POP_TOP                         
+                280     RETURN_VALUE                    
+            [Exception Table]
+                40 to 220 -> 240 [0] 
+                240 to 262 -> 262 [1] lasti
+        'InlineBuilder'
+        '__pyarmor_exit_24254__'
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_24253__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xf4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 0
+        28      LOAD_CONST                      4: None
+        30      IMPORT_NAME                     1: hashlib
+        32      STORE_NAME                      1: hashlib
+        34      LOAD_CONST                      5: 2
+        36      LOAD_CONST                      6: ('functions', 'types')
+        38      IMPORT_NAME                     2: 
+        40      IMPORT_FROM                     3: functions
+        42      STORE_NAME                      3: functions
+        44      IMPORT_FROM                     4: types
+        46      STORE_NAME                      4: types
+        48      POP_TOP                         
+        50      LOAD_CONST                      7: 3
+        52      LOAD_CONST                      8: ('utils',)
+        54      IMPORT_NAME                     2: 
+        56      IMPORT_FROM                     5: utils
+        58      STORE_NAME                      5: utils
+        60      POP_TOP                         
+        62      PUSH_NULL                       
+        64      LOAD_CONST                      0: '__pyarmor_assert_24252__'
+        66      LOAD_CONST                      9: 'image/gif'   # b'\x81\xeb\x15\x124\xff\xf1\xd5\x12\xfc'
+        68      CALL                            1
+        76      BUILD_LIST                      1
+        78      PUSH_NULL                       
+        80      LOAD_CONST                      0: '__pyarmor_assert_24252__'
+        82      LOAD_CONST                      10: 'text/html'   # b"\x81\xf6\x1d\x0b'\xb5\xb6\xc6\x16\xf6"
+        84      CALL                            1
+        92      BUILD_LIST                      1
+        94      PUSH_NULL                       
+        96      LOAD_CONST                      0: '__pyarmor_assert_24252__'
+        98      LOAD_CONST                      11: 'audio/mpeg'   # b'\x81\xe3\r\x17:\xf5\xf1\xdf\x0b\xff\n'
+        100     CALL                            1
+        108     BUILD_LIST                      1
+        110     BUILD_LIST                      0
+        112     PUSH_NULL                       
+        114     LOAD_CONST                      0: '__pyarmor_assert_24252__'
+        116     LOAD_CONST                      12: 'application/pdf'   # b'\x81\xe3\x08\x03?\xf3\xbd\xd3\x0f\xf3\x02\xce#\xfc\xfc\x83'
+        118     CALL                            1
+        126     PUSH_NULL                       
+        128     LOAD_CONST                      0: '__pyarmor_assert_24252__'
+        130     LOAD_CONST                      13: 'application/zip'   # b'\x81\xe3\x08\x03?\xf3\xbd\xd3\x0f\xf3\x02\xce#\xf6\xf1\x95'
+        132     CALL                            1
+        140     BUILD_LIST                      2
+        142     BUILD_LIST                      0
+        144     PUSH_NULL                       
+        146     LOAD_CONST                      0: '__pyarmor_assert_24252__'
+        148     LOAD_CONST                      14: 'image/jpeg'   # b'\x81\xeb\x15\x124\xff\xf1\xd8\x0b\xff\n'
+        150     CALL                            1
+        158     BUILD_LIST                      1
+        160     PUSH_NULL                       
+        162     LOAD_CONST                      0: '__pyarmor_assert_24252__'
+        164     LOAD_CONST                      15: 'image/webp'   # b'\x81\xeb\x15\x124\xff\xf1\xc5\x1e\xf8\x1d'
+        166     CALL                            1
+        174     PUSH_NULL                       
+        176     LOAD_CONST                      0: '__pyarmor_assert_24252__'
+        178     LOAD_CONST                      16: 'application/x-tgsticker'   # b'\x81\xe3\x08\x03?\xf3\xbd\xd3\x0f\xf3\x02\xce#\xf4\xb5\x91\x08N\xaf\xae\xa9\xc0K\xde'
+        180     CALL                            1
+        188     BUILD_LIST                      2
+        190     BUILD_LIST                      0
+        192     PUSH_NULL                       
+        194     LOAD_CONST                      0: '__pyarmor_assert_24252__'
+        196     LOAD_CONST                      17: 'video/mp4'   # b'\x81\xf4\x11\x176\xf5\xf1\xdf\x0b\xae'
+        198     CALL                            1
+        206     BUILD_LIST                      1
+        208     PUSH_NULL                       
+        210     LOAD_CONST                      0: '__pyarmor_assert_24252__'
+        212     LOAD_CONST                      18: 'audio/ogg'   # b'\x81\xe3\r\x17:\xf5\xf1\xdd\x1c\xfd'
+        214     CALL                            1
+        222     BUILD_LIST                      1
+        224     LOAD_CONST                      19: ('gif', 'article', 'audio', 'contact', 'file', 'geo', 'photo', 'sticker', 'venue', 'video', 'voice')
+        226     BUILD_CONST_KEY_MAP             11
+        228     STORE_NAME                      6: _TYPE_TO_MIMES
+        230     PUSH_NULL                       
+        232     LOAD_BUILD_CLASS                
+        234     LOAD_CONST                      20: <CODE> InlineBuilder
+        236     MAKE_FUNCTION                   0
+        238     LOAD_CONST                      21: 'InlineBuilder'
+        240     CALL                            2
+        248     STORE_NAME                      7: InlineBuilder
+        250     LOAD_CONST                      4: None
+        252     NOP                             
+        254     NOP                             
+        256     NOP                             
+        258     JUMP_FORWARD                    19 (to 298)
+        266     POP_TOP                         
+        268     RETURN_CONST                    4: None
+        270     PUSH_EXC_INFO                   
+        272     PUSH_NULL                       
+        274     LOAD_CONST                      22: '__pyarmor_exit_24254__'
+        276     NOP                             
+        278     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xf4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        280     CALL                            1
+        288     POP_TOP                         
+        290     RERAISE                         0
+        292     COPY                            3
+        294     POP_EXCEPT                      
+        296     RERAISE                         1
+        298     PUSH_NULL                       
+        300     LOAD_CONST                      22: '__pyarmor_exit_24254__'
+        302     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a\xf4\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        304     BUILD_TUPLE                     1
+        306     CALL_FUNCTION_EX                0
+        308     POP_TOP                         
+        310     RETURN_VALUE                    
+    [Exception Table]
+        26 to 250 -> 270 [0] 
+        270 to 292 -> 292 [1] lasti

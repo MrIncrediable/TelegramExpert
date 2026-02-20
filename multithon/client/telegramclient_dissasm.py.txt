@@ -1,0 +1,227 @@
+#decoded by lolz.live/mrpenny / t.me/zeus_jackpot
+# ================================
+# Примечания по Pyarmor:
+# - Байт-код и объекты кода Pyarmor соответствуют стандартному Python, но присутствуют специальные вызовы функций среды выполнения (runtime) Pyarmor.
+# - Вызовы строк — это не ошибки, а маркеры, которые обрабатываются Pyarmor во время выполнения.
+#
+# Руководство по декомпиляции (без среды выполнения):
+# 1. Игнорируйте зашифрованные байты после `#`; используйте только строку до `#`.
+# 2. Удалите "__pyarmor_enter_xxx__"(b"<COAddr>...") и "__pyarmor_leave_xxx__"(b"<COAddr>...") (пролог/эпилог).
+# 3. "__pyarmor_assert_xxx__"(A) не является настоящим оператором assert.
+#    - Если A — это имя или читаемая строка: замените на A.
+#    - Если A — это (X, "Y"): замените на X.Y.
+#    - Если A — это (X, "Y", Z): замените на X.Y = Z.
+#    - В противном случае: выберите наиболее подходящую/логичную замену.
+# 4. "__pyarmor_bcc_xxx__"(...) указывает на машинный (нативный) код; тело функции недоступно. Добавьте комментарий.
+# ================================
+
+[Code]
+    File Name: <frozen multithon.client.telegramclient>
+    Object Name: <module>
+    Qualified Name: <module>
+    Arg Count: 0
+    Pos Only Arg Count: 0
+    KW Only Arg Count: 0
+    Stack Size: 17
+    Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+    [Names]
+        '__assert_armored__'
+        ''
+        'AccountMethods'
+        'AuthMethods'
+        'DownloadMethods'
+        'DialogMethods'
+        'ChatMethods'
+        'BotMethods'
+        'MessageMethods'
+        'UploadMethods'
+        'ButtonMethods'
+        'UpdateMethods'
+        'MessageParseMethods'
+        'UserMethods'
+        'TelegramBaseClient'
+        'TelegramClient'
+    [Locals+Names]
+    [Constants]
+        '__pyarmor_assert_17229__'
+        '__pyarmor_enter_17230__'
+        b'<COAddr>\x05\x00\x00\x1a~\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        1
+        (
+            'AccountMethods'
+            'AuthMethods'
+            'DownloadMethods'
+            'DialogMethods'
+            'ChatMethods'
+            'BotMethods'
+            'MessageMethods'
+            'UploadMethods'
+            'ButtonMethods'
+            'UpdateMethods'
+            'MessageParseMethods'
+            'UserMethods'
+            'TelegramBaseClient'
+        )
+        [Code]
+            File Name: <frozen multithon.client.telegramclient>
+            Object Name: TelegramClient
+            Qualified Name: TelegramClient
+            Arg Count: 0
+            Pos Only Arg Count: 0
+            KW Only Arg Count: 0
+            Stack Size: 5
+            Flags: 0x20000000 (CO_PYARMOR_OBFUSCATED)
+            [Names]
+                '__name__'
+                '__module__'
+                '__qualname__'
+                '__assert_armored__'
+            [Locals+Names]
+            [Constants]
+                'TelegramClient'
+                '__pyarmor_assert_17232__'
+                '__pyarmor_enter_17233__'
+                b'<COAddr>\x05\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                '__pyarmor_exit_17234__'
+                None
+            [Disassembly]
+                0       NOP                             
+                2       LOAD_NAME                       0: __name__
+                4       STORE_NAME                      1: __module__
+                6       LOAD_CONST                      0: 'TelegramClient'
+                8       STORE_NAME                      2: __qualname__
+                10      NOP                             
+                12      PUSH_NULL                       
+                14      LOAD_CONST                      2: '__pyarmor_enter_17233__'
+                16      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                18      BUILD_TUPLE                     1
+                20      CALL_FUNCTION_EX                0
+                22      POP_TOP                         
+                24      RESUME                          0
+                26      NOP                             
+                28      NOP                             
+                30      NOP                             
+                32      NOP                             
+                34      NOP                             
+                36      LOAD_CONST                      5: None
+                38      NOP                             
+                40      NOP                             
+                42      NOP                             
+                44      JUMP_FORWARD                    19 (to 84)
+                52      POP_TOP                         
+                54      RETURN_CONST                    5: None
+                56      PUSH_EXC_INFO                   
+                58      PUSH_NULL                       
+                60      LOAD_CONST                      4: '__pyarmor_exit_17234__'
+                62      NOP                             
+                64      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                66      CALL                            1
+                74      POP_TOP                         
+                76      RERAISE                         0
+                78      COPY                            3
+                80      POP_EXCEPT                      
+                82      RERAISE                         1
+                84      PUSH_NULL                       
+                86      LOAD_CONST                      4: '__pyarmor_exit_17234__'
+                88      LOAD_CONST                      3: b'<COAddr>\x05\x00\x00"\x16\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                90      BUILD_TUPLE                     1
+                92      CALL_FUNCTION_EX                0
+                94      POP_TOP                         
+                96      RETURN_VALUE                    
+            [Exception Table]
+                56 to 78 -> 78 [1] lasti
+        'TelegramClient'
+        '__pyarmor_exit_17231__'
+        None
+    [Disassembly]
+        0       NOP                             
+        2       NOP                             
+        4       PUSH_NULL                       
+        6       LOAD_CONST                      1: '__pyarmor_enter_17230__'
+        8       LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a~\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        10      BUILD_TUPLE                     1
+        12      CALL_FUNCTION_EX                0
+        14      POP_TOP                         
+        16      RESUME                          0
+        18      NOP                             
+        20      NOP                             
+        22      NOP                             
+        24      NOP                             
+        26      LOAD_CONST                      3: 1
+        28      LOAD_CONST                      4: ('AccountMethods', 'AuthMethods', 'DownloadMethods', 'DialogMethods', 'ChatMethods', 'BotMethods', 'MessageMethods', 'UploadMethods', 'ButtonMethods', 'UpdateMethods', 'MessageParseMethods', 'UserMethods', 'TelegramBaseClient')
+        30      IMPORT_NAME                     1: 
+        32      IMPORT_FROM                     2: AccountMethods
+        34      STORE_NAME                      2: AccountMethods
+        36      IMPORT_FROM                     3: AuthMethods
+        38      STORE_NAME                      3: AuthMethods
+        40      IMPORT_FROM                     4: DownloadMethods
+        42      STORE_NAME                      4: DownloadMethods
+        44      IMPORT_FROM                     5: DialogMethods
+        46      STORE_NAME                      5: DialogMethods
+        48      IMPORT_FROM                     6: ChatMethods
+        50      STORE_NAME                      6: ChatMethods
+        52      IMPORT_FROM                     7: BotMethods
+        54      STORE_NAME                      7: BotMethods
+        56      IMPORT_FROM                     8: MessageMethods
+        58      STORE_NAME                      8: MessageMethods
+        60      IMPORT_FROM                     9: UploadMethods
+        62      STORE_NAME                      9: UploadMethods
+        64      IMPORT_FROM                     10: ButtonMethods
+        66      STORE_NAME                      10: ButtonMethods
+        68      IMPORT_FROM                     11: UpdateMethods
+        70      STORE_NAME                      11: UpdateMethods
+        72      IMPORT_FROM                     12: MessageParseMethods
+        74      STORE_NAME                      12: MessageParseMethods
+        76      IMPORT_FROM                     13: UserMethods
+        78      STORE_NAME                      13: UserMethods
+        80      IMPORT_FROM                     14: TelegramBaseClient
+        82      STORE_NAME                      14: TelegramBaseClient
+        84      POP_TOP                         
+        86      PUSH_NULL                       
+        88      LOAD_BUILD_CLASS                
+        90      LOAD_CONST                      5: <CODE> TelegramClient
+        92      MAKE_FUNCTION                   0
+        94      LOAD_CONST                      6: 'TelegramClient'
+        96      LOAD_NAME                       2: AccountMethods
+        98      LOAD_NAME                       3: AuthMethods
+        100     LOAD_NAME                       4: DownloadMethods
+        102     LOAD_NAME                       5: DialogMethods
+        104     LOAD_NAME                       6: ChatMethods
+        106     LOAD_NAME                       7: BotMethods
+        108     LOAD_NAME                       8: MessageMethods
+        110     LOAD_NAME                       9: UploadMethods
+        112     LOAD_NAME                       10: ButtonMethods
+        114     LOAD_NAME                       11: UpdateMethods
+        116     LOAD_NAME                       12: MessageParseMethods
+        118     LOAD_NAME                       13: UserMethods
+        120     LOAD_NAME                       14: TelegramBaseClient
+        122     CALL                            15
+        130     STORE_NAME                      15: TelegramClient
+        132     LOAD_CONST                      8: None
+        134     NOP                             
+        136     NOP                             
+        138     NOP                             
+        140     JUMP_FORWARD                    19 (to 180)
+        148     POP_TOP                         
+        150     RETURN_CONST                    8: None
+        152     PUSH_EXC_INFO                   
+        154     PUSH_NULL                       
+        156     LOAD_CONST                      7: '__pyarmor_exit_17231__'
+        158     NOP                             
+        160     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a~\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        162     CALL                            1
+        170     POP_TOP                         
+        172     RERAISE                         0
+        174     COPY                            3
+        176     POP_EXCEPT                      
+        178     RERAISE                         1
+        180     PUSH_NULL                       
+        182     LOAD_CONST                      7: '__pyarmor_exit_17231__'
+        184     LOAD_CONST                      2: b'<COAddr>\x05\x00\x00\x1a~\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        186     BUILD_TUPLE                     1
+        188     CALL_FUNCTION_EX                0
+        190     POP_TOP                         
+        192     RETURN_VALUE                    
+    [Exception Table]
+        26 to 132 -> 152 [0] 
+        152 to 174 -> 174 [1] lasti
