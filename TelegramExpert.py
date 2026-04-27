@@ -1,6 +1,8 @@
 import os
 import sys
-from program.updater import Updater
+
+def Updater():
+    return True
 
 def run_exe():
     try:
