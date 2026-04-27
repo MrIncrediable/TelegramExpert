@@ -1,7 +1,6 @@
 import base64
 import datetime
 import os
-import time
 from Crypto.Cipher import AES
 from Crypto.Hash import SHA256
 from Crypto.Util.Padding import pad, unpad
@@ -11,9 +10,9 @@ from .fingerprint import get_fingerprint, get_lic_key
 _DATA_DIR = 'temp'
 _MODULE_FILE = os.path.join(_DATA_DIR, '001.dat')
 _LANG_FILE = os.path.join(_DATA_DIR, '002.dat')
-_SWITCHER_FILE = os.path.join(_DATA_DIR, 'switcher.dat')
+_SWITCHER_FILE = os.path.join(_DATA_DIR, '003.dat')
 _PID_FILE = os.path.join(_DATA_DIR, 'pid.dat')
-_SSL_FILE = os.path.join(_DATA_DIR, 'ssl.dat')
+_SSL_FILE = os.path.join(_DATA_DIR, '004.dat')
 
 _MODULES = {
     1: 'mod:registrator|',
@@ -38,12 +37,19 @@ def _ensure_temp() -> None:
 class FileProtector:
     def __init__(self):
         self.iv = base64.b64decode('u1c0cnTGVCSG9evTP1DIjg==')
-        fp = get_fingerprint() or 'telegram-expert'
-        license_key = get_lic_key() or ''
-        self.key = SHA256.new(f'{fp}{license_key}'.encode('utf-8')).digest()
+        self.key = self._key()
 
     def _key(self):
-        return self.key
+        license_key = get_lic_key()
+        fingerprint = get_fingerprint()
+        date = datetime.datetime.now().strftime('%Y-%m-%U')
+        if not license_key:
+            raise ValueError('key error')
+        if not fingerprint:
+            raise ValueError('finger error')
+        key = SHA256.new()
+        key.update(f'{date}_{license_key}_{fingerprint}'.encode('utf-8'))
+        return key.digest()
 
     def encrypt(self, data):
         raw = str(data).encode('utf-8')
@@ -61,11 +67,14 @@ class FileProtector:
 
 
 def memory_set_module(data):
-    _ensure_temp()
-    payload = ''.join(_MODULES[item] for item in data if item in _MODULES)
-    with open(_MODULE_FILE, 'w', encoding='utf-8', errors='ignore') as file:
-        file.write(FileProtector().encrypt(payload))
-    return None
+    try:
+        _ensure_temp()
+        payload = ''.join(_MODULES[item] for item in data if item in _MODULES)
+        with open(_MODULE_FILE, 'w', encoding='utf-8', errors='ignore') as file:
+            file.write(FileProtector().encrypt(payload))
+        return True
+    except Exception:
+        return False
 
 
 def check_module(module):
@@ -78,19 +87,20 @@ def check_module(module):
 
 
 def memory_set_lang(key):
-    _ensure_temp()
-    value = str(key)
-    if value in ('ru', 'en', 'cn'):
-        lang = f'lang:{value}'
-    elif value.startswith('EXPERT-EN'):
-        lang = 'lang:en'
-    elif value.startswith('EXPERT-CN'):
-        lang = 'lang:cn'
-    else:
-        lang = 'lang:ru'
-    with open(_LANG_FILE, 'w', encoding='utf-8', errors='ignore') as file:
-        file.write(FileProtector().encrypt(lang))
-    return None
+    try:
+        _ensure_temp()
+        value = str(key)
+        if value in ('ru', 'en', 'cn') or value.startswith('EXPERT-EN'):
+            lang = 'lang:en'
+        elif value.startswith('EXPERT-CN'):
+            lang = 'lang:cn'
+        else:
+            lang = 'lang:ru'
+        with open(_LANG_FILE, 'w', encoding='utf-8', errors='ignore') as file:
+            file.write(FileProtector().encrypt(lang))
+        return True
+    except Exception:
+        return False
 
 
 def memory_get_lang():
@@ -109,17 +119,28 @@ def memory_get_lang():
 
 
 def memory_set_switcher():
-    _ensure_temp()
-    with open(_SWITCHER_FILE, 'w', encoding='utf-8') as file:
-        file.write(str(time.time()))
-    return None
-
-
-def memory_check_switcher(timeout=0):
     try:
-        with open(_SWITCHER_FILE, 'r', encoding='utf-8') as file:
-            value = float(file.read().strip())
-        return timeout <= 0 or time.time() - value <= timeout
+        _ensure_temp()
+        license_key = get_lic_key()
+        date = datetime.datetime.now().strftime('%Y-%m-%U')
+        key = SHA256.new()
+        key.update(f'{date}_{license_key}'.encode('utf-8'))
+        with open(_SWITCHER_FILE, 'w', encoding='utf-8', errors='ignore') as file:
+            file.write(FileProtector().encrypt(key.hexdigest()))
+        return True
+    except Exception:
+        return False
+
+
+def memory_check_switcher(ids=0):
+    try:
+        license_key = get_lic_key()
+        date = datetime.datetime.now().strftime('%Y-%m-%U')
+        key = SHA256.new()
+        key.update(f'{date}_{license_key}'.encode('utf-8'))
+        with open(_SWITCHER_FILE, 'r', encoding='utf-8', errors='ignore') as file:
+            data = FileProtector().decrypt(file.read())
+        return key.hexdigest() in data
     except Exception:
         return False
 
@@ -155,15 +176,20 @@ def memory_remove_pid(pid):
 
 
 def memory_set_ssl(value):
-    _ensure_temp()
-    with open(_SSL_FILE, 'w', encoding='utf-8') as file:
-        file.write('1' if value else '0')
-    return None
+    try:
+        _ensure_temp()
+        payload = ''.join(f'{item}|' for item in value)
+        with open(_SSL_FILE, 'w', encoding='utf-8', errors='ignore') as file:
+            file.write(FileProtector().encrypt(payload))
+        return True
+    except Exception:
+        return False
 
 
 def memory_get_ssl():
     try:
-        with open(_SSL_FILE, 'r', encoding='utf-8') as file:
-            return file.read().strip() == '1'
+        with open(_SSL_FILE, 'r', encoding='utf-8', errors='ignore') as file:
+            data = FileProtector().decrypt(file.read())
+        return [item.strip() for item in data.split('|') if item.strip()]
     except Exception:
         return False

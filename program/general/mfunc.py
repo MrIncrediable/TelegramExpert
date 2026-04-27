@@ -1009,13 +1009,13 @@ def upgs_nonce():
             
             if status == 'ok' and key == resp_key and data_resp != 'bad' and ssl_val:
                 if type(data_resp) is list and type(ssl_val) is list:
-                    if memory_set_module(data_resp):
+                    if not memory_set_module(data_resp):
                         raise ValueError('Error')
-                    if memory_set_lang(key):
+                    if not memory_set_lang(key):
                         raise ValueError('Error')
-                    if memory_set_switcher():
+                    if not memory_set_switcher():
                         raise ValueError('Error')
-                    if memory_set_ssl(ssl_val):
+                    if not memory_set_ssl(ssl_val):
                         raise ValueError('Error')
                     return True
         return False
