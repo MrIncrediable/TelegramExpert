@@ -38,7 +38,11 @@ class GeneratorName:
         return random.choice(source)
 
     def last_name(self):
-        return self._generate(self.surname)
+        for _ in range(10):
+            name = self._generate(self.surname)
+            if len(name) >= 4:
+                return name
+        return random.choice(self.surname)
 
     def get(self):
         sex = random.randint(1, 2)

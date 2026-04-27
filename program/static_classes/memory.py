@@ -103,9 +103,9 @@ def memory_get_lang():
             return 'en'
         if 'lang:cn' in lang:
             return 'cn'
-        return False
+        return 'en'
     except Exception:
-        return False
+        return 'en'
 
 
 def memory_set_switcher():

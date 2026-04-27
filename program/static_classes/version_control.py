@@ -24,4 +24,19 @@ class VersionControl:
             self.app_id = app_id
         if version is not None:
             self.version = version
-        return True
+        if self.app_id is None or self.version is None:
+            return True
+        try:
+            app_id = int(self.app_id)
+        except (TypeError, ValueError):
+            app_id = None
+        version = str(self.version)
+        control_official = self.config.get('control_offical', True)
+        control_unofficial = self.config.get('control_unoffical', True)
+        if app_id in (4, 6):
+            return True if not control_official else version in self.android
+        if app_id == 21724:
+            return True if not control_official else version in self.android_x
+        if app_id == 2040:
+            return True if not control_official else version in self.desktop
+        return not control_unofficial
