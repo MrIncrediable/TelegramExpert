@@ -90,9 +90,9 @@ def memory_set_lang(key):
     try:
         _ensure_temp()
         value = str(key)
-        if value in ('ru', 'en', 'cn') or value.startswith('EXPERT-EN'):
+        if value == 'en' or value.startswith('EXPERT-EN'):
             lang = 'lang:en'
-        elif value.startswith('EXPERT-CN'):
+        elif value == 'cn' or value.startswith('EXPERT-CN'):
             lang = 'lang:cn'
         else:
             lang = 'lang:ru'
