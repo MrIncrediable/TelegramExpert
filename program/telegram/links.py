@@ -25,13 +25,12 @@ class tg_links:
     def _correct_private(link):
         if link is None:
             return ''
-        return (str(link)
-                .replace('https://t.me/joinchat', '')
-                .replace('https://t.me/+', '')
-                .replace('https://t.me/joinchat/', '')
-                .replace('https://t.me/', '')
-                .replace('@', '')
-                .strip())
+        link = str(link)
+        if 'https://t.me/joinchat' in link:
+            return link.replace(' ', '').strip()
+        if 'https://t.me/+' in link:
+            return link.replace('https://t.me/+', 'https://t.me/joinchat/').strip()
+        return link.replace('https://t.me/', '').replace('@', '').strip()
 
     @staticmethod
     def message_link_id_username(link):
