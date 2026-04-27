@@ -10,7 +10,7 @@ from .fingerprint import get_fingerprint, get_lic_key
 
 _DATA_DIR = 'temp'
 _MODULE_FILE = os.path.join(_DATA_DIR, '001.dat')
-_LANG_FILE = os.path.join(_DATA_DIR, 'lang.dat')
+_LANG_FILE = os.path.join(_DATA_DIR, '002.dat')
 _SWITCHER_FILE = os.path.join(_DATA_DIR, 'switcher.dat')
 _PID_FILE = os.path.join(_DATA_DIR, 'pid.dat')
 _SSL_FILE = os.path.join(_DATA_DIR, 'ssl.dat')
@@ -77,20 +77,35 @@ def check_module(module):
         return False
 
 
-def memory_set_lang(lang):
+def memory_set_lang(key):
     _ensure_temp()
-    with open(_LANG_FILE, 'w', encoding='utf-8') as file:
-        file.write(str(lang))
+    value = str(key)
+    if value in ('ru', 'en', 'cn'):
+        lang = f'lang:{value}'
+    elif value.startswith('EXPERT-EN'):
+        lang = 'lang:en'
+    elif value.startswith('EXPERT-CN'):
+        lang = 'lang:cn'
+    else:
+        lang = 'lang:ru'
+    with open(_LANG_FILE, 'w', encoding='utf-8', errors='ignore') as file:
+        file.write(FileProtector().encrypt(lang))
     return None
 
 
 def memory_get_lang():
     try:
-        with open(_LANG_FILE, 'r', encoding='utf-8') as file:
-            lang = file.read().strip()
-        return lang or 'en'
+        with open(_LANG_FILE, 'r', encoding='utf-8', errors='ignore') as file:
+            lang = FileProtector().decrypt(file.read())
+        if 'lang:ru' in lang:
+            return 'ru'
+        if 'lang:en' in lang:
+            return 'en'
+        if 'lang:cn' in lang:
+            return 'cn'
+        return False
     except Exception:
-        return 'en'
+        return False
 
 
 def memory_set_switcher():
