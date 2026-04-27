@@ -11,7 +11,8 @@ class GeneratorName:
     def _transitions(self, names):
         transitions = defaultdict(list)
         for name in names:
-            for left, right in zip(name, name[1:]):
+            marked = '^' + name + '$'
+            for left, right in zip(marked, marked[1:]):
                 transitions[left].append(right)
         return transitions
 

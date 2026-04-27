@@ -30,6 +30,9 @@ class AccsRole:
     def get(self, role=None):
         return role
 
+    def getAll(self):
+        return []
+
 
 class AccountsRoles:
     def __init__(self, path='settings/roles.db'):

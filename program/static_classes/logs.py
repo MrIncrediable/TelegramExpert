@@ -28,8 +28,9 @@ class logging:
         self._log = str(exception) if exception is not None else ''
         self._print = LOG_SHOW
         self._file = LOG_FILE
+        self._write()
 
-    def __call__(self):
+    def _write(self):
         if self._exception is None:
             return None
         add_to_errors(self._exception)
@@ -42,6 +43,9 @@ class logging:
                 if isinstance(self._exception, BaseException):
                     file.write(''.join(traceback.format_exception(self._exception)))
         return None
+
+    def __call__(self):
+        return self
 
 
 class Logs:

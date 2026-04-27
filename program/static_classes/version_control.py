@@ -15,9 +15,13 @@ class VersionControl:
         self.android_x = list(self.android)
         self.desktop = ['5.14.4 x64', '5.14.3 x64', '5.14.2 x64']
 
-    def check(self, account=None):
+    def check(self, account=None, app_id=None, version=None):
         self.account = account
         if isinstance(account, dict):
             self.app_id = account.get('app_id') or account.get('api_id')
             self.version = account.get('app_version')
+        if app_id is not None:
+            self.app_id = app_id
+        if version is not None:
+            self.version = version
         return True

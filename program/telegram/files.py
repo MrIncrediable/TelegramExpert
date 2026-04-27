@@ -41,8 +41,14 @@ def get_account_json(path):
     return json_file.read(path)
 
 
-def set_account_json(path, data):
-    return json_file.write(path, data)
+def set_account_json(path, data=None, **kwargs):
+    if kwargs:
+        current = json_file.read(path) if os.path.exists(path) else {}
+        if not isinstance(current, dict):
+            current = {}
+        current.update(kwargs)
+        return json_file.write(path, current)
+    return json_file.write(path, data or {})
 
 
 def get_session(path):
