@@ -11,7 +11,7 @@ except Exception:
 try:
     from . import events, utils, errors, types, functions, custom
 except Exception:
-    events = utils = types = functions = custom = None
+    events = utils = errors = types = functions = custom = None
 
 __version__ = '1.40.0'
 __all__ = ['TelegramClient', 'Button', 'types', 'functions', 'custom', 'errors', 'events', 'utils']

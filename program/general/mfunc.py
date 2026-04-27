@@ -125,21 +125,26 @@ def GetProxy():
 def StopDetect(stop_thread=None):
     try:
         Logs.PrintLogDone(message='Work is done')
-        eel.HideStopButton()
-        stop_thread.set()
+        if stop_thread is not None:
+            stop_thread.set()
+        if eel is not None and hasattr(eel, 'HideStopButton'):
+            eel.HideStopButton()
         return None
-    except:
-        pass
+    except Exception as e:
+        logging(e)
 
 def check_get_settings(settings):
     try:
         for key in settings:
             if settings[key] == '' and key != 'file_db':
-                eel.sendErrorBox('Check settings')
-                StopProgram()
+                if eel is not None and hasattr(eel, 'sendErrorBox'):
+                    eel.sendErrorBox('Check settings')
+                raise StopProgram()
         return None
-    except:
-        pass
+    except StopProgram:
+        raise
+    except Exception as e:
+        logging(e)
 
 def random_account_param(rows):
     try:

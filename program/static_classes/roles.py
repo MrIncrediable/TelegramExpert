@@ -17,7 +17,7 @@ class Header:
         return {'User-Agent': self.user_agent()}
 
     def urlget(self):
-        return self.get()
+        return [('User-Agent', self.user_agent())]
 
     def __del__(self):
         return None
