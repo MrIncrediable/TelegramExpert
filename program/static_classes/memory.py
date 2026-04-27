@@ -65,7 +65,7 @@ def memory_set_module(data):
     payload = ''.join(_MODULES[item] for item in data if item in _MODULES)
     with open(_MODULE_FILE, 'w', encoding='utf-8', errors='ignore') as file:
         file.write(FileProtector().encrypt(payload))
-    return True
+    return None
 
 
 def check_module(module):
@@ -81,7 +81,7 @@ def memory_set_lang(lang):
     _ensure_temp()
     with open(_LANG_FILE, 'w', encoding='utf-8') as file:
         file.write(str(lang))
-    return True
+    return None
 
 
 def memory_get_lang():
@@ -97,7 +97,7 @@ def memory_set_switcher():
     _ensure_temp()
     with open(_SWITCHER_FILE, 'w', encoding='utf-8') as file:
         file.write(str(time.time()))
-    return True
+    return None
 
 
 def memory_check_switcher(timeout=0):
@@ -143,7 +143,7 @@ def memory_set_ssl(value):
     _ensure_temp()
     with open(_SSL_FILE, 'w', encoding='utf-8') as file:
         file.write('1' if value else '0')
-    return True
+    return None
 
 
 def memory_get_ssl():
