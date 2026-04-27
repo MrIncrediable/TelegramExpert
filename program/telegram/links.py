@@ -59,12 +59,12 @@ class tg_links:
     @staticmethod
     def standart(link):
         link = str(link).strip().replace('http:', 'https:')
+        if 'telegram.me' in link:
+            link = link.replace('telegram.me', 't.me')
         if 'joinchat' in link or '+' in link:
             return link.replace('https://t.me/+', 'https://t.me/joinchat/')
         if '@' in link:
             return 'https://t.me/' + link.replace('@', '').strip()
-        if 'telegram.me' in link:
-            return link.replace('telegram.me', 't.me')
         if 't.me' in link:
             return link
         return 'https://t.me/' + link
