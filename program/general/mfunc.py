@@ -1,7 +1,10 @@
 #decoded by lolz.live/mrpenny / t.me/zeus_jackpot
 import os
 import sys
-import eel
+try:
+    import eel
+except ModuleNotFoundError:
+    eel = None
 import json
 import time
 import psutil
@@ -17,7 +20,10 @@ import zipfile
 import datetime
 import requests
 import concurrent.futures as concurrent
-from tkinter import Tk
+try:
+    from tkinter import Tk
+except ModuleNotFoundError:
+    Tk = None
 from tqdm import tqdm
 from pathlib import Path
 from threading import Lock, Thread
@@ -26,7 +32,15 @@ from mimesis.enums import Gender
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 from requests.adapters import HTTPAdapter, Retry
-from tkinter.filedialog import askopenfilename, askopenfilenames, askdirectory
+try:
+    from tkinter.filedialog import askopenfilename, askopenfilenames, askdirectory
+except ModuleNotFoundError:
+    def askopenfilename(*args, **kwargs):
+        return ''
+    def askopenfilenames(*args, **kwargs):
+        return ()
+    def askdirectory(*args, **kwargs):
+        return ''
 from program.database import db_proxy
 from multithon.errors import StopProgram
 from program.telegram import json_file, set_account_json
