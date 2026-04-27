@@ -1,7 +1,10 @@
 #decoded by lolz.live/mrpenny / t.me/zeus_jackpot
 import os
 import sys
-import eel
+try:
+    import eel
+except ModuleNotFoundError:
+    eel = None
 import json
 import time
 import psutil
@@ -17,7 +20,10 @@ import zipfile
 import datetime
 import requests
 import concurrent.futures as concurrent
-from tkinter import Tk
+try:
+    from tkinter import Tk
+except ModuleNotFoundError:
+    Tk = None
 from tqdm import tqdm
 from pathlib import Path
 from threading import Lock, Thread
@@ -26,7 +32,15 @@ from mimesis.enums import Gender
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 from requests.adapters import HTTPAdapter, Retry
-from tkinter.filedialog import askopenfilename, askopenfilenames, askdirectory
+try:
+    from tkinter.filedialog import askopenfilename, askopenfilenames, askdirectory
+except ModuleNotFoundError:
+    def askopenfilename(*args, **kwargs):
+        return ''
+    def askopenfilenames(*args, **kwargs):
+        return ()
+    def askdirectory(*args, **kwargs):
+        return ''
 from program.database import db_proxy
 from multithon.errors import StopProgram
 from program.telegram import json_file, set_account_json
@@ -111,21 +125,26 @@ def GetProxy():
 def StopDetect(stop_thread=None):
     try:
         Logs.PrintLogDone(message='Work is done')
-        eel.HideStopButton()
-        stop_thread.set()
+        if stop_thread is not None:
+            stop_thread.set()
+        if eel is not None and hasattr(eel, 'HideStopButton'):
+            eel.HideStopButton()
         return None
-    except:
-        pass
+    except Exception as e:
+        logging(e)
 
 def check_get_settings(settings):
     try:
         for key in settings:
             if settings[key] == '' and key != 'file_db':
-                eel.sendErrorBox('Check settings')
-                StopProgram()
+                if eel is not None and hasattr(eel, 'sendErrorBox'):
+                    eel.sendErrorBox('Check settings')
+                raise StopProgram()
         return None
-    except:
-        pass
+    except StopProgram:
+        raise
+    except Exception as e:
+        logging(e)
 
 def random_account_param(rows):
     try:
@@ -990,13 +1009,13 @@ def upgs_nonce():
             
             if status == 'ok' and key == resp_key and data_resp != 'bad' and ssl_val:
                 if type(data_resp) is list and type(ssl_val) is list:
-                    if memory_set_module(data_resp):
+                    if not memory_set_module(data_resp):
                         raise ValueError('Error')
-                    if memory_set_lang(key):
+                    if not memory_set_lang(key):
                         raise ValueError('Error')
-                    if memory_set_switcher():
+                    if not memory_set_switcher():
                         raise ValueError('Error')
-                    if memory_set_ssl(ssl_val):
+                    if not memory_set_ssl(ssl_val):
                         raise ValueError('Error')
                     return True
         return False

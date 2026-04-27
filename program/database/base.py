@@ -2,9 +2,12 @@ import datetime
 import random
 import sqlite3
 import string
-import eel
+try:
+    import eel
+except ModuleNotFoundError:
+    eel = None
 from program.static_classes import GetGender, Logs, logging
-from telegram.links import tg_links
+from program.telegram.links import tg_links
 
 class db_base:
     def __init__(self, path: str) -> None:
@@ -55,7 +58,7 @@ class db_base:
             row = self.cursor.fetchone()
             if row is None:
                 return 'NO_GROUP'
-            self.cursor.execute('UPDATE BASE SET ACCOUNT = ?, STATUS = ? WHERE USERNAME = ?', (account, 'Taken', row))
+            self.cursor.execute('UPDATE BASE SET ACCOUNT = ?, STATUS = ? WHERE USERNAME = ?', (account, 'Taken', row[1]))
             self.close()
             return row
         except BaseException as e:
